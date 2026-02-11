@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>GPT-4o：多模态时代的开始，还是噱头？ | Zhang&#39;s Blog</title>
+<meta name="keywords" content="GPT-4o, 多模态AI, 语音交互, 图像识别, 隐私安全">
+<meta name="description" content="OpenAI发布GPT-4o多模态模型，支持语音、图像、文本同时交互。分析多模态AI的技术突破、应用场景、隐私风险和成本挑战。">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2024/2024-05-18-gpt4o-multimodal/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7b47903426dd95c17d0d0955f76de17c5625e0bdd95944cb6800b7c657c88015.css" integrity="sha256-e0eQNCbdlcF9DQlV923hfFYl4L3ZWUTLaAC3xlfIgBU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.zhangky.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2024/2024-05-18-gpt4o-multimodal/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://blog.zhangky.com/posts/2024/2024-05-18-gpt4o-multimodal/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="GPT-4o：多模态时代的开始，还是噱头？">
+  <meta property="og:description" content="OpenAI发布GPT-4o多模态模型，支持语音、图像、文本同时交互。分析多模态AI的技术突破、应用场景、隐私风险和成本挑战。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-05-18T11:39:38+08:00">
+    <meta property="article:modified_time" content="2024-05-18T11:39:38+08:00">
+    <meta property="article:tag" content="AI">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="GPT-4o：多模态时代的开始，还是噱头？">
+<meta name="twitter:description" content="OpenAI发布GPT-4o多模态模型，支持语音、图像、文本同时交互。分析多模态AI的技术突破、应用场景、隐私风险和成本挑战。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "GPT-4o：多模态时代的开始，还是噱头？",
+      "item": "https://blog.zhangky.com/posts/2024/2024-05-18-gpt4o-multimodal/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "GPT-4o：多模态时代的开始，还是噱头？",
+  "name": "GPT-4o：多模态时代的开始，还是噱头？",
+  "description": "OpenAI发布GPT-4o多模态模型，支持语音、图像、文本同时交互。分析多模态AI的技术突破、应用场景、隐私风险和成本挑战。",
+  "keywords": [
+    "GPT-4o", "多模态AI", "语音交互", "图像识别", "隐私安全"
+  ],
+  "articleBody": "OpenAI发布GPT-4o那天，我熬夜看了发布会直播。当演示者用语音、图像、文本同时和AI交互时，突然意识到：单一文本交互的时代，可能真的要结束了。\n表层：交互效率的革命\n作为每天跟AI打交道的人，我早受够了只能打字的限制。想让AI分析图表，得手动输数据；想让AI看照片，得文字描述半天。测试GPT-4o时，响应速度比GPT-4快2倍，基本秒回。上周跟做教育的朋友聊，他说正用GPT-4o做在线辅导：学生上传错题照片，AI马上讲解，效率高多了。\n深层：中美多模态的垂直竞争\n谷歌DeepMind也发布了AlphaFold 3，在蛋白质预测方面又进了一步。中美在多模态领域的竞争，已经从通用场景延伸到垂直领域。GPT-4o主打通用交互，AlphaFold 3深耕科学计算，各有侧重。\n终局：多模态的两面性\n但多模态也有问题：上传复杂电路图，AI会解读错误；语音提问，口音重就识别不准。更关键的是隐私——上传的照片和语音会不会被滥用？还有成本，处理多模态数据的算力消耗，比文本高多了。\n技术总是解决旧问题，带来新问题。GPT-4o到底是多模态时代的开始，还是噱头？\n单一模态的AI是工具，多模态的AI才是伙伴。但成为真正的伙伴，还需要跨过隐私、准确性和成本的三道坎。\n",
+  "wordCount" : "11",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2024-05-18T11:39:38+08:00",
+  "dateModified": "2024-05-18T11:39:38+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "ZHANG.z\""
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2024/2024-05-18-gpt4o-multimodal/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhang's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      GPT-4o：多模态时代的开始，还是噱头？
+    </h1>
+    <div class="post-description">
+      OpenAI发布GPT-4o多模态模型，支持语音、图像、文本同时交互。分析多模态AI的技术突破、应用场景、隐私风险和成本挑战。
+    </div>
+    <div class="post-meta">   ZHANG.z&#34; | <span title='2024-05-18 11:39:38 +0800 HKT'>May 18, 2024</span> | <span>2 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2024/2024-05-18-gpt4o-multimodal.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>OpenAI发布GPT-4o那天，我熬夜看了发布会直播。当演示者用语音、图像、文本同时和AI交互时，突然意识到：单一文本交互的时代，可能真的要结束了。</p>
+<p><strong>表层：交互效率的革命</strong></p>
+<p>作为每天跟AI打交道的人，我早受够了只能打字的限制。想让AI分析图表，得手动输数据；想让AI看照片，得文字描述半天。测试GPT-4o时，响应速度比GPT-4快2倍，基本秒回。上周跟做教育的朋友聊，他说正用GPT-4o做在线辅导：学生上传错题照片，AI马上讲解，效率高多了。</p>
+<p><strong>深层：中美多模态的垂直竞争</strong></p>
+<p>谷歌DeepMind也发布了AlphaFold 3，在蛋白质预测方面又进了一步。中美在多模态领域的竞争，已经从通用场景延伸到垂直领域。GPT-4o主打通用交互，AlphaFold 3深耕科学计算，各有侧重。</p>
+<p><strong>终局：多模态的两面性</strong></p>
+<p>但多模态也有问题：上传复杂电路图，AI会解读错误；语音提问，口音重就识别不准。更关键的是隐私——上传的照片和语音会不会被滥用？还有成本，处理多模态数据的算力消耗，比文本高多了。</p>
+<p>技术总是解决旧问题，带来新问题。GPT-4o到底是多模态时代的开始，还是噱头？</p>
+<p>单一模态的AI是工具，多模态的AI才是伙伴。但成为真正的伙伴，还需要跨过隐私、准确性和成本的三道坎。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.zhangky.com/posts/2024/2024-06-15-apple-intelligence/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Apple Intelligence：设备端AI的终局之战？</span>
+  </a>
+  <a class="next" href="https://blog.zhangky.com/posts/2024/2024-04-10-meta-llama3/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Meta Llama 3开源：AI的普惠革命还是商业陷阱？</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

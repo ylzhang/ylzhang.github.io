@@ -1,0 +1,1143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Paper Read on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/paper-read/</link>
+    <description>Recent content in Paper Read on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 10 Feb 2026 20:42:22 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/paper-read/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【论文解读11】深度残差网络中的恒等映射：ResNet改进</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/</link>
+      <pubDate>Tue, 10 Feb 2026 20:42:22 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的改进论文《Identity Mappings in Deep Residual Networks》，该论文深入分析了ResNet中恒等映射的作用机制，提出了预激活（Pre-activation）的残差块设计，进一步优化了ResNet的训练稳定性和性能。这一改进不仅完善了ResNet的理论基础，更为理解残差连接的本质提供了深刻的洞察。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;恒等映射是残差网络成功的关键。&amp;quot;——这是He等人在ResNet改进论文中提出的核心观点。在原始ResNet中，残差块的设计虽然有效，但恒等映射的实现方式（激活函数的位置）对性能有重要影响。通过系统性的实验和理论分析，论文发现预激活（在卷积之前应用BatchNorm和ReLU）比后激活（在卷积之后应用）效果更好。&lt;/p&gt;
+&lt;p&gt;论文的核心创新是&lt;strong&gt;预激活残差块&lt;/strong&gt;：将BatchNorm和ReLU移到卷积之前，使恒等映射的路径更加&amp;quot;干净&amp;rdquo;，梯度流动更加顺畅。这种设计不仅提高了训练稳定性，还进一步提升了模型性能，在ImageNet上取得了更好的结果。&lt;/p&gt;
+&lt;p&gt;在当今大模型时代，这一改进的思想仍然重要：理解恒等映射的本质，优化信息流动路径，这些原则仍然是深度网络设计的核心。理解ResNet改进，就是理解如何进一步优化残差连接。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet改进，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;原始resnet的恒等映射问题&#34;&gt;原始ResNet的恒等映射问题&lt;/h2&gt;
+&lt;h3 id=&#34;问题一激活函数位置的影响&#34;&gt;问题一：激活函数位置的影响&lt;/h3&gt;
+&lt;p&gt;在原始ResNet中，残差块的设计为：&lt;/p&gt;
+&lt;p&gt;$$
+y = \mathcal{F}(x, {W_i}) + x
+$$&lt;/p&gt;
+&lt;p&gt;其中 $\mathcal{F}$ 通常包含：Conv → BN → ReLU → Conv → BN，然后输出与 $x$ 相加，最后再应用ReLU。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;后激活设计&lt;/strong&gt;：激活函数在残差函数之后，恒等映射 $x$ 直接参与加法，然后应用激活函数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;问题分析&lt;/strong&gt;：当 $x$ 经过ReLU激活时，如果 $x$ 的某些元素为负，会被置为0，破坏了恒等映射的性质。这导致恒等映射路径不够&amp;quot;干净&amp;quot;，梯度流动可能受阻。&lt;/p&gt;
+&lt;h3 id=&#34;问题二梯度流动的阻塞&#34;&gt;问题二：梯度流动的阻塞&lt;/h3&gt;
+&lt;p&gt;在原始设计中，梯度需要通过激活函数的导数传播：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\partial y}{\partial x} = \frac{\partial \text{ReLU}(\mathcal{F}(x) + x)}{\partial x} = \text{ReLU}&amp;rsquo;(\mathcal{F}(x) + x) \left(1 + \frac{\partial \mathcal{F}}{\partial x}\right)
+$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文解读10】深度残差学习：ResNet解决网络退化问题</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-02-07-paper-10-resnet/</link>
+      <pubDate>Sat, 07 Feb 2026 10:16:29 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-02-07-paper-10-resnet/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的里程碑论文《Deep Residual Learning for Image Recognition》，该论文提出的ResNet通过残差连接（Residual Connection）解决了深度网络的退化问题，将网络深度推到了前所未有的152层，在ImageNet上取得了3.57%的Top-5错误率，首次超越人类水平。ResNet不仅彻底改变了深度网络的设计范式，更为后续Transformer、生成模型等架构的残差连接奠定了理论基础。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;更深的网络应该至少不会比浅层网络更差。&amp;quot;——这是ResNet论文的核心洞察。在ResNet之前，深度网络面临一个悖论：理论上更深的网络应该能够学习更复杂的特征，但实际中更深的网络在训练集上的错误率反而更高。这不是过拟合，而是优化困难——网络无法有效学习恒等映射。&lt;/p&gt;
+&lt;p&gt;ResNet通过&lt;strong&gt;残差连接&lt;/strong&gt;解决了这一根本问题。残差块定义为 $y = F(x) + x$，其中 $F(x)$ 是残差函数，$x$ 是恒等映射。如果最优映射是恒等映射 $H(x) = x$，传统网络需要学习 $H(x) = x$，而残差网络只需学习 $F(x) = 0$，后者显然更容易。这种设计使得网络可以非常深，性能可以持续提升。&lt;/p&gt;
+&lt;p&gt;在当今大模型时代，残差连接已经成为深度网络的标准组件：Transformer的残差连接、生成模型的跳跃连接（U-Net、StyleGAN）、大模型的深度扩展（GPT-3、PaLM等模型都依赖残差连接训练深层网络）。理解ResNet，就是理解深度网络设计的核心思想。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;深度网络的退化问题&#34;&gt;深度网络的退化问题&lt;/h2&gt;
+&lt;h3 id=&#34;问题一网络深度与性能的悖论&#34;&gt;问题一：网络深度与性能的悖论&lt;/h3&gt;
+&lt;p&gt;理论上，更深的网络应该能够学习更复杂的特征表示，性能应该更好。但实际中，随着网络加深，出现了两个严重问题：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;梯度消失问题&lt;/strong&gt;：在深层网络中，梯度在反向传播过程中指数级衰减。对于Sigmoid激活函数，$\sigma&amp;rsquo;(x) \leq 0.25$，经过 $L$ 层后，梯度最多衰减到 $0.25^L$。当 $L$ 很大时，早期层的梯度接近0，无法有效更新参数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;退化问题（Degradation Problem）&lt;/strong&gt;：这是ResNet论文发现的新问题。实验显示，56层网络的训练误差比20层网络更高。这不是过拟合（因为训练误差也更高），而是优化困难——网络无法有效学习。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;数学分析&lt;/strong&gt;：假设最优映射是 $H(x) = x$（恒等映射），传统网络需要学习 $H(x) = x$，这需要所有层的权重矩阵都是单位矩阵，这在深层网络中很难实现。&lt;/p&gt;
+&lt;h3 id=&#34;问题二恒等映射的学习困难&#34;&gt;问题二：恒等映射的学习困难&lt;/h3&gt;
+&lt;p&gt;恒等映射 $H(x) = x$ 是最简单的映射，但在深层网络中学习恒等映射却非常困难。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文解读07】循环神经网络正则化（Ilya经典论文）</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-27-paper-07-rnn-regularization/</link>
+      <pubDate>Tue, 27 Jan 2026 10:00:43 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-27-paper-07-rnn-regularization/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Wojciech Zaremba、Ilya Sutskever和Oriol Vinyals于2014年发表的经典论文《Recurrent Neural Network Regularization》，该论文首次将Dropout正则化技术系统性地应用于循环神经网络（RNN），通过只在非循环连接上应用Dropout，既保持了RNN的记忆能力，又有效防止了过拟合。这一创新为RNN在序列建模任务中的成功应用奠定了重要基础，特别是在机器翻译、语言模型等需要处理长序列的任务中取得了突破性成果。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;正则化是深度学习的艺术。&amp;quot;——这是Ilya Sutskever等人在2014年提出的深刻洞察。RNN虽然能够处理变长序列，但在训练过程中极易过拟合，特别是在大规模数据集上训练深层RNN时。传统的Dropout技术直接应用于RNN会导致网络无法保持长期记忆，因为随机失活会破坏RNN的循环结构。&lt;/p&gt;
+&lt;p&gt;论文的核心创新是&lt;strong&gt;只在非循环连接上应用Dropout&lt;/strong&gt;：在LSTM的输入-隐藏层连接和隐藏-输出层连接上应用Dropout，但在循环连接（hidden-to-hidden）上不使用Dropout。这种设计既保持了RNN的记忆能力，又有效防止了过拟合，使RNN能够在大型数据集上训练深层网络。&lt;/p&gt;
+&lt;p&gt;在当今大语言模型时代，这一思想仍然具有重要意义：虽然Transformer已经取代RNN成为主流架构，但正则化的核心思想（防止过拟合、提高泛化能力）仍然是深度学习的关键。理解RNN正则化，就是理解如何在高容量模型中平衡记忆能力和泛化能力。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读RNN正则化技术，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;h2 id=&#34;rnn过拟合问题的根源&#34;&gt;RNN过拟合问题的根源&lt;/h2&gt;
+&lt;h3 id=&#34;问题一rnn的高容量与过拟合风险&#34;&gt;问题一：RNN的高容量与过拟合风险&lt;/h3&gt;
+&lt;p&gt;RNN的参数共享机制使其能够处理任意长度的序列，但这也带来了过拟合风险。对于长度为 $T$ 的序列，RNN实际上使用了 $T$ 次相同的权重矩阵 $W_h$（hidden-to-hidden连接），相当于将参数&amp;quot;复用&amp;quot;了 $T$ 次。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;参数有效性的量化&lt;/strong&gt;：虽然RNN的参数量是固定的（例如，对于隐藏维度 $d_h$，hidden-to-hidden权重矩阵 $W_h$ 的大小为 $d_h \times d_h$），但每个参数在序列的每个时间步都被使用，相当于有 $T$ 个&amp;quot;虚拟参数&amp;rdquo;。这种参数复用使得RNN具有很高的表达能力，但也增加了过拟合的风险。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;过拟合的数学表现&lt;/strong&gt;：当训练集规模 $N$ 相对于模型容量较小时，模型可能&amp;quot;记住&amp;quot;训练数据的细节，而不是学习数据的规律。在RNN中，这种过拟合表现为：训练集上的困惑度（perplexity）很低，但验证集上的困惑度很高，模型无法泛化到新序列。&lt;/p&gt;
+&lt;h3 id=&#34;问题二传统dropout在rnn中的失效&#34;&gt;问题二：传统Dropout在RNN中的失效&lt;/h3&gt;
+&lt;p&gt;传统Dropout在RNN中直接应用会导致严重问题。Dropout的核心思想是在训练时随机将部分神经元输出置0，迫使网络学习更鲁棒的表示。但在RNN中，这种随机失活会破坏循环结构。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;循环连接的脆弱性&lt;/strong&gt;：RNN的循环连接 $h_t = f(W_h h_{t-1} + W_x x_t + b)$ 依赖于前一时刻的隐藏状态 $h_{t-1}$。如果在 $h_{t-1}$ 上应用Dropout，会导致信息在时间维度上的传播被随机打断，网络无法保持长期记忆。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;数学分析&lt;/strong&gt;：假设在隐藏状态上应用Dropout，则：&lt;/p&gt;
+&lt;p&gt;$$
+h_t = f(W_h (\text{Dropout}(h_{t-1})) + W_x x_t + b)
+$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文解读06】理解LSTM网络：解决长期依赖问题</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm/</link>
+      <pubDate>Sun, 25 Jan 2026 10:25:51 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Sepp Hochreiter和Jürgen Schmidhuber于1997年发表的经典论文《Long Short-Term Memory》，该论文提出了长短期记忆（LSTM）网络架构，通过门控机制和细胞状态彻底解决了循环神经网络（RNN）的梯度消失问题，使网络能够学习长期依赖关系。LSTM不仅成为序列建模领域的重要里程碑，更为后续的GRU、Transformer等架构奠定了理论基础，在机器翻译、语音识别、时间序列预测等任务中取得了突破性成果。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;记忆是智能的基础。&amp;quot;——这是Hochreiter和Schmidhuber在1997年提出的深刻洞察。传统RNN虽然理论上可以处理任意长度的序列，但在实际训练中面临严重的梯度消失问题：当序列长度超过几十个时间步时，梯度在反向传播过程中会指数级衰减，导致网络无法学习长期依赖关系。&lt;/p&gt;
+&lt;p&gt;LSTM通过&lt;strong&gt;门控机制&lt;/strong&gt;和&lt;strong&gt;细胞状态&lt;/strong&gt;解决了这一根本问题。细胞状态像一个&amp;quot;传送带&amp;rdquo;，信息可以在上面直接流动，不受梯度消失的影响；门控机制（遗忘门、输入门、输出门）控制信息的流动，使网络能够有选择地保存和遗忘信息。这种设计使得LSTM能够学习跨越数百甚至数千个时间步的依赖关系。&lt;/p&gt;
+&lt;p&gt;在当今大语言模型时代，LSTM的思想以新的形式延续：Transformer的自注意力机制可以看作是对LSTM门控机制的改进，GPT等模型虽然不再使用LSTM，但其序列建模的核心思想仍然源于LSTM。理解LSTM，就是理解序列建模的本质，理解神经网络如何&amp;quot;记忆&amp;quot;和&amp;quot;遗忘&amp;quot;。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读LSTM网络，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;h2 id=&#34;rnn长期依赖问题的根源&#34;&gt;RNN长期依赖问题的根源&lt;/h2&gt;
+&lt;h3 id=&#34;问题一梯度消失的数学本质&#34;&gt;问题一：梯度消失的数学本质&lt;/h3&gt;
+&lt;p&gt;传统RNN在每个时间步的计算为：&lt;/p&gt;
+&lt;p&gt;$$
+h_t = \tanh(W_h h_{t-1} + W_x x_t + b)
+$$&lt;/p&gt;
+&lt;p&gt;其中 $h_t$ 是隐藏状态，$W_h$、$W_x$ 是权重矩阵，$b$ 是偏置向量。&lt;/p&gt;
+&lt;p&gt;在反向传播过程中，需要计算损失函数 $L$ 对早期时间步 $h_k$ 的梯度：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\partial L}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \frac{\partial h_t}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \prod_{j=k+1}^{t} \frac{\partial h_j}{\partial h_{j-1}}
+$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文解读05】循环神经网络的不可思议的有效性</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-11-paper-05-rnn-effectiveness/</link>
+      <pubDate>Sun, 11 Jan 2026 10:25:22 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-11-paper-05-rnn-effectiveness/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Andrej Karpathy于2015年发表的经典博客文章《The Unreasonable Effectiveness of Recurrent Neural Networks》，该文章深入探讨了循环神经网络（RNN）在序列建模任务中的强大能力和应用潜力。这篇文章不仅展示了RNN在文本生成、代码生成、音乐创作等领域的惊人表现，更为理解序列数据的本质、神经网络的语言能力以及生成式AI的发展奠定了重要基础。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;循环神经网络具有不可思议的有效性。&amp;quot;——这是Karpathy在文章开篇的断言。在Transformer尚未兴起的2015年，RNN就已经展现出处理序列数据的强大能力。从生成莎士比亚风格的文本，到编写Python代码，再到创作音乐，RNN似乎能够&amp;quot;理解&amp;quot;序列中的模式，并生成符合这些模式的新序列。&lt;/p&gt;
+&lt;p&gt;RNN的核心思想是&lt;strong&gt;记忆&lt;/strong&gt;：通过隐藏状态（hidden state）保存历史信息，使网络能够处理任意长度的序列。这种记忆机制使得RNN能够捕捉序列中的长期依赖关系，理解上下文，生成连贯的文本。虽然RNN后来被Transformer超越，但其核心思想（序列建模、注意力机制）仍然影响着现代AI的发展。&lt;/p&gt;
+&lt;p&gt;在当今大语言模型时代，RNN的思想以新的形式延续：Transformer的自注意力机制可以看作是对RNN记忆机制的改进，GPT等模型本质上仍然是序列到序列的生成模型。理解RNN，就是理解序列建模的本质，理解语言模型如何&amp;quot;理解&amp;quot;和&amp;quot;生成&amp;quot;文本。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读RNN的不可思议有效性，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;h2 id=&#34;序列建模的根本挑战&#34;&gt;序列建模的根本挑战&lt;/h2&gt;
+&lt;h3 id=&#34;问题一变长序列的处理难题&#34;&gt;问题一：变长序列的处理难题&lt;/h3&gt;
+&lt;p&gt;传统神经网络（如全连接网络、CNN）要求输入具有固定维度。但现实中的序列数据（文本、语音、时间序列）长度是变化的。如何设计能够处理任意长度序列的模型？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;固定窗口的局限性&lt;/strong&gt;：如果使用固定大小的窗口（如n-gram模型），只能捕捉局部依赖关系，无法处理长距离依赖。例如，在句子&amp;quot;The cat, which was very hungry, ate the food&amp;quot;中，&amp;ldquo;cat&amp;quot;和&amp;quot;ate&amp;quot;之间的依赖关系跨越了多个词，固定窗口无法捕捉。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;序列的本质&lt;/strong&gt;：序列数据具有时间或顺序结构，每个元素不仅包含自身的信息，还包含其在序列中的位置信息。这种结构信息对于理解序列至关重要。&lt;/p&gt;
+&lt;p&gt;RNN通过&lt;strong&gt;循环结构&lt;/strong&gt;解决了这个问题：网络在每个时间步处理一个元素，并将处理结果传递给下一个时间步，从而能够处理任意长度的序列。&lt;/p&gt;
+&lt;h3 id=&#34;问题二长期依赖的捕捉&#34;&gt;问题二：长期依赖的捕捉&lt;/h3&gt;
+&lt;p&gt;序列数据中的依赖关系可能跨越很长的距离。在语言中，一个词的含义可能依赖于前面很远的词；在音乐中，一个音符的意义可能依赖于整个旋律的结构。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;梯度消失问题&lt;/strong&gt;：在训练RNN时，梯度需要通过时间反向传播（Backpropagation Through Time, BPTT）。如果序列很长，梯度在反向传播过程中会指数级衰减，导致网络无法学习长期依赖关系。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;记忆容量限制&lt;/strong&gt;：即使理论上RNN可以保存任意长的历史信息，但实际中隐藏状态的容量是有限的。如何有效地利用有限的记忆容量来保存最重要的信息？&lt;/p&gt;
+&lt;p&gt;LSTM和GRU等改进架构通过&lt;strong&gt;门控机制&lt;/strong&gt;（gating mechanism）解决了这些问题，能够有选择地保存和遗忘信息，从而更好地捕捉长期依赖。&lt;/p&gt;
+&lt;h3 id=&#34;问题三序列生成的创造性&#34;&gt;问题三：序列生成的创造性&lt;/h3&gt;
+&lt;p&gt;序列建模不仅要理解序列，还要能够生成新的序列。生成任务面临三个核心挑战：如何保证生成的序列符合训练数据的分布？如何保证生成的序列是连贯的？如何保证生成的序列具有创造性（不是简单复制训练数据）？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;分布匹配&lt;/strong&gt;：生成的序列应该遵循训练数据的分布。如果训练数据是莎士比亚的文本，生成的文本应该像莎士比亚的风格。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;连贯性&lt;/strong&gt;：生成的序列应该是连贯的，每个元素应该与前文一致。例如，如果前文提到&amp;quot;猫&amp;rdquo;，后文不应该突然提到&amp;quot;狗&amp;rdquo;（除非有合理的上下文）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;创造性&lt;/strong&gt;：生成的序列应该具有创造性，不是简单复制训练数据。这需要在模仿和创造之间找到平衡。&lt;/p&gt;
+&lt;p&gt;RNN通过&lt;strong&gt;自回归生成&lt;/strong&gt;（autoregressive generation）解决了这些问题：在每个时间步，网络根据前文生成下一个元素，通过采样策略（如温度采样）控制生成的随机性和创造性。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;rnn的核心机制&#34;&gt;RNN的核心机制&lt;/h2&gt;
+&lt;h3 id=&#34;循环结构记忆与状态&#34;&gt;循环结构：记忆与状态&lt;/h3&gt;
+&lt;p&gt;RNN的核心是&lt;strong&gt;循环结构&lt;/strong&gt;：网络在每个时间步接收输入 $x_t$ 和前一时刻的隐藏状态 $h_{t-1}$，计算当前时刻的隐藏状态 $h_t$ 和输出 $y_t$：&lt;/p&gt;
+&lt;p&gt;$$
+h_t = \tanh(W_h h_{t-1} + W_x x_t + b)
+$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文解读04】复杂动力学第一定律：复杂系统的基础理论</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-08-paper-04-first-law-complexodynamics/</link>
+      <pubDate>Thu, 08 Jan 2026 10:07:36 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-08-paper-04-first-law-complexodynamics/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是关于复杂动力学第一定律的理论工作，该理论为理解复杂系统的演化规律提供了统一的理论框架。复杂动力学第一定律揭示了复杂系统从简单到复杂、从有序到无序的演化机制，为理解AI系统的涌现行为、神经网络的学习动态以及大模型的复杂性增长提供了新的视角。&lt;/p&gt;
+&lt;p&gt;复杂系统无处不在：从生物进化到社会网络，从神经网络训练到语言模型涌现，这些系统都展现出令人困惑的复杂性增长模式。为什么简单的规则能产生复杂的行为？为什么系统会自发地从有序走向无序，又从无序中涌现出新的有序？复杂动力学第一定律试图回答这些根本问题。&lt;/p&gt;
+&lt;p&gt;传统热力学第二定律告诉我们，孤立系统的熵总是增加的，系统会自发地从有序走向无序。但复杂系统（如生命、智能、社会）却展现出相反的趋势：它们能够自发地增加复杂性，从简单状态演化到复杂状态。这种&amp;quot;反熵&amp;quot;行为背后的机制是什么？复杂动力学第一定律提供了数学严谨的答案。&lt;/p&gt;
+&lt;p&gt;在AI领域，这一理论具有特殊意义。神经网络训练过程中的损失下降、语言模型的涌现能力、多智能体系统的协作演化，都可以从复杂动力学的角度重新理解。理解复杂系统的演化规律，就是理解AI系统如何从简单规则中涌现出智能。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读复杂动力学第一定律，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;h2 id=&#34;复杂系统演化的根本问题&#34;&gt;复杂系统演化的根本问题&lt;/h2&gt;
+&lt;h3 id=&#34;问题一熵增与复杂性增长的矛盾&#34;&gt;问题一：熵增与复杂性增长的矛盾&lt;/h3&gt;
+&lt;p&gt;热力学第二定律告诉我们，孤立系统的熵总是增加的：$\Delta S \geq 0$。这意味着系统会自发地从有序走向无序，从复杂走向简单。但现实中的复杂系统（如生物进化、神经网络学习、社会演化）却展现出相反的趋势：它们能够自发地增加复杂性，从简单状态演化到复杂状态。&lt;/p&gt;
+&lt;p&gt;这一矛盾的核心在于：&lt;strong&gt;熵和复杂性是不同的概念&lt;/strong&gt;。熵衡量的是系统的无序程度，而复杂性衡量的是系统的结构丰富程度。一个高度有序的系统（如晶体）熵很低，但复杂性也很低；一个完全随机的系统（如理想气体）熵很高，但复杂性也很低；只有介于两者之间的系统（如生命、智能）才具有高复杂性。&lt;/p&gt;
+&lt;p&gt;复杂系统的演化不是简单的熵增或熵减，而是&lt;strong&gt;在保持或增加熵的同时，增加系统的结构复杂性&lt;/strong&gt;。这需要系统能够从环境中获取能量和信息，维持远离平衡态的状态。&lt;/p&gt;
+&lt;h3 id=&#34;问题二涌现与自组织的机制&#34;&gt;问题二：涌现与自组织的机制&lt;/h3&gt;
+&lt;p&gt;复杂系统的一个关键特征是&lt;strong&gt;涌现&lt;/strong&gt;（emergence）：系统的整体行为无法从组成部分的行为简单推导出来。例如，单个神经元的行为很简单，但由大量神经元组成的神经网络却能产生智能；单个个体的行为遵循简单规则，但由大量个体组成的社会系统却能产生复杂的社会现象。&lt;/p&gt;
+&lt;p&gt;涌现的本质是&lt;strong&gt;自组织&lt;/strong&gt;（self-organization）：系统通过局部相互作用，自发地形成全局有序结构。这种自组织过程需要满足三个条件：系统远离平衡态（有能量/信息输入）、存在正反馈机制（小扰动能放大）、存在约束条件（限制系统的演化方向）。&lt;/p&gt;
+&lt;p&gt;在AI系统中，神经网络的训练过程就是典型的自组织过程：通过反向传播（正反馈）和正则化（约束），网络从随机初始化演化到能够完成复杂任务的状态。&lt;/p&gt;
+&lt;h3 id=&#34;问题三复杂性的量化难题&#34;&gt;问题三：复杂性的量化难题&lt;/h3&gt;
+&lt;p&gt;如何量化系统的复杂性？传统方法面临三个核心问题：复杂性是多维度的（结构复杂性、功能复杂性、计算复杂性等不同维度难以统一）、复杂性依赖于观察者（同一系统在不同尺度、不同视角下表现出不同的复杂性）、复杂性是动态的（系统的复杂性会随时间演化）。&lt;/p&gt;
+&lt;p&gt;信息论提供了量化复杂性的一个角度：&lt;strong&gt;Kolmogorov复杂度&lt;/strong&gt;（能够生成系统状态的最短程序的长度）可以作为系统复杂性的度量。但Kolmogorov复杂度在计算上不可行，且无法捕捉系统的动态演化。&lt;/p&gt;
+&lt;p&gt;复杂动力学第一定律试图通过&lt;strong&gt;描述系统状态空间的演化&lt;/strong&gt;来量化复杂性，将复杂性的增长与系统的动力学过程联系起来。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;复杂动力学第一定律的核心机制&#34;&gt;复杂动力学第一定律的核心机制&lt;/h2&gt;
+&lt;h3 id=&#34;信息论基础状态空间的复杂度&#34;&gt;信息论基础：状态空间的复杂度&lt;/h3&gt;
+&lt;p&gt;考虑一个复杂系统，其状态可以用 $N$ 维向量 $\mathbf{x}(t) = (x_1(t), x_2(t), \ldots, x_N(t))$ 表示。系统的演化遵循动力学方程：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{d\mathbf{x}}{dt} = \mathbf{F}(\mathbf{x}, t)
+$$&lt;/p&gt;
+&lt;p&gt;其中 $\mathbf{F}$ 是系统的动力学函数。&lt;/p&gt;
+&lt;p&gt;系统的状态空间复杂度可以定义为系统能够访问的状态空间的&amp;quot;大小&amp;quot;。如果系统只能访问状态空间的一个小区域，复杂度较低；如果系统能够访问状态空间的大部分区域，复杂度较高。&lt;/p&gt;
+&lt;p&gt;更精确地，状态空间的复杂度可以用&lt;strong&gt;可达状态空间的体积&lt;/strong&gt;或&lt;strong&gt;状态分布的熵&lt;/strong&gt;来度量：&lt;/p&gt;
+&lt;p&gt;$$
+C(t) = -\int p(\mathbf{x}, t) \log p(\mathbf{x}, t) d\mathbf{x}
+$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文解读03】通过最小化权重描述长度简化神经网络</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-05-paper-03-minimizing-description-length/</link>
+      <pubDate>Mon, 05 Jan 2026 10:56:02 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-05-paper-03-minimizing-description-length/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Geoffrey Hinton和Dirk van Camp于1993年发表的经典论文《Keeping Neural Networks Simple by Minimizing the Description Length of the Weights》，该论文将最小描述长度（MDL）原理直接应用于神经网络权重优化，开创了神经网络压缩和正则化的新范式。论文的核心思想是通过最小化权重的描述长度来自动找到既简单又有效的网络结构，这一思想在深度学习尚未兴起的年代就为现代模型压缩技术奠定了理论基础。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;最简单的神经网络往往是最好的神经网络。&amp;quot;——这是Hinton等人在1993年提出的深刻洞察。在深度学习尚未兴起的年代，他们就已经意识到：&lt;strong&gt;神经网络的复杂度不应该由参数数量衡量，而应该由描述这些参数所需的信息量决定&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;通过最小化权重的描述长度，可以自动找到既简单又有效的网络结构，避免过拟合，提高泛化能力。&lt;/p&gt;
+&lt;p&gt;在当今大模型时代，这一思想显得更加重要。GPT-3有1750亿参数，但真正&amp;quot;有效&amp;quot;的参数可能远少于这个数字。如何识别和利用权重的稀疏性？如何量化模型的真实复杂度？如何在不损失性能的前提下简化模型？这些问题都可以从权重描述长度的角度重新审视。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读这一经典工作，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;h2 id=&#34;神经网络复杂度的根本问题&#34;&gt;神经网络复杂度的根本问题&lt;/h2&gt;
+&lt;h3 id=&#34;问题一参数数量与模型复杂度的脱节&#34;&gt;问题一：参数数量与模型复杂度的脱节&lt;/h3&gt;
+&lt;p&gt;传统观点认为，参数越多的神经网络越复杂，越容易过拟合。但这一观点过于简化。一个包含1000个参数的模型，如果这些参数高度相关或存在大量冗余，其真实复杂度可能远低于一个只有100个参数但彼此独立的模型。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;真实复杂度取决于权重的信息量&lt;/strong&gt;：如果权重可以用简单的规则描述（如&amp;quot;所有权重都接近0&amp;quot;或&amp;quot;权重遵循某种规律&amp;rdquo;），那么即使参数数量很多，模型的真实复杂度也很低。相反，如果每个权重都需要独立编码，那么即使参数数量较少，模型的复杂度也很高。&lt;/p&gt;
+&lt;p&gt;这种脱节导致了模型选择的困难：我们无法仅凭参数数量判断模型的真实复杂度，也无法预测模型的泛化能力。需要一种能够量化权重信息量的方法。&lt;/p&gt;
+&lt;h3 id=&#34;问题二过拟合的权重编码视角&#34;&gt;问题二：过拟合的权重编码视角&lt;/h3&gt;
+&lt;p&gt;从信息论的角度看，过拟合的本质是模型&amp;quot;记住&amp;quot;了训练数据。如果一个神经网络能够完美拟合训练集，那么它的权重实际上包含了训练数据的编码信息。当权重的信息量接近或超过训练数据的信息量时，模型就失去了泛化能力。&lt;/p&gt;
+&lt;p&gt;考虑一个极端例子：如果训练集有 $n$ 个样本，每个样本需要 $b$ 位编码，那么训练数据的总信息量约为 $nb$ 位。如果模型的权重需要 $nb$ 位或更多位来编码，那么模型实际上是在用权重&amp;quot;存储&amp;quot;训练数据，而不是学习数据的规律。&lt;/p&gt;
+&lt;p&gt;MDL原理告诉我们，最优模型应该能够用&lt;strong&gt;最少的信息&lt;/strong&gt;描述数据。对于神经网络，这意味着权重的描述长度应该远小于数据的描述长度，这样才能保证模型捕捉的是数据的规律性，而不是随机性。&lt;/p&gt;
+&lt;h3 id=&#34;问题三权重分布的复杂性与编码效率&#34;&gt;问题三：权重分布的复杂性与编码效率&lt;/h3&gt;
+&lt;p&gt;不同的权重分布需要不同的编码长度。如果所有权重都接近0，可以用很少的位编码；如果权重均匀分布在某个区间，需要更多位编码；如果权重完全没有规律，需要最多的位编码。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;权重分布的熵决定了编码长度&lt;/strong&gt;：对于连续权重，如果权重遵循某种先验分布（如高斯分布），可以使用该分布的负对数似然作为编码长度。权重的方差越小、越集中，编码长度越短。&lt;/p&gt;
+&lt;p&gt;这一观察为权重正则化提供了理论基础：L2正则化（权重衰减）通过惩罚大权重，使权重分布更集中，从而减少描述长度；L1正则化通过鼓励稀疏性（大量权重为0），进一步减少描述长度。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;权重描述长度的核心机制&#34;&gt;权重描述长度的核心机制&lt;/h2&gt;
+&lt;h3 id=&#34;信息论基础权重的编码长度&#34;&gt;信息论基础：权重的编码长度&lt;/h3&gt;
+&lt;p&gt;给定神经网络权重 $\mathbf{w} = (w_1, w_2, \ldots, w_k)$，描述这些权重所需的编码长度取决于权重的分布和精度。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;离散权重的编码&lt;/strong&gt;：如果权重被量化为 $b$ 位精度，$k$ 个权重需要 $kb$ 位。但如果我们知道权重的分布，可以使用更高效的编码方案（如Huffman编码），编码长度为：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文解读02】最小描述长度原理教程：模型选择的理论基础</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-03-paper-02-mdl-principle/</link>
+      <pubDate>Sat, 03 Jan 2026 10:30:03 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-03-paper-02-mdl-principle/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Jorma Rissanen于1978年发表的经典论文《Modeling by shortest data description》，该论文首次提出了最小描述长度（Minimum Description Length, MDL）原理，将模型选择问题转化为信息论中的数据压缩问题。MDL原理为奥卡姆剃刀提供了数学严谨的量化方法，连接了信息论、统计学和机器学习，成为现代AI模型选择、正则化和泛化理论的重要理论基础。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;最简单的解释往往是最好的解释。&amp;quot;——这是奥卡姆剃刀原理的经典表述。但在统计学和机器学习中，如何量化&amp;quot;简单&amp;rdquo;？如何平衡模型的复杂度和拟合能力？最小描述长度（Minimum Description Length, MDL）原理为这个问题提供了信息论层面的严谨答案。&lt;/p&gt;
+&lt;p&gt;MDL原理将模型选择问题转化为数据压缩问题：&lt;strong&gt;最好的模型是能够用最短编码描述数据的模型&lt;/strong&gt;。这一思想不仅连接了信息论、统计学和机器学习，更为现代AI的模型选择、正则化和泛化理论奠定了理论基础。&lt;/p&gt;
+&lt;p&gt;在深度学习时代，我们面临的核心挑战是：如何从无数可能的模型架构中选择最优的？如何避免过拟合？如何理解模型的泛化能力？MDL原理告诉我们，模型的复杂度不是由参数数量决定的，而是由&lt;strong&gt;描述数据所需的信息量&lt;/strong&gt;决定的。一个能够用更少信息描述数据的模型，往往具有更好的泛化能力。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读MDL原理，包含完整的数学推导、算法流程和复杂度分析，面向专业读者提供系统化的技术总结。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;h2 id=&#34;模型选择的根本困境&#34;&gt;模型选择的根本困境&lt;/h2&gt;
+&lt;h3 id=&#34;问题一奥卡姆剃刀的量化难题&#34;&gt;问题一：奥卡姆剃刀的量化难题&lt;/h3&gt;
+&lt;p&gt;奥卡姆剃刀原理告诉我们&amp;quot;如无必要，勿增实体&amp;quot;，但在实际应用中，如何量化&amp;quot;简单&amp;quot;和&amp;quot;必要&amp;quot;？传统方法面临三个核心问题：复杂度度量不统一（参数数量、模型结构、计算复杂度等不同维度难以比较）、拟合能力与复杂度难以平衡（简单模型可能欠拟合，复杂模型可能过拟合）、缺乏理论依据（经验性规则缺乏数学严谨性）。&lt;/p&gt;
+&lt;p&gt;在统计学习中，我们经常遇到这样的困境：一个包含1000个参数的模型在训练集上表现完美，但在测试集上表现糟糕；另一个只有10个参数的模型在训练集上表现一般，但在测试集上表现更好。哪个模型更好？直觉告诉我们选择后者，但为什么？MDL原理提供了信息论层面的答案。&lt;/p&gt;
+&lt;h3 id=&#34;问题二过拟合与欠拟合的权衡&#34;&gt;问题二：过拟合与欠拟合的权衡&lt;/h3&gt;
+&lt;p&gt;模型选择的核心是在过拟合和欠拟合之间找到平衡点。过拟合模型能够完美拟合训练数据，但无法泛化到新数据；欠拟合模型过于简单，无法捕捉数据中的模式。传统方法（如交叉验证、正则化）虽然有效，但缺乏统一的理论框架。&lt;/p&gt;
+&lt;p&gt;信息论视角下的过拟合问题可以这样理解：如果一个模型能够&amp;quot;记住&amp;quot;训练数据的每一个细节，那么它实际上是在用模型参数编码训练数据。当模型参数的数量接近或超过数据的有效信息量时，模型就失去了泛化能力。MDL原理通过&lt;strong&gt;描述长度&lt;/strong&gt;这一统一度量，将模型复杂度和数据拟合能力放在同一个尺度上比较。&lt;/p&gt;
+&lt;h3 id=&#34;问题三模型复杂度的多维度性&#34;&gt;问题三：模型复杂度的多维度性&lt;/h3&gt;
+&lt;p&gt;模型复杂度可以从多个维度衡量：参数数量（参数越多，模型越复杂）、函数表达能力（能够表示的函数空间越大，模型越复杂）、计算复杂度（训练和推理的计算成本）、结构复杂度（网络深度、宽度、连接方式等）。这些维度往往相互关联，但又不完全一致。&lt;/p&gt;
+&lt;p&gt;MDL原理通过&lt;strong&gt;编码长度&lt;/strong&gt;统一了这些维度：一个模型的复杂度等于描述该模型本身所需的编码长度，加上使用该模型描述数据所需的编码长度。这种统一的度量方式使得不同类型的模型可以在同一框架下比较。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;mdl原理的核心机制&#34;&gt;MDL原理的核心机制&lt;/h2&gt;
+&lt;h3 id=&#34;信息论基础编码与描述长度&#34;&gt;信息论基础：编码与描述长度&lt;/h3&gt;
+&lt;p&gt;MDL原理建立在信息论的基础上。给定一个数据集 $D$ 和模型 $M$，描述数据的总长度包括两部分：&lt;/p&gt;
+&lt;p&gt;$$
+L(D, M) = L(M) + L(D|M)
+$$&lt;/p&gt;
+&lt;p&gt;其中 $L(M)$ 是描述模型本身所需的编码长度，$L(D|M)$ 是使用模型 $M$ 描述数据 $D$ 所需的编码长度（即数据的负对数似然，加上模型参数的编码）。&lt;/p&gt;
+&lt;p&gt;MDL原理的核心思想是：&lt;strong&gt;选择使总描述长度 $L(D, M)$ 最小的模型&lt;/strong&gt;。这等价于在模型复杂度和数据拟合能力之间找到最优平衡点。&lt;/p&gt;
+&lt;h3 id=&#34;两阶段编码模型与数据&#34;&gt;两阶段编码：模型与数据&lt;/h3&gt;
+&lt;p&gt;MDL原理采用两阶段编码方案。第一阶段编码模型 $M$，包括模型结构、参数值等；第二阶段编码数据 $D$，使用模型 $M$ 的预测分布。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文/课程01】CS231n：卷积神经网络与视觉识别课程</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-01-cs231n/</link>
+      <pubDate>Thu, 01 Jan 2026 10:47:54 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-01-cs231n/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;&amp;ldquo;视觉不仅是智能的一部分，更是智能的基石。解开视觉智能的奥秘，就是解开智能的奥秘。&amp;quot;——这是李飞飞教授在CS231n课程开篇时说的话。&lt;/p&gt;
+&lt;p&gt;2012年，当AlexNet在ImageNet挑战赛上以压倒性优势夺冠时，整个计算机视觉领域被彻底颠覆。在此之前，传统方法在ImageNet上的错误率接近30%，而AlexNet将Top-5错误率降到了15.3%——这不是渐进式改进，而是范式革命。&lt;/p&gt;
+&lt;p&gt;斯坦福大学的CS231n课程（Convolutional Neural Networks for Visual Recognition，卷积神经网络与视觉识别）正是这场革命的系统化总结。作为Ilya Sutskever推荐的30u30权威清单中的第一项，CS231n不仅是深度学习入门的必修课，更是理解现代AI视觉理解能力的基石。&lt;/p&gt;
+&lt;p&gt;在深度学习成为主流之前，计算机视觉面临三个核心问题：特征工程瓶颈（依赖手工设计的特征如SIFT、HOG）、层次化表示缺失（无法像人类视觉系统那样从边缘到物体地理解图像）、端到端学习不可行（特征提取和分类分离，无法联合优化）。CNN通过端到端学习，自动从数据中提取特征，彻底改变了视觉识别的游戏规则。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读CS231n，包含完整的数学推导、算法流程和复杂度分析，面向专业读者提供系统化的技术总结。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;h2 id=&#34;传统计算机视觉的局限&#34;&gt;传统计算机视觉的局限&lt;/h2&gt;
+&lt;h3 id=&#34;问题一特征工程的手工设计瓶颈&#34;&gt;问题一：特征工程的手工设计瓶颈&lt;/h3&gt;
+&lt;p&gt;传统计算机视觉方法依赖手工设计的特征描述符（如SIFT、HOG、LBP），将图像转换为固定维度的特征向量，然后使用传统机器学习算法（如SVM、随机森林）进行分类。这种方法的根本问题在于：特征设计需要大量领域专家知识，不同任务需要不同的特征描述符；手工特征在训练集上表现良好，但在新场景、新数据上往往失效；难以捕捉图像中的复杂模式和高层语义信息；每增加一个新任务，都需要重新设计特征。&lt;/p&gt;
+&lt;p&gt;在2010-2011年的ImageNet挑战赛中，最佳方法使用SIFT特征和Fisher Vector编码，Top-5错误率接近&lt;strong&gt;30%&lt;/strong&gt;，而人类错误率约为&lt;strong&gt;3%&lt;/strong&gt;。当数据规模从数千张增长到数百万张时，传统方法的性能提升微乎其微，说明手工特征无法充分利用大规模数据的潜力。这正是李飞飞教授和她的学生在2000年代初期意识到的问题：&lt;strong&gt;数据的重要性被严重低估了&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;问题二空间不变性和层次化表示的缺失&#34;&gt;问题二：空间不变性和层次化表示的缺失&lt;/h3&gt;
+&lt;p&gt;图像中的物体可能出现在任意位置、任意尺度、任意角度。人类视觉系统具有天然的层次化结构：从边缘、纹理等底层特征，到形状、部件等中层特征，再到物体类别等高层语义。传统方法通常只能捕捉单一层次的特征，难以构建层次化表示。需要滑动窗口、数据增强、多尺度特征金字塔等方法，计算成本高昂，且难以端到端优化。&lt;/p&gt;
+&lt;p&gt;传统方法可以捕捉底层特征（边缘、角点、纹理），但难以捕捉中层特征（形状、部件、局部模式），几乎无法捕捉高层语义（物体类别、场景理解）。这种单一层次的表示限制了传统方法在复杂视觉任务上的表现。&lt;/p&gt;
+&lt;h3 id=&#34;问题三端到端学习不可行&#34;&gt;问题三：端到端学习不可行&lt;/h3&gt;
+&lt;p&gt;在传统流程中，特征提取器（如SIFT）是固定的，不随任务变化；分类器（如SVM）在固定特征上训练；两者无法联合优化。这种分离带来的问题是：特征提取器可能提取了对当前任务不重要的特征，而重要的特征可能被忽略；同一套特征难以适应不同任务（如分类、检测、分割）；无法通过反向传播优化整个系统。&lt;/p&gt;
+&lt;p&gt;深度学习（CNN）通过端到端学习解决了这个问题：从原始图像像素到分类结果，中间所有层都可以通过反向传播联合优化，特征自动适应任务需求。这种端到端的学习方式彻底改变了视觉识别的范式。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;卷积神经网络的核心机制&#34;&gt;卷积神经网络的核心机制&lt;/h2&gt;
+&lt;h3 id=&#34;卷积操作局部感受野与参数共享&#34;&gt;卷积操作：局部感受野与参数共享&lt;/h3&gt;
+&lt;p&gt;卷积操作是CNN的基础构建块，通过局部感受野（Local Receptive Field）捕捉图像的局部模式。给定输入特征图 $I$ 和卷积核 $K$，卷积操作在图像上滑动，在每个位置计算局部区域的加权和。&lt;/p&gt;
+&lt;p&gt;传统全连接网络面临两个根本性问题：参数爆炸（对于224×224×3的图像，全连接层需要千万级参数）和空间结构丢失（将2D图像展平为1D向量，丢失了像素间的空间关系）。卷积通过&lt;strong&gt;局部连接&lt;/strong&gt;（每个输出神经元只连接局部区域）和&lt;strong&gt;参数共享&lt;/strong&gt;（同一卷积核在整个特征图上共享）解决了这两个问题。&lt;/p&gt;
+&lt;p&gt;卷积操作的数学定义为：&lt;/p&gt;
+&lt;p&gt;$$
+(I * K)[i, j, f] = \sum_{c=0}^{C-1} \sum_{m=0}^{k-1} \sum_{n=0}^{k-1} I[i \cdot s + m - p, j \cdot s + n - p, c] \cdot K[m, n, c, f] + b[f]
+$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>论文阅读开篇：Ilya 30u30 阅读计划</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/</link>
+      <pubDate>Thu, 01 Jan 2026 00:17:01 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/</guid>
+      <description>&lt;p&gt;本页为 &lt;strong&gt;论文解读系列&lt;/strong&gt; 的目录与阅读计划：列出阅读原因、组合方式、完整列表与发布状态。每篇解读文末不再重复长表，仅提供指向本页的链接；&lt;strong&gt;每次发布新论文解读时，会同步更新本页目录与文末的「最后更新时间」&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;为什么做这个阅读计划&#34;&gt;为什么做这个阅读计划&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;清单来源&lt;/strong&gt;：Ilya Sutskever（OpenAI 联合创始人）推荐的约 30 篇经典论文/博客/课程（实际约 27 篇），覆盖从基础理论到前沿应用的深度学习核心知识。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;阅读原因&lt;/strong&gt;：系统理解现代 AI 技术演进路径，避免碎片化；按主题分类便于组合阅读（如先 CNN 再注意力再规模化）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合建议&lt;/strong&gt;：可按分类顺序（基础理论 → RNN → CNN → 注意力 → 优化/规模 → 推理与生成 → 语音）阅读，也可按发布时间或兴趣跳读；每篇解读文内会标明所属分类。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;论文分类索引与发布状态&#34;&gt;论文分类索引与发布状态&lt;/h2&gt;
+&lt;p&gt;以下表格为完整列表：&lt;strong&gt;博客解读&lt;/strong&gt; 一列为「已发布」则带链接，为「待完成」则暂无解读。原文链接均可直接访问。&lt;/p&gt;
+&lt;h3 id=&#34;1-基础理论与信息论&#34;&gt;1. 基础理论与信息论&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;A Tutorial Introduction to the Minimum Description Length Principle&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/math/0406077&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-03-paper-02-mdl-principle/&#34;&gt;【论文解读02】最小描述长度原理教程&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Keeping Neural Networks Simple by Minimizing the Description Length of the Weights&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.cs.toronto.edu/~hinton/absps/colt93.pdf&#34;&gt;Paper&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-05-paper-03-minimizing-description-length/&#34;&gt;【论文解读03】通过最小化权重描述长度简化神经网络&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;The First Law of Complexodynamics&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1312.0448&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-08-paper-04-first-law-complexodynamics/&#34;&gt;【论文解读04】复杂动力学第一定律&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Kolmogorov Complexity and Algorithmic Randomness&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.lirmm.fr/~ashen/kolmbook-eng-scan.pdf&#34;&gt;Book&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-04-04-paper-26-kolmogorov-complexity/&#34;&gt;【论文解读26】柯尔莫哥洛夫复杂度与算法随机性&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Machine Super Intelligence&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.vetta.org/documents/Machine_Super_Intelligence.pdf&#34;&gt;Paper&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-04-07-paper-27-machine-super-intelligence/&#34;&gt;【论文解读27】机器超级智能&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Quantifying the Rise and Fall of Complexity in Closed Systems: the Coffee Automaton&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1405.6903&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-03-31-paper-25-coffee-automaton/&#34;&gt;【论文解读25】咖啡自动机：封闭系统中复杂性的兴衰&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;2-循环神经网络rnnlstm&#34;&gt;2. 循环神经网络（RNN/LSTM）&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;The Unreasonable Effectiveness of Recurrent Neural Networks&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://karpathy.github.io/2015/05/21/rnn-effectiveness/&#34;&gt;Blog&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-11-paper-05-rnn-effectiveness/&#34;&gt;【论文解读05】循环神经网络的不可思议的有效性&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Understanding LSTM Networks&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://colah.github.io/posts/2015-08-Understanding-LSTMs/&#34;&gt;Blog&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm/&#34;&gt;【论文解读06】理解LSTM网络&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Recurrent Neural Network Regularization&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1409.2329&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-27-paper-07-rnn-regularization/&#34;&gt;【论文解读07】RNN正则化&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Neural Turing Machines&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1410.5401&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-28-paper-16-neural-turing-machines/&#34;&gt;【论文解读16】神经图灵机&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Relational Recurrent Neural Networks&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1806.01822&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-24-paper-15-relational-rnn/&#34;&gt;【论文解读15】关系循环神经网络&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;3-卷积神经网络cnn&#34;&gt;3. 卷积神经网络（CNN）&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Stanford&amp;rsquo;s CS231n Convolutional Neural Networks for Visual Recognition&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;http://cs231n.stanford.edu/&#34;&gt;Course&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-01-cs231n/&#34;&gt;【论文/课程01】CS231n：卷积神经网络与视觉识别课程&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html&#34;&gt;Paper&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-03-paper-09-imagenet-alexnet/&#34;&gt;【论文解读09】AlexNet：深度学习革命的起点&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Deep Residual Learning for Image Recognition (ResNet)&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1512.03385&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-07-paper-10-resnet/&#34;&gt;【论文解读10】ResNet：深度残差学习&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Identity Mappings in Deep Residual Networks&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1603.05027&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/&#34;&gt;【论文解读11】ResNet改进：恒等映射&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Multi-Scale Context Aggregation by Dilated Convolutions&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1511.07122&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-14-paper-12-dilated-convolutions/&#34;&gt;【论文解读12】膨胀卷积：多尺度上下文聚合&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;4-注意力机制与序列模型&#34;&gt;4. 注意力机制与序列模型&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Neural Machine Translation by Jointly Learning to Align and Translate&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1409.0473&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;em&gt;待完成&lt;/em&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Attention is All You Need (Transformer)&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1706.03762&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;em&gt;待完成&lt;/em&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;The Annotated Transformer&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://nlp.seas.harvard.edu/2018/04/03/attention.html&#34;&gt;Blog&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;em&gt;待完成&lt;/em&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Order Matters: Sequence to Sequence for Sets&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1511.06391&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-21-paper-14-order-matters/&#34;&gt;【论文解读14】顺序的重要性：集合的序列到序列&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Pointer Networks&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1506.03134&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-17-paper-13-pointer-networks/&#34;&gt;【论文解读13】指针网络&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;5-模型优化与规模化&#34;&gt;5. 模型优化与规模化&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1811.06965&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-03-24-paper-23-gpipe/&#34;&gt;【论文解读23】GPipe：大规模模型训练&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Scaling Laws for Neural Language Models&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/2001.08361&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;em&gt;待完成&lt;/em&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;6-推理与生成模型&#34;&gt;6. 推理与生成模型&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;A Simple Neural Network Module for Relational Reasoning&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1706.01427&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-03-14-paper-20-relational-reasoning/&#34;&gt;【论文解读20】关系推理的简单神经网络模块&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Variational Lossy Autoencoder&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1611.02731&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-03-10-paper-19-variational-lossy-autoencoder/&#34;&gt;【论文解读19】变分有损自编码器&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Neural Message Passing for Quantum Chemistry&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1704.01212&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-03-17-paper-21-neural-quantum-chemistry/&#34;&gt;【论文解读21】神经消息传递与量子化学&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;7-语音与复杂系统&#34;&gt;7. 语音与复杂系统&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Deep Speech 2: End-to-End Speech Recognition in English and Mandarin&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1512.02595&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-03-21-paper-22-deep-speech-2/&#34;&gt;【论文解读22】Deep Speech 2：端到端语音识别&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;系列说明&#34;&gt;系列说明&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;清单实际数量&lt;/strong&gt;：27 篇（含论文、博客、课程），「Top 30」为约数表述。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内容类型&lt;/strong&gt;：部分为博客/课程（如 CS231n、LSTM 解读），是理解核心概念的优质入门资源。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;链接说明&lt;/strong&gt;：arXiv 链接可直连论文原文，博客/课程链接为官方或权威解读页面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;最后更新时间&lt;/strong&gt;：2026-02-10（与最新一篇解读发布同步；每次发布新论文解读时更新本日期。）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/</link>
+      <pubDate>Wed, 31 Dec 2025 21:53:04 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型&lt;strong&gt;真正理解并遵循人类指令&lt;/strong&gt;。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;语言模型对齐问题&#34;&gt;语言模型对齐问题&lt;/h2&gt;
+&lt;h3 id=&#34;问题一gpt-3的不听话&#34;&gt;问题一：GPT-3的&amp;quot;不听话&amp;quot;&lt;/h3&gt;
+&lt;p&gt;尽管GPT-3展示了惊人的能力，但它存在一个根本问题：&lt;strong&gt;不能可靠地遵循用户指令&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;典型问题包括：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;答非所问&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;用户：列出5个学习编程的建议
+GPT-3：编程是一门重要的技能。很多人学习编程...（继续生成无关内容）
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;有害内容&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;用户：如何做一个好人？
+GPT-3：（可能生成负面或有害建议）
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;胡言乱语&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;用户：2+2等于几？
+GPT-3：2+2等于5。在某些情况下...（自信地输出错误内容）
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;问题二预训练目标的错位&#34;&gt;问题二：预训练目标的错位&lt;/h3&gt;
+&lt;p&gt;GPT-3的预训练目标是&lt;strong&gt;预测下一个token&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;$$
+\mathcal{L}&lt;em&gt;{\text{LM}} = -\sum&lt;/em&gt;{i} \log P(x_i | x_1, \ldots, x_{i-1})
+$$&lt;/p&gt;
+&lt;p&gt;这一目标与用户的真正需求存在根本错位：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;预训练目标&lt;/th&gt;
+          &lt;th&gt;用户需求&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;预测最可能的续写&lt;/td&gt;
+          &lt;td&gt;有帮助的回答&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;模仿训练数据分布&lt;/td&gt;
+          &lt;td&gt;诚实的信息&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;最大化似然&lt;/td&gt;
+          &lt;td&gt;安全的内容&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;训练数据：&amp;ldquo;问：今天天气怎么样？答：今天天气&amp;hellip;&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;用户需求：&amp;ldquo;告诉我明天的天气预报&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;GPT-3可能继续写&amp;quot;晴朗&amp;quot;，而不是承认不知道&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;问题三对齐问题的定义&#34;&gt;问题三：对齐问题的定义&lt;/h3&gt;
+&lt;p&gt;AI对齐（Alignment）问题的核心是：&lt;strong&gt;如何让AI系统的行为符合人类意图&lt;/strong&gt;？&lt;/p&gt;
+&lt;p&gt;形式化定义：&lt;/p&gt;
+&lt;p&gt;$$
+\text{对齐目标} = \max_{\theta} \mathbb{E}&lt;em&gt;{x \sim \mathcal{D}&lt;/em&gt;{\text{user}}}[R_{\text{human}}(\text{model}_\theta(x))]
+$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【ChatGPT时刻09】GPT-3：少样本学习的突破与涌现能力</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-12-15-chatgpt-09-gpt3/</link>
+      <pubDate>Mon, 15 Dec 2025 21:48:02 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-12-15-chatgpt-09-gpt3/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Tom Brown等人于2020年发表的划时代论文《Language Models are Few-Shot Learners》，该论文提出了GPT-3模型，以&lt;strong&gt;1750亿参数&lt;/strong&gt;的前所未有规模，首次展示了大语言模型的&lt;strong&gt;上下文学习&lt;/strong&gt;（In-context Learning）和&lt;strong&gt;涌现能力&lt;/strong&gt;（Emergent Abilities）。GPT-3证明了一个惊人的事实：足够大的语言模型无需更新参数，仅通过在输入中提供少量示例，就能执行从未见过的任务——这一发现彻底改变了AI的发展轨迹，直接催生了ChatGPT的诞生。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;从零样本到少样本的飞跃&#34;&gt;从零样本到少样本的飞跃&lt;/h2&gt;
+&lt;h3 id=&#34;问题一零样本学习的局限&#34;&gt;问题一：零样本学习的局限&lt;/h3&gt;
+&lt;p&gt;GPT-2展示了零样本学习的可能性，但性能仍然有限：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;任务&lt;/th&gt;
+          &lt;th&gt;零样本GPT-2&lt;/th&gt;
+          &lt;th&gt;微调SOTA&lt;/th&gt;
+          &lt;th&gt;差距&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;CoQA&lt;/td&gt;
+          &lt;td&gt;55 F1&lt;/td&gt;
+          &lt;td&gt;82 F1&lt;/td&gt;
+          &lt;td&gt;-27&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;翻译（法英）&lt;/td&gt;
+          &lt;td&gt;11.5 BLEU&lt;/td&gt;
+          &lt;td&gt;45.6 BLEU&lt;/td&gt;
+          &lt;td&gt;-34&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;摘要&lt;/td&gt;
+          &lt;td&gt;21.6 ROUGE&lt;/td&gt;
+          &lt;td&gt;44.2 ROUGE&lt;/td&gt;
+          &lt;td&gt;-23&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;零样本学习虽然证明了概念，但实用性不足。&lt;/p&gt;
+&lt;h3 id=&#34;问题二微调的代价&#34;&gt;问题二：微调的代价&lt;/h3&gt;
+&lt;p&gt;传统微调方法虽然有效，但存在显著问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;数据需求&lt;/strong&gt;：每个任务需要数千到数十万标注样本&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;过拟合风险&lt;/strong&gt;：在小数据集上容易过拟合&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分布偏移&lt;/strong&gt;：微调数据与测试数据分布不一致&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;计算成本&lt;/strong&gt;：大模型微调需要大量计算资源&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;灵活性差&lt;/strong&gt;：每个任务需要单独模型&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;问题三人类学习的启示&#34;&gt;问题三：人类学习的启示&lt;/h3&gt;
+&lt;p&gt;人类可以从极少量示例中学习新任务：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;看一个例子：&amp;lsquo;狗&amp;rsquo;的复数是&amp;rsquo;dogs&amp;rsquo;。那&amp;rsquo;猫&amp;rsquo;的复数是什么？&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;人类不需要数千个训练样本，仅需要任务描述和少量示例就能泛化。GPT-3的目标是：&lt;strong&gt;让机器具备类似的学习能力&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;gpt-3的核心创新&#34;&gt;GPT-3的核心创新&lt;/h2&gt;
+&lt;h3 id=&#34;前所未有的规模&#34;&gt;前所未有的规模&lt;/h3&gt;
+&lt;p&gt;GPT-3将规模推向极致：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;参数&lt;/th&gt;
+          &lt;th&gt;GPT-2&lt;/th&gt;
+          &lt;th&gt;GPT-3 Small&lt;/th&gt;
+          &lt;th&gt;GPT-3 Medium&lt;/th&gt;
+          &lt;th&gt;GPT-3 Large&lt;/th&gt;
+          &lt;th&gt;GPT-3 XL&lt;/th&gt;
+          &lt;th&gt;GPT-3 175B&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;层数&lt;/td&gt;
+          &lt;td&gt;48&lt;/td&gt;
+          &lt;td&gt;12&lt;/td&gt;
+          &lt;td&gt;24&lt;/td&gt;
+          &lt;td&gt;24&lt;/td&gt;
+          &lt;td&gt;32&lt;/td&gt;
+          &lt;td&gt;96&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;隐藏维度&lt;/td&gt;
+          &lt;td&gt;1600&lt;/td&gt;
+          &lt;td&gt;768&lt;/td&gt;
+          &lt;td&gt;1024&lt;/td&gt;
+          &lt;td&gt;1536&lt;/td&gt;
+          &lt;td&gt;2048&lt;/td&gt;
+          &lt;td&gt;12288&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;注意力头数&lt;/td&gt;
+          &lt;td&gt;25&lt;/td&gt;
+          &lt;td&gt;12&lt;/td&gt;
+          &lt;td&gt;16&lt;/td&gt;
+          &lt;td&gt;16&lt;/td&gt;
+          &lt;td&gt;24&lt;/td&gt;
+          &lt;td&gt;96&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;参数量&lt;/td&gt;
+          &lt;td&gt;1.5B&lt;/td&gt;
+          &lt;td&gt;125M&lt;/td&gt;
+          &lt;td&gt;350M&lt;/td&gt;
+          &lt;td&gt;760M&lt;/td&gt;
+          &lt;td&gt;1.3B&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;175B&lt;/strong&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;最大的GPT-3模型参数量达到&lt;strong&gt;1750亿&lt;/strong&gt;，是GPT-2的&lt;strong&gt;100倍以上&lt;/strong&gt;。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【ChatGPT时刻08】Scaling Laws：规模与性能的幂律关系</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-11-28-chatgpt-08-scaling-laws/</link>
+      <pubDate>Fri, 28 Nov 2025 21:13:58 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-11-28-chatgpt-08-scaling-laws/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Jared Kaplan、Sam McCandlish、Tom Henighan、Tom B. Brown、Benjamin Chess、Rewon Child、Scott Gray、Alec Radford、Jeffrey Wu和Dario Amodei于2020年发表的里程碑论文《Scaling Laws for Neural Language Models》，该论文发现了神经语言模型的缩放定律（Scaling Laws），揭示了模型规模、数据规模、计算量与模型性能之间的幂律关系。这一发现不仅为大模型的发展提供了理论指导，更为理解&amp;quot;规模即智能&amp;quot;提供了科学依据，是当今大模型时代的理论基础。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;规模是性能的关键。&amp;quot;——这是缩放定律论文的核心发现。通过系统性的实验，论文发现模型性能（损失）与模型规模、数据规模、计算量之间存在清晰的幂律关系。这意味着，只要增加模型规模、数据规模或计算量，模型性能就会可预测地提升。这一发现为大模型的发展指明了方向。&lt;/p&gt;
+&lt;p&gt;缩放定律的核心发现是&lt;strong&gt;幂律关系&lt;/strong&gt;：模型损失 $L$ 与模型参数 $N$、数据规模 $D$、计算量 $C$ 之间存在幂律关系：&lt;/p&gt;
+&lt;p&gt;$$
+L(N, D) = \left(\frac{N_c}{N}\right)^{\alpha_N} + \left(\frac{D_c}{D}\right)^{\alpha_D} + L_\infty
+$$&lt;/p&gt;
+&lt;p&gt;其中 $\alpha_N$、$\alpha_D$ 是幂律指数，$L_\infty$ 是无限规模下的极限损失。&lt;/p&gt;
+&lt;p&gt;这一发现的意义深远：它证明了&amp;quot;规模即智能&amp;quot;的科学性，为大模型的发展提供了可预测的路径。理解缩放定律，就是理解大模型时代的底层规律。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读缩放定律，包含完整的数学推导、实验分析和理论探讨，并在文末提供阅读研究论文的时间线计划。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;大模型发展的经验性探索&#34;&gt;大模型发展的经验性探索&lt;/h2&gt;
+&lt;h3 id=&#34;问题一规模与性能的关系不明确&#34;&gt;问题一：规模与性能的关系不明确&lt;/h3&gt;
+&lt;p&gt;在大模型发展的早期，规模与性能的关系不明确：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;经验性探索的问题&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不清楚增加模型规模是否一定提升性能&lt;/li&gt;
+&lt;li&gt;不清楚最优的模型规模是多少&lt;/li&gt;
+&lt;li&gt;不清楚如何分配计算资源（模型 vs 数据）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;实践中的困惑&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;有些模型规模增大后性能提升不明显&lt;/li&gt;
+&lt;li&gt;有些模型规模增大后甚至性能下降&lt;/li&gt;
+&lt;li&gt;缺乏理论指导&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;问题二资源分配的不确定性&#34;&gt;问题二：资源分配的不确定性&lt;/h3&gt;
+&lt;p&gt;在有限的计算资源下，如何分配资源？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【ChatGPT时刻07】GPT-2：语言模型是无监督的多任务学习者</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-11-11-chatgpt-07-gpt2/</link>
+      <pubDate>Tue, 11 Nov 2025 21:29:22 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-11-11-chatgpt-07-gpt2/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Alec Radford等人于2019年发表的突破性论文《Language Models are Unsupervised Multitask Learners》，该论文提出了GPT-2模型，首次证明了足够大的语言模型可以在&lt;strong&gt;零样本&lt;/strong&gt;（zero-shot）设置下执行多种任务，无需任何任务特定的微调。GPT-2的核心发现是：&lt;strong&gt;规模本身就是一种能力&lt;/strong&gt;——当模型参数从1亿扩展到15亿时，涌现出了令人惊讶的零样本学习能力，这一发现为GPT-3的成功和ChatGPT的诞生奠定了关键基础。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;从微调到零样本的范式转变&#34;&gt;从微调到零样本的范式转变&lt;/h2&gt;
+&lt;h3 id=&#34;问题一监督学习的局限&#34;&gt;问题一：监督学习的局限&lt;/h3&gt;
+&lt;p&gt;GPT-1虽然证明了预训练的有效性，但仍然依赖于任务特定的微调：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据依赖&lt;/strong&gt;：每个任务需要标注数据集&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;泛化受限&lt;/strong&gt;：微调后的模型难以适应分布外数据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;任务特定&lt;/strong&gt;：每个任务需要训练一个单独的模型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这种范式无法解释人类的语言能力：人类可以在没有明确训练的情况下执行新任务。&lt;/p&gt;
+&lt;h3 id=&#34;问题二任务表示的统一&#34;&gt;问题二：任务表示的统一&lt;/h3&gt;
+&lt;p&gt;传统NLP将每个任务独立建模，使用不同的输入格式和输出层。但从信息论角度看，所有NLP任务本质上都是条件概率建模：&lt;/p&gt;
+&lt;p&gt;$$
+P(\text{output} | \text{input}, \text{task})
+$$&lt;/p&gt;
+&lt;p&gt;关键洞察是：&lt;strong&gt;任务描述本身可以作为输入的一部分&lt;/strong&gt;。例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;翻译任务：&lt;code&gt;translate to french, [english text], [french text]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;摘要任务：&lt;code&gt;TL;DR: [article], [summary]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;问答任务：&lt;code&gt;Q: [question] A: [answer]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果语言模型足够强大，它应该能够从上下文中推断任务并执行。&lt;/p&gt;
+&lt;h3 id=&#34;问题三规模假设&#34;&gt;问题三：规模假设&lt;/h3&gt;
+&lt;p&gt;GPT-2的核心假设是：&lt;strong&gt;大规模语言模型在足够多样化的数据上训练，将隐式地学习多种任务&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;直觉来源于互联网文本的多样性：网页包含各种格式的内容——问答对、翻译样本、摘要、对话等。如果模型能够学习这些自然出现的模式，它就应该能够执行相应的任务。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;gpt-2的技术方案&#34;&gt;GPT-2的技术方案&lt;/h2&gt;
+&lt;h3 id=&#34;更大的模型&#34;&gt;更大的模型&lt;/h3&gt;
+&lt;p&gt;GPT-2在GPT-1基础上进行了显著的规模扩展：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;参数&lt;/th&gt;
+          &lt;th&gt;GPT-1&lt;/th&gt;
+          &lt;th&gt;GPT-2 Small&lt;/th&gt;
+          &lt;th&gt;GPT-2 Medium&lt;/th&gt;
+          &lt;th&gt;GPT-2 Large&lt;/th&gt;
+          &lt;th&gt;GPT-2 XL&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;层数&lt;/td&gt;
+          &lt;td&gt;12&lt;/td&gt;
+          &lt;td&gt;12&lt;/td&gt;
+          &lt;td&gt;24&lt;/td&gt;
+          &lt;td&gt;36&lt;/td&gt;
+          &lt;td&gt;48&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;隐藏维度&lt;/td&gt;
+          &lt;td&gt;768&lt;/td&gt;
+          &lt;td&gt;768&lt;/td&gt;
+          &lt;td&gt;1024&lt;/td&gt;
+          &lt;td&gt;1280&lt;/td&gt;
+          &lt;td&gt;1600&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;注意力头数&lt;/td&gt;
+          &lt;td&gt;12&lt;/td&gt;
+          &lt;td&gt;12&lt;/td&gt;
+          &lt;td&gt;16&lt;/td&gt;
+          &lt;td&gt;20&lt;/td&gt;
+          &lt;td&gt;25&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;参数量&lt;/td&gt;
+          &lt;td&gt;117M&lt;/td&gt;
+          &lt;td&gt;117M&lt;/td&gt;
+          &lt;td&gt;345M&lt;/td&gt;
+          &lt;td&gt;762M&lt;/td&gt;
+          &lt;td&gt;1542M&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;最大的GPT-2 XL模型参数量达到&lt;strong&gt;15.42亿&lt;/strong&gt;，是GPT-1的13倍。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【ChatGPT时刻06】GPT-1：生成式预训练的开山之作</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-10-25-chatgpt-06-gpt1/</link>
+      <pubDate>Sat, 25 Oct 2025 21:03:01 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-10-25-chatgpt-06-gpt1/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Alec Radford等人于2018年发表的里程碑论文《Improving Language Understanding by Generative Pre-Training》，该论文提出了GPT（Generative Pre-Training）模型，首次将大规模无监督预训练与有监督微调相结合，在多个NLP基准上取得了突破性成绩。GPT-1是ChatGPT的直系祖先——它确立了&amp;quot;预训练+微调&amp;quot;的范式，证明了通用语言表示可以从海量无标注文本中学习，为后续GPT-2、GPT-3乃至ChatGPT奠定了架构和方法论基础。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;nlp的迁移学习困境&#34;&gt;NLP的迁移学习困境&lt;/h2&gt;
+&lt;h3 id=&#34;问题一标注数据的稀缺性&#34;&gt;问题一：标注数据的稀缺性&lt;/h3&gt;
+&lt;p&gt;深度学习在NLP中的应用面临一个根本挑战：高质量标注数据稀缺。&lt;/p&gt;
+&lt;p&gt;与计算机视觉不同，NLP任务的标注需要语言专业知识，成本高昂：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;情感分析&lt;/strong&gt;：需要理解语言的细微差别&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;问答系统&lt;/strong&gt;：需要专业领域知识&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文本蕴含&lt;/strong&gt;：需要逻辑推理能力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;大多数NLP数据集仅有数千到数万条标注样本，远不足以从头训练大型神经网络。&lt;/p&gt;
+&lt;h3 id=&#34;问题二预训练方法的局限&#34;&gt;问题二：预训练方法的局限&lt;/h3&gt;
+&lt;p&gt;在GPT之前，NLP领域的预训练主要有两种方式：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;词向量预训练&lt;/strong&gt;（如Word2Vec、GloVe）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;只提供词级别的表示&lt;/li&gt;
+&lt;li&gt;无法捕捉上下文信息&lt;/li&gt;
+&lt;li&gt;无法处理多义词&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;语言模型预训练&lt;/strong&gt;（如ELMo）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用双向LSTM&lt;/li&gt;
+&lt;li&gt;表示能力受限于LSTM架构&lt;/li&gt;
+&lt;li&gt;预训练和微调架构不一致&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些方法虽然有效，但都存在明显局限：&lt;strong&gt;预训练的知识无法充分迁移到下游任务&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;问题三无监督学习的挑战&#34;&gt;问题三：无监督学习的挑战&lt;/h3&gt;
+&lt;p&gt;无监督学习的核心挑战是找到合适的目标函数。语言建模是一个自然的选择：&lt;/p&gt;
+&lt;p&gt;$$
+\mathcal{L}&lt;em&gt;{\text{LM}} = \sum&lt;/em&gt;{i} \log P(u_i | u_1, \ldots, u_{i-1}; \Theta)
+$$&lt;/p&gt;
+&lt;p&gt;但如何设计一个既能充分利用预训练知识、又能适应多种下游任务的框架？&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;gpt的核心设计&#34;&gt;GPT的核心设计&lt;/h2&gt;
+&lt;h3 id=&#34;transformer解码器架构&#34;&gt;Transformer解码器架构&lt;/h3&gt;
+&lt;p&gt;GPT采用Transformer的解码器部分作为基础架构，使用&lt;strong&gt;单向自注意力&lt;/strong&gt;（因果注意力）：&lt;/p&gt;
+&lt;p&gt;$$
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}} + M\right)V
+$$&lt;/p&gt;
+&lt;p&gt;其中 $M$ 是掩码矩阵，确保位置 $i$ 只能关注位置 $j \leq i$：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/</link>
+      <pubDate>Wed, 08 Oct 2025 21:21:38 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Alexander Rush等人创建的《The Annotated Transformer》，这是一篇教育性的技术博客文章，通过逐行代码注释的方式，详细解析了Transformer架构的PyTorch实现。虽然这不是一篇传统意义上的研究论文，但它为理解Transformer提供了最直观、最实用的方式，是学习Transformer实现的最佳资源之一。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;代码是最好的文档。&amp;quot;——这是带注释Transformer的核心思想。Transformer论文虽然提出了架构，但实现细节往往隐藏在代码中。带注释Transformer通过详细的代码注释和解释，使读者能够深入理解Transformer的每一个组件、每一行代码的作用，是连接理论和实践的重要桥梁。&lt;/p&gt;
+&lt;p&gt;带注释Transformer的核心价值是&lt;strong&gt;教育性和实用性&lt;/strong&gt;：它不仅解释了Transformer的数学原理，还展示了如何用代码实现这些原理。通过逐行注释，读者可以：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;理解实现细节&lt;/strong&gt;：了解每个组件的具体实现&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;学习最佳实践&lt;/strong&gt;：学习PyTorch的实现技巧&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;快速上手&lt;/strong&gt;：可以直接使用代码进行实验&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在当今大模型时代，理解Transformer的实现细节至关重要：GPT、BERT、T5等模型都基于Transformer架构。理解带注释Transformer，就是理解现代AI模型的实现基础。&lt;/p&gt;
+&lt;p&gt;本文将从架构概览、核心组件、实现细节、最佳实践四个维度深度解读带注释Transformer，包含完整的代码分析和实现技巧，并在文末提供阅读研究论文的时间线计划。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;transformer实现的学习挑战&#34;&gt;Transformer实现的学习挑战&lt;/h2&gt;
+&lt;h3 id=&#34;问题一理论与实现的差距&#34;&gt;问题一：理论与实现的差距&lt;/h3&gt;
+&lt;p&gt;Transformer论文提供了架构设计，但实现细节往往不明确：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;理论与实现的差距&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;论文描述的是架构，代码需要处理细节&lt;/li&gt;
+&lt;li&gt;论文使用数学符号，代码使用具体数据结构&lt;/li&gt;
+&lt;li&gt;论文关注算法，代码需要处理工程问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;学习挑战&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如何将数学公式转化为代码？&lt;/li&gt;
+&lt;li&gt;如何处理边界情况和数值稳定性？&lt;/li&gt;
+&lt;li&gt;如何优化实现效率？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;问题二代码理解的困难&#34;&gt;问题二：代码理解的困难&lt;/h3&gt;
+&lt;p&gt;Transformer的实现代码往往复杂，难以理解：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;代码理解的困难&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代码量大，难以快速理解&lt;/li&gt;
+&lt;li&gt;缺少注释，难以理解设计意图&lt;/li&gt;
+&lt;li&gt;实现技巧不明确，难以学习最佳实践&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;问题三教育资源的缺乏&#34;&gt;问题三：教育资源的缺乏&lt;/h3&gt;
+&lt;p&gt;在Transformer刚提出时，详细的教育资源较少：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;教育资源的缺乏&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;缺少详细的实现教程&lt;/li&gt;
+&lt;li&gt;缺少代码级别的解释&lt;/li&gt;
+&lt;li&gt;缺少最佳实践的总结&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;带注释transformer的核心组件&#34;&gt;带注释Transformer的核心组件&lt;/h2&gt;
+&lt;h3 id=&#34;组件一多头自注意力&#34;&gt;组件一：多头自注意力&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;数学定义&lt;/strong&gt;：
+$$
+\text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O
+$$&lt;/p&gt;
+&lt;p&gt;其中 $\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;代码实现&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MultiHeadedAttention&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Module&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d_model&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dropout&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;super&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;assert&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d_model&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d_k&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d_model&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linears&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ModuleList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Linear&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d_model&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d_model&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;attn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dropout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nn&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Dropout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dropout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;forward&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mask&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;nbatches&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# 1) 线性投影并分割为h个头&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;lin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nbatches&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d_k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;transpose&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;zip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linears&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# 2) 应用注意力&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;attn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;attention&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mask&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mask&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dropout&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dropout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# 3) 拼接多头并应用最终线性层&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;transpose&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;contiguous&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nbatches&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d_k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linears&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;](&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;关键实现细节&lt;/strong&gt;：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【ChatGPT时刻04】Transformer：Attention Is All You Need</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-09-21-chatgpt-04-transformer/</link>
+      <pubDate>Sun, 21 Sep 2025 21:40:41 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-09-21-chatgpt-04-transformer/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Ashish Vaswani、Noam Shazeer、Niki Parmar、Jakob Uszkoreit、Llion Jones、Aidan N. Gomez、Łukasz Kaiser和Illia Polosukhin于2017年发表的里程碑论文《Attention Is All You Need》，该论文提出了Transformer架构，完全基于注意力机制，摒弃了循环和卷积结构，在机器翻译任务上取得了最先进的性能，同时训练速度更快、可并行性更强。这一突破不仅彻底改变了序列建模的范式，更为后续GPT、BERT等大语言模型奠定了架构基础，开启了现代AI的新时代。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;注意力即一切。&amp;quot;——这是Transformer论文的核心宣言。在Transformer之前，序列建模主要依赖RNN和CNN。RNN虽然能够处理序列，但难以并行化；CNN虽然可以并行化，但难以捕捉长距离依赖。Transformer通过完全基于注意力机制的架构，同时解决了这两个问题，实现了并行化和长距离依赖的完美结合。&lt;/p&gt;
+&lt;p&gt;Transformer的核心创新是&lt;strong&gt;自注意力机制&lt;/strong&gt;（Self-Attention）：每个位置都可以直接关注序列中的所有位置，无需通过循环或卷积逐步传播信息。这种设计使得Transformer能够：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;并行计算&lt;/strong&gt;：所有位置可以同时计算，训练速度大幅提升&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;长距离依赖&lt;/strong&gt;：直接建模任意距离的依赖关系&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可解释性&lt;/strong&gt;：注意力权重提供了模型决策的可解释性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在当今大语言模型时代，Transformer已经成为AI的基础架构：GPT、BERT、T5、PaLM等所有大模型都基于Transformer。理解Transformer，就是理解现代AI的基石。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读Transformer，包含完整的数学推导、架构分析和实验评估，并在文末提供阅读研究论文的时间线计划。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;序列建模的传统局限&#34;&gt;序列建模的传统局限&lt;/h2&gt;
+&lt;h3 id=&#34;问题一rnn的序列化计算瓶颈&#34;&gt;问题一：RNN的序列化计算瓶颈&lt;/h3&gt;
+&lt;p&gt;传统RNN需要按顺序处理序列，无法并行化：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;序列化计算的局限&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每个时间步依赖前一时间步的输出&lt;/li&gt;
+&lt;li&gt;计算必须串行进行，无法并行&lt;/li&gt;
+&lt;li&gt;训练时间长，难以处理大规模数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;数学表述&lt;/strong&gt;：对于序列 $x_1, x_2, \ldots, x_n$，RNN的计算为：
+$$
+h_t = f(h_{t-1}, x_t)
+$$
+其中 $h_t$ 的计算必须等待 $h_{t-1}$ 完成，无法并行。&lt;/p&gt;
+&lt;h3 id=&#34;问题二cnn的感受野限制&#34;&gt;问题二：CNN的感受野限制&lt;/h3&gt;
+&lt;p&gt;CNN虽然可以并行化，但感受野受限：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;感受野的局限&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;需要多层卷积才能扩大感受野&lt;/li&gt;
+&lt;li&gt;感受野的增长是线性的，需要 $O(n)$ 层才能覆盖长度为 $n$ 的序列&lt;/li&gt;
+&lt;li&gt;难以捕捉长距离依赖&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;数学分析&lt;/strong&gt;：对于 $k \times k$ 卷积核，经过 $L$ 层后，感受野为 $L(k-1) + 1$。要覆盖长度为 $n$ 的序列，需要 $L \geq \frac{n-1}{k-1}$ 层。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/</link>
+      <pubDate>Thu, 04 Sep 2025 21:43:51 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;注意力是人类智能的核心。&amp;quot;——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。&lt;/p&gt;
+&lt;p&gt;论文的核心创新是&lt;strong&gt;注意力机制&lt;/strong&gt;：在解码过程中，模型计算源语言序列中每个位置的注意力权重，根据这些权重对编码器输出进行加权求和，得到上下文向量。这种设计使得模型能够学习源语言和目标语言之间的对齐关系，同时提高翻译质量。&lt;/p&gt;
+&lt;p&gt;在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何&amp;quot;关注&amp;quot;和&amp;quot;理解&amp;quot;信息。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读神经机器翻译中的注意力机制，包含完整的数学推导、算法流程和复杂度分析，并在文末提供阅读研究论文的时间线计划。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;传统seq2seq模型的根本局限&#34;&gt;传统Seq2Seq模型的根本局限&lt;/h2&gt;
+&lt;h3 id=&#34;问题一固定维度上下文向量的信息瓶颈&#34;&gt;问题一：固定维度上下文向量的信息瓶颈&lt;/h3&gt;
+&lt;p&gt;传统Seq2Seq模型使用编码器-解码器架构：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;编码器&lt;/strong&gt;：将源语言序列 $x_1, x_2, \ldots, x_n$ 编码为固定维度的上下文向量 $c$：&lt;/p&gt;
+&lt;p&gt;$$
+c = f(x_1, x_2, \ldots, x_n)
+$$&lt;/p&gt;
+&lt;p&gt;其中 $f$ 通常是RNN的最后一个隐藏状态：$c = h_n$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解码器&lt;/strong&gt;：根据上下文向量 $c$ 生成目标语言序列 $y_1, y_2, \ldots, y_m$：&lt;/p&gt;
+&lt;p&gt;$$
+P(y_1, y_2, \ldots, y_m | x_1, x_2, \ldots, x_n) = \prod_{t=1}^{m} P(y_t | y_{&amp;lt;t}, c)
+$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/</link>
+      <pubDate>Mon, 18 Aug 2025 21:00:20 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Ilya Sutskever、Oriol Vinyals和Quoc V. Le于2014年发表的里程碑论文《Sequence to Sequence Learning with Neural Networks》，该论文提出了Seq2Seq框架，首次使用纯端到端的神经网络实现了高质量的机器翻译。作为OpenAI联合创始人的代表作，Seq2Seq不仅确立了编码器-解码器架构的标准范式，更是通向Transformer和GPT系列的关键一步——它证明了神经网络可以直接学习序列到序列的映射，无需手工设计特征或规则。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;序列建模的根本挑战&#34;&gt;序列建模的根本挑战&lt;/h2&gt;
+&lt;h3 id=&#34;问题一变长序列的处理难题&#34;&gt;问题一：变长序列的处理难题&lt;/h3&gt;
+&lt;p&gt;传统神经网络（如前馈网络、CNN）要求输入和输出具有固定维度。然而，自然语言中的序列长度是可变的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入长度可变&lt;/strong&gt;：句子可能有5个词，也可能有50个词&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;输出长度可变&lt;/strong&gt;：翻译结果的长度与源句子不同&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;输入输出长度不对应&lt;/strong&gt;：源语言和目标语言的句子长度通常不同&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这种变长特性使得传统方法无法直接应用于机器翻译、对话生成等任务。&lt;/p&gt;
+&lt;h3 id=&#34;问题二长距离依赖问题&#34;&gt;问题二：长距离依赖问题&lt;/h3&gt;
+&lt;p&gt;语言中存在大量长距离依赖关系。例如：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;The cat, which was sitting on the mat in the corner of the room, &lt;strong&gt;was&lt;/strong&gt; sleeping.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;主语&amp;quot;cat&amp;quot;和谓语&amp;quot;was&amp;quot;之间隔了多个从句，模型需要&amp;quot;记住&amp;quot;主语才能正确预测谓语的形式。&lt;/p&gt;
+&lt;p&gt;传统RNN在处理长序列时面临&lt;strong&gt;梯度消失&lt;/strong&gt;问题：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\partial \mathcal{L}}{\partial W} = \sum_{t=1}^{T} \frac{\partial \mathcal{L}&lt;em&gt;t}{\partial W} = \sum&lt;/em&gt;{t=1}^{T} \frac{\partial \mathcal{L}&lt;em&gt;t}{\partial h_t} \prod&lt;/em&gt;{k=1}^{t} \frac{\partial h_k}{\partial h_{k-1}} \frac{\partial h_1}{\partial W}
+$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/</link>
+      <pubDate>Fri, 01 Aug 2025 21:59:17 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的&lt;strong&gt;起点&lt;/strong&gt;——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;语言理解的根本挑战&#34;&gt;语言理解的根本挑战&lt;/h2&gt;
+&lt;h3 id=&#34;问题一词语表示的离散性困境&#34;&gt;问题一：词语表示的离散性困境&lt;/h3&gt;
+&lt;p&gt;在传统NLP中，词语通常用one-hot编码表示。对于一个包含 $V$ 个词的词表，每个词被表示为一个 $V$ 维向量，只有对应位置为1，其余为0。&lt;/p&gt;
+&lt;p&gt;这种表示方法存在三个根本问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;维度灾难&lt;/strong&gt;：词表规模通常在万到百万级别，导致向量维度极高&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;稀疏性&lt;/strong&gt;：每个向量只有一个非零元素，绝大多数信息为0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语义缺失&lt;/strong&gt;：任意两个词的向量正交，无法表达语义相似性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如，&amp;ldquo;king&amp;quot;和&amp;quot;queen&amp;quot;虽然语义相近，但在one-hot表示下：&lt;/p&gt;
+&lt;p&gt;$$
+\text{sim}(\text{king}, \text{queen}) = \text{king}^\top \cdot \text{queen} = 0
+$$&lt;/p&gt;
+&lt;p&gt;向量的内积为0，完全无法捕捉它们的语义关联。&lt;/p&gt;
+&lt;h3 id=&#34;问题二分布式假设与向量空间&#34;&gt;问题二：分布式假设与向量空间&lt;/h3&gt;
+&lt;p&gt;语言学中的&lt;strong&gt;分布式假设&lt;/strong&gt;（Distributional Hypothesis）指出：&amp;ldquo;一个词的含义由其上下文决定&amp;rdquo;（You shall know a word by the company it keeps）。这一假设为词向量学习提供了理论基础。&lt;/p&gt;
+&lt;p&gt;如果我们能够将词映射到一个连续的向量空间，使得语义相似的词在空间中距离相近，那么：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;词之间的语义关系可以通过向量运算表达&lt;/li&gt;
+&lt;li&gt;模型可以泛化到未见过的词组合&lt;/li&gt;
+&lt;li&gt;下游任务可以利用预学习的语义知识&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;问题是：如何高效地学习这样的词向量？&lt;/p&gt;
+&lt;h3 id=&#34;问题三计算效率的瓶颈&#34;&gt;问题三：计算效率的瓶颈&lt;/h3&gt;
+&lt;p&gt;在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：&lt;/p&gt;
+&lt;p&gt;$$
+\text{时间复杂度} = O(V \times H + H \times H) \times E \times T
+$$&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
