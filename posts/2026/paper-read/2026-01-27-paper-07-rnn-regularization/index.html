@@ -89,7 +89,27 @@ $$">
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://blog.zhangky.com/posts/2026/paper-read/2026-01-27-paper-07-rnn-regularization/">
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\(', '\)']],
+      displayMath: [['$$', '$$'], ['\[', '\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script>
+
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/paper-read/2026-01-27-paper-07-rnn-regularization/">
   <meta property="og:site_name" content="Zhang&#39;s Blog">
   <meta property="og:title" content="【论文解读07】循环神经网络正则化（Ilya经典论文）">
   <meta property="og:description" content=" 本文解读的是Wojciech Zaremba、Ilya Sutskever和Oriol Vinyals于2014年发表的经典论文《Recurrent Neural Network Regularization》，该论文首次将Dropout正则化技术系统性地应用于循环神经网络（RNN），通过只在非循环连接上应用Dropout，既保持了RNN的记忆能力，又有效防止了过拟合。这一创新为RNN在序列建模任务中的成功应用奠定了重要基础，特别是在机器翻译、语言模型等需要处理长序列的任务中取得了突破性成果。

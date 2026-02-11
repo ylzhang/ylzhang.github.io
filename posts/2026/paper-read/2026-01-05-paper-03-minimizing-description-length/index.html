@@ -95,7 +95,27 @@ MDL原理告诉我们，最优模型应该能够用最少的信息描述数据�
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://blog.zhangky.com/posts/2026/paper-read/2026-01-05-paper-03-minimizing-description-length/">
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\(', '\)']],
+      displayMath: [['$$', '$$'], ['\[', '\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script>
+
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/paper-read/2026-01-05-paper-03-minimizing-description-length/">
   <meta property="og:site_name" content="Zhang&#39;s Blog">
   <meta property="og:title" content="【论文解读03】通过最小化权重描述长度简化神经网络">
   <meta property="og:description" content=" 本文解读的是Geoffrey Hinton和Dirk van Camp于1993年发表的经典论文《Keeping Neural Networks Simple by Minimizing the Description Length of the Weights》，该论文将最小描述长度（MDL）原理直接应用于神经网络权重优化，开创了神经网络压缩和正则化的新范式。论文的核心思想是通过最小化权重的描述长度来自动找到既简单又有效的网络结构，这一思想在深度学习尚未兴起的年代就为现代模型压缩技术奠定了理论基础。

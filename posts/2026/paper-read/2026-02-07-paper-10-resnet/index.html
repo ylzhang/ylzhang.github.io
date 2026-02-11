@@ -84,7 +84,27 @@ ResNet通过残差连接解决了这一根本问题。残差块定义为 $y = F(
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://blog.zhangky.com/posts/2026/paper-read/2026-02-07-paper-10-resnet/">
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\(', '\)']],
+      displayMath: [['$$', '$$'], ['\[', '\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script>
+
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/paper-read/2026-02-07-paper-10-resnet/">
   <meta property="og:site_name" content="Zhang&#39;s Blog">
   <meta property="og:title" content="【论文解读10】深度残差学习：ResNet解决网络退化问题">
   <meta property="og:description" content=" 本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的里程碑论文《Deep Residual Learning for Image Recognition》，该论文提出的ResNet通过残差连接（Residual Connection）解决了深度网络的退化问题，将网络深度推到了前所未有的152层，在ImageNet上取得了3.57%的Top-5错误率，首次超越人类水平。ResNet不仅彻底改变了深度网络的设计范式，更为后续Transformer、生成模型等架构的残差连接奠定了理论基础。

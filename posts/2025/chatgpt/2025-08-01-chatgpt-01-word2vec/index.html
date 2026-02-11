@@ -100,7 +100,27 @@ $$">
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/">
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\(', '\)']],
+      displayMath: [['$$', '$$'], ['\[', '\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script>
+
+<meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/">
   <meta property="og:site_name" content="Zhang&#39;s Blog">
   <meta property="og:title" content="【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命">
   <meta property="og:description" content=" 本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。

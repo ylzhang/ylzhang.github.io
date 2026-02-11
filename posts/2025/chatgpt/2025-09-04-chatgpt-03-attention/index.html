@@ -88,7 +88,27 @@ $$">
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/">
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\(', '\)']],
+      displayMath: [['$$', '$$'], ['\[', '\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script>
+
+<meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/">
   <meta property="og:site_name" content="Zhang&#39;s Blog">
   <meta property="og:title" content="【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破">
   <meta property="og:description" content=" 本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。

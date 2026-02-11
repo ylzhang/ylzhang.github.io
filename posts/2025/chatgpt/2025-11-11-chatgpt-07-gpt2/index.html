@@ -147,7 +147,27 @@ GPT-2在GPT-1基础上进行了显著的规模扩展：
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-11-11-chatgpt-07-gpt2/">
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\(', '\)']],
+      displayMath: [['$$', '$$'], ['\[', '\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script>
+
+<meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-11-11-chatgpt-07-gpt2/">
   <meta property="og:site_name" content="Zhang&#39;s Blog">
   <meta property="og:title" content="【ChatGPT时刻07】GPT-2：语言模型是无监督的多任务学习者">
   <meta property="og:description" content=" 本文解读的是Alec Radford等人于2019年发表的突破性论文《Language Models are Unsupervised Multitask Learners》，该论文提出了GPT-2模型，首次证明了足够大的语言模型可以在零样本（zero-shot）设置下执行多种任务，无需任何任务特定的微调。GPT-2的核心发现是：规模本身就是一种能力——当模型参数从1亿扩展到15亿时，涌现出了令人惊讶的零样本学习能力，这一发现为GPT-3的成功和ChatGPT的诞生奠定了关键基础。

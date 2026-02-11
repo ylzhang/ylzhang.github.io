@@ -125,7 +125,27 @@ $$">
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/">
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\(', '\)']],
+      displayMath: [['$$', '$$'], ['\[', '\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script>
+
+<meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/">
   <meta property="og:site_name" content="Zhang&#39;s Blog">
   <meta property="og:title" content="【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术">
   <meta property="og:description" content=" 本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型真正理解并遵循人类指令。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。

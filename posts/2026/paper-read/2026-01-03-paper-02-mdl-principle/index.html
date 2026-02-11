@@ -98,7 +98,27 @@ MDL原理采用两阶段编码方案。第一阶段编码模型 $M$，包括模�
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://blog.zhangky.com/posts/2026/paper-read/2026-01-03-paper-02-mdl-principle/">
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\(', '\)']],
+      displayMath: [['$$', '$$'], ['\[', '\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script>
+
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/paper-read/2026-01-03-paper-02-mdl-principle/">
   <meta property="og:site_name" content="Zhang&#39;s Blog">
   <meta property="og:title" content="【论文解读02】最小描述长度原理教程：模型选择的理论基础">
   <meta property="og:description" content=" 本文解读的是Jorma Rissanen于1978年发表的经典论文《Modeling by shortest data description》，该论文首次提出了最小描述长度（Minimum Description Length, MDL）原理，将模型选择问题转化为信息论中的数据压缩问题。MDL原理为奥卡姆剃刀提供了数学严谨的量化方法，连接了信息论、统计学和机器学习，成为现代AI模型选择、正则化和泛化理论的重要理论基础。

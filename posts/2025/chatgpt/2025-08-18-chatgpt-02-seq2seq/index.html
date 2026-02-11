@@ -91,7 +91,27 @@ $$">
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/">
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\(', '\)']],
+      displayMath: [['$$', '$$'], ['\[', '\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script>
+
+<meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/">
   <meta property="og:site_name" content="Zhang&#39;s Blog">
   <meta property="og:title" content="【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架">
   <meta property="og:description" content=" 本文解读的是Ilya Sutskever、Oriol Vinyals和Quoc V. Le于2014年发表的里程碑论文《Sequence to Sequence Learning with Neural Networks》，该论文提出了Seq2Seq框架，首次使用纯端到端的神经网络实现了高质量的机器翻译。作为OpenAI联合创始人的代表作，Seq2Seq不仅确立了编码器-解码器架构的标准范式，更是通向Transformer和GPT系列的关键一步——它证明了神经网络可以直接学习序列到序列的映射，无需手工设计特征或规则。

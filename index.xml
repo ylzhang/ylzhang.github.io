@@ -57,17 +57,17 @@ $$&lt;/p&gt;</description>
 &lt;hr&gt;
 &lt;h2 id=&#34;一先把数字拆开那一句里藏着的营收基数&#34;&gt;一、先把数字拆开：那一句里藏着的营收基数&lt;/h2&gt;
 &lt;p&gt;该案例的量化表述只给了四件事：ABC 原利润率 11%、提高 1/3 后约 15%、每年多赚 1.25 亿美元、合并后总利润 3.25 亿。&lt;strong&gt;没有直接给出 ABC 的营收&lt;/strong&gt;。但营收恰恰是「为什么动一点利润率就能多出这么多利润」的关键。&lt;/p&gt;
-&lt;p&gt;设 ABC 的&lt;strong&gt;运营营收&lt;/strong&gt;为 (R)（提效阶段先假设不扩营收，只做管理优化）：&lt;/p&gt;
+&lt;p&gt;设 ABC 的&lt;strong&gt;运营营收&lt;/strong&gt;为 $R$（提效阶段先假设不扩营收，只做管理优化）：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;利润率绝对提升：(15% - 11% = 4) 个百分点&lt;/li&gt;
+&lt;li&gt;利润率绝对提升：$15% - 11% = 4$ 个百分点&lt;/li&gt;
 &lt;li&gt;利润增量 = 营收 × 利润率提升，即&lt;br&gt;
-[
+$$
 \Delta \text{Profit} = R \times 4%
-]&lt;br&gt;
-代入 (\Delta \text{Profit} = 1.25) 亿（美元）：&lt;br&gt;
-[
+$$&lt;br&gt;
+代入 $\Delta \text{Profit} = 1.25$ 亿（美元）：&lt;br&gt;
+$$
 R = \frac{1.25}{0.04} = 31.25 \text{ 亿美元}
-]&lt;/li&gt;
+$$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;也就是说，ABC 是一家&lt;strong&gt;营收约 31 亿、但运营利润率只有 11%&lt;/strong&gt; 的公司。&lt;strong&gt;小幅度利润率提升 × 大营收基数 = 大额绝对利润增量&lt;/strong&gt;。这是并购价值的一个数学来源：同样的 4 个百分点，若 (R) 只有 3 亿，增量只有 0.12 亿；若 (R) 是 31 亿，增量才是 1.25 亿。CEO 和投资者若只盯「利润率提高了多少」，而忽略「利润是在多大的营收基数上算出来的」，就会低估或高估一次提效或一次并购的真实影响。&lt;/p&gt;</description>
     </item>
