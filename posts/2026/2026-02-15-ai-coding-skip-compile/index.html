@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AI 编程的终态肯定不是 Tab：直接要二进制 | Zhang&#39;s Blog</title>
+<meta name="keywords" content="AI">
+<meta name="description" content="
+你大概已经习惯用 Tab 补全下一行代码了——但 AI 编程的终态，多半不是一直这样「补下去」。真正的方向，是有一天你不再写那一行行代码，而是用自然语言直接向 AI 要一个优化好的二进制；而这件事的引爆点，很可能就在 2026 年。
+今年 2 月初，埃隆·马斯克在 xAI 活动上的一段视频被剪成片段，在 X 上疯传。他在台上说：今年年底前，你可能连代码都不用写了，AI 会直接生成二进制，而且比任何编译器都做得更优；Grok 的代码能力，两三个月内就会到业界顶尖。原话不长，四十来秒，底下已经吵成一片：有人喊「编程奇点」来了，也有人反问——AI 直接吐机器码，你怎么调试、怎么审？吵的其实是同一件事：AI 正在从「帮你写源代码」的助手，变成「从意图到可执行文件」的管道。不再是你写、它补全，而是你提需求、它直接给出能跑的二进制。 传统开发里，编译和优化往往吃掉 20%～30% 的周期；一旦这一步被 AI 吞掉，从自然语言到可运行结果，中间那层「人类写码再编译」就会越来越薄。Anthropic 年初那份报告里已经提到，有团队在用 AI 跑通从测试、调试到部署的整条线；OpenAI 也披露过用 GPT-5.3-Codex 搭出零人类代码的完整应用。下面顺着这条线，看看技术已经铺到哪儿了、卡在哪儿，以及 2026 年底前我们大概会看到什么。
+
+马斯克在说什么：从「写代码」到「要二进制」
+
+马斯克那几句，说白了就是把「编程」从「写高阶语言、再交给编译器」往前推了一步：变成用自然语言描述你要什么，AI 直接给你可执行文件。之所以一石激起千层浪，是因为这不再只是「更好的补全」，而是换了一套玩法。有人在 X 上回了一句：「机器码调试？那才是地狱周。」——可解释性和可控性，正是大家最慌的地方。但大厂已经在往这条路上走了：OpenAI 的 Codex 线已经能端到端生成小型应用，GPT-5.3-Codex 甚至搭出过零人类代码的完整 app；Anthropic 的 Claude Code 据公开信息有约九成自身代码是 Claude 写的；DeepMind 的 Gemini 也在做「自然语言 → 可运行产物」的代理。编译在过去几十年里一直是人和机器之间的那道桥，也吃掉不少开发时间；一旦 AI 把整条编译管道都内化了，写软件就会越来越像「声明意图」，而不是一行行敲代码。
+
+技术路径已经铺开：代理工作流与神经编译
+「跳过编译」要解决的无非一件事：自然语言那么模糊，二进制又那么精确，中间怎么接上。眼下能看到两条路。一条是多步 AI 流水线：意图先被解析成语义图，再有一层做优化（类似传统编译器的多 pass，只是换成 AI 驱动），最后有一层专门产出机器码，针对 ARM 或 x86。Anthropic 的 Claude Code 就是这一挂的——不只生成代码，还自己调试、自己测；他们披露过，从「建一个实时聊天服务器」到可运行二进制，在 LangGraph 的代理链上大概 3～5 轮迭代就够，比手动编译快出一个数量级。另一条更激进，叫神经编译：让模型直接学「自然语言或高层语义 → 机器码」的映射。DeepMind 的 AlphaEvolve、Gemini Deep Think 用进化算法加自然语言验证器迭代候选解，在数学证明上已经做到九成多准确率；这套思路要是搬到代码和二进制优化上，就可以绕过 LLVM 之类传统工具链去做分支预测、缓存亲和性。MIT 的 EnCompass 则用回溯让代理多试几次 LLM 输出、挑出最佳路径，把「生成—验证」闭环做实。再加上 OpenAI 和 Cerebras 在芯片上的合作，生成速度提了一截，代理在秒级内吐出「近即时」二进制已经可以想象；LangGraph 从单代理撑到上万并发，也就半年左右。这条代理链要接上真实世界，还得有统一的「工具契约」——协议层也在动：MCP（Model Context Protocol）把模型和工具、数据源对接标准化，Chrome for Developers 则已开放 WebMCP 的 early preview，让网站和前端能以结构化工具的形式暴露给 AI 代理（通过 navigator.modelContext 等），代理不用再靠截图或爬 DOM，而是按约定调用，可审计、可管控。直接二进制生成，已经从论文和原型，摸到了工程验证的门槛。">
+<meta name="author" content="ZHANG.z">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/2026-02-15-ai-coding-skip-compile/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.79bfb41aad32a688cd2a56e0fd43dad023bee6a985c251ecb095110e836bb4b7.css" integrity="sha256-eb&#43;0Gq0ypojNKlbg/UPa0CO&#43;5qmFwlHssJURDoNrtLc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/2026-02-15-ai-coding-skip-compile/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/2026-02-15-ai-coding-skip-compile/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="AI 编程的终态肯定不是 Tab：直接要二进制">
+  <meta property="og:description" content="
+你大概已经习惯用 Tab 补全下一行代码了——但 AI 编程的终态，多半不是一直这样「补下去」。真正的方向，是有一天你不再写那一行行代码，而是用自然语言直接向 AI 要一个优化好的二进制；而这件事的引爆点，很可能就在 2026 年。
+今年 2 月初，埃隆·马斯克在 xAI 活动上的一段视频被剪成片段，在 X 上疯传。他在台上说：今年年底前，你可能连代码都不用写了，AI 会直接生成二进制，而且比任何编译器都做得更优；Grok 的代码能力，两三个月内就会到业界顶尖。原话不长，四十来秒，底下已经吵成一片：有人喊「编程奇点」来了，也有人反问——AI 直接吐机器码，你怎么调试、怎么审？吵的其实是同一件事：AI 正在从「帮你写源代码」的助手，变成「从意图到可执行文件」的管道。不再是你写、它补全，而是你提需求、它直接给出能跑的二进制。 传统开发里，编译和优化往往吃掉 20%～30% 的周期；一旦这一步被 AI 吞掉，从自然语言到可运行结果，中间那层「人类写码再编译」就会越来越薄。Anthropic 年初那份报告里已经提到，有团队在用 AI 跑通从测试、调试到部署的整条线；OpenAI 也披露过用 GPT-5.3-Codex 搭出零人类代码的完整应用。下面顺着这条线，看看技术已经铺到哪儿了、卡在哪儿，以及 2026 年底前我们大概会看到什么。
+马斯克在说什么：从「写代码」到「要二进制」 马斯克那几句，说白了就是把「编程」从「写高阶语言、再交给编译器」往前推了一步：变成用自然语言描述你要什么，AI 直接给你可执行文件。之所以一石激起千层浪，是因为这不再只是「更好的补全」，而是换了一套玩法。有人在 X 上回了一句：「机器码调试？那才是地狱周。」——可解释性和可控性，正是大家最慌的地方。但大厂已经在往这条路上走了：OpenAI 的 Codex 线已经能端到端生成小型应用，GPT-5.3-Codex 甚至搭出过零人类代码的完整 app；Anthropic 的 Claude Code 据公开信息有约九成自身代码是 Claude 写的；DeepMind 的 Gemini 也在做「自然语言 → 可运行产物」的代理。编译在过去几十年里一直是人和机器之间的那道桥，也吃掉不少开发时间；一旦 AI 把整条编译管道都内化了，写软件就会越来越像「声明意图」，而不是一行行敲代码。
+技术路径已经铺开：代理工作流与神经编译 「跳过编译」要解决的无非一件事：自然语言那么模糊，二进制又那么精确，中间怎么接上。眼下能看到两条路。一条是多步 AI 流水线：意图先被解析成语义图，再有一层做优化（类似传统编译器的多 pass，只是换成 AI 驱动），最后有一层专门产出机器码，针对 ARM 或 x86。Anthropic 的 Claude Code 就是这一挂的——不只生成代码，还自己调试、自己测；他们披露过，从「建一个实时聊天服务器」到可运行二进制，在 LangGraph 的代理链上大概 3～5 轮迭代就够，比手动编译快出一个数量级。另一条更激进，叫神经编译：让模型直接学「自然语言或高层语义 → 机器码」的映射。DeepMind 的 AlphaEvolve、Gemini Deep Think 用进化算法加自然语言验证器迭代候选解，在数学证明上已经做到九成多准确率；这套思路要是搬到代码和二进制优化上，就可以绕过 LLVM 之类传统工具链去做分支预测、缓存亲和性。MIT 的 EnCompass 则用回溯让代理多试几次 LLM 输出、挑出最佳路径，把「生成—验证」闭环做实。再加上 OpenAI 和 Cerebras 在芯片上的合作，生成速度提了一截，代理在秒级内吐出「近即时」二进制已经可以想象；LangGraph 从单代理撑到上万并发，也就半年左右。这条代理链要接上真实世界，还得有统一的「工具契约」——协议层也在动：MCP（Model Context Protocol）把模型和工具、数据源对接标准化，Chrome for Developers 则已开放 WebMCP 的 early preview，让网站和前端能以结构化工具的形式暴露给 AI 代理（通过 navigator.modelContext 等），代理不用再靠截图或爬 DOM，而是按约定调用，可审计、可管控。直接二进制生成，已经从论文和原型，摸到了工程验证的门槛。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-15T19:00:00+08:00">
+    <meta property="article:modified_time" content="2026-02-15T19:00:00+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="编程">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="AI 编程的终态肯定不是 Tab：直接要二进制">
+<meta name="twitter:description" content="
+你大概已经习惯用 Tab 补全下一行代码了——但 AI 编程的终态，多半不是一直这样「补下去」。真正的方向，是有一天你不再写那一行行代码，而是用自然语言直接向 AI 要一个优化好的二进制；而这件事的引爆点，很可能就在 2026 年。
+今年 2 月初，埃隆·马斯克在 xAI 活动上的一段视频被剪成片段，在 X 上疯传。他在台上说：今年年底前，你可能连代码都不用写了，AI 会直接生成二进制，而且比任何编译器都做得更优；Grok 的代码能力，两三个月内就会到业界顶尖。原话不长，四十来秒，底下已经吵成一片：有人喊「编程奇点」来了，也有人反问——AI 直接吐机器码，你怎么调试、怎么审？吵的其实是同一件事：AI 正在从「帮你写源代码」的助手，变成「从意图到可执行文件」的管道。不再是你写、它补全，而是你提需求、它直接给出能跑的二进制。 传统开发里，编译和优化往往吃掉 20%～30% 的周期；一旦这一步被 AI 吞掉，从自然语言到可运行结果，中间那层「人类写码再编译」就会越来越薄。Anthropic 年初那份报告里已经提到，有团队在用 AI 跑通从测试、调试到部署的整条线；OpenAI 也披露过用 GPT-5.3-Codex 搭出零人类代码的完整应用。下面顺着这条线，看看技术已经铺到哪儿了、卡在哪儿，以及 2026 年底前我们大概会看到什么。
+
+马斯克在说什么：从「写代码」到「要二进制」
+
+马斯克那几句，说白了就是把「编程」从「写高阶语言、再交给编译器」往前推了一步：变成用自然语言描述你要什么，AI 直接给你可执行文件。之所以一石激起千层浪，是因为这不再只是「更好的补全」，而是换了一套玩法。有人在 X 上回了一句：「机器码调试？那才是地狱周。」——可解释性和可控性，正是大家最慌的地方。但大厂已经在往这条路上走了：OpenAI 的 Codex 线已经能端到端生成小型应用，GPT-5.3-Codex 甚至搭出过零人类代码的完整 app；Anthropic 的 Claude Code 据公开信息有约九成自身代码是 Claude 写的；DeepMind 的 Gemini 也在做「自然语言 → 可运行产物」的代理。编译在过去几十年里一直是人和机器之间的那道桥，也吃掉不少开发时间；一旦 AI 把整条编译管道都内化了，写软件就会越来越像「声明意图」，而不是一行行敲代码。
+
+技术路径已经铺开：代理工作流与神经编译
+「跳过编译」要解决的无非一件事：自然语言那么模糊，二进制又那么精确，中间怎么接上。眼下能看到两条路。一条是多步 AI 流水线：意图先被解析成语义图，再有一层做优化（类似传统编译器的多 pass，只是换成 AI 驱动），最后有一层专门产出机器码，针对 ARM 或 x86。Anthropic 的 Claude Code 就是这一挂的——不只生成代码，还自己调试、自己测；他们披露过，从「建一个实时聊天服务器」到可运行二进制，在 LangGraph 的代理链上大概 3～5 轮迭代就够，比手动编译快出一个数量级。另一条更激进，叫神经编译：让模型直接学「自然语言或高层语义 → 机器码」的映射。DeepMind 的 AlphaEvolve、Gemini Deep Think 用进化算法加自然语言验证器迭代候选解，在数学证明上已经做到九成多准确率；这套思路要是搬到代码和二进制优化上，就可以绕过 LLVM 之类传统工具链去做分支预测、缓存亲和性。MIT 的 EnCompass 则用回溯让代理多试几次 LLM 输出、挑出最佳路径，把「生成—验证」闭环做实。再加上 OpenAI 和 Cerebras 在芯片上的合作，生成速度提了一截，代理在秒级内吐出「近即时」二进制已经可以想象；LangGraph 从单代理撑到上万并发，也就半年左右。这条代理链要接上真实世界，还得有统一的「工具契约」——协议层也在动：MCP（Model Context Protocol）把模型和工具、数据源对接标准化，Chrome for Developers 则已开放 WebMCP 的 early preview，让网站和前端能以结构化工具的形式暴露给 AI 代理（通过 navigator.modelContext 等），代理不用再靠截图或爬 DOM，而是按约定调用，可审计、可管控。直接二进制生成，已经从论文和原型，摸到了工程验证的门槛。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "AI 编程的终态肯定不是 Tab：直接要二进制",
+      "item": "https://blog.zhangky.com/posts/2026/2026-02-15-ai-coding-skip-compile/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI 编程的终态肯定不是 Tab：直接要二进制",
+  "name": "AI 编程的终态肯定不是 Tab：直接要二进制",
+  "description": "\n你大概已经习惯用 Tab 补全下一行代码了——但 AI 编程的终态，多半不是一直这样「补下去」。真正的方向，是有一天你不再写那一行行代码，而是用自然语言直接向 AI 要一个优化好的二进制；而这件事的引爆点，很可能就在 2026 年。\n今年 2 月初，埃隆·马斯克在 xAI 活动上的一段视频被剪成片段，在 X 上疯传。他在台上说：今年年底前，你可能连代码都不用写了，AI 会直接生成二进制，而且比任何编译器都做得更优；Grok 的代码能力，两三个月内就会到业界顶尖。原话不长，四十来秒，底下已经吵成一片：有人喊「编程奇点」来了，也有人反问——AI 直接吐机器码，你怎么调试、怎么审？吵的其实是同一件事：AI 正在从「帮你写源代码」的助手，变成「从意图到可执行文件」的管道。不再是你写、它补全，而是你提需求、它直接给出能跑的二进制。 传统开发里，编译和优化往往吃掉 20%～30% 的周期；一旦这一步被 AI 吞掉，从自然语言到可运行结果，中间那层「人类写码再编译」就会越来越薄。Anthropic 年初那份报告里已经提到，有团队在用 AI 跑通从测试、调试到部署的整条线；OpenAI 也披露过用 GPT-5.3-Codex 搭出零人类代码的完整应用。下面顺着这条线，看看技术已经铺到哪儿了、卡在哪儿，以及 2026 年底前我们大概会看到什么。\n马斯克在说什么：从「写代码」到「要二进制」 马斯克那几句，说白了就是把「编程」从「写高阶语言、再交给编译器」往前推了一步：变成用自然语言描述你要什么，AI 直接给你可执行文件。之所以一石激起千层浪，是因为这不再只是「更好的补全」，而是换了一套玩法。有人在 X 上回了一句：「机器码调试？那才是地狱周。」——可解释性和可控性，正是大家最慌的地方。但大厂已经在往这条路上走了：OpenAI 的 Codex 线已经能端到端生成小型应用，GPT-5.3-Codex 甚至搭出过零人类代码的完整 app；Anthropic 的 Claude Code 据公开信息有约九成自身代码是 Claude 写的；DeepMind 的 Gemini 也在做「自然语言 → 可运行产物」的代理。编译在过去几十年里一直是人和机器之间的那道桥，也吃掉不少开发时间；一旦 AI 把整条编译管道都内化了，写软件就会越来越像「声明意图」，而不是一行行敲代码。\n技术路径已经铺开：代理工作流与神经编译 「跳过编译」要解决的无非一件事：自然语言那么模糊，二进制又那么精确，中间怎么接上。眼下能看到两条路。一条是多步 AI 流水线：意图先被解析成语义图，再有一层做优化（类似传统编译器的多 pass，只是换成 AI 驱动），最后有一层专门产出机器码，针对 ARM 或 x86。Anthropic 的 Claude Code 就是这一挂的——不只生成代码，还自己调试、自己测；他们披露过，从「建一个实时聊天服务器」到可运行二进制，在 LangGraph 的代理链上大概 3～5 轮迭代就够，比手动编译快出一个数量级。另一条更激进，叫神经编译：让模型直接学「自然语言或高层语义 → 机器码」的映射。DeepMind 的 AlphaEvolve、Gemini Deep Think 用进化算法加自然语言验证器迭代候选解，在数学证明上已经做到九成多准确率；这套思路要是搬到代码和二进制优化上，就可以绕过 LLVM 之类传统工具链去做分支预测、缓存亲和性。MIT 的 EnCompass 则用回溯让代理多试几次 LLM 输出、挑出最佳路径，把「生成—验证」闭环做实。再加上 OpenAI 和 Cerebras 在芯片上的合作，生成速度提了一截，代理在秒级内吐出「近即时」二进制已经可以想象；LangGraph 从单代理撑到上万并发，也就半年左右。这条代理链要接上真实世界，还得有统一的「工具契约」——协议层也在动：MCP（Model Context Protocol）把模型和工具、数据源对接标准化，Chrome for Developers 则已开放 WebMCP 的 early preview，让网站和前端能以结构化工具的形式暴露给 AI 代理（通过 navigator.modelContext 等），代理不用再靠截图或爬 DOM，而是按约定调用，可审计、可管控。直接二进制生成，已经从论文和原型，摸到了工程验证的门槛。\n",
+  "keywords": [
+    "AI"
+  ],
+  "articleBody": "\n你大概已经习惯用 Tab 补全下一行代码了——但 AI 编程的终态，多半不是一直这样「补下去」。真正的方向，是有一天你不再写那一行行代码，而是用自然语言直接向 AI 要一个优化好的二进制；而这件事的引爆点，很可能就在 2026 年。\n今年 2 月初，埃隆·马斯克在 xAI 活动上的一段视频被剪成片段，在 X 上疯传。他在台上说：今年年底前，你可能连代码都不用写了，AI 会直接生成二进制，而且比任何编译器都做得更优；Grok 的代码能力，两三个月内就会到业界顶尖。原话不长，四十来秒，底下已经吵成一片：有人喊「编程奇点」来了，也有人反问——AI 直接吐机器码，你怎么调试、怎么审？吵的其实是同一件事：AI 正在从「帮你写源代码」的助手，变成「从意图到可执行文件」的管道。不再是你写、它补全，而是你提需求、它直接给出能跑的二进制。 传统开发里，编译和优化往往吃掉 20%～30% 的周期；一旦这一步被 AI 吞掉，从自然语言到可运行结果，中间那层「人类写码再编译」就会越来越薄。Anthropic 年初那份报告里已经提到，有团队在用 AI 跑通从测试、调试到部署的整条线；OpenAI 也披露过用 GPT-5.3-Codex 搭出零人类代码的完整应用。下面顺着这条线，看看技术已经铺到哪儿了、卡在哪儿，以及 2026 年底前我们大概会看到什么。\n马斯克在说什么：从「写代码」到「要二进制」 马斯克那几句，说白了就是把「编程」从「写高阶语言、再交给编译器」往前推了一步：变成用自然语言描述你要什么，AI 直接给你可执行文件。之所以一石激起千层浪，是因为这不再只是「更好的补全」，而是换了一套玩法。有人在 X 上回了一句：「机器码调试？那才是地狱周。」——可解释性和可控性，正是大家最慌的地方。但大厂已经在往这条路上走了：OpenAI 的 Codex 线已经能端到端生成小型应用，GPT-5.3-Codex 甚至搭出过零人类代码的完整 app；Anthropic 的 Claude Code 据公开信息有约九成自身代码是 Claude 写的；DeepMind 的 Gemini 也在做「自然语言 → 可运行产物」的代理。编译在过去几十年里一直是人和机器之间的那道桥，也吃掉不少开发时间；一旦 AI 把整条编译管道都内化了，写软件就会越来越像「声明意图」，而不是一行行敲代码。\n技术路径已经铺开：代理工作流与神经编译 「跳过编译」要解决的无非一件事：自然语言那么模糊，二进制又那么精确，中间怎么接上。眼下能看到两条路。一条是多步 AI 流水线：意图先被解析成语义图，再有一层做优化（类似传统编译器的多 pass，只是换成 AI 驱动），最后有一层专门产出机器码，针对 ARM 或 x86。Anthropic 的 Claude Code 就是这一挂的——不只生成代码，还自己调试、自己测；他们披露过，从「建一个实时聊天服务器」到可运行二进制，在 LangGraph 的代理链上大概 3～5 轮迭代就够，比手动编译快出一个数量级。另一条更激进，叫神经编译：让模型直接学「自然语言或高层语义 → 机器码」的映射。DeepMind 的 AlphaEvolve、Gemini Deep Think 用进化算法加自然语言验证器迭代候选解，在数学证明上已经做到九成多准确率；这套思路要是搬到代码和二进制优化上，就可以绕过 LLVM 之类传统工具链去做分支预测、缓存亲和性。MIT 的 EnCompass 则用回溯让代理多试几次 LLM 输出、挑出最佳路径，把「生成—验证」闭环做实。再加上 OpenAI 和 Cerebras 在芯片上的合作，生成速度提了一截，代理在秒级内吐出「近即时」二进制已经可以想象；LangGraph 从单代理撑到上万并发，也就半年左右。这条代理链要接上真实世界，还得有统一的「工具契约」——协议层也在动：MCP（Model Context Protocol）把模型和工具、数据源对接标准化，Chrome for Developers 则已开放 WebMCP 的 early preview，让网站和前端能以结构化工具的形式暴露给 AI 代理（通过 navigator.modelContext 等），代理不用再靠截图或爬 DOM，而是按约定调用，可审计、可管控。直接二进制生成，已经从论文和原型，摸到了工程验证的门槛。\n黑箱与安全：跳过编译的代价 直接吐二进制，爽是爽了，代价也跟着来了。头一个就是可解释性：机器码不像源代码能逐行读，调试很容易变成黑箱猜谜。代理越自治，幻觉和认知偏差的讨论就越多——Claude 之前那次宪法更新（也就是模型行为准则的迭代）就引发过行为偏移的争议，Reddit 上「机器码调试才是地狱」的吐槽一抓一把。安全也一样敏感：二进制要是绕过常规的代码审查，后门和恶意逻辑更容易藏身；OpenAI 在推 Codex 类能力时已经把 cyber 风险写进系统卡评估，Fortune 等报道也提到直接二进制生成会放大供应链和部署上的安全压力。Forbes 今年预测自动化可能取代大约一成编码岗位，伦理和就业压力会逼着大家去做「可控自治」——比如用宪法 AI 把人类价值嵌进代理的约束里，不让它跑偏；Anthropic 的透明与安全中心就在搞这类事。所以跳过编译带来效率跃升，也会把「可审计、可控」推成刚需；行业在用新的评估和约束慢慢打补丁。\n直接要二进制：技术上可行吗，怎么走？ 从技术上看，这件事已经谈不上「能不能成」，而是「从哪条路先成、你我能怎么跟」。前面说的两条路——多步代理流水线、神经编译——都有实打实的雏形：LangGraph 上 3～5 轮迭代就能从需求到可执行，DeepMind 那套在数学证明上九成多准确率，再往代码和二进制上迁一层，工程上要填的是数据、验证和可控性，不是从零发明。黑箱和安全的坑也有解：可解释性靠「生成—验证」闭环和人类可读的中间表示兜底，安全靠宪法 AI 和审查卡位。所以可行是站得住的；差别只在于谁先在哪条链路上把「意图 → 二进制」跑顺、又控得住。\n怎么走更值得推一推。对团队来说，不必等「全自动从自然语言到机器码」——可以先在边界清晰的地方用起来：内部工具、脚本、小固件，需求用自然语言或高层 spec 写清楚，让代理产出可执行或可部署物，人在关键节点做验证和放行。像 WebMCP 这类把「网站 → 代理可调用工具」标准化的协议（Chrome 已提供 early preview），正在让代理与现有前端、服务的边界更清晰，迁移和回滚都有据可查，对工程化和安全都是加分项。这样你既在练「要结果、给约束」的肌肉，又在积累可审计的中间层，真到了「直接二进制」普及那天，你已经在管管道而不是被管道管。说到底，AI 编程的终态不是取代写代码的人，而是把编程从「写」变成「要」：你要结果和边界，AI 把意图变成机器能跑的东西；谁先把这根管道打通又控得稳，谁就在下一轮效率竞赛里占先。2026 年要验证的，无非是这条管道最终是「自然语言—代理—硬件」一气呵成，还是中间永远留一层人类可读的表示——两种都算「可行」，只是落地姿势不同。\n我自己写了这么多年代码，对这个方向的判断是：这股势头压不住，我会把更多精力放在跟进和参与上。\n我的路径思考大致是这样。第一，一次性生成和超大规模工程要分开看。单次从自然语言要一个能跑的二进制，难度已经下来了，演示和 PoC 会越来越多；难的是存量系统怎么迁——几十上百个服务、多年的协作习惯、发布与回滚的流程，不可能某天一刀切「全部改成意图驱动」，必须有一条可走的迁移路：先哪些模块、哪些边界交给代理，哪些保留人类写码和审查，中间层怎么保留可读、可审计的表示，再逐步扩大。这件事没有现成答案，我会一边跟业界进展，一边在自己能影响的范围内试。\n第二，安全不能事后补。直接二进制一旦铺开，可审计、可回滚、可约束都得提前想好；否则规模一上去，后门、供应链、权限会一起爆。所以我更倾向在「怎么走」的时候就把安全设计进去：人在关键节点验证和放行、协议层把代理和工具链的边界划清楚（这也是为什么我会盯 WebMCP、MCP 这类标准化——它们直接影响到代理能碰什么、不能碰什么、调用链怎么追）、宪法 AI 和审查卡位尽早进 pipeline，而不是等出了事再打补丁。\n第三，协议与平台层在我自己的优先级里很高。WebMCP、MCP 这类把代理和工具链对接标准化的进展，会直接决定「意图 → 可执行」这根管道能不能在真实工程里接得住、控得稳。Chrome 已经给 WebMCP 开了 early preview，我会花时间上手看看：网站和前端怎么暴露成代理可调用的工具、迁移和回滚怎么有据可查。\n题图来源：xAI 活动视频截图（公开画面）\nFIN - ",
+  "wordCount" : "167",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-02-15T19:00:00+08:00",
+  "dateModified": "2026-02-15T19:00:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "ZHANG.z"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/2026-02-15-ai-coding-skip-compile/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhang's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      AI 编程的终态肯定不是 Tab：直接要二进制
+    </h1>
+    <div class="post-meta">   ZHANG.z | <span title='2026-02-15 19:00:00 +0800 HKT'>February 15, 2026</span> | <span>15 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/2026-02-15-ai-coding-skip-compile.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e9%a9%ac%e6%96%af%e5%85%8b%e5%9c%a8%e8%af%b4%e4%bb%80%e4%b9%88%e4%bb%8e%e5%86%99%e4%bb%a3%e7%a0%81%e5%88%b0%e8%a6%81%e4%ba%8c%e8%bf%9b%e5%88%b6" aria-label="马斯克在说什么：从「写代码」到「要二进制」">马斯克在说什么：从「写代码」到「要二进制」</a></li>
+                <li>
+                    <a href="#%e6%8a%80%e6%9c%af%e8%b7%af%e5%be%84%e5%b7%b2%e7%bb%8f%e9%93%ba%e5%bc%80%e4%bb%a3%e7%90%86%e5%b7%a5%e4%bd%9c%e6%b5%81%e4%b8%8e%e7%a5%9e%e7%bb%8f%e7%bc%96%e8%af%91" aria-label="技术路径已经铺开：代理工作流与神经编译">技术路径已经铺开：代理工作流与神经编译</a></li>
+                <li>
+                    <a href="#%e9%bb%91%e7%ae%b1%e4%b8%8e%e5%ae%89%e5%85%a8%e8%b7%b3%e8%bf%87%e7%bc%96%e8%af%91%e7%9a%84%e4%bb%a3%e4%bb%b7" aria-label="黑箱与安全：跳过编译的代价">黑箱与安全：跳过编译的代价</a></li>
+                <li>
+                    <a href="#%e7%9b%b4%e6%8e%a5%e8%a6%81%e4%ba%8c%e8%bf%9b%e5%88%b6%e6%8a%80%e6%9c%af%e4%b8%8a%e5%8f%af%e8%a1%8c%e5%90%97%e6%80%8e%e4%b9%88%e8%b5%b0" aria-label="直接要二进制：技术上可行吗，怎么走？">直接要二进制：技术上可行吗，怎么走？</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><img alt="AI 编程的终态：从 Tab 到直接要二进制" loading="lazy" src="/images/posts/2026/02/ai-coding-skip-compile-cover.png"></p>
+<p>你大概已经习惯用 Tab 补全下一行代码了——但 AI 编程的终态，多半不是一直这样「补下去」。真正的方向，是有一天你不再写那一行行代码，而是用自然语言直接向 AI 要一个优化好的二进制；而这件事的引爆点，很可能就在 2026 年。</p>
+<p>今年 2 月初，埃隆·马斯克在 xAI 活动上的一段视频被剪成片段，在 X 上疯传。他在台上说：今年年底前，你可能连代码都不用写了，AI 会直接生成二进制，而且比任何编译器都做得更优；Grok 的代码能力，两三个月内就会到业界顶尖。原话不长，四十来秒，底下已经吵成一片：有人喊「编程奇点」来了，也有人反问——AI 直接吐机器码，你怎么调试、怎么审？吵的其实是同一件事：AI 正在从「帮你写源代码」的助手，变成「从意图到可执行文件」的管道。<strong>不再是你写、它补全，而是你提需求、它直接给出能跑的二进制。</strong> 传统开发里，编译和优化往往吃掉 20%～30% 的周期；一旦这一步被 AI 吞掉，从自然语言到可运行结果，中间那层「人类写码再编译」就会越来越薄。Anthropic 年初那份报告里已经提到，有团队在用 AI 跑通从测试、调试到部署的整条线；OpenAI 也披露过用 GPT-5.3-Codex 搭出零人类代码的完整应用。下面顺着这条线，看看技术已经铺到哪儿了、卡在哪儿，以及 2026 年底前我们大概会看到什么。</p>
+<hr>
+<h2 id="马斯克在说什么从写代码到要二进制">马斯克在说什么：从「写代码」到「要二进制」<a hidden class="anchor" aria-hidden="true" href="#马斯克在说什么从写代码到要二进制">#</a></h2>
+<p><img alt="Musk的发言" loading="lazy" src="/images/posts/2026/02/ai-coding-skip-compile-musk.png"></p>
+<p>马斯克那几句，说白了就是把「编程」从「写高阶语言、再交给编译器」往前推了一步：变成用自然语言描述你要什么，AI 直接给你可执行文件。之所以一石激起千层浪，是因为这不再只是「更好的补全」，而是换了一套玩法。有人在 X 上回了一句：「机器码调试？那才是地狱周。」——可解释性和可控性，正是大家最慌的地方。但大厂已经在往这条路上走了：OpenAI 的 Codex 线已经能端到端生成小型应用，GPT-5.3-Codex 甚至搭出过零人类代码的完整 app；Anthropic 的 Claude Code 据公开信息有约九成自身代码是 Claude 写的；DeepMind 的 Gemini 也在做「自然语言 → 可运行产物」的代理。编译在过去几十年里一直是人和机器之间的那道桥，也吃掉不少开发时间；一旦 AI 把整条编译管道都内化了，写软件就会越来越像「声明意图」，而不是一行行敲代码。</p>
+<hr>
+<h2 id="技术路径已经铺开代理工作流与神经编译">技术路径已经铺开：代理工作流与神经编译<a hidden class="anchor" aria-hidden="true" href="#技术路径已经铺开代理工作流与神经编译">#</a></h2>
+<p>「跳过编译」要解决的无非一件事：自然语言那么模糊，二进制又那么精确，中间怎么接上。眼下能看到两条路。一条是<strong>多步 AI 流水线</strong>：意图先被解析成语义图，再有一层做优化（类似传统编译器的多 pass，只是换成 AI 驱动），最后有一层专门产出机器码，针对 ARM 或 x86。Anthropic 的 Claude Code 就是这一挂的——不只生成代码，还自己调试、自己测；他们披露过，从「建一个实时聊天服务器」到可运行二进制，在 LangGraph 的代理链上大概 3～5 轮迭代就够，比手动编译快出一个数量级。另一条更激进，叫<strong>神经编译</strong>：让模型直接学「自然语言或高层语义 → 机器码」的映射。DeepMind 的 AlphaEvolve、Gemini Deep Think 用进化算法加自然语言验证器迭代候选解，在数学证明上已经做到九成多准确率；这套思路要是搬到代码和二进制优化上，就可以绕过 LLVM 之类传统工具链去做分支预测、缓存亲和性。MIT 的 EnCompass 则用回溯让代理多试几次 LLM 输出、挑出最佳路径，把「生成—验证」闭环做实。再加上 OpenAI 和 Cerebras 在芯片上的合作，生成速度提了一截，代理在秒级内吐出「近即时」二进制已经可以想象；LangGraph 从单代理撑到上万并发，也就半年左右。这条代理链要接上真实世界，还得有统一的「工具契约」——协议层也在动：MCP（Model Context Protocol）把模型和工具、数据源对接标准化，Chrome for Developers 则已开放 <strong>WebMCP</strong> 的 early preview，让网站和前端能以结构化工具的形式暴露给 AI 代理（通过 <code>navigator.modelContext</code> 等），代理不用再靠截图或爬 DOM，而是按约定调用，可审计、可管控。直接二进制生成，已经从论文和原型，摸到了工程验证的门槛。</p>
+<hr>
+<h2 id="黑箱与安全跳过编译的代价">黑箱与安全：跳过编译的代价<a hidden class="anchor" aria-hidden="true" href="#黑箱与安全跳过编译的代价">#</a></h2>
+<p>直接吐二进制，爽是爽了，代价也跟着来了。头一个就是<strong>可解释性</strong>：机器码不像源代码能逐行读，调试很容易变成黑箱猜谜。代理越自治，幻觉和认知偏差的讨论就越多——Claude 之前那次宪法更新（也就是模型行为准则的迭代）就引发过行为偏移的争议，Reddit 上「机器码调试才是地狱」的吐槽一抓一把。<strong>安全</strong>也一样敏感：二进制要是绕过常规的代码审查，后门和恶意逻辑更容易藏身；OpenAI 在推 Codex 类能力时已经把 cyber 风险写进系统卡评估，Fortune 等报道也提到直接二进制生成会放大供应链和部署上的安全压力。Forbes 今年预测自动化可能取代大约一成编码岗位，伦理和就业压力会逼着大家去做「可控自治」——比如用宪法 AI 把人类价值嵌进代理的约束里，不让它跑偏；Anthropic 的透明与安全中心就在搞这类事。所以跳过编译带来效率跃升，也会把「可审计、可控」推成刚需；行业在用新的评估和约束慢慢打补丁。</p>
+<hr>
+<h2 id="直接要二进制技术上可行吗怎么走">直接要二进制：技术上可行吗，怎么走？<a hidden class="anchor" aria-hidden="true" href="#直接要二进制技术上可行吗怎么走">#</a></h2>
+<p>从技术上看，这件事已经谈不上「能不能成」，而是「从哪条路先成、你我能怎么跟」。前面说的两条路——多步代理流水线、神经编译——都有实打实的雏形：LangGraph 上 3～5 轮迭代就能从需求到可执行，DeepMind 那套在数学证明上九成多准确率，再往代码和二进制上迁一层，工程上要填的是数据、验证和可控性，不是从零发明。黑箱和安全的坑也有解：可解释性靠「生成—验证」闭环和人类可读的中间表示兜底，安全靠宪法 AI 和审查卡位。所以<strong>可行</strong>是站得住的；差别只在于谁先在哪条链路上把「意图 → 二进制」跑顺、又控得住。</p>
+<p><strong>怎么走</strong>更值得推一推。对团队来说，不必等「全自动从自然语言到机器码」——可以先在边界清晰的地方用起来：内部工具、脚本、小固件，需求用自然语言或高层 spec 写清楚，让代理产出可执行或可部署物，人在关键节点做验证和放行。像 WebMCP 这类把「网站 → 代理可调用工具」标准化的协议（Chrome 已提供 early preview），正在让代理与现有前端、服务的边界更清晰，迁移和回滚都有据可查，对工程化和安全都是加分项。这样你既在练「要结果、给约束」的肌肉，又在积累可审计的中间层，真到了「直接二进制」普及那天，你已经在管管道而不是被管道管。<strong>说到底</strong>，AI 编程的终态不是取代写代码的人，而是把编程从「写」变成「要」：你要结果和边界，AI 把意图变成机器能跑的东西；谁先把这根管道打通又控得稳，谁就在下一轮效率竞赛里占先。2026 年要验证的，无非是这条管道最终是「自然语言—代理—硬件」一气呵成，还是中间永远留一层人类可读的表示——两种都算「可行」，只是落地姿势不同。</p>
+<p>我自己写了这么多年代码，对这个方向的判断是：这股势头压不住，我会把更多精力放在跟进和参与上。</p>
+<p><strong>我的路径思考</strong>大致是这样。第一，<strong>一次性生成</strong>和<strong>超大规模工程</strong>要分开看。单次从自然语言要一个能跑的二进制，难度已经下来了，演示和 PoC 会越来越多；难的是存量系统怎么迁——几十上百个服务、多年的协作习惯、发布与回滚的流程，不可能某天一刀切「全部改成意图驱动」，必须有一条可走的迁移路：先哪些模块、哪些边界交给代理，哪些保留人类写码和审查，中间层怎么保留可读、可审计的表示，再逐步扩大。这件事没有现成答案，我会一边跟业界进展，一边在自己能影响的范围内试。</p>
+<p>第二，<strong>安全</strong>不能事后补。直接二进制一旦铺开，可审计、可回滚、可约束都得提前想好；否则规模一上去，后门、供应链、权限会一起爆。所以我更倾向在「怎么走」的时候就把安全设计进去：人在关键节点验证和放行、协议层把代理和工具链的边界划清楚（这也是为什么我会盯 WebMCP、MCP 这类标准化——它们直接影响到代理能碰什么、不能碰什么、调用链怎么追）、宪法 AI 和审查卡位尽早进 pipeline，而不是等出了事再打补丁。</p>
+<p>第三，协议与平台层在我自己的优先级里很高。WebMCP、MCP 这类把代理和工具链对接标准化的进展，会直接决定「意图 → 可执行」这根管道能不能在真实工程里接得住、控得稳。Chrome 已经给 WebMCP 开了 early preview，我会花时间上手看看：网站和前端怎么暴露成代理可调用的工具、迁移和回滚怎么有据可查。</p>
+<hr>
+<p>题图来源：xAI 活动视频截图（公开画面）</p>
+<ul>
+<li>FIN -</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E7%BC%96%E7%A8%8B/">编程</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://blog.zhangky.com/posts/2026/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/">
+    <span class="title">Next »</span>
+    <br>
+    <span>AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

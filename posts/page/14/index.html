@@ -201,6 +201,29 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
+前置要求：高中数学水平，会基础Python。
+一、求和与连乘 1.1 求和符号 $\sum$ 读法：Sigma（西格玛），读作&#34;sum&#34;
+含义：把一堆数加起来
+公式示例： $$\sum_{i=1}^{n} x_i = x_1 &#43; x_2 &#43; \cdots &#43; x_n$$
+论文中常见形式：
+损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和） Python实现：
+import numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi &gt; 0) 1.2 连乘符号 $\prod$ 读法：Pi（派），读作&#34;product&#34;
+含义：把一堆数乘起来
+公式示例： $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$
+论文中常见形式：
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-01-15 10:55:01 +0800 HKT'>January 15, 2025</span> | <span>25 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">AI医疗：99%的准确率在实验室，95%的准确率在村寨
     </h2>
   </header>
@@ -329,27 +352,6 @@ Sora的视频生成能力又提升了，现在能生成5分钟高清视频，连
   </div>
   <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-11-22 14:18:42 +0800 HKT'>November 22, 2024</span> | <span>1 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 从GE的&#34;活力曲线&#34;看杰克韦尔奇的管理智慧" href="https://blog.zhangky.com/posts/2024/2024-11-22-ge_jack_welch_lessons/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">小数据与优质数据：AI从&#34;拼规模&#34;到&#34;拼质量&#34;的转折点？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>中科院发布AI前沿趋势那天，我正在实验室调试小样本学习模型。看到&#34;小数据与优质数据成AI核心引擎&#34;这句话，我差点从椅子上跳起来——终于有人认可我们的方向了！
-表层：小数据的商业化突破
-作为做了5年小样本学习的研究者，我太懂传统AI的痛点：需要海量数据，标注成本高，泛化能力差。最让我兴奋的是，小数据技术终于开始商业化了。腾讯开源的AI生成3D模型，就是用小数据训练的，效果不比百万级数据模型差。
-深层：中美小数据的路径分歧
-中美在小数据领域的研究路径截然不同：美国是&#34;算法驱动&#34;，比如OpenAI的few-shot learning；中国是&#34;数据驱动&#34;，比如百度的知识增强小样本学习。上周跟医疗AI公司CTO聊天，他说：“以前有100万张X光片，标注质量参差不齐；现在只有10万张，但每张经过三个医生审核，模型性能反而提升30%。”
-终局：优质数据的成本难题
-但问题也存在：优质数据的获取成本还是太高了，尤其是垂直领域的数据。法律文档、医疗记录，获取和标注成本都非常高。AI从&#34;拼规模&#34;到&#34;拼质量&#34;，这是重要转折点，但如何降低优质数据获取成本，让小数据技术真正普及？
-大数据是AI的过去，小数据是AI的未来。但这个未来，需要先解决优质数据的成本问题。
-真正的AI革命，不是用更多的数据，而是用更聪明的方法使用更少的数据。
-</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-11-20 16:43:41 +0800 HKT'>November 20, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 小数据与优质数据：AI从&#34;拼规模&#34;到&#34;拼质量&#34;的转折点？" href="https://blog.zhangky.com/posts/2024/2024-11-20-small-data-ai/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
