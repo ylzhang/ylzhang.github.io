@@ -11,13 +11,125 @@
     </image>
     <generator>Hugo -- 0.153.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 15 Feb 2026 19:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Feb 2026 21:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>周期启示录</title>
+      <link>https://blog.zhangky.com/tags/%E5%91%A8%E6%9C%9F%E5%90%AF%E7%A4%BA%E5%BD%95/</link>
+      <pubDate>Wed, 25 Feb 2026 21:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E5%91%A8%E6%9C%9F%E5%90%AF%E7%A4%BA%E5%BD%95/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>周金涛</title>
+      <link>https://blog.zhangky.com/tags/%E5%91%A8%E9%87%91%E6%B6%9B/</link>
+      <pubDate>Wed, 25 Feb 2026 21:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E5%91%A8%E9%87%91%E6%B6%9B/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>康波周期</title>
+      <link>https://blog.zhangky.com/tags/%E5%BA%B7%E6%B3%A2%E5%91%A8%E6%9C%9F/</link>
+      <pubDate>Wed, 25 Feb 2026 21:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E5%BA%B7%E6%B3%A2%E5%91%A8%E6%9C%9F/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>解码周金涛</title>
+      <link>https://blog.zhangky.com/tags/%E8%A7%A3%E7%A0%81%E5%91%A8%E9%87%91%E6%B6%9B/</link>
+      <pubDate>Wed, 25 Feb 2026 21:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E8%A7%A3%E7%A0%81%E5%91%A8%E9%87%91%E6%B6%9B/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>理论局限</title>
+      <link>https://blog.zhangky.com/tags/%E7%90%86%E8%AE%BA%E5%B1%80%E9%99%90/</link>
+      <pubDate>Tue, 24 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E7%90%86%E8%AE%BA%E5%B1%80%E9%99%90/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>财富相位</title>
+      <link>https://blog.zhangky.com/tags/%E8%B4%A2%E5%AF%8C%E7%9B%B8%E4%BD%8D/</link>
+      <pubDate>Sun, 22 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E8%B4%A2%E5%AF%8C%E7%9B%B8%E4%BD%8D/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AI</title>
       <link>https://blog.zhangky.com/tags/ai/</link>
-      <pubDate>Sun, 15 Feb 2026 19:00:00 +0800</pubDate>
+      <pubDate>Sat, 21 Feb 2026 10:00:00 +0800</pubDate>
       <guid>https://blog.zhangky.com/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>新能源</title>
+      <link>https://blog.zhangky.com/tags/%E6%96%B0%E8%83%BD%E6%BA%90/</link>
+      <pubDate>Sat, 21 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E6%96%B0%E8%83%BD%E6%BA%90/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>生物技术</title>
+      <link>https://blog.zhangky.com/tags/%E7%94%9F%E7%89%A9%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Sat, 21 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E7%94%9F%E7%89%A9%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>第六康波</title>
+      <link>https://blog.zhangky.com/tags/%E7%AC%AC%E5%85%AD%E5%BA%B7%E6%B3%A2/</link>
+      <pubDate>Sat, 21 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E7%AC%AC%E5%85%AD%E5%BA%B7%E6%B3%A2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>拐点</title>
+      <link>https://blog.zhangky.com/tags/%E6%8B%90%E7%82%B9/</link>
+      <pubDate>Fri, 20 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E6%8B%90%E7%82%B9/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>资产配置</title>
+      <link>https://blog.zhangky.com/tags/%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 19 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>人生发财靠康波</title>
+      <link>https://blog.zhangky.com/tags/%E4%BA%BA%E7%94%9F%E5%8F%91%E8%B4%A2%E9%9D%A0%E5%BA%B7%E6%B3%A2/</link>
+      <pubDate>Wed, 18 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E4%BA%BA%E7%94%9F%E5%8F%91%E8%B4%A2%E9%9D%A0%E5%BA%B7%E6%B3%A2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>基钦</title>
+      <link>https://blog.zhangky.com/tags/%E5%9F%BA%E9%92%A6/</link>
+      <pubDate>Tue, 17 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E5%9F%BA%E9%92%A6/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>库兹涅茨</title>
+      <link>https://blog.zhangky.com/tags/%E5%BA%93%E5%85%B9%E6%B6%85%E8%8C%A8/</link>
+      <pubDate>Tue, 17 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E5%BA%93%E5%85%B9%E6%B6%85%E8%8C%A8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>朱格拉</title>
+      <link>https://blog.zhangky.com/tags/%E6%9C%B1%E6%A0%BC%E6%8B%89/</link>
+      <pubDate>Tue, 17 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E6%9C%B1%E6%A0%BC%E6%8B%89/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>经济周期</title>
+      <link>https://blog.zhangky.com/tags/%E7%BB%8F%E6%B5%8E%E5%91%A8%E6%9C%9F/</link>
+      <pubDate>Mon, 16 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E7%BB%8F%E6%B5%8E%E5%91%A8%E6%9C%9F/</guid>
       <description></description>
     </item>
     <item>
