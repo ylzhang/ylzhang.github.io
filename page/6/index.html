@@ -196,6 +196,29 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【论文解读06】理解LSTM网络：解决长期依赖问题
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Sepp Hochreiter和Jürgen Schmidhuber于1997年发表的经典论文《Long Short-Term Memory》，该论文提出了长短期记忆（LSTM）网络架构，通过门控机制和细胞状态彻底解决了循环神经网络（RNN）的梯度消失问题，使网络能够学习长期依赖关系。LSTM不仅成为序列建模领域的重要里程碑，更为后续的GRU、Transformer等架构奠定了理论基础，在机器翻译、语音识别、时间序列预测等任务中取得了突破性成果。
+“记忆是智能的基础。&#34;——这是Hochreiter和Schmidhuber在1997年提出的深刻洞察。传统RNN虽然理论上可以处理任意长度的序列，但在实际训练中面临严重的梯度消失问题：当序列长度超过几十个时间步时，梯度在反向传播过程中会指数级衰减，导致网络无法学习长期依赖关系。
+LSTM通过门控机制和细胞状态解决了这一根本问题。细胞状态像一个&#34;传送带”，信息可以在上面直接流动，不受梯度消失的影响；门控机制（遗忘门、输入门、输出门）控制信息的流动，使网络能够有选择地保存和遗忘信息。这种设计使得LSTM能够学习跨越数百甚至数千个时间步的依赖关系。
+在当今大语言模型时代，LSTM的思想以新的形式延续：Transformer的自注意力机制可以看作是对LSTM门控机制的改进，GPT等模型虽然不再使用LSTM，但其序列建模的核心思想仍然源于LSTM。理解LSTM，就是理解序列建模的本质，理解神经网络如何&#34;记忆&#34;和&#34;遗忘&#34;。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读LSTM网络，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
+本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
+RNN长期依赖问题的根源 问题一：梯度消失的数学本质 传统RNN在每个时间步的计算为：
+$$ h_t = \tanh(W_h h_{t-1} &#43; W_x x_t &#43; b) $$
+其中 $h_t$ 是隐藏状态，$W_h$、$W_x$ 是权重矩阵，$b$ 是偏置向量。
+在反向传播过程中，需要计算损失函数 $L$ 对早期时间步 $h_k$ 的梯度：
+$$ \frac{\partial L}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \frac{\partial h_t}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \prod_{j=k&#43;1}^{t} \frac{\partial h_j}{\partial h_{j-1}} $$
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-01-25 10:25:51 +0800 HKT'>January 25, 2026</span> | <span>27 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【论文解读06】理解LSTM网络：解决长期依赖问题" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Longevity Analysis: AI vs. Longevity
     </h2>
   </header>
@@ -293,45 +316,12 @@ Meta的这次裁员，不是故事的结束，而是故事的开始。它标志�
   <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-01-12 21:07:48 +0800 HKT'>January 12, 2026</span> | <span>12 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to Meta AI大裁员：CEO视角下的组织手术" href="https://blog.zhangky.com/posts/2026/2026-01-12-meta-ai-layoff-ceo-perspective/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【论文解读05】循环神经网络的不可思议的有效性
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Andrej Karpathy于2015年发表的经典博客文章《The Unreasonable Effectiveness of Recurrent Neural Networks》，该文章深入探讨了循环神经网络（RNN）在序列建模任务中的强大能力和应用潜力。这篇文章不仅展示了RNN在文本生成、代码生成、音乐创作等领域的惊人表现，更为理解序列数据的本质、神经网络的语言能力以及生成式AI的发展奠定了重要基础。
-“循环神经网络具有不可思议的有效性。&#34;——这是Karpathy在文章开篇的断言。在Transformer尚未兴起的2015年，RNN就已经展现出处理序列数据的强大能力。从生成莎士比亚风格的文本，到编写Python代码，再到创作音乐，RNN似乎能够&#34;理解&#34;序列中的模式，并生成符合这些模式的新序列。
-RNN的核心思想是记忆：通过隐藏状态（hidden state）保存历史信息，使网络能够处理任意长度的序列。这种记忆机制使得RNN能够捕捉序列中的长期依赖关系，理解上下文，生成连贯的文本。虽然RNN后来被Transformer超越，但其核心思想（序列建模、注意力机制）仍然影响着现代AI的发展。
-在当今大语言模型时代，RNN的思想以新的形式延续：Transformer的自注意力机制可以看作是对RNN记忆机制的改进，GPT等模型本质上仍然是序列到序列的生成模型。理解RNN，就是理解序列建模的本质，理解语言模型如何&#34;理解&#34;和&#34;生成&#34;文本。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读RNN的不可思议有效性，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
-本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
-序列建模的根本挑战 问题一：变长序列的处理难题 传统神经网络（如全连接网络、CNN）要求输入具有固定维度。但现实中的序列数据（文本、语音、时间序列）长度是变化的。如何设计能够处理任意长度序列的模型？
-固定窗口的局限性：如果使用固定大小的窗口（如n-gram模型），只能捕捉局部依赖关系，无法处理长距离依赖。例如，在句子&#34;The cat, which was very hungry, ate the food&#34;中，“cat&#34;和&#34;ate&#34;之间的依赖关系跨越了多个词，固定窗口无法捕捉。
-序列的本质：序列数据具有时间或顺序结构，每个元素不仅包含自身的信息，还包含其在序列中的位置信息。这种结构信息对于理解序列至关重要。
-RNN通过循环结构解决了这个问题：网络在每个时间步处理一个元素，并将处理结果传递给下一个时间步，从而能够处理任意长度的序列。
-问题二：长期依赖的捕捉 序列数据中的依赖关系可能跨越很长的距离。在语言中，一个词的含义可能依赖于前面很远的词；在音乐中，一个音符的意义可能依赖于整个旋律的结构。
-梯度消失问题：在训练RNN时，梯度需要通过时间反向传播（Backpropagation Through Time, BPTT）。如果序列很长，梯度在反向传播过程中会指数级衰减，导致网络无法学习长期依赖关系。
-记忆容量限制：即使理论上RNN可以保存任意长的历史信息，但实际中隐藏状态的容量是有限的。如何有效地利用有限的记忆容量来保存最重要的信息？
-LSTM和GRU等改进架构通过门控机制（gating mechanism）解决了这些问题，能够有选择地保存和遗忘信息，从而更好地捕捉长期依赖。
-问题三：序列生成的创造性 序列建模不仅要理解序列，还要能够生成新的序列。生成任务面临三个核心挑战：如何保证生成的序列符合训练数据的分布？如何保证生成的序列是连贯的？如何保证生成的序列具有创造性（不是简单复制训练数据）？
-分布匹配：生成的序列应该遵循训练数据的分布。如果训练数据是莎士比亚的文本，生成的文本应该像莎士比亚的风格。
-连贯性：生成的序列应该是连贯的，每个元素应该与前文一致。例如，如果前文提到&#34;猫”，后文不应该突然提到&#34;狗”（除非有合理的上下文）。
-创造性：生成的序列应该具有创造性，不是简单复制训练数据。这需要在模仿和创造之间找到平衡。
-RNN通过自回归生成（autoregressive generation）解决了这些问题：在每个时间步，网络根据前文生成下一个元素，通过采样策略（如温度采样）控制生成的随机性和创造性。
-RNN的核心机制 循环结构：记忆与状态 RNN的核心是循环结构：网络在每个时间步接收输入 $x_t$ 和前一时刻的隐藏状态 $h_{t-1}$，计算当前时刻的隐藏状态 $h_t$ 和输出 $y_t$：
-$$ h_t = \tanh(W_h h_{t-1} &#43; W_x x_t &#43; b) $$
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-01-11 10:25:22 +0800 HKT'>January 11, 2026</span> | <span>28 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【论文解读05】循环神经网络的不可思议的有效性" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-11-paper-05-rnn-effectiveness/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://blog.zhangky.com/page/5/">
-      «&nbsp;Prev&nbsp;5/19
+      «&nbsp;Prev&nbsp;5/20
     </a>
-    <a class="next" href="https://blog.zhangky.com/page/7/">Next&nbsp;7/19&nbsp;»
+    <a class="next" href="https://blog.zhangky.com/page/7/">Next&nbsp;7/20&nbsp;»
     </a>
   </nav>
 </footer>
