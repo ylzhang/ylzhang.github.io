@@ -20,52 +20,56 @@
       <guid>https://blog.zhangky.com/posts/2026/2026-03-06-what-does-open-source-mean-for-llm/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;大模型的开源，到底开源了什么&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/03/what-does-open-source-mean-for-llm-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;大模型时代喊的&amp;quot;开源&amp;quot;，99% 不是你以为的那种开源。&lt;/p&gt;
-&lt;p&gt;当我们说 Linux 开源、Redis 开源的时候，意思很明确：源代码全部公开，任何人可以编译、运行、修改、再分发。这是&lt;strong&gt;软件的开源&lt;/strong&gt;——核心资产就是人写的代码，公开代码等于公开一切。但大模型的开源是一件根本不同的事。软件的能力写在代码里，大模型的能力长在权重里——几千亿个浮点数，是数据和算力喂出来的，不是人写出来的。公开代码不等于公开能力，公开权重也不等于公开生产能力的方法。这是&lt;strong&gt;AI 的开源&lt;/strong&gt;，它和软件开源之间的鸿沟，比大多数人意识到的要深得多。&lt;/p&gt;
-&lt;p&gt;深到什么程度？开源促进会（OSI）在 2024 年 10 月专门发布了《开源 AI 定义 1.0》&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，试图从头定义&amp;quot;AI 系统的开源到底应该是什么&amp;quot;——光是需要重新定义这件事本身，就说明传统软件开源的框架已经装不下大模型了。&lt;/p&gt;
+&lt;p&gt;当我们说 Linux 开源、Redis 开源的时候，意思很明确：把软件的&amp;quot;设计图纸&amp;quot;——源代码——全部公开，任何人都可以照着图纸把软件重新造一遍。这是&lt;strong&gt;软件的开源&lt;/strong&gt;，公开图纸就等于公开一切。&lt;/p&gt;
+&lt;p&gt;但大模型的开源是一件根本不同的事。大模型的能力不在图纸里，而在一堆&amp;quot;经验&amp;quot;里——几千亿个数字，是用海量数据和巨额算力&amp;quot;喂&amp;quot;出来的，不是人一行一行写出来的。你可以公开这些数字，但别人拿到了也不知道你是怎么喂出来的。这是&lt;strong&gt;AI 的开源&lt;/strong&gt;，它和软件开源之间的鸿沟，比大多数人意识到的要深得多。&lt;/p&gt;
+&lt;p&gt;深到什么程度？全球最权威的开源组织 OSI（开源促进会）在 2024 年 10 月专门发布了《开源 AI 定义 1.0》&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，试图从头定义&amp;quot;AI 的开源到底应该是什么&amp;quot;——光是需要重新定义这件事本身，就说明传统软件开源的框架已经装不下大模型了。2026 年全国两会期间，中科院院士、阿里云创始人王坚更是直接呼吁：别再说&amp;quot;开源大模型&amp;quot;了，应该叫&amp;quot;开放权重模型&amp;quot;——因为你开放出去的不是一段代码，而是背后烧掉的电费和算力&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 &lt;p&gt;这篇文章想做一件事：把大模型&amp;quot;开源&amp;quot;这个词拆开，一层一层看清楚里面到底装了什么。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;大模型的源代码不是代码&#34;&gt;大模型的&amp;quot;源代码&amp;quot;不是代码&lt;/h2&gt;
-&lt;p&gt;软件开源的逻辑很简单：核心资产是源代码——几千行、几万行人类写的逻辑。拿到源代码，你就能理解这个软件怎么工作、为什么这么工作，你可以改它、重新编译、跑起来。代码即能力，公开代码即公开能力。&lt;/p&gt;
-&lt;p&gt;大模型的逻辑完全不同。它的核心资产不是代码，而是&lt;strong&gt;权重&lt;/strong&gt;（weights）——几十亿到几千亿个浮点数，存在一堆二进制文件里。这些数字是模型在海量数据上训练出来的结果，是模型&amp;quot;知识&amp;quot;和&amp;quot;能力&amp;quot;的载体。你看不懂这些数字（没有人能看懂），但把它们加载到推理框架里，模型就能回答问题、写代码、做翻译。权重即能力，但公开权重不等于公开生产能力的方法——这就是 AI 开源和软件开源的根本区别。&lt;/p&gt;
+&lt;p&gt;软件开源的逻辑很简单：一个程序员写了一段代码，公开了，别人照着代码就能把同样的软件跑起来，还能改。代码就是全部，公开代码就是公开一切。&lt;/p&gt;
+&lt;p&gt;大模型完全不是这么回事。它的核心不是人写的代码，而是一种叫&lt;strong&gt;权重&lt;/strong&gt;（weights）的东西——你可以把它理解成模型的&amp;quot;肌肉记忆&amp;quot;。就像一个厨师做了十年菜，他的手感、火候判断、调味直觉，全都长在身体里，不是写在菜谱上的。大模型的权重也一样：几十亿到几千亿个数字，是模型在海量数据上反复训练出来的结果。没有人能看懂这些数字具体是什么意思，但把它们加载到程序里，模型就能回答问题、写代码、做翻译。&lt;/p&gt;
+&lt;p&gt;关键区别在这里：公开厨师做好的菜，不等于公开他十年练出来的手艺。公开权重，不等于公开训练权重的方法。这就是 AI 开源和软件开源的根本区别。&lt;/p&gt;
 &lt;p&gt;所以，大模型的世界里，&amp;ldquo;源代码&amp;quot;这个概念被拆成了至少四层：&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;层&lt;/th&gt;
           &lt;th&gt;是什么&lt;/th&gt;
-          &lt;th&gt;类比&lt;/th&gt;
+          &lt;th&gt;厨师类比&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;&lt;strong&gt;权重&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;训练出来的参数矩阵&lt;/td&gt;
-          &lt;td&gt;一个厨师做了十年菜练出来的手感和味觉记忆&lt;/td&gt;
+          &lt;td&gt;模型训练出来的&amp;quot;肌肉记忆&amp;rdquo;&lt;/td&gt;
+          &lt;td&gt;厨师十年练出来的手感和味觉直觉&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;&lt;strong&gt;推理代码&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;加载权重、执行推理的程序&lt;/td&gt;
+          &lt;td&gt;让模型跑起来的程序&lt;/td&gt;
           &lt;td&gt;把菜端上桌的流程&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;&lt;strong&gt;训练代码&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;从零开始训练模型的完整程序&lt;/td&gt;
-          &lt;td&gt;这个厨师十年来的全部训练方法和食谱&lt;/td&gt;
+          &lt;td&gt;从零训练模型的完整方法&lt;/td&gt;
+          &lt;td&gt;厨师十年来的全部训练方法和食谱&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;&lt;strong&gt;训练数据&lt;/strong&gt;&lt;/td&gt;
           &lt;td&gt;喂给模型学习的海量文本、图像等&lt;/td&gt;
-          &lt;td&gt;这个厨师吃过的所有菜、看过的所有菜谱&lt;/td&gt;
+          &lt;td&gt;厨师吃过的所有菜、看过的所有菜谱&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;传统软件开源，相当于把食谱和做法全部公开。大模型&amp;quot;开源&amp;rdquo;，大多数时候只是把做好的菜端出来，告诉你怎么加热和摆盘。&lt;/p&gt;
+&lt;p&gt;传统软件开源，相当于把食谱和做法全部公开。大模型&amp;quot;开源&amp;quot;，大多数时候只是把做好的菜端出来，告诉你怎么加热和摆盘。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;三种开源差别巨大&#34;&gt;三种&amp;quot;开源&amp;quot;，差别巨大&lt;/h2&gt;
 &lt;p&gt;明白了这四层之后，我们就可以看清楚：市面上号称&amp;quot;开源&amp;quot;的大模型，其实分成了截然不同的三种模式。&lt;/p&gt;
 &lt;h3 id=&#34;开放权重给你成品不给你生产车间&#34;&gt;开放权重：给你成品，不给你生产车间&lt;/h3&gt;
 &lt;p&gt;这是目前最主流的模式。Qwen、Llama 3、Gemma、Mistral——全球下载量最大的开源模型，几乎都属于这一类。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Qwen 是这个模式的典型代表。&lt;/strong&gt; 你打开它的 GitHub 页面，能看到什么？全系列权重的下载链接（从 0.5B 到 72B，最新的 Qwen 3.5 更是扩展到了 397B 的 MoE 模型），用 transformers、vLLM、llama.cpp 等框架加载和推理的示例代码，模型架构的说明文档，以及一份 Apache 2.0 许可证。你能用这些东西下载权重、本地部署、跑推理、做应用、用自己的数据微调，甚至基于它蒸馏出更小的模型拿去商用。Qwen 在 Hugging Face 上的下载量已突破 7 亿次，社区衍生模型超过 18 万个&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;——这个生态的繁荣，完全建立在&amp;quot;开放权重&amp;quot;这个模式之上。&lt;/p&gt;</description>
+&lt;p&gt;&lt;strong&gt;阿里的 Qwen（通义千问）是这个模式的典型代表。&lt;/strong&gt; 你可以免费下载它全系列的模型——从轻量级的小模型到最新的 Qwen 3.5 旗舰版，附带使用说明和示例代码。你能拿它在自己的电脑或服务器上跑起来，用自己的数据做定制化训练（行话叫&amp;quot;微调&amp;quot;），甚至基于它做出更小的模型拿去商用。Qwen 的下载量已突破 7 亿次，全球开发者基于它做出的衍生模型超过 18 万个&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;——这个生态的繁荣，完全建立在&amp;quot;开放权重&amp;quot;这个模式之上。&lt;/p&gt;
+&lt;p&gt;但你拿不到的东西同样重要：Qwen 是怎么从零开始训练出来的？喂了什么数据？数据怎么筛选和清洗的？训练过程中几百个关键参数是怎么调的？模型怎么学会&amp;quot;像人一样说话&amp;quot;的？这些全都没有公开。你拿到了一个训练好的模型，但完全不知道它是怎么炼成的。&lt;/p&gt;
+&lt;p&gt;值得注意的是，即便同属&amp;quot;开放权重&amp;quot;，&amp;ldquo;使用条款&amp;quot;之间的差异也不小。Qwen 用的是最宽松的 Apache 2.0 协议——随便用、随便改、随便商用，没有附加限制。Meta 的 Llama 3 则有门槛：如果你的产品月活用户超过 7 亿，需要单独找 Meta 谈授权。Google 的 Gemma 更严格：明确禁止你用它的模型去训练竞品。同样叫&amp;quot;开放权重&amp;rdquo;，你能拿它做什么，差别可以很大。&lt;/p&gt;</description>
     </item>
     <item>
       <title>从千问核心离职风波看：开源社区需要什么人</title>
