@@ -1,24 +1,248 @@
-<!doctype html><html lang=en dir=auto data-theme=auto><head><meta name=generator content="Hugo 0.157.0"><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Zhang's Blog</title><meta name=description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/><link crossorigin=anonymous href=/assets/css/stylesheet.79bfb41aad32a688cd2a56e0fd43dad023bee6a985c251ecb095110e836bb4b7.css integrity="sha256-eb+0Gq0ypojNKlbg/UPa0CO+5qmFwlHssJURDoNrtLc=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.zhangky.com/index.xml title=rss><link rel=alternate type=application/json href=https://blog.zhangky.com/index.json title=json><link rel=alternate hreflang=en href=https://blog.zhangky.com/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://blog.zhangky.com/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="Zhang's Blog"><meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta property="og:locale" content="zh-cn"><meta property="og:type" content="website"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="Zhang's Blog"><meta name=twitter:description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Zhang's Blog","url":"https://blog.zhangky.com/","description":"Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.","logo":"https://blog.zhangky.com/images/logo.svg","sameAs":["https://github.com/ylzhang/ylzhang.github.io","https://x.com/ZHANG_on_mars"]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-</button>
-<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span class=active>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>萝卜快跑武汉运营：无人驾驶的春天来了？</h2></header><div class=entry-content><p>上周去武汉出差，特意体验了百度的萝卜快跑。在光谷马路上，看着方向盘自己转，油门刹车自己控制，感觉很科幻。
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head>
+	<meta name="generator" content="Hugo 0.153.1"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Zhang&#39;s Blog</title>
+
+<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.79bfb41aad32a688cd2a56e0fd43dad023bee6a985c251ecb095110e836bb4b7.css" integrity="sha256-eb&#43;0Gq0ypojNKlbg/UPa0CO&#43;5qmFwlHssJURDoNrtLc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/index.xml" title="rss">
+<link rel="alternate" type="application/json" href="https://blog.zhangky.com/index.json" title="json">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<meta property="og:url" content="https://blog.zhangky.com/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="Zhang&#39;s Blog">
+  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="Zhang&#39;s Blog">
+<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Zhang's Blog",
+  "url": "https://blog.zhangky.com/",
+  "description": "Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.",
+  "logo": "https://blog.zhangky.com/images/logo.svg",
+  "sameAs": [
+      "https://github.com/ylzhang/ylzhang.github.io", "https://x.com/ZHANG_on_mars"
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span class="active">Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">萝卜快跑武汉运营：无人驾驶的春天来了？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>上周去武汉出差，特意体验了百度的萝卜快跑。在光谷马路上，看着方向盘自己转，油门刹车自己控制，感觉很科幻。
 表层：无人驾驶的规模化突破
 百度在武汉投放了上万辆无人驾驶车，覆盖主要交通区域。作为研究5年自动驾驶的人，我知道这意味着什么——无人驾驶从试点走向了规模化商业运营。实际体验下来，遇到闯红灯电动车会急刹车，复杂环岛反应有点慢，但总体比想象中稳定。
 深层：中美自动驾驶的路径分歧
-中美玩法截然不同：百度是"车路协同+Robotaxi"，靠政府支持和基础设施建设；特斯拉是"纯视觉+私人汽车"，靠算法和芯片。百度走得更快，但特斯拉的技术更通用。上周跟出租车司机聊天，他说武汉出租车生意已受影响：“无人驾驶越来越多，我们怎么办？”
+中美玩法截然不同：百度是&#34;车路协同&#43;Robotaxi&#34;，靠政府支持和基础设施建设；特斯拉是&#34;纯视觉&#43;私人汽车&#34;，靠算法和芯片。百度走得更快，但特斯拉的技术更通用。上周跟出租车司机聊天，他说武汉出租车生意已受影响：“无人驾驶越来越多，我们怎么办？”
 终局：技术与就业的两难
 特斯拉的擎天柱机器人发布了原型，能做简单动作，但成本太高，短期内难商业化。相比之下，自动驾驶的商业化路径更清晰，冲击也更直接。
 技术进步总会淘汰职业，也会创造新机会。但淘汰是立竿见影的，创造机会却需要时间。
-无人驾驶的春天来了，但不是每个人都能感受到温暖。技术的温度，取决于我们如何对待被它改变的人。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2024-07-22 10:04:14 +0800 +0800'>July 22, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 萝卜快跑武汉运营：无人驾驶的春天来了？" href=https://blog.zhangky.com/posts/2024/2024-07-22-autonomous-driving/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Apple Intelligence：设备端AI的终局之战？</h2></header><div class=entry-content><p>WWDC发布Apple Intelligence那天，我在加州咖啡馆写代码，旁边几个程序员看到演示时发出惊叹声。
+无人驾驶的春天来了，但不是每个人都能感受到温暖。技术的温度，取决于我们如何对待被它改变的人。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-07-22 10:04:14 +0800 HKT'>July 22, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 萝卜快跑武汉运营：无人驾驶的春天来了？" href="https://blog.zhangky.com/posts/2024/2024-07-22-autonomous-driving/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Apple Intelligence：设备端AI的终局之战？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>WWDC发布Apple Intelligence那天，我在加州咖啡馆写代码，旁边几个程序员看到演示时发出惊叹声。
 表层：隐私优先的设备端革命
 苹果把AI直接整合到iOS、iPadOS和macOS，主打设备端处理——数据不上传云端，隐私更安全。作为用了十年苹果的人，我知道它的生态闭环有多强：Apple Intelligence能在不同设备间无缝切换，这是谷歌微软做不到的。用iPhone 15 Pro测试了几个功能，确实比以前快，但复杂多模态任务还是会卡顿。
 深层：中美设备端AI的路径博弈
-中美路径截然不同：苹果是"设备端优先+云端协同"，华为是"全栈自研+硬件软件一体化"。上周跟芯片设计师聊天，他说苹果神经引擎已迭代到第五代，算力提升10倍，但跑GPT-4级别模型还是吃力。华为的昇腾芯片则是从底层自研，走的是另一条路。
+中美路径截然不同：苹果是&#34;设备端优先&#43;云端协同&#34;，华为是&#34;全栈自研&#43;硬件软件一体化&#34;。上周跟芯片设计师聊天，他说苹果神经引擎已迭代到第五代，算力提升10倍，但跑GPT-4级别模型还是吃力。华为的昇腾芯片则是从底层自研，走的是另一条路。
 终局：设备端AI的融合未来
 设备端AI的终局是什么？是每台设备有自己的AI大脑，还是云端大脑的延伸？我觉得是两者结合。苹果没说透的是，复杂任务还是需要云端协同——这才是真实的技术妥协。
 隐私和性能，永远是AI的两难。苹果选择了先保隐私，再拼性能。
-设备端AI的终极战场，不在参数表上，而在用户感知到的流畅度和安全感之间。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2024-06-15 14:06:36 +0800 +0800'>June 15, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to Apple Intelligence：设备端AI的终局之战？" href=https://blog.zhangky.com/posts/2024/2024-06-15-apple-intelligence/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>GPT-4o：多模态时代的开始，还是噱头？</h2></header><div class=entry-content><p>OpenAI发布GPT-4o那天，我熬夜看了发布会直播。当演示者用语音、图像、文本同时和AI交互时，突然意识到：单一文本交互的时代，可能真的要结束了。
+设备端AI的终极战场，不在参数表上，而在用户感知到的流畅度和安全感之间。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-06-15 14:06:36 +0800 HKT'>June 15, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to Apple Intelligence：设备端AI的终局之战？" href="https://blog.zhangky.com/posts/2024/2024-06-15-apple-intelligence/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">GPT-4o：多模态时代的开始，还是噱头？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>OpenAI发布GPT-4o那天，我熬夜看了发布会直播。当演示者用语音、图像、文本同时和AI交互时，突然意识到：单一文本交互的时代，可能真的要结束了。
 表层：交互效率的革命
 作为每天跟AI打交道的人，我早受够了只能打字的限制。想让AI分析图表，得手动输数据；想让AI看照片，得文字描述半天。测试GPT-4o时，响应速度比GPT-4快2倍，基本秒回。上周跟做教育的朋友聊，他说正用GPT-4o做在线辅导：学生上传错题照片，AI马上讲解，效率高多了。
 深层：中美多模态的垂直竞争
@@ -26,25 +250,140 @@
 终局：多模态的两面性
 但多模态也有问题：上传复杂电路图，AI会解读错误；语音提问，口音重就识别不准。更关键的是隐私——上传的照片和语音会不会被滥用？还有成本，处理多模态数据的算力消耗，比文本高多了。
 技术总是解决旧问题，带来新问题。GPT-4o到底是多模态时代的开始，还是噱头？
-单一模态的AI是工具，多模态的AI才是伙伴。但成为真正的伙伴，还需要跨过隐私、准确性和成本的三道坎。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2024-05-18 11:39:38 +0800 +0800'>May 18, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to GPT-4o：多模态时代的开始，还是噱头？" href=https://blog.zhangky.com/posts/2024/2024-05-18-gpt4o-multimodal/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Meta Llama 3开源：AI的普惠革命还是商业陷阱？</h2></header><div class=entry-content><p>Meta发布Llama 3那天，我第一时间下载了8B版本测试。不得不说，效果超出预期——某些任务甚至超过GPT-3.5。
+单一模态的AI是工具，多模态的AI才是伙伴。但成为真正的伙伴，还需要跨过隐私、准确性和成本的三道坎。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-05-18 11:39:38 +0800 HKT'>May 18, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to GPT-4o：多模态时代的开始，还是噱头？" href="https://blog.zhangky.com/posts/2024/2024-05-18-gpt4o-multimodal/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Meta Llama 3开源：AI的普惠革命还是商业陷阱？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Meta发布Llama 3那天，我第一时间下载了8B版本测试。不得不说，效果超出预期——某些任务甚至超过GPT-3.5。
 表层：大模型的端侧革命
 作为开发者，我太懂开源的力量了。以前玩大模型，要么花大价钱买API，要么要有超算。现在普通服务器甚至高端PC就能跑Llama 3。微软也凑热闹，开源了Phi-3-mini，3.8B参数连手机都能装。AI正在从云端被拉到端侧。
 深层：中美开源的路径差异
-中美玩法截然不同：中国是"开源+生态"，比如百度文心一言开放API让开发者做应用；美国是"纯粹开源"，直接放模型权重。上周跟做企业服务的朋友聊，他说客户都在问私有大模型部署，不想把数据放云端。Llama 3正好满足需求。
+中美玩法截然不同：中国是&#34;开源&#43;生态&#34;，比如百度文心一言开放API让开发者做应用；美国是&#34;纯粹开源&#34;，直接放模型权重。上周跟做企业服务的朋友聊，他说客户都在问私有大模型部署，不想把数据放云端。Llama 3正好满足需求。
 终局：开源的双刃剑
 但开源也有风险。上周看到有人用Llama 3生成诈骗短信模板，要是被坏人利用，后果不堪设想。AI普惠革命来了，但革命的代价是什么？
 开源让AI不再是巨头专属，普通人也能玩得起。但权力下放的同时，责任也在分散。
-技术普惠从来不是免费午餐，它考验的是整个社会的技术素养和道德底线。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2024-04-10 16:08:52 +0800 +0800'>April 10, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to Meta Llama 3开源：AI的普惠革命还是商业陷阱？" href=https://blog.zhangky.com/posts/2024/2024-04-10-meta-llama3/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>欧洲AI法案：监管的红线，还是创新的枷锁？</h2></header><div class=entry-content><p>欧洲议会通过AI法案那天，我在布鲁塞尔参加AI论坛。会场两派：一派欢呼终于有了全球第一个AI监管框架，另一派愁眉苦脸，担心监管杀死创新。
+技术普惠从来不是免费午餐，它考验的是整个社会的技术素养和道德底线。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-04-10 16:08:52 +0800 HKT'>April 10, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to Meta Llama 3开源：AI的普惠革命还是商业陷阱？" href="https://blog.zhangky.com/posts/2024/2024-04-10-meta-llama3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">欧洲AI法案：监管的红线，还是创新的枷锁？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>欧洲议会通过AI法案那天，我在布鲁塞尔参加AI论坛。会场两派：一派欢呼终于有了全球第一个AI监管框架，另一派愁眉苦脸，担心监管杀死创新。
 表层：分级监管的现实冲击
-欧洲把AI分成不同风险等级，高风险AI（医疗、教育）要严格审查。这听起来合理，但一家美国AI公司想进欧洲，得遵守欧洲法律；欧洲公司到美国，却没同样约束。这不是"监管套利"吗？
+欧洲把AI分成不同风险等级，高风险AI（医疗、教育）要严格审查。这听起来合理，但一家美国AI公司想进欧洲，得遵守欧洲法律；欧洲公司到美国，却没同样约束。这不是&#34;监管套利&#34;吗？
 深层：中美欧监管的全球博弈
-中美态度截然不同：中国"包容审慎"，美国"行业自律为主"，欧洲直接上法律。上周跟一个欧洲AI创业公司CEO聊天，他说考虑把研发中心搬到新加坡：“欧洲监管成本太高，玩不起。”
+中美态度截然不同：中国&#34;包容审慎&#34;，美国&#34;行业自律为主&#34;，欧洲直接上法律。上周跟一个欧洲AI创业公司CEO聊天，他说考虑把研发中心搬到新加坡：“欧洲监管成本太高，玩不起。”
 终局：创新与监管的平衡难题
 我其实挺矛盾的。AI发展太快，确实需要规则约束；但欧洲的监管向来严格，会不会像GDPR那样，成为企业沉重负担？
 监管和创新从来都是冤家。AI法案到底是好事还是坏事？现在下结论太早。但全球AI治理的拼图，又多了一块重要碎片。
-创新需要自由，发展需要规则。真正的智慧，是在红线内跳舞。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2024-03-25 09:52:01 +0800 +0800'>March 25, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 欧洲AI法案：监管的红线，还是创新的枷锁？" href=https://blog.zhangky.com/posts/2024/2024-03-25-ai-act-europe/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/page/18/>«&nbsp;Prev&nbsp;18/20
-</a><a class=next href=https://blog.zhangky.com/page/20/>Next&nbsp;20/20&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
-</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
+创新需要自由，发展需要规则。真正的智慧，是在红线内跳舞。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-03-25 09:52:01 +0800 HKT'>March 25, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 欧洲AI法案：监管的红线，还是创新的枷锁？" href="https://blog.zhangky.com/posts/2024/2024-03-25-ai-act-europe/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://blog.zhangky.com/page/18/">
+      «&nbsp;Prev&nbsp;18/20
+    </a>
+    <a class="next" href="https://blog.zhangky.com/page/20/">Next&nbsp;20/20&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
