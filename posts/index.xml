@@ -3555,13 +3555,5 @@ $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$&lt;/p&gt;
 =============================================================================
 --&gt;</description>
     </item>
-    <item>
-      <title></title>
-      <link>https://blog.zhangky.com/posts/test-cicd/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://blog.zhangky.com/posts/test-cicd/</guid>
-      <description>&lt;p&gt;Test file for CI/CD deployment verification.
-Created: 2026-03-07&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>
