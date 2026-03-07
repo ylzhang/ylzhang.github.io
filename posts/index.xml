@@ -11,8 +11,21 @@
     </image>
     <generator>Hugo -- 0.153.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Mar 2026 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2026 17:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>本地 Publish 脚本测试</title>
+      <link>https://blog.zhangky.com/posts/2026/2026-03-07-local-publish-test/</link>
+      <pubDate>Sat, 07 Mar 2026 17:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/2026-03-07-local-publish-test/</guid>
+      <description>&lt;h1 id=&#34;local-test&#34;&gt;LOCAL TEST&lt;/h1&gt;
+&lt;p&gt;这是一篇用于验证本地 &lt;code&gt;./publish&lt;/code&gt; 脚本部署的测试文章。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;测试时间&lt;/strong&gt;: 2026-03-07 17:00
+&lt;strong&gt;测试方式&lt;/strong&gt;: 本地执行 &lt;code&gt;./publish&lt;/code&gt; 脚本
+&lt;strong&gt;预期结果&lt;/strong&gt;: 直接部署到 ylzhang.github.io 的 main 分支&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;本文由本地 publish 脚本部署&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>CI/CD Pipeline 测试文章</title>
       <link>https://blog.zhangky.com/posts/2026/2026-03-07-cicd-pipeline-test/</link>
