@@ -9,7 +9,7 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-    <generator>Hugo -- 0.153.1</generator>
+    <generator>Hugo -- 0.157.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 06 Mar 2026 08:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -3554,6 +3554,14 @@ $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$&lt;/p&gt;
   2. 更新开篇页文末「最后更新时间」为当前日期。
 =============================================================================
 --&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://blog.zhangky.com/posts/test-cicd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.zhangky.com/posts/test-cicd/</guid>
+      <description>&lt;p&gt;Test file for CI/CD deployment verification.
+Created: 2026-03-07&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
