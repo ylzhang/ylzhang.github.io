@@ -2,37 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.zhangky.com/categories/</loc>
-    <lastmod>2026-03-07T17:00:00+08:00</lastmod>
+    <loc>https://blog.zhangky.com/tags/ai/</loc>
+    <lastmod>2026-03-06T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangky.com/tags/local-deploy/</loc>
-    <lastmod>2026-03-07T17:00:00+08:00</lastmod>
+    <loc>https://blog.zhangky.com/categories/</loc>
+    <lastmod>2026-03-06T08:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/</loc>
-    <lastmod>2026-03-07T17:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/tags/</loc>
-    <lastmod>2026-03-07T17:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/tags/test/</loc>
-    <lastmod>2026-03-07T17:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/</loc>
-    <lastmod>2026-03-07T17:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/posts/2026/2026-03-07-local-publish-test/</loc>
-    <lastmod>2026-03-07T17:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/categories/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2026-03-07T17:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/tags/ci/cd/</loc>
-    <lastmod>2026-03-07T12:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/posts/2026/2026-03-07-cicd-pipeline-test/</loc>
-    <lastmod>2026-03-07T12:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/tags/ai/</loc>
     <lastmod>2026-03-06T08:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/tags/qwen/</loc>
@@ -42,6 +18,12 @@
     <lastmod>2026-03-06T08:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/series/</loc>
+    <lastmod>2026-03-06T08:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/tags/</loc>
+    <lastmod>2026-03-06T08:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/</loc>
     <lastmod>2026-03-06T08:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/2026-03-06-what-does-open-source-mean-for-llm/</loc>

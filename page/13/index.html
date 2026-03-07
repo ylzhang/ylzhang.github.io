@@ -196,60 +196,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">【ChatGPT时刻06】GPT-1：生成式预训练的开山之作
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Alec Radford等人于2018年发表的里程碑论文《Improving Language Understanding by Generative Pre-Training》，该论文提出了GPT（Generative Pre-Training）模型，首次将大规模无监督预训练与有监督微调相结合，在多个NLP基准上取得了突破性成绩。GPT-1是ChatGPT的直系祖先——它确立了&#34;预训练&#43;微调&#34;的范式，证明了通用语言表示可以从海量无标注文本中学习，为后续GPT-2、GPT-3乃至ChatGPT奠定了架构和方法论基础。
-NLP的迁移学习困境 问题一：标注数据的稀缺性 深度学习在NLP中的应用面临一个根本挑战：高质量标注数据稀缺。
-与计算机视觉不同，NLP任务的标注需要语言专业知识，成本高昂：
-情感分析：需要理解语言的细微差别 问答系统：需要专业领域知识 文本蕴含：需要逻辑推理能力 大多数NLP数据集仅有数千到数万条标注样本，远不足以从头训练大型神经网络。
-问题二：预训练方法的局限 在GPT之前，NLP领域的预训练主要有两种方式：
-词向量预训练（如Word2Vec、GloVe）：
-只提供词级别的表示 无法捕捉上下文信息 无法处理多义词 语言模型预训练（如ELMo）：
-使用双向LSTM 表示能力受限于LSTM架构 预训练和微调架构不一致 这些方法虽然有效，但都存在明显局限：预训练的知识无法充分迁移到下游任务。
-问题三：无监督学习的挑战 无监督学习的核心挑战是找到合适的目标函数。语言建模是一个自然的选择：
-$$ \mathcal{L}{\text{LM}} = \sum{i} \log P(u_i | u_1, \ldots, u_{i-1}; \Theta) $$
-但如何设计一个既能充分利用预训练知识、又能适应多种下游任务的框架？
-GPT的核心设计 Transformer解码器架构 GPT采用Transformer的解码器部分作为基础架构，使用单向自注意力（因果注意力）：
-$$ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}} &#43; M\right)V $$
-其中 $M$ 是掩码矩阵，确保位置 $i$ 只能关注位置 $j \leq i$：
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-10-25 21:03:01 +0800 HKT'>October 25, 2025</span> | <span>14 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【ChatGPT时刻06】GPT-1：生成式预训练的开山之作" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-25-chatgpt-06-gpt1/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">AI气候：美国在实验室做梦，中国在风电场发电
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>上周观摩了联合国AI气候峰会，所有人都在讨论&#34;AI如何拯救气候&#34;，但我意识到真正的分水岭不是技术本身，而是路径选择：美国在实验室里研究&#34;未来50年的气候模型&#34;，中国在风电场里解决&#34;今天15%的发电效率&#34;。当美国科学家说&#34;我们需要更好的预测&#34;时，中国工程师已经在用AI让风电场的发电量提升了15%。这不是技术差距，这是时间维度的错位——一个押注未来，一个解决现在。
-从路径看：中美AI气候的路径差异
-美国的思路是&#34;技术研发优先&#34;。他们通过基础研究突破气候问题的技术瓶颈，重点资助气候建模和碳捕捉研究。美国科学家说&#34;需要更好的气候模型来预测未来&#34;。
-中国则是&#34;应用落地导向&#34;。他们用AI解决碳中和的实际问题，在风力发电预测和电网优化中大规模应用。中国工程师说&#34;需要更快地减少今天的碳排放&#34;。
-关键洞察：这不是&#34;谁对谁错&#34;的问题，而是&#34;时间维度&#34;的选择。美国押注未来，中国解决现在。
-深入思考：研发与应用的价值平衡
-AI在气候领域需要兼顾研发和应用，但中美选择了不同的时间窗口。
-美国的研发能带来长期解决方案，但周期长。他们的碳捕捉AI模型还在实验室里完善，目标是&#34;2030年实现商业化&#34;。这是典型的&#34;技术驱动&#34;思维：先突破技术，再找应用。
-中国的应用能快速产生效果，但可能缺乏技术深度。风电场用AI预测风速，发电量提升了15%，但算法本身可能不是最先进的。这是典型的&#34;应用驱动&#34;思维：先解决实际问题，再优化技术。
-关键洞察：气候问题等不起&#34;未来&#34;。美国需要加快应用落地，中国需要加大基础研究投入。
-未来趋势：全球合作的必然
-气候变化是全人类的问题，需要全球合作。2025年，我判断会看到更多融合：美国加强应用落地（比如在德州部署AI风电场），中国加大基础研究投入（比如成立AI气候研究院）。
-在气候变化面前，没有国家能独善其身，AI是我们共同的武器。
-但武器本身不会拯救地球，使用武器的方式才会。
-拯救气候，需要实验室的梦想，更需要风电场的现实。但更重要的是：让梦想照进现实，让现实验证梦想。
-2025年，我期待看到美国的风电场，也期待看到中国的实验室。
-</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-10-25 11:59:11 +0800 HKT'>October 25, 2025</span> | <span>4 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to AI气候：美国在实验室做梦，中国在风电场发电" href="https://blog.zhangky.com/posts/2025/2025-10-ai-climate/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">Tom Lee：华尔街与加密世界的关键桥梁
     </h2>
   </header>
@@ -315,6 +261,57 @@ Saylor的贡献哪是让一家公司囤点比特币这么简单？他直接给�
   </div>
   <footer class="entry-footer">   ZHANG.z | <span title='2025-10-10 10:21:07 +0800 HKT'>October 10, 2025</span> | <span>5 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 特朗普：政治权威成为加密价值的新锚点" href="https://blog.zhangky.com/posts/2025/2025-10-10-trump-crypto-politics/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Alexander Rush等人创建的《The Annotated Transformer》，这是一篇教育性的技术博客文章，通过逐行代码注释的方式，详细解析了Transformer架构的PyTorch实现。虽然这不是一篇传统意义上的研究论文，但它为理解Transformer提供了最直观、最实用的方式，是学习Transformer实现的最佳资源之一。
+“代码是最好的文档。&#34;——这是带注释Transformer的核心思想。Transformer论文虽然提出了架构，但实现细节往往隐藏在代码中。带注释Transformer通过详细的代码注释和解释，使读者能够深入理解Transformer的每一个组件、每一行代码的作用，是连接理论和实践的重要桥梁。
+带注释Transformer的核心价值是教育性和实用性：它不仅解释了Transformer的数学原理，还展示了如何用代码实现这些原理。通过逐行注释，读者可以：
+理解实现细节：了解每个组件的具体实现 学习最佳实践：学习PyTorch的实现技巧 快速上手：可以直接使用代码进行实验 在当今大模型时代，理解Transformer的实现细节至关重要：GPT、BERT、T5等模型都基于Transformer架构。理解带注释Transformer，就是理解现代AI模型的实现基础。
+本文将从架构概览、核心组件、实现细节、最佳实践四个维度深度解读带注释Transformer，包含完整的代码分析和实现技巧，并在文末提供阅读研究论文的时间线计划。
+Transformer实现的学习挑战 问题一：理论与实现的差距 Transformer论文提供了架构设计，但实现细节往往不明确：
+理论与实现的差距：
+论文描述的是架构，代码需要处理细节 论文使用数学符号，代码使用具体数据结构 论文关注算法，代码需要处理工程问题 学习挑战：
+如何将数学公式转化为代码？ 如何处理边界情况和数值稳定性？ 如何优化实现效率？ 问题二：代码理解的困难 Transformer的实现代码往往复杂，难以理解：
+代码理解的困难：
+代码量大，难以快速理解 缺少注释，难以理解设计意图 实现技巧不明确，难以学习最佳实践 问题三：教育资源的缺乏 在Transformer刚提出时，详细的教育资源较少：
+教育资源的缺乏：
+缺少详细的实现教程 缺少代码级别的解释 缺少最佳实践的总结 带注释Transformer的核心组件 组件一：多头自注意力 数学定义： $$ \text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O $$
+其中 $\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$。
+代码实现：
+class MultiHeadedAttention(nn.Module): def __init__(self, h, d_model, dropout=0.1): super().__init__() assert d_model % h == 0 self.d_k = d_model // h self.h = h self.linears = nn.ModuleList([nn.Linear(d_model, d_model) for _ in range(4)]) self.attn = None self.dropout = nn.Dropout(p=dropout) def forward(self, query, key, value, mask=None): nbatches = query.size(0) # 1) 线性投影并分割为h个头 query, key, value = [ lin(x).view(nbatches, -1, self.h, self.d_k).transpose(1, 2) for lin, x in zip(self.linears, (query, key, value)) ] # 2) 应用注意力 x, self.attn = attention(query, key, value, mask=mask, dropout=self.dropout) # 3) 拼接多头并应用最终线性层 x = x.transpose(1, 2).contiguous().view(nbatches, -1, self.h * self.d_k) return self.linears[-1](x) 关键实现细节：
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-10-08 21:21:38 +0800 HKT'>October 8, 2025</span> | <span>15 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">【ChatGPT时刻04】Transformer：Attention Is All You Need
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Ashish Vaswani、Noam Shazeer、Niki Parmar、Jakob Uszkoreit、Llion Jones、Aidan N. Gomez、Łukasz Kaiser和Illia Polosukhin于2017年发表的里程碑论文《Attention Is All You Need》，该论文提出了Transformer架构，完全基于注意力机制，摒弃了循环和卷积结构，在机器翻译任务上取得了最先进的性能，同时训练速度更快、可并行性更强。这一突破不仅彻底改变了序列建模的范式，更为后续GPT、BERT等大语言模型奠定了架构基础，开启了现代AI的新时代。
+“注意力即一切。&#34;——这是Transformer论文的核心宣言。在Transformer之前，序列建模主要依赖RNN和CNN。RNN虽然能够处理序列，但难以并行化；CNN虽然可以并行化，但难以捕捉长距离依赖。Transformer通过完全基于注意力机制的架构，同时解决了这两个问题，实现了并行化和长距离依赖的完美结合。
+Transformer的核心创新是自注意力机制（Self-Attention）：每个位置都可以直接关注序列中的所有位置，无需通过循环或卷积逐步传播信息。这种设计使得Transformer能够：
+并行计算：所有位置可以同时计算，训练速度大幅提升 长距离依赖：直接建模任意距离的依赖关系 可解释性：注意力权重提供了模型决策的可解释性 在当今大语言模型时代，Transformer已经成为AI的基础架构：GPT、BERT、T5、PaLM等所有大模型都基于Transformer。理解Transformer，就是理解现代AI的基石。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读Transformer，包含完整的数学推导、架构分析和实验评估，并在文末提供阅读研究论文的时间线计划。
+序列建模的传统局限 问题一：RNN的序列化计算瓶颈 传统RNN需要按顺序处理序列，无法并行化：
+序列化计算的局限：
+每个时间步依赖前一时间步的输出 计算必须串行进行，无法并行 训练时间长，难以处理大规模数据 数学表述：对于序列 $x_1, x_2, \ldots, x_n$，RNN的计算为： $$ h_t = f(h_{t-1}, x_t) $$ 其中 $h_t$ 的计算必须等待 $h_{t-1}$ 完成，无法并行。
+问题二：CNN的感受野限制 CNN虽然可以并行化，但感受野受限：
+感受野的局限：
+需要多层卷积才能扩大感受野 感受野的增长是线性的，需要 $O(n)$ 层才能覆盖长度为 $n$ 的序列 难以捕捉长距离依赖 数学分析：对于 $k \times k$ 卷积核，经过 $L$ 层后，感受野为 $L(k-1) &#43; 1$。要覆盖长度为 $n$ 的序列，需要 $L \geq \frac{n-1}{k-1}$ 层。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-09-21 21:40:41 +0800 HKT'>September 21, 2025</span> | <span>14 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【ChatGPT时刻04】Transformer：Attention Is All You Need" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-21-chatgpt-04-transformer/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

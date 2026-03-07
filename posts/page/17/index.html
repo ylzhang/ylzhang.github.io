@@ -201,52 +201,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">【AI数学】30分钟拆解AI核心公式-复习笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>上一篇我们搞定了符号，这一篇直接拆解AI论文中出现频率最高的6个公式。每个公式都是：问题→公式→拆解→代码。
-前置要求：读完上一篇符号速查手册。
-一、Softmax与交叉熵损失 问题：如何把模型输出变成概率？ 神经网络输出的是一堆数字（logits），可能是负数、可能很大。我们需要把它们变成概率分布（非负、和为1）。
-公式 $$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_{j=1}^{K} e^{x_j}}$$
-拆解 $e^{x_i}$：指数函数，把任意数变成正数 $\sum_{j=1}^{K} e^{x_j}$：所有指数的和，用于归一化 除法：确保结果和为1 为什么用指数？ 因为指数函数会放大差异——大的更大，小的更小，让模型更&#34;自信&#34;。
-代码实现 import numpy as np def softmax(x): &#34;&#34;&#34; 输入: x, shape (K,) 或 (batch, K) 输出: 概率分布，shape同输入 &#34;&#34;&#34; # 减去最大值防止数值溢出（数学上等价） exp_x = np.exp(x - np.max(x, axis=-1, keepdims=True)) return exp_x / np.sum(exp_x, axis=-1, keepdims=True) # 示例 logits = np.array([2.0, 1.0, 0.1]) probs = softmax(logits) print(probs) # [0.659, 0.242, 0.099] print(probs.sum()) # 1.0 交叉熵损失 有了概率，如何衡量预测和真实标签的差距？
-$$L = -\sum_{i=1}^{K} y_i \log(\hat{y}_i)$$
-其中 $y_i$ 是真实标签（one-hot），$\hat{y}_i$ 是预测概率。
-简化形式（单标签分类）： $$L = -\log(\hat{y}_{correct})$$
-就是正确类别的概率取负对数。概率越高，损失越小。
-def cross_entropy_loss(probs, label): &#34;&#34;&#34; probs: softmax输出的概率, shape (K,) label: 正确类别的索引, int &#34;&#34;&#34; return -np.log(probs[label] &#43; 1e-10) # 加小数防止log(0) # 示例 probs = np.array([0.7, 0.2, 0.1]) loss = cross_entropy_loss(probs, label=0) # 正确类别是0 print(loss) # 0.357（概率0.7对应的损失） 二、注意力机制（Attention） 问题：如何让模型&#34;关注&#34;输入的不同部分？ 翻译&#34;我爱北京&#34;时，生成&#34;Beijing&#34;应该主要关注&#34;北京&#34;这个词，而不是平均关注所有词。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-01-16 10:27:39 +0800 HKT'>January 16, 2025</span> | <span>27 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【AI数学】30分钟拆解AI核心公式-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-02-core-formulas/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
-前置要求：高中数学水平，会基础Python。
-一、求和与连乘 1.1 求和符号 $\sum$ 读法：Sigma（西格玛），读作&#34;sum&#34;
-含义：把一堆数加起来
-公式示例： $$\sum_{i=1}^{n} x_i = x_1 &#43; x_2 &#43; \cdots &#43; x_n$$
-论文中常见形式：
-损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和） Python实现：
-import numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi &gt; 0) 1.2 连乘符号 $\prod$ 读法：Pi（派），读作&#34;product&#34;
-含义：把一堆数乘起来
-公式示例： $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$
-论文中常见形式：
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-01-15 10:55:01 +0800 HKT'>January 15, 2025</span> | <span>25 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">AI医疗：99%的准确率在实验室，95%的准确率在村寨
     </h2>
   </header>
@@ -358,6 +312,44 @@ Sora的视频生成能力又提升了，现在能生成5分钟高清视频，连
   </div>
   <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-12-23 16:00:59 +0800 HKT'>December 23, 2024</span> | <span>37 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 比特币白皮书读书笔记" href="https://blog.zhangky.com/posts/2024/2024-12-23-bitcoin_paper_cn/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">从GE的&#34;活力曲线&#34;看杰克韦尔奇的管理智慧
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>杰克韦尔奇的“活力曲线”故事 通用电气（GE）在杰克韦尔奇时代推行的“活力曲线”（20-70-10）管理法，至今仍是企业管理的经典案例。
+核心实践 韦尔奇将员工按绩效分为三类：
+20%的顶尖员工：给予丰厚奖励和晋升机会 70%的中坚员工：提供培训和发展空间 10%的末位员工：给予改进机会或淘汰 背后逻辑 这一方法的核心是**“区别对待”**——承认员工贡献差异，通过差异化激励保持组织活力。韦尔奇认为：
+平均主义会扼杀优秀员工的积极性 及时淘汰不适应的员工是对组织和员工的负责任 清晰的绩效标准能提升整体团队效率 反思与启示 “活力曲线”并非完美无缺，过度量化可能忽视团队协作和创新价值。但它提醒管理者：
+绩效评估需要透明和客观 组织需要保持“新陈代谢”的能力 激励机制应与战略目标紧密结合 在快速变化的商业环境中，韦尔奇的管理智慧仍有借鉴意义——保持组织活力比追求短期稳定更重要。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-11-22 14:18:42 +0800 HKT'>November 22, 2024</span> | <span>1 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 从GE的&#34;活力曲线&#34;看杰克韦尔奇的管理智慧" href="https://blog.zhangky.com/posts/2024/2024-11-22-ge_jack_welch_lessons/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">小数据与优质数据：AI从&#34;拼规模&#34;到&#34;拼质量&#34;的转折点？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>中科院发布AI前沿趋势那天，我正在实验室调试小样本学习模型。看到&#34;小数据与优质数据成AI核心引擎&#34;这句话，我差点从椅子上跳起来——终于有人认可我们的方向了！
+表层：小数据的商业化突破
+作为做了5年小样本学习的研究者，我太懂传统AI的痛点：需要海量数据，标注成本高，泛化能力差。最让我兴奋的是，小数据技术终于开始商业化了。腾讯开源的AI生成3D模型，就是用小数据训练的，效果不比百万级数据模型差。
+深层：中美小数据的路径分歧
+中美在小数据领域的研究路径截然不同：美国是&#34;算法驱动&#34;，比如OpenAI的few-shot learning；中国是&#34;数据驱动&#34;，比如百度的知识增强小样本学习。上周跟医疗AI公司CTO聊天，他说：“以前有100万张X光片，标注质量参差不齐；现在只有10万张，但每张经过三个医生审核，模型性能反而提升30%。”
+终局：优质数据的成本难题
+但问题也存在：优质数据的获取成本还是太高了，尤其是垂直领域的数据。法律文档、医疗记录，获取和标注成本都非常高。AI从&#34;拼规模&#34;到&#34;拼质量&#34;，这是重要转折点，但如何降低优质数据获取成本，让小数据技术真正普及？
+大数据是AI的过去，小数据是AI的未来。但这个未来，需要先解决优质数据的成本问题。
+真正的AI革命，不是用更多的数据，而是用更聪明的方法使用更少的数据。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-11-20 16:43:41 +0800 HKT'>November 20, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 小数据与优质数据：AI从&#34;拼规模&#34;到&#34;拼质量&#34;的转折点？" href="https://blog.zhangky.com/posts/2024/2024-11-20-small-data-ai/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -11,29 +11,8 @@
     </image>
     <generator>Hugo -- 0.153.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Mar 2026 17:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2026 08:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Local Deploy</title>
-      <link>https://blog.zhangky.com/tags/local-deploy/</link>
-      <pubDate>Sat, 07 Mar 2026 17:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/tags/local-deploy/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Test</title>
-      <link>https://blog.zhangky.com/tags/test/</link>
-      <pubDate>Sat, 07 Mar 2026 17:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/tags/test/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>CI/CD</title>
-      <link>https://blog.zhangky.com/tags/ci/cd/</link>
-      <pubDate>Sat, 07 Mar 2026 12:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/tags/ci/cd/</guid>
-      <description></description>
-    </item>
     <item>
       <title>AI</title>
       <link>https://blog.zhangky.com/tags/ai/</link>
