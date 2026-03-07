@@ -11,8 +11,20 @@
     </image>
     <generator>Hugo -- 0.157.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 06 Mar 2026 08:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2026 12:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CI/CD Pipeline 测试文章</title>
+      <link>https://blog.zhangky.com/posts/2026/2026-03-07-cicd-pipeline-test/</link>
+      <pubDate>Sat, 07 Mar 2026 12:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/2026-03-07-cicd-pipeline-test/</guid>
+      <description>&lt;h1 id=&#34;test&#34;&gt;TEST&lt;/h1&gt;
+&lt;p&gt;这是一篇用于验证 GitHub Actions CI/CD Pipeline 的测试文章。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;测试时间&lt;/strong&gt;: 2026-03-07
+&lt;strong&gt;测试目的&lt;/strong&gt;: 验证从 composer 仓库推送到 ylzhang.github.io 的全流程自动化部署&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;本文由 GitHub Actions 自动构建并部署&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>大模型的开源，到底开源了什么</title>
       <link>https://blog.zhangky.com/posts/2026/2026-03-06-what-does-open-source-mean-for-llm/</link>
