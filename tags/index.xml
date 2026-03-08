@@ -11,8 +11,50 @@
     </image>
     <generator>Hugo -- 0.157.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Mar 2026 21:29:02 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 08 Mar 2026 14:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent</title>
+      <link>https://blog.zhangky.com/tags/agent/</link>
+      <pubDate>Sun, 08 Mar 2026 14:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/agent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI Coding</title>
+      <link>https://blog.zhangky.com/tags/ai-coding/</link>
+      <pubDate>Sun, 08 Mar 2026 14:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/ai-coding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cursor</title>
+      <link>https://blog.zhangky.com/tags/cursor/</link>
+      <pubDate>Sun, 08 Mar 2026 14:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/cursor/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OpenClaw</title>
+      <link>https://blog.zhangky.com/tags/openclaw/</link>
+      <pubDate>Sun, 08 Mar 2026 14:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/openclaw/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>模型落地</title>
+      <link>https://blog.zhangky.com/tags/%E6%A8%A1%E5%9E%8B%E8%90%BD%E5%9C%B0/</link>
+      <pubDate>Sun, 08 Mar 2026 14:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E6%A8%A1%E5%9E%8B%E8%90%BD%E5%9C%B0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>龙虾大会</title>
+      <link>https://blog.zhangky.com/tags/%E9%BE%99%E8%99%BE%E5%A4%A7%E4%BC%9A/</link>
+      <pubDate>Sun, 08 Mar 2026 14:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E9%BE%99%E8%99%BE%E5%A4%A7%E4%BC%9A/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AI</title>
       <link>https://blog.zhangky.com/tags/ai/</link>
