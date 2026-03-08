@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>观察 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/categories/%E8%A7%82%E5%AF%9F/</link>
+    <description>Recent content in 观察 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 08 Mar 2026 14:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/categories/%E8%A7%82%E5%AF%9F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>龙虾大会：一场关于AI编程的集体幻觉</title>
+      <link>https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/</link>
+      <pubDate>Sun, 08 Mar 2026 14:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;【发稿人按】&lt;/strong&gt;
+三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，而是为了学习如何使用一个开源工具——OpenClaw。这个在GitHub上收获超过27万颗星星的项目&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演，这场被称为&amp;quot;龙虾大会&amp;quot;的运动，正在以一种近乎狂热的姿态席卷整个行业。&lt;/p&gt;
+&lt;p&gt;但作为发稿人，我必须提出第一个质疑：**这场大会究竟在解决什么问题？**当演讲者们反复演示如何用几句自然语言生成一个待办事项应用时，这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。本文试图穿透表象，探讨工具迭代与模型升级之间的深层关系。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;那些坐在会议室里的开发者们带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被&amp;quot;AI替代程序员&amp;quot;的焦虑驱动。然而，当舞台上的演示从精心设计的demo切换到真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求时，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;【专业审稿人批注】&lt;/strong&gt;
+这里需要明确一个技术本质：&lt;strong&gt;当前AI编程工具的核心仍是基于概率的模式匹配系统&lt;/strong&gt;。它们在处理常见编程模式、标准库调用、以及有明确边界的任务时表现出色，因为这些场景在训练数据中有充足的样本。但一旦涉及到需要深度领域知识、复杂架构设计、或者跨系统集成的任务，AI就会暴露出理解力的局限。&lt;/p&gt;
+&lt;p&gt;更重要的是，编程从来不只是写代码——它还包括理解业务逻辑、权衡技术方案、与团队协作、以及在约束条件下做出工程决策。这些软技能，恰恰是当前的AI最难以替代的部分。那些在龙虾大会上被反复强调的&amp;quot;生产力提升&amp;quot;，很大程度上只是将编码阶段的部分工作自动化，而软件开发的全生命周期中，编码往往只占不到三分之一的工作量。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这种认知落差并非偶然。云服务厂商和模型公司的热情参与，让这场运动变得更加复杂。对他们来说，OpenClaw提供了一个绝佳的切入点：通过简化部署流程、提供托管服务，他们可以将开发者锁定在自己的生态系统中。一键部署听起来很美好，但它也意味着用户将基础设施的控制权交给了平台；Token计费模式看似灵活，但当应用规模扩大时，成本可能会变得难以预测。&lt;/p&gt;
+&lt;p&gt;**这些商业模式的设计，更多地反映了供应商的利益，而非用户的真实需求。**当所有人都急于在这个新兴市场占据一席之地时，关于&amp;quot;这些工具究竟能创造什么价值&amp;quot;的冷静思考反而被边缘化了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;【普通审稿人反馈】&lt;/strong&gt;
+说实话，我参加过一次这样的大会，感觉就像是在听一场&amp;quot;AI万能&amp;quot;的布道。演示的时候确实很惊艳，但回到公司试了一下，发现生成的代码根本跑不通，或者跑通了也不知道为什么会跑通。那种兴奋感很快就变成了困惑——这玩意儿到底能不能用在真正的项目上？&lt;/p&gt;
+&lt;p&gt;我同意文章里说的，现在的AI编程工具更像是&amp;quot;高级代码补全&amp;quot;，而不是真的能理解我在做什么。最讽刺的是，那些大会上讲得最热闹的人，往往不是真正在写代码的人。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这种过热的状态很难持久。历史经验表明，技术 hype 的周期通常在六到八周达到顶峰，随后进入冷静期。龙虾大会也不例外。当最初的兴奋消退，当参会者们回到自己的工位尝试将这些工具应用到实际项目中，他们会发现现实的骨感：AI生成的代码可能需要大量的修改才能运行，自动化的工作流可能在边界情况下崩溃，而那些被承诺的&amp;quot;十倍效率提升&amp;quot;在复杂项目中变得难以兑现。&lt;/p&gt;
+&lt;p&gt;三到八周后，当再有人提起龙虾大会时，语气中可能会带着一丝怀念，更多的是一种&amp;quot;那阵子大家都挺疯狂的&amp;quot;的调侃。&lt;/p&gt;
+&lt;p&gt;但这并不意味着AI编程工具没有价值。恰恰相反，它们在某些场景下确实能显著提升效率——尤其是在原型开发、学习编程、以及处理重复性编码任务时。问题在于，当前的市场叙事将这些能力过度放大，试图用&amp;quot;AI替代程序员&amp;quot;的惊悚标题来吸引眼球，而忽视了工具能力的边界。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;【专业审稿人批注】&lt;/strong&gt;
+这里必须引入一个关键视角：&lt;strong&gt;工具的迭代与底层模型的升级密切相关&lt;/strong&gt;。OpenClaw、Cursor这类工具本质上是Agent的落地表现形式，而Agent的能力边界直接受制于底层大模型的能力。&lt;/p&gt;
+&lt;p&gt;2026年2月17日，Anthropic发布了Claude Sonnet 4.6，在代码理解和生成能力上有了显著提升&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。这不仅是性能基准的升级，更重新定义了这个赛道的天花板。当模型能够更好地理解复杂指令、处理长上下文、进行多步骤推理时，建立在它之上的编程工具才能获得质的飞跃。&lt;/p&gt;
+&lt;p&gt;**换言之，工具的演化是模型演化的函数。**没有底层模型的突破，单纯的工具创新很快就会触顶。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;来自大洋彼岸的一些信号值得我们关注。在Claude Sonnet 4.6发布后，Cursor作为目前AI编程工具赛道的领导者，明显感受到了前所未有的压力。这种压力不仅来自模型能力的跃升，更来自竞争格局的剧变——当底层模型公司开始直接提供强大的编程能力时，中间层工具的护城河在哪里？&lt;/p&gt;
+&lt;p&gt;**据业内人士透露，Cursor内部已经将这种状态定义为&amp;quot;战时模式&amp;quot;。**这并非空穴来风：从2026年2月到3月，Cursor连续发布了自动化工作流、JetBrains IDE支持、自主计算机控制等多项重大功能&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;，这种密集的产品发布节奏本身就说明了一切。即便是市场领导者，也必须在模型快速迭代的背景下不断进化，否则随时可能被淘汰。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;【发稿人按】&lt;/strong&gt;
+&amp;ldquo;战时模式&amp;quot;这个表述值得玩味。它暗示了一个残酷的现实：在AI编程工具的赛道上，没有永恒的安全区。当Anthropic这样的模型公司推出更强大的编程能力时，Cursor必须在产品层面做出回应，否则用户就会直接转向模型原生的解决方案。&lt;/p&gt;
+&lt;p&gt;这也解释了为什么龙虾大会的火热某种程度上是&lt;strong&gt;焦虑驱动&lt;/strong&gt;的——开发者们担心错过下一个风口，服务商们担心被时代抛弃，创业者们则在寻找能够抵御模型公司直接竞争的商业逻辑。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;更深层的观察是，龙虾大会的火热某种程度上反映了当前大模型落地的困境。经过两年多的发展，模型能力的提升并没有自动转化为生产力的飞跃。C端应用除了ChatGPT之外鲜有成功的案例，B端落地则面临着数据安全、成本效益、组织变革等多重障碍。&lt;/p&gt;
+&lt;p&gt;在这种情况下，编程成为了一个相对容易切入的场景：开发者本身就是技术早期采用者，代码是结构化的数据，效果可以通过自动化测试来验证。但即便如此，真正的生产级应用仍然寥寥无几。大多数尝试停留在个人项目或内部工具层面，难以支撑起规模化的商业模式。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;【普通审稿人反馈】&lt;/strong&gt;
+我觉得文章里说的&amp;quot;困境&amp;quot;很真实。我们公司也尝试过用这些工具，但最后发现，真正省时间的不是让AI写代码，而是让AI帮忙写文档、写测试、或者解释一段看不懂的祖传代码。&lt;/p&gt;
+&lt;p&gt;可能AI编程工具的价值不在于&amp;quot;替代程序员&amp;rdquo;，而在于&amp;quot;帮程序员做那些他们不想做的事&amp;quot;。但这样的话，市场规模就没那么大了，估值也就没那么高了。所以那些大会上的演讲者肯定不会这么讲。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这种困境并非中国独有，但在国内表现得尤为明显。一方面，基础模型的能力与国际顶尖水平仍有差距，这限制了应用层面的创新空间；另一方面，市场的急功近利心态让很少有人愿意沉下心来打磨产品，大家都在追逐短期的热点和概念。&lt;/p&gt;
+&lt;p&gt;当OpenClaw火了，所有人都在谈论OpenClaw；当下一个框架出现，注意力又会迅速转移。在这种环境下，真正的技术积累和产品迭代变得困难，大部分参与者只是在不同的热点之间疲于奔命。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;【专业审稿人批注】&lt;/strong&gt;
+文章结尾需要回到一个核心判断：&lt;strong&gt;工具的迭代是不可逆的，但工具的形态是可变的&lt;/strong&gt;。OpenClaw可能只是一个阶段性的产物，就像早期的jQuery、后来的React，技术的演进会让今天的&amp;quot;龙虾大会&amp;quot;变成明天的历史注脚。&lt;/p&gt;
+&lt;p&gt;真正重要的是，&lt;strong&gt;在这个工具快速迭代、模型持续升级的时代，什么是相对稳定的&lt;/strong&gt;——可能是对软件工程本质的理解，可能是对业务逻辑的把握，也可能是人机协作的新范式。找到这些&amp;quot;不变量&amp;quot;，比追逐当下的热点更有价值。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;回到最开始的问题：究竟是谁在玩龙虾？答案可能是：那些焦虑的开发者，试图在这个快速变化的时代找到安全感；那些投机的服务商，希望借助热点推销自己的产品和服务；那些迷茫的创业者，在寻找下一个可能的风口；以及那些真诚相信技术能改变世界的理想主义者，尽管他们中的大多数最终会发现，改变比想象中要困难得多。&lt;/p&gt;
+&lt;p&gt;这些人共同构成了这场运动的参与者，也共同承受着期望与现实之间的落差。当热潮退去，真正有价值的东西会留下来。可能是一些被验证过的最佳实践，可能是几段在特定场景下确实能提升效率的工作流，也可能是关于&amp;quot;如何与AI协作&amp;quot;的新认知。&lt;/p&gt;
+&lt;p&gt;但前提是，参与者们能够从这场集体的狂热中抽离出来，诚实地评估工具的能力边界，并在实际的业务场景中寻找真正的价值创造点。这需要时间，需要耐心，也需要一定程度的运气。&lt;/p&gt;
+&lt;p&gt;而在那之前，龙虾大会还会继续，只是参会者脸上的表情可能会从兴奋变成困惑，再从困惑变成一种若有所思的平静。那可能是一个更健康的状态——对于技术，对于行业，对于所有在其中寻找机会的人来说，都是如此。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;【发稿人终审】&lt;/strong&gt;
+本文通过三个视角的交叉审视，试图呈现龙虾大会背后的多重真相。这不是一篇唱衰AI编程工具的文章，而是一篇提醒人们&lt;strong&gt;保持清醒&lt;/strong&gt;的文章。在模型快速迭代、工具不断演化的今天，唯一不变的是变化本身。如何在变化中找到价值，是每一个参与者都需要回答的问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;OpenClaw GitHub Repository, &lt;a href=&#34;https://github.com/openclaw/openclaw&#34;&gt;https://github.com/openclaw/openclaw&lt;/a&gt;, 截至2026年3月收获278k stars&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Anthropic, &amp;ldquo;Introducing Claude Sonnet 4.6&amp;rdquo;, February 17, 2026, &lt;a href=&#34;https://www.anthropic.com/news/claude-sonnet-4-6&#34;&gt;https://www.anthropic.com/news/claude-sonnet-4-6&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;Cursor Blog, 2026年2-3月产品更新动态，包括Automations、JetBrains ACP、Agent Computer Use等功能发布&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

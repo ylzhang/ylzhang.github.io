@@ -2,7 +2,15 @@
 <svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
 <svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
-<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://blog.zhangky.com/>Home</a></div><h1>Posts</h1></header><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命</h2></header><div class=entry-content><p>本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://blog.zhangky.com/>Home</a></div><h1>Posts</h1></header><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架</h2></header><div class=entry-content><p>本文解读的是Ilya Sutskever、Oriol Vinyals和Quoc V. Le于2014年发表的里程碑论文《Sequence to Sequence Learning with Neural Networks》，该论文提出了Seq2Seq框架，首次使用纯端到端的神经网络实现了高质量的机器翻译。作为OpenAI联合创始人的代表作，Seq2Seq不仅确立了编码器-解码器架构的标准范式，更是通向Transformer和GPT系列的关键一步——它证明了神经网络可以直接学习序列到序列的映射，无需手工设计特征或规则。
+序列建模的根本挑战 问题一：变长序列的处理难题 传统神经网络（如前馈网络、CNN）要求输入和输出具有固定维度。然而，自然语言中的序列长度是可变的：
+输入长度可变：句子可能有5个词，也可能有50个词 输出长度可变：翻译结果的长度与源句子不同 输入输出长度不对应：源语言和目标语言的句子长度通常不同 这种变长特性使得传统方法无法直接应用于机器翻译、对话生成等任务。
+问题二：长距离依赖问题 语言中存在大量长距离依赖关系。例如：
+“The cat, which was sitting on the mat in the corner of the room, was sleeping.”
+主语"cat"和谓语"was"之间隔了多个从句，模型需要"记住"主语才能正确预测谓语的形式。
+传统RNN在处理长序列时面临梯度消失问题：
+$$ \frac{\partial \mathcal{L}}{\partial W} = \sum_{t=1}^{T} \frac{\partial \mathcal{L}t}{\partial W} = \sum{t=1}^{T} \frac{\partial \mathcal{L}t}{\partial h_t} \prod{k=1}^{t} \frac{\partial h_k}{\partial h_{k-1}} \frac{\partial h_1}{\partial W} $$
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-08-18 21:00:20 +0800 +0800'>August 18, 2025</span> | <span>16 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架" href=https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命</h2></header><div class=entry-content><p>本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。
 语言理解的根本挑战 问题一：词语表示的离散性困境 在传统NLP中，词语通常用one-hot编码表示。对于一个包含 $V$ 个词的词表，每个词被表示为一个 $V$ 维向量，只有对应位置为1，其余为0。
 这种表示方法存在三个根本问题：
 维度灾难：词表规模通常在万到百万级别，导致向量维度极高 稀疏性：每个向量只有一个非零元素，绝大多数信息为0 语义缺失：任意两个词的向量正交，无法表达语义相似性 例如，“king"和"queen"虽然语义相近，但在one-hot表示下：
@@ -55,26 +63,7 @@ AI安全需要兼顾预防和应对，平衡标准化与灵活性。但问题是
 毕竟，在AI时代，安全不是阻碍发展的障碍，而是发展的基础。没有安全，就没有信任；没有信任，就没有应用。
 AI安全的本质，从来不是技术的比拼，而是平衡创新与风险的艺术。
 在这个AI飞速发展的时代，没有绝对的安全，只有动态的平衡。美国在写手册，中国在写代码——但最终，我们需要的是既有手册，又有代码的安全体系。
-2025年，我期待看到美国的自动化，也期待看到中国的系统化。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2025-06-25 16:52:05 +0800 +0800'>June 25, 2025</span> | <span>5 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to AI安全：美国在写手册，中国在写代码" href=https://blog.zhangky.com/posts/2025/2025-06-ai-cybersecurity/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>AI教育：美国在定制课程，中国在复制课堂</h2></header><div class=entry-content><p>上个月在美国考察了Khanmigo自适应学习平台，一个学生做错题，系统立刻调整难度，连学习节奏都能匹配他的注意力曲线。我坐在教室里，看着屏幕上的AI老师实时调整教学策略，心里想：这就像给每个学生配了一个私人教练。
-但回到中国，我看到的是另一番景象：1000多所学校试点"AI智慧课堂"，农村孩子也能上一线城市的优质课。上周在贵州一个山区小学，校长指着屏幕说：“我们这里的孩子，第一次能和北京的学生上一样的课。“屏幕那头，是北京四中的老师在上数学课。
-两种完全不同的AI教育图景，让我思考：教育的本质到底是什么？
-从形式看：个性化 vs 规模化的路径分歧
-表面上看，这是"个性化 vs 规模化"的技术路线分歧。
-美国的思路是"个性化优先”。Khanmigo自适应学习平台能根据每个学生的学习情况实时调整难度，连学习节奏都能匹配他的注意力曲线。这是典型的"定制教育"路径：让教育贴合个体需求。
-中国则是"规模化普及”。1000多所学校试点"AI智慧课堂"，农村孩子也能上一线城市的优质课。这是典型的"复制教育"路径：用AI缩小城乡教育差距。
-上周在贵州山区小学，校长说：“AI让我们农村学校的孩子，第一次能和北京的学生上一样的课。“这句话让我想起在美国看到的场景：一个学生做错题，系统立刻调整难度。两种思路，两种未来。
-关键洞察：这不是技术路线分歧，是教育理念的差异。一个瞄准"让每个学生都不同”，一个瞄准"让每个学生都一样”。
-从价值看：价值取向的本质差异
-美国的个性化学习能激发学生潜能，但成本高昂，只有少数学校负担得起。Khanmigo平台一年的费用是每个学生2000美元，这对于大多数学校来说都是负担。这是典型的"精英教育"逻辑：让少数人更优秀。
-中国的规模化普及能快速提升整体水平，但可能缺乏针对性。AI智慧课堂让农村孩子也能上一线城市的优质课，但可能无法根据每个学生的特点调整教学策略。这是典型的"公平教育"逻辑：让每个人都有机会。
-这背后是不同的价值取向：美国重视个体潜能，中国重视公平普及。但问题是：在资源有限的情况下，应该优先哪个？
-关键洞察：价值取向的本质差异，决定了不同的教育路径。个性化是精英逻辑，规模化是公平逻辑。
-未来方向：混合模式的未来
-教育的本质是育人，AI只是工具。2025年，我判断会出现"混合模式"：既有个性化学习的精准，又有规模化普及的效率。
-比如，用AI生成个性化学习路径，同时通过云课堂让农村孩子也能使用。这样既能激发学生潜能，又能缩小城乡教育差距。
-每个孩子都应该有平等的机会接受优质教育，AI可能是实现这一目标的关键。
-真正的AI教育革命，不是让少数人更优秀，而是让每个人都有机会变得优秀。美国在定制课程，中国在复制课堂——但最终，我们需要的是既有个性化，又有规模化的教育。
-2025年，我期待看到美国的规模化，也期待看到中国的个性化。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2025-05-10 09:25:54 +0800 +0800'>May 10, 2025</span> | <span>5 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to AI教育：美国在定制课程，中国在复制课堂" href=https://blog.zhangky.com/posts/2025/2025-05-ai-education/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/posts/page/14/>«&nbsp;Prev&nbsp;14/20
+2025年，我期待看到美国的自动化，也期待看到中国的系统化。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2025-06-25 16:52:05 +0800 +0800'>June 25, 2025</span> | <span>5 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to AI安全：美国在写手册，中国在写代码" href=https://blog.zhangky.com/posts/2025/2025-06-ai-cybersecurity/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/posts/page/14/>«&nbsp;Prev&nbsp;14/20
 </a><a class=next href=https://blog.zhangky.com/posts/page/16/>Next&nbsp;16/20&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
