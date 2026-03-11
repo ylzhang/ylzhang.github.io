@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>卷积神经网络 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+    <description>Recent content in 卷积神经网络 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 01 Jan 2026 10:47:54 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【论文/课程01】CS231n：卷积神经网络与视觉识别课程</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-01-cs231n/</link>
+      <pubDate>Thu, 01 Jan 2026 10:47:54 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-01-cs231n/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;&amp;ldquo;视觉不仅是智能的一部分，更是智能的基石。解开视觉智能的奥秘，就是解开智能的奥秘。&amp;quot;——这是李飞飞教授在CS231n课程开篇时说的话。&lt;/p&gt;
+&lt;p&gt;2012年，当AlexNet在ImageNet挑战赛上以压倒性优势夺冠时，整个计算机视觉领域被彻底颠覆。在此之前，传统方法在ImageNet上的错误率接近30%，而AlexNet将Top-5错误率降到了15.3%——这不是渐进式改进，而是范式革命。&lt;/p&gt;
+&lt;p&gt;斯坦福大学的CS231n课程（Convolutional Neural Networks for Visual Recognition，卷积神经网络与视觉识别）正是这场革命的系统化总结。作为Ilya Sutskever推荐的30u30权威清单中的第一项，CS231n不仅是深度学习入门的必修课，更是理解现代AI视觉理解能力的基石。&lt;/p&gt;
+&lt;p&gt;在深度学习成为主流之前，计算机视觉面临三个核心问题：特征工程瓶颈（依赖手工设计的特征如SIFT、HOG）、层次化表示缺失（无法像人类视觉系统那样从边缘到物体地理解图像）、端到端学习不可行（特征提取和分类分离，无法联合优化）。CNN通过端到端学习，自动从数据中提取特征，彻底改变了视觉识别的游戏规则。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读CS231n，包含完整的数学推导、算法流程和复杂度分析，面向专业读者提供系统化的技术总结。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;h2 id=&#34;传统计算机视觉的局限&#34;&gt;传统计算机视觉的局限&lt;/h2&gt;
+&lt;h3 id=&#34;问题一特征工程的手工设计瓶颈&#34;&gt;问题一：特征工程的手工设计瓶颈&lt;/h3&gt;
+&lt;p&gt;传统计算机视觉方法依赖手工设计的特征描述符（如SIFT、HOG、LBP），将图像转换为固定维度的特征向量，然后使用传统机器学习算法（如SVM、随机森林）进行分类。这种方法的根本问题在于：特征设计需要大量领域专家知识，不同任务需要不同的特征描述符；手工特征在训练集上表现良好，但在新场景、新数据上往往失效；难以捕捉图像中的复杂模式和高层语义信息；每增加一个新任务，都需要重新设计特征。&lt;/p&gt;
+&lt;p&gt;在2010-2011年的ImageNet挑战赛中，最佳方法使用SIFT特征和Fisher Vector编码，Top-5错误率接近&lt;strong&gt;30%&lt;/strong&gt;，而人类错误率约为&lt;strong&gt;3%&lt;/strong&gt;。当数据规模从数千张增长到数百万张时，传统方法的性能提升微乎其微，说明手工特征无法充分利用大规模数据的潜力。这正是李飞飞教授和她的学生在2000年代初期意识到的问题：&lt;strong&gt;数据的重要性被严重低估了&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;问题二空间不变性和层次化表示的缺失&#34;&gt;问题二：空间不变性和层次化表示的缺失&lt;/h3&gt;
+&lt;p&gt;图像中的物体可能出现在任意位置、任意尺度、任意角度。人类视觉系统具有天然的层次化结构：从边缘、纹理等底层特征，到形状、部件等中层特征，再到物体类别等高层语义。传统方法通常只能捕捉单一层次的特征，难以构建层次化表示。需要滑动窗口、数据增强、多尺度特征金字塔等方法，计算成本高昂，且难以端到端优化。&lt;/p&gt;
+&lt;p&gt;传统方法可以捕捉底层特征（边缘、角点、纹理），但难以捕捉中层特征（形状、部件、局部模式），几乎无法捕捉高层语义（物体类别、场景理解）。这种单一层次的表示限制了传统方法在复杂视觉任务上的表现。&lt;/p&gt;
+&lt;h3 id=&#34;问题三端到端学习不可行&#34;&gt;问题三：端到端学习不可行&lt;/h3&gt;
+&lt;p&gt;在传统流程中，特征提取器（如SIFT）是固定的，不随任务变化；分类器（如SVM）在固定特征上训练；两者无法联合优化。这种分离带来的问题是：特征提取器可能提取了对当前任务不重要的特征，而重要的特征可能被忽略；同一套特征难以适应不同任务（如分类、检测、分割）；无法通过反向传播优化整个系统。&lt;/p&gt;
+&lt;p&gt;深度学习（CNN）通过端到端学习解决了这个问题：从原始图像像素到分类结果，中间所有层都可以通过反向传播联合优化，特征自动适应任务需求。这种端到端的学习方式彻底改变了视觉识别的范式。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;卷积神经网络的核心机制&#34;&gt;卷积神经网络的核心机制&lt;/h2&gt;
+&lt;h3 id=&#34;卷积操作局部感受野与参数共享&#34;&gt;卷积操作：局部感受野与参数共享&lt;/h3&gt;
+&lt;p&gt;卷积操作是CNN的基础构建块，通过局部感受野（Local Receptive Field）捕捉图像的局部模式。给定输入特征图 $I$ 和卷积核 $K$，卷积操作在图像上滑动，在每个位置计算局部区域的加权和。&lt;/p&gt;
+&lt;p&gt;传统全连接网络面临两个根本性问题：参数爆炸（对于224×224×3的图像，全连接层需要千万级参数）和空间结构丢失（将2D图像展平为1D向量，丢失了像素间的空间关系）。卷积通过&lt;strong&gt;局部连接&lt;/strong&gt;（每个输出神经元只连接局部区域）和&lt;strong&gt;参数共享&lt;/strong&gt;（同一卷积核在整个特征图上共享）解决了这两个问题。&lt;/p&gt;
+&lt;p&gt;卷积操作的数学定义为：&lt;/p&gt;
+&lt;p&gt;$$
+(I * K)[i, j, f] = \sum_{c=0}^{C-1} \sum_{m=0}^{k-1} \sum_{n=0}^{k-1} I[i \cdot s + m - p, j \cdot s + n - p, c] \cdot K[m, n, c, f] + b[f]
+$$&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AI监管 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/ai%E7%9B%91%E7%AE%A1/</link>
+    <description>Recent content in AI监管 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 25 Mar 2024 09:52:01 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/ai%E7%9B%91%E7%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>欧洲AI法案：监管的红线，还是创新的枷锁？</title>
+      <link>https://blog.zhangky.com/posts/2024/2024-03-25-ai-act-europe/</link>
+      <pubDate>Mon, 25 Mar 2024 09:52:01 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2024/2024-03-25-ai-act-europe/</guid>
+      <description>欧洲议会通过全球首个AI监管框架，将AI分成不同风险等级进行分级监管。分析监管现实冲击、中美欧监管全球博弈和创新与监管的平衡难题。</description>
+    </item>
+  </channel>
+</rss>

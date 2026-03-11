@@ -9,12 +9,12 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-    <generator>Hugo -- 0.157.0</generator>
+    <generator>Hugo -- 0.153.1</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 07 Mar 2026 21:29:02 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/series/qwen%E5%9B%A2%E9%98%9F%E9%A3%8E%E6%B3%A2/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>林俊旸下一步：创业的逻辑与唯一性</title>
+      <title>千问核心离职风波：林俊旸下一步是创业吗？</title>
       <link>https://blog.zhangky.com/posts/2026/2026-03-07-linjunyang-next-move-startup/</link>
       <pubDate>Sat, 07 Mar 2026 21:29:02 +0800</pubDate>
       <guid>https://blog.zhangky.com/posts/2026/2026-03-07-linjunyang-next-move-startup/</guid>
@@ -88,7 +88,7 @@
 &lt;p&gt;值得注意的是，即便同属&amp;quot;开放权重&amp;quot;，&amp;ldquo;使用条款&amp;quot;之间的差异也不小。Qwen 用的是最宽松的 Apache 2.0 协议——随便用、随便改、随便商用，没有附加限制。Meta 的 Llama 3 则有门槛：如果你的产品月活用户超过 7 亿，需要单独找 Meta 谈授权。Google 的 Gemma 更严格：明确禁止你用它的模型去训练竞品。同样叫&amp;quot;开放权重&amp;rdquo;，你能拿它做什么，差别可以很大。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>从千问核心离职风波看：开源社区需要什么人</title>
+      <title>千问核心离职风波：开源社区需要什么人</title>
       <link>https://blog.zhangky.com/posts/2026/2026-03-06-qwen-open-source-needs-him/</link>
       <pubDate>Fri, 06 Mar 2026 01:00:00 +0800</pubDate>
       <guid>https://blog.zhangky.com/posts/2026/2026-03-06-qwen-open-source-needs-him/</guid>

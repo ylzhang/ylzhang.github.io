@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>萧条期 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E8%90%A7%E6%9D%A1%E6%9C%9F/</link>
+    <description>Recent content in 萧条期 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 19 Feb 2026 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E8%90%A7%E6%9D%A1%E6%9C%9F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>萧条期的生存法则：按他的方法做，能跑赢大盘吗？</title>
+      <link>https://blog.zhangky.com/posts/2026/read-jintao/2026-02-19-zhou-jintao-asset-allocation/</link>
+      <pubDate>Thu, 19 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/read-jintao/2026-02-19-zhou-jintao-asset-allocation/</guid>
+      <description>&lt;p&gt;本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。&lt;strong&gt;所有观点与预言均对应原作，数据引用参考文末索引。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;萧条期资产配置：现金/黄金/债券→回测→结论&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/02/zhou-jintao-asset-allocation-cover.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;假设 2016 年你按周金涛的萧条期建议配置资产，今天收益如何？我用公开数据做了推演。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;据《涛动周期论》《涛动周期录》，周金涛在不同周期阶段给出的资产建议可以概括为：萧条期——现金为王、黄金避险、债券防御；回升期——股票进攻、商品布局；繁荣期——股票持有、商品加仓；衰退期——债券切换、现金储备。&lt;strong&gt;他 2016 年那场演讲里给过一句极具体的「人生规划」&lt;/strong&gt;——原话是：「&lt;strong&gt;对于个人来讲，今明两年卖掉投资性房地产和新三板股权，买进黄金，休假两年，锻炼身体，2019 年回来，这就是未来给大家做的人生规划。&lt;/strong&gt;」&lt;/p&gt;
+&lt;p&gt;同一场里他还说：「&lt;strong&gt;今年做投资就看 CPI 和 PPI，如果涨得动说明经济还 OK，如果说 CPI 和 PPI 有调头往下的趋势，一定要小心了……这个高点出现要抛掉所有的资产，只留现金和黄金等待低点的出现。&lt;/strong&gt;」黄金的逻辑他讲得很清楚：「&lt;strong&gt;黄金这个东西，在未来它最大的机会是什么？除了是货币的锚，具有保值功能之外，还有一个巨大的机会在于 2017 年美元指数牛市结束，人民币加速国际化，这个时候国际货币体系将发生动荡……怎么办？买黄金。&lt;/strong&gt;」&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; 不是泛泛的「避险」，而是把黄金和货币体系动荡、美元与人民币的切换绑在一起推演。这篇只聚焦一个问题：若从 2016 年起你按他这套「萧条期」思路（现金 + 黄金 + 债券为主，控制权益与商品），用 2016–2026 年的公开市场表现做简化回测推演，和沪深 300、标普 500 比会怎样？以下用到的均为公开指数与宏观数据，回测为概念性推演，不构成投资建议。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;他给的萧条期框架&#34;&gt;他给的萧条期框架&lt;/h2&gt;
+&lt;p&gt;周金涛在书与演讲中多次提到：康波萧条期里，波动大、增长弱，现金与避险资产的边际价值上升，高估值权益与部分商品风险加大。对应到资产：现金类提高持有比例，等待错杀与拐点；黄金作为避险与抗通胀的配置之一，在萧条与货币宽松预期下常有相对表现；债券在利率下行阶段有资本利得，且波动通常低于股票；股票不主张在萧条主跌段重仓进攻，更强调在「萧条尾声」或「回升初期」再加大权益；商品大宗在萧条期多承压，其框架下 2011 年商品见顶、2020–2025 年区间筑底的说法，对应的是控制商品多头、等待周期底部。&lt;/p&gt;
+&lt;p&gt;下面用简化组合做 2016–2026 的概念回测：不精确复现其每一条建议，而是用「萧条期逻辑」构造一个可比的组合，与宽基指数对比。&lt;/p&gt;
+&lt;p&gt;假设 2016 年初有一笔资金，按「萧条期」思路配置，并每年再平衡一次（仅作逻辑演示，不考虑税费与摩擦）：现金/货币 30%（用货币基金或短端利率近似，年化约 2–3% 量级）；黄金 20%（用国际金价或黄金 ETF 走势近似）；债券 30%（用中债综合财富指数或类似宽基债券指数近似）；股票 20%（用沪深 300 或一半沪深 300 一半标普 500 近似，体现「低配但不空仓」）。&lt;/p&gt;
+&lt;p&gt;纯沪深 300 从 2016 年初至今，经历 2017 蓝筹牛、2018 贸易战大跌（当年跌约 24.6%）、2019–2020 反弹、2021 回调、2022 大跌、2023–2025 震荡与修复，长期年化约在个位数区间&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。纯标普 500 在 2016–2026 经历长牛与 2022 加息回调，长期年化明显高于 A 股&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;。黄金方面，伦敦现货金价从 2016 年初约 1060 美元/盎司到 2020 年 8 月突破 2000，2022–2024 年再次创出新高&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;，在组合里贡献了避险与分散化收益。债券方面，中国 10 年期国债收益率在 2017–2018 年上行到 3.9% 左右，之后震荡下行，2020 年后一度跌破 2.5%，中债综合财富指数有阶段牛市&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;，对组合有稳定与抗回撤作用。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

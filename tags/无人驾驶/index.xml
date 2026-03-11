@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>无人驾驶 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/</link>
+    <description>Recent content in 无人驾驶 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 22 Jul 2024 10:04:14 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>萝卜快跑武汉运营：无人驾驶的春天来了？</title>
+      <link>https://blog.zhangky.com/posts/2024/2024-07-22-autonomous-driving/</link>
+      <pubDate>Mon, 22 Jul 2024 10:04:14 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2024/2024-07-22-autonomous-driving/</guid>
+      <description>百度萝卜快跑在武汉投放上万辆无人驾驶车，覆盖主要交通区域。分析无人驾驶规模化突破、中美路径分歧和技术与就业的两难。</description>
+    </item>
+  </channel>
+</rss>

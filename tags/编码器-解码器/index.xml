@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>编码器-解码器 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E7%BC%96%E7%A0%81%E5%99%A8-%E8%A7%A3%E7%A0%81%E5%99%A8/</link>
+    <description>Recent content in 编码器-解码器 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 18 Aug 2025 21:00:20 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E7%BC%96%E7%A0%81%E5%99%A8-%E8%A7%A3%E7%A0%81%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/</link>
+      <pubDate>Mon, 18 Aug 2025 21:00:20 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Ilya Sutskever、Oriol Vinyals和Quoc V. Le于2014年发表的里程碑论文《Sequence to Sequence Learning with Neural Networks》，该论文提出了Seq2Seq框架，首次使用纯端到端的神经网络实现了高质量的机器翻译。作为OpenAI联合创始人的代表作，Seq2Seq不仅确立了编码器-解码器架构的标准范式，更是通向Transformer和GPT系列的关键一步——它证明了神经网络可以直接学习序列到序列的映射，无需手工设计特征或规则。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;序列建模的根本挑战&#34;&gt;序列建模的根本挑战&lt;/h2&gt;
+&lt;h3 id=&#34;问题一变长序列的处理难题&#34;&gt;问题一：变长序列的处理难题&lt;/h3&gt;
+&lt;p&gt;传统神经网络（如前馈网络、CNN）要求输入和输出具有固定维度。然而，自然语言中的序列长度是可变的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入长度可变&lt;/strong&gt;：句子可能有5个词，也可能有50个词&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;输出长度可变&lt;/strong&gt;：翻译结果的长度与源句子不同&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;输入输出长度不对应&lt;/strong&gt;：源语言和目标语言的句子长度通常不同&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这种变长特性使得传统方法无法直接应用于机器翻译、对话生成等任务。&lt;/p&gt;
+&lt;h3 id=&#34;问题二长距离依赖问题&#34;&gt;问题二：长距离依赖问题&lt;/h3&gt;
+&lt;p&gt;语言中存在大量长距离依赖关系。例如：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;The cat, which was sitting on the mat in the corner of the room, &lt;strong&gt;was&lt;/strong&gt; sleeping.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;主语&amp;quot;cat&amp;quot;和谓语&amp;quot;was&amp;quot;之间隔了多个从句，模型需要&amp;quot;记住&amp;quot;主语才能正确预测谓语的形式。&lt;/p&gt;
+&lt;p&gt;传统RNN在处理长序列时面临&lt;strong&gt;梯度消失&lt;/strong&gt;问题：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\partial \mathcal{L}}{\partial W} = \sum_{t=1}^{T} \frac{\partial \mathcal{L}&lt;em&gt;t}{\partial W} = \sum&lt;/em&gt;{t=1}^{T} \frac{\partial \mathcal{L}&lt;em&gt;t}{\partial h_t} \prod&lt;/em&gt;{k=1}^{t} \frac{\partial h_k}{\partial h_{k-1}} \frac{\partial h_1}{\partial W}
+$$&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

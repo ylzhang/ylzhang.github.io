@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Dropout on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/dropout/</link>
+    <description>Recent content in Dropout on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 27 Jan 2026 10:00:43 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/dropout/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【论文解读07】循环神经网络正则化（Ilya经典论文）</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-27-paper-07-rnn-regularization/</link>
+      <pubDate>Tue, 27 Jan 2026 10:00:43 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-27-paper-07-rnn-regularization/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Wojciech Zaremba、Ilya Sutskever和Oriol Vinyals于2014年发表的经典论文《Recurrent Neural Network Regularization》，该论文首次将Dropout正则化技术系统性地应用于循环神经网络（RNN），通过只在非循环连接上应用Dropout，既保持了RNN的记忆能力，又有效防止了过拟合。这一创新为RNN在序列建模任务中的成功应用奠定了重要基础，特别是在机器翻译、语言模型等需要处理长序列的任务中取得了突破性成果。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;正则化是深度学习的艺术。&amp;quot;——这是Ilya Sutskever等人在2014年提出的深刻洞察。RNN虽然能够处理变长序列，但在训练过程中极易过拟合，特别是在大规模数据集上训练深层RNN时。传统的Dropout技术直接应用于RNN会导致网络无法保持长期记忆，因为随机失活会破坏RNN的循环结构。&lt;/p&gt;
+&lt;p&gt;论文的核心创新是&lt;strong&gt;只在非循环连接上应用Dropout&lt;/strong&gt;：在LSTM的输入-隐藏层连接和隐藏-输出层连接上应用Dropout，但在循环连接（hidden-to-hidden）上不使用Dropout。这种设计既保持了RNN的记忆能力，又有效防止了过拟合，使RNN能够在大型数据集上训练深层网络。&lt;/p&gt;
+&lt;p&gt;在当今大语言模型时代，这一思想仍然具有重要意义：虽然Transformer已经取代RNN成为主流架构，但正则化的核心思想（防止过拟合、提高泛化能力）仍然是深度学习的关键。理解RNN正则化，就是理解如何在高容量模型中平衡记忆能力和泛化能力。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读RNN正则化技术，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;h2 id=&#34;rnn过拟合问题的根源&#34;&gt;RNN过拟合问题的根源&lt;/h2&gt;
+&lt;h3 id=&#34;问题一rnn的高容量与过拟合风险&#34;&gt;问题一：RNN的高容量与过拟合风险&lt;/h3&gt;
+&lt;p&gt;RNN的参数共享机制使其能够处理任意长度的序列，但这也带来了过拟合风险。对于长度为 $T$ 的序列，RNN实际上使用了 $T$ 次相同的权重矩阵 $W_h$（hidden-to-hidden连接），相当于将参数&amp;quot;复用&amp;quot;了 $T$ 次。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;参数有效性的量化&lt;/strong&gt;：虽然RNN的参数量是固定的（例如，对于隐藏维度 $d_h$，hidden-to-hidden权重矩阵 $W_h$ 的大小为 $d_h \times d_h$），但每个参数在序列的每个时间步都被使用，相当于有 $T$ 个&amp;quot;虚拟参数&amp;rdquo;。这种参数复用使得RNN具有很高的表达能力，但也增加了过拟合的风险。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;过拟合的数学表现&lt;/strong&gt;：当训练集规模 $N$ 相对于模型容量较小时，模型可能&amp;quot;记住&amp;quot;训练数据的细节，而不是学习数据的规律。在RNN中，这种过拟合表现为：训练集上的困惑度（perplexity）很低，但验证集上的困惑度很高，模型无法泛化到新序列。&lt;/p&gt;
+&lt;h3 id=&#34;问题二传统dropout在rnn中的失效&#34;&gt;问题二：传统Dropout在RNN中的失效&lt;/h3&gt;
+&lt;p&gt;传统Dropout在RNN中直接应用会导致严重问题。Dropout的核心思想是在训练时随机将部分神经元输出置0，迫使网络学习更鲁棒的表示。但在RNN中，这种随机失活会破坏循环结构。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;循环连接的脆弱性&lt;/strong&gt;：RNN的循环连接 $h_t = f(W_h h_{t-1} + W_x x_t + b)$ 依赖于前一时刻的隐藏状态 $h_{t-1}$。如果在 $h_{t-1}$ 上应用Dropout，会导致信息在时间维度上的传播被随机打断，网络无法保持长期记忆。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;数学分析&lt;/strong&gt;：假设在隐藏状态上应用Dropout，则：&lt;/p&gt;
+&lt;p&gt;$$
+h_t = f(W_h (\text{Dropout}(h_{t-1})) + W_x x_t + b)
+$$&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

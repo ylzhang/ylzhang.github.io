@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>复杂动力学 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E5%A4%8D%E6%9D%82%E5%8A%A8%E5%8A%9B%E5%AD%A6/</link>
+    <description>Recent content in 复杂动力学 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 08 Jan 2026 10:07:36 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E5%A4%8D%E6%9D%82%E5%8A%A8%E5%8A%9B%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【论文解读04】复杂动力学第一定律：复杂系统的基础理论</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-08-paper-04-first-law-complexodynamics/</link>
+      <pubDate>Thu, 08 Jan 2026 10:07:36 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-08-paper-04-first-law-complexodynamics/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是关于复杂动力学第一定律的理论工作，该理论为理解复杂系统的演化规律提供了统一的理论框架。复杂动力学第一定律揭示了复杂系统从简单到复杂、从有序到无序的演化机制，为理解AI系统的涌现行为、神经网络的学习动态以及大模型的复杂性增长提供了新的视角。&lt;/p&gt;
+&lt;p&gt;复杂系统无处不在：从生物进化到社会网络，从神经网络训练到语言模型涌现，这些系统都展现出令人困惑的复杂性增长模式。为什么简单的规则能产生复杂的行为？为什么系统会自发地从有序走向无序，又从无序中涌现出新的有序？复杂动力学第一定律试图回答这些根本问题。&lt;/p&gt;
+&lt;p&gt;传统热力学第二定律告诉我们，孤立系统的熵总是增加的，系统会自发地从有序走向无序。但复杂系统（如生命、智能、社会）却展现出相反的趋势：它们能够自发地增加复杂性，从简单状态演化到复杂状态。这种&amp;quot;反熵&amp;quot;行为背后的机制是什么？复杂动力学第一定律提供了数学严谨的答案。&lt;/p&gt;
+&lt;p&gt;在AI领域，这一理论具有特殊意义。神经网络训练过程中的损失下降、语言模型的涌现能力、多智能体系统的协作演化，都可以从复杂动力学的角度重新理解。理解复杂系统的演化规律，就是理解AI系统如何从简单规则中涌现出智能。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读复杂动力学第一定律，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;h2 id=&#34;复杂系统演化的根本问题&#34;&gt;复杂系统演化的根本问题&lt;/h2&gt;
+&lt;h3 id=&#34;问题一熵增与复杂性增长的矛盾&#34;&gt;问题一：熵增与复杂性增长的矛盾&lt;/h3&gt;
+&lt;p&gt;热力学第二定律告诉我们，孤立系统的熵总是增加的：$\Delta S \geq 0$。这意味着系统会自发地从有序走向无序，从复杂走向简单。但现实中的复杂系统（如生物进化、神经网络学习、社会演化）却展现出相反的趋势：它们能够自发地增加复杂性，从简单状态演化到复杂状态。&lt;/p&gt;
+&lt;p&gt;这一矛盾的核心在于：&lt;strong&gt;熵和复杂性是不同的概念&lt;/strong&gt;。熵衡量的是系统的无序程度，而复杂性衡量的是系统的结构丰富程度。一个高度有序的系统（如晶体）熵很低，但复杂性也很低；一个完全随机的系统（如理想气体）熵很高，但复杂性也很低；只有介于两者之间的系统（如生命、智能）才具有高复杂性。&lt;/p&gt;
+&lt;p&gt;复杂系统的演化不是简单的熵增或熵减，而是&lt;strong&gt;在保持或增加熵的同时，增加系统的结构复杂性&lt;/strong&gt;。这需要系统能够从环境中获取能量和信息，维持远离平衡态的状态。&lt;/p&gt;
+&lt;h3 id=&#34;问题二涌现与自组织的机制&#34;&gt;问题二：涌现与自组织的机制&lt;/h3&gt;
+&lt;p&gt;复杂系统的一个关键特征是&lt;strong&gt;涌现&lt;/strong&gt;（emergence）：系统的整体行为无法从组成部分的行为简单推导出来。例如，单个神经元的行为很简单，但由大量神经元组成的神经网络却能产生智能；单个个体的行为遵循简单规则，但由大量个体组成的社会系统却能产生复杂的社会现象。&lt;/p&gt;
+&lt;p&gt;涌现的本质是&lt;strong&gt;自组织&lt;/strong&gt;（self-organization）：系统通过局部相互作用，自发地形成全局有序结构。这种自组织过程需要满足三个条件：系统远离平衡态（有能量/信息输入）、存在正反馈机制（小扰动能放大）、存在约束条件（限制系统的演化方向）。&lt;/p&gt;
+&lt;p&gt;在AI系统中，神经网络的训练过程就是典型的自组织过程：通过反向传播（正反馈）和正则化（约束），网络从随机初始化演化到能够完成复杂任务的状态。&lt;/p&gt;
+&lt;h3 id=&#34;问题三复杂性的量化难题&#34;&gt;问题三：复杂性的量化难题&lt;/h3&gt;
+&lt;p&gt;如何量化系统的复杂性？传统方法面临三个核心问题：复杂性是多维度的（结构复杂性、功能复杂性、计算复杂性等不同维度难以统一）、复杂性依赖于观察者（同一系统在不同尺度、不同视角下表现出不同的复杂性）、复杂性是动态的（系统的复杂性会随时间演化）。&lt;/p&gt;
+&lt;p&gt;信息论提供了量化复杂性的一个角度：&lt;strong&gt;Kolmogorov复杂度&lt;/strong&gt;（能够生成系统状态的最短程序的长度）可以作为系统复杂性的度量。但Kolmogorov复杂度在计算上不可行，且无法捕捉系统的动态演化。&lt;/p&gt;
+&lt;p&gt;复杂动力学第一定律试图通过&lt;strong&gt;描述系统状态空间的演化&lt;/strong&gt;来量化复杂性，将复杂性的增长与系统的动力学过程联系起来。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;复杂动力学第一定律的核心机制&#34;&gt;复杂动力学第一定律的核心机制&lt;/h2&gt;
+&lt;h3 id=&#34;信息论基础状态空间的复杂度&#34;&gt;信息论基础：状态空间的复杂度&lt;/h3&gt;
+&lt;p&gt;考虑一个复杂系统，其状态可以用 $N$ 维向量 $\mathbf{x}(t) = (x_1(t), x_2(t), \ldots, x_N(t))$ 表示。系统的演化遵循动力学方程：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{d\mathbf{x}}{dt} = \mathbf{F}(\mathbf{x}, t)
+$$&lt;/p&gt;
+&lt;p&gt;其中 $\mathbf{F}$ 是系统的动力学函数。&lt;/p&gt;
+&lt;p&gt;系统的状态空间复杂度可以定义为系统能够访问的状态空间的&amp;quot;大小&amp;quot;。如果系统只能访问状态空间的一个小区域，复杂度较低；如果系统能够访问状态空间的大部分区域，复杂度较高。&lt;/p&gt;
+&lt;p&gt;更精确地，状态空间的复杂度可以用&lt;strong&gt;可达状态空间的体积&lt;/strong&gt;或&lt;strong&gt;状态分布的熵&lt;/strong&gt;来度量：&lt;/p&gt;
+&lt;p&gt;$$
+C(t) = -\int p(\mathbf{x}, t) \log p(\mathbf{x}, t) d\mathbf{x}
+$$&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

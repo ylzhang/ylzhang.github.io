@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>论文阅读 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</link>
+    <description>Recent content in 论文阅读 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 01 Jan 2026 00:17:01 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>论文阅读开篇：Ilya 30u30 阅读计划</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/</link>
+      <pubDate>Thu, 01 Jan 2026 00:17:01 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/</guid>
+      <description>&lt;p&gt;本页为 &lt;strong&gt;论文解读系列&lt;/strong&gt; 的目录与阅读计划：列出阅读原因、组合方式、完整列表与发布状态。每篇解读文末不再重复长表，仅提供指向本页的链接；&lt;strong&gt;每次发布新论文解读时，会同步更新本页目录与文末的「最后更新时间」&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;为什么做这个阅读计划&#34;&gt;为什么做这个阅读计划&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;清单来源&lt;/strong&gt;：Ilya Sutskever（OpenAI 联合创始人）推荐的约 30 篇经典论文/博客/课程（实际约 27 篇），覆盖从基础理论到前沿应用的深度学习核心知识。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;阅读原因&lt;/strong&gt;：系统理解现代 AI 技术演进路径，避免碎片化；按主题分类便于组合阅读（如先 CNN 再注意力再规模化）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合建议&lt;/strong&gt;：可按分类顺序（基础理论 → RNN → CNN → 注意力 → 优化/规模 → 推理与生成 → 语音）阅读，也可按发布时间或兴趣跳读；每篇解读文内会标明所属分类。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;论文分类索引与发布状态&#34;&gt;论文分类索引与发布状态&lt;/h2&gt;
+&lt;p&gt;以下表格为完整列表：&lt;strong&gt;博客解读&lt;/strong&gt; 一列为「已发布」则带链接，为「待完成」则暂无解读。原文链接均可直接访问。&lt;/p&gt;
+&lt;h3 id=&#34;1-基础理论与信息论&#34;&gt;1. 基础理论与信息论&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;A Tutorial Introduction to the Minimum Description Length Principle&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/math/0406077&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-03-paper-02-mdl-principle/&#34;&gt;【论文解读02】最小描述长度原理教程&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Keeping Neural Networks Simple by Minimizing the Description Length of the Weights&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.cs.toronto.edu/~hinton/absps/colt93.pdf&#34;&gt;Paper&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-05-paper-03-minimizing-description-length/&#34;&gt;【论文解读03】通过最小化权重描述长度简化神经网络&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;The First Law of Complexodynamics&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1312.0448&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-08-paper-04-first-law-complexodynamics/&#34;&gt;【论文解读04】复杂动力学第一定律&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Kolmogorov Complexity and Algorithmic Randomness&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.lirmm.fr/~ashen/kolmbook-eng-scan.pdf&#34;&gt;Book&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-04-04-paper-26-kolmogorov-complexity/&#34;&gt;【论文解读26】柯尔莫哥洛夫复杂度与算法随机性&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Machine Super Intelligence&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.vetta.org/documents/Machine_Super_Intelligence.pdf&#34;&gt;Paper&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-04-07-paper-27-machine-super-intelligence/&#34;&gt;【论文解读27】机器超级智能&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Quantifying the Rise and Fall of Complexity in Closed Systems: the Coffee Automaton&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1405.6903&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-03-31-paper-25-coffee-automaton/&#34;&gt;【论文解读25】咖啡自动机：封闭系统中复杂性的兴衰&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;2-循环神经网络rnnlstm&#34;&gt;2. 循环神经网络（RNN/LSTM）&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;The Unreasonable Effectiveness of Recurrent Neural Networks&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://karpathy.github.io/2015/05/21/rnn-effectiveness/&#34;&gt;Blog&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-11-paper-05-rnn-effectiveness/&#34;&gt;【论文解读05】循环神经网络的不可思议的有效性&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Understanding LSTM Networks&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://colah.github.io/posts/2015-08-Understanding-LSTMs/&#34;&gt;Blog&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm/&#34;&gt;【论文解读06】理解LSTM网络&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Recurrent Neural Network Regularization&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1409.2329&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-27-paper-07-rnn-regularization/&#34;&gt;【论文解读07】RNN正则化&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Neural Turing Machines&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1410.5401&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-28-paper-16-neural-turing-machines/&#34;&gt;【论文解读16】神经图灵机&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Relational Recurrent Neural Networks&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1806.01822&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-24-paper-15-relational-rnn/&#34;&gt;【论文解读15】关系循环神经网络&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;3-卷积神经网络cnn&#34;&gt;3. 卷积神经网络（CNN）&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Stanford&amp;rsquo;s CS231n Convolutional Neural Networks for Visual Recognition&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;http://cs231n.stanford.edu/&#34;&gt;Course&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-01-cs231n/&#34;&gt;【论文/课程01】CS231n：卷积神经网络与视觉识别课程&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html&#34;&gt;Paper&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-03-paper-09-imagenet-alexnet/&#34;&gt;【论文解读09】AlexNet：深度学习革命的起点&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Deep Residual Learning for Image Recognition (ResNet)&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1512.03385&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-07-paper-10-resnet/&#34;&gt;【论文解读10】ResNet：深度残差学习&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Identity Mappings in Deep Residual Networks&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1603.05027&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/&#34;&gt;【论文解读11】ResNet改进：恒等映射&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Multi-Scale Context Aggregation by Dilated Convolutions&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1511.07122&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-14-paper-12-dilated-convolutions/&#34;&gt;【论文解读12】膨胀卷积：多尺度上下文聚合&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;4-注意力机制与序列模型&#34;&gt;4. 注意力机制与序列模型&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Neural Machine Translation by Jointly Learning to Align and Translate&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1409.0473&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;em&gt;待完成&lt;/em&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Attention is All You Need (Transformer)&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1706.03762&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;em&gt;待完成&lt;/em&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;The Annotated Transformer&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://nlp.seas.harvard.edu/2018/04/03/attention.html&#34;&gt;Blog&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;em&gt;待完成&lt;/em&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Order Matters: Sequence to Sequence for Sets&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1511.06391&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-21-paper-14-order-matters/&#34;&gt;【论文解读14】顺序的重要性：集合的序列到序列&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Pointer Networks&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1506.03134&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-02-17-paper-13-pointer-networks/&#34;&gt;【论文解读13】指针网络&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;5-模型优化与规模化&#34;&gt;5. 模型优化与规模化&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1811.06965&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-03-24-paper-23-gpipe/&#34;&gt;【论文解读23】GPipe：大规模模型训练&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Scaling Laws for Neural Language Models&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/2001.08361&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;em&gt;待完成&lt;/em&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;6-推理与生成模型&#34;&gt;6. 推理与生成模型&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;A Simple Neural Network Module for Relational Reasoning&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1706.01427&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-03-14-paper-20-relational-reasoning/&#34;&gt;【论文解读20】关系推理的简单神经网络模块&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Variational Lossy Autoencoder&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1611.02731&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-03-10-paper-19-variational-lossy-autoencoder/&#34;&gt;【论文解读19】变分有损自编码器&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Neural Message Passing for Quantum Chemistry&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1704.01212&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-03-17-paper-21-neural-quantum-chemistry/&#34;&gt;【论文解读21】神经消息传递与量子化学&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;7-语音与复杂系统&#34;&gt;7. 语音与复杂系统&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;论文&lt;/th&gt;
+          &lt;th&gt;原文链接&lt;/th&gt;
+          &lt;th&gt;博客解读&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Deep Speech 2: End-to-End Speech Recognition in English and Mandarin&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://arxiv.org/abs/1512.02595&#34;&gt;arXiv&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-03-21-paper-22-deep-speech-2/&#34;&gt;【论文解读22】Deep Speech 2：端到端语音识别&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;系列说明&#34;&gt;系列说明&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;清单实际数量&lt;/strong&gt;：27 篇（含论文、博客、课程），「Top 30」为约数表述。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内容类型&lt;/strong&gt;：部分为博客/课程（如 CS231n、LSTM 解读），是理解核心概念的优质入门资源。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;链接说明&lt;/strong&gt;：arXiv 链接可直连论文原文，博客/课程链接为官方或权威解读页面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;最后更新时间&lt;/strong&gt;：2026-02-10（与最新一篇解读发布同步；每次发布新论文解读时更新本日期。）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记</title>
+      <link>https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/</link>
+      <pubDate>Wed, 15 Jan 2025 10:55:01 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/</guid>
+      <description>&lt;p&gt;读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用&lt;strong&gt;符号→读法→含义→代码&lt;/strong&gt;的模式，30分钟帮你扫清障碍。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;前置要求&lt;/strong&gt;：高中数学水平，会基础Python。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一求和与连乘&#34;&gt;一、求和与连乘&lt;/h2&gt;
+&lt;h3 id=&#34;11-求和符号-sum&#34;&gt;1.1 求和符号 $\sum$&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;读法&lt;/strong&gt;：Sigma（西格玛），读作&amp;quot;sum&amp;quot;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;含义&lt;/strong&gt;：把一堆数加起来&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;公式示例&lt;/strong&gt;：
+$$\sum_{i=1}^{n} x_i = x_1 + x_2 + \cdots + x_n$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;论文中常见形式&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来）&lt;/li&gt;
+&lt;li&gt;注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Python实现&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 方法1：直接求和&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 方法2：NumPy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 方法3：带条件的求和（论文常见）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 例如：只对正数求和&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;xi&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xi&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xi&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h3 id=&#34;12-连乘符号-prod&#34;&gt;1.2 连乘符号 $\prod$&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;读法&lt;/strong&gt;：Pi（派），读作&amp;quot;product&amp;quot;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;含义&lt;/strong&gt;：把一堆数乘起来&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;公式示例&lt;/strong&gt;：
+$$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;论文中常见形式&lt;/strong&gt;：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

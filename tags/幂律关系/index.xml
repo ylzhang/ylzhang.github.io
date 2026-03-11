@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>幂律关系 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E5%B9%82%E5%BE%8B%E5%85%B3%E7%B3%BB/</link>
+    <description>Recent content in 幂律关系 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 28 Nov 2025 21:13:58 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E5%B9%82%E5%BE%8B%E5%85%B3%E7%B3%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【ChatGPT时刻08】Scaling Laws：规模与性能的幂律关系</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-11-28-chatgpt-08-scaling-laws/</link>
+      <pubDate>Fri, 28 Nov 2025 21:13:58 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-11-28-chatgpt-08-scaling-laws/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Jared Kaplan、Sam McCandlish、Tom Henighan、Tom B. Brown、Benjamin Chess、Rewon Child、Scott Gray、Alec Radford、Jeffrey Wu和Dario Amodei于2020年发表的里程碑论文《Scaling Laws for Neural Language Models》，该论文发现了神经语言模型的缩放定律（Scaling Laws），揭示了模型规模、数据规模、计算量与模型性能之间的幂律关系。这一发现不仅为大模型的发展提供了理论指导，更为理解&amp;quot;规模即智能&amp;quot;提供了科学依据，是当今大模型时代的理论基础。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;规模是性能的关键。&amp;quot;——这是缩放定律论文的核心发现。通过系统性的实验，论文发现模型性能（损失）与模型规模、数据规模、计算量之间存在清晰的幂律关系。这意味着，只要增加模型规模、数据规模或计算量，模型性能就会可预测地提升。这一发现为大模型的发展指明了方向。&lt;/p&gt;
+&lt;p&gt;缩放定律的核心发现是&lt;strong&gt;幂律关系&lt;/strong&gt;：模型损失 $L$ 与模型参数 $N$、数据规模 $D$、计算量 $C$ 之间存在幂律关系：&lt;/p&gt;
+&lt;p&gt;$$
+L(N, D) = \left(\frac{N_c}{N}\right)^{\alpha_N} + \left(\frac{D_c}{D}\right)^{\alpha_D} + L_\infty
+$$&lt;/p&gt;
+&lt;p&gt;其中 $\alpha_N$、$\alpha_D$ 是幂律指数，$L_\infty$ 是无限规模下的极限损失。&lt;/p&gt;
+&lt;p&gt;这一发现的意义深远：它证明了&amp;quot;规模即智能&amp;quot;的科学性，为大模型的发展提供了可预测的路径。理解缩放定律，就是理解大模型时代的底层规律。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读缩放定律，包含完整的数学推导、实验分析和理论探讨，并在文末提供阅读研究论文的时间线计划。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;大模型发展的经验性探索&#34;&gt;大模型发展的经验性探索&lt;/h2&gt;
+&lt;h3 id=&#34;问题一规模与性能的关系不明确&#34;&gt;问题一：规模与性能的关系不明确&lt;/h3&gt;
+&lt;p&gt;在大模型发展的早期，规模与性能的关系不明确：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;经验性探索的问题&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不清楚增加模型规模是否一定提升性能&lt;/li&gt;
+&lt;li&gt;不清楚最优的模型规模是多少&lt;/li&gt;
+&lt;li&gt;不清楚如何分配计算资源（模型 vs 数据）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;实践中的困惑&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;有些模型规模增大后性能提升不明显&lt;/li&gt;
+&lt;li&gt;有些模型规模增大后甚至性能下降&lt;/li&gt;
+&lt;li&gt;缺乏理论指导&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;问题二资源分配的不确定性&#34;&gt;问题二：资源分配的不确定性&lt;/h3&gt;
+&lt;p&gt;在有限的计算资源下，如何分配资源？&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

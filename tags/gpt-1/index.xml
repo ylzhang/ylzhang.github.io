@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>GPT-1 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/gpt-1/</link>
+    <description>Recent content in GPT-1 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 25 Oct 2025 21:03:01 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/gpt-1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【ChatGPT时刻06】GPT-1：生成式预训练的开山之作</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-10-25-chatgpt-06-gpt1/</link>
+      <pubDate>Sat, 25 Oct 2025 21:03:01 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-10-25-chatgpt-06-gpt1/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Alec Radford等人于2018年发表的里程碑论文《Improving Language Understanding by Generative Pre-Training》，该论文提出了GPT（Generative Pre-Training）模型，首次将大规模无监督预训练与有监督微调相结合，在多个NLP基准上取得了突破性成绩。GPT-1是ChatGPT的直系祖先——它确立了&amp;quot;预训练+微调&amp;quot;的范式，证明了通用语言表示可以从海量无标注文本中学习，为后续GPT-2、GPT-3乃至ChatGPT奠定了架构和方法论基础。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;nlp的迁移学习困境&#34;&gt;NLP的迁移学习困境&lt;/h2&gt;
+&lt;h3 id=&#34;问题一标注数据的稀缺性&#34;&gt;问题一：标注数据的稀缺性&lt;/h3&gt;
+&lt;p&gt;深度学习在NLP中的应用面临一个根本挑战：高质量标注数据稀缺。&lt;/p&gt;
+&lt;p&gt;与计算机视觉不同，NLP任务的标注需要语言专业知识，成本高昂：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;情感分析&lt;/strong&gt;：需要理解语言的细微差别&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;问答系统&lt;/strong&gt;：需要专业领域知识&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文本蕴含&lt;/strong&gt;：需要逻辑推理能力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;大多数NLP数据集仅有数千到数万条标注样本，远不足以从头训练大型神经网络。&lt;/p&gt;
+&lt;h3 id=&#34;问题二预训练方法的局限&#34;&gt;问题二：预训练方法的局限&lt;/h3&gt;
+&lt;p&gt;在GPT之前，NLP领域的预训练主要有两种方式：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;词向量预训练&lt;/strong&gt;（如Word2Vec、GloVe）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;只提供词级别的表示&lt;/li&gt;
+&lt;li&gt;无法捕捉上下文信息&lt;/li&gt;
+&lt;li&gt;无法处理多义词&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;语言模型预训练&lt;/strong&gt;（如ELMo）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用双向LSTM&lt;/li&gt;
+&lt;li&gt;表示能力受限于LSTM架构&lt;/li&gt;
+&lt;li&gt;预训练和微调架构不一致&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些方法虽然有效，但都存在明显局限：&lt;strong&gt;预训练的知识无法充分迁移到下游任务&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;问题三无监督学习的挑战&#34;&gt;问题三：无监督学习的挑战&lt;/h3&gt;
+&lt;p&gt;无监督学习的核心挑战是找到合适的目标函数。语言建模是一个自然的选择：&lt;/p&gt;
+&lt;p&gt;$$
+\mathcal{L}&lt;em&gt;{\text{LM}} = \sum&lt;/em&gt;{i} \log P(u_i | u_1, \ldots, u_{i-1}; \Theta)
+$$&lt;/p&gt;
+&lt;p&gt;但如何设计一个既能充分利用预训练知识、又能适应多种下游任务的框架？&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;gpt的核心设计&#34;&gt;GPT的核心设计&lt;/h2&gt;
+&lt;h3 id=&#34;transformer解码器架构&#34;&gt;Transformer解码器架构&lt;/h3&gt;
+&lt;p&gt;GPT采用Transformer的解码器部分作为基础架构，使用&lt;strong&gt;单向自注意力&lt;/strong&gt;（因果注意力）：&lt;/p&gt;
+&lt;p&gt;$$
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}} + M\right)V
+$$&lt;/p&gt;
+&lt;p&gt;其中 $M$ 是掩码矩阵，确保位置 $i$ 只能关注位置 $j \leq i$：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ResNet on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/resnet/</link>
+    <description>Recent content in ResNet on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 10 Feb 2026 20:42:22 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/resnet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【论文解读11】深度残差网络中的恒等映射：ResNet改进</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/</link>
+      <pubDate>Tue, 10 Feb 2026 20:42:22 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的改进论文《Identity Mappings in Deep Residual Networks》，该论文深入分析了ResNet中恒等映射的作用机制，提出了预激活（Pre-activation）的残差块设计，进一步优化了ResNet的训练稳定性和性能。这一改进不仅完善了ResNet的理论基础，更为理解残差连接的本质提供了深刻的洞察。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;恒等映射是残差网络成功的关键。&amp;quot;——这是He等人在ResNet改进论文中提出的核心观点。在原始ResNet中，残差块的设计虽然有效，但恒等映射的实现方式（激活函数的位置）对性能有重要影响。通过系统性的实验和理论分析，论文发现预激活（在卷积之前应用BatchNorm和ReLU）比后激活（在卷积之后应用）效果更好。&lt;/p&gt;
+&lt;p&gt;论文的核心创新是&lt;strong&gt;预激活残差块&lt;/strong&gt;：将BatchNorm和ReLU移到卷积之前，使恒等映射的路径更加&amp;quot;干净&amp;rdquo;，梯度流动更加顺畅。这种设计不仅提高了训练稳定性，还进一步提升了模型性能，在ImageNet上取得了更好的结果。&lt;/p&gt;
+&lt;p&gt;在当今大模型时代，这一改进的思想仍然重要：理解恒等映射的本质，优化信息流动路径，这些原则仍然是深度网络设计的核心。理解ResNet改进，就是理解如何进一步优化残差连接。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet改进，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;原始resnet的恒等映射问题&#34;&gt;原始ResNet的恒等映射问题&lt;/h2&gt;
+&lt;h3 id=&#34;问题一激活函数位置的影响&#34;&gt;问题一：激活函数位置的影响&lt;/h3&gt;
+&lt;p&gt;在原始ResNet中，残差块的设计为：&lt;/p&gt;
+&lt;p&gt;$$
+y = \mathcal{F}(x, {W_i}) + x
+$$&lt;/p&gt;
+&lt;p&gt;其中 $\mathcal{F}$ 通常包含：Conv → BN → ReLU → Conv → BN，然后输出与 $x$ 相加，最后再应用ReLU。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;后激活设计&lt;/strong&gt;：激活函数在残差函数之后，恒等映射 $x$ 直接参与加法，然后应用激活函数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;问题分析&lt;/strong&gt;：当 $x$ 经过ReLU激活时，如果 $x$ 的某些元素为负，会被置为0，破坏了恒等映射的性质。这导致恒等映射路径不够&amp;quot;干净&amp;quot;，梯度流动可能受阻。&lt;/p&gt;
+&lt;h3 id=&#34;问题二梯度流动的阻塞&#34;&gt;问题二：梯度流动的阻塞&lt;/h3&gt;
+&lt;p&gt;在原始设计中，梯度需要通过激活函数的导数传播：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\partial y}{\partial x} = \frac{\partial \text{ReLU}(\mathcal{F}(x) + x)}{\partial x} = \text{ReLU}&amp;rsquo;(\mathcal{F}(x) + x) \left(1 + \frac{\partial \mathcal{F}}{\partial x}\right)
+$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文解读10】深度残差学习：ResNet解决网络退化问题</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-02-07-paper-10-resnet/</link>
+      <pubDate>Sat, 07 Feb 2026 10:16:29 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-02-07-paper-10-resnet/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的里程碑论文《Deep Residual Learning for Image Recognition》，该论文提出的ResNet通过残差连接（Residual Connection）解决了深度网络的退化问题，将网络深度推到了前所未有的152层，在ImageNet上取得了3.57%的Top-5错误率，首次超越人类水平。ResNet不仅彻底改变了深度网络的设计范式，更为后续Transformer、生成模型等架构的残差连接奠定了理论基础。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;更深的网络应该至少不会比浅层网络更差。&amp;quot;——这是ResNet论文的核心洞察。在ResNet之前，深度网络面临一个悖论：理论上更深的网络应该能够学习更复杂的特征，但实际中更深的网络在训练集上的错误率反而更高。这不是过拟合，而是优化困难——网络无法有效学习恒等映射。&lt;/p&gt;
+&lt;p&gt;ResNet通过&lt;strong&gt;残差连接&lt;/strong&gt;解决了这一根本问题。残差块定义为 $y = F(x) + x$，其中 $F(x)$ 是残差函数，$x$ 是恒等映射。如果最优映射是恒等映射 $H(x) = x$，传统网络需要学习 $H(x) = x$，而残差网络只需学习 $F(x) = 0$，后者显然更容易。这种设计使得网络可以非常深，性能可以持续提升。&lt;/p&gt;
+&lt;p&gt;在当今大模型时代，残差连接已经成为深度网络的标准组件：Transformer的残差连接、生成模型的跳跃连接（U-Net、StyleGAN）、大模型的深度扩展（GPT-3、PaLM等模型都依赖残差连接训练深层网络）。理解ResNet，就是理解深度网络设计的核心思想。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;深度网络的退化问题&#34;&gt;深度网络的退化问题&lt;/h2&gt;
+&lt;h3 id=&#34;问题一网络深度与性能的悖论&#34;&gt;问题一：网络深度与性能的悖论&lt;/h3&gt;
+&lt;p&gt;理论上，更深的网络应该能够学习更复杂的特征表示，性能应该更好。但实际中，随着网络加深，出现了两个严重问题：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;梯度消失问题&lt;/strong&gt;：在深层网络中，梯度在反向传播过程中指数级衰减。对于Sigmoid激活函数，$\sigma&amp;rsquo;(x) \leq 0.25$，经过 $L$ 层后，梯度最多衰减到 $0.25^L$。当 $L$ 很大时，早期层的梯度接近0，无法有效更新参数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;退化问题（Degradation Problem）&lt;/strong&gt;：这是ResNet论文发现的新问题。实验显示，56层网络的训练误差比20层网络更高。这不是过拟合（因为训练误差也更高），而是优化困难——网络无法有效学习。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;数学分析&lt;/strong&gt;：假设最优映射是 $H(x) = x$（恒等映射），传统网络需要学习 $H(x) = x$，这需要所有层的权重矩阵都是单位矩阵，这在深层网络中很难实现。&lt;/p&gt;
+&lt;h3 id=&#34;问题二恒等映射的学习困难&#34;&gt;问题二：恒等映射的学习困难&lt;/h3&gt;
+&lt;p&gt;恒等映射 $H(x) = x$ 是最简单的映射，但在深层网络中学习恒等映射却非常困难。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

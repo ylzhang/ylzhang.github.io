@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AI伦理 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/ai%E4%BC%A6%E7%90%86/</link>
+    <description>Recent content in AI伦理 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 22 Aug 2025 15:31:29 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/ai%E4%BC%A6%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI伦理：美国在自律，中国在立法</title>
+      <link>https://blog.zhangky.com/posts/2025/2025-08-ai-ethics/</link>
+      <pubDate>Fri, 22 Aug 2025 15:31:29 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/2025-08-ai-ethics/</guid>
+      <description>&lt;p&gt;最近参加AI伦理研讨会，会场气氛有些紧张。美国代表强调行业自律，说&amp;quot;企业应该自己制定伦理规范&amp;quot;，语气很坚决。中国代表则展示了《新一代人工智能伦理规范》的执行情况，数据很详细。&lt;/p&gt;
+&lt;p&gt;我坐在台下，看着两边的PPT，脑子里闪过一个画面：美国代表像在说&amp;quot;我们自己做主&amp;quot;，中国代表像在说&amp;quot;我们需要规则&amp;quot;。两种截然不同的伦理思路，让整个会场陷入沉默。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;从现象看：自律 vs 准则的路径分歧&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;表面上看，这是&amp;quot;自律 vs 准则&amp;quot;的治理路线分歧。&lt;/p&gt;
+&lt;p&gt;美国的思路是&amp;quot;自律优先&amp;quot;，通过行业组织和企业自身制定伦理准则。美国学者说&amp;quot;伦理是道德问题，不是法律问题&amp;quot;，语气很坚决。这是典型的&amp;quot;自我约束&amp;quot;路径：让企业自己决定什么是伦理。&lt;/p&gt;
+&lt;p&gt;中国则是&amp;quot;准则引导&amp;quot;，由政府出台统一的伦理规范。中国专家则认为&amp;quot;没有明确的准则，AI伦理就会成为空话&amp;quot;，数据很详细。这是典型的&amp;quot;外部约束&amp;quot;路径：让政府决定什么是伦理。&lt;/p&gt;
+&lt;p&gt;两种思路，两种未来。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关键洞察：这不是治理路线分歧，是伦理理念的差异。一个瞄准&amp;quot;自我约束&amp;quot;，一个瞄准&amp;quot;外部约束&amp;quot;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;从本质看：自律与他律的两难&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;AI伦理需要平衡自律和他律。美国的自律模式灵活但可能缺乏约束力——去年某科技巨头的AI聊天机器人就因性别歧视言论引发争议，但因为没有明确的法律约束，最终只是道歉了事。&lt;/p&gt;
+&lt;p&gt;中国的准则体系明确但可能限制创新，企业担心触碰红线而不敢大胆尝试。我上周和一家AI创业公司聊天，他们说：&amp;ldquo;我们不敢做太创新的东西，怕触碰伦理红线。&amp;ldquo;这种担心，可能让中国AI创新受到限制。&lt;/p&gt;
+&lt;p&gt;但问题是：在技术快速发展的时代，应该优先哪个？过于自律会缺乏约束，过于他律会限制创新。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关键洞察：自律与他律是两难。过于自律会缺乏约束，过于他律会限制创新。关键是如何在两者之间找到平衡点。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;未来走向：全球伦理标准的趋同&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2025年，我判断会看到全球伦理标准的趋同：美国会加强准则建设（比如出台AI伦理法案），中国会增加自律空间（比如让企业自主制定伦理规范）。&lt;/p&gt;
+&lt;p&gt;毕竟，技术发展越快，越需要伦理的指引。但指引不等于限制，伦理应该成为技术发展的指南针，而不是绊脚石。&lt;/p&gt;
+&lt;p&gt;AI伦理的核心，从来不是限制技术发展，而是确保技术尊重人类价值。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在这个AI飞速发展的时代，伦理不是绊脚石，而是指南针。美国在自律，中国在立法——但最终，我们需要的是既有自律，又有准则的伦理体系。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2025年，我期待看到美国的准则化，也期待看到中国的自律化。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

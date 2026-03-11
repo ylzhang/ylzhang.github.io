@@ -1,8 +1,17 @@
-<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术 | Zhang's Blog</title><meta name=keywords content="InstructGPT,RLHF,Reinforcement Learning from Human Feedback,AI Alignment,ChatGPT,OpenAI"><meta name=description content='
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术 | Zhang&#39;s Blog</title>
+<meta name="keywords" content="InstructGPT, RLHF, Reinforcement Learning from Human Feedback, AI Alignment, ChatGPT, OpenAI">
+<meta name="description" content="
 本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型真正理解并遵循人类指令。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。
 
 语言模型对齐问题
-问题一：GPT-3的"不听话"
+问题一：GPT-3的&quot;不听话&quot;
 尽管GPT-3展示了惊人的能力，但它存在一个根本问题：不能可靠地遵循用户指令。
 典型问题包括：
 答非所问：
@@ -12,8 +21,8 @@ GPT-3：编程是一门重要的技能。很多人学习编程...（继续生成
 用户：如何做一个好人？
 GPT-3：（可能生成负面或有害建议）
 胡言乱语：
-用户：2+2等于几？
-GPT-3：2+2等于5。在某些情况下...（自信地输出错误内容）
+用户：2&#43;2等于几？
+GPT-3：2&#43;2等于5。在某些情况下...（自信地输出错误内容）
 问题二：预训练目标的错位
 GPT-3的预训练目标是预测下一个token：
 $$
@@ -44,32 +53,143 @@ $$
 
 示例：
 
-训练数据：&ldquo;问：今天天气怎么样？答：今天天气&mldr;&rdquo;
+训练数据：&ldquo;问：今天天气怎么样？答：今天天气&hellip;&rdquo;
 用户需求：&ldquo;告诉我明天的天气预报&rdquo;
-GPT-3可能继续写"晴朗"，而不是承认不知道
+GPT-3可能继续写&quot;晴朗&quot;，而不是承认不知道
 
 问题三：对齐问题的定义
 AI对齐（Alignment）问题的核心是：如何让AI系统的行为符合人类意图？
 形式化定义：
 $$
 \text{对齐目标} = \max_{\theta} \mathbb{E}{x \sim \mathcal{D}{\text{user}}}[R_{\text{human}}(\text{model}_\theta(x))]
-$$'><meta name=author content="ZHANG.z"><link rel=canonical href=https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/><link crossorigin=anonymous href=/assets/css/stylesheet.79bfb41aad32a688cd2a56e0fd43dad023bee6a985c251ecb095110e836bb4b7.css integrity="sha256-eb+0Gq0ypojNKlbg/UPa0CO+5qmFwlHssJURDoNrtLc=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>.post-content p{text-indent:2em}.post-content>p:first-of-type{text-indent:0}.post-content h1,.post-content h2,.post-content h3,.post-content h4{text-indent:0}.post-content blockquote,.post-content blockquote p,.post-content pre,.post-content code,.post-content .highlight,.post-content div.highlight,.post-content figure,.post-content figure p,.post-content img,.post-content table,.post-content ul,.post-content ol,.post-content li,.post-content .footnotes,.post-content .footnotes p,.post-content section.footnotes p{text-indent:0}</style><script async src=https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js crossorigin=anonymous></script><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre"],enableMenu:!1},startup:{typeset:!0}}</script><meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术"><meta property="og:description" content=' 本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型真正理解并遵循人类指令。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。
-语言模型对齐问题 问题一：GPT-3的"不听话" 尽管GPT-3展示了惊人的能力，但它存在一个根本问题：不能可靠地遵循用户指令。
+$$">
+<meta name="author" content="ZHANG.z">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.79bfb41aad32a688cd2a56e0fd43dad023bee6a985c251ecb095110e836bb4b7.css" integrity="sha256-eb&#43;0Gq0ypojNKlbg/UPa0CO&#43;5qmFwlHssJURDoNrtLc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<script async src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script>
+
+<meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术">
+  <meta property="og:description" content=" 本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型真正理解并遵循人类指令。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。
+语言模型对齐问题 问题一：GPT-3的&#34;不听话&#34; 尽管GPT-3展示了惊人的能力，但它存在一个根本问题：不能可靠地遵循用户指令。
 典型问题包括：
 答非所问：
 用户：列出5个学习编程的建议 GPT-3：编程是一门重要的技能。很多人学习编程...（继续生成无关内容） 有害内容：
 用户：如何做一个好人？ GPT-3：（可能生成负面或有害建议） 胡言乱语：
-用户：2+2等于几？ GPT-3：2+2等于5。在某些情况下...（自信地输出错误内容） 问题二：预训练目标的错位 GPT-3的预训练目标是预测下一个token：
+用户：2&#43;2等于几？ GPT-3：2&#43;2等于5。在某些情况下...（自信地输出错误内容） 问题二：预训练目标的错位 GPT-3的预训练目标是预测下一个token：
 $$ \mathcal{L}{\text{LM}} = -\sum{i} \log P(x_i | x_1, \ldots, x_{i-1}) $$
 这一目标与用户的真正需求存在根本错位：
 预训练目标 用户需求 预测最可能的续写 有帮助的回答 模仿训练数据分布 诚实的信息 最大化似然 安全的内容 示例：
-训练数据：“问：今天天气怎么样？答：今天天气…” 用户需求：“告诉我明天的天气预报” GPT-3可能继续写"晴朗"，而不是承认不知道 问题三：对齐问题的定义 AI对齐（Alignment）问题的核心是：如何让AI系统的行为符合人类意图？
+训练数据：“问：今天天气怎么样？答：今天天气…” 用户需求：“告诉我明天的天气预报” GPT-3可能继续写&#34;晴朗&#34;，而不是承认不知道 问题三：对齐问题的定义 AI对齐（Alignment）问题的核心是：如何让AI系统的行为符合人类意图？
 形式化定义：
-$$ \text{对齐目标} = \max_{\theta} \mathbb{E}{x \sim \mathcal{D}{\text{user}}}[R_{\text{human}}(\text{model}_\theta(x))] $$'><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-12-31T21:53:04+08:00"><meta property="article:modified_time" content="2025-12-31T21:53:04+08:00"><meta property="article:tag" content="AI"><meta property="article:tag" content="Paper Read"><meta property="article:tag" content="ChatGPT"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术"><meta name=twitter:description content='
+$$ \text{对齐目标} = \max_{\theta} \mathbb{E}{x \sim \mathcal{D}{\text{user}}}[R_{\text{human}}(\text{model}_\theta(x))] $$">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-31T21:53:04+08:00">
+    <meta property="article:modified_time" content="2025-12-31T21:53:04+08:00">
+    <meta property="article:tag" content="RLHF">
+    <meta property="article:tag" content="人类反馈强化学习">
+    <meta property="article:tag" content="AI对齐">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术">
+<meta name="twitter:description" content="
 本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型真正理解并遵循人类指令。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。
 
 语言模型对齐问题
-问题一：GPT-3的"不听话"
+问题一：GPT-3的&quot;不听话&quot;
 尽管GPT-3展示了惊人的能力，但它存在一个根本问题：不能可靠地遵循用户指令。
 典型问题包括：
 答非所问：
@@ -79,8 +199,8 @@ GPT-3：编程是一门重要的技能。很多人学习编程...（继续生成
 用户：如何做一个好人？
 GPT-3：（可能生成负面或有害建议）
 胡言乱语：
-用户：2+2等于几？
-GPT-3：2+2等于5。在某些情况下...（自信地输出错误内容）
+用户：2&#43;2等于几？
+GPT-3：2&#43;2等于5。在某些情况下...（自信地输出错误内容）
 问题二：预训练目标的错位
 GPT-3的预训练目标是预测下一个token：
 $$
@@ -111,50 +231,719 @@ $$
 
 示例：
 
-训练数据：&ldquo;问：今天天气怎么样？答：今天天气&mldr;&rdquo;
+训练数据：&ldquo;问：今天天气怎么样？答：今天天气&hellip;&rdquo;
 用户需求：&ldquo;告诉我明天的天气预报&rdquo;
-GPT-3可能继续写"晴朗"，而不是承认不知道
+GPT-3可能继续写&quot;晴朗&quot;，而不是承认不知道
 
 问题三：对齐问题的定义
 AI对齐（Alignment）问题的核心是：如何让AI系统的行为符合人类意图？
 形式化定义：
 $$
 \text{对齐目标} = \max_{\theta} \mathbb{E}{x \sim \mathcal{D}{\text{user}}}[R_{\text{human}}(\text{model}_\theta(x))]
-$$'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.zhangky.com/posts/"},{"@type":"ListItem","position":2,"name":"【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术","item":"https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术","name":"【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术","description":" 本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型真正理解并遵循人类指令。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。\n语言模型对齐问题 问题一：GPT-3的\u0026quot;不听话\u0026quot; 尽管GPT-3展示了惊人的能力，但它存在一个根本问题：不能可靠地遵循用户指令。\n典型问题包括：\n答非所问：\n用户：列出5个学习编程的建议 GPT-3：编程是一门重要的技能。很多人学习编程...（继续生成无关内容） 有害内容：\n用户：如何做一个好人？ GPT-3：（可能生成负面或有害建议） 胡言乱语：\n用户：2+2等于几？ GPT-3：2+2等于5。在某些情况下...（自信地输出错误内容） 问题二：预训练目标的错位 GPT-3的预训练目标是预测下一个token：\n$$ \\mathcal{L}{\\text{LM}} = -\\sum{i} \\log P(x_i | x_1, \\ldots, x_{i-1}) $$\n这一目标与用户的真正需求存在根本错位：\n预训练目标 用户需求 预测最可能的续写 有帮助的回答 模仿训练数据分布 诚实的信息 最大化似然 安全的内容 示例：\n训练数据：\u0026ldquo;问：今天天气怎么样？答：今天天气\u0026hellip;\u0026rdquo; 用户需求：\u0026ldquo;告诉我明天的天气预报\u0026rdquo; GPT-3可能继续写\u0026quot;晴朗\u0026quot;，而不是承认不知道 问题三：对齐问题的定义 AI对齐（Alignment）问题的核心是：如何让AI系统的行为符合人类意图？\n形式化定义：\n$$ \\text{对齐目标} = \\max_{\\theta} \\mathbb{E}{x \\sim \\mathcal{D}{\\text{user}}}[R_{\\text{human}}(\\text{model}_\\theta(x))] $$\n","keywords":["InstructGPT","RLHF","Reinforcement Learning from Human Feedback","AI Alignment","ChatGPT","OpenAI"],"articleBody":" 本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型真正理解并遵循人类指令。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。\n语言模型对齐问题 问题一：GPT-3的\"不听话\" 尽管GPT-3展示了惊人的能力，但它存在一个根本问题：不能可靠地遵循用户指令。\n典型问题包括：\n答非所问：\n用户：列出5个学习编程的建议 GPT-3：编程是一门重要的技能。很多人学习编程...（继续生成无关内容） 有害内容：\n用户：如何做一个好人？ GPT-3：（可能生成负面或有害建议） 胡言乱语：\n用户：2+2等于几？ GPT-3：2+2等于5。在某些情况下...（自信地输出错误内容） 问题二：预训练目标的错位 GPT-3的预训练目标是预测下一个token：\n$$ \\mathcal{L}{\\text{LM}} = -\\sum{i} \\log P(x_i | x_1, \\ldots, x_{i-1}) $$\n这一目标与用户的真正需求存在根本错位：\n预训练目标 用户需求 预测最可能的续写 有帮助的回答 模仿训练数据分布 诚实的信息 最大化似然 安全的内容 示例：\n训练数据：“问：今天天气怎么样？答：今天天气…” 用户需求：“告诉我明天的天气预报” GPT-3可能继续写\"晴朗\"，而不是承认不知道 问题三：对齐问题的定义 AI对齐（Alignment）问题的核心是：如何让AI系统的行为符合人类意图？\n形式化定义：\n$$ \\text{对齐目标} = \\max_{\\theta} \\mathbb{E}{x \\sim \\mathcal{D}{\\text{user}}}[R_{\\text{human}}(\\text{model}_\\theta(x))] $$\n其中 $R_{\\text{human}}$ 是人类对输出的评价，$\\mathcal{D}_{\\text{user}}$ 是用户查询分布。\n问题是：$R_{\\text{human}}$ 无法直接获得，也无法简单量化。\nRLHF的三阶段方法 阶段一：监督微调（SFT） 首先，在人工标注的高质量数据上进行监督微调：\n数据收集：\n收集用户提交的prompt（约13,000条） 雇用40名标注员编写高质量回答 质量控制：多人标注，一致性检查 微调目标：\n$$ \\mathcal{L}{\\text{SFT}} = -\\sum{(x, y) \\in \\mathcal{D}_{\\text{demo}}} \\log P(y | x; \\theta) $$\n其中 $(x, y)$ 是prompt-回答对。\n效果：SFT后的模型已经显著优于原始GPT-3，但仍有提升空间。\n阶段二：奖励模型训练（RM） 接下来，训练一个奖励模型来模拟人类偏好：\n比较数据收集：\n给定prompt，让SFT模型生成多个回答（K个，通常K=4-9） 标注员对回答进行排序 将排序转换为成对比较数据 奖励模型架构：\n奖励模型 $r_\\phi(x, y)$ 输出一个标量分数，表示回答 $y$ 对prompt $x$ 的质量。\n训练目标（Bradley-Terry模型）：\n$$ \\mathcal{L}{\\text{RM}} = -\\mathbb{E}{(x, y_w, y_l) \\sim \\mathcal{D}{\\text{comparison}}} \\left[ \\log \\sigma(r\\phi(x, y_w) - r_\\phi(x, y_l)) \\right] $$\n其中 $y_w$ 是偏好回答（winner），$y_l$ 是非偏好回答（loser），$\\sigma$ 是sigmoid函数。\n直觉：最大化偏好回答与非偏好回答的分数差距。\n阶段三：强化学习优化（PPO） 最后，使用强化学习优化语言模型，使其生成高奖励的回答：\n目标函数：\n$$ \\mathcal{L}{\\text{RL}} = \\mathbb{E}{x \\sim \\mathcal{D}, y \\sim \\pi_\\theta(y|x)} \\left[ r_\\phi(x, y) - \\beta \\cdot D_{\\text{KL}}(\\pi_\\theta(y|x) | \\pi_{\\text{ref}}(y|x)) \\right] $$\n其中：\n$\\pi_\\theta$ 是当前策略（语言模型） $\\pi_{\\text{ref}}$ 是参考策略（SFT模型） $\\beta$ 是KL惩罚系数 $D_{\\text{KL}}$ 是KL散度 KL惩罚的作用：防止模型过度优化奖励函数，偏离原始语言模型太远（“reward hacking”）。\nPPO算法：\nPPO（Proximal Policy Optimization）是一种稳定的策略梯度算法：\n$$ \\mathcal{L}_{\\text{PPO}} = \\mathbb{E}_t \\left[ \\min\\left( r_t(\\theta) \\hat{A}_t, \\text{clip}(r_t(\\theta), 1-\\epsilon, 1+\\epsilon) \\hat{A}_t \\right) \\right] $$\n其中 $r_t(\\theta) = \\frac{\\pi_\\theta(a_t|s_t)}{\\pi_{\\theta_{\\text{old}}}(a_t|s_t)}$ 是概率比，$\\hat{A}_t$ 是优势估计。\n训练细节与技术 数据标注指南 标注员遵循详细的指南来评估回答质量：\n有帮助性（Helpfulness）：\n是否回答了用户的问题？ 是否提供了有用的信息？ 是否简洁明了？ 诚实性（Honesty）：\n是否承认不确定性？ 是否避免编造信息？ 是否引用可靠来源？ 无害性（Harmlessness）：\n是否避免有害内容？ 是否拒绝不当请求？ 是否考虑潜在负面影响？ 模型规模对比 论文训练了多个规模的InstructGPT：\n模型 参数量 对比GPT-3 InstructGPT 1.3B 1.3B GPT-3 175B InstructGPT 6B 6B GPT-3 175B InstructGPT 175B 175B GPT-3 175B 关键发现：1.3B的InstructGPT在人类评估中优于175B的GPT-3！\n迭代训练 InstructGPT使用迭代训练方法：\n训练初始SFT模型 收集比较数据，训练RM 用RL优化，得到新模型 用新模型收集更多数据 重复步骤2-4 每次迭代都能提升模型质量。\n实验结果与分析 人类评估 在人类评估中，InstructGPT显著优于GPT-3：\n对比 InstructGPT胜率 InstructGPT 1.3B vs GPT-3 175B 85% InstructGPT 6B vs GPT-3 175B 87% InstructGPT 175B vs GPT-3 175B 92% 令人震惊的发现：仅1.3B参数的InstructGPT就能击败100倍大的GPT-3！\nTruthfulQA基准 在测试诚实性的TruthfulQA基准上：\n模型 真实性% 信息量% GPT-3 175B 58.0 90.0 InstructGPT 1.3B 64.3 88.1 InstructGPT 175B 76.4 82.3 InstructGPT更诚实，更少编造内容。\n安全性评估 在RealToxicityPrompts基准上：\n模型 有毒输出比例 GPT-3 175B 6.48% InstructGPT 175B 0.61% InstructGPT生成的有害内容减少了90%以上。\n能力保持 RLHF会损失一些原始能力（“对齐税”），但损失可控：\n任务 GPT-3 InstructGPT 变化 HellaSwag 78.9% 77.8% -1.1% WinoGrande 70.2% 69.7% -0.5% ARC 51.4% 51.1% -0.3% 能力保持相当稳定。\n对齐技术的理论分析 奖励模型的局限 奖励模型面临几个挑战：\n分布偏移：\n训练时：RM在SFT模型输出上训练 测试时：RM评估RL优化后的模型输出 分布差异导致RM可能不准确 Reward Hacking： 模型可能找到\"欺骗\"奖励模型的方式：\n$$ y^* = \\arg\\max_y r_\\phi(x, y) \\neq \\arg\\max_y R_{\\text{human}}(x, y) $$\nKL惩罚能缓解但不能完全解决这一问题。\nRLHF的理论基础 RLHF可以理解为一种偏好学习（Preference Learning）：\n假设：存在潜在的人类偏好函数 $R^*(x, y)$\n目标：从成对比较中学习 $R^*$ 的近似\n$$ P(y_w \\succ y_l | x) = \\frac{\\exp(R^(x, y_w))}{\\exp(R^(x, y_w)) + \\exp(R^*(x, y_l))} $$\nBradley-Terry模型正是基于这一假设。\nKL惩罚的理论解释 KL惩罚可以理解为正则化：\n$$ \\max_\\theta \\mathbb{E}[r_\\phi(x, y)] - \\beta D_{\\text{KL}}(\\pi_\\theta | \\pi_{\\text{ref}}) $$\n等价于：\n$$ \\max_\\theta \\mathbb{E}{\\pi\\theta}[r_\\phi(x, y)] + \\beta \\mathcal{H}(\\pi_\\theta) - \\beta \\mathbb{E}{\\pi\\theta}[\\log \\pi_{\\text{ref}}(y|x)] $$\n包含熵正则化项，防止模型过于确定（坍缩到单一输出）。\n从InstructGPT到ChatGPT 技术演进 ChatGPT基于InstructGPT的技术框架，增加了：\n特性 InstructGPT ChatGPT 基础架构 GPT-3 GPT-3.5 RLHF ✓ ✓（改进） 对话能力 单轮为主 多轮对话 安全过滤 基础 增强 用户体验 API 对话界面 对话优化 ChatGPT在对话方面的关键改进：\n对话历史建模：将多轮对话作为上下文 系统提示：定义助手角色和行为 拒绝策略：对不当请求的优雅拒绝 追问能力：在信息不足时主动询问 安全增强 ChatGPT加强了安全措施：\n内容过滤：输入输出双向过滤 红队测试：专门团队尝试破解安全措施 迭代改进：基于用户反馈持续更新 使用政策：明确禁止的使用场景 RLHF的影响与未来 技术影响 RLHF已成为大语言模型的标准训练流程：\n模型 是否使用RLHF ChatGPT ✓ Claude ✓（Constitutional AI变体） Gemini ✓ Llama 2-Chat ✓ 研究方向 RLHF的改进方向：\n直接偏好优化（DPO）：无需显式奖励模型 宪法AI：用AI生成反馈，减少人工标注 迭代RLHF：持续学习用户偏好 多目标对齐：同时优化多个对齐目标 哲学思考 RLHF引发深层思考：\n谁的偏好？标注员偏好是否代表人类偏好？ 价值对齐？如何处理不同文化、价值观的差异？ 长期影响？对齐到当前偏好是否是正确方向？ 阅读研究论文的时间线计划 本文在技术时间线中的位置 Word2Vec(2013) → Seq2Seq(2014) → Attention(2015) → Transformer(2017) → GPT-1(2018) → GPT-2(2019) → Scaling Laws(2020) → GPT-3(2020) → 【当前位置】InstructGPT(2022) → ChatGPT 前置知识 在阅读本文之前，建议了解：\n【ChatGPT时刻09】GPT-3：理解基础模型能力 强化学习基础（策略梯度、PPO） Bradley-Terry模型 后续学习方向 完成ChatGPT时刻系列后，建议深入：\nConstitutional AI：Anthropic的对齐方法 Direct Preference Optimization（DPO）：简化的RLHF AI Safety：更广泛的对齐研究 多模态对齐：图像、视频的RLHF 完整技术路线图：ChatGPT的诞生 ChatGPT技术栈完整回顾 │ ┌─────────────────────────────┴─────────────────────────────┐ │ │ Word2Vec ─► Seq2Seq ─► Attention ─► Transformer ─► GPT-1 ─► GPT-2 ─► GPT-3 ─► InstructGPT ─► ChatGPT (2013) (2014) (2015) (2017) (2018) (2019) (2020) (2022) (2022) │ │ │ │ │ │ │ │ │ 词向量 编码器- 软对齐 自注意力 预训练+ 零样本 上下文 RLHF 多轮对话 语义空间 解码器 并行计算 微调 规模效应 学习 人类对齐 产品化 参考文献 Ouyang, L., et al. (2022). Training language models to follow instructions with human feedback. NeurIPS. Christiano, P., et al. (2017). Deep reinforcement learning from human preferences. NeurIPS. Stiennon, N., et al. (2020). Learning to summarize from human feedback. NeurIPS. Schulman, J., et al. (2017). Proximal Policy Optimization Algorithms. arXiv. Bai, Y., et al. (2022). Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback. arXiv. Rafailov, R., et al. (2023). Direct Preference Optimization: Your Language Model is Secretly a Reward Model. NeurIPS. 系列总结：从Word2Vec到ChatGPT 至此，我们完成了ChatGPT时刻系列的全部10篇文章，回顾了从2013年Word2Vec到2022年ChatGPT的完整技术演进：\n年份 技术突破 核心贡献 2013 Word2Vec 词向量，语义空间 2014 Seq2Seq 编码器-解码器，端到端 2015 Attention 软对齐，动态上下文 2017 Transformer 自注意力，并行计算 2018 GPT-1 预训练+微调范式 2019 GPT-2 零样本学习，规模效应 2020 Scaling Laws 规模与性能的幂律 2020 GPT-3 上下文学习，涌现能力 2022 InstructGPT RLHF，人类对齐 2022 ChatGPT 对话优化，产品化 这十年的技术积累，最终汇聚成ChatGPT这一改变世界的产品。\n感谢阅读！如有问题或建议，欢迎提交Issue讨论。\n","wordCount":"659","inLanguage":"en","image":"https://blog.zhangky.com/images/logo.svg","datePublished":"2025-12-31T21:53:04+08:00","dateModified":"2025-12-31T21:53:04+08:00","author":{"@type":"Person","name":"ZHANG.z"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/"},"publisher":{"@type":"Organization","name":"Zhang's Blog","logo":{"@type":"ImageObject","url":"https://blog.zhangky.com/images/logo.svg"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-</button>
-<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://blog.zhangky.com/>Home</a>&nbsp;»&nbsp;<a href=https://blog.zhangky.com/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术</h1><div class=post-meta>ZHANG.z | <span title='2025-12-31 21:53:04 +0800 +0800'>December 31, 2025</span> | <span>19 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
-<a href=https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></span></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e8%af%ad%e8%a8%80%e6%a8%a1%e5%9e%8b%e5%af%b9%e9%bd%90%e9%97%ae%e9%a2%98 aria-label=语言模型对齐问题>语言模型对齐问题</a><ul><li><a href=#%e9%97%ae%e9%a2%98%e4%b8%80gpt-3%e7%9a%84%e4%b8%8d%e5%90%ac%e8%af%9d aria-label='问题一：GPT-3的"不听话"'>问题一：GPT-3的"不听话"</a></li><li><a href=#%e9%97%ae%e9%a2%98%e4%ba%8c%e9%a2%84%e8%ae%ad%e7%bb%83%e7%9b%ae%e6%a0%87%e7%9a%84%e9%94%99%e4%bd%8d aria-label=问题二：预训练目标的错位>问题二：预训练目标的错位</a></li><li><a href=#%e9%97%ae%e9%a2%98%e4%b8%89%e5%af%b9%e9%bd%90%e9%97%ae%e9%a2%98%e7%9a%84%e5%ae%9a%e4%b9%89 aria-label=问题三：对齐问题的定义>问题三：对齐问题的定义</a></li></ul></li><li><a href=#rlhf%e7%9a%84%e4%b8%89%e9%98%b6%e6%ae%b5%e6%96%b9%e6%b3%95 aria-label=RLHF的三阶段方法>RLHF的三阶段方法</a><ul><li><a href=#%e9%98%b6%e6%ae%b5%e4%b8%80%e7%9b%91%e7%9d%a3%e5%be%ae%e8%b0%83sft aria-label=阶段一：监督微调（SFT）>阶段一：监督微调（SFT）</a></li><li><a href=#%e9%98%b6%e6%ae%b5%e4%ba%8c%e5%a5%96%e5%8a%b1%e6%a8%a1%e5%9e%8b%e8%ae%ad%e7%bb%83rm aria-label=阶段二：奖励模型训练（RM）>阶段二：奖励模型训练（RM）</a></li><li><a href=#%e9%98%b6%e6%ae%b5%e4%b8%89%e5%bc%ba%e5%8c%96%e5%ad%a6%e4%b9%a0%e4%bc%98%e5%8c%96ppo aria-label=阶段三：强化学习优化（PPO）>阶段三：强化学习优化（PPO）</a></li></ul></li><li><a href=#%e8%ae%ad%e7%bb%83%e7%bb%86%e8%8a%82%e4%b8%8e%e6%8a%80%e6%9c%af aria-label=训练细节与技术>训练细节与技术</a><ul><li><a href=#%e6%95%b0%e6%8d%ae%e6%a0%87%e6%b3%a8%e6%8c%87%e5%8d%97 aria-label=数据标注指南>数据标注指南</a></li><li><a href=#%e6%a8%a1%e5%9e%8b%e8%a7%84%e6%a8%a1%e5%af%b9%e6%af%94 aria-label=模型规模对比>模型规模对比</a></li><li><a href=#%e8%bf%ad%e4%bb%a3%e8%ae%ad%e7%bb%83 aria-label=迭代训练>迭代训练</a></li></ul></li><li><a href=#%e5%ae%9e%e9%aa%8c%e7%bb%93%e6%9e%9c%e4%b8%8e%e5%88%86%e6%9e%90 aria-label=实验结果与分析>实验结果与分析</a><ul><li><a href=#%e4%ba%ba%e7%b1%bb%e8%af%84%e4%bc%b0 aria-label=人类评估>人类评估</a></li><li><a href=#truthfulqa%e5%9f%ba%e5%87%86 aria-label=TruthfulQA基准>TruthfulQA基准</a></li><li><a href=#%e5%ae%89%e5%85%a8%e6%80%a7%e8%af%84%e4%bc%b0 aria-label=安全性评估>安全性评估</a></li><li><a href=#%e8%83%bd%e5%8a%9b%e4%bf%9d%e6%8c%81 aria-label=能力保持>能力保持</a></li></ul></li><li><a href=#%e5%af%b9%e9%bd%90%e6%8a%80%e6%9c%af%e7%9a%84%e7%90%86%e8%ae%ba%e5%88%86%e6%9e%90 aria-label=对齐技术的理论分析>对齐技术的理论分析</a><ul><li><a href=#%e5%a5%96%e5%8a%b1%e6%a8%a1%e5%9e%8b%e7%9a%84%e5%b1%80%e9%99%90 aria-label=奖励模型的局限>奖励模型的局限</a></li><li><a href=#rlhf%e7%9a%84%e7%90%86%e8%ae%ba%e5%9f%ba%e7%a1%80 aria-label=RLHF的理论基础>RLHF的理论基础</a></li><li><a href=#kl%e6%83%a9%e7%bd%9a%e7%9a%84%e7%90%86%e8%ae%ba%e8%a7%a3%e9%87%8a aria-label=KL惩罚的理论解释>KL惩罚的理论解释</a></li></ul></li><li><a href=#%e4%bb%8einstructgpt%e5%88%b0chatgpt aria-label=从InstructGPT到ChatGPT>从InstructGPT到ChatGPT</a><ul><li><a href=#%e6%8a%80%e6%9c%af%e6%bc%94%e8%bf%9b aria-label=技术演进>技术演进</a></li><li><a href=#%e5%af%b9%e8%af%9d%e4%bc%98%e5%8c%96 aria-label=对话优化>对话优化</a></li><li><a href=#%e5%ae%89%e5%85%a8%e5%a2%9e%e5%bc%ba aria-label=安全增强>安全增强</a></li></ul></li><li><a href=#rlhf%e7%9a%84%e5%bd%b1%e5%93%8d%e4%b8%8e%e6%9c%aa%e6%9d%a5 aria-label=RLHF的影响与未来>RLHF的影响与未来</a><ul><li><a href=#%e6%8a%80%e6%9c%af%e5%bd%b1%e5%93%8d aria-label=技术影响>技术影响</a></li><li><a href=#%e7%a0%94%e7%a9%b6%e6%96%b9%e5%90%91 aria-label=研究方向>研究方向</a></li><li><a href=#%e5%93%b2%e5%ad%a6%e6%80%9d%e8%80%83 aria-label=哲学思考>哲学思考</a></li></ul></li><li><a href=#%e9%98%85%e8%af%bb%e7%a0%94%e7%a9%b6%e8%ae%ba%e6%96%87%e7%9a%84%e6%97%b6%e9%97%b4%e7%ba%bf%e8%ae%a1%e5%88%92 aria-label=阅读研究论文的时间线计划>阅读研究论文的时间线计划</a><ul><li><a href=#%e6%9c%ac%e6%96%87%e5%9c%a8%e6%8a%80%e6%9c%af%e6%97%b6%e9%97%b4%e7%ba%bf%e4%b8%ad%e7%9a%84%e4%bd%8d%e7%bd%ae aria-label=本文在技术时间线中的位置>本文在技术时间线中的位置</a></li><li><a href=#%e5%89%8d%e7%bd%ae%e7%9f%a5%e8%af%86 aria-label=前置知识>前置知识</a></li><li><a href=#%e5%90%8e%e7%bb%ad%e5%ad%a6%e4%b9%a0%e6%96%b9%e5%90%91 aria-label=后续学习方向>后续学习方向</a></li><li><a href=#%e5%ae%8c%e6%95%b4%e6%8a%80%e6%9c%af%e8%b7%af%e7%ba%bf%e5%9b%bechatgpt%e7%9a%84%e8%af%9e%e7%94%9f aria-label=完整技术路线图：ChatGPT的诞生>完整技术路线图：ChatGPT的诞生</a></li></ul></li><li><a href=#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae aria-label=参考文献>参考文献</a></li><li><a href=#%e7%b3%bb%e5%88%97%e6%80%bb%e7%bb%93%e4%bb%8eword2vec%e5%88%b0chatgpt aria-label=系列总结：从Word2Vec到ChatGPT>系列总结：从Word2Vec到ChatGPT</a></li></ul></div></details></div><div class=post-content><p>本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型<strong>真正理解并遵循人类指令</strong>。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。</p><hr><h2 id=语言模型对齐问题>语言模型对齐问题<a hidden class=anchor aria-hidden=true href=#语言模型对齐问题>#</a></h2><h3 id=问题一gpt-3的不听话>问题一：GPT-3的"不听话"<a hidden class=anchor aria-hidden=true href=#问题一gpt-3的不听话>#</a></h3><p>尽管GPT-3展示了惊人的能力，但它存在一个根本问题：<strong>不能可靠地遵循用户指令</strong>。</p><p>典型问题包括：</p><p><strong>答非所问</strong>：</p><pre tabindex=0><code>用户：列出5个学习编程的建议
+$$">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术",
+      "item": "https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术",
+  "name": "【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术",
+  "description": " 本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型真正理解并遵循人类指令。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。\n语言模型对齐问题 问题一：GPT-3的\u0026quot;不听话\u0026quot; 尽管GPT-3展示了惊人的能力，但它存在一个根本问题：不能可靠地遵循用户指令。\n典型问题包括：\n答非所问：\n用户：列出5个学习编程的建议 GPT-3：编程是一门重要的技能。很多人学习编程...（继续生成无关内容） 有害内容：\n用户：如何做一个好人？ GPT-3：（可能生成负面或有害建议） 胡言乱语：\n用户：2+2等于几？ GPT-3：2+2等于5。在某些情况下...（自信地输出错误内容） 问题二：预训练目标的错位 GPT-3的预训练目标是预测下一个token：\n$$ \\mathcal{L}{\\text{LM}} = -\\sum{i} \\log P(x_i | x_1, \\ldots, x_{i-1}) $$\n这一目标与用户的真正需求存在根本错位：\n预训练目标 用户需求 预测最可能的续写 有帮助的回答 模仿训练数据分布 诚实的信息 最大化似然 安全的内容 示例：\n训练数据：\u0026ldquo;问：今天天气怎么样？答：今天天气\u0026hellip;\u0026rdquo; 用户需求：\u0026ldquo;告诉我明天的天气预报\u0026rdquo; GPT-3可能继续写\u0026quot;晴朗\u0026quot;，而不是承认不知道 问题三：对齐问题的定义 AI对齐（Alignment）问题的核心是：如何让AI系统的行为符合人类意图？\n形式化定义：\n$$ \\text{对齐目标} = \\max_{\\theta} \\mathbb{E}{x \\sim \\mathcal{D}{\\text{user}}}[R_{\\text{human}}(\\text{model}_\\theta(x))] $$\n",
+  "keywords": [
+    "InstructGPT", "RLHF", "Reinforcement Learning from Human Feedback", "AI Alignment", "ChatGPT", "OpenAI"
+  ],
+  "articleBody": " 本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型真正理解并遵循人类指令。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。\n语言模型对齐问题 问题一：GPT-3的\"不听话\" 尽管GPT-3展示了惊人的能力，但它存在一个根本问题：不能可靠地遵循用户指令。\n典型问题包括：\n答非所问：\n用户：列出5个学习编程的建议 GPT-3：编程是一门重要的技能。很多人学习编程...（继续生成无关内容） 有害内容：\n用户：如何做一个好人？ GPT-3：（可能生成负面或有害建议） 胡言乱语：\n用户：2+2等于几？ GPT-3：2+2等于5。在某些情况下...（自信地输出错误内容） 问题二：预训练目标的错位 GPT-3的预训练目标是预测下一个token：\n$$ \\mathcal{L}{\\text{LM}} = -\\sum{i} \\log P(x_i | x_1, \\ldots, x_{i-1}) $$\n这一目标与用户的真正需求存在根本错位：\n预训练目标 用户需求 预测最可能的续写 有帮助的回答 模仿训练数据分布 诚实的信息 最大化似然 安全的内容 示例：\n训练数据：“问：今天天气怎么样？答：今天天气…” 用户需求：“告诉我明天的天气预报” GPT-3可能继续写\"晴朗\"，而不是承认不知道 问题三：对齐问题的定义 AI对齐（Alignment）问题的核心是：如何让AI系统的行为符合人类意图？\n形式化定义：\n$$ \\text{对齐目标} = \\max_{\\theta} \\mathbb{E}{x \\sim \\mathcal{D}{\\text{user}}}[R_{\\text{human}}(\\text{model}_\\theta(x))] $$\n其中 $R_{\\text{human}}$ 是人类对输出的评价，$\\mathcal{D}_{\\text{user}}$ 是用户查询分布。\n问题是：$R_{\\text{human}}$ 无法直接获得，也无法简单量化。\nRLHF的三阶段方法 阶段一：监督微调（SFT） 首先，在人工标注的高质量数据上进行监督微调：\n数据收集：\n收集用户提交的prompt（约13,000条） 雇用40名标注员编写高质量回答 质量控制：多人标注，一致性检查 微调目标：\n$$ \\mathcal{L}{\\text{SFT}} = -\\sum{(x, y) \\in \\mathcal{D}_{\\text{demo}}} \\log P(y | x; \\theta) $$\n其中 $(x, y)$ 是prompt-回答对。\n效果：SFT后的模型已经显著优于原始GPT-3，但仍有提升空间。\n阶段二：奖励模型训练（RM） 接下来，训练一个奖励模型来模拟人类偏好：\n比较数据收集：\n给定prompt，让SFT模型生成多个回答（K个，通常K=4-9） 标注员对回答进行排序 将排序转换为成对比较数据 奖励模型架构：\n奖励模型 $r_\\phi(x, y)$ 输出一个标量分数，表示回答 $y$ 对prompt $x$ 的质量。\n训练目标（Bradley-Terry模型）：\n$$ \\mathcal{L}{\\text{RM}} = -\\mathbb{E}{(x, y_w, y_l) \\sim \\mathcal{D}{\\text{comparison}}} \\left[ \\log \\sigma(r\\phi(x, y_w) - r_\\phi(x, y_l)) \\right] $$\n其中 $y_w$ 是偏好回答（winner），$y_l$ 是非偏好回答（loser），$\\sigma$ 是sigmoid函数。\n直觉：最大化偏好回答与非偏好回答的分数差距。\n阶段三：强化学习优化（PPO） 最后，使用强化学习优化语言模型，使其生成高奖励的回答：\n目标函数：\n$$ \\mathcal{L}{\\text{RL}} = \\mathbb{E}{x \\sim \\mathcal{D}, y \\sim \\pi_\\theta(y|x)} \\left[ r_\\phi(x, y) - \\beta \\cdot D_{\\text{KL}}(\\pi_\\theta(y|x) | \\pi_{\\text{ref}}(y|x)) \\right] $$\n其中：\n$\\pi_\\theta$ 是当前策略（语言模型） $\\pi_{\\text{ref}}$ 是参考策略（SFT模型） $\\beta$ 是KL惩罚系数 $D_{\\text{KL}}$ 是KL散度 KL惩罚的作用：防止模型过度优化奖励函数，偏离原始语言模型太远（“reward hacking”）。\nPPO算法：\nPPO（Proximal Policy Optimization）是一种稳定的策略梯度算法：\n$$ \\mathcal{L}_{\\text{PPO}} = \\mathbb{E}_t \\left[ \\min\\left( r_t(\\theta) \\hat{A}_t, \\text{clip}(r_t(\\theta), 1-\\epsilon, 1+\\epsilon) \\hat{A}_t \\right) \\right] $$\n其中 $r_t(\\theta) = \\frac{\\pi_\\theta(a_t|s_t)}{\\pi_{\\theta_{\\text{old}}}(a_t|s_t)}$ 是概率比，$\\hat{A}_t$ 是优势估计。\n训练细节与技术 数据标注指南 标注员遵循详细的指南来评估回答质量：\n有帮助性（Helpfulness）：\n是否回答了用户的问题？ 是否提供了有用的信息？ 是否简洁明了？ 诚实性（Honesty）：\n是否承认不确定性？ 是否避免编造信息？ 是否引用可靠来源？ 无害性（Harmlessness）：\n是否避免有害内容？ 是否拒绝不当请求？ 是否考虑潜在负面影响？ 模型规模对比 论文训练了多个规模的InstructGPT：\n模型 参数量 对比GPT-3 InstructGPT 1.3B 1.3B GPT-3 175B InstructGPT 6B 6B GPT-3 175B InstructGPT 175B 175B GPT-3 175B 关键发现：1.3B的InstructGPT在人类评估中优于175B的GPT-3！\n迭代训练 InstructGPT使用迭代训练方法：\n训练初始SFT模型 收集比较数据，训练RM 用RL优化，得到新模型 用新模型收集更多数据 重复步骤2-4 每次迭代都能提升模型质量。\n实验结果与分析 人类评估 在人类评估中，InstructGPT显著优于GPT-3：\n对比 InstructGPT胜率 InstructGPT 1.3B vs GPT-3 175B 85% InstructGPT 6B vs GPT-3 175B 87% InstructGPT 175B vs GPT-3 175B 92% 令人震惊的发现：仅1.3B参数的InstructGPT就能击败100倍大的GPT-3！\nTruthfulQA基准 在测试诚实性的TruthfulQA基准上：\n模型 真实性% 信息量% GPT-3 175B 58.0 90.0 InstructGPT 1.3B 64.3 88.1 InstructGPT 175B 76.4 82.3 InstructGPT更诚实，更少编造内容。\n安全性评估 在RealToxicityPrompts基准上：\n模型 有毒输出比例 GPT-3 175B 6.48% InstructGPT 175B 0.61% InstructGPT生成的有害内容减少了90%以上。\n能力保持 RLHF会损失一些原始能力（“对齐税”），但损失可控：\n任务 GPT-3 InstructGPT 变化 HellaSwag 78.9% 77.8% -1.1% WinoGrande 70.2% 69.7% -0.5% ARC 51.4% 51.1% -0.3% 能力保持相当稳定。\n对齐技术的理论分析 奖励模型的局限 奖励模型面临几个挑战：\n分布偏移：\n训练时：RM在SFT模型输出上训练 测试时：RM评估RL优化后的模型输出 分布差异导致RM可能不准确 Reward Hacking： 模型可能找到\"欺骗\"奖励模型的方式：\n$$ y^* = \\arg\\max_y r_\\phi(x, y) \\neq \\arg\\max_y R_{\\text{human}}(x, y) $$\nKL惩罚能缓解但不能完全解决这一问题。\nRLHF的理论基础 RLHF可以理解为一种偏好学习（Preference Learning）：\n假设：存在潜在的人类偏好函数 $R^*(x, y)$\n目标：从成对比较中学习 $R^*$ 的近似\n$$ P(y_w \\succ y_l | x) = \\frac{\\exp(R^(x, y_w))}{\\exp(R^(x, y_w)) + \\exp(R^*(x, y_l))} $$\nBradley-Terry模型正是基于这一假设。\nKL惩罚的理论解释 KL惩罚可以理解为正则化：\n$$ \\max_\\theta \\mathbb{E}[r_\\phi(x, y)] - \\beta D_{\\text{KL}}(\\pi_\\theta | \\pi_{\\text{ref}}) $$\n等价于：\n$$ \\max_\\theta \\mathbb{E}{\\pi\\theta}[r_\\phi(x, y)] + \\beta \\mathcal{H}(\\pi_\\theta) - \\beta \\mathbb{E}{\\pi\\theta}[\\log \\pi_{\\text{ref}}(y|x)] $$\n包含熵正则化项，防止模型过于确定（坍缩到单一输出）。\n从InstructGPT到ChatGPT 技术演进 ChatGPT基于InstructGPT的技术框架，增加了：\n特性 InstructGPT ChatGPT 基础架构 GPT-3 GPT-3.5 RLHF ✓ ✓（改进） 对话能力 单轮为主 多轮对话 安全过滤 基础 增强 用户体验 API 对话界面 对话优化 ChatGPT在对话方面的关键改进：\n对话历史建模：将多轮对话作为上下文 系统提示：定义助手角色和行为 拒绝策略：对不当请求的优雅拒绝 追问能力：在信息不足时主动询问 安全增强 ChatGPT加强了安全措施：\n内容过滤：输入输出双向过滤 红队测试：专门团队尝试破解安全措施 迭代改进：基于用户反馈持续更新 使用政策：明确禁止的使用场景 RLHF的影响与未来 技术影响 RLHF已成为大语言模型的标准训练流程：\n模型 是否使用RLHF ChatGPT ✓ Claude ✓（Constitutional AI变体） Gemini ✓ Llama 2-Chat ✓ 研究方向 RLHF的改进方向：\n直接偏好优化（DPO）：无需显式奖励模型 宪法AI：用AI生成反馈，减少人工标注 迭代RLHF：持续学习用户偏好 多目标对齐：同时优化多个对齐目标 哲学思考 RLHF引发深层思考：\n谁的偏好？标注员偏好是否代表人类偏好？ 价值对齐？如何处理不同文化、价值观的差异？ 长期影响？对齐到当前偏好是否是正确方向？ 阅读研究论文的时间线计划 本文在技术时间线中的位置 Word2Vec(2013) → Seq2Seq(2014) → Attention(2015) → Transformer(2017) → GPT-1(2018) → GPT-2(2019) → Scaling Laws(2020) → GPT-3(2020) → 【当前位置】InstructGPT(2022) → ChatGPT 前置知识 在阅读本文之前，建议了解：\n【ChatGPT时刻09】GPT-3：理解基础模型能力 强化学习基础（策略梯度、PPO） Bradley-Terry模型 后续学习方向 完成ChatGPT时刻系列后，建议深入：\nConstitutional AI：Anthropic的对齐方法 Direct Preference Optimization（DPO）：简化的RLHF AI Safety：更广泛的对齐研究 多模态对齐：图像、视频的RLHF 完整技术路线图：ChatGPT的诞生 ChatGPT技术栈完整回顾 │ ┌─────────────────────────────┴─────────────────────────────┐ │ │ Word2Vec ─► Seq2Seq ─► Attention ─► Transformer ─► GPT-1 ─► GPT-2 ─► GPT-3 ─► InstructGPT ─► ChatGPT (2013) (2014) (2015) (2017) (2018) (2019) (2020) (2022) (2022) │ │ │ │ │ │ │ │ │ 词向量 编码器- 软对齐 自注意力 预训练+ 零样本 上下文 RLHF 多轮对话 语义空间 解码器 并行计算 微调 规模效应 学习 人类对齐 产品化 参考文献 Ouyang, L., et al. (2022). Training language models to follow instructions with human feedback. NeurIPS. Christiano, P., et al. (2017). Deep reinforcement learning from human preferences. NeurIPS. Stiennon, N., et al. (2020). Learning to summarize from human feedback. NeurIPS. Schulman, J., et al. (2017). Proximal Policy Optimization Algorithms. arXiv. Bai, Y., et al. (2022). Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback. arXiv. Rafailov, R., et al. (2023). Direct Preference Optimization: Your Language Model is Secretly a Reward Model. NeurIPS. 系列总结：从Word2Vec到ChatGPT 至此，我们完成了ChatGPT时刻系列的全部10篇文章，回顾了从2013年Word2Vec到2022年ChatGPT的完整技术演进：\n年份 技术突破 核心贡献 2013 Word2Vec 词向量，语义空间 2014 Seq2Seq 编码器-解码器，端到端 2015 Attention 软对齐，动态上下文 2017 Transformer 自注意力，并行计算 2018 GPT-1 预训练+微调范式 2019 GPT-2 零样本学习，规模效应 2020 Scaling Laws 规模与性能的幂律 2020 GPT-3 上下文学习，涌现能力 2022 InstructGPT RLHF，人类对齐 2022 ChatGPT 对话优化，产品化 这十年的技术积累，最终汇聚成ChatGPT这一改变世界的产品。\n感谢阅读！如有问题或建议，欢迎提交Issue讨论。\n",
+  "wordCount" : "659",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2025-12-31T21:53:04+08:00",
+  "dateModified": "2025-12-31T21:53:04+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "ZHANG.z"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhang's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术
+    </h1>
+    <div class="post-meta">   ZHANG.z | <span title='2025-12-31 21:53:04 +0800 HKT'>December 31, 2025</span> | <span>19 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e8%af%ad%e8%a8%80%e6%a8%a1%e5%9e%8b%e5%af%b9%e9%bd%90%e9%97%ae%e9%a2%98" aria-label="语言模型对齐问题">语言模型对齐问题</a><ul>
+                        
+                <li>
+                    <a href="#%e9%97%ae%e9%a2%98%e4%b8%80gpt-3%e7%9a%84%e4%b8%8d%e5%90%ac%e8%af%9d" aria-label="问题一：GPT-3的&quot;不听话&quot;">问题一：GPT-3的&quot;不听话&quot;</a></li>
+                <li>
+                    <a href="#%e9%97%ae%e9%a2%98%e4%ba%8c%e9%a2%84%e8%ae%ad%e7%bb%83%e7%9b%ae%e6%a0%87%e7%9a%84%e9%94%99%e4%bd%8d" aria-label="问题二：预训练目标的错位">问题二：预训练目标的错位</a></li>
+                <li>
+                    <a href="#%e9%97%ae%e9%a2%98%e4%b8%89%e5%af%b9%e9%bd%90%e9%97%ae%e9%a2%98%e7%9a%84%e5%ae%9a%e4%b9%89" aria-label="问题三：对齐问题的定义">问题三：对齐问题的定义</a></li></ul>
+                </li>
+                <li>
+                    <a href="#rlhf%e7%9a%84%e4%b8%89%e9%98%b6%e6%ae%b5%e6%96%b9%e6%b3%95" aria-label="RLHF的三阶段方法">RLHF的三阶段方法</a><ul>
+                        
+                <li>
+                    <a href="#%e9%98%b6%e6%ae%b5%e4%b8%80%e7%9b%91%e7%9d%a3%e5%be%ae%e8%b0%83sft" aria-label="阶段一：监督微调（SFT）">阶段一：监督微调（SFT）</a></li>
+                <li>
+                    <a href="#%e9%98%b6%e6%ae%b5%e4%ba%8c%e5%a5%96%e5%8a%b1%e6%a8%a1%e5%9e%8b%e8%ae%ad%e7%bb%83rm" aria-label="阶段二：奖励模型训练（RM）">阶段二：奖励模型训练（RM）</a></li>
+                <li>
+                    <a href="#%e9%98%b6%e6%ae%b5%e4%b8%89%e5%bc%ba%e5%8c%96%e5%ad%a6%e4%b9%a0%e4%bc%98%e5%8c%96ppo" aria-label="阶段三：强化学习优化（PPO）">阶段三：强化学习优化（PPO）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%ae%ad%e7%bb%83%e7%bb%86%e8%8a%82%e4%b8%8e%e6%8a%80%e6%9c%af" aria-label="训练细节与技术">训练细节与技术</a><ul>
+                        
+                <li>
+                    <a href="#%e6%95%b0%e6%8d%ae%e6%a0%87%e6%b3%a8%e6%8c%87%e5%8d%97" aria-label="数据标注指南">数据标注指南</a></li>
+                <li>
+                    <a href="#%e6%a8%a1%e5%9e%8b%e8%a7%84%e6%a8%a1%e5%af%b9%e6%af%94" aria-label="模型规模对比">模型规模对比</a></li>
+                <li>
+                    <a href="#%e8%bf%ad%e4%bb%a3%e8%ae%ad%e7%bb%83" aria-label="迭代训练">迭代训练</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%9e%e9%aa%8c%e7%bb%93%e6%9e%9c%e4%b8%8e%e5%88%86%e6%9e%90" aria-label="实验结果与分析">实验结果与分析</a><ul>
+                        
+                <li>
+                    <a href="#%e4%ba%ba%e7%b1%bb%e8%af%84%e4%bc%b0" aria-label="人类评估">人类评估</a></li>
+                <li>
+                    <a href="#truthfulqa%e5%9f%ba%e5%87%86" aria-label="TruthfulQA基准">TruthfulQA基准</a></li>
+                <li>
+                    <a href="#%e5%ae%89%e5%85%a8%e6%80%a7%e8%af%84%e4%bc%b0" aria-label="安全性评估">安全性评估</a></li>
+                <li>
+                    <a href="#%e8%83%bd%e5%8a%9b%e4%bf%9d%e6%8c%81" aria-label="能力保持">能力保持</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%af%b9%e9%bd%90%e6%8a%80%e6%9c%af%e7%9a%84%e7%90%86%e8%ae%ba%e5%88%86%e6%9e%90" aria-label="对齐技术的理论分析">对齐技术的理论分析</a><ul>
+                        
+                <li>
+                    <a href="#%e5%a5%96%e5%8a%b1%e6%a8%a1%e5%9e%8b%e7%9a%84%e5%b1%80%e9%99%90" aria-label="奖励模型的局限">奖励模型的局限</a></li>
+                <li>
+                    <a href="#rlhf%e7%9a%84%e7%90%86%e8%ae%ba%e5%9f%ba%e7%a1%80" aria-label="RLHF的理论基础">RLHF的理论基础</a></li>
+                <li>
+                    <a href="#kl%e6%83%a9%e7%bd%9a%e7%9a%84%e7%90%86%e8%ae%ba%e8%a7%a3%e9%87%8a" aria-label="KL惩罚的理论解释">KL惩罚的理论解释</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bb%8einstructgpt%e5%88%b0chatgpt" aria-label="从InstructGPT到ChatGPT">从InstructGPT到ChatGPT</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8a%80%e6%9c%af%e6%bc%94%e8%bf%9b" aria-label="技术演进">技术演进</a></li>
+                <li>
+                    <a href="#%e5%af%b9%e8%af%9d%e4%bc%98%e5%8c%96" aria-label="对话优化">对话优化</a></li>
+                <li>
+                    <a href="#%e5%ae%89%e5%85%a8%e5%a2%9e%e5%bc%ba" aria-label="安全增强">安全增强</a></li></ul>
+                </li>
+                <li>
+                    <a href="#rlhf%e7%9a%84%e5%bd%b1%e5%93%8d%e4%b8%8e%e6%9c%aa%e6%9d%a5" aria-label="RLHF的影响与未来">RLHF的影响与未来</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8a%80%e6%9c%af%e5%bd%b1%e5%93%8d" aria-label="技术影响">技术影响</a></li>
+                <li>
+                    <a href="#%e7%a0%94%e7%a9%b6%e6%96%b9%e5%90%91" aria-label="研究方向">研究方向</a></li>
+                <li>
+                    <a href="#%e5%93%b2%e5%ad%a6%e6%80%9d%e8%80%83" aria-label="哲学思考">哲学思考</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%98%85%e8%af%bb%e7%a0%94%e7%a9%b6%e8%ae%ba%e6%96%87%e7%9a%84%e6%97%b6%e9%97%b4%e7%ba%bf%e8%ae%a1%e5%88%92" aria-label="阅读研究论文的时间线计划">阅读研究论文的时间线计划</a><ul>
+                        
+                <li>
+                    <a href="#%e6%9c%ac%e6%96%87%e5%9c%a8%e6%8a%80%e6%9c%af%e6%97%b6%e9%97%b4%e7%ba%bf%e4%b8%ad%e7%9a%84%e4%bd%8d%e7%bd%ae" aria-label="本文在技术时间线中的位置">本文在技术时间线中的位置</a></li>
+                <li>
+                    <a href="#%e5%89%8d%e7%bd%ae%e7%9f%a5%e8%af%86" aria-label="前置知识">前置知识</a></li>
+                <li>
+                    <a href="#%e5%90%8e%e7%bb%ad%e5%ad%a6%e4%b9%a0%e6%96%b9%e5%90%91" aria-label="后续学习方向">后续学习方向</a></li>
+                <li>
+                    <a href="#%e5%ae%8c%e6%95%b4%e6%8a%80%e6%9c%af%e8%b7%af%e7%ba%bf%e5%9b%bechatgpt%e7%9a%84%e8%af%9e%e7%94%9f" aria-label="完整技术路线图：ChatGPT的诞生">完整技术路线图：ChatGPT的诞生</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae" aria-label="参考文献">参考文献</a></li>
+                <li>
+                    <a href="#%e7%b3%bb%e5%88%97%e6%80%bb%e7%bb%93%e4%bb%8eword2vec%e5%88%b0chatgpt" aria-label="系列总结：从Word2Vec到ChatGPT">系列总结：从Word2Vec到ChatGPT</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ -->
+<p>本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型<strong>真正理解并遵循人类指令</strong>。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。</p>
+<hr>
+<h2 id="语言模型对齐问题">语言模型对齐问题<a hidden class="anchor" aria-hidden="true" href="#语言模型对齐问题">#</a></h2>
+<h3 id="问题一gpt-3的不听话">问题一：GPT-3的&quot;不听话&quot;<a hidden class="anchor" aria-hidden="true" href="#问题一gpt-3的不听话">#</a></h3>
+<p>尽管GPT-3展示了惊人的能力，但它存在一个根本问题：<strong>不能可靠地遵循用户指令</strong>。</p>
+<p>典型问题包括：</p>
+<p><strong>答非所问</strong>：</p>
+<pre tabindex="0"><code>用户：列出5个学习编程的建议
 GPT-3：编程是一门重要的技能。很多人学习编程...（继续生成无关内容）
-</code></pre><p><strong>有害内容</strong>：</p><pre tabindex=0><code>用户：如何做一个好人？
+</code></pre><p><strong>有害内容</strong>：</p>
+<pre tabindex="0"><code>用户：如何做一个好人？
 GPT-3：（可能生成负面或有害建议）
-</code></pre><p><strong>胡言乱语</strong>：</p><pre tabindex=0><code>用户：2+2等于几？
+</code></pre><p><strong>胡言乱语</strong>：</p>
+<pre tabindex="0"><code>用户：2+2等于几？
 GPT-3：2+2等于5。在某些情况下...（自信地输出错误内容）
-</code></pre><h3 id=问题二预训练目标的错位>问题二：预训练目标的错位<a hidden class=anchor aria-hidden=true href=#问题二预训练目标的错位>#</a></h3><p>GPT-3的预训练目标是<strong>预测下一个token</strong>：</p><p>$$
+</code></pre><h3 id="问题二预训练目标的错位">问题二：预训练目标的错位<a hidden class="anchor" aria-hidden="true" href="#问题二预训练目标的错位">#</a></h3>
+<p>GPT-3的预训练目标是<strong>预测下一个token</strong>：</p>
+<p>$$
 \mathcal{L}<em>{\text{LM}} = -\sum</em>{i} \log P(x_i | x_1, \ldots, x_{i-1})
-$$</p><p>这一目标与用户的真正需求存在根本错位：</p><table><thead><tr><th>预训练目标</th><th>用户需求</th></tr></thead><tbody><tr><td>预测最可能的续写</td><td>有帮助的回答</td></tr><tr><td>模仿训练数据分布</td><td>诚实的信息</td></tr><tr><td>最大化似然</td><td>安全的内容</td></tr></tbody></table><p><strong>示例</strong>：</p><ul><li>训练数据：&ldquo;问：今天天气怎么样？答：今天天气&mldr;&rdquo;</li><li>用户需求：&ldquo;告诉我明天的天气预报&rdquo;</li><li>GPT-3可能继续写"晴朗"，而不是承认不知道</li></ul><h3 id=问题三对齐问题的定义>问题三：对齐问题的定义<a hidden class=anchor aria-hidden=true href=#问题三对齐问题的定义>#</a></h3><p>AI对齐（Alignment）问题的核心是：<strong>如何让AI系统的行为符合人类意图</strong>？</p><p>形式化定义：</p><p>$$
+$$</p>
+<p>这一目标与用户的真正需求存在根本错位：</p>
+<table>
+  <thead>
+      <tr>
+          <th>预训练目标</th>
+          <th>用户需求</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>预测最可能的续写</td>
+          <td>有帮助的回答</td>
+      </tr>
+      <tr>
+          <td>模仿训练数据分布</td>
+          <td>诚实的信息</td>
+      </tr>
+      <tr>
+          <td>最大化似然</td>
+          <td>安全的内容</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>示例</strong>：</p>
+<ul>
+<li>训练数据：&ldquo;问：今天天气怎么样？答：今天天气&hellip;&rdquo;</li>
+<li>用户需求：&ldquo;告诉我明天的天气预报&rdquo;</li>
+<li>GPT-3可能继续写&quot;晴朗&quot;，而不是承认不知道</li>
+</ul>
+<h3 id="问题三对齐问题的定义">问题三：对齐问题的定义<a hidden class="anchor" aria-hidden="true" href="#问题三对齐问题的定义">#</a></h3>
+<p>AI对齐（Alignment）问题的核心是：<strong>如何让AI系统的行为符合人类意图</strong>？</p>
+<p>形式化定义：</p>
+<p>$$
 \text{对齐目标} = \max_{\theta} \mathbb{E}<em>{x \sim \mathcal{D}</em>{\text{user}}}[R_{\text{human}}(\text{model}_\theta(x))]
-$$</p><p>其中 $R_{\text{human}}$ 是人类对输出的评价，$\mathcal{D}_{\text{user}}$ 是用户查询分布。</p><p>问题是：$R_{\text{human}}$ 无法直接获得，也无法简单量化。</p><hr><h2 id=rlhf的三阶段方法>RLHF的三阶段方法<a hidden class=anchor aria-hidden=true href=#rlhf的三阶段方法>#</a></h2><h3 id=阶段一监督微调sft>阶段一：监督微调（SFT）<a hidden class=anchor aria-hidden=true href=#阶段一监督微调sft>#</a></h3><p>首先，在人工标注的高质量数据上进行监督微调：</p><p><strong>数据收集</strong>：</p><ol><li>收集用户提交的prompt（约13,000条）</li><li>雇用40名标注员编写高质量回答</li><li>质量控制：多人标注，一致性检查</li></ol><p><strong>微调目标</strong>：</p><p>$$
+$$</p>
+<p>其中 $R_{\text{human}}$ 是人类对输出的评价，$\mathcal{D}_{\text{user}}$ 是用户查询分布。</p>
+<p>问题是：$R_{\text{human}}$ 无法直接获得，也无法简单量化。</p>
+<hr>
+<h2 id="rlhf的三阶段方法">RLHF的三阶段方法<a hidden class="anchor" aria-hidden="true" href="#rlhf的三阶段方法">#</a></h2>
+<h3 id="阶段一监督微调sft">阶段一：监督微调（SFT）<a hidden class="anchor" aria-hidden="true" href="#阶段一监督微调sft">#</a></h3>
+<p>首先，在人工标注的高质量数据上进行监督微调：</p>
+<p><strong>数据收集</strong>：</p>
+<ol>
+<li>收集用户提交的prompt（约13,000条）</li>
+<li>雇用40名标注员编写高质量回答</li>
+<li>质量控制：多人标注，一致性检查</li>
+</ol>
+<p><strong>微调目标</strong>：</p>
+<p>$$
 \mathcal{L}<em>{\text{SFT}} = -\sum</em>{(x, y) \in \mathcal{D}_{\text{demo}}} \log P(y | x; \theta)
-$$</p><p>其中 $(x, y)$ 是prompt-回答对。</p><p><strong>效果</strong>：SFT后的模型已经显著优于原始GPT-3，但仍有提升空间。</p><h3 id=阶段二奖励模型训练rm>阶段二：奖励模型训练（RM）<a hidden class=anchor aria-hidden=true href=#阶段二奖励模型训练rm>#</a></h3><p>接下来，训练一个奖励模型来模拟人类偏好：</p><p><strong>比较数据收集</strong>：</p><ol><li>给定prompt，让SFT模型生成多个回答（K个，通常K=4-9）</li><li>标注员对回答进行排序</li><li>将排序转换为成对比较数据</li></ol><p><strong>奖励模型架构</strong>：</p><p>奖励模型 $r_\phi(x, y)$ 输出一个标量分数，表示回答 $y$ 对prompt $x$ 的质量。</p><p><strong>训练目标</strong>（Bradley-Terry模型）：</p><p>$$
+$$</p>
+<p>其中 $(x, y)$ 是prompt-回答对。</p>
+<p><strong>效果</strong>：SFT后的模型已经显著优于原始GPT-3，但仍有提升空间。</p>
+<h3 id="阶段二奖励模型训练rm">阶段二：奖励模型训练（RM）<a hidden class="anchor" aria-hidden="true" href="#阶段二奖励模型训练rm">#</a></h3>
+<p>接下来，训练一个奖励模型来模拟人类偏好：</p>
+<p><strong>比较数据收集</strong>：</p>
+<ol>
+<li>给定prompt，让SFT模型生成多个回答（K个，通常K=4-9）</li>
+<li>标注员对回答进行排序</li>
+<li>将排序转换为成对比较数据</li>
+</ol>
+<p><strong>奖励模型架构</strong>：</p>
+<p>奖励模型 $r_\phi(x, y)$ 输出一个标量分数，表示回答 $y$ 对prompt $x$ 的质量。</p>
+<p><strong>训练目标</strong>（Bradley-Terry模型）：</p>
+<p>$$
 \mathcal{L}<em>{\text{RM}} = -\mathbb{E}</em>{(x, y_w, y_l) \sim \mathcal{D}<em>{\text{comparison}}} \left[ \log \sigma(r</em>\phi(x, y_w) - r_\phi(x, y_l)) \right]
-$$</p><p>其中 $y_w$ 是偏好回答（winner），$y_l$ 是非偏好回答（loser），$\sigma$ 是sigmoid函数。</p><p><strong>直觉</strong>：最大化偏好回答与非偏好回答的分数差距。</p><h3 id=阶段三强化学习优化ppo>阶段三：强化学习优化（PPO）<a hidden class=anchor aria-hidden=true href=#阶段三强化学习优化ppo>#</a></h3><p>最后，使用强化学习优化语言模型，使其生成高奖励的回答：</p><p><strong>目标函数</strong>：</p><p>$$
+$$</p>
+<p>其中 $y_w$ 是偏好回答（winner），$y_l$ 是非偏好回答（loser），$\sigma$ 是sigmoid函数。</p>
+<p><strong>直觉</strong>：最大化偏好回答与非偏好回答的分数差距。</p>
+<h3 id="阶段三强化学习优化ppo">阶段三：强化学习优化（PPO）<a hidden class="anchor" aria-hidden="true" href="#阶段三强化学习优化ppo">#</a></h3>
+<p>最后，使用强化学习优化语言模型，使其生成高奖励的回答：</p>
+<p><strong>目标函数</strong>：</p>
+<p>$$
 \mathcal{L}<em>{\text{RL}} = \mathbb{E}</em>{x \sim \mathcal{D}, y \sim \pi_\theta(y|x)} \left[ r_\phi(x, y) - \beta \cdot D_{\text{KL}}(\pi_\theta(y|x) | \pi_{\text{ref}}(y|x)) \right]
-$$</p><p>其中：</p><ul><li>$\pi_\theta$ 是当前策略（语言模型）</li><li>$\pi_{\text{ref}}$ 是参考策略（SFT模型）</li><li>$\beta$ 是KL惩罚系数</li><li>$D_{\text{KL}}$ 是KL散度</li></ul><p><strong>KL惩罚的作用</strong>：防止模型过度优化奖励函数，偏离原始语言模型太远（&ldquo;reward hacking&rdquo;）。</p><p><strong>PPO算法</strong>：</p><p>PPO（Proximal Policy Optimization）是一种稳定的策略梯度算法：</p><p>$$
+$$</p>
+<p>其中：</p>
+<ul>
+<li>$\pi_\theta$ 是当前策略（语言模型）</li>
+<li>$\pi_{\text{ref}}$ 是参考策略（SFT模型）</li>
+<li>$\beta$ 是KL惩罚系数</li>
+<li>$D_{\text{KL}}$ 是KL散度</li>
+</ul>
+<p><strong>KL惩罚的作用</strong>：防止模型过度优化奖励函数，偏离原始语言模型太远（&ldquo;reward hacking&rdquo;）。</p>
+<p><strong>PPO算法</strong>：</p>
+<p>PPO（Proximal Policy Optimization）是一种稳定的策略梯度算法：</p>
+<p>$$
 \mathcal{L}_{\text{PPO}} = \mathbb{E}_t \left[ \min\left( r_t(\theta) \hat{A}_t, \text{clip}(r_t(\theta), 1-\epsilon, 1+\epsilon) \hat{A}_t \right) \right]
-$$</p><p>其中 $r_t(\theta) = \frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{\text{old}}}(a_t|s_t)}$ 是概率比，$\hat{A}_t$ 是优势估计。</p><hr><h2 id=训练细节与技术>训练细节与技术<a hidden class=anchor aria-hidden=true href=#训练细节与技术>#</a></h2><h3 id=数据标注指南>数据标注指南<a hidden class=anchor aria-hidden=true href=#数据标注指南>#</a></h3><p>标注员遵循详细的指南来评估回答质量：</p><p><strong>有帮助性（Helpfulness）</strong>：</p><ul><li>是否回答了用户的问题？</li><li>是否提供了有用的信息？</li><li>是否简洁明了？</li></ul><p><strong>诚实性（Honesty）</strong>：</p><ul><li>是否承认不确定性？</li><li>是否避免编造信息？</li><li>是否引用可靠来源？</li></ul><p><strong>无害性（Harmlessness）</strong>：</p><ul><li>是否避免有害内容？</li><li>是否拒绝不当请求？</li><li>是否考虑潜在负面影响？</li></ul><h3 id=模型规模对比>模型规模对比<a hidden class=anchor aria-hidden=true href=#模型规模对比>#</a></h3><p>论文训练了多个规模的InstructGPT：</p><table><thead><tr><th>模型</th><th>参数量</th><th>对比GPT-3</th></tr></thead><tbody><tr><td>InstructGPT 1.3B</td><td>1.3B</td><td>GPT-3 175B</td></tr><tr><td>InstructGPT 6B</td><td>6B</td><td>GPT-3 175B</td></tr><tr><td>InstructGPT 175B</td><td>175B</td><td>GPT-3 175B</td></tr></tbody></table><p><strong>关键发现</strong>：<strong>1.3B的InstructGPT在人类评估中优于175B的GPT-3</strong>！</p><h3 id=迭代训练>迭代训练<a hidden class=anchor aria-hidden=true href=#迭代训练>#</a></h3><p>InstructGPT使用迭代训练方法：</p><ol><li>训练初始SFT模型</li><li>收集比较数据，训练RM</li><li>用RL优化，得到新模型</li><li>用新模型收集更多数据</li><li>重复步骤2-4</li></ol><p>每次迭代都能提升模型质量。</p><hr><h2 id=实验结果与分析>实验结果与分析<a hidden class=anchor aria-hidden=true href=#实验结果与分析>#</a></h2><h3 id=人类评估>人类评估<a hidden class=anchor aria-hidden=true href=#人类评估>#</a></h3><p>在人类评估中，InstructGPT显著优于GPT-3：</p><table><thead><tr><th>对比</th><th>InstructGPT胜率</th></tr></thead><tbody><tr><td>InstructGPT 1.3B vs GPT-3 175B</td><td><strong>85%</strong></td></tr><tr><td>InstructGPT 6B vs GPT-3 175B</td><td><strong>87%</strong></td></tr><tr><td>InstructGPT 175B vs GPT-3 175B</td><td><strong>92%</strong></td></tr></tbody></table><p><strong>令人震惊的发现</strong>：仅1.3B参数的InstructGPT就能击败100倍大的GPT-3！</p><h3 id=truthfulqa基准>TruthfulQA基准<a hidden class=anchor aria-hidden=true href=#truthfulqa基准>#</a></h3><p>在测试诚实性的TruthfulQA基准上：</p><table><thead><tr><th>模型</th><th>真实性%</th><th>信息量%</th></tr></thead><tbody><tr><td>GPT-3 175B</td><td>58.0</td><td>90.0</td></tr><tr><td>InstructGPT 1.3B</td><td>64.3</td><td>88.1</td></tr><tr><td>InstructGPT 175B</td><td><strong>76.4</strong></td><td><strong>82.3</strong></td></tr></tbody></table><p>InstructGPT更诚实，更少编造内容。</p><h3 id=安全性评估>安全性评估<a hidden class=anchor aria-hidden=true href=#安全性评估>#</a></h3><p>在RealToxicityPrompts基准上：</p><table><thead><tr><th>模型</th><th>有毒输出比例</th></tr></thead><tbody><tr><td>GPT-3 175B</td><td>6.48%</td></tr><tr><td>InstructGPT 175B</td><td><strong>0.61%</strong></td></tr></tbody></table><p>InstructGPT生成的有害内容减少了90%以上。</p><h3 id=能力保持>能力保持<a hidden class=anchor aria-hidden=true href=#能力保持>#</a></h3><p>RLHF会损失一些原始能力（&ldquo;对齐税&rdquo;），但损失可控：</p><table><thead><tr><th>任务</th><th>GPT-3</th><th>InstructGPT</th><th>变化</th></tr></thead><tbody><tr><td>HellaSwag</td><td>78.9%</td><td>77.8%</td><td>-1.1%</td></tr><tr><td>WinoGrande</td><td>70.2%</td><td>69.7%</td><td>-0.5%</td></tr><tr><td>ARC</td><td>51.4%</td><td>51.1%</td><td>-0.3%</td></tr></tbody></table><p>能力保持相当稳定。</p><hr><h2 id=对齐技术的理论分析>对齐技术的理论分析<a hidden class=anchor aria-hidden=true href=#对齐技术的理论分析>#</a></h2><h3 id=奖励模型的局限>奖励模型的局限<a hidden class=anchor aria-hidden=true href=#奖励模型的局限>#</a></h3><p>奖励模型面临几个挑战：</p><p><strong>分布偏移</strong>：</p><ul><li>训练时：RM在SFT模型输出上训练</li><li>测试时：RM评估RL优化后的模型输出</li><li>分布差异导致RM可能不准确</li></ul><p><strong>Reward Hacking</strong>：
-模型可能找到"欺骗"奖励模型的方式：</p><p>$$
+$$</p>
+<p>其中 $r_t(\theta) = \frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{\text{old}}}(a_t|s_t)}$ 是概率比，$\hat{A}_t$ 是优势估计。</p>
+<hr>
+<h2 id="训练细节与技术">训练细节与技术<a hidden class="anchor" aria-hidden="true" href="#训练细节与技术">#</a></h2>
+<h3 id="数据标注指南">数据标注指南<a hidden class="anchor" aria-hidden="true" href="#数据标注指南">#</a></h3>
+<p>标注员遵循详细的指南来评估回答质量：</p>
+<p><strong>有帮助性（Helpfulness）</strong>：</p>
+<ul>
+<li>是否回答了用户的问题？</li>
+<li>是否提供了有用的信息？</li>
+<li>是否简洁明了？</li>
+</ul>
+<p><strong>诚实性（Honesty）</strong>：</p>
+<ul>
+<li>是否承认不确定性？</li>
+<li>是否避免编造信息？</li>
+<li>是否引用可靠来源？</li>
+</ul>
+<p><strong>无害性（Harmlessness）</strong>：</p>
+<ul>
+<li>是否避免有害内容？</li>
+<li>是否拒绝不当请求？</li>
+<li>是否考虑潜在负面影响？</li>
+</ul>
+<h3 id="模型规模对比">模型规模对比<a hidden class="anchor" aria-hidden="true" href="#模型规模对比">#</a></h3>
+<p>论文训练了多个规模的InstructGPT：</p>
+<table>
+  <thead>
+      <tr>
+          <th>模型</th>
+          <th>参数量</th>
+          <th>对比GPT-3</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>InstructGPT 1.3B</td>
+          <td>1.3B</td>
+          <td>GPT-3 175B</td>
+      </tr>
+      <tr>
+          <td>InstructGPT 6B</td>
+          <td>6B</td>
+          <td>GPT-3 175B</td>
+      </tr>
+      <tr>
+          <td>InstructGPT 175B</td>
+          <td>175B</td>
+          <td>GPT-3 175B</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>关键发现</strong>：<strong>1.3B的InstructGPT在人类评估中优于175B的GPT-3</strong>！</p>
+<h3 id="迭代训练">迭代训练<a hidden class="anchor" aria-hidden="true" href="#迭代训练">#</a></h3>
+<p>InstructGPT使用迭代训练方法：</p>
+<ol>
+<li>训练初始SFT模型</li>
+<li>收集比较数据，训练RM</li>
+<li>用RL优化，得到新模型</li>
+<li>用新模型收集更多数据</li>
+<li>重复步骤2-4</li>
+</ol>
+<p>每次迭代都能提升模型质量。</p>
+<hr>
+<h2 id="实验结果与分析">实验结果与分析<a hidden class="anchor" aria-hidden="true" href="#实验结果与分析">#</a></h2>
+<h3 id="人类评估">人类评估<a hidden class="anchor" aria-hidden="true" href="#人类评估">#</a></h3>
+<p>在人类评估中，InstructGPT显著优于GPT-3：</p>
+<table>
+  <thead>
+      <tr>
+          <th>对比</th>
+          <th>InstructGPT胜率</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>InstructGPT 1.3B vs GPT-3 175B</td>
+          <td><strong>85%</strong></td>
+      </tr>
+      <tr>
+          <td>InstructGPT 6B vs GPT-3 175B</td>
+          <td><strong>87%</strong></td>
+      </tr>
+      <tr>
+          <td>InstructGPT 175B vs GPT-3 175B</td>
+          <td><strong>92%</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>令人震惊的发现</strong>：仅1.3B参数的InstructGPT就能击败100倍大的GPT-3！</p>
+<h3 id="truthfulqa基准">TruthfulQA基准<a hidden class="anchor" aria-hidden="true" href="#truthfulqa基准">#</a></h3>
+<p>在测试诚实性的TruthfulQA基准上：</p>
+<table>
+  <thead>
+      <tr>
+          <th>模型</th>
+          <th>真实性%</th>
+          <th>信息量%</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>GPT-3 175B</td>
+          <td>58.0</td>
+          <td>90.0</td>
+      </tr>
+      <tr>
+          <td>InstructGPT 1.3B</td>
+          <td>64.3</td>
+          <td>88.1</td>
+      </tr>
+      <tr>
+          <td>InstructGPT 175B</td>
+          <td><strong>76.4</strong></td>
+          <td><strong>82.3</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>InstructGPT更诚实，更少编造内容。</p>
+<h3 id="安全性评估">安全性评估<a hidden class="anchor" aria-hidden="true" href="#安全性评估">#</a></h3>
+<p>在RealToxicityPrompts基准上：</p>
+<table>
+  <thead>
+      <tr>
+          <th>模型</th>
+          <th>有毒输出比例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>GPT-3 175B</td>
+          <td>6.48%</td>
+      </tr>
+      <tr>
+          <td>InstructGPT 175B</td>
+          <td><strong>0.61%</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>InstructGPT生成的有害内容减少了90%以上。</p>
+<h3 id="能力保持">能力保持<a hidden class="anchor" aria-hidden="true" href="#能力保持">#</a></h3>
+<p>RLHF会损失一些原始能力（&ldquo;对齐税&rdquo;），但损失可控：</p>
+<table>
+  <thead>
+      <tr>
+          <th>任务</th>
+          <th>GPT-3</th>
+          <th>InstructGPT</th>
+          <th>变化</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>HellaSwag</td>
+          <td>78.9%</td>
+          <td>77.8%</td>
+          <td>-1.1%</td>
+      </tr>
+      <tr>
+          <td>WinoGrande</td>
+          <td>70.2%</td>
+          <td>69.7%</td>
+          <td>-0.5%</td>
+      </tr>
+      <tr>
+          <td>ARC</td>
+          <td>51.4%</td>
+          <td>51.1%</td>
+          <td>-0.3%</td>
+      </tr>
+  </tbody>
+</table>
+<p>能力保持相当稳定。</p>
+<hr>
+<h2 id="对齐技术的理论分析">对齐技术的理论分析<a hidden class="anchor" aria-hidden="true" href="#对齐技术的理论分析">#</a></h2>
+<h3 id="奖励模型的局限">奖励模型的局限<a hidden class="anchor" aria-hidden="true" href="#奖励模型的局限">#</a></h3>
+<p>奖励模型面临几个挑战：</p>
+<p><strong>分布偏移</strong>：</p>
+<ul>
+<li>训练时：RM在SFT模型输出上训练</li>
+<li>测试时：RM评估RL优化后的模型输出</li>
+<li>分布差异导致RM可能不准确</li>
+</ul>
+<p><strong>Reward Hacking</strong>：
+模型可能找到&quot;欺骗&quot;奖励模型的方式：</p>
+<p>$$
 y^* = \arg\max_y r_\phi(x, y) \neq \arg\max_y R_{\text{human}}(x, y)
-$$</p><p>KL惩罚能缓解但不能完全解决这一问题。</p><h3 id=rlhf的理论基础>RLHF的理论基础<a hidden class=anchor aria-hidden=true href=#rlhf的理论基础>#</a></h3><p>RLHF可以理解为一种<strong>偏好学习</strong>（Preference Learning）：</p><p><strong>假设</strong>：存在潜在的人类偏好函数 $R^*(x, y)$</p><p><strong>目标</strong>：从成对比较中学习 $R^*$ 的近似</p><p>$$
+$$</p>
+<p>KL惩罚能缓解但不能完全解决这一问题。</p>
+<h3 id="rlhf的理论基础">RLHF的理论基础<a hidden class="anchor" aria-hidden="true" href="#rlhf的理论基础">#</a></h3>
+<p>RLHF可以理解为一种<strong>偏好学习</strong>（Preference Learning）：</p>
+<p><strong>假设</strong>：存在潜在的人类偏好函数 $R^*(x, y)$</p>
+<p><strong>目标</strong>：从成对比较中学习 $R^*$ 的近似</p>
+<p>$$
 P(y_w \succ y_l | x) = \frac{\exp(R^<em>(x, y_w))}{\exp(R^</em>(x, y_w)) + \exp(R^*(x, y_l))}
-$$</p><p>Bradley-Terry模型正是基于这一假设。</p><h3 id=kl惩罚的理论解释>KL惩罚的理论解释<a hidden class=anchor aria-hidden=true href=#kl惩罚的理论解释>#</a></h3><p>KL惩罚可以理解为<strong>正则化</strong>：</p><p>$$
+$$</p>
+<p>Bradley-Terry模型正是基于这一假设。</p>
+<h3 id="kl惩罚的理论解释">KL惩罚的理论解释<a hidden class="anchor" aria-hidden="true" href="#kl惩罚的理论解释">#</a></h3>
+<p>KL惩罚可以理解为<strong>正则化</strong>：</p>
+<p>$$
 \max_\theta \mathbb{E}[r_\phi(x, y)] - \beta D_{\text{KL}}(\pi_\theta | \pi_{\text{ref}})
-$$</p><p>等价于：</p><p>$$
+$$</p>
+<p>等价于：</p>
+<p>$$
 \max_\theta \mathbb{E}<em>{\pi</em>\theta}[r_\phi(x, y)] + \beta \mathcal{H}(\pi_\theta) - \beta \mathbb{E}<em>{\pi</em>\theta}[\log \pi_{\text{ref}}(y|x)]
-$$</p><p>包含熵正则化项，防止模型过于确定（坍缩到单一输出）。</p><hr><h2 id=从instructgpt到chatgpt>从InstructGPT到ChatGPT<a hidden class=anchor aria-hidden=true href=#从instructgpt到chatgpt>#</a></h2><h3 id=技术演进>技术演进<a hidden class=anchor aria-hidden=true href=#技术演进>#</a></h3><p>ChatGPT基于InstructGPT的技术框架，增加了：</p><table><thead><tr><th>特性</th><th>InstructGPT</th><th>ChatGPT</th></tr></thead><tbody><tr><td>基础架构</td><td>GPT-3</td><td>GPT-3.5</td></tr><tr><td>RLHF</td><td>✓</td><td>✓（改进）</td></tr><tr><td>对话能力</td><td>单轮为主</td><td><strong>多轮对话</strong></td></tr><tr><td>安全过滤</td><td>基础</td><td><strong>增强</strong></td></tr><tr><td>用户体验</td><td>API</td><td><strong>对话界面</strong></td></tr></tbody></table><h3 id=对话优化>对话优化<a hidden class=anchor aria-hidden=true href=#对话优化>#</a></h3><p>ChatGPT在对话方面的关键改进：</p><ol><li><strong>对话历史建模</strong>：将多轮对话作为上下文</li><li><strong>系统提示</strong>：定义助手角色和行为</li><li><strong>拒绝策略</strong>：对不当请求的优雅拒绝</li><li><strong>追问能力</strong>：在信息不足时主动询问</li></ol><h3 id=安全增强>安全增强<a hidden class=anchor aria-hidden=true href=#安全增强>#</a></h3><p>ChatGPT加强了安全措施：</p><ol><li><strong>内容过滤</strong>：输入输出双向过滤</li><li><strong>红队测试</strong>：专门团队尝试破解安全措施</li><li><strong>迭代改进</strong>：基于用户反馈持续更新</li><li><strong>使用政策</strong>：明确禁止的使用场景</li></ol><hr><h2 id=rlhf的影响与未来>RLHF的影响与未来<a hidden class=anchor aria-hidden=true href=#rlhf的影响与未来>#</a></h2><h3 id=技术影响>技术影响<a hidden class=anchor aria-hidden=true href=#技术影响>#</a></h3><p>RLHF已成为大语言模型的标准训练流程：</p><table><thead><tr><th>模型</th><th>是否使用RLHF</th></tr></thead><tbody><tr><td>ChatGPT</td><td>✓</td></tr><tr><td>Claude</td><td>✓（Constitutional AI变体）</td></tr><tr><td>Gemini</td><td>✓</td></tr><tr><td>Llama 2-Chat</td><td>✓</td></tr></tbody></table><h3 id=研究方向>研究方向<a hidden class=anchor aria-hidden=true href=#研究方向>#</a></h3><p>RLHF的改进方向：</p><ol><li><strong>直接偏好优化（DPO）</strong>：无需显式奖励模型</li><li><strong>宪法AI</strong>：用AI生成反馈，减少人工标注</li><li><strong>迭代RLHF</strong>：持续学习用户偏好</li><li><strong>多目标对齐</strong>：同时优化多个对齐目标</li></ol><h3 id=哲学思考>哲学思考<a hidden class=anchor aria-hidden=true href=#哲学思考>#</a></h3><p>RLHF引发深层思考：</p><ul><li><strong>谁的偏好</strong>？标注员偏好是否代表人类偏好？</li><li><strong>价值对齐</strong>？如何处理不同文化、价值观的差异？</li><li><strong>长期影响</strong>？对齐到当前偏好是否是正确方向？</li></ul><hr><h2 id=阅读研究论文的时间线计划>阅读研究论文的时间线计划<a hidden class=anchor aria-hidden=true href=#阅读研究论文的时间线计划>#</a></h2><h3 id=本文在技术时间线中的位置>本文在技术时间线中的位置<a hidden class=anchor aria-hidden=true href=#本文在技术时间线中的位置>#</a></h3><pre tabindex=0><code>Word2Vec(2013) → Seq2Seq(2014) → Attention(2015) → Transformer(2017) 
+$$</p>
+<p>包含熵正则化项，防止模型过于确定（坍缩到单一输出）。</p>
+<hr>
+<h2 id="从instructgpt到chatgpt">从InstructGPT到ChatGPT<a hidden class="anchor" aria-hidden="true" href="#从instructgpt到chatgpt">#</a></h2>
+<h3 id="技术演进">技术演进<a hidden class="anchor" aria-hidden="true" href="#技术演进">#</a></h3>
+<p>ChatGPT基于InstructGPT的技术框架，增加了：</p>
+<table>
+  <thead>
+      <tr>
+          <th>特性</th>
+          <th>InstructGPT</th>
+          <th>ChatGPT</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>基础架构</td>
+          <td>GPT-3</td>
+          <td>GPT-3.5</td>
+      </tr>
+      <tr>
+          <td>RLHF</td>
+          <td>✓</td>
+          <td>✓（改进）</td>
+      </tr>
+      <tr>
+          <td>对话能力</td>
+          <td>单轮为主</td>
+          <td><strong>多轮对话</strong></td>
+      </tr>
+      <tr>
+          <td>安全过滤</td>
+          <td>基础</td>
+          <td><strong>增强</strong></td>
+      </tr>
+      <tr>
+          <td>用户体验</td>
+          <td>API</td>
+          <td><strong>对话界面</strong></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="对话优化">对话优化<a hidden class="anchor" aria-hidden="true" href="#对话优化">#</a></h3>
+<p>ChatGPT在对话方面的关键改进：</p>
+<ol>
+<li><strong>对话历史建模</strong>：将多轮对话作为上下文</li>
+<li><strong>系统提示</strong>：定义助手角色和行为</li>
+<li><strong>拒绝策略</strong>：对不当请求的优雅拒绝</li>
+<li><strong>追问能力</strong>：在信息不足时主动询问</li>
+</ol>
+<h3 id="安全增强">安全增强<a hidden class="anchor" aria-hidden="true" href="#安全增强">#</a></h3>
+<p>ChatGPT加强了安全措施：</p>
+<ol>
+<li><strong>内容过滤</strong>：输入输出双向过滤</li>
+<li><strong>红队测试</strong>：专门团队尝试破解安全措施</li>
+<li><strong>迭代改进</strong>：基于用户反馈持续更新</li>
+<li><strong>使用政策</strong>：明确禁止的使用场景</li>
+</ol>
+<hr>
+<h2 id="rlhf的影响与未来">RLHF的影响与未来<a hidden class="anchor" aria-hidden="true" href="#rlhf的影响与未来">#</a></h2>
+<h3 id="技术影响">技术影响<a hidden class="anchor" aria-hidden="true" href="#技术影响">#</a></h3>
+<p>RLHF已成为大语言模型的标准训练流程：</p>
+<table>
+  <thead>
+      <tr>
+          <th>模型</th>
+          <th>是否使用RLHF</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ChatGPT</td>
+          <td>✓</td>
+      </tr>
+      <tr>
+          <td>Claude</td>
+          <td>✓（Constitutional AI变体）</td>
+      </tr>
+      <tr>
+          <td>Gemini</td>
+          <td>✓</td>
+      </tr>
+      <tr>
+          <td>Llama 2-Chat</td>
+          <td>✓</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="研究方向">研究方向<a hidden class="anchor" aria-hidden="true" href="#研究方向">#</a></h3>
+<p>RLHF的改进方向：</p>
+<ol>
+<li><strong>直接偏好优化（DPO）</strong>：无需显式奖励模型</li>
+<li><strong>宪法AI</strong>：用AI生成反馈，减少人工标注</li>
+<li><strong>迭代RLHF</strong>：持续学习用户偏好</li>
+<li><strong>多目标对齐</strong>：同时优化多个对齐目标</li>
+</ol>
+<h3 id="哲学思考">哲学思考<a hidden class="anchor" aria-hidden="true" href="#哲学思考">#</a></h3>
+<p>RLHF引发深层思考：</p>
+<ul>
+<li><strong>谁的偏好</strong>？标注员偏好是否代表人类偏好？</li>
+<li><strong>价值对齐</strong>？如何处理不同文化、价值观的差异？</li>
+<li><strong>长期影响</strong>？对齐到当前偏好是否是正确方向？</li>
+</ul>
+<hr>
+<h2 id="阅读研究论文的时间线计划">阅读研究论文的时间线计划<a hidden class="anchor" aria-hidden="true" href="#阅读研究论文的时间线计划">#</a></h2>
+<h3 id="本文在技术时间线中的位置">本文在技术时间线中的位置<a hidden class="anchor" aria-hidden="true" href="#本文在技术时间线中的位置">#</a></h3>
+<pre tabindex="0"><code>Word2Vec(2013) → Seq2Seq(2014) → Attention(2015) → Transformer(2017) 
 → GPT-1(2018) → GPT-2(2019) → Scaling Laws(2020) → GPT-3(2020) → 【当前位置】InstructGPT(2022) → ChatGPT
-</code></pre><h3 id=前置知识>前置知识<a hidden class=anchor aria-hidden=true href=#前置知识>#</a></h3><p>在阅读本文之前，建议了解：</p><ul><li><strong>【ChatGPT时刻09】GPT-3</strong>：理解基础模型能力</li><li>强化学习基础（策略梯度、PPO）</li><li>Bradley-Terry模型</li></ul><h3 id=后续学习方向>后续学习方向<a hidden class=anchor aria-hidden=true href=#后续学习方向>#</a></h3><p>完成ChatGPT时刻系列后，建议深入：</p><ol><li><strong>Constitutional AI</strong>：Anthropic的对齐方法</li><li><strong>Direct Preference Optimization（DPO）</strong>：简化的RLHF</li><li><strong>AI Safety</strong>：更广泛的对齐研究</li><li><strong>多模态对齐</strong>：图像、视频的RLHF</li></ol><h3 id=完整技术路线图chatgpt的诞生>完整技术路线图：ChatGPT的诞生<a hidden class=anchor aria-hidden=true href=#完整技术路线图chatgpt的诞生>#</a></h3><pre tabindex=0><code>                        ChatGPT技术栈完整回顾
+</code></pre><h3 id="前置知识">前置知识<a hidden class="anchor" aria-hidden="true" href="#前置知识">#</a></h3>
+<p>在阅读本文之前，建议了解：</p>
+<ul>
+<li><strong>【ChatGPT时刻09】GPT-3</strong>：理解基础模型能力</li>
+<li>强化学习基础（策略梯度、PPO）</li>
+<li>Bradley-Terry模型</li>
+</ul>
+<h3 id="后续学习方向">后续学习方向<a hidden class="anchor" aria-hidden="true" href="#后续学习方向">#</a></h3>
+<p>完成ChatGPT时刻系列后，建议深入：</p>
+<ol>
+<li><strong>Constitutional AI</strong>：Anthropic的对齐方法</li>
+<li><strong>Direct Preference Optimization（DPO）</strong>：简化的RLHF</li>
+<li><strong>AI Safety</strong>：更广泛的对齐研究</li>
+<li><strong>多模态对齐</strong>：图像、视频的RLHF</li>
+</ol>
+<h3 id="完整技术路线图chatgpt的诞生">完整技术路线图：ChatGPT的诞生<a hidden class="anchor" aria-hidden="true" href="#完整技术路线图chatgpt的诞生">#</a></h3>
+<pre tabindex="0"><code>                        ChatGPT技术栈完整回顾
                                  │
    ┌─────────────────────────────┴─────────────────────────────┐
    │                                                           │
@@ -163,9 +952,233 @@ Word2Vec ─► Seq2Seq ─► Attention ─► Transformer ─► GPT-1 ─► 
    │          │           │            │            │          │        │          │            │
    词向量      编码器-      软对齐       自注意力       预训练+     零样本     上下文      RLHF         多轮对话
    语义空间    解码器                    并行计算       微调       规模效应   学习        人类对齐       产品化
-</code></pre><hr><h2 id=参考文献>参考文献<a hidden class=anchor aria-hidden=true href=#参考文献>#</a></h2><ul><li>Ouyang, L., et al. (2022). Training language models to follow instructions with human feedback. <em>NeurIPS</em>.</li><li>Christiano, P., et al. (2017). Deep reinforcement learning from human preferences. <em>NeurIPS</em>.</li><li>Stiennon, N., et al. (2020). Learning to summarize from human feedback. <em>NeurIPS</em>.</li><li>Schulman, J., et al. (2017). Proximal Policy Optimization Algorithms. <em>arXiv</em>.</li><li>Bai, Y., et al. (2022). Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback. <em>arXiv</em>.</li><li>Rafailov, R., et al. (2023). Direct Preference Optimization: Your Language Model is Secretly a Reward Model. <em>NeurIPS</em>.</li></ul><hr><h2 id=系列总结从word2vec到chatgpt>系列总结：从Word2Vec到ChatGPT<a hidden class=anchor aria-hidden=true href=#系列总结从word2vec到chatgpt>#</a></h2><p>至此，我们完成了ChatGPT时刻系列的全部10篇文章，回顾了从2013年Word2Vec到2022年ChatGPT的完整技术演进：</p><table><thead><tr><th>年份</th><th>技术突破</th><th>核心贡献</th></tr></thead><tbody><tr><td>2013</td><td>Word2Vec</td><td>词向量，语义空间</td></tr><tr><td>2014</td><td>Seq2Seq</td><td>编码器-解码器，端到端</td></tr><tr><td>2015</td><td>Attention</td><td>软对齐，动态上下文</td></tr><tr><td>2017</td><td>Transformer</td><td>自注意力，并行计算</td></tr><tr><td>2018</td><td>GPT-1</td><td>预训练+微调范式</td></tr><tr><td>2019</td><td>GPT-2</td><td>零样本学习，规模效应</td></tr><tr><td>2020</td><td>Scaling Laws</td><td>规模与性能的幂律</td></tr><tr><td>2020</td><td>GPT-3</td><td>上下文学习，涌现能力</td></tr><tr><td>2022</td><td>InstructGPT</td><td>RLHF，人类对齐</td></tr><tr><td>2022</td><td>ChatGPT</td><td>对话优化，产品化</td></tr></tbody></table><p>这十年的技术积累，最终汇聚成ChatGPT这一改变世界的产品。</p><p><strong>感谢阅读！如有问题或建议，欢迎提交Issue讨论。</strong></p><hr></div><footer class=post-footer><ul class=post-tags><li><a href=https://blog.zhangky.com/tags/ai/>AI</a></li><li><a href=https://blog.zhangky.com/tags/paper-read/>Paper Read</a></li><li><a href=https://blog.zhangky.com/tags/chatgpt/>ChatGPT</a></li></ul><nav class=paginav><a class=prev href=https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/><span class=title>« Prev</span><br><span>论文阅读开篇：Ilya 30u30 阅读计划</span>
-</a><a class=next href=https://blog.zhangky.com/posts/2025/2025-12-longcat-video-avatar/><span class=title>Next »</span><br><span>LongCat-Video-Avatar：美团的音频驱动视频，让AI主播24小时在线</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
-</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
+</code></pre><hr>
+<h2 id="参考文献">参考文献<a hidden class="anchor" aria-hidden="true" href="#参考文献">#</a></h2>
+<ul>
+<li>Ouyang, L., et al. (2022). Training language models to follow instructions with human feedback. <em>NeurIPS</em>.</li>
+<li>Christiano, P., et al. (2017). Deep reinforcement learning from human preferences. <em>NeurIPS</em>.</li>
+<li>Stiennon, N., et al. (2020). Learning to summarize from human feedback. <em>NeurIPS</em>.</li>
+<li>Schulman, J., et al. (2017). Proximal Policy Optimization Algorithms. <em>arXiv</em>.</li>
+<li>Bai, Y., et al. (2022). Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback. <em>arXiv</em>.</li>
+<li>Rafailov, R., et al. (2023). Direct Preference Optimization: Your Language Model is Secretly a Reward Model. <em>NeurIPS</em>.</li>
+</ul>
+<hr>
+<h2 id="系列总结从word2vec到chatgpt">系列总结：从Word2Vec到ChatGPT<a hidden class="anchor" aria-hidden="true" href="#系列总结从word2vec到chatgpt">#</a></h2>
+<p>至此，我们完成了ChatGPT时刻系列的全部10篇文章，回顾了从2013年Word2Vec到2022年ChatGPT的完整技术演进：</p>
+<table>
+  <thead>
+      <tr>
+          <th>年份</th>
+          <th>技术突破</th>
+          <th>核心贡献</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>2013</td>
+          <td>Word2Vec</td>
+          <td>词向量，语义空间</td>
+      </tr>
+      <tr>
+          <td>2014</td>
+          <td>Seq2Seq</td>
+          <td>编码器-解码器，端到端</td>
+      </tr>
+      <tr>
+          <td>2015</td>
+          <td>Attention</td>
+          <td>软对齐，动态上下文</td>
+      </tr>
+      <tr>
+          <td>2017</td>
+          <td>Transformer</td>
+          <td>自注意力，并行计算</td>
+      </tr>
+      <tr>
+          <td>2018</td>
+          <td>GPT-1</td>
+          <td>预训练+微调范式</td>
+      </tr>
+      <tr>
+          <td>2019</td>
+          <td>GPT-2</td>
+          <td>零样本学习，规模效应</td>
+      </tr>
+      <tr>
+          <td>2020</td>
+          <td>Scaling Laws</td>
+          <td>规模与性能的幂律</td>
+      </tr>
+      <tr>
+          <td>2020</td>
+          <td>GPT-3</td>
+          <td>上下文学习，涌现能力</td>
+      </tr>
+      <tr>
+          <td>2022</td>
+          <td>InstructGPT</td>
+          <td>RLHF，人类对齐</td>
+      </tr>
+      <tr>
+          <td>2022</td>
+          <td>ChatGPT</td>
+          <td>对话优化，产品化</td>
+      </tr>
+  </tbody>
+</table>
+<p>这十年的技术积累，最终汇聚成ChatGPT这一改变世界的产品。</p>
+<p><strong>感谢阅读！如有问题或建议，欢迎提交Issue讨论。</strong></p>
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/rlhf/">RLHF</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E4%BA%BA%E7%B1%BB%E5%8F%8D%E9%A6%88%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">人类反馈强化学习</a></li>
+      <li><a href="https://blog.zhangky.com/tags/ai%E5%AF%B9%E9%BD%90/">AI对齐</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>论文阅读开篇：Ilya 30u30 阅读计划</span>
+  </a>
+  <a class="next" href="https://blog.zhangky.com/posts/2025/2025-12-longcat-video-avatar/">
+    <span class="title">Next »</span>
+    <br>
+    <span>LongCat-Video-Avatar：美团的音频驱动视频，让AI主播24小时在线</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

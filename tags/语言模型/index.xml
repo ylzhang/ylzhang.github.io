@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>语言模型 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/</link>
+    <description>Recent content in 语言模型 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 11 Jan 2026 10:25:22 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【论文解读05】循环神经网络的不可思议的有效性</title>
+      <link>https://blog.zhangky.com/posts/2026/paper-read/2026-01-11-paper-05-rnn-effectiveness/</link>
+      <pubDate>Sun, 11 Jan 2026 10:25:22 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/paper-read/2026-01-11-paper-05-rnn-effectiveness/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Andrej Karpathy于2015年发表的经典博客文章《The Unreasonable Effectiveness of Recurrent Neural Networks》，该文章深入探讨了循环神经网络（RNN）在序列建模任务中的强大能力和应用潜力。这篇文章不仅展示了RNN在文本生成、代码生成、音乐创作等领域的惊人表现，更为理解序列数据的本质、神经网络的语言能力以及生成式AI的发展奠定了重要基础。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;循环神经网络具有不可思议的有效性。&amp;quot;——这是Karpathy在文章开篇的断言。在Transformer尚未兴起的2015年，RNN就已经展现出处理序列数据的强大能力。从生成莎士比亚风格的文本，到编写Python代码，再到创作音乐，RNN似乎能够&amp;quot;理解&amp;quot;序列中的模式，并生成符合这些模式的新序列。&lt;/p&gt;
+&lt;p&gt;RNN的核心思想是&lt;strong&gt;记忆&lt;/strong&gt;：通过隐藏状态（hidden state）保存历史信息，使网络能够处理任意长度的序列。这种记忆机制使得RNN能够捕捉序列中的长期依赖关系，理解上下文，生成连贯的文本。虽然RNN后来被Transformer超越，但其核心思想（序列建模、注意力机制）仍然影响着现代AI的发展。&lt;/p&gt;
+&lt;p&gt;在当今大语言模型时代，RNN的思想以新的形式延续：Transformer的自注意力机制可以看作是对RNN记忆机制的改进，GPT等模型本质上仍然是序列到序列的生成模型。理解RNN，就是理解序列建模的本质，理解语言模型如何&amp;quot;理解&amp;quot;和&amp;quot;生成&amp;quot;文本。&lt;/p&gt;
+&lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读RNN的不可思议有效性，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本文属于 &lt;a href=&#34;https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/&#34;&gt;论文阅读开篇：Ilya 30u30 阅读计划&lt;/a&gt; 系列&lt;/strong&gt;，可前往该页查看完整目录、阅读顺序与发布状态。&lt;/p&gt;
+&lt;h2 id=&#34;序列建模的根本挑战&#34;&gt;序列建模的根本挑战&lt;/h2&gt;
+&lt;h3 id=&#34;问题一变长序列的处理难题&#34;&gt;问题一：变长序列的处理难题&lt;/h3&gt;
+&lt;p&gt;传统神经网络（如全连接网络、CNN）要求输入具有固定维度。但现实中的序列数据（文本、语音、时间序列）长度是变化的。如何设计能够处理任意长度序列的模型？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;固定窗口的局限性&lt;/strong&gt;：如果使用固定大小的窗口（如n-gram模型），只能捕捉局部依赖关系，无法处理长距离依赖。例如，在句子&amp;quot;The cat, which was very hungry, ate the food&amp;quot;中，&amp;ldquo;cat&amp;quot;和&amp;quot;ate&amp;quot;之间的依赖关系跨越了多个词，固定窗口无法捕捉。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;序列的本质&lt;/strong&gt;：序列数据具有时间或顺序结构，每个元素不仅包含自身的信息，还包含其在序列中的位置信息。这种结构信息对于理解序列至关重要。&lt;/p&gt;
+&lt;p&gt;RNN通过&lt;strong&gt;循环结构&lt;/strong&gt;解决了这个问题：网络在每个时间步处理一个元素，并将处理结果传递给下一个时间步，从而能够处理任意长度的序列。&lt;/p&gt;
+&lt;h3 id=&#34;问题二长期依赖的捕捉&#34;&gt;问题二：长期依赖的捕捉&lt;/h3&gt;
+&lt;p&gt;序列数据中的依赖关系可能跨越很长的距离。在语言中，一个词的含义可能依赖于前面很远的词；在音乐中，一个音符的意义可能依赖于整个旋律的结构。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;梯度消失问题&lt;/strong&gt;：在训练RNN时，梯度需要通过时间反向传播（Backpropagation Through Time, BPTT）。如果序列很长，梯度在反向传播过程中会指数级衰减，导致网络无法学习长期依赖关系。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;记忆容量限制&lt;/strong&gt;：即使理论上RNN可以保存任意长的历史信息，但实际中隐藏状态的容量是有限的。如何有效地利用有限的记忆容量来保存最重要的信息？&lt;/p&gt;
+&lt;p&gt;LSTM和GRU等改进架构通过&lt;strong&gt;门控机制&lt;/strong&gt;（gating mechanism）解决了这些问题，能够有选择地保存和遗忘信息，从而更好地捕捉长期依赖。&lt;/p&gt;
+&lt;h3 id=&#34;问题三序列生成的创造性&#34;&gt;问题三：序列生成的创造性&lt;/h3&gt;
+&lt;p&gt;序列建模不仅要理解序列，还要能够生成新的序列。生成任务面临三个核心挑战：如何保证生成的序列符合训练数据的分布？如何保证生成的序列是连贯的？如何保证生成的序列具有创造性（不是简单复制训练数据）？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;分布匹配&lt;/strong&gt;：生成的序列应该遵循训练数据的分布。如果训练数据是莎士比亚的文本，生成的文本应该像莎士比亚的风格。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;连贯性&lt;/strong&gt;：生成的序列应该是连贯的，每个元素应该与前文一致。例如，如果前文提到&amp;quot;猫&amp;rdquo;，后文不应该突然提到&amp;quot;狗&amp;rdquo;（除非有合理的上下文）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;创造性&lt;/strong&gt;：生成的序列应该具有创造性，不是简单复制训练数据。这需要在模仿和创造之间找到平衡。&lt;/p&gt;
+&lt;p&gt;RNN通过&lt;strong&gt;自回归生成&lt;/strong&gt;（autoregressive generation）解决了这些问题：在每个时间步，网络根据前文生成下一个元素，通过采样策略（如温度采样）控制生成的随机性和创造性。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;rnn的核心机制&#34;&gt;RNN的核心机制&lt;/h2&gt;
+&lt;h3 id=&#34;循环结构记忆与状态&#34;&gt;循环结构：记忆与状态&lt;/h3&gt;
+&lt;p&gt;RNN的核心是&lt;strong&gt;循环结构&lt;/strong&gt;：网络在每个时间步接收输入 $x_t$ 和前一时刻的隐藏状态 $h_{t-1}$，计算当前时刻的隐藏状态 $h_t$ 和输出 $y_t$：&lt;/p&gt;
+&lt;p&gt;$$
+h_t = \tanh(W_h h_{t-1} + W_x x_t + b)
+$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【ChatGPT时刻06】GPT-1：生成式预训练的开山之作</title>
+      <link>https://blog.zhangky.com/posts/2025/chatgpt/2025-10-25-chatgpt-06-gpt1/</link>
+      <pubDate>Sat, 25 Oct 2025 21:03:01 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/chatgpt/2025-10-25-chatgpt-06-gpt1/</guid>
+      <description>&lt;!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ --&gt;
+&lt;p&gt;本文解读的是Alec Radford等人于2018年发表的里程碑论文《Improving Language Understanding by Generative Pre-Training》，该论文提出了GPT（Generative Pre-Training）模型，首次将大规模无监督预训练与有监督微调相结合，在多个NLP基准上取得了突破性成绩。GPT-1是ChatGPT的直系祖先——它确立了&amp;quot;预训练+微调&amp;quot;的范式，证明了通用语言表示可以从海量无标注文本中学习，为后续GPT-2、GPT-3乃至ChatGPT奠定了架构和方法论基础。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;nlp的迁移学习困境&#34;&gt;NLP的迁移学习困境&lt;/h2&gt;
+&lt;h3 id=&#34;问题一标注数据的稀缺性&#34;&gt;问题一：标注数据的稀缺性&lt;/h3&gt;
+&lt;p&gt;深度学习在NLP中的应用面临一个根本挑战：高质量标注数据稀缺。&lt;/p&gt;
+&lt;p&gt;与计算机视觉不同，NLP任务的标注需要语言专业知识，成本高昂：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;情感分析&lt;/strong&gt;：需要理解语言的细微差别&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;问答系统&lt;/strong&gt;：需要专业领域知识&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文本蕴含&lt;/strong&gt;：需要逻辑推理能力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;大多数NLP数据集仅有数千到数万条标注样本，远不足以从头训练大型神经网络。&lt;/p&gt;
+&lt;h3 id=&#34;问题二预训练方法的局限&#34;&gt;问题二：预训练方法的局限&lt;/h3&gt;
+&lt;p&gt;在GPT之前，NLP领域的预训练主要有两种方式：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;词向量预训练&lt;/strong&gt;（如Word2Vec、GloVe）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;只提供词级别的表示&lt;/li&gt;
+&lt;li&gt;无法捕捉上下文信息&lt;/li&gt;
+&lt;li&gt;无法处理多义词&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;语言模型预训练&lt;/strong&gt;（如ELMo）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用双向LSTM&lt;/li&gt;
+&lt;li&gt;表示能力受限于LSTM架构&lt;/li&gt;
+&lt;li&gt;预训练和微调架构不一致&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些方法虽然有效，但都存在明显局限：&lt;strong&gt;预训练的知识无法充分迁移到下游任务&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;问题三无监督学习的挑战&#34;&gt;问题三：无监督学习的挑战&lt;/h3&gt;
+&lt;p&gt;无监督学习的核心挑战是找到合适的目标函数。语言建模是一个自然的选择：&lt;/p&gt;
+&lt;p&gt;$$
+\mathcal{L}&lt;em&gt;{\text{LM}} = \sum&lt;/em&gt;{i} \log P(u_i | u_1, \ldots, u_{i-1}; \Theta)
+$$&lt;/p&gt;
+&lt;p&gt;但如何设计一个既能充分利用预训练知识、又能适应多种下游任务的框架？&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;gpt的核心设计&#34;&gt;GPT的核心设计&lt;/h2&gt;
+&lt;h3 id=&#34;transformer解码器架构&#34;&gt;Transformer解码器架构&lt;/h3&gt;
+&lt;p&gt;GPT采用Transformer的解码器部分作为基础架构，使用&lt;strong&gt;单向自注意力&lt;/strong&gt;（因果注意力）：&lt;/p&gt;
+&lt;p&gt;$$
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}} + M\right)V
+$$&lt;/p&gt;
+&lt;p&gt;其中 $M$ 是掩码矩阵，确保位置 $i$ 只能关注位置 $j \leq i$：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

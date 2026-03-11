@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>边缘计算 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</link>
+    <description>Recent content in 边缘计算 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 18 Jul 2025 10:28:18 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>边缘AI：美国在连接设备，中国在连接城市</title>
+      <link>https://blog.zhangky.com/posts/2025/2025-07-edge-ai/</link>
+      <pubDate>Fri, 18 Jul 2025 10:28:18 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/2025-07-edge-ai/</guid>
+      <description>&lt;p&gt;上周在深圳参加边缘AI展览，我站在一个展台前，看着屏幕上实时显示的城市交通数据：100万台边缘AI设备正在工作，从交通监控到垃圾分类，AI就在身边。我走到一个智能垃圾桶前，它自动识别垃圾类型，然后分类投放。我扔了一个塑料瓶，它说：&amp;ldquo;检测到可回收物，已分类。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;而在美国，我看到的是另一番景象：智能家居系统用边缘AI让灯光、温控、安防无缝协同。我朋友Mike给我演示他的智能家居：他走进房间，灯光自动调亮，温度自动调节，安防系统自动启动。他说：&amp;ldquo;要让所有设备都能智能交互。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;两种完全不同的边缘AI图景，让我思考：边缘AI的本质到底是什么？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;从应用场景看：生态 vs 应用的路径分歧&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;表面上看，这是&amp;quot;生态 vs 应用&amp;quot;的技术路线分歧。&lt;/p&gt;
+&lt;p&gt;美国的思路是&amp;quot;生态优先&amp;quot;，让边缘AI成为连接各种设备的桥梁。智能家居系统用边缘AI让灯光、温控、安防无缝协同，这是典型的&amp;quot;设备连接&amp;quot;路径：让所有设备都能智能交互。&lt;/p&gt;
+&lt;p&gt;中国则是&amp;quot;应用驱动&amp;quot;，用边缘AI解决城市管理的实际问题。100万台边缘AI设备正在工作，从交通监控到垃圾分类，这是典型的&amp;quot;城市连接&amp;quot;路径：让城市自己思考。&lt;/p&gt;
+&lt;p&gt;美国工程师说&amp;quot;要让所有设备都能智能交互&amp;quot;，中国技术负责人则说&amp;quot;要让城市自己思考&amp;quot;。两种思路，两种未来。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关键洞察：这不是技术路线分歧，是应用场景的差异。一个瞄准&amp;quot;连接设备&amp;quot;，一个瞄准&amp;quot;连接城市&amp;quot;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;从技术本质看：边缘AI的核心价值&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;边缘AI的价值在于&amp;quot;低延迟和本地化&amp;quot;。美国的生态建设为边缘AI提供了广阔应用场景，中国的大规模部署则证明了边缘AI的实用价值。&lt;/p&gt;
+&lt;p&gt;深圳的交通信号灯用边缘AI实时调整配时，拥堵时间减少了23%。我站在路口，看着信号灯根据实时车流自动调整，心里想：这就是边缘AI的价值——不需要把数据传到云端，在本地就能决策。&lt;/p&gt;
+&lt;p&gt;美国的智能家居系统用边缘AI让灯光、温控、安防无缝协同。Mike走进房间，灯光自动调亮，温度自动调节，安防系统自动启动。这是边缘AI的另一个价值——让设备之间能够实时协同。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关键洞察：边缘AI的核心价值，不是技术本身，而是应用场景。低延迟和本地化，让AI从云端走到边缘，从实验室走到街头。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;未来趋势：生态与应用的融合&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2025年，我判断会看到美国加大智慧城市应用（比如在纽约部署边缘AI交通系统），中国加强IoT生态建设（比如建立统一的边缘AI开发平台）。&lt;/p&gt;
+&lt;p&gt;边缘AI不是孤立的技术，而是连接数字世界与物理世界的纽带。未来的AI，不是在数据中心里思考，而是在每一个角落感知和决策。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;边缘AI的终极形态，是让AI从云端走到边缘，从实验室走到街头，真正融入我们的生活。美国在连接设备，中国在连接城市——但最终，我们需要的是既连接设备，又连接城市的边缘AI。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2025年，我期待看到美国的城市连接，也期待看到中国的设备连接。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

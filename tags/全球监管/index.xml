@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>全球监管 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E5%85%A8%E7%90%83%E7%9B%91%E7%AE%A1/</link>
+    <description>Recent content in 全球监管 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 12 Mar 2025 11:08:29 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E5%85%A8%E7%90%83%E7%9B%91%E7%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI治理：欧盟在立法，美国在扯皮，中国在试错</title>
+      <link>https://blog.zhangky.com/posts/2025/2025-03-ai-governance/</link>
+      <pubDate>Wed, 12 Mar 2025 11:08:29 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/2025-03-ai-governance/</guid>
+      <description>&lt;p&gt;欧盟AI法案正式生效那天，我在布鲁塞尔参加治理论坛。论坛上，欧洲专家拍着桌子说：&amp;ldquo;绝不允许AI伤害人类！&amp;ldquo;中国专家则缓缓回应：&amp;ldquo;没有发展，就没有安全的基础。&amp;ldquo;两种治理思路的碰撞，让整个会场陷入沉默。&lt;/p&gt;
+&lt;p&gt;我坐在台下，脑子里闪过一个画面：三年前，我在硅谷参加AI伦理研讨会，当时所有人都在讨论&amp;quot;如何监管AI&amp;rdquo;，但三年过去了，只有欧盟真正立了法，美国还在国会扯皮，中国则在实践中试错。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;看现在：三种治理路径的分化&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;欧盟把AI分成四个风险等级，高风险AI（医疗设备、教育工具）需要严格审批，思路是&amp;quot;风险防控优先&amp;rdquo;。他们的逻辑是：先立法，再发展。这是典型的&amp;quot;安全第一&amp;quot;路径。&lt;/p&gt;
+&lt;p&gt;美国还在国会扯皮，法案难产。他们的逻辑是：让市场自己调节，政府不要过度干预。这是典型的&amp;quot;市场优先&amp;quot;路径。&lt;/p&gt;
+&lt;p&gt;中国已经发布了《生成式人工智能服务管理暂行办法》修订版，强调&amp;quot;发展与安全并重&amp;rdquo;。他们的逻辑是：在发展中规范，在规范中发展。这是典型的&amp;quot;平衡发展&amp;quot;路径。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关键洞察：这不是治理理念的分歧，是治理节奏的差异。欧盟跑得太快，美国跑得太慢，中国在中间找平衡。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;想深一层：监管与创新的两难&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;上周跟一家德国AI创业公司聊天，他们说已经在考虑把研发中心搬到新加坡——&amp;ldquo;欧盟的审批流程太繁琐，我们等不起。&amp;ldquo;这家公司做的是AI医疗诊断，技术很先进，但欧盟的审批周期至少需要18个月。&lt;/p&gt;
+&lt;p&gt;而中国的弹性治理给了企业更多试错空间。百度文心一言和抖音AI都发展得很快，虽然也出过一些争议，但整体上是在可控范围内快速迭代。这种&amp;quot;先发展，后规范&amp;quot;的模式，让中国AI应用走在了全球前列。&lt;/p&gt;
+&lt;p&gt;但这也带来风险：过于宽松的监管可能让一些有问题的AI应用流入市场。去年某AI聊天机器人就因为性别歧视言论引发争议，如果监管更严格，可能就不会出现这种情况。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关键洞察：监管与创新是两难。过于严格会扼杀创新，过于宽松会带来风险。关键是如何在两者之间找到平衡点。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;望前方：全球治理的协同与竞争&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2025年，我判断会出现&amp;quot;治理竞赛&amp;rdquo;：各国会互相借鉴最佳实践，形成更灵活的全球治理框架。欧盟的严格监管会被美国借鉴，中国的弹性治理会被欧盟学习，美国的市场机制会被中国参考。&lt;/p&gt;
+&lt;p&gt;毕竟，AI是全人类的技术，需要全球协同的治理方案。但协同不等于统一，每个国家都有自己的国情和价值观，治理路径也会不同。&lt;/p&gt;
+&lt;p&gt;治理不是枷锁，而是护栏。好的治理能保护创新，而不是扼杀它。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AI治理的终极目标，从来不是阻止技术发展，而是让技术更好地服务人类。欧盟在立法，美国在扯皮，中国在试错——但最终，我们都需要找到自己的平衡点。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2025年，我期待看到欧盟的灵活性，也期待看到美国的立法，更期待看到中国的规范。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>乌镇峰会的AI治理共识：全球协同，还是各说各话？</title>
+      <link>https://blog.zhangky.com/posts/2024/2024-10-12-ai-governance/</link>
+      <pubDate>Sat, 12 Oct 2024 13:13:41 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2024/2024-10-12-ai-governance/</guid>
+      <description>乌镇峰会AI治理圆桌论坛：中美欧专家各执一词，欧洲强调监管先行，美国主张行业自律，中国提出包容审慎。分析全球AI治理的利益博弈与监管碎片化隐忧。</description>
+    </item>
+  </channel>
+</rss>
