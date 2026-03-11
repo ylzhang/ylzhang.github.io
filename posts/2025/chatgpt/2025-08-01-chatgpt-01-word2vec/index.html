@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命 | Zhang&#39;s Blog</title>
-<meta name="keywords" content="Word2Vec, Word Embedding, Skip-gram, CBOW, Natural Language Processing, Distributed Representation">
-<meta name="description" content="
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命 | Zhang's Blog</title><meta name=keywords content="Word2Vec,Word Embedding,Skip-gram,CBOW,Natural Language Processing,Distributed Representation"><meta name=description content='
 本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。
 
 语言理解的根本挑战
@@ -19,7 +10,7 @@
 稀疏性：每个向量只有一个非零元素，绝大多数信息为0
 语义缺失：任意两个词的向量正交，无法表达语义相似性
 
-例如，&ldquo;king&quot;和&quot;queen&quot;虽然语义相近，但在one-hot表示下：
+例如，&ldquo;king"和"queen"虽然语义相近，但在one-hot表示下：
 $$
 \text{sim}(\text{king}, \text{queen}) = \text{king}^\top \cdot \text{queen} = 0
 $$
@@ -36,129 +27,18 @@ $$
 问题三：计算效率的瓶颈
 在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：
 $$
-\text{时间复杂度} = O(V \times H &#43; H \times H) \times E \times T
-$$">
-<meta name="author" content="ZHANG.z">
-<link rel="canonical" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.79bfb41aad32a688cd2a56e0fd43dad023bee6a985c251ecb095110e836bb4b7.css" integrity="sha256-eb&#43;0Gq0ypojNKlbg/UPa0CO&#43;5qmFwlHssJURDoNrtLc=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<style>
-  .post-content p { text-indent: 2em; }
-  .post-content > p:first-of-type { text-indent: 0; }
-  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
-  .post-content blockquote,
-  .post-content blockquote p,
-  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
-  .post-content figure, .post-content figure p, .post-content img,
-  .post-content table, .post-content ul, .post-content ol, .post-content li,
-  .post-content .footnotes, .post-content .footnotes p,
-  .post-content section.footnotes p { text-indent: 0; }
-</style>
-<script async src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-      enableMenu: false
-    },
-    startup: {
-      typeset: true
-    }
-  };
-</script>
-
-<meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命">
-  <meta property="og:description" content=" 本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。
+\text{时间复杂度} = O(V \times H + H \times H) \times E \times T
+$$'><meta name=author content="ZHANG.z"><link rel=canonical href=https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/><link crossorigin=anonymous href=/assets/css/stylesheet.79bfb41aad32a688cd2a56e0fd43dad023bee6a985c251ecb095110e836bb4b7.css integrity="sha256-eb+0Gq0ypojNKlbg/UPa0CO+5qmFwlHssJURDoNrtLc=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>.post-content p{text-indent:2em}.post-content>p:first-of-type{text-indent:0}.post-content h1,.post-content h2,.post-content h3,.post-content h4{text-indent:0}.post-content blockquote,.post-content blockquote p,.post-content pre,.post-content code,.post-content .highlight,.post-content div.highlight,.post-content figure,.post-content figure p,.post-content img,.post-content table,.post-content ul,.post-content ol,.post-content li,.post-content .footnotes,.post-content .footnotes p,.post-content section.footnotes p{text-indent:0}</style><script async src=https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js crossorigin=anonymous></script><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre"],enableMenu:!1},startup:{typeset:!0}}</script><meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命"><meta property="og:description" content=' 本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。
 语言理解的根本挑战 问题一：词语表示的离散性困境 在传统NLP中，词语通常用one-hot编码表示。对于一个包含 $V$ 个词的词表，每个词被表示为一个 $V$ 维向量，只有对应位置为1，其余为0。
 这种表示方法存在三个根本问题：
-维度灾难：词表规模通常在万到百万级别，导致向量维度极高 稀疏性：每个向量只有一个非零元素，绝大多数信息为0 语义缺失：任意两个词的向量正交，无法表达语义相似性 例如，“king&#34;和&#34;queen&#34;虽然语义相近，但在one-hot表示下：
+维度灾难：词表规模通常在万到百万级别，导致向量维度极高 稀疏性：每个向量只有一个非零元素，绝大多数信息为0 语义缺失：任意两个词的向量正交，无法表达语义相似性 例如，“king"和"queen"虽然语义相近，但在one-hot表示下：
 $$ \text{sim}(\text{king}, \text{queen}) = \text{king}^\top \cdot \text{queen} = 0 $$
 向量的内积为0，完全无法捕捉它们的语义关联。
 问题二：分布式假设与向量空间 语言学中的分布式假设（Distributional Hypothesis）指出：“一个词的含义由其上下文决定”（You shall know a word by the company it keeps）。这一假设为词向量学习提供了理论基础。
 如果我们能够将词映射到一个连续的向量空间，使得语义相似的词在空间中距离相近，那么：
 词之间的语义关系可以通过向量运算表达 模型可以泛化到未见过的词组合 下游任务可以利用预学习的语义知识 问题是：如何高效地学习这样的词向量？
 问题三：计算效率的瓶颈 在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：
-$$ \text{时间复杂度} = O(V \times H &#43; H \times H) \times E \times T $$">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-08-01T21:59:17+08:00">
-    <meta property="article:modified_time" content="2025-08-01T21:59:17+08:00">
-    <meta property="article:tag" content="Word2Vec">
-    <meta property="article:tag" content="词向量">
-    <meta property="article:tag" content="NLP">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命">
-<meta name="twitter:description" content="
+$$ \text{时间复杂度} = O(V \times H + H \times H) \times E \times T $$'><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-08-01T21:59:17+08:00"><meta property="article:modified_time" content="2025-08-01T21:59:17+08:00"><meta property="article:tag" content="Word2Vec"><meta property="article:tag" content="词向量"><meta property="article:tag" content="NLP"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命"><meta name=twitter:description content='
 本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。
 
 语言理解的根本挑战
@@ -170,7 +50,7 @@ $$ \text{时间复杂度} = O(V \times H &#43; H \times H) \times E \times T $$"
 稀疏性：每个向量只有一个非零元素，绝大多数信息为0
 语义缺失：任意两个词的向量正交，无法表达语义相似性
 
-例如，&ldquo;king&quot;和&quot;queen&quot;虽然语义相近，但在one-hot表示下：
+例如，&ldquo;king"和"queen"虽然语义相近，但在one-hot表示下：
 $$
 \text{sim}(\text{king}, \text{queen}) = \text{king}^\top \cdot \text{queen} = 0
 $$
@@ -187,528 +67,41 @@ $$
 问题三：计算效率的瓶颈
 在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：
 $$
-\text{时间复杂度} = O(V \times H &#43; H \times H) \times E \times T
-$$">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://blog.zhangky.com/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命",
-      "item": "https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命",
-  "name": "【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命",
-  "description": " 本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。\n语言理解的根本挑战 问题一：词语表示的离散性困境 在传统NLP中，词语通常用one-hot编码表示。对于一个包含 $V$ 个词的词表，每个词被表示为一个 $V$ 维向量，只有对应位置为1，其余为0。\n这种表示方法存在三个根本问题：\n维度灾难：词表规模通常在万到百万级别，导致向量维度极高 稀疏性：每个向量只有一个非零元素，绝大多数信息为0 语义缺失：任意两个词的向量正交，无法表达语义相似性 例如，\u0026ldquo;king\u0026quot;和\u0026quot;queen\u0026quot;虽然语义相近，但在one-hot表示下：\n$$ \\text{sim}(\\text{king}, \\text{queen}) = \\text{king}^\\top \\cdot \\text{queen} = 0 $$\n向量的内积为0，完全无法捕捉它们的语义关联。\n问题二：分布式假设与向量空间 语言学中的分布式假设（Distributional Hypothesis）指出：\u0026ldquo;一个词的含义由其上下文决定\u0026rdquo;（You shall know a word by the company it keeps）。这一假设为词向量学习提供了理论基础。\n如果我们能够将词映射到一个连续的向量空间，使得语义相似的词在空间中距离相近，那么：\n词之间的语义关系可以通过向量运算表达 模型可以泛化到未见过的词组合 下游任务可以利用预学习的语义知识 问题是：如何高效地学习这样的词向量？\n问题三：计算效率的瓶颈 在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：\n$$ \\text{时间复杂度} = O(V \\times H + H \\times H) \\times E \\times T $$\n",
-  "keywords": [
-    "Word2Vec", "Word Embedding", "Skip-gram", "CBOW", "Natural Language Processing", "Distributed Representation"
-  ],
-  "articleBody": " 本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。\n语言理解的根本挑战 问题一：词语表示的离散性困境 在传统NLP中，词语通常用one-hot编码表示。对于一个包含 $V$ 个词的词表，每个词被表示为一个 $V$ 维向量，只有对应位置为1，其余为0。\n这种表示方法存在三个根本问题：\n维度灾难：词表规模通常在万到百万级别，导致向量维度极高 稀疏性：每个向量只有一个非零元素，绝大多数信息为0 语义缺失：任意两个词的向量正交，无法表达语义相似性 例如，“king\"和\"queen\"虽然语义相近，但在one-hot表示下：\n$$ \\text{sim}(\\text{king}, \\text{queen}) = \\text{king}^\\top \\cdot \\text{queen} = 0 $$\n向量的内积为0，完全无法捕捉它们的语义关联。\n问题二：分布式假设与向量空间 语言学中的分布式假设（Distributional Hypothesis）指出：“一个词的含义由其上下文决定”（You shall know a word by the company it keeps）。这一假设为词向量学习提供了理论基础。\n如果我们能够将词映射到一个连续的向量空间，使得语义相似的词在空间中距离相近，那么：\n词之间的语义关系可以通过向量运算表达 模型可以泛化到未见过的词组合 下游任务可以利用预学习的语义知识 问题是：如何高效地学习这样的词向量？\n问题三：计算效率的瓶颈 在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：\n$$ \\text{时间复杂度} = O(V \\times H + H \\times H) \\times E \\times T $$\n其中 $V$ 是词表大小，$H$ 是隐藏层维度，$E$ 是训练轮数，$T$ 是语料大小。当 $V$ 达到百万级别时，Softmax输出层的计算成为不可接受的瓶颈。\nWord2Vec的核心贡献在于：通过简化模型架构和引入高效训练技巧，将词向量学习的规模提升了几个数量级。\nWord2Vec的核心机制 CBOW：从上下文预测中心词 **Continuous Bag-of-Words（CBOW）**模型通过上下文词预测中心词。给定上下文窗口 $c$，目标是最大化：\n$$ P(w_t | w_{t-c}, \\ldots, w_{t-1}, w_{t+1}, \\ldots, w_{t+c}) $$\nCBOW的计算过程：\n输入层：将上下文词的one-hot编码转换为词向量 投影层：对上下文词向量取平均 $$ h = \\frac{1}{2c} \\sum_{j=-c, j \\neq 0}^{c} v_{w_{t+j}} $$\n输出层：计算中心词的概率分布 $$ P(w_t | \\text{context}) = \\frac{\\exp(v’{w_t}^\\top h)}{\\sum{w=1}^{V} \\exp(v’_w^\\top h)} $$\n其中 $v_w$ 是词 $w$ 的输入向量，$v’_w$ 是输出向量。\nSkip-gram：从中心词预测上下文 Skip-gram模型与CBOW相反，通过中心词预测上下文词。给定中心词 $w_t$，目标是最大化：\n$$ P(w_{t-c}, \\ldots, w_{t+c} | w_t) = \\prod_{j=-c, j \\neq 0}^{c} P(w_{t+j} | w_t) $$\n每个上下文词的预测概率为：\n$$ P(w_o | w_i) = \\frac{\\exp(v’{w_o}^\\top v{w_i})}{\\sum_{w=1}^{V} \\exp(v’w^\\top v{w_i})} $$\nSkip-gram的训练目标是最大化对数似然：\n$$ \\mathcal{L} = \\sum_{t=1}^{T} \\sum_{j=-c, j \\neq 0}^{c} \\log P(w_{t+j} | w_t) $$\nSkip-gram在处理稀有词和小规模语料时表现更好，因为每个词有多次作为中心词被训练的机会。\n高效训练技巧 Word2Vec的突破性在于引入了两种高效训练技巧，将Softmax的 $O(V)$ 复杂度大幅降低。\n**负采样（Negative Sampling）**将多分类问题转化为二分类问题。对于每个正样本（中心词-上下文词对），随机采样 $k$ 个负样本（中心词-随机词对）。\n目标函数变为：\n$$ \\log \\sigma(v’{w_o}^\\top v{w_i}) + \\sum_{j=1}^{k} \\mathbb{E}{w_j \\sim P_n(w)} [\\log \\sigma(-v’{w_j}^\\top v_{w_i})] $$\n其中 $\\sigma(x) = \\frac{1}{1+e^{-x}}$ 是sigmoid函数，$P_n(w)$ 是负样本分布（通常采用单词频率的3/4次方）。\n负采样将复杂度从 $O(V)$ 降至 $O(k)$，其中 $k$ 通常取5-20。\n**层次Softmax（Hierarchical Softmax）**使用Huffman树结构，将Softmax的 $O(V)$ 复杂度降至 $O(\\log V)$。每个词对应树中的一条路径，从根节点到叶节点的路径决定了词的概率。\n路径上每个节点的二分类概率为：\n$$ P(n, \\text{left}) = \\sigma(v’n^\\top v{w_i}) $$\n词的概率是路径上所有节点概率的乘积：\n$$ P(w | w_i) = \\prod_{n \\in \\text{path}(w)} P(n, \\text{direction}) $$\n词向量的神奇性质 语义线性结构 Word2Vec学到的词向量展现出惊人的线性结构。最著名的例子是：\n$$ \\vec{v}{king} - \\vec{v}{man} + \\vec{v}{woman} \\approx \\vec{v}{queen} $$\n这意味着\"king\"和\"man\"之间的关系（性别差异）与\"queen\"和\"woman\"之间的关系相似，且这种关系可以通过向量运算捕捉。\n类似的关系还包括：\n国家-首都：$\\vec{v}{Paris} - \\vec{v}{France} + \\vec{v}{Italy} \\approx \\vec{v}{Rome}$ 动词时态：$\\vec{v}{walking} - \\vec{v}{walk} + \\vec{v}{swim} \\approx \\vec{v}{swimming}$ 比较级：$\\vec{v}{bigger} - \\vec{v}{big} + \\vec{v}{small} \\approx \\vec{v}{smaller}$ 向量空间的几何意义 词向量空间具有丰富的几何结构。语义相似的词在空间中形成聚类，语义关系表现为向量间的方向。\n余弦相似度是衡量词语相似性的常用指标：\n$$ \\text{sim}(w_1, w_2) = \\frac{v_{w_1} \\cdot v_{w_2}}{|v_{w_1}| \\cdot |v_{w_2}|} $$\n通过最近邻搜索，可以找到语义最相近的词：\n查询词 最近邻词 king queen, prince, monarch, ruler computer software, hardware, laptop, PC beautiful gorgeous, pretty, lovely, stunning 迁移学习的先驱 Word2Vec开创了NLP中预训练-微调范式的先河。在大规模语料上预训练的词向量可以直接用于下游任务，显著提升性能。\n这一思想后来发展为：\nELMo（2018）：上下文相关的词向量 BERT（2018）：双向Transformer预训练 GPT系列（2018-2023）：单向Transformer生成式预训练 评估与应用 内在评估：词语类比任务 Google发布的词语类比数据集包含约20,000个类比问题，分为语义和句法两类。评估指标是类比问题的准确率。\n模型 语义准确率 句法准确率 总体准确率 CBOW (300维) 24% 64% 45% Skip-gram (300维) 55% 59% 57% Skip-gram (1000维) 66% 65% 66% 外在评估：下游任务性能 Word2Vec作为特征输入，在多个NLP任务上带来显著提升：\n任务 基线 +Word2Vec 提升 情感分析 80.5% 86.3% +5.8% 命名实体识别 84.2% 88.7% +4.5% 句法分析 89.1% 91.4% +2.3% 训练效率 Word2Vec的训练效率是其广泛采用的关键因素：\n语料规模 词表大小 训练时间 每秒处理词数 10亿词 100万 1天 ~100万 60亿词 300万 3天 ~230万 使用单机多线程即可在合理时间内处理大规模语料。\nWord2Vec的历史地位 承上启下的里程碑 Word2Vec在NLP发展史上具有承上启下的地位：\n承上：\n继承了分布式假设的语言学理论 延续了神经网络语言模型的思路 改进了LSA/LDA等矩阵分解方法的效率 启下：\n为深度学习在NLP中的应用奠定基础 开创了大规模预训练范式 启发了后续的ELMo、BERT、GPT系列 局限性与改进方向 Word2Vec也存在一些局限性：\n静态表示：每个词只有一个向量，无法处理多义词（如\"bank\"既可表示银行也可表示河岸） 缺乏上下文：词向量不随上下文变化，限制了表达能力 子词问题：无法处理未登录词（OOV）和形态学变化 这些局限性推动了后续研究：\nFastText（2016）：引入子词信息，处理形态学变化 ELMo（2018）：上下文相关的动态词向量 Transformer（2017）：自注意力机制，捕捉长距离依赖 阅读研究论文的时间线计划 本文在技术时间线中的位置 【当前位置】Word2Vec(2013) → Seq2Seq(2014) → Attention(2015) → Transformer(2017) → GPT-1(2018) → GPT-2(2019) → Scaling Laws(2020) → GPT-3(2020) → InstructGPT(2022) → ChatGPT 前置知识 在阅读本文之前，建议了解：\n信息论基础（熵、交叉熵、互信息） 神经网络基础（前向传播、反向传播、梯度下降） 概率语言模型（N-gram、统计语言模型） 后续论文推荐 完成本文后，建议按顺序阅读：\n【ChatGPT时刻02】Seq2Seq（下一篇）：序列到序列学习框架，是机器翻译和对话系统的基础 【ChatGPT时刻03】注意力机制：解决长距离依赖问题的关键突破 【ChatGPT时刻04】Transformer：现代大语言模型的架构基础 完整技术路线图 词表示革命 序列建模突破 大模型时代 │ │ │ Word2Vec ────────► Seq2Seq ─────────► Transformer ──────────► GPT-3 (2013) (2014) (2017) (2020) │ │ │ │ └── 词向量 └── 编码器-解码器 └── 自注意力 └── 涌现能力 嵌入层 Attention初现 位置编码 上下文学习 并行计算 指令遵循(RLHF) 参考文献 Mikolov, T., Chen, K., Corrado, G., \u0026 Dean, J. (2013). Efficient Estimation of Word Representations in Vector Space. arXiv preprint arXiv:1301.3781. Mikolov, T., Sutskever, I., Chen, K., Corrado, G., \u0026 Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. NeurIPS. Goldberg, Y., \u0026 Levy, O. (2014). word2vec Explained: Deriving Mikolov et al.’s Negative-Sampling Word-Embedding Method. arXiv preprint arXiv:1402.3722. Levy, O., \u0026 Goldberg, Y. (2014). Neural Word Embedding as Implicit Matrix Factorization. NeurIPS. Pennington, J., Socher, R., \u0026 Manning, C. D. (2014). GloVe: Global Vectors for Word Representation. EMNLP. ",
-  "wordCount" : "531",
-  "inLanguage": "en",
-  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2025-08-01T21:59:17+08:00",
-  "dateModified": "2025-08-01T21:59:17+08:00",
-  "author":{
-    "@type": "Person",
-    "name": "ZHANG.z"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Zhang's Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://blog.zhangky.com/images/logo.svg"
-    }
-  }
-}
-</script>
-</head>
-<body id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
-                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 11a9 9 0 0 1 9 9" />
-    <path d="M4 4a16 16 0 0 1 16 16" />
-    <circle cx="5" cy="19" r="1" />
-</svg>
-                </a>
-                
-
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://blog.zhangky.com/" title="Posts">
-                    <span>Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/faq" title="FAQ">
-                    <span>FAQ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <style>
-        .nav.scrolled {
-            background: var(--theme);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .nav.scrolled #menu {
-            display: none;
-        }
-        .nav.scrolled .logo {
-            margin: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > nav.offsetHeight) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
-    <h1 class="post-title entry-hint-parent">
-      【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命
-    </h1>
-    <div class="post-meta">   ZHANG.z | <span title='2025-08-01 21:59:17 +0800 HKT'>August 1, 2025</span> | <span>17 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
-    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
-</span>
-
-</div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e8%af%ad%e8%a8%80%e7%90%86%e8%a7%a3%e7%9a%84%e6%a0%b9%e6%9c%ac%e6%8c%91%e6%88%98" aria-label="语言理解的根本挑战">语言理解的根本挑战</a><ul>
-                        
-                <li>
-                    <a href="#%e9%97%ae%e9%a2%98%e4%b8%80%e8%af%8d%e8%af%ad%e8%a1%a8%e7%a4%ba%e7%9a%84%e7%a6%bb%e6%95%a3%e6%80%a7%e5%9b%b0%e5%a2%83" aria-label="问题一：词语表示的离散性困境">问题一：词语表示的离散性困境</a></li>
-                <li>
-                    <a href="#%e9%97%ae%e9%a2%98%e4%ba%8c%e5%88%86%e5%b8%83%e5%bc%8f%e5%81%87%e8%ae%be%e4%b8%8e%e5%90%91%e9%87%8f%e7%a9%ba%e9%97%b4" aria-label="问题二：分布式假设与向量空间">问题二：分布式假设与向量空间</a></li>
-                <li>
-                    <a href="#%e9%97%ae%e9%a2%98%e4%b8%89%e8%ae%a1%e7%ae%97%e6%95%88%e7%8e%87%e7%9a%84%e7%93%b6%e9%a2%88" aria-label="问题三：计算效率的瓶颈">问题三：计算效率的瓶颈</a></li></ul>
-                </li>
-                <li>
-                    <a href="#word2vec%e7%9a%84%e6%a0%b8%e5%bf%83%e6%9c%ba%e5%88%b6" aria-label="Word2Vec的核心机制">Word2Vec的核心机制</a><ul>
-                        
-                <li>
-                    <a href="#cbow%e4%bb%8e%e4%b8%8a%e4%b8%8b%e6%96%87%e9%a2%84%e6%b5%8b%e4%b8%ad%e5%bf%83%e8%af%8d" aria-label="CBOW：从上下文预测中心词">CBOW：从上下文预测中心词</a></li>
-                <li>
-                    <a href="#skip-gram%e4%bb%8e%e4%b8%ad%e5%bf%83%e8%af%8d%e9%a2%84%e6%b5%8b%e4%b8%8a%e4%b8%8b%e6%96%87" aria-label="Skip-gram：从中心词预测上下文">Skip-gram：从中心词预测上下文</a></li>
-                <li>
-                    <a href="#%e9%ab%98%e6%95%88%e8%ae%ad%e7%bb%83%e6%8a%80%e5%b7%a7" aria-label="高效训练技巧">高效训练技巧</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e8%af%8d%e5%90%91%e9%87%8f%e7%9a%84%e7%a5%9e%e5%a5%87%e6%80%a7%e8%b4%a8" aria-label="词向量的神奇性质">词向量的神奇性质</a><ul>
-                        
-                <li>
-                    <a href="#%e8%af%ad%e4%b9%89%e7%ba%bf%e6%80%a7%e7%bb%93%e6%9e%84" aria-label="语义线性结构">语义线性结构</a></li>
-                <li>
-                    <a href="#%e5%90%91%e9%87%8f%e7%a9%ba%e9%97%b4%e7%9a%84%e5%87%a0%e4%bd%95%e6%84%8f%e4%b9%89" aria-label="向量空间的几何意义">向量空间的几何意义</a></li>
-                <li>
-                    <a href="#%e8%bf%81%e7%a7%bb%e5%ad%a6%e4%b9%a0%e7%9a%84%e5%85%88%e9%a9%b1" aria-label="迁移学习的先驱">迁移学习的先驱</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e8%af%84%e4%bc%b0%e4%b8%8e%e5%ba%94%e7%94%a8" aria-label="评估与应用">评估与应用</a><ul>
-                        
-                <li>
-                    <a href="#%e5%86%85%e5%9c%a8%e8%af%84%e4%bc%b0%e8%af%8d%e8%af%ad%e7%b1%bb%e6%af%94%e4%bb%bb%e5%8a%a1" aria-label="内在评估：词语类比任务">内在评估：词语类比任务</a></li>
-                <li>
-                    <a href="#%e5%a4%96%e5%9c%a8%e8%af%84%e4%bc%b0%e4%b8%8b%e6%b8%b8%e4%bb%bb%e5%8a%a1%e6%80%a7%e8%83%bd" aria-label="外在评估：下游任务性能">外在评估：下游任务性能</a></li>
-                <li>
-                    <a href="#%e8%ae%ad%e7%bb%83%e6%95%88%e7%8e%87" aria-label="训练效率">训练效率</a></li></ul>
-                </li>
-                <li>
-                    <a href="#word2vec%e7%9a%84%e5%8e%86%e5%8f%b2%e5%9c%b0%e4%bd%8d" aria-label="Word2Vec的历史地位">Word2Vec的历史地位</a><ul>
-                        
-                <li>
-                    <a href="#%e6%89%bf%e4%b8%8a%e5%90%af%e4%b8%8b%e7%9a%84%e9%87%8c%e7%a8%8b%e7%a2%91" aria-label="承上启下的里程碑">承上启下的里程碑</a></li>
-                <li>
-                    <a href="#%e5%b1%80%e9%99%90%e6%80%a7%e4%b8%8e%e6%94%b9%e8%bf%9b%e6%96%b9%e5%90%91" aria-label="局限性与改进方向">局限性与改进方向</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e9%98%85%e8%af%bb%e7%a0%94%e7%a9%b6%e8%ae%ba%e6%96%87%e7%9a%84%e6%97%b6%e9%97%b4%e7%ba%bf%e8%ae%a1%e5%88%92" aria-label="阅读研究论文的时间线计划">阅读研究论文的时间线计划</a><ul>
-                        
-                <li>
-                    <a href="#%e6%9c%ac%e6%96%87%e5%9c%a8%e6%8a%80%e6%9c%af%e6%97%b6%e9%97%b4%e7%ba%bf%e4%b8%ad%e7%9a%84%e4%bd%8d%e7%bd%ae" aria-label="本文在技术时间线中的位置">本文在技术时间线中的位置</a></li>
-                <li>
-                    <a href="#%e5%89%8d%e7%bd%ae%e7%9f%a5%e8%af%86" aria-label="前置知识">前置知识</a></li>
-                <li>
-                    <a href="#%e5%90%8e%e7%bb%ad%e8%ae%ba%e6%96%87%e6%8e%a8%e8%8d%90" aria-label="后续论文推荐">后续论文推荐</a></li>
-                <li>
-                    <a href="#%e5%ae%8c%e6%95%b4%e6%8a%80%e6%9c%af%e8%b7%af%e7%ba%bf%e5%9b%be" aria-label="完整技术路线图">完整技术路线图</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae" aria-label="参考文献">参考文献</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
-
-  <div class="post-content"><!-- ============================================
-     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
-     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
-     ============================================ -->
-<p>本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的<strong>起点</strong>——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。</p>
-<hr>
-<h2 id="语言理解的根本挑战">语言理解的根本挑战<a hidden class="anchor" aria-hidden="true" href="#语言理解的根本挑战">#</a></h2>
-<h3 id="问题一词语表示的离散性困境">问题一：词语表示的离散性困境<a hidden class="anchor" aria-hidden="true" href="#问题一词语表示的离散性困境">#</a></h3>
-<p>在传统NLP中，词语通常用one-hot编码表示。对于一个包含 $V$ 个词的词表，每个词被表示为一个 $V$ 维向量，只有对应位置为1，其余为0。</p>
-<p>这种表示方法存在三个根本问题：</p>
-<ul>
-<li><strong>维度灾难</strong>：词表规模通常在万到百万级别，导致向量维度极高</li>
-<li><strong>稀疏性</strong>：每个向量只有一个非零元素，绝大多数信息为0</li>
-<li><strong>语义缺失</strong>：任意两个词的向量正交，无法表达语义相似性</li>
-</ul>
-<p>例如，&ldquo;king&quot;和&quot;queen&quot;虽然语义相近，但在one-hot表示下：</p>
-<p>$$
-\text{sim}(\text{king}, \text{queen}) = \text{king}^\top \cdot \text{queen} = 0
-$$</p>
-<p>向量的内积为0，完全无法捕捉它们的语义关联。</p>
-<h3 id="问题二分布式假设与向量空间">问题二：分布式假设与向量空间<a hidden class="anchor" aria-hidden="true" href="#问题二分布式假设与向量空间">#</a></h3>
-<p>语言学中的<strong>分布式假设</strong>（Distributional Hypothesis）指出：&ldquo;一个词的含义由其上下文决定&rdquo;（You shall know a word by the company it keeps）。这一假设为词向量学习提供了理论基础。</p>
-<p>如果我们能够将词映射到一个连续的向量空间，使得语义相似的词在空间中距离相近，那么：</p>
-<ul>
-<li>词之间的语义关系可以通过向量运算表达</li>
-<li>模型可以泛化到未见过的词组合</li>
-<li>下游任务可以利用预学习的语义知识</li>
-</ul>
-<p>问题是：如何高效地学习这样的词向量？</p>
-<h3 id="问题三计算效率的瓶颈">问题三：计算效率的瓶颈<a hidden class="anchor" aria-hidden="true" href="#问题三计算效率的瓶颈">#</a></h3>
-<p>在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：</p>
-<p>$$
 \text{时间复杂度} = O(V \times H + H \times H) \times E \times T
-$$</p>
-<p>其中 $V$ 是词表大小，$H$ 是隐藏层维度，$E$ 是训练轮数，$T$ 是语料大小。当 $V$ 达到百万级别时，Softmax输出层的计算成为不可接受的瓶颈。</p>
-<p>Word2Vec的核心贡献在于：<strong>通过简化模型架构和引入高效训练技巧，将词向量学习的规模提升了几个数量级</strong>。</p>
-<hr>
-<h2 id="word2vec的核心机制">Word2Vec的核心机制<a hidden class="anchor" aria-hidden="true" href="#word2vec的核心机制">#</a></h2>
-<h3 id="cbow从上下文预测中心词">CBOW：从上下文预测中心词<a hidden class="anchor" aria-hidden="true" href="#cbow从上下文预测中心词">#</a></h3>
-<p>**Continuous Bag-of-Words（CBOW）**模型通过上下文词预测中心词。给定上下文窗口 $c$，目标是最大化：</p>
-<p>$$
+$$'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.zhangky.com/posts/"},{"@type":"ListItem","position":2,"name":"【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命","item":"https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命","name":"【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命","description":" 本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。\n语言理解的根本挑战 问题一：词语表示的离散性困境 在传统NLP中，词语通常用one-hot编码表示。对于一个包含 $V$ 个词的词表，每个词被表示为一个 $V$ 维向量，只有对应位置为1，其余为0。\n这种表示方法存在三个根本问题：\n维度灾难：词表规模通常在万到百万级别，导致向量维度极高 稀疏性：每个向量只有一个非零元素，绝大多数信息为0 语义缺失：任意两个词的向量正交，无法表达语义相似性 例如，\u0026ldquo;king\u0026quot;和\u0026quot;queen\u0026quot;虽然语义相近，但在one-hot表示下：\n$$ \\text{sim}(\\text{king}, \\text{queen}) = \\text{king}^\\top \\cdot \\text{queen} = 0 $$\n向量的内积为0，完全无法捕捉它们的语义关联。\n问题二：分布式假设与向量空间 语言学中的分布式假设（Distributional Hypothesis）指出：\u0026ldquo;一个词的含义由其上下文决定\u0026rdquo;（You shall know a word by the company it keeps）。这一假设为词向量学习提供了理论基础。\n如果我们能够将词映射到一个连续的向量空间，使得语义相似的词在空间中距离相近，那么：\n词之间的语义关系可以通过向量运算表达 模型可以泛化到未见过的词组合 下游任务可以利用预学习的语义知识 问题是：如何高效地学习这样的词向量？\n问题三：计算效率的瓶颈 在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：\n$$ \\text{时间复杂度} = O(V \\times H + H \\times H) \\times E \\times T $$\n","keywords":["Word2Vec","Word Embedding","Skip-gram","CBOW","Natural Language Processing","Distributed Representation"],"articleBody":" 本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。\n语言理解的根本挑战 问题一：词语表示的离散性困境 在传统NLP中，词语通常用one-hot编码表示。对于一个包含 $V$ 个词的词表，每个词被表示为一个 $V$ 维向量，只有对应位置为1，其余为0。\n这种表示方法存在三个根本问题：\n维度灾难：词表规模通常在万到百万级别，导致向量维度极高 稀疏性：每个向量只有一个非零元素，绝大多数信息为0 语义缺失：任意两个词的向量正交，无法表达语义相似性 例如，“king\"和\"queen\"虽然语义相近，但在one-hot表示下：\n$$ \\text{sim}(\\text{king}, \\text{queen}) = \\text{king}^\\top \\cdot \\text{queen} = 0 $$\n向量的内积为0，完全无法捕捉它们的语义关联。\n问题二：分布式假设与向量空间 语言学中的分布式假设（Distributional Hypothesis）指出：“一个词的含义由其上下文决定”（You shall know a word by the company it keeps）。这一假设为词向量学习提供了理论基础。\n如果我们能够将词映射到一个连续的向量空间，使得语义相似的词在空间中距离相近，那么：\n词之间的语义关系可以通过向量运算表达 模型可以泛化到未见过的词组合 下游任务可以利用预学习的语义知识 问题是：如何高效地学习这样的词向量？\n问题三：计算效率的瓶颈 在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：\n$$ \\text{时间复杂度} = O(V \\times H + H \\times H) \\times E \\times T $$\n其中 $V$ 是词表大小，$H$ 是隐藏层维度，$E$ 是训练轮数，$T$ 是语料大小。当 $V$ 达到百万级别时，Softmax输出层的计算成为不可接受的瓶颈。\nWord2Vec的核心贡献在于：通过简化模型架构和引入高效训练技巧，将词向量学习的规模提升了几个数量级。\nWord2Vec的核心机制 CBOW：从上下文预测中心词 **Continuous Bag-of-Words（CBOW）**模型通过上下文词预测中心词。给定上下文窗口 $c$，目标是最大化：\n$$ P(w_t | w_{t-c}, \\ldots, w_{t-1}, w_{t+1}, \\ldots, w_{t+c}) $$\nCBOW的计算过程：\n输入层：将上下文词的one-hot编码转换为词向量 投影层：对上下文词向量取平均 $$ h = \\frac{1}{2c} \\sum_{j=-c, j \\neq 0}^{c} v_{w_{t+j}} $$\n输出层：计算中心词的概率分布 $$ P(w_t | \\text{context}) = \\frac{\\exp(v’{w_t}^\\top h)}{\\sum{w=1}^{V} \\exp(v’_w^\\top h)} $$\n其中 $v_w$ 是词 $w$ 的输入向量，$v’_w$ 是输出向量。\nSkip-gram：从中心词预测上下文 Skip-gram模型与CBOW相反，通过中心词预测上下文词。给定中心词 $w_t$，目标是最大化：\n$$ P(w_{t-c}, \\ldots, w_{t+c} | w_t) = \\prod_{j=-c, j \\neq 0}^{c} P(w_{t+j} | w_t) $$\n每个上下文词的预测概率为：\n$$ P(w_o | w_i) = \\frac{\\exp(v’{w_o}^\\top v{w_i})}{\\sum_{w=1}^{V} \\exp(v’w^\\top v{w_i})} $$\nSkip-gram的训练目标是最大化对数似然：\n$$ \\mathcal{L} = \\sum_{t=1}^{T} \\sum_{j=-c, j \\neq 0}^{c} \\log P(w_{t+j} | w_t) $$\nSkip-gram在处理稀有词和小规模语料时表现更好，因为每个词有多次作为中心词被训练的机会。\n高效训练技巧 Word2Vec的突破性在于引入了两种高效训练技巧，将Softmax的 $O(V)$ 复杂度大幅降低。\n**负采样（Negative Sampling）**将多分类问题转化为二分类问题。对于每个正样本（中心词-上下文词对），随机采样 $k$ 个负样本（中心词-随机词对）。\n目标函数变为：\n$$ \\log \\sigma(v’{w_o}^\\top v{w_i}) + \\sum_{j=1}^{k} \\mathbb{E}{w_j \\sim P_n(w)} [\\log \\sigma(-v’{w_j}^\\top v_{w_i})] $$\n其中 $\\sigma(x) = \\frac{1}{1+e^{-x}}$ 是sigmoid函数，$P_n(w)$ 是负样本分布（通常采用单词频率的3/4次方）。\n负采样将复杂度从 $O(V)$ 降至 $O(k)$，其中 $k$ 通常取5-20。\n**层次Softmax（Hierarchical Softmax）**使用Huffman树结构，将Softmax的 $O(V)$ 复杂度降至 $O(\\log V)$。每个词对应树中的一条路径，从根节点到叶节点的路径决定了词的概率。\n路径上每个节点的二分类概率为：\n$$ P(n, \\text{left}) = \\sigma(v’n^\\top v{w_i}) $$\n词的概率是路径上所有节点概率的乘积：\n$$ P(w | w_i) = \\prod_{n \\in \\text{path}(w)} P(n, \\text{direction}) $$\n词向量的神奇性质 语义线性结构 Word2Vec学到的词向量展现出惊人的线性结构。最著名的例子是：\n$$ \\vec{v}{king} - \\vec{v}{man} + \\vec{v}{woman} \\approx \\vec{v}{queen} $$\n这意味着\"king\"和\"man\"之间的关系（性别差异）与\"queen\"和\"woman\"之间的关系相似，且这种关系可以通过向量运算捕捉。\n类似的关系还包括：\n国家-首都：$\\vec{v}{Paris} - \\vec{v}{France} + \\vec{v}{Italy} \\approx \\vec{v}{Rome}$ 动词时态：$\\vec{v}{walking} - \\vec{v}{walk} + \\vec{v}{swim} \\approx \\vec{v}{swimming}$ 比较级：$\\vec{v}{bigger} - \\vec{v}{big} + \\vec{v}{small} \\approx \\vec{v}{smaller}$ 向量空间的几何意义 词向量空间具有丰富的几何结构。语义相似的词在空间中形成聚类，语义关系表现为向量间的方向。\n余弦相似度是衡量词语相似性的常用指标：\n$$ \\text{sim}(w_1, w_2) = \\frac{v_{w_1} \\cdot v_{w_2}}{|v_{w_1}| \\cdot |v_{w_2}|} $$\n通过最近邻搜索，可以找到语义最相近的词：\n查询词 最近邻词 king queen, prince, monarch, ruler computer software, hardware, laptop, PC beautiful gorgeous, pretty, lovely, stunning 迁移学习的先驱 Word2Vec开创了NLP中预训练-微调范式的先河。在大规模语料上预训练的词向量可以直接用于下游任务，显著提升性能。\n这一思想后来发展为：\nELMo（2018）：上下文相关的词向量 BERT（2018）：双向Transformer预训练 GPT系列（2018-2023）：单向Transformer生成式预训练 评估与应用 内在评估：词语类比任务 Google发布的词语类比数据集包含约20,000个类比问题，分为语义和句法两类。评估指标是类比问题的准确率。\n模型 语义准确率 句法准确率 总体准确率 CBOW (300维) 24% 64% 45% Skip-gram (300维) 55% 59% 57% Skip-gram (1000维) 66% 65% 66% 外在评估：下游任务性能 Word2Vec作为特征输入，在多个NLP任务上带来显著提升：\n任务 基线 +Word2Vec 提升 情感分析 80.5% 86.3% +5.8% 命名实体识别 84.2% 88.7% +4.5% 句法分析 89.1% 91.4% +2.3% 训练效率 Word2Vec的训练效率是其广泛采用的关键因素：\n语料规模 词表大小 训练时间 每秒处理词数 10亿词 100万 1天 ~100万 60亿词 300万 3天 ~230万 使用单机多线程即可在合理时间内处理大规模语料。\nWord2Vec的历史地位 承上启下的里程碑 Word2Vec在NLP发展史上具有承上启下的地位：\n承上：\n继承了分布式假设的语言学理论 延续了神经网络语言模型的思路 改进了LSA/LDA等矩阵分解方法的效率 启下：\n为深度学习在NLP中的应用奠定基础 开创了大规模预训练范式 启发了后续的ELMo、BERT、GPT系列 局限性与改进方向 Word2Vec也存在一些局限性：\n静态表示：每个词只有一个向量，无法处理多义词（如\"bank\"既可表示银行也可表示河岸） 缺乏上下文：词向量不随上下文变化，限制了表达能力 子词问题：无法处理未登录词（OOV）和形态学变化 这些局限性推动了后续研究：\nFastText（2016）：引入子词信息，处理形态学变化 ELMo（2018）：上下文相关的动态词向量 Transformer（2017）：自注意力机制，捕捉长距离依赖 阅读研究论文的时间线计划 本文在技术时间线中的位置 【当前位置】Word2Vec(2013) → Seq2Seq(2014) → Attention(2015) → Transformer(2017) → GPT-1(2018) → GPT-2(2019) → Scaling Laws(2020) → GPT-3(2020) → InstructGPT(2022) → ChatGPT 前置知识 在阅读本文之前，建议了解：\n信息论基础（熵、交叉熵、互信息） 神经网络基础（前向传播、反向传播、梯度下降） 概率语言模型（N-gram、统计语言模型） 后续论文推荐 完成本文后，建议按顺序阅读：\n【ChatGPT时刻02】Seq2Seq（下一篇）：序列到序列学习框架，是机器翻译和对话系统的基础 【ChatGPT时刻03】注意力机制：解决长距离依赖问题的关键突破 【ChatGPT时刻04】Transformer：现代大语言模型的架构基础 完整技术路线图 词表示革命 序列建模突破 大模型时代 │ │ │ Word2Vec ────────► Seq2Seq ─────────► Transformer ──────────► GPT-3 (2013) (2014) (2017) (2020) │ │ │ │ └── 词向量 └── 编码器-解码器 └── 自注意力 └── 涌现能力 嵌入层 Attention初现 位置编码 上下文学习 并行计算 指令遵循(RLHF) 参考文献 Mikolov, T., Chen, K., Corrado, G., \u0026 Dean, J. (2013). Efficient Estimation of Word Representations in Vector Space. arXiv preprint arXiv:1301.3781. Mikolov, T., Sutskever, I., Chen, K., Corrado, G., \u0026 Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. NeurIPS. Goldberg, Y., \u0026 Levy, O. (2014). word2vec Explained: Deriving Mikolov et al.’s Negative-Sampling Word-Embedding Method. arXiv preprint arXiv:1402.3722. Levy, O., \u0026 Goldberg, Y. (2014). Neural Word Embedding as Implicit Matrix Factorization. NeurIPS. Pennington, J., Socher, R., \u0026 Manning, C. D. (2014). GloVe: Global Vectors for Word Representation. EMNLP. ","wordCount":"531","inLanguage":"en","image":"https://blog.zhangky.com/images/logo.svg","datePublished":"2025-08-01T21:59:17+08:00","dateModified":"2025-08-01T21:59:17+08:00","author":{"@type":"Person","name":"ZHANG.z"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/"},"publisher":{"@type":"Organization","name":"Zhang's Blog","logo":{"@type":"ImageObject","url":"https://blog.zhangky.com/images/logo.svg"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://blog.zhangky.com/>Home</a>&nbsp;»&nbsp;<a href=https://blog.zhangky.com/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命</h1><div class=post-meta>ZHANG.z | <span title='2025-08-01 21:59:17 +0800 +0800'>August 1, 2025</span> | <span>17 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+<a href=https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></span></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e8%af%ad%e8%a8%80%e7%90%86%e8%a7%a3%e7%9a%84%e6%a0%b9%e6%9c%ac%e6%8c%91%e6%88%98 aria-label=语言理解的根本挑战>语言理解的根本挑战</a><ul><li><a href=#%e9%97%ae%e9%a2%98%e4%b8%80%e8%af%8d%e8%af%ad%e8%a1%a8%e7%a4%ba%e7%9a%84%e7%a6%bb%e6%95%a3%e6%80%a7%e5%9b%b0%e5%a2%83 aria-label=问题一：词语表示的离散性困境>问题一：词语表示的离散性困境</a></li><li><a href=#%e9%97%ae%e9%a2%98%e4%ba%8c%e5%88%86%e5%b8%83%e5%bc%8f%e5%81%87%e8%ae%be%e4%b8%8e%e5%90%91%e9%87%8f%e7%a9%ba%e9%97%b4 aria-label=问题二：分布式假设与向量空间>问题二：分布式假设与向量空间</a></li><li><a href=#%e9%97%ae%e9%a2%98%e4%b8%89%e8%ae%a1%e7%ae%97%e6%95%88%e7%8e%87%e7%9a%84%e7%93%b6%e9%a2%88 aria-label=问题三：计算效率的瓶颈>问题三：计算效率的瓶颈</a></li></ul></li><li><a href=#word2vec%e7%9a%84%e6%a0%b8%e5%bf%83%e6%9c%ba%e5%88%b6 aria-label=Word2Vec的核心机制>Word2Vec的核心机制</a><ul><li><a href=#cbow%e4%bb%8e%e4%b8%8a%e4%b8%8b%e6%96%87%e9%a2%84%e6%b5%8b%e4%b8%ad%e5%bf%83%e8%af%8d aria-label=CBOW：从上下文预测中心词>CBOW：从上下文预测中心词</a></li><li><a href=#skip-gram%e4%bb%8e%e4%b8%ad%e5%bf%83%e8%af%8d%e9%a2%84%e6%b5%8b%e4%b8%8a%e4%b8%8b%e6%96%87 aria-label=Skip-gram：从中心词预测上下文>Skip-gram：从中心词预测上下文</a></li><li><a href=#%e9%ab%98%e6%95%88%e8%ae%ad%e7%bb%83%e6%8a%80%e5%b7%a7 aria-label=高效训练技巧>高效训练技巧</a></li></ul></li><li><a href=#%e8%af%8d%e5%90%91%e9%87%8f%e7%9a%84%e7%a5%9e%e5%a5%87%e6%80%a7%e8%b4%a8 aria-label=词向量的神奇性质>词向量的神奇性质</a><ul><li><a href=#%e8%af%ad%e4%b9%89%e7%ba%bf%e6%80%a7%e7%bb%93%e6%9e%84 aria-label=语义线性结构>语义线性结构</a></li><li><a href=#%e5%90%91%e9%87%8f%e7%a9%ba%e9%97%b4%e7%9a%84%e5%87%a0%e4%bd%95%e6%84%8f%e4%b9%89 aria-label=向量空间的几何意义>向量空间的几何意义</a></li><li><a href=#%e8%bf%81%e7%a7%bb%e5%ad%a6%e4%b9%a0%e7%9a%84%e5%85%88%e9%a9%b1 aria-label=迁移学习的先驱>迁移学习的先驱</a></li></ul></li><li><a href=#%e8%af%84%e4%bc%b0%e4%b8%8e%e5%ba%94%e7%94%a8 aria-label=评估与应用>评估与应用</a><ul><li><a href=#%e5%86%85%e5%9c%a8%e8%af%84%e4%bc%b0%e8%af%8d%e8%af%ad%e7%b1%bb%e6%af%94%e4%bb%bb%e5%8a%a1 aria-label=内在评估：词语类比任务>内在评估：词语类比任务</a></li><li><a href=#%e5%a4%96%e5%9c%a8%e8%af%84%e4%bc%b0%e4%b8%8b%e6%b8%b8%e4%bb%bb%e5%8a%a1%e6%80%a7%e8%83%bd aria-label=外在评估：下游任务性能>外在评估：下游任务性能</a></li><li><a href=#%e8%ae%ad%e7%bb%83%e6%95%88%e7%8e%87 aria-label=训练效率>训练效率</a></li></ul></li><li><a href=#word2vec%e7%9a%84%e5%8e%86%e5%8f%b2%e5%9c%b0%e4%bd%8d aria-label=Word2Vec的历史地位>Word2Vec的历史地位</a><ul><li><a href=#%e6%89%bf%e4%b8%8a%e5%90%af%e4%b8%8b%e7%9a%84%e9%87%8c%e7%a8%8b%e7%a2%91 aria-label=承上启下的里程碑>承上启下的里程碑</a></li><li><a href=#%e5%b1%80%e9%99%90%e6%80%a7%e4%b8%8e%e6%94%b9%e8%bf%9b%e6%96%b9%e5%90%91 aria-label=局限性与改进方向>局限性与改进方向</a></li></ul></li><li><a href=#%e9%98%85%e8%af%bb%e7%a0%94%e7%a9%b6%e8%ae%ba%e6%96%87%e7%9a%84%e6%97%b6%e9%97%b4%e7%ba%bf%e8%ae%a1%e5%88%92 aria-label=阅读研究论文的时间线计划>阅读研究论文的时间线计划</a><ul><li><a href=#%e6%9c%ac%e6%96%87%e5%9c%a8%e6%8a%80%e6%9c%af%e6%97%b6%e9%97%b4%e7%ba%bf%e4%b8%ad%e7%9a%84%e4%bd%8d%e7%bd%ae aria-label=本文在技术时间线中的位置>本文在技术时间线中的位置</a></li><li><a href=#%e5%89%8d%e7%bd%ae%e7%9f%a5%e8%af%86 aria-label=前置知识>前置知识</a></li><li><a href=#%e5%90%8e%e7%bb%ad%e8%ae%ba%e6%96%87%e6%8e%a8%e8%8d%90 aria-label=后续论文推荐>后续论文推荐</a></li><li><a href=#%e5%ae%8c%e6%95%b4%e6%8a%80%e6%9c%af%e8%b7%af%e7%ba%bf%e5%9b%be aria-label=完整技术路线图>完整技术路线图</a></li></ul></li><li><a href=#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae aria-label=参考文献>参考文献</a></li></ul></div></details></div><div class=post-content><p>本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的<strong>起点</strong>——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。</p><hr><h2 id=语言理解的根本挑战>语言理解的根本挑战<a hidden class=anchor aria-hidden=true href=#语言理解的根本挑战>#</a></h2><h3 id=问题一词语表示的离散性困境>问题一：词语表示的离散性困境<a hidden class=anchor aria-hidden=true href=#问题一词语表示的离散性困境>#</a></h3><p>在传统NLP中，词语通常用one-hot编码表示。对于一个包含 $V$ 个词的词表，每个词被表示为一个 $V$ 维向量，只有对应位置为1，其余为0。</p><p>这种表示方法存在三个根本问题：</p><ul><li><strong>维度灾难</strong>：词表规模通常在万到百万级别，导致向量维度极高</li><li><strong>稀疏性</strong>：每个向量只有一个非零元素，绝大多数信息为0</li><li><strong>语义缺失</strong>：任意两个词的向量正交，无法表达语义相似性</li></ul><p>例如，&ldquo;king"和"queen"虽然语义相近，但在one-hot表示下：</p><p>$$
+\text{sim}(\text{king}, \text{queen}) = \text{king}^\top \cdot \text{queen} = 0
+$$</p><p>向量的内积为0，完全无法捕捉它们的语义关联。</p><h3 id=问题二分布式假设与向量空间>问题二：分布式假设与向量空间<a hidden class=anchor aria-hidden=true href=#问题二分布式假设与向量空间>#</a></h3><p>语言学中的<strong>分布式假设</strong>（Distributional Hypothesis）指出：&ldquo;一个词的含义由其上下文决定&rdquo;（You shall know a word by the company it keeps）。这一假设为词向量学习提供了理论基础。</p><p>如果我们能够将词映射到一个连续的向量空间，使得语义相似的词在空间中距离相近，那么：</p><ul><li>词之间的语义关系可以通过向量运算表达</li><li>模型可以泛化到未见过的词组合</li><li>下游任务可以利用预学习的语义知识</li></ul><p>问题是：如何高效地学习这样的词向量？</p><h3 id=问题三计算效率的瓶颈>问题三：计算效率的瓶颈<a hidden class=anchor aria-hidden=true href=#问题三计算效率的瓶颈>#</a></h3><p>在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：</p><p>$$
+\text{时间复杂度} = O(V \times H + H \times H) \times E \times T
+$$</p><p>其中 $V$ 是词表大小，$H$ 是隐藏层维度，$E$ 是训练轮数，$T$ 是语料大小。当 $V$ 达到百万级别时，Softmax输出层的计算成为不可接受的瓶颈。</p><p>Word2Vec的核心贡献在于：<strong>通过简化模型架构和引入高效训练技巧，将词向量学习的规模提升了几个数量级</strong>。</p><hr><h2 id=word2vec的核心机制>Word2Vec的核心机制<a hidden class=anchor aria-hidden=true href=#word2vec的核心机制>#</a></h2><h3 id=cbow从上下文预测中心词>CBOW：从上下文预测中心词<a hidden class=anchor aria-hidden=true href=#cbow从上下文预测中心词>#</a></h3><p>**Continuous Bag-of-Words（CBOW）**模型通过上下文词预测中心词。给定上下文窗口 $c$，目标是最大化：</p><p>$$
 P(w_t | w_{t-c}, \ldots, w_{t-1}, w_{t+1}, \ldots, w_{t+c})
-$$</p>
-<p>CBOW的计算过程：</p>
-<ol>
-<li><strong>输入层</strong>：将上下文词的one-hot编码转换为词向量</li>
-<li><strong>投影层</strong>：对上下文词向量取平均</li>
-</ol>
-<p>$$
+$$</p><p>CBOW的计算过程：</p><ol><li><strong>输入层</strong>：将上下文词的one-hot编码转换为词向量</li><li><strong>投影层</strong>：对上下文词向量取平均</li></ol><p>$$
 h = \frac{1}{2c} \sum_{j=-c, j \neq 0}^{c} v_{w_{t+j}}
-$$</p>
-<ol start="3">
-<li><strong>输出层</strong>：计算中心词的概率分布</li>
-</ol>
-<p>$$
+$$</p><ol start=3><li><strong>输出层</strong>：计算中心词的概率分布</li></ol><p>$$
 P(w_t | \text{context}) = \frac{\exp(v&rsquo;<em>{w_t}^\top h)}{\sum</em>{w=1}^{V} \exp(v&rsquo;_w^\top h)}
-$$</p>
-<p>其中 $v_w$ 是词 $w$ 的输入向量，$v&rsquo;_w$ 是输出向量。</p>
-<h3 id="skip-gram从中心词预测上下文">Skip-gram：从中心词预测上下文<a hidden class="anchor" aria-hidden="true" href="#skip-gram从中心词预测上下文">#</a></h3>
-<p><strong>Skip-gram</strong>模型与CBOW相反，通过中心词预测上下文词。给定中心词 $w_t$，目标是最大化：</p>
-<p>$$
+$$</p><p>其中 $v_w$ 是词 $w$ 的输入向量，$v&rsquo;_w$ 是输出向量。</p><h3 id=skip-gram从中心词预测上下文>Skip-gram：从中心词预测上下文<a hidden class=anchor aria-hidden=true href=#skip-gram从中心词预测上下文>#</a></h3><p><strong>Skip-gram</strong>模型与CBOW相反，通过中心词预测上下文词。给定中心词 $w_t$，目标是最大化：</p><p>$$
 P(w_{t-c}, \ldots, w_{t+c} | w_t) = \prod_{j=-c, j \neq 0}^{c} P(w_{t+j} | w_t)
-$$</p>
-<p>每个上下文词的预测概率为：</p>
-<p>$$
+$$</p><p>每个上下文词的预测概率为：</p><p>$$
 P(w_o | w_i) = \frac{\exp(v&rsquo;<em>{w_o}^\top v</em>{w_i})}{\sum_{w=1}^{V} \exp(v&rsquo;<em>w^\top v</em>{w_i})}
-$$</p>
-<p>Skip-gram的训练目标是最大化对数似然：</p>
-<p>$$
+$$</p><p>Skip-gram的训练目标是最大化对数似然：</p><p>$$
 \mathcal{L} = \sum_{t=1}^{T} \sum_{j=-c, j \neq 0}^{c} \log P(w_{t+j} | w_t)
-$$</p>
-<p>Skip-gram在处理稀有词和小规模语料时表现更好，因为每个词有多次作为中心词被训练的机会。</p>
-<h3 id="高效训练技巧">高效训练技巧<a hidden class="anchor" aria-hidden="true" href="#高效训练技巧">#</a></h3>
-<p>Word2Vec的突破性在于引入了两种高效训练技巧，将Softmax的 $O(V)$ 复杂度大幅降低。</p>
-<p>**负采样（Negative Sampling）**将多分类问题转化为二分类问题。对于每个正样本（中心词-上下文词对），随机采样 $k$ 个负样本（中心词-随机词对）。</p>
-<p>目标函数变为：</p>
-<p>$$
+$$</p><p>Skip-gram在处理稀有词和小规模语料时表现更好，因为每个词有多次作为中心词被训练的机会。</p><h3 id=高效训练技巧>高效训练技巧<a hidden class=anchor aria-hidden=true href=#高效训练技巧>#</a></h3><p>Word2Vec的突破性在于引入了两种高效训练技巧，将Softmax的 $O(V)$ 复杂度大幅降低。</p><p>**负采样（Negative Sampling）**将多分类问题转化为二分类问题。对于每个正样本（中心词-上下文词对），随机采样 $k$ 个负样本（中心词-随机词对）。</p><p>目标函数变为：</p><p>$$
 \log \sigma(v&rsquo;<em>{w_o}^\top v</em>{w_i}) + \sum_{j=1}^{k} \mathbb{E}<em>{w_j \sim P_n(w)} [\log \sigma(-v&rsquo;</em>{w_j}^\top v_{w_i})]
-$$</p>
-<p>其中 $\sigma(x) = \frac{1}{1+e^{-x}}$ 是sigmoid函数，$P_n(w)$ 是负样本分布（通常采用单词频率的3/4次方）。</p>
-<p>负采样将复杂度从 $O(V)$ 降至 $O(k)$，其中 $k$ 通常取5-20。</p>
-<p>**层次Softmax（Hierarchical Softmax）**使用Huffman树结构，将Softmax的 $O(V)$ 复杂度降至 $O(\log V)$。每个词对应树中的一条路径，从根节点到叶节点的路径决定了词的概率。</p>
-<p>路径上每个节点的二分类概率为：</p>
-<p>$$
+$$</p><p>其中 $\sigma(x) = \frac{1}{1+e^{-x}}$ 是sigmoid函数，$P_n(w)$ 是负样本分布（通常采用单词频率的3/4次方）。</p><p>负采样将复杂度从 $O(V)$ 降至 $O(k)$，其中 $k$ 通常取5-20。</p><p>**层次Softmax（Hierarchical Softmax）**使用Huffman树结构，将Softmax的 $O(V)$ 复杂度降至 $O(\log V)$。每个词对应树中的一条路径，从根节点到叶节点的路径决定了词的概率。</p><p>路径上每个节点的二分类概率为：</p><p>$$
 P(n, \text{left}) = \sigma(v&rsquo;<em>n^\top v</em>{w_i})
-$$</p>
-<p>词的概率是路径上所有节点概率的乘积：</p>
-<p>$$
+$$</p><p>词的概率是路径上所有节点概率的乘积：</p><p>$$
 P(w | w_i) = \prod_{n \in \text{path}(w)} P(n, \text{direction})
-$$</p>
-<hr>
-<h2 id="词向量的神奇性质">词向量的神奇性质<a hidden class="anchor" aria-hidden="true" href="#词向量的神奇性质">#</a></h2>
-<h3 id="语义线性结构">语义线性结构<a hidden class="anchor" aria-hidden="true" href="#语义线性结构">#</a></h3>
-<p>Word2Vec学到的词向量展现出惊人的线性结构。最著名的例子是：</p>
-<p>$$
+$$</p><hr><h2 id=词向量的神奇性质>词向量的神奇性质<a hidden class=anchor aria-hidden=true href=#词向量的神奇性质>#</a></h2><h3 id=语义线性结构>语义线性结构<a hidden class=anchor aria-hidden=true href=#语义线性结构>#</a></h3><p>Word2Vec学到的词向量展现出惊人的线性结构。最著名的例子是：</p><p>$$
 \vec{v}<em>{king} - \vec{v}</em>{man} + \vec{v}<em>{woman} \approx \vec{v}</em>{queen}
-$$</p>
-<p>这意味着&quot;king&quot;和&quot;man&quot;之间的关系（性别差异）与&quot;queen&quot;和&quot;woman&quot;之间的关系相似，且这种关系可以通过向量运算捕捉。</p>
-<p>类似的关系还包括：</p>
-<ul>
-<li><strong>国家-首都</strong>：$\vec{v}<em>{Paris} - \vec{v}</em>{France} + \vec{v}<em>{Italy} \approx \vec{v}</em>{Rome}$</li>
-<li><strong>动词时态</strong>：$\vec{v}<em>{walking} - \vec{v}</em>{walk} + \vec{v}<em>{swim} \approx \vec{v}</em>{swimming}$</li>
-<li><strong>比较级</strong>：$\vec{v}<em>{bigger} - \vec{v}</em>{big} + \vec{v}<em>{small} \approx \vec{v}</em>{smaller}$</li>
-</ul>
-<h3 id="向量空间的几何意义">向量空间的几何意义<a hidden class="anchor" aria-hidden="true" href="#向量空间的几何意义">#</a></h3>
-<p>词向量空间具有丰富的几何结构。语义相似的词在空间中形成聚类，语义关系表现为向量间的方向。</p>
-<p><strong>余弦相似度</strong>是衡量词语相似性的常用指标：</p>
-<p>$$
+$$</p><p>这意味着"king"和"man"之间的关系（性别差异）与"queen"和"woman"之间的关系相似，且这种关系可以通过向量运算捕捉。</p><p>类似的关系还包括：</p><ul><li><strong>国家-首都</strong>：$\vec{v}<em>{Paris} - \vec{v}</em>{France} + \vec{v}<em>{Italy} \approx \vec{v}</em>{Rome}$</li><li><strong>动词时态</strong>：$\vec{v}<em>{walking} - \vec{v}</em>{walk} + \vec{v}<em>{swim} \approx \vec{v}</em>{swimming}$</li><li><strong>比较级</strong>：$\vec{v}<em>{bigger} - \vec{v}</em>{big} + \vec{v}<em>{small} \approx \vec{v}</em>{smaller}$</li></ul><h3 id=向量空间的几何意义>向量空间的几何意义<a hidden class=anchor aria-hidden=true href=#向量空间的几何意义>#</a></h3><p>词向量空间具有丰富的几何结构。语义相似的词在空间中形成聚类，语义关系表现为向量间的方向。</p><p><strong>余弦相似度</strong>是衡量词语相似性的常用指标：</p><p>$$
 \text{sim}(w_1, w_2) = \frac{v_{w_1} \cdot v_{w_2}}{|v_{w_1}| \cdot |v_{w_2}|}
-$$</p>
-<p>通过最近邻搜索，可以找到语义最相近的词：</p>
-<table>
-  <thead>
-      <tr>
-          <th>查询词</th>
-          <th>最近邻词</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>king</td>
-          <td>queen, prince, monarch, ruler</td>
-      </tr>
-      <tr>
-          <td>computer</td>
-          <td>software, hardware, laptop, PC</td>
-      </tr>
-      <tr>
-          <td>beautiful</td>
-          <td>gorgeous, pretty, lovely, stunning</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="迁移学习的先驱">迁移学习的先驱<a hidden class="anchor" aria-hidden="true" href="#迁移学习的先驱">#</a></h3>
-<p>Word2Vec开创了NLP中<strong>预训练-微调</strong>范式的先河。在大规模语料上预训练的词向量可以直接用于下游任务，显著提升性能。</p>
-<p>这一思想后来发展为：</p>
-<ul>
-<li><strong>ELMo</strong>（2018）：上下文相关的词向量</li>
-<li><strong>BERT</strong>（2018）：双向Transformer预训练</li>
-<li><strong>GPT系列</strong>（2018-2023）：单向Transformer生成式预训练</li>
-</ul>
-<hr>
-<h2 id="评估与应用">评估与应用<a hidden class="anchor" aria-hidden="true" href="#评估与应用">#</a></h2>
-<h3 id="内在评估词语类比任务">内在评估：词语类比任务<a hidden class="anchor" aria-hidden="true" href="#内在评估词语类比任务">#</a></h3>
-<p>Google发布的词语类比数据集包含约20,000个类比问题，分为语义和句法两类。评估指标是类比问题的准确率。</p>
-<table>
-  <thead>
-      <tr>
-          <th>模型</th>
-          <th>语义准确率</th>
-          <th>句法准确率</th>
-          <th>总体准确率</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>CBOW (300维)</td>
-          <td>24%</td>
-          <td>64%</td>
-          <td>45%</td>
-      </tr>
-      <tr>
-          <td>Skip-gram (300维)</td>
-          <td>55%</td>
-          <td>59%</td>
-          <td>57%</td>
-      </tr>
-      <tr>
-          <td>Skip-gram (1000维)</td>
-          <td>66%</td>
-          <td>65%</td>
-          <td>66%</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="外在评估下游任务性能">外在评估：下游任务性能<a hidden class="anchor" aria-hidden="true" href="#外在评估下游任务性能">#</a></h3>
-<p>Word2Vec作为特征输入，在多个NLP任务上带来显著提升：</p>
-<table>
-  <thead>
-      <tr>
-          <th>任务</th>
-          <th>基线</th>
-          <th>+Word2Vec</th>
-          <th>提升</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>情感分析</td>
-          <td>80.5%</td>
-          <td>86.3%</td>
-          <td>+5.8%</td>
-      </tr>
-      <tr>
-          <td>命名实体识别</td>
-          <td>84.2%</td>
-          <td>88.7%</td>
-          <td>+4.5%</td>
-      </tr>
-      <tr>
-          <td>句法分析</td>
-          <td>89.1%</td>
-          <td>91.4%</td>
-          <td>+2.3%</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="训练效率">训练效率<a hidden class="anchor" aria-hidden="true" href="#训练效率">#</a></h3>
-<p>Word2Vec的训练效率是其广泛采用的关键因素：</p>
-<table>
-  <thead>
-      <tr>
-          <th>语料规模</th>
-          <th>词表大小</th>
-          <th>训练时间</th>
-          <th>每秒处理词数</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>10亿词</td>
-          <td>100万</td>
-          <td>1天</td>
-          <td>~100万</td>
-      </tr>
-      <tr>
-          <td>60亿词</td>
-          <td>300万</td>
-          <td>3天</td>
-          <td>~230万</td>
-      </tr>
-  </tbody>
-</table>
-<p>使用单机多线程即可在合理时间内处理大规模语料。</p>
-<hr>
-<h2 id="word2vec的历史地位">Word2Vec的历史地位<a hidden class="anchor" aria-hidden="true" href="#word2vec的历史地位">#</a></h2>
-<h3 id="承上启下的里程碑">承上启下的里程碑<a hidden class="anchor" aria-hidden="true" href="#承上启下的里程碑">#</a></h3>
-<p>Word2Vec在NLP发展史上具有承上启下的地位：</p>
-<p><strong>承上</strong>：</p>
-<ul>
-<li>继承了分布式假设的语言学理论</li>
-<li>延续了神经网络语言模型的思路</li>
-<li>改进了LSA/LDA等矩阵分解方法的效率</li>
-</ul>
-<p><strong>启下</strong>：</p>
-<ul>
-<li>为深度学习在NLP中的应用奠定基础</li>
-<li>开创了大规模预训练范式</li>
-<li>启发了后续的ELMo、BERT、GPT系列</li>
-</ul>
-<h3 id="局限性与改进方向">局限性与改进方向<a hidden class="anchor" aria-hidden="true" href="#局限性与改进方向">#</a></h3>
-<p>Word2Vec也存在一些局限性：</p>
-<ol>
-<li><strong>静态表示</strong>：每个词只有一个向量，无法处理多义词（如&quot;bank&quot;既可表示银行也可表示河岸）</li>
-<li><strong>缺乏上下文</strong>：词向量不随上下文变化，限制了表达能力</li>
-<li><strong>子词问题</strong>：无法处理未登录词（OOV）和形态学变化</li>
-</ol>
-<p>这些局限性推动了后续研究：</p>
-<ul>
-<li><strong>FastText</strong>（2016）：引入子词信息，处理形态学变化</li>
-<li><strong>ELMo</strong>（2018）：上下文相关的动态词向量</li>
-<li><strong>Transformer</strong>（2017）：自注意力机制，捕捉长距离依赖</li>
-</ul>
-<hr>
-<h2 id="阅读研究论文的时间线计划">阅读研究论文的时间线计划<a hidden class="anchor" aria-hidden="true" href="#阅读研究论文的时间线计划">#</a></h2>
-<h3 id="本文在技术时间线中的位置">本文在技术时间线中的位置<a hidden class="anchor" aria-hidden="true" href="#本文在技术时间线中的位置">#</a></h3>
-<pre tabindex="0"><code>【当前位置】Word2Vec(2013) → Seq2Seq(2014) → Attention(2015) → Transformer(2017) 
+$$</p><p>通过最近邻搜索，可以找到语义最相近的词：</p><table><thead><tr><th>查询词</th><th>最近邻词</th></tr></thead><tbody><tr><td>king</td><td>queen, prince, monarch, ruler</td></tr><tr><td>computer</td><td>software, hardware, laptop, PC</td></tr><tr><td>beautiful</td><td>gorgeous, pretty, lovely, stunning</td></tr></tbody></table><h3 id=迁移学习的先驱>迁移学习的先驱<a hidden class=anchor aria-hidden=true href=#迁移学习的先驱>#</a></h3><p>Word2Vec开创了NLP中<strong>预训练-微调</strong>范式的先河。在大规模语料上预训练的词向量可以直接用于下游任务，显著提升性能。</p><p>这一思想后来发展为：</p><ul><li><strong>ELMo</strong>（2018）：上下文相关的词向量</li><li><strong>BERT</strong>（2018）：双向Transformer预训练</li><li><strong>GPT系列</strong>（2018-2023）：单向Transformer生成式预训练</li></ul><hr><h2 id=评估与应用>评估与应用<a hidden class=anchor aria-hidden=true href=#评估与应用>#</a></h2><h3 id=内在评估词语类比任务>内在评估：词语类比任务<a hidden class=anchor aria-hidden=true href=#内在评估词语类比任务>#</a></h3><p>Google发布的词语类比数据集包含约20,000个类比问题，分为语义和句法两类。评估指标是类比问题的准确率。</p><table><thead><tr><th>模型</th><th>语义准确率</th><th>句法准确率</th><th>总体准确率</th></tr></thead><tbody><tr><td>CBOW (300维)</td><td>24%</td><td>64%</td><td>45%</td></tr><tr><td>Skip-gram (300维)</td><td>55%</td><td>59%</td><td>57%</td></tr><tr><td>Skip-gram (1000维)</td><td>66%</td><td>65%</td><td>66%</td></tr></tbody></table><h3 id=外在评估下游任务性能>外在评估：下游任务性能<a hidden class=anchor aria-hidden=true href=#外在评估下游任务性能>#</a></h3><p>Word2Vec作为特征输入，在多个NLP任务上带来显著提升：</p><table><thead><tr><th>任务</th><th>基线</th><th>+Word2Vec</th><th>提升</th></tr></thead><tbody><tr><td>情感分析</td><td>80.5%</td><td>86.3%</td><td>+5.8%</td></tr><tr><td>命名实体识别</td><td>84.2%</td><td>88.7%</td><td>+4.5%</td></tr><tr><td>句法分析</td><td>89.1%</td><td>91.4%</td><td>+2.3%</td></tr></tbody></table><h3 id=训练效率>训练效率<a hidden class=anchor aria-hidden=true href=#训练效率>#</a></h3><p>Word2Vec的训练效率是其广泛采用的关键因素：</p><table><thead><tr><th>语料规模</th><th>词表大小</th><th>训练时间</th><th>每秒处理词数</th></tr></thead><tbody><tr><td>10亿词</td><td>100万</td><td>1天</td><td>~100万</td></tr><tr><td>60亿词</td><td>300万</td><td>3天</td><td>~230万</td></tr></tbody></table><p>使用单机多线程即可在合理时间内处理大规模语料。</p><hr><h2 id=word2vec的历史地位>Word2Vec的历史地位<a hidden class=anchor aria-hidden=true href=#word2vec的历史地位>#</a></h2><h3 id=承上启下的里程碑>承上启下的里程碑<a hidden class=anchor aria-hidden=true href=#承上启下的里程碑>#</a></h3><p>Word2Vec在NLP发展史上具有承上启下的地位：</p><p><strong>承上</strong>：</p><ul><li>继承了分布式假设的语言学理论</li><li>延续了神经网络语言模型的思路</li><li>改进了LSA/LDA等矩阵分解方法的效率</li></ul><p><strong>启下</strong>：</p><ul><li>为深度学习在NLP中的应用奠定基础</li><li>开创了大规模预训练范式</li><li>启发了后续的ELMo、BERT、GPT系列</li></ul><h3 id=局限性与改进方向>局限性与改进方向<a hidden class=anchor aria-hidden=true href=#局限性与改进方向>#</a></h3><p>Word2Vec也存在一些局限性：</p><ol><li><strong>静态表示</strong>：每个词只有一个向量，无法处理多义词（如"bank"既可表示银行也可表示河岸）</li><li><strong>缺乏上下文</strong>：词向量不随上下文变化，限制了表达能力</li><li><strong>子词问题</strong>：无法处理未登录词（OOV）和形态学变化</li></ol><p>这些局限性推动了后续研究：</p><ul><li><strong>FastText</strong>（2016）：引入子词信息，处理形态学变化</li><li><strong>ELMo</strong>（2018）：上下文相关的动态词向量</li><li><strong>Transformer</strong>（2017）：自注意力机制，捕捉长距离依赖</li></ul><hr><h2 id=阅读研究论文的时间线计划>阅读研究论文的时间线计划<a hidden class=anchor aria-hidden=true href=#阅读研究论文的时间线计划>#</a></h2><h3 id=本文在技术时间线中的位置>本文在技术时间线中的位置<a hidden class=anchor aria-hidden=true href=#本文在技术时间线中的位置>#</a></h3><pre tabindex=0><code>【当前位置】Word2Vec(2013) → Seq2Seq(2014) → Attention(2015) → Transformer(2017) 
 → GPT-1(2018) → GPT-2(2019) → Scaling Laws(2020) → GPT-3(2020) → InstructGPT(2022) → ChatGPT
-</code></pre><h3 id="前置知识">前置知识<a hidden class="anchor" aria-hidden="true" href="#前置知识">#</a></h3>
-<p>在阅读本文之前，建议了解：</p>
-<ul>
-<li>信息论基础（熵、交叉熵、互信息）</li>
-<li>神经网络基础（前向传播、反向传播、梯度下降）</li>
-<li>概率语言模型（N-gram、统计语言模型）</li>
-</ul>
-<h3 id="后续论文推荐">后续论文推荐<a hidden class="anchor" aria-hidden="true" href="#后续论文推荐">#</a></h3>
-<p>完成本文后，建议按顺序阅读：</p>
-<ol>
-<li><strong>【ChatGPT时刻02】Seq2Seq</strong>（下一篇）：序列到序列学习框架，是机器翻译和对话系统的基础</li>
-<li><strong>【ChatGPT时刻03】注意力机制</strong>：解决长距离依赖问题的关键突破</li>
-<li><strong>【ChatGPT时刻04】Transformer</strong>：现代大语言模型的架构基础</li>
-</ol>
-<h3 id="完整技术路线图">完整技术路线图<a hidden class="anchor" aria-hidden="true" href="#完整技术路线图">#</a></h3>
-<pre tabindex="0"><code>词表示革命                    序列建模突破                  大模型时代
+</code></pre><h3 id=前置知识>前置知识<a hidden class=anchor aria-hidden=true href=#前置知识>#</a></h3><p>在阅读本文之前，建议了解：</p><ul><li>信息论基础（熵、交叉熵、互信息）</li><li>神经网络基础（前向传播、反向传播、梯度下降）</li><li>概率语言模型（N-gram、统计语言模型）</li></ul><h3 id=后续论文推荐>后续论文推荐<a hidden class=anchor aria-hidden=true href=#后续论文推荐>#</a></h3><p>完成本文后，建议按顺序阅读：</p><ol><li><strong>【ChatGPT时刻02】Seq2Seq</strong>（下一篇）：序列到序列学习框架，是机器翻译和对话系统的基础</li><li><strong>【ChatGPT时刻03】注意力机制</strong>：解决长距离依赖问题的关键突破</li><li><strong>【ChatGPT时刻04】Transformer</strong>：现代大语言模型的架构基础</li></ol><h3 id=完整技术路线图>完整技术路线图<a hidden class=anchor aria-hidden=true href=#完整技术路线图>#</a></h3><pre tabindex=0><code>词表示革命                    序列建模突破                  大模型时代
     │                            │                           │
 Word2Vec ────────► Seq2Seq ─────────► Transformer ──────────► GPT-3
 (2013)            (2014)              (2017)                  (2020)
@@ -716,166 +109,9 @@ Word2Vec ────────► Seq2Seq ─────────► Tran
     └── 词向量        └── 编码器-解码器     └── 自注意力           └── 涌现能力
         嵌入层            Attention初现          位置编码              上下文学习
                                                并行计算              指令遵循(RLHF)
-</code></pre><hr>
-<h2 id="参考文献">参考文献<a hidden class="anchor" aria-hidden="true" href="#参考文献">#</a></h2>
-<ul>
-<li>Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013). Efficient Estimation of Word Representations in Vector Space. <em>arXiv preprint arXiv:1301.3781</em>.</li>
-<li>Mikolov, T., Sutskever, I., Chen, K., Corrado, G., &amp; Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. <em>NeurIPS</em>.</li>
-<li>Goldberg, Y., &amp; Levy, O. (2014). word2vec Explained: Deriving Mikolov et al.&rsquo;s Negative-Sampling Word-Embedding Method. <em>arXiv preprint arXiv:1402.3722</em>.</li>
-<li>Levy, O., &amp; Goldberg, Y. (2014). Neural Word Embedding as Implicit Matrix Factorization. <em>NeurIPS</em>.</li>
-<li>Pennington, J., Socher, R., &amp; Manning, C. D. (2014). GloVe: Global Vectors for Word Representation. <em>EMNLP</em>.</li>
-</ul>
-<hr>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://blog.zhangky.com/tags/word2vec/">Word2Vec</a></li>
-      <li><a href="https://blog.zhangky.com/tags/%E8%AF%8D%E5%90%91%E9%87%8F/">词向量</a></li>
-      <li><a href="https://blog.zhangky.com/tags/nlp/">NLP</a></li>
-    </ul>
-<nav class="paginav">
-  <a class="prev" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架</span>
-  </a>
-  <a class="next" href="https://blog.zhangky.com/posts/2025/2025-07-edge-ai/">
-    <span class="title">Next »</span>
-    <br>
-    <span>边缘AI：美国在连接设备，中国在连接城市</span>
-  </a>
-</nav>
-
-
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-</body>
-
-</html>
+</code></pre><hr><h2 id=参考文献>参考文献<a hidden class=anchor aria-hidden=true href=#参考文献>#</a></h2><ul><li>Mikolov, T., Chen, K., Corrado, G., & Dean, J. (2013). Efficient Estimation of Word Representations in Vector Space. <em>arXiv preprint arXiv:1301.3781</em>.</li><li>Mikolov, T., Sutskever, I., Chen, K., Corrado, G., & Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. <em>NeurIPS</em>.</li><li>Goldberg, Y., & Levy, O. (2014). word2vec Explained: Deriving Mikolov et al.&rsquo;s Negative-Sampling Word-Embedding Method. <em>arXiv preprint arXiv:1402.3722</em>.</li><li>Levy, O., & Goldberg, Y. (2014). Neural Word Embedding as Implicit Matrix Factorization. <em>NeurIPS</em>.</li><li>Pennington, J., Socher, R., & Manning, C. D. (2014). GloVe: Global Vectors for Word Representation. <em>EMNLP</em>.</li></ul><hr></div><footer class=post-footer><ul class=post-tags><li><a href=https://blog.zhangky.com/tags/word2vec/>Word2Vec</a></li><li><a href=https://blog.zhangky.com/tags/%E8%AF%8D%E5%90%91%E9%87%8F/>词向量</a></li><li><a href=https://blog.zhangky.com/tags/nlp/>NLP</a></li></ul><nav class=paginav><a class=prev href=https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/><span class=title>« Prev</span><br><span>【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架</span>
+</a><a class=next href=https://blog.zhangky.com/posts/2025/2025-07-edge-ai/><span class=title>Next »</span><br><span>边缘AI：美国在连接设备，中国在连接城市</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
