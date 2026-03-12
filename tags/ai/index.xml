@@ -11,8 +11,28 @@
     </image>
     <generator>Hugo -- 0.157.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 11 Mar 2026 20:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 17:45:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Coding Agents 正在重塑工程、产品与设计的分工逻辑</title>
+      <link>https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/</link>
+      <pubDate>Thu, 12 Mar 2026 17:45:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Coding Agents 重塑 EPD&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/03/coding-agents-reshaping-epd-cover.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;软件公司的工程（Engineering）、产品（Product）与设计（Design）——EPD 三位一体——本质是造出能用的软件。分工虽细，最终交付物只是一行行代码。&lt;/p&gt;
+&lt;p&gt;但 Coding Agents 让代码突然变得极度廉价。&lt;/p&gt;
+&lt;p&gt;2026 年 3 月初，LangChain 创始人 Harrison Chase 在 X 发布长文，直言「PRDs 已死」，引发业内 69.5 万次阅读、近 4000 次收藏。他提出一个核心判断：当实现成本趋近于零，EPD 的瓶颈将从「写代码」转向「审代码」，三种角色将重新排布。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;prds-已死从文档驱动的瀑布流到原型驱动的迭代流&#34;&gt;PRDs 已死：从文档驱动的瀑布流，到原型驱动的迭代流&lt;/h2&gt;
+&lt;p&gt;传统软件开发流程是一条清晰的瀑布：有人（通常是产品经理）想出一个点子 → 产品经理写 PRD（产品需求文档）→ 设计师按 PRD 画 Mock → 工程师把 Mock 变成代码。&lt;/p&gt;
+&lt;p&gt;这条路径 textbooks 般标准，但并非铁律。创业公司里这些步骤常常混在一起，最优秀的 Builder 往往能跨多个环节。但之所以还有这条「标准流程」，是因为写软件（以及画 Mock）需要大量时间和精力。于是产生了专业分工，也产生了跨分工沟通的需求——PRD 就是这个沟通的基石，一切从这里开始，再瀑布流到设计、工程。&lt;/p&gt;
+&lt;p&gt;Coding Agents 改变了这一切。&lt;/p&gt;
+&lt;p&gt;Chase 的观点很直接：Coding Agents 可以把一个点子直接变成能用的软件。当他说「PRDs 已死」，他指的是这种以写 PRD 为起点的传统软件开发方式已死。&lt;/p&gt;
+&lt;p&gt;但这不意味着描述产品需求的文本已死。&lt;/p&gt;
+&lt;p&gt;假设某人有个想法，然后快速生成了一个原型。这个原型怎么进生产环境？它需要 EPD 其他成员审查。审查过程中，一个书面文档总是有帮助的，甚至是必需的——当别人在看代码时，怎么知道某段代码是误写的还是有意的？这取决于意图。而意图需要被传达。&lt;/p&gt;
+&lt;p&gt;Chase 认为，传统的 PRD → Mock → Code 流程已死，但描述产品需求的文本非常活跃。这份配套文档应该在原型被交接审查之前就准备好。&lt;/p&gt;
+&lt;p&gt;未来的 PRD 会是什么样子？Chase 抛出一个有趣的问题：如果未来的 PRD 就是结构化的、版本化的 Prompt 呢？&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Robin：叫人，开会！</title>
       <link>https://blog.zhangky.com/posts/2026/2026-03-11-baidu-how-to-lose-everything/</link>
