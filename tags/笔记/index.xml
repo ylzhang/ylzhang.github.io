@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>笔记 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 笔记 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 03 Feb 2026 22:37:37 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《反脆弱》与《非对称风险》读书笔记</title>
+      <link>https://blog.zhangky.com/posts/2026/2026-02-03-antifragile-skin-in-the-game-reading-note/</link>
+      <pubDate>Tue, 03 Feb 2026 22:37:37 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/2026-02-03-antifragile-skin-in-the-game-reading-note/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;反脆弱与切身利害&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/02/antifragile-skin-in-the-game-reading-note-summary.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;一图总览&lt;/strong&gt;：两本书一根讲「结构」（脆弱→强健→反脆弱），一根讲「激励」（谁承担后果谁才有资格决策）。林迪效应与杠铃策略是时间检验过的智慧；普通人要做的就是保持可选性、与有切身利害的人为伍。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;塔勒布说：脆弱的人寻求预测，反脆弱的人寻求选择权。风会吹灭蜡烛，却能让火越烧越旺。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;《反脆弱》（Antifragile，&lt;a href=&#34;https://www.amazon.com/dp/7521713974&#34;&gt;购书链接&lt;/a&gt;）和《非对称风险》（Skin in the Game，&lt;a href=&#34;https://www.amazon.com/dp/B0819TPKYL&#34;&gt;购书链接&lt;/a&gt;）是纳西姆·尼古拉斯·塔勒布（Nassim Nicholas Taleb）思想体系的两根主轴。前者回答「在不可预测的世界里，什么样的结构能从波动中获益」；后者回答「谁有权做决策——以及谁在把风险转嫁给你」。两本书都强烈推荐给科技、经济领域的读者，&lt;strong&gt;尤其推荐给管理者&lt;/strong&gt;：无论你管的是产品、团队、供应链还是投资组合，都会反复撞见「优化与冗余」「专业化与单点失败」「决策与后果分离」这些命题。下文用&lt;strong&gt;七层理解维度&lt;/strong&gt;组织这篇读书笔记：你可以只读到第一层就停，也可以一路烧脑到第七层；每一层都试图做到逻辑自洽，层与层之间由浅入深，最终希望不同背景的读者都能各取所需、读得酣畅。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;阅读与读者建议&lt;/strong&gt;：若你时间有限，读到&lt;strong&gt;第二层&lt;/strong&gt;即可掌握两书核心概念；若你是&lt;strong&gt;管理者&lt;/strong&gt;或做&lt;strong&gt;产品/供应链/投资&lt;/strong&gt;，建议至少读到&lt;strong&gt;第四层&lt;/strong&gt;（实例）和&lt;strong&gt;第七层&lt;/strong&gt;（如何做）；若你想理解塔勒布在思想史中的位置及与左派批判的对照，&lt;strong&gt;第三层、第五层&lt;/strong&gt;不可跳过；若你关心「这些观点事后被验证了吗」，&lt;strong&gt;第六层&lt;/strong&gt;专门回答。全文使用简体中文；专有名词首次出现时附英文，便于查证与延伸阅读。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第一层两本书在说什么&#34;&gt;第一层：两本书在说什么？&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;一句话概括：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;《反脆弱》&lt;/strong&gt;：现代社会为了「效率」和「可控」而消灭冗余、消灭波动、追求强健（robust），结果系统变得&lt;strong&gt;脆弱&lt;/strong&gt;——平时小赚，危机巨亏。更好的目标不是「不被击垮」，而是&lt;strong&gt;从波动和压力中获益&lt;/strong&gt;（反脆弱）。书中用凸性/凹性、林迪效应、杠铃策略等概念，把这套直觉数学化、可操作化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;《非对称风险》&lt;/strong&gt;：决策权和风险承担被系统性地分离了。专家、CEO、官僚、银行家用你的钱下注，赚了归他们，亏了归你——这就是&lt;strong&gt;风险转嫁&lt;/strong&gt;。书的核心主张是：&lt;strong&gt;谁承担后果，谁才有资格做决策&lt;/strong&gt;（skin in the game）；否则再多的「专业」和「理性」也只是在为转嫁风险背书。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;两本书合在一起，一个讲「结构」（反脆弱 vs 脆弱），一个讲「激励」（共担风险 vs 转嫁风险）；很多现代病，两者同时在场。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第二层核心概念&#34;&gt;第二层：核心概念&lt;/h2&gt;
+&lt;h3 id=&#34;反脆弱的四个锚点&#34;&gt;《反脆弱》的四个锚点&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;脆弱 / 强健 / 反脆弱&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;脆弱&lt;/strong&gt;：波动越大，损失越大（&lt;strong&gt;凹性&lt;/strong&gt;，concavity）。例如极限库存的供应链：平时省成本，一旦断链就停产。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强健&lt;/strong&gt;：波动来了，尽量不变（线性）。例如「百年一遇」的防洪标准：能扛一定冲击，但不会从冲击中变强。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反脆弱&lt;/strong&gt;：波动越大，获益越大（&lt;strong&gt;凸性&lt;/strong&gt;，convexity）。例如免疫系统：适度接触病原，反而更强；完全无菌，一遇外界就崩。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;林迪效应（Lindy effect）&lt;/strong&gt;&lt;br&gt;
+一个东西已经存活的时间越长，预期剩余寿命就越长。传统、习俗、历久不衰的制度里，往往浓缩了我们「说不清楚但有用」的智慧；用当下理性去替换它们，常常是在用简化版替代复杂版，风险自负。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;杠铃策略（barbell strategy）&lt;/strong&gt;&lt;br&gt;
+不要「中等风险、中等收益」的中间地带（那里往往最凹、最容易被转嫁）。要么极端保守（绝大部分资源极度安全），要么极端冒险（小部分资源允许全损），&lt;strong&gt;清空中间&lt;/strong&gt;。塔勒布自己的黑天鹅基金：九成以上放在短期国债，几个点买深度虚值看跌期权；平时小亏期权费，危机时大赚。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;可选性（optionality）&lt;/strong&gt;&lt;br&gt;
+保留「能试、能撤、能换」的选项，比追求「一次做对」更重要。反脆弱的人不寻求预测，而寻求&lt;strong&gt;选择权&lt;/strong&gt;：在不确定中保留上行空间、限制下行损失。杠铃、分散、可迁移技能，都是可选性的具体形式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;非对称风险的三个锚点&#34;&gt;《非对称风险》的三个锚点&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Skin in the game（切身利害）&lt;/strong&gt;&lt;br&gt;
+决策者必须和承受后果的人同一批。古罗马：建筑师设计的桥，建筑师要站在桥下；汉莫拉比：房子塌了压死人，建筑师的儿子抵命。一旦「设计者」和「受害者」分离，就会出现道德风险：拿别人的钱赌，赢了拿奖金，输了别人兜底。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;风险社会化、收益私有化&lt;/strong&gt;&lt;br&gt;
+银行太大不能倒，亏了纳税人救，赚了高管和股东拿；预售制下，开发商拿钱、政府拿地价、银行收利息，烂尾和质量风险却由购房者扛三十年。塔勒布的批判是：现代制度设计常常在&lt;strong&gt;系统地把下行风险转给普通人，把上行收益留给精英&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;有知识的白痴（IYI，intellectual yet idiot）&lt;/strong&gt;&lt;br&gt;
+有学位、会模型、活在「&lt;strong&gt;平均斯坦&lt;/strong&gt;」（Mediocristan）里的人——即日常波动小、极端值罕见的世界——在「&lt;strong&gt;极端斯坦&lt;/strong&gt;」（Extremistan）来临时（危机、黑天鹅）模型失效，但他们不承担后果，所以会继续给出「科学」建议。问题不在于他们不聪明，而在于&lt;strong&gt;激励错位&lt;/strong&gt;：他们的报酬不与结果绑定。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这一层把两本书的「概念骨架」抽出来；下一层放到一条更大的思想脉络里，你才能理解塔勒布在跟谁对话。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第三层论证主线与思想谱系&#34;&gt;第三层：论证主线与思想谱系&lt;/h2&gt;
+&lt;p&gt;塔勒布站在一条&lt;strong&gt;有别于主流左派&lt;/strong&gt;的现代性批判传统里。主流批判说：现代性的问题是&lt;strong&gt;不够激进&lt;/strong&gt;，要用更多理性、更多计划、更多专家来改造社会。塔勒布继承的那条线说：现代性的问题是&lt;strong&gt;太过狂妄&lt;/strong&gt;——不是计划太少，而是&lt;strong&gt;相信理性可以设计一切&lt;/strong&gt;，从而轻视传统、地方知识和试错演化。这条线可以简化为：&lt;strong&gt;柏克 → 哈耶克 → 斯科特 → 雅各布斯 → 塔勒布&lt;/strong&gt;。下面按你笔记中的精要，把每一块的论证与实例补足，方便你对照原书和后续延伸阅读。&lt;/p&gt;
+&lt;h3 id=&#34;柏克传统智慧对抗建构理性&#34;&gt;柏克：传统智慧对抗建构理性&lt;/h3&gt;
+&lt;p&gt;1790 年，埃德蒙·柏克在《法国大革命反思》里把论点归纳为三个层次，后来被反复引用。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一，传统不是迷信，而是几代人智慧的结晶。&lt;/strong&gt; 那些看起来「不理性」的制度、习俗、传统，是在漫长历史演化中形成的；能存活到今天，本身就说明它们有某种适应性。你用当下理性标准去审视它们，觉得不合逻辑，然后推翻、建立「理性的新制度」——但你的理性是有限的，你看到的只是表面逻辑，而传统里蕴含的智慧往往是&lt;strong&gt;隐性的、情境的、难以言说的&lt;/strong&gt;。柏克举了英国普通法：不是某一位立法者设计出来的，而是一个案例一个案例累积起来的；表面上看混乱、矛盾、缺乏系统性，但正是这种「混乱」让它能适用各种具体情境、在保持连续性的同时微调。相比之下，法国大革命从零开始用理性原则制定全新法律体系，结果是频繁的宪法更替、朝令夕改、社会秩序崩溃。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二，社会是有机体，不是机器。&lt;/strong&gt; 启蒙时代流行一种机械论的社会观：社会像钟表，由部件组成，可以拆开、按蓝图重新组装。柏克说这是根本性错误：社会更像一棵&lt;strong&gt;大树&lt;/strong&gt;，是几代人几百年慢慢长出来的，有看不见的根系、复杂的养分循环、无数微妙的平衡。你可以修剪枝叶、嫁接新枝，但不能把它连根拔起再期待重新栽种。法国大革命的错误就在于把社会当机器，按自由平等博爱的理性蓝图「重新组装」法国社会，结果则是恐怖统治、雅各宾专政、拿破仑军事独裁、欧洲连年战争。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Why did I study business in the AI era?：AI时代我为何选择再去读商科？</title>
+      <link>https://blog.zhangky.com/posts/2026/2026-01-06-why-did-i-study-business-in-the-ai-era/</link>
+      <pubDate>Tue, 06 Jan 2026 16:06:59 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/2026-01-06-why-did-i-study-business-in-the-ai-era/</guid>
+      <description>&lt;p&gt;回望求学与创业的征程，我始终感恩大学时期选择理科的决定。我的本科是计算机科学与技术，严谨的理科训练，让我养成了以数据为依据、以结果为导向的实证思维。这种&amp;quot;凡事求有效、凡事讲逻辑&amp;quot;的认知底色，帮我搞定了职业过程中理性的思考问题。在工作过程中这种思维模版帮我解决很多问题，比如产品迭代、流程优化这些&amp;quot;硬骨头&amp;quot;。但真到了从生产到市场环节打拼才发现，光会解决技术问题远远不够。好几次，我周围很多创业者拿着看似完美的产品推向市场，要么找不到精准客户，要么定价不合理导致盈利微薄，甚至因为没摸清行业周期，在市场低谷时盲目投入，亏了不少钱。这种&amp;quot;懂技术却不懂经营&amp;quot;的迷茫，让我彻底明白：创业的核心是盈利，而盈利的关键在于经营思维。也正因如此，我在21年选择攻读MBA。这段学习历程不是对过往理科知识的否定，而是给我补上了&amp;quot;经营&amp;quot;这堂关键必修课，让我从&amp;quot;做事&amp;quot;的层面，真正升级到&amp;quot;做局&amp;quot;的层面，成为我创业路上扭转困局的核心支撑。又一次我的老板在闲聊时问我，我为什么选择要读MBA呢，以上也是我的回答。&lt;/p&gt;
+&lt;p&gt;MBA最让我受益的，是帮我升级了视野。用经营思维，真正看见市场里藏在表象下的获利机会点。以前做市场，我只会盯着竞品的价格和功能，跟着别人的节奏走，永远赚不到认知之外的钱。但通过MBA里的经济学和市场分析课程，我学会了从供需关系、行业周期、政策导向的全局视角看市场。比如在分析细分领域时，我不再只看当下的销量，而是用经济模型预判未来的需求趋势，结合成本结构算出&amp;quot;最优盈利区间&amp;quot;，最终找到一个被大公司忽略的小众需求点。就像去年，我通过分析区域消费升级的经济数据，发现本地中小企业对&amp;quot;低成本数字化转型&amp;quot;的需求迫切，但市场上的解决方案要么太贵要么太复杂，于是我针对性地推出轻量化产品，短短半年就实现了盈利翻倍。这种&amp;quot;从经济规律里找机会，用经营思维抓盈利&amp;quot;的能力，正是商科学习带给我的核心价值。同时，不同学科的碰撞也让我打通了认知：管理学让我明白，找到机会只是第一步，能把机会落地的组织能力才是关键。商业历史案例则提醒我，再优质的获利机会，也需要避开周期陷阱，这都是保证收益稳定的重要前提。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;一个人做不大&amp;quot;的想法，在MBA学习中不仅得到印证，更让我找到了&amp;quot;整合全局&amp;quot;的经营解法。从市场分析到组织制度，搭建全方位的经营策略，才能让盈利持续放大。以前我带团队，只会把任务分配下去，却忽略了&amp;quot;组织能力要匹配市场机会&amp;rdquo;。比如找到轻量化数字化转型的机会后，初期因为团队分工模糊、激励不到位，导致交付效率低，客户投诉多，明明是好机会，却差点因为组织问题错失收益。后来，我把MBA学到的组织设计、激励机制知识用在实践中：先根据市场需求拆分核心业务模块，再对应搭建销售、交付、售后团队，同时设计&amp;quot;基础薪资+盈利分成&amp;quot;的激励方案，让团队目标和公司盈利目标绑定。这样一来，团队效率直接提升了40%，客户复购率也从30%涨到了60%。更重要的是，MBA圈层里的精英伙伴，不仅帮我验证了市场机会的可行性，还为我对接了不少中小企业资源，让我的经营策略能更快落地。这让我深刻体会到，商业盈利从来不是&amp;quot;单点突破&amp;quot;，而是&amp;quot;全局协同&amp;quot;。用市场分析找机会，用组织制度保落地，再用团队协作放大收益，这就是商科教给我的完整经营逻辑。&lt;/p&gt;
+&lt;p&gt;我曾反复琢磨&amp;quot;一人之公司的成长上限&amp;quot;，现在终于明白：个体的经营思维边界，就是盈利的上限。创业初期，我因为不懂经营，走了太多&amp;quot;赚小钱、丢大钱&amp;quot;的弯路。而MBA的学习，给我搭建起了从&amp;quot;找机会&amp;quot;到&amp;quot;稳盈利&amp;quot;的完整经营框架。比如用经济思维判断市场趋势，避免在周期低谷盲目投入。用成本收益模型优化定价策略，让每一笔订单都有合理利润。用战略规划思维布局长期业务，避免只盯着短期收益而错失长期机会。就像我现在做业务，会先通过市场分析锁定高毛利的细分领域，再根据行业周期调整投入节奏，同时用组织制度保障团队效率，最后通过客户关系管理提升复购率。这套流程下来，公司的盈利稳定性比以前提升了太多。这种&amp;quot;每一步决策都围绕经营盈利&amp;quot;的思维，是我以前靠理科思维永远悟不到的，也是商科学习带给我最宝贵的财富。&lt;/p&gt;
+&lt;p&gt;如今回望MBA的学习历程，我满心都是感恩。这份感恩，不只是因为它帮我赚到了更多钱，更因为它彻底重塑了我的经营认知。让我从一个只会&amp;quot;做事&amp;quot;的理科生，变成了一个懂得&amp;quot;做局&amp;quot;的经营者。让我明白，市场里的盈利机会从来都不是靠运气，而是靠经营思维的精准判断。让我掌握了从市场分析到组织制度的全局经营策略，能更从容地应对创业中的各种挑战。这段历程，是知识的积累，更是思维的蜕变、视野的升级。未来，我会带着这份经营智慧继续深耕创业之路，也始终铭记：商业的核心是盈利，而支撑盈利的，永远是扎实的经营思维。这就是我要读MBA的终极意义。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>商旅APP：伪装成C端产品的B端经济学困局</title>
+      <link>https://blog.zhangky.com/posts/2025/2025-11-business-travel-app/</link>
+      <pubDate>Tue, 25 Nov 2025 10:40:03 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/2025-11-business-travel-app/</guid>
+      <description>&lt;h2 id=&#34;凌晨两点的吐槽被商旅app支配的恐惧&#34;&gt;凌晨两点的吐槽：被商旅APP支配的恐惧&lt;/h2&gt;
+&lt;p&gt;上周出差广州，凌晨两点赶最后一班航班回北京。在机场休息室里，我抱着电脑对着公司指定的「XX商旅」APP发呆——同样是预订返程机票，在「携程」上30秒搞定的操作，在这款APP里我已经耗了15分钟：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一步填部门信息（明明系统里已经有我的档案）&lt;/li&gt;
+&lt;li&gt;第二步选审批单号（上个月的审批单还能选，我得翻5页找最新的）&lt;/li&gt;
+&lt;li&gt;第三步确认差旅标准（弹出3个提示框，必须逐一点「我知道了」）&lt;/li&gt;
+&lt;li&gt;第四步选座（只有3个靠窗位可选，携程上明明还剩12个）&lt;/li&gt;
+&lt;li&gt;第五步支付（提示「请选择支付方式」，但只有「企业月结」一个选项）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;终于提交成功时，我突然意识到：这款每天被上万员工使用的APP，根本不是什么C端产品——它只是披着C端外衣的B端工具，而这背后的逻辑扭曲，才是体验灾难的根源。&lt;/p&gt;
+&lt;h2 id=&#34;伪c端的本质买单的人不使用使用的人不买单&#34;&gt;「伪C端」的本质：买单的人不使用，使用的人不买单&lt;/h2&gt;
+&lt;p&gt;上周和HR部门的同事吃饭，聊起这款商旅APP。她无奈地说：「我们去年招标时对比了5家服务商，最后选这家是因为他们的差旅管控系统最完善——能限制员工只能订经济舱，能自动识别超标酒店，能导出财务需要的所有报表。」&lt;/p&gt;
+&lt;p&gt;我瞬间明白了：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;商旅APP的使用者是员工，但付费决策权在企业&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这种「权责分离」的模式直接决定了产品的设计优先级：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;企业关心「成本」：协议价低多少？能不能防止员工乱花钱？报表全不全？&lt;/li&gt;
+&lt;li&gt;商旅公司关心「订单」：企业想要什么功能，我就做什么功能，反正员工没得选&lt;/li&gt;
+&lt;li&gt;员工关心「体验」：这是最不重要的——因为我们既不买单，也没选择&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;某第三方评测机构2024年的报告很有意思：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;员工投诉TOP3：操作繁琐、价格偏高、选择少&lt;/li&gt;
+&lt;li&gt;企业采购TOP3：成本节约率、合规率、数据导出功能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;完全不在一个频道上。&lt;/p&gt;
+&lt;h2 id=&#34;产品人的愤怒技术不是问题态度才是&#34;&gt;产品人的愤怒：技术不是问题，态度才是&lt;/h2&gt;
+&lt;p&gt;作为产品经理，我专门拆解过这款APP的前端代码——&lt;/p&gt;
+&lt;p&gt;不是技术做不到，而是根本没用心做。&lt;/p&gt;
+&lt;p&gt;比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;登录页用的是5年前的表单组件，没有记住密码功能&lt;/li&gt;
+&lt;li&gt;搜索航班用的是分页加载，每页20条，翻页要重新请求&lt;/li&gt;
+&lt;li&gt;酒店详情页没有图片懒加载，打开需要8秒&lt;/li&gt;
+&lt;li&gt;个人信息页不能自动填充，每次都要重新输入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些问题，随便找个初级前端工程师都能一周内解决。但商旅公司为什么不做？&lt;/p&gt;
+&lt;p&gt;因为&lt;strong&gt;优化员工体验不能直接带来订单&lt;/strong&gt;。企业采购时不会问「你们APP的加载速度是多少」，只会问「你们能帮我们省多少钱」。&lt;/p&gt;
+&lt;p&gt;这种「甲方满意就行」的B端思维，和C端产品「用户至上」的逻辑，差了10个微信支付。&lt;/p&gt;
+&lt;h2 id=&#34;经济学的困局三方博弈的无解循环&#34;&gt;经济学的困局：三方博弈的无解循环&lt;/h2&gt;
+&lt;p&gt;深入想一层，这其实是一场「三角博弈」：&lt;/p&gt;
+&lt;h3 id=&#34;-企业我要成本可控&#34;&gt;🔵 企业：我要成本可控&lt;/h3&gt;
+&lt;p&gt;企业引入商旅APP的核心需求是「降低管理成本」。&lt;/p&gt;
+&lt;p&gt;以前员工出差，申请、审批、预订、报销全是线下流程，HR要核对，财务要审计，一年下来光人工成本就要几十万。现在用APP，所有流程线上化，数据自动统计，确实省了不少事。&lt;/p&gt;
+&lt;h3 id=&#34;-商旅公司我要利润最大化&#34;&gt;🟡 商旅公司：我要利润最大化&lt;/h3&gt;
+&lt;p&gt;商旅公司的商业模式很简单：靠企业订单量赚钱。&lt;/p&gt;
+&lt;p&gt;在竞争激烈的市场里，谁能满足企业的管控需求，谁就能拿到订单。优化前端体验需要额外投入研发资源，而且不能直接转化为竞争力——反正员工只能用指定平台，体验差点也不会流失客户。&lt;/p&gt;
+&lt;h3 id=&#34;-员工我要好用就行&#34;&gt;🔴 员工：我要好用就行&lt;/h3&gt;
+&lt;p&gt;员工作为最终用户，却是最没话语权的一方。&lt;/p&gt;
+&lt;p&gt;我们既不能选择用哪个APP，也不能直接反馈给商旅公司。唯一能做的，就是在茶水间吐槽两句，然后继续忍受糟糕的体验。&lt;/p&gt;
+&lt;p&gt;这三个利益方的目标根本无法调和：企业要「管得严」，商旅公司要「赚得多」，员工要「用得顺」——就像三个方向的力，把产品拉扯得面目全非。&lt;/p&gt;
+&lt;h2 id=&#34;b端产品的终极命题到底为谁服务&#34;&gt;B端产品的终极命题：到底为谁服务？&lt;/h2&gt;
+&lt;p&gt;上周参加产品经理沙龙，有位做企业服务的朋友说：「B端产品就是为付费客户服务的，员工体验不重要。」&lt;/p&gt;
+&lt;p&gt;我当场反驳：「那你有没有算过，员工每天花在糟糕APP上的时间，其实是企业的隐性成本？」&lt;/p&gt;
+&lt;p&gt;比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每个员工每月用商旅APP10次，每次多花5分钟&lt;/li&gt;
+&lt;li&gt;公司1000名员工，每月就是50000分钟 = 833小时&lt;/li&gt;
+&lt;li&gt;按平均时薪100元算，每月隐性成本就是83300元&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而且，糟糕的体验还会导致员工抵触情绪——我认识的好几个朋友，为了避开繁琐流程，宁愿自己先垫钱在个人平台预订，然后找发票报销。这反而违背了企业引入商旅APP的初衷：管控风险。&lt;/p&gt;
+&lt;h3 id=&#34;破局之道从管控工具到效率伙伴&#34;&gt;破局之道：从「管控工具」到「效率伙伴」&lt;/h3&gt;
+&lt;p&gt;其实已经有企业在尝试改变了。&lt;/p&gt;
+&lt;p&gt;我有个客户是一家互联网公司，他们要求商旅服务商做了这些改进：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;自动填充信息&lt;/strong&gt;：基于员工档案自动填写部门、职位、差旅标准&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能推荐&lt;/strong&gt;：根据员工历史偏好推荐酒店和航班&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;隐性管控&lt;/strong&gt;：管控逻辑在后台运行，前端只在超标时提示&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一键报销&lt;/strong&gt;：预订完成后自动生成报销单&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;结果如何？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;员工满意度提升了60%&lt;/li&gt;
+&lt;li&gt;预订流程耗时减少了70%&lt;/li&gt;
+&lt;li&gt;企业差旅成本反而下降了5%（因为员工不再绕开系统）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这才是真正的双赢：企业拿到了想要的管控，员工获得了良好的体验，商旅公司也留住了客户。&lt;/p&gt;
+&lt;h2 id=&#34;最后的思考&#34;&gt;最后的思考&lt;/h2&gt;
+&lt;p&gt;昨天我又用了一次那款商旅APP——还是一样的繁琐，一样的慢。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【AI数学】30分钟拆解AI核心公式-复习笔记</title>
+      <link>https://blog.zhangky.com/posts/2025/math-learn/2025-math-02-core-formulas/</link>
+      <pubDate>Thu, 16 Jan 2025 10:27:39 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/math-learn/2025-math-02-core-formulas/</guid>
+      <description>&lt;p&gt;上一篇我们搞定了符号，这一篇直接拆解AI论文中&lt;strong&gt;出现频率最高的6个公式&lt;/strong&gt;。每个公式都是：&lt;strong&gt;问题→公式→拆解→代码&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;前置要求&lt;/strong&gt;：读完上一篇符号速查手册。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一softmax与交叉熵损失&#34;&gt;一、Softmax与交叉熵损失&lt;/h2&gt;
+&lt;h3 id=&#34;问题如何把模型输出变成概率&#34;&gt;问题：如何把模型输出变成概率？&lt;/h3&gt;
+&lt;p&gt;神经网络输出的是一堆数字（logits），可能是负数、可能很大。我们需要把它们变成概率分布（非负、和为1）。&lt;/p&gt;
+&lt;h3 id=&#34;公式&#34;&gt;公式&lt;/h3&gt;
+&lt;p&gt;$$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_{j=1}^{K} e^{x_j}}$$&lt;/p&gt;
+&lt;h3 id=&#34;拆解&#34;&gt;拆解&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;$e^{x_i}$&lt;/strong&gt;：指数函数，把任意数变成正数&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;$\sum_{j=1}^{K} e^{x_j}$&lt;/strong&gt;：所有指数的和，用于归一化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;除法&lt;/strong&gt;：确保结果和为1&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;为什么用指数？&lt;/strong&gt; 因为指数函数会放大差异——大的更大，小的更小，让模型更&amp;quot;自信&amp;quot;。&lt;/p&gt;
+&lt;h3 id=&#34;代码实现&#34;&gt;代码实现&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;softmax&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    输入: x, shape (K,) 或 (batch, K)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    输出: 概率分布，shape同输入
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# 减去最大值防止数值溢出（数学上等价）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;exp_x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;exp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;axis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepdims&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;exp_x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;exp_x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;axis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;keepdims&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;logits&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;2.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;probs&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;softmax&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;logits&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;probs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# [0.659, 0.242, 0.099]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;probs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 1.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;交叉熵损失&#34;&gt;交叉熵损失&lt;/h3&gt;
+&lt;p&gt;有了概率，如何衡量预测和真实标签的差距？&lt;/p&gt;
+&lt;p&gt;$$L = -\sum_{i=1}^{K} y_i \log(\hat{y}_i)$$&lt;/p&gt;
+&lt;p&gt;其中 $y_i$ 是真实标签（one-hot），$\hat{y}_i$ 是预测概率。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;简化形式&lt;/strong&gt;（单标签分类）：
+$$L = -\log(\hat{y}_{correct})$$&lt;/p&gt;
+&lt;p&gt;就是&lt;strong&gt;正确类别的概率取负对数&lt;/strong&gt;。概率越高，损失越小。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;cross_entropy_loss&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;probs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;label&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    probs: softmax输出的概率, shape (K,)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    label: 正确类别的索引, int
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;probs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;label&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1e-10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 加小数防止log(0)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;probs&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;loss&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cross_entropy_loss&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;probs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;label&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 正确类别是0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;loss&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 0.357（概率0.7对应的损失）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;二注意力机制attention&#34;&gt;二、注意力机制（Attention）&lt;/h2&gt;
+&lt;h3 id=&#34;问题如何让模型关注输入的不同部分&#34;&gt;问题：如何让模型&amp;quot;关注&amp;quot;输入的不同部分？&lt;/h3&gt;
+&lt;p&gt;翻译&amp;quot;我爱北京&amp;quot;时，生成&amp;quot;Beijing&amp;quot;应该主要关注&amp;quot;北京&amp;quot;这个词，而不是平均关注所有词。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记</title>
+      <link>https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/</link>
+      <pubDate>Wed, 15 Jan 2025 10:55:01 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/</guid>
+      <description>&lt;p&gt;读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用&lt;strong&gt;符号→读法→含义→代码&lt;/strong&gt;的模式，30分钟帮你扫清障碍。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;前置要求&lt;/strong&gt;：高中数学水平，会基础Python。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一求和与连乘&#34;&gt;一、求和与连乘&lt;/h2&gt;
+&lt;h3 id=&#34;11-求和符号-sum&#34;&gt;1.1 求和符号 $\sum$&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;读法&lt;/strong&gt;：Sigma（西格玛），读作&amp;quot;sum&amp;quot;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;含义&lt;/strong&gt;：把一堆数加起来&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;公式示例&lt;/strong&gt;：
+$$\sum_{i=1}^{n} x_i = x_1 + x_2 + \cdots + x_n$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;论文中常见形式&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来）&lt;/li&gt;
+&lt;li&gt;注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Python实现&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 方法1：直接求和&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 方法2：NumPy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 方法3：带条件的求和（论文常见）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 例如：只对正数求和&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;xi&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xi&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xi&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h3 id=&#34;12-连乘符号-prod&#34;&gt;1.2 连乘符号 $\prod$&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;读法&lt;/strong&gt;：Pi（派），读作&amp;quot;product&amp;quot;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;含义&lt;/strong&gt;：把一堆数乘起来&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;公式示例&lt;/strong&gt;：
+$$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;论文中常见形式&lt;/strong&gt;：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
