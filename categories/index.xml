@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.157.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 12 Mar 2026 18:30:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 10:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>随笔</title>
+      <link>https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/</link>
+      <pubDate>Sat, 14 Mar 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Technology</title>
       <link>https://blog.zhangky.com/categories/technology/</link>
@@ -67,13 +74,6 @@
       <link>https://blog.zhangky.com/categories/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81/</link>
       <pubDate>Wed, 04 Feb 2026 20:14:51 +0800</pubDate>
       <guid>https://blog.zhangky.com/categories/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>随笔</title>
-      <link>https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/</link>
-      <pubDate>Tue, 03 Feb 2026 22:37:37 +0800</pubDate>
-      <guid>https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/</guid>
       <description></description>
     </item>
     <item>

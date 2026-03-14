@@ -2,7 +2,27 @@
 <svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
 <svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
-<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span class=active>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破</h2></header><div class=entry-content><p>本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span class=active>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>AI制造：特斯拉在造未来，比亚迪在改造过去</h2></header><div class=entry-content><p>上个月参观了特斯拉德州超级工厂和比亚迪工厂，完全两种不同的AI制造图景。
+在特斯拉工厂，我站在观景台上，看着生产线上的机器人高效协作：机械臂精准抓取零件，AGV小车自动运输，整个流程像科幻电影。工厂负责人说：“我们重新定义了制造。“我盯着屏幕上的数据：生产效率比传统工厂提升了300%。
+在比亚迪工厂，我看到的是另一番景象：AI与传统设备深度融合，每台老机器都装了智能传感器。工厂负责人指着一台20年前的老设备说：“我们用AI改造了它，让它也能智能生产。“我走到设备前，看到传感器实时监测设备状态，AI系统自动调整生产参数。
+两种完全不同的AI制造图景，让我思考：AI制造的本质到底是什么？
+直观感受：技术引领 vs 产业升级的路径分歧
+表面上看，这是"技术引领 vs 产业升级"的制造路线分歧。
+美国工业4.0注重"技术引领”，通过AI和自动化实现生产效率极限提升。特斯拉的机器人在生产线上高效协作，整个流程像科幻电影。这是典型的"重新定义"路径：用新技术创造新制造。
+中国制造2025强调"产业升级”，用AI改造传统制造业。比亚迪的工厂是AI与传统设备深度融合，每台老机器都装了智能传感器。这是典型的"改造升级"路径：用新技术改造旧制造。
+美国工程师说"要重新定义制造”，比亚迪工厂负责人则说"要让每一个传统工厂都智能起来”。两种思路，两种未来。
+关键洞察：这不是制造路线分歧，是产业基础的差异。一个瞄准"重新定义"，一个瞄准"改造升级"。
+深入分析：价值取向的本质差异
+美国的模式能带来革命性突破，但成本高昂，只有特斯拉这样的巨头玩得起。特斯拉工厂的投资超过50亿美元，这对于大多数制造企业来说都是天文数字。这是典型的"技术领先"逻辑：用巨额投资换取技术突破。
+中国的模式能快速提升整体制造业水平，但可能缺乏原创性。比亚迪用AI改造传统设备，成本相对较低，能让更多企业受益。但可能缺乏像特斯拉那样的革命性突破。这是典型的"产业升级"逻辑：用较低成本实现整体提升。
+这背后是不同的国情：美国要保持技术领先，中国要实现产业升级。但问题是：在资源有限的情况下，应该优先哪个？
+关键洞察：价值取向的本质差异，决定了不同的制造路径。技术领先是长期投资，产业升级是短期回报。
+未来趋势：全球制造业的AI化浪潮
+2025年，我判断会看到全球制造业的AI化浪潮：美国会加强与传统产业的结合，降低技术门槛（比如推出更便宜的AI制造解决方案）；中国会加大原创技术投入，提升核心竞争力（比如开发自己的AI制造平台）。
+毕竟，制造业是国家竞争力的基础，AI则是制造业的未来。没有AI的制造，就没有竞争力；没有制造的AI，就没有价值。
+AI在制造业的价值，从来不是取代工人，而是让制造更智能、更高效。
+真正的AI制造革命，不是用机器人取代人，而是让机器和人一起创造更大的价值。特斯拉在造未来，比亚迪在改造过去——但最终，我们需要的是既有未来，又有过去的制造。
+2025年，我期待看到特斯拉的改造化，也期待看到比亚迪的原创化。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2025-09-15 13:46:12 +0800 +0800'>September 15, 2025</span> | <span>6 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to AI制造：特斯拉在造未来，比亚迪在改造过去" href=https://blog.zhangky.com/posts/2025/2025-09-ai-manufacturing/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破</h2></header><div class=entry-content><p>本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。
 “注意力是人类智能的核心。"——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。
 论文的核心创新是注意力机制：在解码过程中，模型计算源语言序列中每个位置的注意力权重，根据这些权重对编码器输出进行加权求和，得到上下文向量。这种设计使得模型能够学习源语言和目标语言之间的对齐关系，同时提高翻译质量。
 在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何"关注"和"理解"信息。
@@ -50,25 +70,7 @@ $$ \text{sim}(\text{king}, \text{queen}) = \text{king}^\top \cdot \text{queen} =
 词之间的语义关系可以通过向量运算表达 模型可以泛化到未见过的词组合 下游任务可以利用预学习的语义知识 问题是：如何高效地学习这样的词向量？
 问题三：计算效率的瓶颈 在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：
 $$ \text{时间复杂度} = O(V \times H + H \times H) \times E \times T $$
-...</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-08-01 21:59:17 +0800 +0800'>August 1, 2025</span> | <span>17 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命" href=https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>边缘AI：美国在连接设备，中国在连接城市</h2></header><div class=entry-content><p>上周在深圳参加边缘AI展览，我站在一个展台前，看着屏幕上实时显示的城市交通数据：100万台边缘AI设备正在工作，从交通监控到垃圾分类，AI就在身边。我走到一个智能垃圾桶前，它自动识别垃圾类型，然后分类投放。我扔了一个塑料瓶，它说：“检测到可回收物，已分类。”
-而在美国，我看到的是另一番景象：智能家居系统用边缘AI让灯光、温控、安防无缝协同。我朋友Mike给我演示他的智能家居：他走进房间，灯光自动调亮，温度自动调节，安防系统自动启动。他说：“要让所有设备都能智能交互。”
-两种完全不同的边缘AI图景，让我思考：边缘AI的本质到底是什么？
-从应用场景看：生态 vs 应用的路径分歧
-表面上看，这是"生态 vs 应用"的技术路线分歧。
-美国的思路是"生态优先"，让边缘AI成为连接各种设备的桥梁。智能家居系统用边缘AI让灯光、温控、安防无缝协同，这是典型的"设备连接"路径：让所有设备都能智能交互。
-中国则是"应用驱动"，用边缘AI解决城市管理的实际问题。100万台边缘AI设备正在工作，从交通监控到垃圾分类，这是典型的"城市连接"路径：让城市自己思考。
-美国工程师说"要让所有设备都能智能交互"，中国技术负责人则说"要让城市自己思考"。两种思路，两种未来。
-关键洞察：这不是技术路线分歧，是应用场景的差异。一个瞄准"连接设备"，一个瞄准"连接城市"。
-从技术本质看：边缘AI的核心价值
-边缘AI的价值在于"低延迟和本地化"。美国的生态建设为边缘AI提供了广阔应用场景，中国的大规模部署则证明了边缘AI的实用价值。
-深圳的交通信号灯用边缘AI实时调整配时，拥堵时间减少了23%。我站在路口，看着信号灯根据实时车流自动调整，心里想：这就是边缘AI的价值——不需要把数据传到云端，在本地就能决策。
-美国的智能家居系统用边缘AI让灯光、温控、安防无缝协同。Mike走进房间，灯光自动调亮，温度自动调节，安防系统自动启动。这是边缘AI的另一个价值——让设备之间能够实时协同。
-关键洞察：边缘AI的核心价值，不是技术本身，而是应用场景。低延迟和本地化，让AI从云端走到边缘，从实验室走到街头。
-未来趋势：生态与应用的融合
-2025年，我判断会看到美国加大智慧城市应用（比如在纽约部署边缘AI交通系统），中国加强IoT生态建设（比如建立统一的边缘AI开发平台）。
-边缘AI不是孤立的技术，而是连接数字世界与物理世界的纽带。未来的AI，不是在数据中心里思考，而是在每一个角落感知和决策。
-边缘AI的终极形态，是让AI从云端走到边缘，从实验室走到街头，真正融入我们的生活。美国在连接设备，中国在连接城市——但最终，我们需要的是既连接设备，又连接城市的边缘AI。
-2025年，我期待看到美国的城市连接，也期待看到中国的设备连接。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2025-07-18 10:28:18 +0800 +0800'>July 18, 2025</span> | <span>5 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 边缘AI：美国在连接设备，中国在连接城市" href=https://blog.zhangky.com/posts/2025/2025-07-edge-ai/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/page/14/>«&nbsp;Prev&nbsp;14/21
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-08-01 21:59:17 +0800 +0800'>August 1, 2025</span> | <span>17 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命" href=https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/page/14/>«&nbsp;Prev&nbsp;14/21
 </a><a class=next href=https://blog.zhangky.com/page/16/>Next&nbsp;16/21&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
