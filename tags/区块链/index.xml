@@ -9,24 +9,10 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-    <generator>Hugo -- 0.157.0</generator>
+    <generator>Hugo -- 0.153.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 23 Dec 2024 16:00:59 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2015 14:49:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>比特币白皮书读书笔记</title>
-      <link>https://blog.zhangky.com/posts/2024/2024-12-23-bitcoin_paper_cn/</link>
-      <pubDate>Mon, 23 Dec 2024 16:00:59 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2024/2024-12-23-bitcoin_paper_cn/</guid>
-      <description>深度解读比特币白皮书：从点对点电子货币到工作量证明机制，全面解析区块链技术的核心原理、安全机制和设计哲学。</description>
-    </item>
-    <item>
-      <title>比特币挖矿基础原理</title>
-      <link>https://blog.zhangky.com/posts/2024/2024-08-15-bitcoin_mining_basics/</link>
-      <pubDate>Thu, 15 Aug 2024 10:35:58 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2024/2024-08-15-bitcoin_mining_basics/</guid>
-      <description>比特币挖矿是维护网络安全与生成新币的关键机制。详解挖矿工作原理、安全机制和激励模型，从交易收集到工作量证明的完整流程。</description>
-    </item>
     <item>
       <title>比特币白皮书读书笔记：这篇论文如何改变了我对货币的理解</title>
       <link>https://blog.zhangky.com/posts/2015/bitcoin-whitepaper-notes/</link>

@@ -9,10 +9,17 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-    <generator>Hugo -- 0.157.0</generator>
+    <generator>Hugo -- 0.153.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 11 Mar 2026 20:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 18:30:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Technology</title>
+      <link>https://blog.zhangky.com/categories/technology/</link>
+      <pubDate>Thu, 12 Mar 2026 18:30:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/categories/technology/</guid>
+      <description></description>
+    </item>
     <item>
       <title>故事</title>
       <link>https://blog.zhangky.com/categories/%E6%95%85%E4%BA%8B/</link>
@@ -74,13 +81,6 @@
       <link>https://blog.zhangky.com/categories/%E6%8A%95%E8%B5%84/</link>
       <pubDate>Thu, 22 Jan 2026 21:57:10 +0800</pubDate>
       <guid>https://blog.zhangky.com/categories/%E6%8A%95%E8%B5%84/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Technology</title>
-      <link>https://blog.zhangky.com/categories/technology/</link>
-      <pubDate>Thu, 08 Jan 2026 12:40:14 +0800</pubDate>
-      <guid>https://blog.zhangky.com/categories/technology/</guid>
       <description></description>
     </item>
   </channel>
