@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.zhangky.com/tags/ai/</loc>
-    <lastmod>2026-03-12T18:30:00+08:00</lastmod>
-  </url><url>
     <loc>https://blog.zhangky.com/categories/</loc>
+    <lastmod>2026-03-14T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/</loc>
+    <lastmod>2026-03-14T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/tags/</loc>
+    <lastmod>2026-03-14T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/</loc>
+    <lastmod>2026-03-14T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/</loc>
+    <lastmod>2026-03-14T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/tags/%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2026-03-14T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2026-03-14T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/2026/2026-03-14-leadership-source-reflection/</loc>
+    <lastmod>2026-03-14T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/tags/ai/</loc>
     <lastmod>2026-03-12T18:30:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/</loc>
     <lastmod>2026-03-12T18:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangky.com/posts/</loc>
-    <lastmod>2026-03-12T18:30:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/tags/</loc>
-    <lastmod>2026-03-12T18:30:00+08:00</lastmod>
-  </url><url>
     <loc>https://blog.zhangky.com/categories/technology/</loc>
-    <lastmod>2026-03-12T18:30:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/</loc>
     <lastmod>2026-03-12T18:30:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/2026-03-11-baidu-how-to-lose-everything/</loc>
@@ -47,9 +59,6 @@
     <loc>https://blog.zhangky.com/series/qwen%E5%9B%A2%E9%98%9F%E9%A3%8E%E6%B3%A2/</loc>
     <lastmod>2026-03-07T21:29:02+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/</loc>
-    <lastmod>2026-03-07T21:29:02+08:00</lastmod>
-  </url><url>
     <loc>https://blog.zhangky.com/posts/2026/2026-03-07-linjunyang-next-move-startup/</loc>
     <lastmod>2026-03-07T21:29:02+08:00</lastmod>
   </url><url>
@@ -66,9 +75,6 @@
     <lastmod>2026-03-06T01:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/2026-03-05-qwen-departure-leadership-reflection/</loc>
-    <lastmod>2026-03-05T12:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/tags/%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2026-03-05T12:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/categories/%E9%A2%86%E5%AF%BC%E5%8A%9B/</loc>
@@ -150,9 +156,6 @@
     <lastmod>2026-02-03T22:37:37+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/tags/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2026-02-03T22:37:37+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2026-02-03T22:37:37+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/2026-02-02-hinton-ubi-ai-job-loss/</loc>
