@@ -55,6 +55,76 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
+        .lock-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .lock-overlay.hidden {
+            display: none;
+        }
+
+        .lock-box {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .lock-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .lock-box input {
+            padding: 12px 20px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
+            margin-bottom: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .lock-box input:focus {
+            border-color: #667eea;
+        }
+
+        .lock-box button {
+            padding: 12px 40px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .lock-box button:hover {
+            transform: scale(1.05);
+        }
+
+        .lock-box .error {
+            color: #e74c3c;
+            margin-top: 12px;
+            font-size: 14px;
+            display: none;
+        }
+
         p {
             margin-bottom: 18px;
             font-size: 17px;
@@ -219,11 +289,34 @@
             .motto {
                 font-size: 14px;
             }
+
+            .lock-box {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+
+            .lock-box h2 {
+                font-size: 20px;
+            }
+
+            .lock-box input {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="lock-overlay" id="lockOverlay">
+        <div class="lock-box">
+            <h2>🔒 请输入访问密码</h2>
+            <input type="password" id="passwordInput" placeholder="请输入密码">
+            <br>
+            <button onclick="checkPassword()">解锁文章</button>
+            <p class="error" id="errorMsg">密码错误，请重试</p>
+        </div>
+    </div>
+
+    <div class="container" id="mainContent" style="display: none;">
         <h1>在钢筋混凝土外寻找"图纸上没画的梁"</h1>
         <p class="subtitle">一个女土木工程师的破壁与重塑</p>
 
@@ -343,5 +436,30 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById('passwordInput').value;
+            if (password === '6666') {
+                document.getElementById('lockOverlay').classList.add('hidden');
+                document.getElementById('mainContent').style.display = 'block';
+                localStorage.setItem('zhouchengying_unlocked', 'true');
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        if (localStorage.getItem('zhouchengying_unlocked') === 'true') {
+            document.getElementById('lockOverlay').classList.add('hidden');
+            document.getElementById('mainContent').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
