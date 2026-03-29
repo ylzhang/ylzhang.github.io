@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Zhang&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="最炫的“长跑”案例基本都围着Cursor的Composer转——尤其是它用数百agent一周自主建浏览器那事儿，跑了整整七天无干预，3M行代码，相当于100人团队24/7干活。  其他像Claude Code的6小时自主调试、Copilot的72小时PR链，算“中长跑”，但Cursor直接把“multi-day”推到“week-scale”。2026新提法里，“context compaction”（自总结&#43;RL训练）是关键——它让agent不爆内存，还能链式迭代，错误率砍一半。  你要写文章，主旨可以定成：“从手动重构到AI自驱：2026时代，如何让代码仓库‘自己进化’”——前沿味儿足，带点惊叹。  展开结构建议：  开头钩子：抛个问题——“六个月团队活，AI一周搞定？听起来科幻，但Cursor刚做了。” 配张Composer界面截图（多agent并行编辑，PR自动审）。
+现状&#43;案例：讲X上工程师炫耀——@aakashgupta
+那篇“一周1000 commits，相当于100人org”，再提浏览器项目（hundreds agents，1 week runtime）。
+技术核心：新提法——“Self-summarization via RL” &#43; “Hierarchical agents”（planner→worker→judge），防死锁。加图：速度/智能对比柱状图。
+你的方案融入：说“Java&#43;Node混栈重构，正好用Composer的multi-file长跑”，举例：先建shared-lib agent，再分服务重构，跑72&#43;小时出PR。
+结尾展望：2026后，瓶颈不是代码，是“品味&#43;架构决策”——人从写代码，变监督AI。
+好，咱直接上干货——你用Cursor为主，技术栈Java &#43; Node.js/TypeScript，我就给你从零到一的完整落地链条。目标：十个repo合并成统一架构（比如微服务&#43;共享lib），全自动分析、设计、重构、PR，尽量让agent无干预跑几天。
+第一步：Workspace搭建（5分钟搞定）
+
+打开Cursor，选“Open Folder” → 建一个空文件夹当“超级根”，比如叫mega-refactor。
+把十个repo全clone进去（或用Git submodule），结构像这样：
+mega-refactor/
+├── java-app1/
+├── java-app2/
+├── ... (java系)
+├── node-app1/
+├── node-app2/
+└── ... (ts系)
+
+Cursor自动索引——等它扫描完（大项目10-15分钟），它就懂跨repo依赖了。混语言也没事，Java的Spring、Node的Express它都认。
+提示：如果repo超大，先开“Ask mode”（Shift&#43;Tab），测试问一句：“列出所有Java服务和Node API的公共接口”，看它跨repo回答对不对。
+
+第二步：建规则，让agent“记住”你的风格（关键！）
+在根目录下建.cursor/rules/，加两个文件：
+
+
+java-refactor.mdc（Java服务统一）
+---
+description: &#34;Java服务层重构标准：薄层&#43;RPC&#43;共享domain&#34;
+globs: [&#34;**/src/main/java/**/service/**/*.java&#34;]
+---
+- 所有服务统一用RPC接口（@RemoteService）
+- 业务逻辑抽到domain层，服务只管调用
+- 命名：snake_case &#43; _service
+- 参考：@java-app1/src/main/java/com/example/domain/UserService.java
+
+
+ts-refactor.mdc（Node/TS统一）">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/03-16/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.79bfb41aad32a688cd2a56e0fd43dad023bee6a985c251ecb095110e836bb4b7.css" integrity="sha256-eb&#43;0Gq0ypojNKlbg/UPa0CO&#43;5qmFwlHssJURDoNrtLc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/03-16/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/03-16/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="Zhang&#39;s Blog">
+  <meta property="og:description" content="最炫的“长跑”案例基本都围着Cursor的Composer转——尤其是它用数百agent一周自主建浏览器那事儿，跑了整整七天无干预，3M行代码，相当于100人团队24/7干活。 其他像Claude Code的6小时自主调试、Copilot的72小时PR链，算“中长跑”，但Cursor直接把“multi-day”推到“week-scale”。2026新提法里，“context compaction”（自总结&#43;RL训练）是关键——它让agent不爆内存，还能链式迭代，错误率砍一半。 你要写文章，主旨可以定成：“从手动重构到AI自驱：2026时代，如何让代码仓库‘自己进化’”——前沿味儿足，带点惊叹。 展开结构建议： 开头钩子：抛个问题——“六个月团队活，AI一周搞定？听起来科幻，但Cursor刚做了。” 配张Composer界面截图（多agent并行编辑，PR自动审）。
+现状&#43;案例：讲X上工程师炫耀——@aakashgupta 那篇“一周1000 commits，相当于100人org”，再提浏览器项目（hundreds agents，1 week runtime）。
+技术核心：新提法——“Self-summarization via RL” &#43; “Hierarchical agents”（planner→worker→judge），防死锁。加图：速度/智能对比柱状图。
+你的方案融入：说“Java&#43;Node混栈重构，正好用Composer的multi-file长跑”，举例：先建shared-lib agent，再分服务重构，跑72&#43;小时出PR。
+结尾展望：2026后，瓶颈不是代码，是“品味&#43;架构决策”——人从写代码，变监督AI。
+好，咱直接上干货——你用Cursor为主，技术栈Java &#43; Node.js/TypeScript，我就给你从零到一的完整落地链条。目标：十个repo合并成统一架构（比如微服务&#43;共享lib），全自动分析、设计、重构、PR，尽量让agent无干预跑几天。
+第一步：Workspace搭建（5分钟搞定）
+打开Cursor，选“Open Folder” → 建一个空文件夹当“超级根”，比如叫mega-refactor。 把十个repo全clone进去（或用Git submodule），结构像这样： mega-refactor/ ├── java-app1/ ├── java-app2/ ├── ... (java系) ├── node-app1/ ├── node-app2/ └── ... (ts系) Cursor自动索引——等它扫描完（大项目10-15分钟），它就懂跨repo依赖了。混语言也没事，Java的Spring、Node的Express它都认。
+提示：如果repo超大，先开“Ask mode”（Shift&#43;Tab），测试问一句：“列出所有Java服务和Node API的公共接口”，看它跨repo回答对不对。 第二步：建规则，让agent“记住”你的风格（关键！）
+在根目录下建.cursor/rules/，加两个文件：
+java-refactor.mdc（Java服务统一）
+--- description: &#34;Java服务层重构标准：薄层&#43;RPC&#43;共享domain&#34; globs: [&#34;**/src/main/java/**/service/**/*.java&#34;] --- - 所有服务统一用RPC接口（@RemoteService） - 业务逻辑抽到domain层，服务只管调用 - 命名：snake_case &#43; _service - 参考：@java-app1/src/main/java/com/example/domain/UserService.java ts-refactor.mdc（Node/TS统一）">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="最炫的“长跑”案例基本都围着Cursor的Composer转——尤其是它用数百agent一周自主建浏览器那事儿，跑了整整七天无干预，3M行代码，相当于100人团队24/7干活。  其他像Claude Code的6小时自主调试、Copilot的72小时PR链，算“中长跑”，但Cursor直接把“multi-day”推到“week-scale”。2026新提法里，“context compaction”（自总结&#43;RL训练）是关键——它让agent不爆内存，还能链式迭代，错误率砍一半。  你要写文章，主旨可以定成：“从手动重构到AI自驱：2026时代，如何让代码仓库‘自己进化’”——前沿味儿足，带点惊叹。  展开结构建议：  开头钩子：抛个问题——“六个月团队活，AI一周搞定？听起来科幻，但Cursor刚做了。” 配张Composer界面截图（多agent并行编辑，PR自动审）。
+现状&#43;案例：讲X上工程师炫耀——@aakashgupta
+那篇“一周1000 commits，相当于100人org”，再提浏览器项目（hundreds agents，1 week runtime）。
+技术核心：新提法——“Self-summarization via RL” &#43; “Hierarchical agents”（planner→worker→judge），防死锁。加图：速度/智能对比柱状图。
+你的方案融入：说“Java&#43;Node混栈重构，正好用Composer的multi-file长跑”，举例：先建shared-lib agent，再分服务重构，跑72&#43;小时出PR。
+结尾展望：2026后，瓶颈不是代码，是“品味&#43;架构决策”——人从写代码，变监督AI。
+好，咱直接上干货——你用Cursor为主，技术栈Java &#43; Node.js/TypeScript，我就给你从零到一的完整落地链条。目标：十个repo合并成统一架构（比如微服务&#43;共享lib），全自动分析、设计、重构、PR，尽量让agent无干预跑几天。
+第一步：Workspace搭建（5分钟搞定）
+
+打开Cursor，选“Open Folder” → 建一个空文件夹当“超级根”，比如叫mega-refactor。
+把十个repo全clone进去（或用Git submodule），结构像这样：
+mega-refactor/
+├── java-app1/
+├── java-app2/
+├── ... (java系)
+├── node-app1/
+├── node-app2/
+└── ... (ts系)
+
+Cursor自动索引——等它扫描完（大项目10-15分钟），它就懂跨repo依赖了。混语言也没事，Java的Spring、Node的Express它都认。
+提示：如果repo超大，先开“Ask mode”（Shift&#43;Tab），测试问一句：“列出所有Java服务和Node API的公共接口”，看它跨repo回答对不对。
+
+第二步：建规则，让agent“记住”你的风格（关键！）
+在根目录下建.cursor/rules/，加两个文件：
+
+
+java-refactor.mdc（Java服务统一）
+---
+description: &#34;Java服务层重构标准：薄层&#43;RPC&#43;共享domain&#34;
+globs: [&#34;**/src/main/java/**/service/**/*.java&#34;]
+---
+- 所有服务统一用RPC接口（@RemoteService）
+- 业务逻辑抽到domain层，服务只管调用
+- 命名：snake_case &#43; _service
+- 参考：@java-app1/src/main/java/com/example/domain/UserService.java
+
+
+ts-refactor.mdc（Node/TS统一）">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "https://blog.zhangky.com/posts/2026/03-16/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "最炫的“长跑”案例基本都围着Cursor的Composer转——尤其是它用数百agent一周自主建浏览器那事儿，跑了整整七天无干预，3M行代码，相当于100人团队24/7干活。 其他像Claude Code的6小时自主调试、Copilot的72小时PR链，算“中长跑”，但Cursor直接把“multi-day”推到“week-scale”。2026新提法里，“context compaction”（自总结+RL训练）是关键——它让agent不爆内存，还能链式迭代，错误率砍一半。 你要写文章，主旨可以定成：“从手动重构到AI自驱：2026时代，如何让代码仓库‘自己进化’”——前沿味儿足，带点惊叹。 展开结构建议： 开头钩子：抛个问题——“六个月团队活，AI一周搞定？听起来科幻，但Cursor刚做了。” 配张Composer界面截图（多agent并行编辑，PR自动审）。\n现状+案例：讲X上工程师炫耀——@aakashgupta 那篇“一周1000 commits，相当于100人org”，再提浏览器项目（hundreds agents，1 week runtime）。\n技术核心：新提法——“Self-summarization via RL” + “Hierarchical agents”（planner→worker→judge），防死锁。加图：速度/智能对比柱状图。\n你的方案融入：说“Java+Node混栈重构，正好用Composer的multi-file长跑”，举例：先建shared-lib agent，再分服务重构，跑72+小时出PR。\n结尾展望：2026后，瓶颈不是代码，是“品味+架构决策”——人从写代码，变监督AI。\n好，咱直接上干货——你用Cursor为主，技术栈Java + Node.js/TypeScript，我就给你从零到一的完整落地链条。目标：十个repo合并成统一架构（比如微服务+共享lib），全自动分析、设计、重构、PR，尽量让agent无干预跑几天。\n第一步：Workspace搭建（5分钟搞定）\n打开Cursor，选“Open Folder” → 建一个空文件夹当“超级根”，比如叫mega-refactor。 把十个repo全clone进去（或用Git submodule），结构像这样： mega-refactor/ ├── java-app1/ ├── java-app2/ ├── ... (java系) ├── node-app1/ ├── node-app2/ └── ... (ts系) Cursor自动索引——等它扫描完（大项目10-15分钟），它就懂跨repo依赖了。混语言也没事，Java的Spring、Node的Express它都认。\n提示：如果repo超大，先开“Ask mode”（Shift+Tab），测试问一句：“列出所有Java服务和Node API的公共接口”，看它跨repo回答对不对。 第二步：建规则，让agent“记住”你的风格（关键！）\n在根目录下建.cursor/rules/，加两个文件：\njava-refactor.mdc（Java服务统一）\n--- description: \u0026#34;Java服务层重构标准：薄层+RPC+共享domain\u0026#34; globs: [\u0026#34;**/src/main/java/**/service/**/*.java\u0026#34;] --- - 所有服务统一用RPC接口（@RemoteService） - 业务逻辑抽到domain层，服务只管调用 - 命名：snake_case + _service - 参考：@java-app1/src/main/java/com/example/domain/UserService.java ts-refactor.mdc（Node/TS统一）\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "最炫的“长跑”案例基本都围着Cursor的Composer转——尤其是它用数百agent一周自主建浏览器那事儿，跑了整整七天无干预，3M行代码，相当于100人团队24/7干活。 其他像Claude Code的6小时自主调试、Copilot的72小时PR链，算“中长跑”，但Cursor直接把“multi-day”推到“week-scale”。2026新提法里，“context compaction”（自总结+RL训练）是关键——它让agent不爆内存，还能链式迭代，错误率砍一半。 你要写文章，主旨可以定成：“从手动重构到AI自驱：2026时代，如何让代码仓库‘自己进化’”——前沿味儿足，带点惊叹。 展开结构建议： 开头钩子：抛个问题——“六个月团队活，AI一周搞定？听起来科幻，但Cursor刚做了。” 配张Composer界面截图（多agent并行编辑，PR自动审）。\n现状+案例：讲X上工程师炫耀——@aakashgupta 那篇“一周1000 commits，相当于100人org”，再提浏览器项目（hundreds agents，1 week runtime）。\n技术核心：新提法——“Self-summarization via RL” + “Hierarchical agents”（planner→worker→judge），防死锁。加图：速度/智能对比柱状图。\n你的方案融入：说“Java+Node混栈重构，正好用Composer的multi-file长跑”，举例：先建shared-lib agent，再分服务重构，跑72+小时出PR。\n结尾展望：2026后，瓶颈不是代码，是“品味+架构决策”——人从写代码，变监督AI。\n好，咱直接上干货——你用Cursor为主，技术栈Java + Node.js/TypeScript，我就给你从零到一的完整落地链条。目标：十个repo合并成统一架构（比如微服务+共享lib），全自动分析、设计、重构、PR，尽量让agent无干预跑几天。\n第一步：Workspace搭建（5分钟搞定）\n打开Cursor，选“Open Folder” → 建一个空文件夹当“超级根”，比如叫mega-refactor。 把十个repo全clone进去（或用Git submodule），结构像这样： mega-refactor/ ├── java-app1/ ├── java-app2/ ├── ... (java系) ├── node-app1/ ├── node-app2/ └── ... (ts系) Cursor自动索引——等它扫描完（大项目10-15分钟），它就懂跨repo依赖了。混语言也没事，Java的Spring、Node的Express它都认。\n提示：如果repo超大，先开“Ask mode”（Shift+Tab），测试问一句：“列出所有Java服务和Node API的公共接口”，看它跨repo回答对不对。 第二步：建规则，让agent“记住”你的风格（关键！）\n在根目录下建.cursor/rules/，加两个文件：\njava-refactor.mdc（Java服务统一）\n--- description: \"Java服务层重构标准：薄层+RPC+共享domain\" globs: [\"**/src/main/java/**/service/**/*.java\"] --- - 所有服务统一用RPC接口（@RemoteService） - 业务逻辑抽到domain层，服务只管调用 - 命名：snake_case + _service - 参考：@java-app1/src/main/java/com/example/domain/UserService.java ts-refactor.mdc（Node/TS统一）\n--- description: \"Node.js/TS API统一：Express + DTO + shared lib\" globs: --- - API统一用DTO schema（zod或type） - 抽公共utils到shared-lib包 - 路由命名：camelCase + /api/v1/ - 参考：@node-app1/src/controllers/userController.ts 这些规则让agent每次聊都自动带上，长期跑不偏。\n第三步：核心prompt模板（复制粘贴用）\n先开新Chat（Agent模式），贴这个“架构师”prompt：\n你是CTO+架构师，分析这10个repo（Java+Node/TS混杂）。 目标：合并成统一架构——Java做后端微服务，Node做轻API/前端代理，抽公共domain、utils、auth到shared-lib。 步骤： 1. 列出所有重复模块（auth、user、payment等） 2. 设计新架构：微服务+事件驱动？画PlantUML图 3. 列迁移路径：先合并共享lib，再重构服务 4. 输出Markdown报告 + 架构图代码 5. 别写代码，先规划——等我批准再动 它会吐报告+图（用PlantUML），你审完再下一步。\n第四步：转“开发者团队”模式，长跑重构\n在报告基础上，新Chat（长运行agent，Ultra/Teams版开启）：\n基于上面架构报告，启动长运行任务： - 第一agent：建shared-lib（Java domain + TS utils），写代码+测试 - 第二agent：重构Java服务，迁移到新RPC - 第三agent：统一Node API到shared schema - 每个agent独立PR，跑测试覆盖\u003e80%，fix漏洞 - 每步提计划给我批，批了就自主跑 - 目标：72小时内出10+PR，可合并 Cursor现在长运行能撑36-52小时（社区实测），你关电脑它后台继续——醒来就一堆PR待审。\n第五步：验证闭环\n用Cursor的Code Review agent审PR（@review） 跑CI（GitHub Actions）测部署 问agent：“覆盖率多少？漏洞修了没？”它自动补。 额外Tips\n仓库在GitHub？用Cursor的GitHub集成，agent直接push PR。 想更稳：加.cursorrules里写“永远先规划，再执行”，防它乱改。 语言混杂？先让它建个“桥接层”（Java调用Node via gRPC或REST），再统一。 ",
+  "wordCount" : "149",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "ZHANG.z\""
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/03-16/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhang's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta">   ZHANG.z&#34; | <span>About 8 min</span> | <span>Shanghai, China</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/03-16.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> 
+
+  <div class="post-content"><p>最炫的“长跑”案例基本都围着Cursor的Composer转——尤其是它用数百agent一周自主建浏览器那事儿，跑了整整七天无干预，3M行代码，相当于100人团队24/7干活。  其他像Claude Code的6小时自主调试、Copilot的72小时PR链，算“中长跑”，但Cursor直接把“multi-day”推到“week-scale”。2026新提法里，“context compaction”（自总结+RL训练）是关键——它让agent不爆内存，还能链式迭代，错误率砍一半。  你要写文章，主旨可以定成：“从手动重构到AI自驱：2026时代，如何让代码仓库‘自己进化’”——前沿味儿足，带点惊叹。  展开结构建议：  开头钩子：抛个问题——“六个月团队活，AI一周搞定？听起来科幻，但Cursor刚做了。” 配张Composer界面截图（多agent并行编辑，PR自动审）。<br>
+现状+案例：讲X上工程师炫耀——@aakashgupta
+那篇“一周1000 commits，相当于100人org”，再提浏览器项目（hundreds agents，1 week runtime）。<br>
+技术核心：新提法——“Self-summarization via RL” + “Hierarchical agents”（planner→worker→judge），防死锁。加图：速度/智能对比柱状图。<br>
+你的方案融入：说“Java+Node混栈重构，正好用Composer的multi-file长跑”，举例：先建shared-lib agent，再分服务重构，跑72+小时出PR。<br>
+结尾展望：2026后，瓶颈不是代码，是“品味+架构决策”——人从写代码，变监督AI。</p>
+<p>好，咱直接上干货——你用Cursor为主，技术栈Java + Node.js/TypeScript，我就给你从零到一的完整落地链条。目标：十个repo合并成统一架构（比如微服务+共享lib），全自动分析、设计、重构、PR，尽量让agent无干预跑几天。</p>
+<p><strong>第一步：Workspace搭建（5分钟搞定）</strong></p>
+<ol>
+<li>打开Cursor，选“Open Folder” → 建一个空文件夹当“超级根”，比如叫<code>mega-refactor</code>。</li>
+<li>把十个repo全clone进去（或用Git submodule），结构像这样：
+<pre tabindex="0"><code>mega-refactor/
+├── java-app1/
+├── java-app2/
+├── ... (java系)
+├── node-app1/
+├── node-app2/
+└── ... (ts系)
+</code></pre></li>
+<li>Cursor自动索引——等它扫描完（大项目10-15分钟），它就懂跨repo依赖了。混语言也没事，Java的Spring、Node的Express它都认。<br>
+提示：如果repo超大，先开“Ask mode”（Shift+Tab），测试问一句：“列出所有Java服务和Node API的公共接口”，看它跨repo回答对不对。</li>
+</ol>
+<p><strong>第二步：建规则，让agent“记住”你的风格（关键！）</strong><br>
+在根目录下建<code>.cursor/rules/</code>，加两个文件：</p>
+<ul>
+<li>
+<p><code>java-refactor.mdc</code>（Java服务统一）</p>
+<pre tabindex="0"><code>---
+description: &#34;Java服务层重构标准：薄层+RPC+共享domain&#34;
+globs: [&#34;**/src/main/java/**/service/**/*.java&#34;]
+---
+- 所有服务统一用RPC接口（@RemoteService）
+- 业务逻辑抽到domain层，服务只管调用
+- 命名：snake_case + _service
+- 参考：@java-app1/src/main/java/com/example/domain/UserService.java
+</code></pre></li>
+<li>
+<p><code>ts-refactor.mdc</code>（Node/TS统一）</p>
+<pre tabindex="0"><code>---
+description: &#34;Node.js/TS API统一：Express + DTO + shared lib&#34;
+globs: ---
+- API统一用DTO schema（zod或type）
+- 抽公共utils到shared-lib包
+- 路由命名：camelCase + /api/v1/
+- 参考：@node-app1/src/controllers/userController.ts
+</code></pre></li>
+</ul>
+<p>这些规则让agent每次聊都自动带上，长期跑不偏。</p>
+<p><strong>第三步：核心prompt模板（复制粘贴用）</strong><br>
+先开新Chat（Agent模式），贴这个“架构师”prompt：</p>
+<pre tabindex="0"><code>你是CTO+架构师，分析这10个repo（Java+Node/TS混杂）。
+目标：合并成统一架构——Java做后端微服务，Node做轻API/前端代理，抽公共domain、utils、auth到shared-lib。
+步骤：
+1. 列出所有重复模块（auth、user、payment等）
+2. 设计新架构：微服务+事件驱动？画PlantUML图
+3. 列迁移路径：先合并共享lib，再重构服务
+4. 输出Markdown报告 + 架构图代码
+5. 别写代码，先规划——等我批准再动
+</code></pre><p>它会吐报告+图（用PlantUML），你审完再下一步。</p>
+<p><strong>第四步：转“开发者团队”模式，长跑重构</strong><br>
+在报告基础上，新Chat（长运行agent，Ultra/Teams版开启）：</p>
+<pre tabindex="0"><code>基于上面架构报告，启动长运行任务：
+- 第一agent：建shared-lib（Java domain + TS utils），写代码+测试
+- 第二agent：重构Java服务，迁移到新RPC
+- 第三agent：统一Node API到shared schema
+- 每个agent独立PR，跑测试覆盖&gt;80%，fix漏洞
+- 每步提计划给我批，批了就自主跑
+- 目标：72小时内出10+PR，可合并
+</code></pre><p>Cursor现在长运行能撑36-52小时（社区实测），你关电脑它后台继续——醒来就一堆PR待审。</p>
+<p><strong>第五步：验证闭环</strong></p>
+<ul>
+<li>用Cursor的Code Review agent审PR（@review）</li>
+<li>跑CI（GitHub Actions）测部署</li>
+<li>问agent：“覆盖率多少？漏洞修了没？”它自动补。</li>
+</ul>
+<p><strong>额外Tips</strong></p>
+<ul>
+<li>仓库在GitHub？用Cursor的GitHub集成，agent直接push PR。</li>
+<li>想更稳：加<code>.cursorrules</code>里写“永远先规划，再执行”，防它乱改。</li>
+<li>语言混杂？先让它建个“桥接层”（Java调用Node via gRPC或REST），再统一。</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.zhangky.com/posts/2015/bitcoin-whitepaper-notes/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>比特币白皮书读书笔记：这篇论文如何改变了我对货币的理解</span>
+  </a>
+  <a class="next" href="https://blog.zhangky.com/posts/2026/paper-read/_paper-navigation/">
+    <span class="title">Next »</span>
+    <br>
+    <span></span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
