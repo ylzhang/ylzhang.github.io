@@ -186,34 +186,6 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Alexander Rush等人创建的《The Annotated Transformer》，这是一篇教育性的技术博客文章，通过逐行代码注释的方式，详细解析了Transformer架构的PyTorch实现。虽然这不是一篇传统意义上的研究论文，但它为理解Transformer提供了最直观、最实用的方式，是学习Transformer实现的最佳资源之一。
-“代码是最好的文档。&#34;——这是带注释Transformer的核心思想。Transformer论文虽然提出了架构，但实现细节往往隐藏在代码中。带注释Transformer通过详细的代码注释和解释，使读者能够深入理解Transformer的每一个组件、每一行代码的作用，是连接理论和实践的重要桥梁。
-带注释Transformer的核心价值是教育性和实用性：它不仅解释了Transformer的数学原理，还展示了如何用代码实现这些原理。通过逐行注释，读者可以：
-理解实现细节：了解每个组件的具体实现 学习最佳实践：学习PyTorch的实现技巧 快速上手：可以直接使用代码进行实验 在当今大模型时代，理解Transformer的实现细节至关重要：GPT、BERT、T5等模型都基于Transformer架构。理解带注释Transformer，就是理解现代AI模型的实现基础。
-本文将从架构概览、核心组件、实现细节、最佳实践四个维度深度解读带注释Transformer，包含完整的代码分析和实现技巧，并在文末提供阅读研究论文的时间线计划。
-Transformer实现的学习挑战 问题一：理论与实现的差距 Transformer论文提供了架构设计，但实现细节往往不明确：
-理论与实现的差距：
-论文描述的是架构，代码需要处理细节 论文使用数学符号，代码使用具体数据结构 论文关注算法，代码需要处理工程问题 学习挑战：
-如何将数学公式转化为代码？ 如何处理边界情况和数值稳定性？ 如何优化实现效率？ 问题二：代码理解的困难 Transformer的实现代码往往复杂，难以理解：
-代码理解的困难：
-代码量大，难以快速理解 缺少注释，难以理解设计意图 实现技巧不明确，难以学习最佳实践 问题三：教育资源的缺乏 在Transformer刚提出时，详细的教育资源较少：
-教育资源的缺乏：
-缺少详细的实现教程 缺少代码级别的解释 缺少最佳实践的总结 带注释Transformer的核心组件 组件一：多头自注意力 数学定义： $$ \text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O $$
-其中 $\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$。
-代码实现：
-class MultiHeadedAttention(nn.Module): def __init__(self, h, d_model, dropout=0.1): super().__init__() assert d_model % h == 0 self.d_k = d_model // h self.h = h self.linears = nn.ModuleList([nn.Linear(d_model, d_model) for _ in range(4)]) self.attn = None self.dropout = nn.Dropout(p=dropout) def forward(self, query, key, value, mask=None): nbatches = query.size(0) # 1) 线性投影并分割为h个头 query, key, value = [ lin(x).view(nbatches, -1, self.h, self.d_k).transpose(1, 2) for lin, x in zip(self.linears, (query, key, value)) ] # 2) 应用注意力 x, self.attn = attention(query, key, value, mask=mask, dropout=self.dropout) # 3) 拼接多头并应用最终线性层 x = x.transpose(1, 2).contiguous().view(nbatches, -1, self.h * self.d_k) return self.linears[-1](x) 关键实现细节：
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-10-08 21:21:38 +0800 HKT'>October 8, 2025</span> | <span>15 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">【ChatGPT时刻04】Transformer：Attention Is All You Need
     </h2>
   </header>
@@ -320,6 +292,26 @@ AI伦理的核心，从来不是限制技术发展，而是确保技术尊重人
   </div>
   <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-08-22 15:31:29 +0800 HKT'>August 22, 2025</span> | <span>4 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to AI伦理：美国在自律，中国在立法" href="https://blog.zhangky.com/posts/2025/2025-08-ai-ethics/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Ilya Sutskever、Oriol Vinyals和Quoc V. Le于2014年发表的里程碑论文《Sequence to Sequence Learning with Neural Networks》，该论文提出了Seq2Seq框架，首次使用纯端到端的神经网络实现了高质量的机器翻译。作为OpenAI联合创始人的代表作，Seq2Seq不仅确立了编码器-解码器架构的标准范式，更是通向Transformer和GPT系列的关键一步——它证明了神经网络可以直接学习序列到序列的映射，无需手工设计特征或规则。
+序列建模的根本挑战 问题一：变长序列的处理难题 传统神经网络（如前馈网络、CNN）要求输入和输出具有固定维度。然而，自然语言中的序列长度是可变的：
+输入长度可变：句子可能有5个词，也可能有50个词 输出长度可变：翻译结果的长度与源句子不同 输入输出长度不对应：源语言和目标语言的句子长度通常不同 这种变长特性使得传统方法无法直接应用于机器翻译、对话生成等任务。
+问题二：长距离依赖问题 语言中存在大量长距离依赖关系。例如：
+“The cat, which was sitting on the mat in the corner of the room, was sleeping.”
+主语&#34;cat&#34;和谓语&#34;was&#34;之间隔了多个从句，模型需要&#34;记住&#34;主语才能正确预测谓语的形式。
+传统RNN在处理长序列时面临梯度消失问题：
+$$ \frac{\partial \mathcal{L}}{\partial W} = \sum_{t=1}^{T} \frac{\partial \mathcal{L}t}{\partial W} = \sum{t=1}^{T} \frac{\partial \mathcal{L}t}{\partial h_t} \prod{k=1}^{t} \frac{\partial h_k}{\partial h_{k-1}} \frac{\partial h_1}{\partial W} $$
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-08-18 21:00:20 +0800 HKT'>August 18, 2025</span> | <span>16 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
