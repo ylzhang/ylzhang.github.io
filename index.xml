@@ -11,8 +11,27 @@
     </image>
     <generator>Hugo -- 0.153.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 14 Mar 2026 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2026 20:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent 写代码的下一站：不是写得快，而是记得住、跑得远</title>
+      <link>https://blog.zhangky.com/posts/2026/2026-03-20-agent-web-coding-memory-challenge/</link>
+      <pubDate>Fri, 20 Mar 2026 20:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/2026-03-20-agent-web-coding-memory-challenge/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;当 AI Agent 能够连续运行数天、自主管理复杂工程任务时，Web Coding 的竞争规则已经变了。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2026 年开年，AI 编程工具的讨论焦点正在从「能写多少代码」转向「能持续跑多久」。以 Cursor Composer 为代表的新一代工具，正在探索「multi-day autonomy」（多日自主性）——让 Agent 在没有人工干预的情况下连续运行数天，处理从代码生成到架构设计的全流程任务。这不是简单的「自动化」，而是一场关于 Agent 「记忆力」和「决策力」的工程实验。&lt;/p&gt;
+&lt;p&gt;据我们了解，Cursor 团队在 2026 年 3 月发布的 Composer 2 版本&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，将上下文窗口扩展至 20 万 Token，并引入了「会话记忆」「上下文压缩」等能力，试图解决长期运行中的致命问题：上下文爆炸和错误累积。传统 AI 编程在几小时后就会因为上下文过长而「失忆」，而新一代技术通过智能压缩和总结机制，让 Agent 的「有效记忆」远远超出物理窗口限制。&lt;/p&gt;
+&lt;p&gt;一位接近 Cursor 的工程师透露，他们的目标不是替代程序员写代码，而是构建「能够自主进化的代码仓库」——让软件工程从「人驱动」转向「AI 驱动」。&lt;/p&gt;
+&lt;h2 id=&#34;从写代码到做工程agent-的能力跃迁&#34;&gt;从「写代码」到「做工程」：Agent 的能力跃迁&lt;/h2&gt;
+&lt;p&gt;过去两年，AI 编程工具的竞争集中在「生成速度」和「代码质量」上。GitHub Copilot 能在几秒内补全代码，Claude Code 能在 6 小时内自主调试复杂系统，但这些仍属于「短跑」——任务明确、时间可控、上下文有限。&lt;/p&gt;
+&lt;p&gt;Cursor 的长运行能力则将「长跑」推向了「week-scale」（周级）。据行业观察，Composer 的 Agent 模式能够支持长时间复杂任务执行，提供会话记忆、上下文压缩、分支聊天、代理调试面板等能力&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。更重要的是，这些 Agent 并非简单执行预设任务，而是能够自主规划、分工协作、迭代优化。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这种能力的本质是什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一位长期研究 AI 编程的研究者指出，关键不在于「写代码」本身，而在于「维持工程状态的连续性」。人类工程师的价值不仅在于写代码，更在于对系统架构的理解、对历史决策的记忆、对错误模式的识别。Agent 要想替代这部分工作，必须拥有「长期记忆」和「渐进式学习」能力。&lt;/p&gt;
+&lt;p&gt;Cursor 的解决方案是「Hierarchical Agents」（分层 Agent）架构：Planner（规划者）负责拆解任务、Worker（执行者）负责具体实现、Judge（评判者）负责质量把关。三层之间通过压缩后的上下文传递信息，既避免了信息过载，又保持了决策连贯性。&lt;/p&gt;
+&lt;h2 id=&#34;记忆是-agent-工程化的最大瓶颈&#34;&gt;记忆，是 Agent 工程化的最大瓶颈&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;当前 AI 编程工具面临的核心挑战，不是「能不能写」，而是「记不记得住」。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;据我们了解，大多数 AI 编程 Agent 在持续运行 4-6 小时后就会出现明显的「失忆」症状：忘记之前的架构决策、重复已修复的错误、对代码库的整体理解逐渐模糊。这是因为大模型的上下文窗口有限，而代码仓库的信息密度极高，几小时的对话就会填满「内存」。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>高段领导力从哪里来</title>
       <link>https://blog.zhangky.com/posts/2026/2026-03-14-leadership-source-reflection/</link>
@@ -3718,50 +3737,6 @@ $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;4-区块链&#34;&gt;4. 区块链&lt;/h3&gt;
 &lt;p&gt;所有验证过的区块按时间顺序链接在一起，形成一个不可篡改的区块链。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://blog.zhangky.com/posts/2026/03-16/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/03-16/</guid>
-      <description>&lt;p&gt;最炫的“长跑”案例基本都围着Cursor的Composer转——尤其是它用数百agent一周自主建浏览器那事儿，跑了整整七天无干预，3M行代码，相当于100人团队24/7干活。  其他像Claude Code的6小时自主调试、Copilot的72小时PR链，算“中长跑”，但Cursor直接把“multi-day”推到“week-scale”。2026新提法里，“context compaction”（自总结+RL训练）是关键——它让agent不爆内存，还能链式迭代，错误率砍一半。  你要写文章，主旨可以定成：“从手动重构到AI自驱：2026时代，如何让代码仓库‘自己进化’”——前沿味儿足，带点惊叹。  展开结构建议：  开头钩子：抛个问题——“六个月团队活，AI一周搞定？听起来科幻，但Cursor刚做了。” 配张Composer界面截图（多agent并行编辑，PR自动审）。&lt;br&gt;
-现状+案例：讲X上工程师炫耀——@aakashgupta
-那篇“一周1000 commits，相当于100人org”，再提浏览器项目（hundreds agents，1 week runtime）。&lt;br&gt;
-技术核心：新提法——“Self-summarization via RL” + “Hierarchical agents”（planner→worker→judge），防死锁。加图：速度/智能对比柱状图。&lt;br&gt;
-你的方案融入：说“Java+Node混栈重构，正好用Composer的multi-file长跑”，举例：先建shared-lib agent，再分服务重构，跑72+小时出PR。&lt;br&gt;
-结尾展望：2026后，瓶颈不是代码，是“品味+架构决策”——人从写代码，变监督AI。&lt;/p&gt;
-&lt;p&gt;好，咱直接上干货——你用Cursor为主，技术栈Java + Node.js/TypeScript，我就给你从零到一的完整落地链条。目标：十个repo合并成统一架构（比如微服务+共享lib），全自动分析、设计、重构、PR，尽量让agent无干预跑几天。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第一步：Workspace搭建（5分钟搞定）&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;打开Cursor，选“Open Folder” → 建一个空文件夹当“超级根”，比如叫&lt;code&gt;mega-refactor&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;把十个repo全clone进去（或用Git submodule），结构像这样：
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mega-refactor/
-├── java-app1/
-├── java-app2/
-├── ... (java系)
-├── node-app1/
-├── node-app2/
-└── ... (ts系)
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;Cursor自动索引——等它扫描完（大项目10-15分钟），它就懂跨repo依赖了。混语言也没事，Java的Spring、Node的Express它都认。&lt;br&gt;
-提示：如果repo超大，先开“Ask mode”（Shift+Tab），测试问一句：“列出所有Java服务和Node API的公共接口”，看它跨repo回答对不对。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;第二步：建规则，让agent“记住”你的风格（关键！）&lt;/strong&gt;&lt;br&gt;
-在根目录下建&lt;code&gt;.cursor/rules/&lt;/code&gt;，加两个文件：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;java-refactor.mdc&lt;/code&gt;（Java服务统一）&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;---
-description: &amp;#34;Java服务层重构标准：薄层+RPC+共享domain&amp;#34;
-globs: [&amp;#34;**/src/main/java/**/service/**/*.java&amp;#34;]
----
-- 所有服务统一用RPC接口（@RemoteService）
-- 业务逻辑抽到domain层，服务只管调用
-- 命名：snake_case + _service
-- 参考：@java-app1/src/main/java/com/example/domain/UserService.java
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;ts-refactor.mdc&lt;/code&gt;（Node/TS统一）&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>

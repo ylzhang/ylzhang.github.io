@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>技术 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 技术 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.153.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 20 Mar 2026 20:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent 写代码的下一站：不是写得快，而是记得住、跑得远</title>
+      <link>https://blog.zhangky.com/posts/2026/2026-03-20-agent-web-coding-memory-challenge/</link>
+      <pubDate>Fri, 20 Mar 2026 20:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/2026-03-20-agent-web-coding-memory-challenge/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;当 AI Agent 能够连续运行数天、自主管理复杂工程任务时，Web Coding 的竞争规则已经变了。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2026 年开年，AI 编程工具的讨论焦点正在从「能写多少代码」转向「能持续跑多久」。以 Cursor Composer 为代表的新一代工具，正在探索「multi-day autonomy」（多日自主性）——让 Agent 在没有人工干预的情况下连续运行数天，处理从代码生成到架构设计的全流程任务。这不是简单的「自动化」，而是一场关于 Agent 「记忆力」和「决策力」的工程实验。&lt;/p&gt;
+&lt;p&gt;据我们了解，Cursor 团队在 2026 年 3 月发布的 Composer 2 版本&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，将上下文窗口扩展至 20 万 Token，并引入了「会话记忆」「上下文压缩」等能力，试图解决长期运行中的致命问题：上下文爆炸和错误累积。传统 AI 编程在几小时后就会因为上下文过长而「失忆」，而新一代技术通过智能压缩和总结机制，让 Agent 的「有效记忆」远远超出物理窗口限制。&lt;/p&gt;
+&lt;p&gt;一位接近 Cursor 的工程师透露，他们的目标不是替代程序员写代码，而是构建「能够自主进化的代码仓库」——让软件工程从「人驱动」转向「AI 驱动」。&lt;/p&gt;
+&lt;h2 id=&#34;从写代码到做工程agent-的能力跃迁&#34;&gt;从「写代码」到「做工程」：Agent 的能力跃迁&lt;/h2&gt;
+&lt;p&gt;过去两年，AI 编程工具的竞争集中在「生成速度」和「代码质量」上。GitHub Copilot 能在几秒内补全代码，Claude Code 能在 6 小时内自主调试复杂系统，但这些仍属于「短跑」——任务明确、时间可控、上下文有限。&lt;/p&gt;
+&lt;p&gt;Cursor 的长运行能力则将「长跑」推向了「week-scale」（周级）。据行业观察，Composer 的 Agent 模式能够支持长时间复杂任务执行，提供会话记忆、上下文压缩、分支聊天、代理调试面板等能力&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。更重要的是，这些 Agent 并非简单执行预设任务，而是能够自主规划、分工协作、迭代优化。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这种能力的本质是什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一位长期研究 AI 编程的研究者指出，关键不在于「写代码」本身，而在于「维持工程状态的连续性」。人类工程师的价值不仅在于写代码，更在于对系统架构的理解、对历史决策的记忆、对错误模式的识别。Agent 要想替代这部分工作，必须拥有「长期记忆」和「渐进式学习」能力。&lt;/p&gt;
+&lt;p&gt;Cursor 的解决方案是「Hierarchical Agents」（分层 Agent）架构：Planner（规划者）负责拆解任务、Worker（执行者）负责具体实现、Judge（评判者）负责质量把关。三层之间通过压缩后的上下文传递信息，既避免了信息过载，又保持了决策连贯性。&lt;/p&gt;
+&lt;h2 id=&#34;记忆是-agent-工程化的最大瓶颈&#34;&gt;记忆，是 Agent 工程化的最大瓶颈&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;当前 AI 编程工具面临的核心挑战，不是「能不能写」，而是「记不记得住」。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;据我们了解，大多数 AI 编程 Agent 在持续运行 4-6 小时后就会出现明显的「失忆」症状：忘记之前的架构决策、重复已修复的错误、对代码库的整体理解逐渐模糊。这是因为大模型的上下文窗口有限，而代码仓库的信息密度极高，几小时的对话就会填满「内存」。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -196,6 +196,28 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Sora发布：视频行业的末日，还是创意的重生？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>早上到公司，微信群炸了——OpenAI放了Sora内测视频。我盯着那段巴黎街头遛狗的画面看了三遍，树叶晃动的弧度、女生裙摆的褶皱、小狗追蝴蝶的动态，连阳光透过梧桐叶的光斑都栩栩如生。
+大家都在讨论画质，我却看到了行业的末日
+当所有人都在惊叹Sora的生成质量时，我给做了10年广告导演的老陈打了个电话。他沉默了几秒：“今天已经有三个客户问能不能用AI做下季度的广告片了。以前拍30秒广告，找演员、租场地、后期剪辑，至少得一周。现在输入200字文本，30秒就能出片，成本直接降70%。”
+中美AI视频竞赛，已经从实验室烧到了产业端
+上周还在聊谷歌Gemini 1.5 Pro的100万token上下文有多厉害，能处理小时级的长视频。这才几天，OpenAI就直接放出了终极大招。美国巨头在技术前沿狂飙，中国公司也没闲着——抖音已经在测试AI生成视频功能，阿里的通义千问也在布局视频生成。影视公司开始测试AI生成剧本分镜，甚至直接生成成片。
+Sora的终极威胁，不是取代创作者，而是消灭真实性
+但Sora的问题远不止抢饭碗。训练用的海量视频，有多少是未经授权的？生成的视频版权到底归谁？下午刷到一段粗糙的&#34;普京宣布辞职&#34;假视频，评论区已经有不少人信以为真。要是用Sora来做这种假视频，画面足以乱真，后果不堪设想。
+下班路上看到地铁站里的广告，突然想起去年冬天和老陈在零下五度的街头拍的那条广告。我们冻得手都拿不住相机，拍了三天才完成。看到成片的那一刻，那种成就感是任何AI都替代不了的。
+AI不会取代创意，只会取代没有创意的人。
+2024年的视频行业注定不平静。Sora不是视频行业的末日，而是创意的过滤器。真正的创作者，会把AI当成工具；只有那些只会重复劳动的人，才会被淘汰。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-02-20 14:46:19 +0800 HKT'>February 20, 2024</span> | <span>3 min</span> | <span>China</span></footer>
+  <a class="entry-link" aria-label="post link to Sora发布：视频行业的末日，还是创意的重生？" href="https://blog.zhangky.com/posts/2024/2024-02-20-sora-video-ai/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">脑机接口与手机AI：2024开年的人机交互双响炮
     </h2>
   </header>
@@ -238,30 +260,6 @@
   </div>
   <footer class="entry-footer">   ZHANG.z&#34; | <span title='2015-03-15 14:49:00 +0800 HKT'>March 15, 2015</span> | <span>9 min</span> | <span>北京</span></footer>
   <a class="entry-link" aria-label="post link to 比特币白皮书读书笔记：这篇论文如何改变了我对货币的理解" href="https://blog.zhangky.com/posts/2015/bitcoin-whitepaper-notes/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>最炫的“长跑”案例基本都围着Cursor的Composer转——尤其是它用数百agent一周自主建浏览器那事儿，跑了整整七天无干预，3M行代码，相当于100人团队24/7干活。 其他像Claude Code的6小时自主调试、Copilot的72小时PR链，算“中长跑”，但Cursor直接把“multi-day”推到“week-scale”。2026新提法里，“context compaction”（自总结&#43;RL训练）是关键——它让agent不爆内存，还能链式迭代，错误率砍一半。 你要写文章，主旨可以定成：“从手动重构到AI自驱：2026时代，如何让代码仓库‘自己进化’”——前沿味儿足，带点惊叹。 展开结构建议： 开头钩子：抛个问题——“六个月团队活，AI一周搞定？听起来科幻，但Cursor刚做了。” 配张Composer界面截图（多agent并行编辑，PR自动审）。
-现状&#43;案例：讲X上工程师炫耀——@aakashgupta 那篇“一周1000 commits，相当于100人org”，再提浏览器项目（hundreds agents，1 week runtime）。
-技术核心：新提法——“Self-summarization via RL” &#43; “Hierarchical agents”（planner→worker→judge），防死锁。加图：速度/智能对比柱状图。
-你的方案融入：说“Java&#43;Node混栈重构，正好用Composer的multi-file长跑”，举例：先建shared-lib agent，再分服务重构，跑72&#43;小时出PR。
-结尾展望：2026后，瓶颈不是代码，是“品味&#43;架构决策”——人从写代码，变监督AI。
-好，咱直接上干货——你用Cursor为主，技术栈Java &#43; Node.js/TypeScript，我就给你从零到一的完整落地链条。目标：十个repo合并成统一架构（比如微服务&#43;共享lib），全自动分析、设计、重构、PR，尽量让agent无干预跑几天。
-第一步：Workspace搭建（5分钟搞定）
-打开Cursor，选“Open Folder” → 建一个空文件夹当“超级根”，比如叫mega-refactor。 把十个repo全clone进去（或用Git submodule），结构像这样： mega-refactor/ ├── java-app1/ ├── java-app2/ ├── ... (java系) ├── node-app1/ ├── node-app2/ └── ... (ts系) Cursor自动索引——等它扫描完（大项目10-15分钟），它就懂跨repo依赖了。混语言也没事，Java的Spring、Node的Express它都认。
-提示：如果repo超大，先开“Ask mode”（Shift&#43;Tab），测试问一句：“列出所有Java服务和Node API的公共接口”，看它跨repo回答对不对。 第二步：建规则，让agent“记住”你的风格（关键！）
-在根目录下建.cursor/rules/，加两个文件：
-java-refactor.mdc（Java服务统一）
---- description: &#34;Java服务层重构标准：薄层&#43;RPC&#43;共享domain&#34; globs: [&#34;**/src/main/java/**/service/**/*.java&#34;] --- - 所有服务统一用RPC接口（@RemoteService） - 业务逻辑抽到domain层，服务只管调用 - 命名：snake_case &#43; _service - 参考：@java-app1/src/main/java/com/example/domain/UserService.java ts-refactor.mdc（Node/TS统一）
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span>About 8 min</span> | <span>Shanghai, China</span></footer>
-  <a class="entry-link" aria-label="post link to " href="https://blog.zhangky.com/posts/2026/03-16/"></a>
 </article>
 
 <article class="post-entry"> 
