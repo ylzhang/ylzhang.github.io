@@ -186,6 +186,27 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">千问核心离职风波：林俊旸下一步是创业吗？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>3 月 6 日，林俊旸正式确认离职。距离那条「bye my beloved qwen」的推文过去 48 小时，这场震动中国 AI 圈的人事风波进入下半场——不是八卦内幕的下半场，而是更实质的问题：一个 32 岁、带出了全球顶级开源模型、被 Google DeepMind 公开喊话抢人的技术领袖，下一步该往哪走？
+我的判断很直接：创业是他唯一合理的选择。
+不是情感上的「创业浪漫」，而是结构性推演后的结论。大厂、学术机构、加入其他独角兽——这三条路都有明显的逻辑断裂，只有创业能承接他过去三年积累的所有资产，并给他真正的自由度。
+林俊旸今年 32 岁，阿里最年轻的 P10，Qwen 技术负责人。在他带领下，Qwen 从一个内部项目成长为全球下载量突破 7 亿次、衍生模型超过 18 万个的开源模型家族1。斯坦福《2025 年人工智能指数报告》把 Qwen 排在全球第三2，Google DeepMind executive Omar Sanseviero 在他离职后直接在 X 上向 Qwen 团队喊话：「if any of you want a new home to build great models and contribute to the open models ecosystem, please reach out!」3
+这是全球顶级 AI 实验室在用行动投票：这些人在开源生态里的价值，远超任何一家公司的内部职级体系能衡量的。
+但价值归价值，选择归选择。林俊旸面前的选项其实不多——或者说，他面前的选择太多，反而让决策变得更难。
+据说离职消息传出后，投资圈瞬间沸腾。
+不止一家头部机构的合伙人通过各种渠道打探他的联系方式——有人发朋友圈暗示「有预算、等团队」，有人通过千问团队的熟人递话，有人直接私信阿里内部的朋友「能不能帮我引荐林俊旸」。不到 48 小时，他的微信被加爆，未读消息里挤满了红杉、高瓴、五源、启明等一线基金的合伙人。
+开出的条件一个比一个诱人：有人直接开价数千万美元估值，不占大股，「你说了算」；有人承诺「只管做技术，商业化我们来」，配套完整的 GTM 团队。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-03-07 21:29:02 +0800 HKT'>March 7, 2026</span> | <span>21 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 千问核心离职风波：林俊旸下一步是创业吗？" href="https://blog.zhangky.com/posts/2026/2026-03-07-linjunyang-next-move-startup/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">大模型的开源，到底开源了什么
     </h2>
   </header>
@@ -270,31 +291,6 @@ AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清�
   </div>
   <footer class="entry-footer">   ZHANG.z | <span title='2026-02-11 10:00:00 +0800 HKT'>February 11, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师" href="https://blog.zhangky.com/posts/2026/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【论文解读11】深度残差网络中的恒等映射：ResNet改进
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的改进论文《Identity Mappings in Deep Residual Networks》，该论文深入分析了ResNet中恒等映射的作用机制，提出了预激活（Pre-activation）的残差块设计，进一步优化了ResNet的训练稳定性和性能。这一改进不仅完善了ResNet的理论基础，更为理解残差连接的本质提供了深刻的洞察。
-“恒等映射是残差网络成功的关键。&#34;——这是He等人在ResNet改进论文中提出的核心观点。在原始ResNet中，残差块的设计虽然有效，但恒等映射的实现方式（激活函数的位置）对性能有重要影响。通过系统性的实验和理论分析，论文发现预激活（在卷积之前应用BatchNorm和ReLU）比后激活（在卷积之后应用）效果更好。
-论文的核心创新是预激活残差块：将BatchNorm和ReLU移到卷积之前，使恒等映射的路径更加&#34;干净”，梯度流动更加顺畅。这种设计不仅提高了训练稳定性，还进一步提升了模型性能，在ImageNet上取得了更好的结果。
-在当今大模型时代，这一改进的思想仍然重要：理解恒等映射的本质，优化信息流动路径，这些原则仍然是深度网络设计的核心。理解ResNet改进，就是理解如何进一步优化残差连接。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet改进，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。
-本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
-原始ResNet的恒等映射问题 问题一：激活函数位置的影响 在原始ResNet中，残差块的设计为：
-$$ y = \mathcal{F}(x, {W_i}) &#43; x $$
-其中 $\mathcal{F}$ 通常包含：Conv → BN → ReLU → Conv → BN，然后输出与 $x$ 相加，最后再应用ReLU。
-后激活设计：激活函数在残差函数之后，恒等映射 $x$ 直接参与加法，然后应用激活函数。
-问题分析：当 $x$ 经过ReLU激活时，如果 $x$ 的某些元素为负，会被置为0，破坏了恒等映射的性质。这导致恒等映射路径不够&#34;干净&#34;，梯度流动可能受阻。
-问题二：梯度流动的阻塞 在原始设计中，梯度需要通过激活函数的导数传播：
-$$ \frac{\partial y}{\partial x} = \frac{\partial \text{ReLU}(\mathcal{F}(x) &#43; x)}{\partial x} = \text{ReLU}’(\mathcal{F}(x) &#43; x) \left(1 &#43; \frac{\partial \mathcal{F}}{\partial x}\right) $$
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-10 20:42:22 +0800 HKT'>February 10, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【论文解读11】深度残差网络中的恒等映射：ResNet改进" href="https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

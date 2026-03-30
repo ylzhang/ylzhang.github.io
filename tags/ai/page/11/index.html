@@ -186,6 +186,29 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
+前置要求：高中数学水平，会基础Python。
+一、求和与连乘 1.1 求和符号 $\sum$ 读法：Sigma（西格玛），读作&#34;sum&#34;
+含义：把一堆数加起来
+公式示例： $$\sum_{i=1}^{n} x_i = x_1 &#43; x_2 &#43; \cdots &#43; x_n$$
+论文中常见形式：
+损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和） Python实现：
+import numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi &gt; 0) 1.2 连乘符号 $\prod$ 读法：Pi（派），读作&#34;product&#34;
+含义：把一堆数乘起来
+公式示例： $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$
+论文中常见形式：
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-01-15 10:55:01 +0800 HKT'>January 15, 2025</span> | <span>25 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">AI医疗：99%的准确率在实验室，95%的准确率在村寨
     </h2>
   </header>
@@ -277,27 +300,6 @@ AI治理的终极挑战，不是技术，而是如何在不同国家的利益之
   </div>
   <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-10-12 13:13:41 +0800 HKT'>October 12, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 乌镇峰会的AI治理共识：全球协同，还是各说各话？" href="https://blog.zhangky.com/posts/2024/2024-10-12-ai-governance/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">马斯克的超级计算机：算力军备竞赛的开始？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>马斯克的xAI团队只用四个月就建成全球最大超级计算机&#34;巨像&#34;，这个消息让我下巴都掉了。传统超算建设周期至少2-3年，这速度太疯狂了。
-表层：算力军备竞赛的加速
-算力是AI发展的核心驱动力，这点我当然兴奋。但冷静下来想，这会不会引发全球算力军备竞赛？“巨像&#34;用了3万多块H100 GPU，一年电费得多少钱？上周跟AI创业公司CTO聊天，他说算力成本占公司开支60%，“跑个大模型训练得等半个月排算力”。
-深层：中美超算的技术博弈
-中美在超算领域的竞争早已开始。中国的神威·太湖之光和天河二号多次登TOP500榜首，美国通过AMD、英伟达技术优势反超。马斯克这次直接用GPU堆出超算，绕过了传统超算的建设周期，是另一种路径突破。
-终局：算力集中的隐忧
-更让我担忧的是，高端算力正集中在少数科技巨头手中，中小企业根本用不起。而且，算力竞争会不会像核武器竞赛一样，最终变成资源浪费？毕竟，AI发展的瓶颈从来都不只是算力，还有算法和数据。
-马斯克总喜欢搞大新闻，这次的超级计算机到底是进步利器，还是烧钱游戏？
-算力不是AI的全部，就像核武器不是战争的全部。真正的AI革命，需要的是算力、算法和数据的平衡，而不是单一维度的军备竞赛。
-</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-09-25 09:32:00 +0800 HKT'>September 25, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 马斯克的超级计算机：算力军备竞赛的开始？" href="https://blog.zhangky.com/posts/2024/2024-09-25-supercomputers/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

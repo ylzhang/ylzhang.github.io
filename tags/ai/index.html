@@ -186,6 +186,27 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">AI 编程框架的约束竞赛：Superpowers、GSD、gstack 
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。
+2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。
+但问题在于——约束不是解决方案，而是问题的转移。
+据我们了解，Superpowers 在 GitHub 上已积累 3.15 万&#43; stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」
+这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？
+Superpowers：用「强制技能」约束过程，但谁来约束技能？ Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。
+这个由 Jesse Vincent（obra）创建的框架4，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 “You MUST use this before any creative work” 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场5。
+这套机制的本质是「过程约束」。
+它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」
+...</p>
+  </div>
+  <footer class="entry-footer">   AI | <span title='2026-03-29 20:00:00 +0800 HKT'>March 29, 2026</span> | <span>24 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to AI 编程框架的约束竞赛：Superpowers、GSD、gstack " href="https://blog.zhangky.com/posts/2026/2026-03-29-ai-coding-frameworks-harness-analysis/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Agent 写代码的下一站：不是写得快，而是记得住、跑得远
     </h2>
   </header>
@@ -304,27 +325,6 @@ Anthropic, “Introducing Claude Sonnet 4.6”, February 17, 2026, https://www.a
   </div>
   <footer class="entry-footer">   ZHANG.z | <span title='2026-03-08 14:00:00 +0800 HKT'>March 8, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 龙虾大会：一场关于AI编程的集体幻觉" href="https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">千问核心离职风波：林俊旸下一步是创业吗？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>3 月 6 日，林俊旸正式确认离职。距离那条「bye my beloved qwen」的推文过去 48 小时，这场震动中国 AI 圈的人事风波进入下半场——不是八卦内幕的下半场，而是更实质的问题：一个 32 岁、带出了全球顶级开源模型、被 Google DeepMind 公开喊话抢人的技术领袖，下一步该往哪走？
-我的判断很直接：创业是他唯一合理的选择。
-不是情感上的「创业浪漫」，而是结构性推演后的结论。大厂、学术机构、加入其他独角兽——这三条路都有明显的逻辑断裂，只有创业能承接他过去三年积累的所有资产，并给他真正的自由度。
-林俊旸今年 32 岁，阿里最年轻的 P10，Qwen 技术负责人。在他带领下，Qwen 从一个内部项目成长为全球下载量突破 7 亿次、衍生模型超过 18 万个的开源模型家族1。斯坦福《2025 年人工智能指数报告》把 Qwen 排在全球第三2，Google DeepMind executive Omar Sanseviero 在他离职后直接在 X 上向 Qwen 团队喊话：「if any of you want a new home to build great models and contribute to the open models ecosystem, please reach out!」3
-这是全球顶级 AI 实验室在用行动投票：这些人在开源生态里的价值，远超任何一家公司的内部职级体系能衡量的。
-但价值归价值，选择归选择。林俊旸面前的选项其实不多——或者说，他面前的选择太多，反而让决策变得更难。
-据说离职消息传出后，投资圈瞬间沸腾。
-不止一家头部机构的合伙人通过各种渠道打探他的联系方式——有人发朋友圈暗示「有预算、等团队」，有人通过千问团队的熟人递话，有人直接私信阿里内部的朋友「能不能帮我引荐林俊旸」。不到 48 小时，他的微信被加爆，未读消息里挤满了红杉、高瓴、五源、启明等一线基金的合伙人。
-开出的条件一个比一个诱人：有人直接开价数千万美元估值，不占大股，「你说了算」；有人承诺「只管做技术，商业化我们来」，配套完整的 GTM 团队。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-03-07 21:29:02 +0800 HKT'>March 7, 2026</span> | <span>21 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 千问核心离职风波：林俊旸下一步是创业吗？" href="https://blog.zhangky.com/posts/2026/2026-03-07-linjunyang-next-move-startup/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

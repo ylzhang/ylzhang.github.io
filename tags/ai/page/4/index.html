@@ -186,6 +186,25 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">物理学的尽头是AGI？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>物理学界流传着一个古老的笑话：物理学家无所不能，除了物理。
+虽然是句调侃，但在当今的 AI 浪潮中，这似乎成了某种预言。当你剥开 ChatGPT、Claude 或是 Llama 的外衣，往最核心的算法层和决策层看去，会惊讶地发现：怎么满屋子都是学物理的？
+从 OpenAI 的分裂到 Anthropic 的崛起，从 Scaling Laws 的发现到 Transformer 的优化，这群曾经天天琢磨量子态、黑洞和宇宙学的聪明脑袋，似乎集体决定换个赛道——不再纠结上帝掷不掷骰子，而是教 GPU 怎么掷出下一个 Token。
+今天，我们就按「学术背景 → 核心贡献 → 现状」的结构，盘点一下这几位“稍不留神”就改变了 AI 历史进程的物理学家。看完你或许会明白，为什么说物理学才是 AGI 的“新东方烹饪学校”。
+1. Dario Amodei (Anthropic 联合创始人 &amp; CEO)
+物理背景：普林斯顿大学物理学博士。硬核的理论物理与量子计算方向，还顺手在斯坦福和加州理工做了博士后。典型的“谢尔顿”式学术履历。 核心贡献： Scaling Laws (缩放定律)：在大模型还是玄学的年代，他和团队搞出了 Scaling Laws，告诉世界：别瞎猜了，算力、数据和参数量之间有铁律。这直接给“暴力美学”奠定了理论基石。 Claude 之父：从 OpenAI 出走后创立 Anthropic，死磕“宪法 AI (Constitutional AI)”，试图给 AI 装上安全阀。 当前状态：Anthropic CEO。正忙着让 Claude 更聪明、更安全，同时思考怎么不让强 AI 把人类带沟里去。 2. Jared Kaplan (Anthropic 联合创始人 &amp; 首席科学家)
+物理背景：约翰霍普金斯大学理论物理学教授。研究了 15 年的量子引力、场论和宇宙学。正儿八经的教授下海，降维打击。 核心贡献： Scaling Laws 的奠基人：他和 Dario Amodei 的名字几乎和缩放定律绑定。把研究宇宙膨胀的劲头拿来研究模型膨胀，结果发现规律竟然出奇地一致。 GPT-3 &amp; Codex：在 OpenAI 期间是这两个大杀器的核心参与者。 当前状态：Anthropic 首席科学家。继续在 LLM 的基础理论和安全对齐的无人区里探索。 3. Ilya Sutskever (OpenAI 联合创始人 &amp; 前首席科学家)
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-01-27 23:15:04 +0800 HKT'>January 27, 2026</span> | <span>17 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 物理学的尽头是AGI？" href="https://blog.zhangky.com/posts/2026/2026-01-27-physicists-in-ai/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">【论文解读07】循环神经网络正则化（Ilya经典论文）
     </h2>
   </header>
@@ -277,39 +296,6 @@ OpenAI面临的最大挑战不是谷歌，而是商业模式的可持续性。�
   </div>
   <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-01-20 12:59:25 +0800 HKT'>January 20, 2026</span> | <span>11 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to OpenAI与网景：三十年轮回，但这次可能真的不同" href="https://blog.zhangky.com/posts/2026/2026-01-20-openai-netscape/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【论文解读05】循环神经网络的不可思议的有效性
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Andrej Karpathy于2015年发表的经典博客文章《The Unreasonable Effectiveness of Recurrent Neural Networks》，该文章深入探讨了循环神经网络（RNN）在序列建模任务中的强大能力和应用潜力。这篇文章不仅展示了RNN在文本生成、代码生成、音乐创作等领域的惊人表现，更为理解序列数据的本质、神经网络的语言能力以及生成式AI的发展奠定了重要基础。
-“循环神经网络具有不可思议的有效性。&#34;——这是Karpathy在文章开篇的断言。在Transformer尚未兴起的2015年，RNN就已经展现出处理序列数据的强大能力。从生成莎士比亚风格的文本，到编写Python代码，再到创作音乐，RNN似乎能够&#34;理解&#34;序列中的模式，并生成符合这些模式的新序列。
-RNN的核心思想是记忆：通过隐藏状态（hidden state）保存历史信息，使网络能够处理任意长度的序列。这种记忆机制使得RNN能够捕捉序列中的长期依赖关系，理解上下文，生成连贯的文本。虽然RNN后来被Transformer超越，但其核心思想（序列建模、注意力机制）仍然影响着现代AI的发展。
-在当今大语言模型时代，RNN的思想以新的形式延续：Transformer的自注意力机制可以看作是对RNN记忆机制的改进，GPT等模型本质上仍然是序列到序列的生成模型。理解RNN，就是理解序列建模的本质，理解语言模型如何&#34;理解&#34;和&#34;生成&#34;文本。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读RNN的不可思议有效性，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
-本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
-序列建模的根本挑战 问题一：变长序列的处理难题 传统神经网络（如全连接网络、CNN）要求输入具有固定维度。但现实中的序列数据（文本、语音、时间序列）长度是变化的。如何设计能够处理任意长度序列的模型？
-固定窗口的局限性：如果使用固定大小的窗口（如n-gram模型），只能捕捉局部依赖关系，无法处理长距离依赖。例如，在句子&#34;The cat, which was very hungry, ate the food&#34;中，“cat&#34;和&#34;ate&#34;之间的依赖关系跨越了多个词，固定窗口无法捕捉。
-序列的本质：序列数据具有时间或顺序结构，每个元素不仅包含自身的信息，还包含其在序列中的位置信息。这种结构信息对于理解序列至关重要。
-RNN通过循环结构解决了这个问题：网络在每个时间步处理一个元素，并将处理结果传递给下一个时间步，从而能够处理任意长度的序列。
-问题二：长期依赖的捕捉 序列数据中的依赖关系可能跨越很长的距离。在语言中，一个词的含义可能依赖于前面很远的词；在音乐中，一个音符的意义可能依赖于整个旋律的结构。
-梯度消失问题：在训练RNN时，梯度需要通过时间反向传播（Backpropagation Through Time, BPTT）。如果序列很长，梯度在反向传播过程中会指数级衰减，导致网络无法学习长期依赖关系。
-记忆容量限制：即使理论上RNN可以保存任意长的历史信息，但实际中隐藏状态的容量是有限的。如何有效地利用有限的记忆容量来保存最重要的信息？
-LSTM和GRU等改进架构通过门控机制（gating mechanism）解决了这些问题，能够有选择地保存和遗忘信息，从而更好地捕捉长期依赖。
-问题三：序列生成的创造性 序列建模不仅要理解序列，还要能够生成新的序列。生成任务面临三个核心挑战：如何保证生成的序列符合训练数据的分布？如何保证生成的序列是连贯的？如何保证生成的序列具有创造性（不是简单复制训练数据）？
-分布匹配：生成的序列应该遵循训练数据的分布。如果训练数据是莎士比亚的文本，生成的文本应该像莎士比亚的风格。
-连贯性：生成的序列应该是连贯的，每个元素应该与前文一致。例如，如果前文提到&#34;猫”，后文不应该突然提到&#34;狗”（除非有合理的上下文）。
-创造性：生成的序列应该具有创造性，不是简单复制训练数据。这需要在模仿和创造之间找到平衡。
-RNN通过自回归生成（autoregressive generation）解决了这些问题：在每个时间步，网络根据前文生成下一个元素，通过采样策略（如温度采样）控制生成的随机性和创造性。
-RNN的核心机制 循环结构：记忆与状态 RNN的核心是循环结构：网络在每个时间步接收输入 $x_t$ 和前一时刻的隐藏状态 $h_{t-1}$，计算当前时刻的隐藏状态 $h_t$ 和输出 $y_t$：
-$$ h_t = \tanh(W_h h_{t-1} &#43; W_x x_t &#43; b) $$
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-01-11 10:25:22 +0800 HKT'>January 11, 2026</span> | <span>28 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【论文解读05】循环神经网络的不可思议的有效性" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-11-paper-05-rnn-effectiveness/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

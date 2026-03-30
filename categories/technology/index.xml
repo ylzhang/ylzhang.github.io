@@ -11,8 +11,24 @@
     </image>
     <generator>Hugo -- 0.153.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Mar 2026 20:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 20:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI 编程框架的约束竞赛：Superpowers、GSD、gstack </title>
+      <link>https://blog.zhangky.com/posts/2026/2026-03-29-ai-coding-frameworks-harness-analysis/</link>
+      <pubDate>Sun, 29 Mar 2026 20:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/2026-03-29-ai-coding-frameworks-harness-analysis/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。&lt;/p&gt;
+&lt;p&gt;但问题在于——&lt;strong&gt;约束不是解决方案，而是问题的转移&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;据我们了解，Superpowers 在 GitHub 上已积累 3.15 万+ stars&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，gstack 发布数天内即获得约 2 万 stars&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;，Harness Engineering 相关仓库在 3 个月内激增到 107 个&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」&lt;/p&gt;
+&lt;p&gt;这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？&lt;/p&gt;
+&lt;h2 id=&#34;superpowers用强制技能约束过程但谁来约束技能&#34;&gt;Superpowers：用「强制技能」约束过程，但谁来约束技能？&lt;/h2&gt;
+&lt;p&gt;Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。&lt;/p&gt;
+&lt;p&gt;这个由 Jesse Vincent（obra）创建的框架&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 &amp;ldquo;You MUST use this before any creative work&amp;rdquo; 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这套机制的本质是「过程约束」&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Agent 写代码的下一站：不是写得快，而是记得住、跑得远</title>
       <link>https://blog.zhangky.com/posts/2026/2026-03-20-agent-web-coding-memory-challenge/</link>
