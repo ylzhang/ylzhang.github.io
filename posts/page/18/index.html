@@ -1,289 +1,49 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Posts | Zhang&#39;s Blog</title>
-<meta name="keywords" content="">
-<meta name="description" content="Posts - Zhang&#39;s Blog">
-<meta name="author" content="ZHANG.z&#34;">
-<link rel="canonical" href="https://blog.zhangky.com/posts/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/posts/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<meta property="og:url" content="https://blog.zhangky.com/posts/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="Posts">
-  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="website">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="Posts">
-<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://blog.zhangky.com/posts/"
-    }
-  ]
-}
-</script>
-</head>
-<body class="list" id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
-                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 11a9 9 0 0 1 9 9" />
-    <path d="M4 4a16 16 0 0 1 16 16" />
-    <circle cx="5" cy="19" r="1" />
-</svg>
-                </a>
-                
-
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://blog.zhangky.com/" title="Posts">
-                    <span>Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/faq" title="FAQ">
-                    <span>FAQ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <style>
-        .nav.scrolled {
-            background: var(--theme);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .nav.scrolled #menu {
-            display: none;
-        }
-        .nav.scrolled .logo {
-            margin: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > nav.offsetHeight) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-</header>
-<main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a></div>
-  <h1>
-    Posts
-  </h1>
-</header>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【AI数学】30分钟拆解AI核心公式-复习笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>上一篇我们搞定了符号，这一篇直接拆解AI论文中出现频率最高的6个公式。每个公式都是：问题→公式→拆解→代码。
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Posts | Zhang's Blog</title><meta name=keywords content><meta name=description content="Posts - Zhang's Blog"><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/posts/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.zhangky.com/posts/index.xml title=rss><link rel=alternate hreflang=en href=https://blog.zhangky.com/posts/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://blog.zhangky.com/posts/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="Posts"><meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta property="og:locale" content="zh-cn"><meta property="og:type" content="website"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="Posts"><meta name=twitter:description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.zhangky.com/posts/"}]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://blog.zhangky.com/>Home</a></div><h1>Posts</h1></header><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【AI数学】30分钟拆解AI核心公式-复习笔记</h2></header><div class=entry-content><p>上一篇我们搞定了符号，这一篇直接拆解AI论文中出现频率最高的6个公式。每个公式都是：问题→公式→拆解→代码。
 前置要求：读完上一篇符号速查手册。
 一、Softmax与交叉熵损失 问题：如何把模型输出变成概率？ 神经网络输出的是一堆数字（logits），可能是负数、可能很大。我们需要把它们变成概率分布（非负、和为1）。
 公式 $$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_{j=1}^{K} e^{x_j}}$$
-拆解 $e^{x_i}$：指数函数，把任意数变成正数 $\sum_{j=1}^{K} e^{x_j}$：所有指数的和，用于归一化 除法：确保结果和为1 为什么用指数？ 因为指数函数会放大差异——大的更大，小的更小，让模型更&#34;自信&#34;。
-代码实现 import numpy as np def softmax(x): &#34;&#34;&#34; 输入: x, shape (K,) 或 (batch, K) 输出: 概率分布，shape同输入 &#34;&#34;&#34; # 减去最大值防止数值溢出（数学上等价） exp_x = np.exp(x - np.max(x, axis=-1, keepdims=True)) return exp_x / np.sum(exp_x, axis=-1, keepdims=True) # 示例 logits = np.array([2.0, 1.0, 0.1]) probs = softmax(logits) print(probs) # [0.659, 0.242, 0.099] print(probs.sum()) # 1.0 交叉熵损失 有了概率，如何衡量预测和真实标签的差距？
+拆解 $e^{x_i}$：指数函数，把任意数变成正数 $\sum_{j=1}^{K} e^{x_j}$：所有指数的和，用于归一化 除法：确保结果和为1 为什么用指数？ 因为指数函数会放大差异——大的更大，小的更小，让模型更"自信"。
+代码实现 import numpy as np def softmax(x): """ 输入: x, shape (K,) 或 (batch, K) 输出: 概率分布，shape同输入 """ # 减去最大值防止数值溢出（数学上等价） exp_x = np.exp(x - np.max(x, axis=-1, keepdims=True)) return exp_x / np.sum(exp_x, axis=-1, keepdims=True) # 示例 logits = np.array([2.0, 1.0, 0.1]) probs = softmax(logits) print(probs) # [0.659, 0.242, 0.099] print(probs.sum()) # 1.0 交叉熵损失 有了概率，如何衡量预测和真实标签的差距？
 $$L = -\sum_{i=1}^{K} y_i \log(\hat{y}_i)$$
 其中 $y_i$ 是真实标签（one-hot），$\hat{y}_i$ 是预测概率。
 简化形式（单标签分类）： $$L = -\log(\hat{y}_{correct})$$
 就是正确类别的概率取负对数。概率越高，损失越小。
-def cross_entropy_loss(probs, label): &#34;&#34;&#34; probs: softmax输出的概率, shape (K,) label: 正确类别的索引, int &#34;&#34;&#34; return -np.log(probs[label] &#43; 1e-10) # 加小数防止log(0) # 示例 probs = np.array([0.7, 0.2, 0.1]) loss = cross_entropy_loss(probs, label=0) # 正确类别是0 print(loss) # 0.357（概率0.7对应的损失） 二、注意力机制（Attention） 问题：如何让模型&#34;关注&#34;输入的不同部分？ 翻译&#34;我爱北京&#34;时，生成&#34;Beijing&#34;应该主要关注&#34;北京&#34;这个词，而不是平均关注所有词。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-01-16 10:27:39 +0800 HKT'>January 16, 2025</span> | <span>27 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【AI数学】30分钟拆解AI核心公式-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-02-core-formulas/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
+def cross_entropy_loss(probs, label): """ probs: softmax输出的概率, shape (K,) label: 正确类别的索引, int """ return -np.log(probs[label] + 1e-10) # 加小数防止log(0) # 示例 probs = np.array([0.7, 0.2, 0.1]) loss = cross_entropy_loss(probs, label=0) # 正确类别是0 print(loss) # 0.357（概率0.7对应的损失） 二、注意力机制（Attention） 问题：如何让模型"关注"输入的不同部分？ 翻译"我爱北京"时，生成"Beijing"应该主要关注"北京"这个词，而不是平均关注所有词。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-01-16 10:27:39 +0800 +0800'>January 16, 2025</span> | <span>27 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【AI数学】30分钟拆解AI核心公式-复习笔记" href=https://blog.zhangky.com/posts/2025/math-learn/2025-math-02-core-formulas/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记</h2></header><div class=entry-content><p>读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
 前置要求：高中数学水平，会基础Python。
-一、求和与连乘 1.1 求和符号 $\sum$ 读法：Sigma（西格玛），读作&#34;sum&#34;
+一、求和与连乘 1.1 求和符号 $\sum$ 读法：Sigma（西格玛），读作"sum"
 含义：把一堆数加起来
-公式示例： $$\sum_{i=1}^{n} x_i = x_1 &#43; x_2 &#43; \cdots &#43; x_n$$
+公式示例： $$\sum_{i=1}^{n} x_i = x_1 + x_2 + \cdots + x_n$$
 论文中常见形式：
 损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和） Python实现：
-import numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi &gt; 0) 1.2 连乘符号 $\prod$ 读法：Pi（派），读作&#34;product&#34;
+import numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi > 0) 1.2 连乘符号 $\prod$ 读法：Pi（派），读作"product"
 含义：把一堆数乘起来
 公式示例： $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$
 论文中常见形式：
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-01-15 10:55:01 +0800 HKT'>January 15, 2025</span> | <span>25 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">AI医疗：99%的准确率在实验室，95%的准确率在村寨
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>上周从杭州飞回上海，行李箱里装着阿里健康的AI乡村医生项目资料。前一天刚在北京参加完中美AI医疗研讨会，脑子里还在回放斯坦福教授和阿里工程师的发言。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-01-15 10:55:01 +0800 +0800'>January 15, 2025</span> | <span>25 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记" href=https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>AI医疗：99%的准确率在实验室，95%的准确率在村寨</h2></header><div class=entry-content><p>上周从杭州飞回上海，行李箱里装着阿里健康的AI乡村医生项目资料。前一天刚在北京参加完中美AI医疗研讨会，脑子里还在回放斯坦福教授和阿里工程师的发言。
 晚上在酒店，Dr. Wang给我看他们团队最新的GPT-5驱动CT诊断系统：17种肺部疾病实时标注，连早期肺癌的微小结节都能揪出来，准确率超过99%，刚在Nature Medicine发了论文。“这技术太牛了！什么时候能临床应用？“我问他。他叹了口气：“至少等3年，FDA的审批流程你懂的。”
-第二天，阿里健康的张工给我看了一组数据：他们的&#34;AI乡村医生&#34;已经覆盖了全国1.2万个偏远村落，累计看了超过1000万次门诊。“上个月我们在云南一个苗族村寨做调研，一个70多岁的老奶奶拉着我的手说，活了一辈子第一次能在家门口看专家，“张工的语气里带着自豪，“虽然我们的AI准确率只有95%左右，但解决了最基本的看病问题。”
+第二天，阿里健康的张工给我看了一组数据：他们的"AI乡村医生"已经覆盖了全国1.2万个偏远村落，累计看了超过1000万次门诊。“上个月我们在云南一个苗族村寨做调研，一个70多岁的老奶奶拉着我的手说，活了一辈子第一次能在家门口看专家，“张工的语气里带着自豪，“虽然我们的AI准确率只有95%左右，但解决了最基本的看病问题。”
 我突然想起去年冬天陪外婆去县城医院看病的场景——凌晨三点就去排队挂号，上午十点才看上医生，结果还没说两句话就被打发走了。如果当时有AI乡村医生，外婆是不是就不用遭这份罪了？
 从数字看：准确率的数字游戏
-表面上看，这是&#34;99% vs 95%“的准确率差距。斯坦福的CT诊断系统能识别17种肺部疾病，连微小结节都不放过；阿里的AI乡村医生只能做基础诊断，准确率还低了4个百分点。
-但数字背后是完全不同的逻辑：一个在实验室里追求极致，一个在村寨里解决刚需。美国科学家说&#34;我们需要更高的准确率”，中国工程师则说&#34;我们需要更快的覆盖速度”。
-关键洞察：这不是技术差距，是应用场景的错位。一个瞄准&#34;未来5年的医疗突破”，一个瞄准&#34;今天就能用的医疗服务”。
+表面上看，这是"99% vs 95%“的准确率差距。斯坦福的CT诊断系统能识别17种肺部疾病，连微小结节都不放过；阿里的AI乡村医生只能做基础诊断，准确率还低了4个百分点。
+但数字背后是完全不同的逻辑：一个在实验室里追求极致，一个在村寨里解决刚需。美国科学家说"我们需要更高的准确率”，中国工程师则说"我们需要更快的覆盖速度”。
+关键洞察：这不是技术差距，是应用场景的错位。一个瞄准"未来5年的医疗突破”，一个瞄准"今天就能用的医疗服务”。
 往深里想：医疗资源的时空错配
 AI医疗的本质不是技术竞赛，而是资源分配。
-斯坦福的技术代表了AI医疗的未来，准确率99%的CT诊断系统能拯救更多生命。但它的代价是：至少3年的审批周期，高昂的研发成本，只有顶级医院才能用得起。这是典型的&#34;技术驱动&#34;路径：先突破技术，再找应用。
-阿里的AI乡村医生代表了AI医疗的现在，它已经在服务千万级的患者，解决了最迫切的医疗资源不均衡问题。虽然准确率只有95%，但它让偏远地区的老人不用凌晨三点去县城排队，让农村孩子也能看&#34;专家门诊”。这是典型的&#34;需求驱动&#34;路径：先解决实际问题，再优化技术。
-去年冬天陪外婆看病，我深刻体会到医疗资源不均衡的痛苦。如果当时有AI乡村医生，外婆是不是就不用遭这份罪了？这个问题，比&#34;准确率能否再提升1%“更重要。
+斯坦福的技术代表了AI医疗的未来，准确率99%的CT诊断系统能拯救更多生命。但它的代价是：至少3年的审批周期，高昂的研发成本，只有顶级医院才能用得起。这是典型的"技术驱动"路径：先突破技术，再找应用。
+阿里的AI乡村医生代表了AI医疗的现在，它已经在服务千万级的患者，解决了最迫切的医疗资源不均衡问题。虽然准确率只有95%，但它让偏远地区的老人不用凌晨三点去县城排队，让农村孩子也能看"专家门诊”。这是典型的"需求驱动"路径：先解决实际问题，再优化技术。
+去年冬天陪外婆看病，我深刻体会到医疗资源不均衡的痛苦。如果当时有AI乡村医生，外婆是不是就不用遭这份罪了？这个问题，比"准确率能否再提升1%“更重要。
 关键洞察：医疗资源的时空错配，比技术准确率更重要。一个在实验室里等待审批，一个在村寨里服务患者。
 看未来：从实验室到田间地头的融合
 今天刷朋友圈，看到Dr. Wang发了条动态：“刚和一家中国医疗科技公司签了合作协议，他们帮我们加速临床试验，我们提供技术支持。”
-这个信号很明确：美国的技术突破和中国的落地速度，正在走向融合。斯坦福的99%准确率&#43;中国的快速落地，或许能创造出真正普惠的AI医疗。
-2025年的AI医疗，会是一场从&#34;实验室到田间地头&#34;的革命。不是技术替代技术，而是技术&#43;场景的深度融合。
+这个信号很明确：美国的技术突破和中国的落地速度，正在走向融合。斯坦福的99%准确率+中国的快速落地，或许能创造出真正普惠的AI医疗。
+2025年的AI医疗，会是一场从"实验室到田间地头"的革命。不是技术替代技术，而是技术+场景的深度融合。
 AI医疗的终极目标，从来不是发表Nature论文，而是让每个人都能享受到更好的医疗服务。99%的准确率在实验室，95%的准确率在村寨——但村寨里的95%，可能比实验室里的99%更有价值。
-2025年，我期待看到斯坦福的技术走进村寨，也期待看到阿里的经验走向世界。
-</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-01-15 09:24:51 +0800 HKT'>January 15, 2025</span> | <span>6 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to AI医疗：99%的准确率在实验室，95%的准确率在村寨" href="https://blog.zhangky.com/posts/2025/2025-01-ai-medical/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">OpenAI的12天发布会：生成式AI的终极形态，还是营销噱头？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>OpenAI的12天发布会终于结束了，我全程追完了所有直播。当演示者用自然语言和视频交互时，我突然有种穿越到未来的感觉——这可能就是生成式AI的终极形态了。
+2025年，我期待看到斯坦福的技术走进村寨，也期待看到阿里的经验走向世界。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2025-01-15 09:24:51 +0800 +0800'>January 15, 2025</span> | <span>6 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to AI医疗：99%的准确率在实验室，95%的准确率在村寨" href=https://blog.zhangky.com/posts/2025/2025-01-ai-medical/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>OpenAI的12天发布会：生成式AI的终极形态，还是营销噱头？</h2></header><div class=entry-content><p>OpenAI的12天发布会终于结束了，我全程追完了所有直播。当演示者用自然语言和视频交互时，我突然有种穿越到未来的感觉——这可能就是生成式AI的终极形态了。
 表层：AI视频的技术突破
 Sora的视频生成能力又提升了，现在能生成5分钟高清视频，连人物微表情都能模拟。视频交互模式也落地了，直接对视频内容提问，AI会实时回答。上周跟做内容创作的朋友聊天，他说：“以前拍短视频要2000块，现在用AI只要200块，效果还不差。“已经不用请摄影师了。
 深层：中美视频AI的竞争格局
@@ -291,20 +51,7 @@ Sora的视频生成能力又提升了，现在能生成5分钟高清视频，连
 终局：GPT-o3的营销噱头？
 最让我感慨的是OpenAI预测的GPT-o3，2025年发布，据说能实现真正的多模态交互，甚至理解人类情感。但这会不会是又一个营销噱头？毕竟，GPT-4o刚发布时，也有很多承诺没兑现。
 生成式AI的终极形态到底是什么？是理解和创造任何内容的超级智能，还是人类想象力的延伸？
-2025年的GPT-o3会给我们答案。但无论如何，OpenAI的12天发布会已经展示了AI的未来——更加智能、自然的人机交互时代。我已经迫不及待想看到那一天了。
-</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-12-28 10:43:01 +0800 HKT'>December 28, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to OpenAI的12天发布会：生成式AI的终极形态，还是营销噱头？" href="https://blog.zhangky.com/posts/2024/2024-12-28-ai-ultimate-form/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">比特币白皮书读书笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>摘要 一种完全的点对点电子货币应当允许在线支付从一方直接发送到另一方，而不需要通过一个金融机构。数字签名提供了部分解决方案，但如果仍需一个可信任的第三方来防止双重支付，那就失去了电子货币的主要优点。我们提出一种使用点对点网络解决双重支付问题的方案。该网络通过将交易哈希进一条持续增长的基于哈希的工作量证明链来给交易打上时间戳，形成一条除非重做工作量证明否则不能更改的记录。最长的链不仅是被见证事件序列的证据，而且也是它本身是由最大CPU算力池产生的证据。只要多数的CPU算力被不打算联合攻击网络的节点控制，这些节点就将生成最长的链并超过攻击者。这种网络本身只需极简的架构。信息将被尽力广播，节点可以随时离开和重新加入网络，只需接受最长的工作量证明链作为它们离开时发生事件的证据。
+2025年的GPT-o3会给我们答案。但无论如何，OpenAI的12天发布会已经展示了AI的未来——更加智能、自然的人机交互时代。我已经迫不及待想看到那一天了。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2024-12-28 10:43:01 +0800 +0800'>December 28, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to OpenAI的12天发布会：生成式AI的终极形态，还是营销噱头？" href=https://blog.zhangky.com/posts/2024/2024-12-28-ai-ultimate-form/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>比特币白皮书读书笔记</h2></header><div class=entry-content><p>摘要 一种完全的点对点电子货币应当允许在线支付从一方直接发送到另一方，而不需要通过一个金融机构。数字签名提供了部分解决方案，但如果仍需一个可信任的第三方来防止双重支付，那就失去了电子货币的主要优点。我们提出一种使用点对点网络解决双重支付问题的方案。该网络通过将交易哈希进一条持续增长的基于哈希的工作量证明链来给交易打上时间戳，形成一条除非重做工作量证明否则不能更改的记录。最长的链不仅是被见证事件序列的证据，而且也是它本身是由最大CPU算力池产生的证据。只要多数的CPU算力被不打算联合攻击网络的节点控制，这些节点就将生成最长的链并超过攻击者。这种网络本身只需极简的架构。信息将被尽力广播，节点可以随时离开和重新加入网络，只需接受最长的工作量证明链作为它们离开时发生事件的证据。
 批注（是什么/为什么/如何） 是什么：核心是提出无第三方介入的点对点电子货币方案——以哈希加密、工作量证明（PoW）构建不可篡改的交易时间戳链，以“最长链”作为交易有效性核心依据，实现去信任的价值转移。
 为什么：
 传统电子支付依赖金融机构（信任第三方），存在交易不可撤销、仲裁成本高、小额交易不划算等固有缺陷；
@@ -326,12 +73,12 @@ Sora的视频生成能力又提升了，现在能生成5分钟高清视频，连
 2. 交易 我们将一枚电子货币定义为一条数字签名链。每个拥有者都通过将上一次交易和下一个拥有者的公钥的哈希值的数字签名添加到此货币末尾的方式将这枚货币转移给下一个拥有者。收款人可以通过验证数字签名来证实其为该链的所有者。
 这里的问题是收款人不能证实某个拥有者没有对此货币进行双重支付。通常的做法是引入一个可信任的中央机构或铸币厂来检查每笔交易是否存在双重支付。每笔交易之后，都需要将这枚货币退回铸币厂以换取发行一枚新的货币，只有由铸币厂直接发行的货币才能被确认没有被双重支付。这个方案的问题在于整个货币系统的命运都依赖于运营铸币厂的公司，每笔交易都需要经过它们，就像银行一样。
 我们需要一种能让收款人知道上一个货币拥有者没有对任何更早的交易签名的方法。对我们来说，最早的那次交易是唯一有效的，所以我们不需要关心本次交易后面的双重支付尝试。唯一能确认一笔交易不存在的方法是知晓所有之前的交易。在铸币厂模型中，铸币厂知晓所有交易并能确定哪笔交易最先到达。在不引入一个可信任方的前提下要达到这个目的，所有交易就必须公开发布[1]，而且需要一个能让所有参与者对交易收到顺序的单一历史达成共识的系统。收款人在每笔交易时，都需要多数节点认同此交易是最先收到的证据。
-批注（是什么/为什么/如何） 是什么：明确比特币核心定义（数字签名链），点出传统电子货币“双重支付”痛点及中央铸币厂方案的缺陷，提出“交易公开&#43;全网共识交易顺序”的去信任解决方案。
+批注（是什么/为什么/如何） 是什么：明确比特币核心定义（数字签名链），点出传统电子货币“双重支付”痛点及中央铸币厂方案的缺陷，提出“交易公开+全网共识交易顺序”的去信任解决方案。
 为什么：
 数字签名链能解决“所有权验证”，但无法解决“双重支付”——收款人无法知晓该货币是否已被原所有者用于更早交易；
 中央铸币厂方案虽能防双重支付，但存在“单点依赖”风险：货币系统命运绑定铸币厂，效率低且易被控制；
 去信任场景下，“交易顺序”是核心：只有确定某笔交易是“最早有效交易”，才能杜绝双重支付，需全网对交易历史达成共识。
-如何： 货币本质：每枚比特币是“上一交易&#43;下一所有者公钥哈希&#43;当前所有者签名”构成的链式结构，签名由私钥生成，确保所有权转移合法性；
+如何： 货币本质：每枚比特币是“上一交易+下一所有者公钥哈希+当前所有者签名”构成的链式结构，签名由私钥生成，确保所有权转移合法性；
 双重支付解决方案：
 交易全网公开：所有节点获取全部交易历史，避免信息不对称；
 共识机制：设计系统让所有参与者对交易接收顺序达成统一历史记录，收款人通过“多数节点认同”确认交易“最早有效”。
@@ -354,97 +101,9 @@ Sora的视频生成能力又提升了，现在能生成5分钟高清视频，连
 时间戳链需“防篡改成本”：仅靠哈希链式结构不够，需增加修改历史的难度；
 硬件算力提升会导致区块生成过快，需动态调整难度以平衡节点利益。
 如何： 工作量证明实现： 规则：区块需包含随机数（Nonce），节点不断尝试随机数，直到区块哈希以指定数量0比特开头；
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-12-23 16:00:59 +0800 HKT'>December 23, 2024</span> | <span>37 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 比特币白皮书读书笔记" href="https://blog.zhangky.com/posts/2024/2024-12-23-bitcoin_paper_cn/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="https://blog.zhangky.com/posts/page/17/">
-      «&nbsp;Prev&nbsp;17/21
-    </a>
-    <a class="next" href="https://blog.zhangky.com/posts/page/19/">Next&nbsp;19/21&nbsp;»
-    </a>
-  </nav>
-</footer>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+...</p></div><footer class=entry-footer>ZHANG.z" | <span title='2024-12-23 16:00:59 +0800 +0800'>December 23, 2024</span> | <span>37 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 比特币白皮书读书笔记" href=https://blog.zhangky.com/posts/2024/2024-12-23-bitcoin_paper_cn/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/posts/page/17/>«&nbsp;Prev&nbsp;17/21
+</a><a class=next href=https://blog.zhangky.com/posts/page/19/>Next&nbsp;19/21&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
