@@ -434,24 +434,70 @@ Andy Grove 在《高产出管理》里算过一笔账：一个经理人花一小
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 <script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
   document.addEventListener('DOMContentLoaded', function() {
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'default',
-      flowchart: {
-        useMaxWidth: true,
-        htmlLabels: true,
-        curve: 'basis'
-      },
-      sequence: {
-        useMaxWidth: true
-      },
-      gantt: {
-        useMaxWidth: true
-      }
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
     });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
   });
 </script>
 
