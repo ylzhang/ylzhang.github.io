@@ -341,25 +341,13 @@ Hinton听后沉默了整整一分钟。然后他抓起一张餐巾纸，开始�
     <p>当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。
 2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。
 但问题在于——约束不是解决方案，而是问题的转移。
-据我们了解，Superpowers 在 GitHub 上已积累 3.15 万&#43; stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」
+据我们了解，Superpowers 在 GitHub 上已积累 3.15 万+ stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」
 这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？
 Superpowers：用「强制技能」约束过程，但谁来约束技能？ Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。
 这个由 Jesse Vincent（obra）创建的框架4，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 “You MUST use this before any creative work” 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场5。
 这套机制的本质是「过程约束」。
 它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」
-...</p>
-  </div>
-  <footer class="entry-footer">   AI | <span title='2026-03-29 20:00:00 +0800 HKT'>March 29, 2026</span> | <span>38 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to AI 编程框架的约束竞赛：Superpowers、GSD、gstack " href="https://blog.zhangky.com/posts/2026/2026-03-29-ai-coding-frameworks-harness-analysis/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Agent 写代码的下一站：不是写得快，而是记得住、跑得远
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>当 AI Agent 能够连续运行数天、自主管理复杂工程任务时，Web Coding 的竞争规则已经变了。
+...</p></div><footer class=entry-footer>AI | <span title='2026-03-29 20:00:00 +0800 +0800'>March 29, 2026</span> | <span>38 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to AI 编程框架的约束竞赛：Superpowers、GSD、gstack " href=https://blog.zhangky.com/posts/2026/2026-03-29-ai-coding-frameworks-harness-analysis/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Agent 写代码的下一站：不是写得快，而是记得住、跑得远</h2></header><div class=entry-content><p>当 AI Agent 能够连续运行数天、自主管理复杂工程任务时，Web Coding 的竞争规则已经变了。
 2026 年开年，AI 编程工具的讨论焦点正在从「能写多少代码」转向「能持续跑多久」。以 Cursor Composer 为代表的新一代工具，正在探索「multi-day autonomy」（多日自主性）——让 Agent 在没有人工干预的情况下连续运行数天，处理从代码生成到架构设计的全流程任务。这不是简单的「自动化」，而是一场关于 Agent 「记忆力」和「决策力」的工程实验。
 据我们了解，Cursor 团队在 2026 年 3 月发布的 Composer 2 版本1，将上下文窗口扩展至 20 万 Token，并引入了「会话记忆」「上下文压缩」等能力，试图解决长期运行中的致命问题：上下文爆炸和错误累积。传统 AI 编程在几小时后就会因为上下文过长而「失忆」，而新一代技术通过智能压缩和总结机制，让 Agent 的「有效记忆」远远超出物理窗口限制。
 一位接近 Cursor 的工程师透露，他们的目标不是替代程序员写代码，而是构建「能够自主进化的代码仓库」——让软件工程从「人驱动」转向「AI 驱动」。

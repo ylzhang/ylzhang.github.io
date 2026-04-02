@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>龙虾大会：一场关于AI编程的集体幻觉 | Zhang&#39;s Blog</title>
-<meta name="keywords" content="龙虾大会, OpenClaw, AI编程, Agent落地, 模型升级">
-<meta name="description" content="三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫OpenClaw的工具，在GitHub上已经收获了超过27万颗星星1，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：云服务厂商摆出一键部署的展台，模型公司推销着按Token计费的服务包，开发者们热切地交流着提示词工程的心得。这场被称为**&ldquo;龙虾大会&rdquo;**的运动，正在以一种近乎狂热的姿态席卷整个行业。
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>龙虾大会：一场关于AI编程的集体幻觉 | Zhang's Blog</title><meta name=keywords content="龙虾大会,OpenClaw,AI编程,Agent落地,模型升级"><meta name=description content='三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫OpenClaw的工具，在GitHub上已经收获了超过27万颗星星1，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：云服务厂商摆出一键部署的展台，模型公司推销着按Token计费的服务包，开发者们热切地交流着提示词工程的心得。这场被称为**&ldquo;龙虾大会&rdquo;**的运动，正在以一种近乎狂热的姿态席卷整个行业。
 但热闹的背后，一个根本性的问题被有意无意地忽略了：这些大会究竟在解决什么问题？
-参会者带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被&quot;AI替代程序员&quot;的焦虑驱动。然而，当演讲者们反复演示如何用几句自然语言生成一个待办事项应用，或者如何让AI自动修复简单的代码错误时，细心的观察者会发现，**这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。**那些在舞台上被展示的神奇能力，往往建立在精心设计的demo环境之上；一旦进入真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。
+参会者带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被"AI替代程序员"的焦虑驱动。然而，当演讲者们反复演示如何用几句自然语言生成一个待办事项应用，或者如何让AI自动修复简单的代码错误时，细心的观察者会发现，**这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。**那些在舞台上被展示的神奇能力，往往建立在精心设计的demo环境之上；一旦进入真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。
 
 这种落差并非偶然。
 
-当前的AI编程工具，本质上仍然是基于概率的模式匹配系统。它们在处理常见编程模式、标准库调用、以及有明确边界的任务时表现出色，因为这些场景在训练数据中有充足的样本。但一旦涉及到需要深度领域知识、复杂架构设计、或者跨系统集成的任务，AI就会暴露出理解力的局限。更重要的是，编程从来不只是写代码——它还包括理解业务逻辑、权衡技术方案、与团队协作、以及在约束条件下做出工程决策。这些软技能，恰恰是当前的AI最难以替代的部分。那些在龙虾大会上被反复强调的&quot;生产力提升&quot;，很大程度上只是将编码阶段的部分工作自动化，而软件开发的全生命周期中，编码往往只占不到三分之一的工作量。
+当前的AI编程工具，本质上仍然是基于概率的模式匹配系统。它们在处理常见编程模式、标准库调用、以及有明确边界的任务时表现出色，因为这些场景在训练数据中有充足的样本。但一旦涉及到需要深度领域知识、复杂架构设计、或者跨系统集成的任务，AI就会暴露出理解力的局限。更重要的是，编程从来不只是写代码——它还包括理解业务逻辑、权衡技术方案、与团队协作、以及在约束条件下做出工程决策。这些软技能，恰恰是当前的AI最难以替代的部分。那些在龙虾大会上被反复强调的"生产力提升"，很大程度上只是将编码阶段的部分工作自动化，而软件开发的全生命周期中，编码往往只占不到三分之一的工作量。
 云服务厂商和模型公司的热情参与，让这场运动变得更加复杂。对他们来说，OpenClaw提供了一个绝佳的切入点：通过简化部署流程、提供托管服务，他们可以将开发者锁定在自己的生态系统中。一键部署听起来很美好，但它也意味着用户将基础设施的控制权交给了平台；Token计费模式看似灵活，但当应用规模扩大时，成本可能会变得难以预测。
 
 这些商业模式的设计，更多地反映了供应商的利益，而非用户的真实需求。
 
-而在大会的演讲台上，模型厂商们轮番展示自家模型的编程能力，试图证明自己比竞争对手更适合这个场景。但这种比拼往往停留在基准测试的分数上，而非真实项目的交付能力。当所有人都急于在这个新兴市场占据一席之地时，关于&quot;这些工具究竟能创造什么价值&quot;的冷静思考反而被边缘化了。
-这种过热的状态很难持久。历史经验表明，**技术 hype 的周期通常在六到八周达到顶峰，随后进入冷静期。**龙虾大会也不例外。当最初的兴奋消退，当参会者们回到自己的工位尝试将这些工具应用到实际项目中，他们会发现现实的骨感：AI生成的代码可能需要大量的修改才能运行，自动化的工作流可能在边界情况下崩溃，而那些被承诺的&quot;十倍效率提升&quot;在复杂项目中变得难以兑现。这种幻灭感会迅速传播，媒体的报道会从&quot;革命性的突破&quot;转向&quot;被夸大的期望&quot;，投资者的注意力会转向下一个热点。三到八周后，当再有人提起龙虾大会时，语气中可能会带着一丝怀念，更多的是一种&quot;那阵子大家都挺疯狂的&quot;的调侃。
+而在大会的演讲台上，模型厂商们轮番展示自家模型的编程能力，试图证明自己比竞争对手更适合这个场景。但这种比拼往往停留在基准测试的分数上，而非真实项目的交付能力。当所有人都急于在这个新兴市场占据一席之地时，关于"这些工具究竟能创造什么价值"的冷静思考反而被边缘化了。
+这种过热的状态很难持久。历史经验表明，**技术 hype 的周期通常在六到八周达到顶峰，随后进入冷静期。**龙虾大会也不例外。当最初的兴奋消退，当参会者们回到自己的工位尝试将这些工具应用到实际项目中，他们会发现现实的骨感：AI生成的代码可能需要大量的修改才能运行，自动化的工作流可能在边界情况下崩溃，而那些被承诺的"十倍效率提升"在复杂项目中变得难以兑现。这种幻灭感会迅速传播，媒体的报道会从"革命性的突破"转向"被夸大的期望"，投资者的注意力会转向下一个热点。三到八周后，当再有人提起龙虾大会时，语气中可能会带着一丝怀念，更多的是一种"那阵子大家都挺疯狂的"的调侃。
 但这并不意味着AI编程工具没有价值。恰恰相反，它们在某些场景下确实能显著提升效率——尤其是在原型开发、学习编程、以及处理重复性编码任务时。问题在于，当前的市场叙事将这些能力过度放大，试图用**&ldquo;AI替代程序员&rdquo;**的惊悚标题来吸引眼球，而忽视了工具能力的边界。这种叙事不仅误导了公众，也给行业带来了不必要的焦虑。真正有价值的讨论应该是：在软件开发的全流程中，哪些环节可以被AI增强，哪些仍然需要人类的专业判断；如何在利用AI提升效率的同时，保持代码质量和系统的可维护性；以及，随着这些工具的普及，软件工程师的角色将如何演化。
 来自大洋彼岸的一些信号值得我们关注。在AI编程工具的赛道上，Cursor作为目前最成功的创业公司之一，近期明显加快了产品迭代的节奏。从2月到3月，Cursor连续发布了自动化工作流、JetBrains IDE支持、自主计算机控制等多项重大功能2，这种密集的产品发布节奏本身就说明了一些问题：即便是市场领导者，也感受到了来自各方的压力——既有来自大型模型公司的降维打击，也有来自开源社区免费替代品的竞争。
-而在模型层面，Anthropic于2026年2月17日发布的Claude Sonnet 4.6展示了更强的代码理解和生成能力3，根据Anthropic的官方数据，该模型在OSWorld计算机使用基准测试中表现优异，在某些场景下甚至超过了此前的Opus 4.5模型。当国外的竞争者在技术和产品层面快速迭代时，国内的大会仍然停留在&quot;如何使用工具&quot;的初级阶段，这种差距本身就值得深思。
+而在模型层面，Anthropic于2026年2月17日发布的Claude Sonnet 4.6展示了更强的代码理解和生成能力3，根据Anthropic的官方数据，该模型在OSWorld计算机使用基准测试中表现优异，在某些场景下甚至超过了此前的Opus 4.5模型。当国外的竞争者在技术和产品层面快速迭代时，国内的大会仍然停留在"如何使用工具"的初级阶段，这种差距本身就值得深思。
 更深层的观察是，工具的迭代与底层模型的升级密切相关。
 OpenClaw、Cursor这类工具本质上是Agent的落地表现形式，而Agent的能力边界直接受制于底层大模型的能力。当Anthropic这样的模型公司推出更强大的编程能力时，中间层工具必须在产品层面做出回应，否则用户就会直接转向模型原生的解决方案。据业内人士透露，Cursor内部已经将这种状态定义为**&ldquo;战时模式&rdquo;**——这并非空穴来风，而是对竞争格局剧变的直接回应。
 
@@ -43,106 +34,27 @@ OpenClaw、Cursor这类工具本质上是Agent的落地表现形式，而Agent�
 
 
 
-OpenClaw GitHub Repository, https://github.com/openclaw/openclaw, 截至2026年3月收获278k stars&#160;&#x21a9;&#xfe0e;
+OpenClaw GitHub Repository, https://github.com/openclaw/openclaw, 截至2026年3月收获278k stars&#160;&#8617;&#xfe0e;
 
 
-Cursor Blog, 2026年2-3月产品更新动态，包括Automations、JetBrains ACP、Agent Computer Use等功能发布&#160;&#x21a9;&#xfe0e;
+Cursor Blog, 2026年2-3月产品更新动态，包括Automations、JetBrains ACP、Agent Computer Use等功能发布&#160;&#8617;&#xfe0e;
 
 
-Anthropic, &ldquo;Introducing Claude Sonnet 4.6&rdquo;, February 17, 2026, https://www.anthropic.com/news/claude-sonnet-4-6&#160;&#x21a9;&#xfe0e;
+Anthropic, &ldquo;Introducing Claude Sonnet 4.6&rdquo;, February 17, 2026, https://www.anthropic.com/news/claude-sonnet-4-6&#160;&#8617;&#xfe0e;
 
 
-">
-<meta name="author" content="ZHANG.z">
-<link rel="canonical" href="https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<style>
-  .post-content p { text-indent: 2em; }
-  .post-content > p:first-of-type { text-indent: 0; }
-  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
-  .post-content blockquote,
-  .post-content blockquote p,
-  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
-  .post-content figure, .post-content figure p, .post-content img,
-  .post-content table, .post-content ul, .post-content ol, .post-content li,
-  .post-content .footnotes, .post-content .footnotes p,
-  .post-content section.footnotes p { text-indent: 0; }
-</style>
-<meta property="og:url" content="https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="龙虾大会：一场关于AI编程的集体幻觉">
-  <meta property="og:description" content="三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫OpenClaw的工具，在GitHub上已经收获了超过27万颗星星1，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：云服务厂商摆出一键部署的展台，模型公司推销着按Token计费的服务包，开发者们热切地交流着提示词工程的心得。这场被称为**“龙虾大会”**的运动，正在以一种近乎狂热的姿态席卷整个行业。
+'><meta name=author content="ZHANG.z"><link rel=canonical href=https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>.post-content p{text-indent:2em}.post-content>p:first-of-type{text-indent:0}.post-content h1,.post-content h2,.post-content h3,.post-content h4{text-indent:0}.post-content blockquote,.post-content blockquote p,.post-content pre,.post-content code,.post-content .highlight,.post-content div.highlight,.post-content figure,.post-content figure p,.post-content img,.post-content table,.post-content ul,.post-content ol,.post-content li,.post-content .footnotes,.post-content .footnotes p,.post-content section.footnotes p{text-indent:0}</style><meta property="og:url" content="https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="龙虾大会：一场关于AI编程的集体幻觉"><meta property="og:description" content='三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫OpenClaw的工具，在GitHub上已经收获了超过27万颗星星1，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：云服务厂商摆出一键部署的展台，模型公司推销着按Token计费的服务包，开发者们热切地交流着提示词工程的心得。这场被称为**“龙虾大会”**的运动，正在以一种近乎狂热的姿态席卷整个行业。
 但热闹的背后，一个根本性的问题被有意无意地忽略了：这些大会究竟在解决什么问题？
-参会者带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被&#34;AI替代程序员&#34;的焦虑驱动。然而，当演讲者们反复演示如何用几句自然语言生成一个待办事项应用，或者如何让AI自动修复简单的代码错误时，细心的观察者会发现，**这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。**那些在舞台上被展示的神奇能力，往往建立在精心设计的demo环境之上；一旦进入真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。
+参会者带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被"AI替代程序员"的焦虑驱动。然而，当演讲者们反复演示如何用几句自然语言生成一个待办事项应用，或者如何让AI自动修复简单的代码错误时，细心的观察者会发现，**这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。**那些在舞台上被展示的神奇能力，往往建立在精心设计的demo环境之上；一旦进入真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。
 这种落差并非偶然。
-当前的AI编程工具，本质上仍然是基于概率的模式匹配系统。它们在处理常见编程模式、标准库调用、以及有明确边界的任务时表现出色，因为这些场景在训练数据中有充足的样本。但一旦涉及到需要深度领域知识、复杂架构设计、或者跨系统集成的任务，AI就会暴露出理解力的局限。更重要的是，编程从来不只是写代码——它还包括理解业务逻辑、权衡技术方案、与团队协作、以及在约束条件下做出工程决策。这些软技能，恰恰是当前的AI最难以替代的部分。那些在龙虾大会上被反复强调的&#34;生产力提升&#34;，很大程度上只是将编码阶段的部分工作自动化，而软件开发的全生命周期中，编码往往只占不到三分之一的工作量。
+当前的AI编程工具，本质上仍然是基于概率的模式匹配系统。它们在处理常见编程模式、标准库调用、以及有明确边界的任务时表现出色，因为这些场景在训练数据中有充足的样本。但一旦涉及到需要深度领域知识、复杂架构设计、或者跨系统集成的任务，AI就会暴露出理解力的局限。更重要的是，编程从来不只是写代码——它还包括理解业务逻辑、权衡技术方案、与团队协作、以及在约束条件下做出工程决策。这些软技能，恰恰是当前的AI最难以替代的部分。那些在龙虾大会上被反复强调的"生产力提升"，很大程度上只是将编码阶段的部分工作自动化，而软件开发的全生命周期中，编码往往只占不到三分之一的工作量。
 云服务厂商和模型公司的热情参与，让这场运动变得更加复杂。对他们来说，OpenClaw提供了一个绝佳的切入点：通过简化部署流程、提供托管服务，他们可以将开发者锁定在自己的生态系统中。一键部署听起来很美好，但它也意味着用户将基础设施的控制权交给了平台；Token计费模式看似灵活，但当应用规模扩大时，成本可能会变得难以预测。
 这些商业模式的设计，更多地反映了供应商的利益，而非用户的真实需求。
-而在大会的演讲台上，模型厂商们轮番展示自家模型的编程能力，试图证明自己比竞争对手更适合这个场景。但这种比拼往往停留在基准测试的分数上，而非真实项目的交付能力。当所有人都急于在这个新兴市场占据一席之地时，关于&#34;这些工具究竟能创造什么价值&#34;的冷静思考反而被边缘化了。
-这种过热的状态很难持久。历史经验表明，**技术 hype 的周期通常在六到八周达到顶峰，随后进入冷静期。**龙虾大会也不例外。当最初的兴奋消退，当参会者们回到自己的工位尝试将这些工具应用到实际项目中，他们会发现现实的骨感：AI生成的代码可能需要大量的修改才能运行，自动化的工作流可能在边界情况下崩溃，而那些被承诺的&#34;十倍效率提升&#34;在复杂项目中变得难以兑现。这种幻灭感会迅速传播，媒体的报道会从&#34;革命性的突破&#34;转向&#34;被夸大的期望&#34;，投资者的注意力会转向下一个热点。三到八周后，当再有人提起龙虾大会时，语气中可能会带着一丝怀念，更多的是一种&#34;那阵子大家都挺疯狂的&#34;的调侃。
+而在大会的演讲台上，模型厂商们轮番展示自家模型的编程能力，试图证明自己比竞争对手更适合这个场景。但这种比拼往往停留在基准测试的分数上，而非真实项目的交付能力。当所有人都急于在这个新兴市场占据一席之地时，关于"这些工具究竟能创造什么价值"的冷静思考反而被边缘化了。
+这种过热的状态很难持久。历史经验表明，**技术 hype 的周期通常在六到八周达到顶峰，随后进入冷静期。**龙虾大会也不例外。当最初的兴奋消退，当参会者们回到自己的工位尝试将这些工具应用到实际项目中，他们会发现现实的骨感：AI生成的代码可能需要大量的修改才能运行，自动化的工作流可能在边界情况下崩溃，而那些被承诺的"十倍效率提升"在复杂项目中变得难以兑现。这种幻灭感会迅速传播，媒体的报道会从"革命性的突破"转向"被夸大的期望"，投资者的注意力会转向下一个热点。三到八周后，当再有人提起龙虾大会时，语气中可能会带着一丝怀念，更多的是一种"那阵子大家都挺疯狂的"的调侃。
 但这并不意味着AI编程工具没有价值。恰恰相反，它们在某些场景下确实能显著提升效率——尤其是在原型开发、学习编程、以及处理重复性编码任务时。问题在于，当前的市场叙事将这些能力过度放大，试图用**“AI替代程序员”**的惊悚标题来吸引眼球，而忽视了工具能力的边界。这种叙事不仅误导了公众，也给行业带来了不必要的焦虑。真正有价值的讨论应该是：在软件开发的全流程中，哪些环节可以被AI增强，哪些仍然需要人类的专业判断；如何在利用AI提升效率的同时，保持代码质量和系统的可维护性；以及，随着这些工具的普及，软件工程师的角色将如何演化。
 来自大洋彼岸的一些信号值得我们关注。在AI编程工具的赛道上，Cursor作为目前最成功的创业公司之一，近期明显加快了产品迭代的节奏。从2月到3月，Cursor连续发布了自动化工作流、JetBrains IDE支持、自主计算机控制等多项重大功能2，这种密集的产品发布节奏本身就说明了一些问题：即便是市场领导者，也感受到了来自各方的压力——既有来自大型模型公司的降维打击，也有来自开源社区免费替代品的竞争。
-而在模型层面，Anthropic于2026年2月17日发布的Claude Sonnet 4.6展示了更强的代码理解和生成能力3，根据Anthropic的官方数据，该模型在OSWorld计算机使用基准测试中表现优异，在某些场景下甚至超过了此前的Opus 4.5模型。当国外的竞争者在技术和产品层面快速迭代时，国内的大会仍然停留在&#34;如何使用工具&#34;的初级阶段，这种差距本身就值得深思。
+而在模型层面，Anthropic于2026年2月17日发布的Claude Sonnet 4.6展示了更强的代码理解和生成能力3，根据Anthropic的官方数据，该模型在OSWorld计算机使用基准测试中表现优异，在某些场景下甚至超过了此前的Opus 4.5模型。当国外的竞争者在技术和产品层面快速迭代时，国内的大会仍然停留在"如何使用工具"的初级阶段，这种差距本身就值得深思。
 更深层的观察是，工具的迭代与底层模型的升级密切相关。
 OpenClaw、Cursor这类工具本质上是Agent的落地表现形式，而Agent的能力边界直接受制于底层大模型的能力。当Anthropic这样的模型公司推出更强大的编程能力时，中间层工具必须在产品层面做出回应，否则用户就会直接转向模型原生的解决方案。据业内人士透露，Cursor内部已经将这种状态定义为**“战时模式”**——这并非空穴来风，而是对竞争格局剧变的直接回应。
 换言之，工具的演化是模型演化的函数。
@@ -155,33 +67,22 @@ OpenClaw、Cursor这类工具本质上是Agent的落地表现形式，而Agent�
 而在那之前，龙虾大会还会继续，只是参会者脸上的表情可能会从兴奋变成困惑，再从困惑变成一种若有所思的平静。那可能是一个更健康的状态——对于技术，对于行业，对于所有在其中寻找机会的人来说，都是如此。
 参考 OpenClaw GitHub Repository, https://github.com/openclaw/openclaw, 截至2026年3月收获278k stars ↩︎
 Cursor Blog, 2026年2-3月产品更新动态，包括Automations、JetBrains ACP、Agent Computer Use等功能发布 ↩︎
-Anthropic, “Introducing Claude Sonnet 4.6”, February 17, 2026, https://www.anthropic.com/news/claude-sonnet-4-6 ↩︎">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-03-08T14:00:00+08:00">
-    <meta property="article:modified_time" content="2026-03-08T14:00:00+08:00">
-    <meta property="article:tag" content="AI">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="龙虾大会：一场关于AI编程的集体幻觉">
-<meta name="twitter:description" content="三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫OpenClaw的工具，在GitHub上已经收获了超过27万颗星星1，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：云服务厂商摆出一键部署的展台，模型公司推销着按Token计费的服务包，开发者们热切地交流着提示词工程的心得。这场被称为**&ldquo;龙虾大会&rdquo;**的运动，正在以一种近乎狂热的姿态席卷整个行业。
+Anthropic, “Introducing Claude Sonnet 4.6”, February 17, 2026, https://www.anthropic.com/news/claude-sonnet-4-6 ↩︎'><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-03-08T14:00:00+08:00"><meta property="article:modified_time" content="2026-03-08T14:00:00+08:00"><meta property="article:tag" content="AI"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="龙虾大会：一场关于AI编程的集体幻觉"><meta name=twitter:description content='三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫OpenClaw的工具，在GitHub上已经收获了超过27万颗星星1，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：云服务厂商摆出一键部署的展台，模型公司推销着按Token计费的服务包，开发者们热切地交流着提示词工程的心得。这场被称为**&ldquo;龙虾大会&rdquo;**的运动，正在以一种近乎狂热的姿态席卷整个行业。
 但热闹的背后，一个根本性的问题被有意无意地忽略了：这些大会究竟在解决什么问题？
-参会者带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被&quot;AI替代程序员&quot;的焦虑驱动。然而，当演讲者们反复演示如何用几句自然语言生成一个待办事项应用，或者如何让AI自动修复简单的代码错误时，细心的观察者会发现，**这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。**那些在舞台上被展示的神奇能力，往往建立在精心设计的demo环境之上；一旦进入真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。
+参会者带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被"AI替代程序员"的焦虑驱动。然而，当演讲者们反复演示如何用几句自然语言生成一个待办事项应用，或者如何让AI自动修复简单的代码错误时，细心的观察者会发现，**这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。**那些在舞台上被展示的神奇能力，往往建立在精心设计的demo环境之上；一旦进入真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。
 
 这种落差并非偶然。
 
-当前的AI编程工具，本质上仍然是基于概率的模式匹配系统。它们在处理常见编程模式、标准库调用、以及有明确边界的任务时表现出色，因为这些场景在训练数据中有充足的样本。但一旦涉及到需要深度领域知识、复杂架构设计、或者跨系统集成的任务，AI就会暴露出理解力的局限。更重要的是，编程从来不只是写代码——它还包括理解业务逻辑、权衡技术方案、与团队协作、以及在约束条件下做出工程决策。这些软技能，恰恰是当前的AI最难以替代的部分。那些在龙虾大会上被反复强调的&quot;生产力提升&quot;，很大程度上只是将编码阶段的部分工作自动化，而软件开发的全生命周期中，编码往往只占不到三分之一的工作量。
+当前的AI编程工具，本质上仍然是基于概率的模式匹配系统。它们在处理常见编程模式、标准库调用、以及有明确边界的任务时表现出色，因为这些场景在训练数据中有充足的样本。但一旦涉及到需要深度领域知识、复杂架构设计、或者跨系统集成的任务，AI就会暴露出理解力的局限。更重要的是，编程从来不只是写代码——它还包括理解业务逻辑、权衡技术方案、与团队协作、以及在约束条件下做出工程决策。这些软技能，恰恰是当前的AI最难以替代的部分。那些在龙虾大会上被反复强调的"生产力提升"，很大程度上只是将编码阶段的部分工作自动化，而软件开发的全生命周期中，编码往往只占不到三分之一的工作量。
 云服务厂商和模型公司的热情参与，让这场运动变得更加复杂。对他们来说，OpenClaw提供了一个绝佳的切入点：通过简化部署流程、提供托管服务，他们可以将开发者锁定在自己的生态系统中。一键部署听起来很美好，但它也意味着用户将基础设施的控制权交给了平台；Token计费模式看似灵活，但当应用规模扩大时，成本可能会变得难以预测。
 
 这些商业模式的设计，更多地反映了供应商的利益，而非用户的真实需求。
 
-而在大会的演讲台上，模型厂商们轮番展示自家模型的编程能力，试图证明自己比竞争对手更适合这个场景。但这种比拼往往停留在基准测试的分数上，而非真实项目的交付能力。当所有人都急于在这个新兴市场占据一席之地时，关于&quot;这些工具究竟能创造什么价值&quot;的冷静思考反而被边缘化了。
-这种过热的状态很难持久。历史经验表明，**技术 hype 的周期通常在六到八周达到顶峰，随后进入冷静期。**龙虾大会也不例外。当最初的兴奋消退，当参会者们回到自己的工位尝试将这些工具应用到实际项目中，他们会发现现实的骨感：AI生成的代码可能需要大量的修改才能运行，自动化的工作流可能在边界情况下崩溃，而那些被承诺的&quot;十倍效率提升&quot;在复杂项目中变得难以兑现。这种幻灭感会迅速传播，媒体的报道会从&quot;革命性的突破&quot;转向&quot;被夸大的期望&quot;，投资者的注意力会转向下一个热点。三到八周后，当再有人提起龙虾大会时，语气中可能会带着一丝怀念，更多的是一种&quot;那阵子大家都挺疯狂的&quot;的调侃。
+而在大会的演讲台上，模型厂商们轮番展示自家模型的编程能力，试图证明自己比竞争对手更适合这个场景。但这种比拼往往停留在基准测试的分数上，而非真实项目的交付能力。当所有人都急于在这个新兴市场占据一席之地时，关于"这些工具究竟能创造什么价值"的冷静思考反而被边缘化了。
+这种过热的状态很难持久。历史经验表明，**技术 hype 的周期通常在六到八周达到顶峰，随后进入冷静期。**龙虾大会也不例外。当最初的兴奋消退，当参会者们回到自己的工位尝试将这些工具应用到实际项目中，他们会发现现实的骨感：AI生成的代码可能需要大量的修改才能运行，自动化的工作流可能在边界情况下崩溃，而那些被承诺的"十倍效率提升"在复杂项目中变得难以兑现。这种幻灭感会迅速传播，媒体的报道会从"革命性的突破"转向"被夸大的期望"，投资者的注意力会转向下一个热点。三到八周后，当再有人提起龙虾大会时，语气中可能会带着一丝怀念，更多的是一种"那阵子大家都挺疯狂的"的调侃。
 但这并不意味着AI编程工具没有价值。恰恰相反，它们在某些场景下确实能显著提升效率——尤其是在原型开发、学习编程、以及处理重复性编码任务时。问题在于，当前的市场叙事将这些能力过度放大，试图用**&ldquo;AI替代程序员&rdquo;**的惊悚标题来吸引眼球，而忽视了工具能力的边界。这种叙事不仅误导了公众，也给行业带来了不必要的焦虑。真正有价值的讨论应该是：在软件开发的全流程中，哪些环节可以被AI增强，哪些仍然需要人类的专业判断；如何在利用AI提升效率的同时，保持代码质量和系统的可维护性；以及，随着这些工具的普及，软件工程师的角色将如何演化。
 来自大洋彼岸的一些信号值得我们关注。在AI编程工具的赛道上，Cursor作为目前最成功的创业公司之一，近期明显加快了产品迭代的节奏。从2月到3月，Cursor连续发布了自动化工作流、JetBrains IDE支持、自主计算机控制等多项重大功能2，这种密集的产品发布节奏本身就说明了一些问题：即便是市场领导者，也感受到了来自各方的压力——既有来自大型模型公司的降维打击，也有来自开源社区免费替代品的竞争。
-而在模型层面，Anthropic于2026年2月17日发布的Claude Sonnet 4.6展示了更强的代码理解和生成能力3，根据Anthropic的官方数据，该模型在OSWorld计算机使用基准测试中表现优异，在某些场景下甚至超过了此前的Opus 4.5模型。当国外的竞争者在技术和产品层面快速迭代时，国内的大会仍然停留在&quot;如何使用工具&quot;的初级阶段，这种差距本身就值得深思。
+而在模型层面，Anthropic于2026年2月17日发布的Claude Sonnet 4.6展示了更强的代码理解和生成能力3，根据Anthropic的官方数据，该模型在OSWorld计算机使用基准测试中表现优异，在某些场景下甚至超过了此前的Opus 4.5模型。当国外的竞争者在技术和产品层面快速迭代时，国内的大会仍然停留在"如何使用工具"的初级阶段，这种差距本身就值得深思。
 更深层的观察是，工具的迭代与底层模型的升级密切相关。
 OpenClaw、Cursor这类工具本质上是Agent的落地表现形式，而Agent的能力边界直接受制于底层大模型的能力。当Anthropic这样的模型公司推出更强大的编程能力时，中间层工具必须在产品层面做出回应，否则用户就会直接转向模型原生的解决方案。据业内人士透露，Cursor内部已经将这种状态定义为**&ldquo;战时模式&rdquo;**——这并非空穴来风，而是对竞争格局剧变的直接回应。
 
@@ -202,13 +103,13 @@ OpenClaw、Cursor这类工具本质上是Agent的落地表现形式，而Agent�
 
 
 
-OpenClaw GitHub Repository, https://github.com/openclaw/openclaw, 截至2026年3月收获278k stars&#160;&#x21a9;&#xfe0e;
+OpenClaw GitHub Repository, https://github.com/openclaw/openclaw, 截至2026年3月收获278k stars&#160;&#8617;&#xfe0e;
 
 
-Cursor Blog, 2026年2-3月产品更新动态，包括Automations、JetBrains ACP、Agent Computer Use等功能发布&#160;&#x21a9;&#xfe0e;
+Cursor Blog, 2026年2-3月产品更新动态，包括Automations、JetBrains ACP、Agent Computer Use等功能发布&#160;&#8617;&#xfe0e;
 
 
-Anthropic, &ldquo;Introducing Claude Sonnet 4.6&rdquo;, February 17, 2026, https://www.anthropic.com/news/claude-sonnet-4-6&#160;&#x21a9;&#xfe0e;
+Anthropic, &ldquo;Introducing Claude Sonnet 4.6&rdquo;, February 17, 2026, https://www.anthropic.com/news/claude-sonnet-4-6&#160;&#8617;&#xfe0e;
 
 
 ">

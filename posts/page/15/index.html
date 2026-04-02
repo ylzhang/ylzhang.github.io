@@ -290,20 +290,8 @@ Transformer实现的学习挑战 问题一：理论与实现的差距 Transforme
 其中 $\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$。
 代码实现：
 class MultiHeadedAttention(nn.Module): def __init__(self, h, d_model, dropout=0.1): super().__init__() assert d_model % h == 0 self.d_k = d_model // h self.h = h self.linears = nn.ModuleList([nn.Linear(d_model, d_model) for _ in range(4)]) self.attn = None self.dropout = nn.Dropout(p=dropout) def forward(self, query, key, value, mask=None): nbatches = query.size(0) # 1) 线性投影并分割为h个头 query, key, value = [ lin(x).view(nbatches, -1, self.h, self.d_k).transpose(1, 2) for lin, x in zip(self.linears, (query, key, value)) ] # 2) 应用注意力 x, self.attn = attention(query, key, value, mask=mask, dropout=self.dropout) # 3) 拼接多头并应用最终线性层 x = x.transpose(1, 2).contiguous().view(nbatches, -1, self.h * self.d_k) return self.linears[-1](x) 关键实现细节：
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-10-08 21:21:38 +0800 HKT'>October 8, 2025</span> | <span>15 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【ChatGPT时刻04】Transformer：Attention Is All You Need
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Ashish Vaswani、Noam Shazeer、Niki Parmar、Jakob Uszkoreit、Llion Jones、Aidan N. Gomez、Łukasz Kaiser和Illia Polosukhin于2017年发表的里程碑论文《Attention Is All You Need》，该论文提出了Transformer架构，完全基于注意力机制，摒弃了循环和卷积结构，在机器翻译任务上取得了最先进的性能，同时训练速度更快、可并行性更强。这一突破不仅彻底改变了序列建模的范式，更为后续GPT、BERT等大语言模型奠定了架构基础，开启了现代AI的新时代。
-“注意力即一切。&#34;——这是Transformer论文的核心宣言。在Transformer之前，序列建模主要依赖RNN和CNN。RNN虽然能够处理序列，但难以并行化；CNN虽然可以并行化，但难以捕捉长距离依赖。Transformer通过完全基于注意力机制的架构，同时解决了这两个问题，实现了并行化和长距离依赖的完美结合。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-10-08 21:21:38 +0800 +0800'>October 8, 2025</span> | <span>15 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现" href=https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【ChatGPT时刻04】Transformer：Attention Is All You Need</h2></header><div class=entry-content><p>本文解读的是Ashish Vaswani、Noam Shazeer、Niki Parmar、Jakob Uszkoreit、Llion Jones、Aidan N. Gomez、Łukasz Kaiser和Illia Polosukhin于2017年发表的里程碑论文《Attention Is All You Need》，该论文提出了Transformer架构，完全基于注意力机制，摒弃了循环和卷积结构，在机器翻译任务上取得了最先进的性能，同时训练速度更快、可并行性更强。这一突破不仅彻底改变了序列建模的范式，更为后续GPT、BERT等大语言模型奠定了架构基础，开启了现代AI的新时代。
+“注意力即一切。"——这是Transformer论文的核心宣言。在Transformer之前，序列建模主要依赖RNN和CNN。RNN虽然能够处理序列，但难以并行化；CNN虽然可以并行化，但难以捕捉长距离依赖。Transformer通过完全基于注意力机制的架构，同时解决了这两个问题，实现了并行化和长距离依赖的完美结合。
 Transformer的核心创新是自注意力机制（Self-Attention）：每个位置都可以直接关注序列中的所有位置，无需通过循环或卷积逐步传播信息。这种设计使得Transformer能够：
 并行计算：所有位置可以同时计算，训练速度大幅提升 长距离依赖：直接建模任意距离的依赖关系 可解释性：注意力权重提供了模型决策的可解释性 在当今大语言模型时代，Transformer已经成为AI的基础架构：GPT、BERT、T5、PaLM等所有大模型都基于Transformer。理解Transformer，就是理解现代AI的基石。
 本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读Transformer，包含完整的数学推导、架构分析和实验评估，并在文末提供阅读研究论文的时间线计划。

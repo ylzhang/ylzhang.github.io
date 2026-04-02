@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师 | Zhang&#39;s Blog</title>
-<meta name="keywords" content="AI幻觉, 大语言模型, 常识推理, 科普">
-<meta name="description" content="
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师 | Zhang's Blog</title><meta name=keywords content="AI幻觉,大语言模型,常识推理,科普"><meta name=description content="
 AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。
 最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。
 幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。
@@ -23,86 +14,7 @@ AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清�
 
 缺的不是知识量，而是「世界感」
 人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。
-有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。">
-<meta name="author" content="ZHANG.z">
-<link rel="canonical" href="https://blog.zhangky.com/posts/2026/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<style>
-  .post-content p { text-indent: 2em; }
-  .post-content > p:first-of-type { text-indent: 0; }
-  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
-  .post-content blockquote,
-  .post-content blockquote p,
-  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
-  .post-content figure, .post-content figure p, .post-content img,
-  .post-content table, .post-content ul, .post-content ol, .post-content li,
-  .post-content .footnotes, .post-content .footnotes p,
-  .post-content section.footnotes p { text-indent: 0; }
-</style>
-<meta property="og:url" content="https://blog.zhangky.com/posts/2026/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师">
-  <meta property="og:description" content="
+有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。"><meta name=author content="ZHANG.z"><link rel=canonical href=https://blog.zhangky.com/posts/2026/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zhangky.com/posts/2026/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>.post-content p{text-indent:2em}.post-content>p:first-of-type{text-indent:0}.post-content h1,.post-content h2,.post-content h3,.post-content h4{text-indent:0}.post-content blockquote,.post-content blockquote p,.post-content pre,.post-content code,.post-content .highlight,.post-content div.highlight,.post-content figure,.post-content figure p,.post-content img,.post-content table,.post-content ul,.post-content ol,.post-content li,.post-content .footnotes,.post-content .footnotes p,.post-content section.footnotes p{text-indent:0}</style><meta property="og:url" content="https://blog.zhangky.com/posts/2026/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师"><meta property="og:description" content="
 AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。
 最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。
 幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。
@@ -112,18 +24,7 @@ AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清�
 可以把大语言模型想成一台 「超级猜字机」：你输入一句话，它根据读过的海量文本，算出「下一个最可能出现的字（或词元）」是什么，然后一个接一个往下猜，拼成整段回答。它没有在内部先推演「洗车需要车」「所以必须开车去」——只是在无数网页、书籍、对话里，「20 米」和「步行」「短途」「环保」经常一起出现，所以概率一加权，它就顺着这条「统计捷径」滑过去了，忽略了「目的」是洗车、洗车必须有车这个常识。
 「9.11 比 9.9 大」也是同一套逻辑的产物。在模型眼里，数字往往被拆成「词元」（Token）来处理，比如 9.11 可能被拆成「9」「.」「11」。在技术文档、版本说明里，「11」出现在「9」之后太常见了，所以它会答「9.11 更大」——模式识别压过了数学逻辑。一句话总结：AI 擅长的是「像什么」的联想，而不是「是什么」的严格推理。 这种差别，就是幻觉和逻辑失效的根源；不是它不想答对，而是它当前的运作方式本来就不是「先理解再作答」。
 缺的不是知识量，而是「世界感」 人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。
-有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-02-11T10:00:00+08:00">
-    <meta property="article:modified_time" content="2026-02-11T10:00:00+08:00">
-    <meta property="article:tag" content="AI">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师">
-<meta name="twitter:description" content="
+有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-02-11T10:00:00+08:00"><meta property="article:modified_time" content="2026-02-11T10:00:00+08:00"><meta property="article:tag" content="AI"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师"><meta name=twitter:description content="
 AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。
 最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。
 幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。

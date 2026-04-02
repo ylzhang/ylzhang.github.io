@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Coding Agents 正在重塑工程、产品与设计的分工逻辑 | Zhang&#39;s Blog</title>
-<meta name="keywords" content="Coding Agents">
-<meta name="description" content="
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Coding Agents 正在重塑工程、产品与设计的分工逻辑 | Zhang's Blog</title><meta name=keywords content="Coding Agents"><meta name=description content="
 原文：Harrison Chase, How Coding Agents Are Reshaping Engineering, Product and Design, LangChain Blog, 2026 年 3 月。以下为编译，保留原文结构与论点，部分段落做了压缩和意译。
 
 软件公司里的 EPD——工程（Engineering）、产品（Product）、设计（Design）——存在的目的只有一个：造出能用的软件。角色分得再细，最终交付物也只是代码。
@@ -35,86 +26,7 @@ Coding Agents 改变了这一切。它们可以把一个想法直接变成能跑
 问题在于——生成代码太容易了。以前写代码需要时间，审查者桌上同时摆的项目有限。现在任何人都能写代码，在做的项目数量在膨胀。我们在三个职能中看到的瓶颈都是同一个：审查——拿着原型，确保它们是「好的」。
 PRDs 万岁
 以写 PRD 为起点的旧流程死了，但描述产品需求的文档依然必不可少。
-假设有人冒出一个想法，快速生成了一个原型。这个原型怎么进生产？它需要 EPD 其他成员审查。审查时，一份书面文档总是有帮助的，甚至是必需的——别人看代码时，怎么知道某段代码是手误还是有意为之？这取决于意图，而意图需要被传达。">
-<meta name="author" content="ZHANG.z">
-<link rel="canonical" href="https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<style>
-  .post-content p { text-indent: 2em; }
-  .post-content > p:first-of-type { text-indent: 0; }
-  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
-  .post-content blockquote,
-  .post-content blockquote p,
-  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
-  .post-content figure, .post-content figure p, .post-content img,
-  .post-content table, .post-content ul, .post-content ol, .post-content li,
-  .post-content .footnotes, .post-content .footnotes p,
-  .post-content section.footnotes p { text-indent: 0; }
-</style>
-<meta property="og:url" content="https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="Coding Agents 正在重塑工程、产品与设计的分工逻辑">
-  <meta property="og:description" content=" 原文：Harrison Chase, How Coding Agents Are Reshaping Engineering, Product and Design, LangChain Blog, 2026 年 3 月。以下为编译，保留原文结构与论点，部分段落做了压缩和意译。
+假设有人冒出一个想法，快速生成了一个原型。这个原型怎么进生产？它需要 EPD 其他成员审查。审查时，一份书面文档总是有帮助的，甚至是必需的——别人看代码时，怎么知道某段代码是手误还是有意为之？这取决于意图，而意图需要被传达。"><meta name=author content="ZHANG.z"><link rel=canonical href=https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>.post-content p{text-indent:2em}.post-content>p:first-of-type{text-indent:0}.post-content h1,.post-content h2,.post-content h3,.post-content h4{text-indent:0}.post-content blockquote,.post-content blockquote p,.post-content pre,.post-content code,.post-content .highlight,.post-content div.highlight,.post-content figure,.post-content figure p,.post-content img,.post-content table,.post-content ul,.post-content ol,.post-content li,.post-content .footnotes,.post-content .footnotes p,.post-content section.footnotes p{text-indent:0}</style><meta property="og:url" content="https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="Coding Agents 正在重塑工程、产品与设计的分工逻辑"><meta property="og:description" content=" 原文：Harrison Chase, How Coding Agents Are Reshaping Engineering, Product and Design, LangChain Blog, 2026 年 3 月。以下为编译，保留原文结构与论点，部分段落做了压缩和意译。
 软件公司里的 EPD——工程（Engineering）、产品（Product）、设计（Design）——存在的目的只有一个：造出能用的软件。角色分得再细，最终交付物也只是代码。
 认清这一点很重要，因为 Coding Agents 突然让写代码变得极其廉价。那么，EPD 的角色会怎么变？
 PRDs 已死 在 Coding Agent 出现之前，PRD（产品需求文档）是软件开发的起点。标准流程是一条清晰的瀑布：
@@ -125,18 +37,7 @@ Coding Agents 改变了这一切。它们可以把一个想法直接变成能跑
 工程视角：架构是否可扩展、高性能、健壮？ 产品视角：是否真正解决了用户痛点？ 设计视角：界面是否易用、直观？ 由于生成初版代码的成本极低，原型数量大幅增加。这些原型成为焦点，EPD 围着它们审查。
 问题在于——生成代码太容易了。以前写代码需要时间，审查者桌上同时摆的项目有限。现在任何人都能写代码，在做的项目数量在膨胀。我们在三个职能中看到的瓶颈都是同一个：审查——拿着原型，确保它们是「好的」。
 PRDs 万岁 以写 PRD 为起点的旧流程死了，但描述产品需求的文档依然必不可少。
-假设有人冒出一个想法，快速生成了一个原型。这个原型怎么进生产？它需要 EPD 其他成员审查。审查时，一份书面文档总是有帮助的，甚至是必需的——别人看代码时，怎么知道某段代码是手误还是有意为之？这取决于意图，而意图需要被传达。">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-03-12T18:30:00+08:00">
-    <meta property="article:modified_time" content="2026-03-12T18:30:00+08:00">
-    <meta property="article:tag" content="AI">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="Coding Agents 正在重塑工程、产品与设计的分工逻辑">
-<meta name="twitter:description" content="
+假设有人冒出一个想法，快速生成了一个原型。这个原型怎么进生产？它需要 EPD 其他成员审查。审查时，一份书面文档总是有帮助的，甚至是必需的——别人看代码时，怎么知道某段代码是手误还是有意为之？这取决于意图，而意图需要被传达。"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-03-12T18:30:00+08:00"><meta property="article:modified_time" content="2026-03-12T18:30:00+08:00"><meta property="article:tag" content="AI"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="Coding Agents 正在重塑工程、产品与设计的分工逻辑"><meta name=twitter:description content="
 原文：Harrison Chase, How Coding Agents Are Reshaping Engineering, Product and Design, LangChain Blog, 2026 年 3 月。以下为编译，保留原文结构与论点，部分段落做了压缩和意译。
 
 软件公司里的 EPD——工程（Engineering）、产品（Product）、设计（Design）——存在的目的只有一个：造出能用的软件。角色分得再细，最终交付物也只是代码。
