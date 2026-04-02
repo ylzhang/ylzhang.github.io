@@ -233,604 +233,199 @@ $$i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)$$
 $$\tilde{c}<em>t = \tanh(W_c \cdot [h</em>{t-1}, x_t] + b_c)$$</p><p><strong>细胞状态更新</strong>：
 $$c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t$$</p><p><strong>输出门</strong>：
 $$o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)$$
-$$h_t = o_t \odot \tanh(c_t)$$</p>
-<h3 id="拆解-3">拆解<a hidden class="anchor" aria-hidden="true" href="#拆解-3">#</a></h3>
-<ol>
-<li><strong>$[h_{t-1}, x_t]$</strong>：把上一时刻的隐藏状态和当前输入拼接</li>
-<li><strong>$\sigma$（sigmoid）</strong>：输出0-1，作为&quot;门&quot;的开关程度</li>
-<li><strong>$\odot$</strong>：逐元素相乘，实现&quot;门控&quot;</li>
-<li><strong>$c_t$（细胞状态）</strong>：长期记忆，信息在这里流动</li>
-<li><strong>$h_t$（隐藏状态）</strong>：短期记忆，作为输出</li>
-</ol>
-<p><strong>直觉</strong>：</p>
-<ul>
-<li>遗忘门：决定忘记多少过去</li>
-<li>输入门：决定记住多少现在</li>
-<li>输出门：决定输出多少信息</li>
-</ul>
-<h3 id="代码实现-3">代码实现<a hidden class="anchor" aria-hidden="true" href="#代码实现-3">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">LSTMCell</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># 初始化权重（简化：合并为一个大矩阵）</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">input_size</span> <span class="o">+</span> <span class="n">hidden_size</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.01</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">hidden_size</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span> <span class="o">=</span> <span class="n">hidden_size</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h_prev</span><span class="p">,</span> <span class="n">c_prev</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s2">        x: (input_size,)
-</span></span></span><span class="line"><span class="cl"><span class="s2">        h_prev: (hidden_size,)
-</span></span></span><span class="line"><span class="cl"><span class="s2">        c_prev: (hidden_size,)
-</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">hs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1"># 拼接输入</span>
-</span></span><span class="line"><span class="cl">        <span class="n">concat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">h_prev</span><span class="p">,</span> <span class="n">x</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1"># 计算所有门（一次矩阵乘法）</span>
-</span></span><span class="line"><span class="cl">        <span class="n">gates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span> <span class="o">@</span> <span class="n">concat</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1"># 分割成4个门</span>
-</span></span><span class="line"><span class="cl">        <span class="n">f</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">gates</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">hs</span><span class="p">])</span>           <span class="c1"># 遗忘门</span>
-</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">gates</span><span class="p">[</span><span class="n">hs</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">hs</span><span class="p">])</span>        <span class="c1"># 输入门</span>
-</span></span><span class="line"><span class="cl">        <span class="n">c_tilde</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">gates</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">hs</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">hs</span><span class="p">])</span>  <span class="c1"># 候选细胞</span>
-</span></span><span class="line"><span class="cl">        <span class="n">o</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">gates</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">hs</span><span class="p">:</span><span class="mi">4</span><span class="o">*</span><span class="n">hs</span><span class="p">])</span>      <span class="c1"># 输出门</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1"># 更新细胞状态</span>
-</span></span><span class="line"><span class="cl">        <span class="n">c</span> <span class="o">=</span> <span class="n">f</span> <span class="o">*</span> <span class="n">c_prev</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">c_tilde</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1"># 计算隐藏状态</span>
-</span></span><span class="line"><span class="cl">        <span class="n">h</span> <span class="o">=</span> <span class="n">o</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">h</span><span class="p">,</span> <span class="n">c</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 示例</span>
-</span></span><span class="line"><span class="cl"><span class="n">lstm</span> <span class="o">=</span> <span class="n">LSTMCell</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">h_new</span><span class="p">,</span> <span class="n">c_new</span> <span class="o">=</span> <span class="n">lstm</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;隐藏状态shape: </span><span class="si">{</span><span class="n">h_new</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>  <span class="c1"># (20,)</span>
-</span></span></code></pre></div><hr>
-<h2 id="五残差连接skip-connection">五、残差连接（Skip Connection）<a hidden class="anchor" aria-hidden="true" href="#五残差连接skip-connection">#</a></h2>
-<h3 id="问题为什么深层网络反而效果变差">问题：为什么深层网络反而效果变差？<a hidden class="anchor" aria-hidden="true" href="#问题为什么深层网络反而效果变差">#</a></h3>
-<p>理论上网络越深越强，但实际训练中，深层网络会出现&quot;退化&quot;——不是过拟合，是训练误差都变高了。</p>
-<h3 id="公式-3">公式<a hidden class="anchor" aria-hidden="true" href="#公式-3">#</a></h3>
-<p>$$y = F(x) + x$$</p>
-<h3 id="拆解-4">拆解<a hidden class="anchor" aria-hidden="true" href="#拆解-4">#</a></h3>
-<ol>
-<li><strong>$F(x)$</strong>：网络层要学习的变换</li>
-<li><strong>$+ x$</strong>：直接把输入加到输出上（跳跃连接）</li>
-</ol>
-<p><strong>为什么有效？</strong></p>
-<p>原本网络要学习 $H(x)$（目标映射），现在只需要学习 $F(x) = H(x) - x$（残差）。</p>
-<ul>
-<li>如果最优解是恒等映射 $H(x) = x$，那么 $F(x) = 0$，学习&quot;什么都不做&quot;比学习&quot;复制输入&quot;容易</li>
-<li>梯度可以直接通过跳跃连接传回去，缓解梯度消失</li>
-</ul>
-<h3 id="代码实现-4">代码实现<a hidden class="anchor" aria-hidden="true" href="#代码实现-4">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ResidualBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channels</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">bn1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">channels</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">bn2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">channels</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">relu</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># 保存输入</span>
-</span></span><span class="line"><span class="cl">        <span class="n">identity</span> <span class="o">=</span> <span class="n">x</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1"># 主路径</span>
-</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bn1</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
-</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bn2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1"># 残差连接</span>
-</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">+</span> <span class="n">identity</span>  <span class="c1"># 关键！</span>
-</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">out</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 示例</span>
-</span></span><span class="line"><span class="cl"><span class="n">block</span> <span class="o">=</span> <span class="n">ResidualBlock</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># torch.Size([1, 64, 32, 32])</span>
-</span></span></code></pre></div><h3 id="transformer中的残差">Transformer中的残差<a hidden class="anchor" aria-hidden="true" href="#transformer中的残差">#</a></h3>
-<p>Transformer每一层都有残差连接：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Transformer层的结构</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">self_attention</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 残差连接1</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">feed_forward</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>    <span class="c1"># 残差连接2</span>
-</span></span></code></pre></div><hr>
-<h2 id="六kl散度">六、KL散度<a hidden class="anchor" aria-hidden="true" href="#六kl散度">#</a></h2>
-<h3 id="问题如何衡量两个概率分布的差异">问题：如何衡量两个概率分布的差异？<a hidden class="anchor" aria-hidden="true" href="#问题如何衡量两个概率分布的差异">#</a></h3>
-<p>训练VAE时，我们希望编码器输出的分布 $q(z|x)$ 接近先验分布 $p(z)$。</p>
-<h3 id="公式-4">公式<a hidden class="anchor" aria-hidden="true" href="#公式-4">#</a></h3>
-<p>$$D_{KL}(P | Q) = \sum_x P(x) \log \frac{P(x)}{Q(x)}$$</p>
-<p>或连续形式：
-$$D_{KL}(P | Q) = \int p(x) \log \frac{p(x)}{q(x)} dx$$</p>
-<h3 id="拆解-5">拆解<a hidden class="anchor" aria-hidden="true" href="#拆解-5">#</a></h3>
-<ol>
-<li><strong>$P(x)$</strong>：真实分布（或我们想要的分布）</li>
-<li><strong>$Q(x)$</strong>：近似分布（模型输出的分布）</li>
-<li><strong>$\log \frac{P(x)}{Q(x)}$</strong>：两个分布在每个点的&quot;差异&quot;</li>
-<li><strong>求和/积分</strong>：用P加权平均</li>
-</ol>
-<p><strong>性质</strong>：</p>
-<ul>
-<li>$D_{KL} \geq 0$，等于0当且仅当 $P = Q$</li>
-<li><strong>不对称</strong>：$D_{KL}(P | Q) \neq D_{KL}(Q | P)$</li>
-</ul>
-<h3 id="代码实现-5">代码实现<a hidden class="anchor" aria-hidden="true" href="#代码实现-5">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">kl_divergence</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s2">    离散KL散度
-</span></span></span><span class="line"><span class="cl"><span class="s2">    p, q: 概率分布，shape相同，和为1
-</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># 避免log(0)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">q</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 示例</span>
-</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>  <span class="c1"># 真实分布</span>
-</span></span><span class="line"><span class="cl"><span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>  <span class="c1"># 近似分布</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">kl</span> <span class="o">=</span> <span class="n">kl_divergence</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;KL(P||Q) = </span><span class="si">{</span><span class="n">kl</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>  <span class="c1"># 约0.036</span>
-</span></span></code></pre></div><h3 id="vae中的kl散度">VAE中的KL散度<a hidden class="anchor" aria-hidden="true" href="#vae中的kl散度">#</a></h3>
-<p>VAE的损失函数包含KL项，让编码器输出接近标准正态分布：</p>
-<p>$$D_{KL}(q(z|x) | \mathcal{N}(0, I)) = -\frac{1}{2} \sum_{j=1}^{d} (1 + \log \sigma_j^2 - \mu_j^2 - \sigma_j^2)$$</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">vae_kl_loss</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">log_var</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s2">    VAE的KL散度损失（解析形式）
-</span></span></span><span class="line"><span class="cl"><span class="s2">    mu: 编码器输出的均值, shape (batch, latent_dim)
-</span></span></span><span class="line"><span class="cl"><span class="s2">    log_var: 编码器输出的log方差, shape (batch, latent_dim)
-</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># -0.5 * sum(1 + log(sigma^2) - mu^2 - sigma^2)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">kl</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">log_var</span> <span class="o">-</span> <span class="n">mu</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">log_var</span><span class="o">.</span><span class="n">exp</span><span class="p">(),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">kl</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 示例</span>
-</span></span><span class="line"><span class="cl"><span class="n">mu</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>  <span class="c1"># batch=32, latent_dim=64</span>
-</span></span><span class="line"><span class="cl"><span class="n">log_var</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">kl_loss</span> <span class="o">=</span> <span class="n">vae_kl_loss</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">log_var</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;KL Loss: </span><span class="si">{</span><span class="n">kl_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><hr>
-<h2 id="七卷积操作">七、卷积操作<a hidden class="anchor" aria-hidden="true" href="#七卷积操作">#</a></h2>
-<h3 id="问题如何提取图像的局部特征">问题：如何提取图像的局部特征？<a hidden class="anchor" aria-hidden="true" href="#问题如何提取图像的局部特征">#</a></h3>
-<p>全连接层把每个像素都连接起来，参数太多且忽略了空间结构。卷积通过滑动窗口提取局部特征。</p>
-<h3 id="公式-5">公式<a hidden class="anchor" aria-hidden="true" href="#公式-5">#</a></h3>
-<p>$$(I * K)[i, j] = \sum_{m=0}^{k-1} \sum_{n=0}^{k-1} I[i+m, j+n] \cdot K[m, n]$$</p>
-<p><strong>输出尺寸计算</strong>：
-$$H_{out} = \lfloor \frac{H_{in} + 2p - k}{s} \rfloor + 1$$</p>
-<p>其中：$p$ = padding，$k$ = kernel size，$s$ = stride</p>
-<h3 id="代码实现-6">代码实现<a hidden class="anchor" aria-hidden="true" href="#代码实现-6">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 2D卷积</span>
-</span></span><span class="line"><span class="cl"><span class="n">conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">in_channels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>    <span class="c1"># 输入通道（如RGB）</span>
-</span></span><span class="line"><span class="cl">    <span class="n">out_channels</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>  <span class="c1"># 输出通道（卷积核数量）</span>
-</span></span><span class="line"><span class="cl">    <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>    <span class="c1"># 卷积核大小</span>
-</span></span><span class="line"><span class="cl">    <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>         <span class="c1"># 步长</span>
-</span></span><span class="line"><span class="cl">    <span class="n">padding</span><span class="o">=</span><span class="mi">1</span>         <span class="c1"># 填充</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>  <span class="c1"># (batch, channels, H, W)</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">conv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># torch.Size([1, 64, 32, 32])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 手动计算输出尺寸</span>
-</span></span><span class="line"><span class="cl"><span class="n">H_in</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="n">H_out</span> <span class="o">=</span> <span class="p">(</span><span class="n">H_in</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">p</span> <span class="o">-</span> <span class="n">k</span><span class="p">)</span> <span class="o">//</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># 32</span>
-</span></span></code></pre></div><hr>
-<h2 id="八layer-normalization">八、Layer Normalization<a hidden class="anchor" aria-hidden="true" href="#八layer-normalization">#</a></h2>
-<h3 id="问题如何稳定训练过程">问题：如何稳定训练过程？<a hidden class="anchor" aria-hidden="true" href="#问题如何稳定训练过程">#</a></h3>
-<p>神经网络各层的输入分布会随训练变化（内部协变量偏移），导致训练不稳定。</p>
-<h3 id="公式-6">公式<a hidden class="anchor" aria-hidden="true" href="#公式-6">#</a></h3>
-<p>$$\text{LayerNorm}(x) = \gamma \cdot \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}} + \beta$$</p>
-<p>其中：</p>
-<ul>
-<li>$\mu = \frac{1}{d}\sum_{i=1}^{d} x_i$（均值）</li>
-<li>$\sigma^2 = \frac{1}{d}\sum_{i=1}^{d} (x_i - \mu)^2$（方差）</li>
-<li>$\gamma, \beta$：可学习的缩放和偏移参数</li>
-</ul>
-<h3 id="代码实现-7">代码实现<a hidden class="anchor" aria-hidden="true" href="#代码实现-7">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># PyTorch内置</span>
-</span></span><span class="line"><span class="cl"><span class="n">ln</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">normalized_shape</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>  <span class="c1"># (batch, seq_len, hidden)</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">ln</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 手动实现</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">layer_norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">mean</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">var</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unbiased</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">x_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">x_norm</span> <span class="o">+</span> <span class="n">beta</span>
-</span></span></code></pre></div><hr>
-<h2 id="九位置编码positional-encoding">九、位置编码（Positional Encoding）<a hidden class="anchor" aria-hidden="true" href="#九位置编码positional-encoding">#</a></h2>
-<h3 id="问题transformer如何知道词的顺序">问题：Transformer如何知道词的顺序？<a hidden class="anchor" aria-hidden="true" href="#问题transformer如何知道词的顺序">#</a></h3>
-<p>自注意力机制是置换不变的，无法区分&quot;我爱你&quot;和&quot;你爱我&quot;。需要显式注入位置信息。</p>
-<h3 id="公式-7">公式<a hidden class="anchor" aria-hidden="true" href="#公式-7">#</a></h3>
-<p>偶数维用正弦、奇数维用余弦（$pos$ 为位置，$d_{model}$ 为模型维度）：</p>
-<p>$$PE_{(pos,,2i)} = \sin\left(\frac{pos}{10000^{2i/d_{model}}}\right)$$</p>
-<p>$$PE_{(pos,,2i+1)} = \cos\left(\frac{pos}{10000^{2i/d_{model}}}\right)$$</p>
-<h3 id="代码实现-8">代码实现<a hidden class="anchor" aria-hidden="true" href="#代码实现-8">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">positional_encoding</span><span class="p">(</span><span class="n">max_len</span><span class="p">,</span> <span class="n">d_model</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s2">    生成位置编码矩阵
-</span></span></span><span class="line"><span class="cl"><span class="s2">    max_len: 最大序列长度
-</span></span></span><span class="line"><span class="cl"><span class="s2">    d_model: 模型维度
-</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">pe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">max_len</span><span class="p">,</span> <span class="n">d_model</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">max_len</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="n">div_term</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">10000.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">d_model</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">pe</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">position</span> <span class="o">*</span> <span class="n">div_term</span><span class="p">)</span>  <span class="c1"># 偶数维度</span>
-</span></span><span class="line"><span class="cl">    <span class="n">pe</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">position</span> <span class="o">*</span> <span class="n">div_term</span><span class="p">)</span>  <span class="c1"># 奇数维度</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">pe</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 示例</span>
-</span></span><span class="line"><span class="cl"><span class="n">pe</span> <span class="o">=</span> <span class="n">positional_encoding</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">pe</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># torch.Size([100, 512])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 使用：x = x + pe[:seq_len, :]</span>
-</span></span></code></pre></div><hr>
-<h2 id="十elbo变分下界">十、ELBO（变分下界）<a hidden class="anchor" aria-hidden="true" href="#十elbo变分下界">#</a></h2>
-<h3 id="问题如何训练生成模型">问题：如何训练生成模型？<a hidden class="anchor" aria-hidden="true" href="#问题如何训练生成模型">#</a></h3>
-<p>VAE需要最大化数据的对数似然 $\log p(x)$，但直接计算不可行。</p>
-<h3 id="公式-8">公式<a hidden class="anchor" aria-hidden="true" href="#公式-8">#</a></h3>
-<p>$$\log p(x) \geq \mathbb{E}<em>{q(z|x)}[\log p(x|z)] - D</em>{KL}(q(z|x) | p(z))$$</p>
-<p><strong>ELBO = 重构损失 + KL正则化</strong></p>
-<h3 id="拆解-6">拆解<a hidden class="anchor" aria-hidden="true" href="#拆解-6">#</a></h3>
-<ol>
-<li><strong>$\mathbb{E}_{q(z|x)}[\log p(x|z)]$</strong>：重构项，解码器能否从z还原x</li>
-<li><strong>$D_{KL}(q(z|x) | p(z))$</strong>：正则项，编码器输出要接近先验分布</li>
-</ol>
-<h3 id="代码实现-9">代码实现<a hidden class="anchor" aria-hidden="true" href="#代码实现-9">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">vae_loss</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_recon</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">log_var</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s2">    VAE损失 = 重构损失 + KL散度
-</span></span></span><span class="line"><span class="cl"><span class="s2">    x: 原始输入
-</span></span></span><span class="line"><span class="cl"><span class="s2">    x_recon: 重构输出
-</span></span></span><span class="line"><span class="cl"><span class="s2">    mu, log_var: 编码器输出的均值和log方差
-</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># 重构损失（二值交叉熵或MSE）</span>
-</span></span><span class="line"><span class="cl">    <span class="n">recon_loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">mse_loss</span><span class="p">(</span><span class="n">x_recon</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1"># KL散度（解析形式）</span>
-</span></span><span class="line"><span class="cl">    <span class="n">kl_loss</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">log_var</span> <span class="o">-</span> <span class="n">mu</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">log_var</span><span class="o">.</span><span class="n">exp</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">recon_loss</span> <span class="o">+</span> <span class="n">kl_loss</span>
-</span></span></code></pre></div><hr>
-<h2 id="公式速查表">公式速查表<a hidden class="anchor" aria-hidden="true" href="#公式速查表">#</a></h2>
-<h3 id="核心公式">核心公式<a hidden class="anchor" aria-hidden="true" href="#核心公式">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>公式</th>
-          <th>用途</th>
-          <th>论文</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}}$</td>
-          <td>分类、注意力权重</td>
-          <td>几乎所有</td>
-      </tr>
-      <tr>
-          <td>$\text{Attention} = \text{softmax}(\frac{QK^T}{\sqrt{d_k}})V$</td>
-          <td>Transformer核心</td>
-          <td>Attention Is All You Need</td>
-      </tr>
-      <tr>
-          <td>$\theta \leftarrow \theta - \eta \nabla L$</td>
-          <td>模型训练</td>
-          <td>所有深度学习</td>
-      </tr>
-      <tr>
-          <td>$c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t$</td>
-          <td>序列建模</td>
-          <td>LSTM</td>
-      </tr>
-      <tr>
-          <td>$y = F(x) + x$</td>
-          <td>深层网络训练</td>
-          <td>ResNet, Transformer</td>
-      </tr>
-      <tr>
-          <td>$D_{KL}(P | Q) = \sum P \log \frac{P}{Q}$</td>
-          <td>分布匹配</td>
-          <td>VAE, RLHF</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="损失函数">损失函数<a hidden class="anchor" aria-hidden="true" href="#损失函数">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>公式</th>
-          <th>用途</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$L = -\sum y_i \log \hat{y}_i$</td>
-          <td>交叉熵（分类）</td>
-      </tr>
-      <tr>
-          <td>$L = \frac{1}{n}\sum (y - \hat{y})^2$</td>
-          <td>MSE（回归）</td>
-      </tr>
-      <tr>
-          <td>$L = -\log P(Y|X)$</td>
-          <td>语言模型损失</td>
-      </tr>
-      <tr>
-          <td>$L = \text{Recon} + \beta \cdot D_{KL}$</td>
-          <td>VAE损失</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="归一化">归一化<a hidden class="anchor" aria-hidden="true" href="#归一化">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>公式</th>
-          <th>用途</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\text{LayerNorm}(x) = \gamma \frac{x-\mu}{\sigma} + \beta$</td>
-          <td>Transformer</td>
-      </tr>
-      <tr>
-          <td>$\text{BatchNorm}(x) = \gamma \frac{x-\mu_B}{\sigma_B} + \beta$</td>
-          <td>CNN</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="位置编码">位置编码<a hidden class="anchor" aria-hidden="true" href="#位置编码">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>公式</th>
-          <th>用途</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$PE_{pos,2i} = \sin(pos/10000^{2i/d})$</td>
-          <td>Transformer位置编码</td>
-      </tr>
-      <tr>
-          <td>$PE_{pos,2i+1} = \cos(pos/10000^{2i/d})$</td>
-          <td>Transformer位置编码</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="输出尺寸计算">输出尺寸计算<a hidden class="anchor" aria-hidden="true" href="#输出尺寸计算">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>公式</th>
-          <th>用途</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$H_{out} = \lfloor\frac{H_{in}+2p-k}{s}\rfloor + 1$</td>
-          <td>卷积输出尺寸</td>
-      </tr>
-      <tr>
-          <td>$H_{out} = \lfloor\frac{H_{in}+2p-d(k-1)-1}{s}\rfloor + 1$</td>
-          <td>膨胀卷积输出尺寸</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="下一步">下一步<a hidden class="anchor" aria-hidden="true" href="#下一步">#</a></h2>
-<p>恭喜！你已经掌握了阅读AI论文所需的核心数学。现在可以去挑战这些论文了：</p>
-<ul>
-<li><a href="/posts/2025/chatgpt/">【ChatGPT时刻】系列</a>：从Word2Vec到RLHF</li>
-<li><a href="/posts/2026/paper-read/">【论文解读】系列</a>：Ilya推荐的30篇经典论文</li>
-</ul>
-<p>遇到新符号？回来查<a href="/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/">符号速查手册</a>。</p>
-<hr>
-<p>上一篇：<a href="/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/">【AI数学速成01】30分钟搞懂AI论文里的数学符号</a></p>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://blog.zhangky.com/tags/%E7%AC%94%E8%AE%B0/">笔记</a></li>
-      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
-    </ul>
-<nav class="paginav">
-  <a class="prev" href="https://blog.zhangky.com/posts/2025/2025-02-ai-chip-war/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>H200发布：NVIDIA赢了性能战，但可能输了未来</span>
-  </a>
-  <a class="next" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/">
-    <span class="title">Next »</span>
-    <br>
-    <span>【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记</span>
-  </a>
-</nav>
-
-
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script>
-  mermaid.initialize({
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
-  });
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-</body>
-
-</html>
+$$h_t = o_t \odot \tanh(c_t)$$</p><h3 id=拆解-3>拆解<a hidden class=anchor aria-hidden=true href=#拆解-3>#</a></h3><ol><li><strong>$[h_{t-1}, x_t]$</strong>：把上一时刻的隐藏状态和当前输入拼接</li><li><strong>$\sigma$（sigmoid）</strong>：输出0-1，作为"门"的开关程度</li><li><strong>$\odot$</strong>：逐元素相乘，实现"门控"</li><li><strong>$c_t$（细胞状态）</strong>：长期记忆，信息在这里流动</li><li><strong>$h_t$（隐藏状态）</strong>：短期记忆，作为输出</li></ol><p><strong>直觉</strong>：</p><ul><li>遗忘门：决定忘记多少过去</li><li>输入门：决定记住多少现在</li><li>输出门：决定输出多少信息</li></ul><h3 id=代码实现-3>代码实现<a hidden class=anchor aria-hidden=true href=#代码实现-3>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>sigmoid</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>1</span> <span class=o>/</span> <span class=p>(</span><span class=mi>1</span> <span class=o>+</span> <span class=n>np</span><span class=o>.</span><span class=n>exp</span><span class=p>(</span><span class=o>-</span><span class=n>x</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>LSTMCell</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>input_size</span><span class=p>,</span> <span class=n>hidden_size</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 初始化权重（简化：合并为一个大矩阵）</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>W</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>randn</span><span class=p>(</span><span class=mi>4</span> <span class=o>*</span> <span class=n>hidden_size</span><span class=p>,</span> <span class=n>input_size</span> <span class=o>+</span> <span class=n>hidden_size</span><span class=p>)</span> <span class=o>*</span> <span class=mf>0.01</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>b</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>zeros</span><span class=p>(</span><span class=mi>4</span> <span class=o>*</span> <span class=n>hidden_size</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>hidden_size</span> <span class=o>=</span> <span class=n>hidden_size</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>forward</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>x</span><span class=p>,</span> <span class=n>h_prev</span><span class=p>,</span> <span class=n>c_prev</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        x: (input_size,)
+</span></span></span><span class=line><span class=cl><span class=s2>        h_prev: (hidden_size,)
+</span></span></span><span class=line><span class=cl><span class=s2>        c_prev: (hidden_size,)
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=n>hs</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>hidden_size</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 拼接输入</span>
+</span></span><span class=line><span class=cl>        <span class=n>concat</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>concatenate</span><span class=p>([</span><span class=n>h_prev</span><span class=p>,</span> <span class=n>x</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 计算所有门（一次矩阵乘法）</span>
+</span></span><span class=line><span class=cl>        <span class=n>gates</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>W</span> <span class=o>@</span> <span class=n>concat</span> <span class=o>+</span> <span class=bp>self</span><span class=o>.</span><span class=n>b</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 分割成4个门</span>
+</span></span><span class=line><span class=cl>        <span class=n>f</span> <span class=o>=</span> <span class=n>sigmoid</span><span class=p>(</span><span class=n>gates</span><span class=p>[</span><span class=mi>0</span><span class=p>:</span><span class=n>hs</span><span class=p>])</span>           <span class=c1># 遗忘门</span>
+</span></span><span class=line><span class=cl>        <span class=n>i</span> <span class=o>=</span> <span class=n>sigmoid</span><span class=p>(</span><span class=n>gates</span><span class=p>[</span><span class=n>hs</span><span class=p>:</span><span class=mi>2</span><span class=o>*</span><span class=n>hs</span><span class=p>])</span>        <span class=c1># 输入门</span>
+</span></span><span class=line><span class=cl>        <span class=n>c_tilde</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>tanh</span><span class=p>(</span><span class=n>gates</span><span class=p>[</span><span class=mi>2</span><span class=o>*</span><span class=n>hs</span><span class=p>:</span><span class=mi>3</span><span class=o>*</span><span class=n>hs</span><span class=p>])</span>  <span class=c1># 候选细胞</span>
+</span></span><span class=line><span class=cl>        <span class=n>o</span> <span class=o>=</span> <span class=n>sigmoid</span><span class=p>(</span><span class=n>gates</span><span class=p>[</span><span class=mi>3</span><span class=o>*</span><span class=n>hs</span><span class=p>:</span><span class=mi>4</span><span class=o>*</span><span class=n>hs</span><span class=p>])</span>      <span class=c1># 输出门</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 更新细胞状态</span>
+</span></span><span class=line><span class=cl>        <span class=n>c</span> <span class=o>=</span> <span class=n>f</span> <span class=o>*</span> <span class=n>c_prev</span> <span class=o>+</span> <span class=n>i</span> <span class=o>*</span> <span class=n>c_tilde</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 计算隐藏状态</span>
+</span></span><span class=line><span class=cl>        <span class=n>h</span> <span class=o>=</span> <span class=n>o</span> <span class=o>*</span> <span class=n>np</span><span class=o>.</span><span class=n>tanh</span><span class=p>(</span><span class=n>c</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>h</span><span class=p>,</span> <span class=n>c</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 示例</span>
+</span></span><span class=line><span class=cl><span class=n>lstm</span> <span class=o>=</span> <span class=n>LSTMCell</span><span class=p>(</span><span class=n>input_size</span><span class=o>=</span><span class=mi>10</span><span class=p>,</span> <span class=n>hidden_size</span><span class=o>=</span><span class=mi>20</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>randn</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>h</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>zeros</span><span class=p>(</span><span class=mi>20</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>c</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>zeros</span><span class=p>(</span><span class=mi>20</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>h_new</span><span class=p>,</span> <span class=n>c_new</span> <span class=o>=</span> <span class=n>lstm</span><span class=o>.</span><span class=n>forward</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>h</span><span class=p>,</span> <span class=n>c</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;隐藏状态shape: </span><span class=si>{</span><span class=n>h_new</span><span class=o>.</span><span class=n>shape</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>  <span class=c1># (20,)</span>
+</span></span></code></pre></div><hr><h2 id=五残差连接skip-connection>五、残差连接（Skip Connection）<a hidden class=anchor aria-hidden=true href=#五残差连接skip-connection>#</a></h2><h3 id=问题为什么深层网络反而效果变差>问题：为什么深层网络反而效果变差？<a hidden class=anchor aria-hidden=true href=#问题为什么深层网络反而效果变差>#</a></h3><p>理论上网络越深越强，但实际训练中，深层网络会出现"退化"——不是过拟合，是训练误差都变高了。</p><h3 id=公式-3>公式<a hidden class=anchor aria-hidden=true href=#公式-3>#</a></h3><p>$$y = F(x) + x$$</p><h3 id=拆解-4>拆解<a hidden class=anchor aria-hidden=true href=#拆解-4>#</a></h3><ol><li><strong>$F(x)$</strong>：网络层要学习的变换</li><li><strong>$+ x$</strong>：直接把输入加到输出上（跳跃连接）</li></ol><p><strong>为什么有效？</strong></p><p>原本网络要学习 $H(x)$（目标映射），现在只需要学习 $F(x) = H(x) - x$（残差）。</p><ul><li>如果最优解是恒等映射 $H(x) = x$，那么 $F(x) = 0$，学习"什么都不做"比学习"复制输入"容易</li><li>梯度可以直接通过跳跃连接传回去，缓解梯度消失</li></ul><h3 id=代码实现-4>代码实现<a hidden class=anchor aria-hidden=true href=#代码实现-4>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch.nn</span> <span class=k>as</span> <span class=nn>nn</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>ResidualBlock</span><span class=p>(</span><span class=n>nn</span><span class=o>.</span><span class=n>Module</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>channels</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>conv1</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Conv2d</span><span class=p>(</span><span class=n>channels</span><span class=p>,</span> <span class=n>channels</span><span class=p>,</span> <span class=n>kernel_size</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span> <span class=n>padding</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>bn1</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>BatchNorm2d</span><span class=p>(</span><span class=n>channels</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>conv2</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Conv2d</span><span class=p>(</span><span class=n>channels</span><span class=p>,</span> <span class=n>channels</span><span class=p>,</span> <span class=n>kernel_size</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span> <span class=n>padding</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>bn2</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>BatchNorm2d</span><span class=p>(</span><span class=n>channels</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>relu</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>ReLU</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>forward</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 保存输入</span>
+</span></span><span class=line><span class=cl>        <span class=n>identity</span> <span class=o>=</span> <span class=n>x</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 主路径</span>
+</span></span><span class=line><span class=cl>        <span class=n>out</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>relu</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>bn1</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>conv1</span><span class=p>(</span><span class=n>x</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl>        <span class=n>out</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>bn2</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>conv2</span><span class=p>(</span><span class=n>out</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 残差连接</span>
+</span></span><span class=line><span class=cl>        <span class=n>out</span> <span class=o>=</span> <span class=n>out</span> <span class=o>+</span> <span class=n>identity</span>  <span class=c1># 关键！</span>
+</span></span><span class=line><span class=cl>        <span class=n>out</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>relu</span><span class=p>(</span><span class=n>out</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>out</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 示例</span>
+</span></span><span class=line><span class=cl><span class=n>block</span> <span class=o>=</span> <span class=n>ResidualBlock</span><span class=p>(</span><span class=mi>64</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>randn</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>64</span><span class=p>,</span> <span class=mi>32</span><span class=p>,</span> <span class=mi>32</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>y</span> <span class=o>=</span> <span class=n>block</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>y</span><span class=o>.</span><span class=n>shape</span><span class=p>)</span>  <span class=c1># torch.Size([1, 64, 32, 32])</span>
+</span></span></code></pre></div><h3 id=transformer中的残差>Transformer中的残差<a hidden class=anchor aria-hidden=true href=#transformer中的残差>#</a></h3><p>Transformer每一层都有残差连接：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Transformer层的结构</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>x</span> <span class=o>+</span> <span class=n>self_attention</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>  <span class=c1># 残差连接1</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>x</span> <span class=o>+</span> <span class=n>feed_forward</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>    <span class=c1># 残差连接2</span>
+</span></span></code></pre></div><hr><h2 id=六kl散度>六、KL散度<a hidden class=anchor aria-hidden=true href=#六kl散度>#</a></h2><h3 id=问题如何衡量两个概率分布的差异>问题：如何衡量两个概率分布的差异？<a hidden class=anchor aria-hidden=true href=#问题如何衡量两个概率分布的差异>#</a></h3><p>训练VAE时，我们希望编码器输出的分布 $q(z|x)$ 接近先验分布 $p(z)$。</p><h3 id=公式-4>公式<a hidden class=anchor aria-hidden=true href=#公式-4>#</a></h3><p>$$D_{KL}(P | Q) = \sum_x P(x) \log \frac{P(x)}{Q(x)}$$</p><p>或连续形式：
+$$D_{KL}(P | Q) = \int p(x) \log \frac{p(x)}{q(x)} dx$$</p><h3 id=拆解-5>拆解<a hidden class=anchor aria-hidden=true href=#拆解-5>#</a></h3><ol><li><strong>$P(x)$</strong>：真实分布（或我们想要的分布）</li><li><strong>$Q(x)$</strong>：近似分布（模型输出的分布）</li><li><strong>$\log \frac{P(x)}{Q(x)}$</strong>：两个分布在每个点的"差异"</li><li><strong>求和/积分</strong>：用P加权平均</li></ol><p><strong>性质</strong>：</p><ul><li>$D_{KL} \geq 0$，等于0当且仅当 $P = Q$</li><li><strong>不对称</strong>：$D_{KL}(P | Q) \neq D_{KL}(Q | P)$</li></ul><h3 id=代码实现-5>代码实现<a hidden class=anchor aria-hidden=true href=#代码实现-5>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>kl_divergence</span><span class=p>(</span><span class=n>p</span><span class=p>,</span> <span class=n>q</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    离散KL散度
+</span></span></span><span class=line><span class=cl><span class=s2>    p, q: 概率分布，shape相同，和为1
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 避免log(0)</span>
+</span></span><span class=line><span class=cl>    <span class=n>q</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>clip</span><span class=p>(</span><span class=n>q</span><span class=p>,</span> <span class=mf>1e-10</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>p</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>clip</span><span class=p>(</span><span class=n>p</span><span class=p>,</span> <span class=mf>1e-10</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>np</span><span class=o>.</span><span class=n>sum</span><span class=p>(</span><span class=n>p</span> <span class=o>*</span> <span class=n>np</span><span class=o>.</span><span class=n>log</span><span class=p>(</span><span class=n>p</span> <span class=o>/</span> <span class=n>q</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 示例</span>
+</span></span><span class=line><span class=cl><span class=n>p</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mf>0.4</span><span class=p>,</span> <span class=mf>0.3</span><span class=p>,</span> <span class=mf>0.3</span><span class=p>])</span>  <span class=c1># 真实分布</span>
+</span></span><span class=line><span class=cl><span class=n>q</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.3</span><span class=p>,</span> <span class=mf>0.2</span><span class=p>])</span>  <span class=c1># 近似分布</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>kl</span> <span class=o>=</span> <span class=n>kl_divergence</span><span class=p>(</span><span class=n>p</span><span class=p>,</span> <span class=n>q</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;KL(P||Q) = </span><span class=si>{</span><span class=n>kl</span><span class=si>:</span><span class=s2>.4f</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>  <span class=c1># 约0.036</span>
+</span></span></code></pre></div><h3 id=vae中的kl散度>VAE中的KL散度<a hidden class=anchor aria-hidden=true href=#vae中的kl散度>#</a></h3><p>VAE的损失函数包含KL项，让编码器输出接近标准正态分布：</p><p>$$D_{KL}(q(z|x) | \mathcal{N}(0, I)) = -\frac{1}{2} \sum_{j=1}^{d} (1 + \log \sigma_j^2 - \mu_j^2 - \sigma_j^2)$$</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>vae_kl_loss</span><span class=p>(</span><span class=n>mu</span><span class=p>,</span> <span class=n>log_var</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    VAE的KL散度损失（解析形式）
+</span></span></span><span class=line><span class=cl><span class=s2>    mu: 编码器输出的均值, shape (batch, latent_dim)
+</span></span></span><span class=line><span class=cl><span class=s2>    log_var: 编码器输出的log方差, shape (batch, latent_dim)
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># -0.5 * sum(1 + log(sigma^2) - mu^2 - sigma^2)</span>
+</span></span><span class=line><span class=cl>    <span class=n>kl</span> <span class=o>=</span> <span class=o>-</span><span class=mf>0.5</span> <span class=o>*</span> <span class=n>torch</span><span class=o>.</span><span class=n>sum</span><span class=p>(</span><span class=mi>1</span> <span class=o>+</span> <span class=n>log_var</span> <span class=o>-</span> <span class=n>mu</span><span class=o>.</span><span class=n>pow</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span> <span class=o>-</span> <span class=n>log_var</span><span class=o>.</span><span class=n>exp</span><span class=p>(),</span> <span class=n>dim</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>kl</span><span class=o>.</span><span class=n>mean</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 示例</span>
+</span></span><span class=line><span class=cl><span class=n>mu</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>randn</span><span class=p>(</span><span class=mi>32</span><span class=p>,</span> <span class=mi>64</span><span class=p>)</span>  <span class=c1># batch=32, latent_dim=64</span>
+</span></span><span class=line><span class=cl><span class=n>log_var</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>randn</span><span class=p>(</span><span class=mi>32</span><span class=p>,</span> <span class=mi>64</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>kl_loss</span> <span class=o>=</span> <span class=n>vae_kl_loss</span><span class=p>(</span><span class=n>mu</span><span class=p>,</span> <span class=n>log_var</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;KL Loss: </span><span class=si>{</span><span class=n>kl_loss</span><span class=o>.</span><span class=n>item</span><span class=p>()</span><span class=si>:</span><span class=s2>.4f</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span></code></pre></div><hr><h2 id=七卷积操作>七、卷积操作<a hidden class=anchor aria-hidden=true href=#七卷积操作>#</a></h2><h3 id=问题如何提取图像的局部特征>问题：如何提取图像的局部特征？<a hidden class=anchor aria-hidden=true href=#问题如何提取图像的局部特征>#</a></h3><p>全连接层把每个像素都连接起来，参数太多且忽略了空间结构。卷积通过滑动窗口提取局部特征。</p><h3 id=公式-5>公式<a hidden class=anchor aria-hidden=true href=#公式-5>#</a></h3><p>$$(I * K)[i, j] = \sum_{m=0}^{k-1} \sum_{n=0}^{k-1} I[i+m, j+n] \cdot K[m, n]$$</p><p><strong>输出尺寸计算</strong>：
+$$H_{out} = \lfloor \frac{H_{in} + 2p - k}{s} \rfloor + 1$$</p><p>其中：$p$ = padding，$k$ = kernel size，$s$ = stride</p><h3 id=代码实现-6>代码实现<a hidden class=anchor aria-hidden=true href=#代码实现-6>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch.nn</span> <span class=k>as</span> <span class=nn>nn</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 2D卷积</span>
+</span></span><span class=line><span class=cl><span class=n>conv</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Conv2d</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=n>in_channels</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span>    <span class=c1># 输入通道（如RGB）</span>
+</span></span><span class=line><span class=cl>    <span class=n>out_channels</span><span class=o>=</span><span class=mi>64</span><span class=p>,</span>  <span class=c1># 输出通道（卷积核数量）</span>
+</span></span><span class=line><span class=cl>    <span class=n>kernel_size</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span>    <span class=c1># 卷积核大小</span>
+</span></span><span class=line><span class=cl>    <span class=n>stride</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span>         <span class=c1># 步长</span>
+</span></span><span class=line><span class=cl>    <span class=n>padding</span><span class=o>=</span><span class=mi>1</span>         <span class=c1># 填充</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>randn</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>32</span><span class=p>,</span> <span class=mi>32</span><span class=p>)</span>  <span class=c1># (batch, channels, H, W)</span>
+</span></span><span class=line><span class=cl><span class=n>y</span> <span class=o>=</span> <span class=n>conv</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>y</span><span class=o>.</span><span class=n>shape</span><span class=p>)</span>  <span class=c1># torch.Size([1, 64, 32, 32])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 手动计算输出尺寸</span>
+</span></span><span class=line><span class=cl><span class=n>H_in</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>p</span><span class=p>,</span> <span class=n>s</span> <span class=o>=</span> <span class=mi>32</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=n>H_out</span> <span class=o>=</span> <span class=p>(</span><span class=n>H_in</span> <span class=o>+</span> <span class=mi>2</span><span class=o>*</span><span class=n>p</span> <span class=o>-</span> <span class=n>k</span><span class=p>)</span> <span class=o>//</span> <span class=n>s</span> <span class=o>+</span> <span class=mi>1</span>  <span class=c1># 32</span>
+</span></span></code></pre></div><hr><h2 id=八layer-normalization>八、Layer Normalization<a hidden class=anchor aria-hidden=true href=#八layer-normalization>#</a></h2><h3 id=问题如何稳定训练过程>问题：如何稳定训练过程？<a hidden class=anchor aria-hidden=true href=#问题如何稳定训练过程>#</a></h3><p>神经网络各层的输入分布会随训练变化（内部协变量偏移），导致训练不稳定。</p><h3 id=公式-6>公式<a hidden class=anchor aria-hidden=true href=#公式-6>#</a></h3><p>$$\text{LayerNorm}(x) = \gamma \cdot \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}} + \beta$$</p><p>其中：</p><ul><li>$\mu = \frac{1}{d}\sum_{i=1}^{d} x_i$（均值）</li><li>$\sigma^2 = \frac{1}{d}\sum_{i=1}^{d} (x_i - \mu)^2$（方差）</li><li>$\gamma, \beta$：可学习的缩放和偏移参数</li></ul><h3 id=代码实现-7>代码实现<a hidden class=anchor aria-hidden=true href=#代码实现-7>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch.nn</span> <span class=k>as</span> <span class=nn>nn</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># PyTorch内置</span>
+</span></span><span class=line><span class=cl><span class=n>ln</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>LayerNorm</span><span class=p>(</span><span class=n>normalized_shape</span><span class=o>=</span><span class=mi>64</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>randn</span><span class=p>(</span><span class=mi>32</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>64</span><span class=p>)</span>  <span class=c1># (batch, seq_len, hidden)</span>
+</span></span><span class=line><span class=cl><span class=n>y</span> <span class=o>=</span> <span class=n>ln</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 手动实现</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>layer_norm</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>gamma</span><span class=p>,</span> <span class=n>beta</span><span class=p>,</span> <span class=n>eps</span><span class=o>=</span><span class=mf>1e-5</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>mean</span> <span class=o>=</span> <span class=n>x</span><span class=o>.</span><span class=n>mean</span><span class=p>(</span><span class=n>dim</span><span class=o>=-</span><span class=mi>1</span><span class=p>,</span> <span class=n>keepdim</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>var</span> <span class=o>=</span> <span class=n>x</span><span class=o>.</span><span class=n>var</span><span class=p>(</span><span class=n>dim</span><span class=o>=-</span><span class=mi>1</span><span class=p>,</span> <span class=n>keepdim</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span> <span class=n>unbiased</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>x_norm</span> <span class=o>=</span> <span class=p>(</span><span class=n>x</span> <span class=o>-</span> <span class=n>mean</span><span class=p>)</span> <span class=o>/</span> <span class=n>torch</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>var</span> <span class=o>+</span> <span class=n>eps</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>gamma</span> <span class=o>*</span> <span class=n>x_norm</span> <span class=o>+</span> <span class=n>beta</span>
+</span></span></code></pre></div><hr><h2 id=九位置编码positional-encoding>九、位置编码（Positional Encoding）<a hidden class=anchor aria-hidden=true href=#九位置编码positional-encoding>#</a></h2><h3 id=问题transformer如何知道词的顺序>问题：Transformer如何知道词的顺序？<a hidden class=anchor aria-hidden=true href=#问题transformer如何知道词的顺序>#</a></h3><p>自注意力机制是置换不变的，无法区分"我爱你"和"你爱我"。需要显式注入位置信息。</p><h3 id=公式-7>公式<a hidden class=anchor aria-hidden=true href=#公式-7>#</a></h3><p>偶数维用正弦、奇数维用余弦（$pos$ 为位置，$d_{model}$ 为模型维度）：</p><p>$$PE_{(pos,,2i)} = \sin\left(\frac{pos}{10000^{2i/d_{model}}}\right)$$</p><p>$$PE_{(pos,,2i+1)} = \cos\left(\frac{pos}{10000^{2i/d_{model}}}\right)$$</p><h3 id=代码实现-8>代码实现<a hidden class=anchor aria-hidden=true href=#代码实现-8>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>positional_encoding</span><span class=p>(</span><span class=n>max_len</span><span class=p>,</span> <span class=n>d_model</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    生成位置编码矩阵
+</span></span></span><span class=line><span class=cl><span class=s2>    max_len: 最大序列长度
+</span></span></span><span class=line><span class=cl><span class=s2>    d_model: 模型维度
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>pe</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>zeros</span><span class=p>((</span><span class=n>max_len</span><span class=p>,</span> <span class=n>d_model</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>position</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=n>max_len</span><span class=p>)[:,</span> <span class=n>np</span><span class=o>.</span><span class=n>newaxis</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=n>div_term</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>exp</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>d_model</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span> <span class=o>*</span> <span class=p>(</span><span class=o>-</span><span class=n>np</span><span class=o>.</span><span class=n>log</span><span class=p>(</span><span class=mf>10000.0</span><span class=p>)</span> <span class=o>/</span> <span class=n>d_model</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>pe</span><span class=p>[:,</span> <span class=mi>0</span><span class=p>::</span><span class=mi>2</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>sin</span><span class=p>(</span><span class=n>position</span> <span class=o>*</span> <span class=n>div_term</span><span class=p>)</span>  <span class=c1># 偶数维度</span>
+</span></span><span class=line><span class=cl>    <span class=n>pe</span><span class=p>[:,</span> <span class=mi>1</span><span class=p>::</span><span class=mi>2</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>cos</span><span class=p>(</span><span class=n>position</span> <span class=o>*</span> <span class=n>div_term</span><span class=p>)</span>  <span class=c1># 奇数维度</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>torch</span><span class=o>.</span><span class=n>FloatTensor</span><span class=p>(</span><span class=n>pe</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 示例</span>
+</span></span><span class=line><span class=cl><span class=n>pe</span> <span class=o>=</span> <span class=n>positional_encoding</span><span class=p>(</span><span class=mi>100</span><span class=p>,</span> <span class=mi>512</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>pe</span><span class=o>.</span><span class=n>shape</span><span class=p>)</span>  <span class=c1># torch.Size([100, 512])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 使用：x = x + pe[:seq_len, :]</span>
+</span></span></code></pre></div><hr><h2 id=十elbo变分下界>十、ELBO（变分下界）<a hidden class=anchor aria-hidden=true href=#十elbo变分下界>#</a></h2><h3 id=问题如何训练生成模型>问题：如何训练生成模型？<a hidden class=anchor aria-hidden=true href=#问题如何训练生成模型>#</a></h3><p>VAE需要最大化数据的对数似然 $\log p(x)$，但直接计算不可行。</p><h3 id=公式-8>公式<a hidden class=anchor aria-hidden=true href=#公式-8>#</a></h3><p>$$\log p(x) \geq \mathbb{E}<em>{q(z|x)}[\log p(x|z)] - D</em>{KL}(q(z|x) | p(z))$$</p><p><strong>ELBO = 重构损失 + KL正则化</strong></p><h3 id=拆解-6>拆解<a hidden class=anchor aria-hidden=true href=#拆解-6>#</a></h3><ol><li><strong>$\mathbb{E}_{q(z|x)}[\log p(x|z)]$</strong>：重构项，解码器能否从z还原x</li><li><strong>$D_{KL}(q(z|x) | p(z))$</strong>：正则项，编码器输出要接近先验分布</li></ol><h3 id=代码实现-9>代码实现<a hidden class=anchor aria-hidden=true href=#代码实现-9>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch.nn.functional</span> <span class=k>as</span> <span class=nn>F</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>vae_loss</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>x_recon</span><span class=p>,</span> <span class=n>mu</span><span class=p>,</span> <span class=n>log_var</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    VAE损失 = 重构损失 + KL散度
+</span></span></span><span class=line><span class=cl><span class=s2>    x: 原始输入
+</span></span></span><span class=line><span class=cl><span class=s2>    x_recon: 重构输出
+</span></span></span><span class=line><span class=cl><span class=s2>    mu, log_var: 编码器输出的均值和log方差
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 重构损失（二值交叉熵或MSE）</span>
+</span></span><span class=line><span class=cl>    <span class=n>recon_loss</span> <span class=o>=</span> <span class=n>F</span><span class=o>.</span><span class=n>mse_loss</span><span class=p>(</span><span class=n>x_recon</span><span class=p>,</span> <span class=n>x</span><span class=p>,</span> <span class=n>reduction</span><span class=o>=</span><span class=s1>&#39;sum&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># KL散度（解析形式）</span>
+</span></span><span class=line><span class=cl>    <span class=n>kl_loss</span> <span class=o>=</span> <span class=o>-</span><span class=mf>0.5</span> <span class=o>*</span> <span class=n>torch</span><span class=o>.</span><span class=n>sum</span><span class=p>(</span><span class=mi>1</span> <span class=o>+</span> <span class=n>log_var</span> <span class=o>-</span> <span class=n>mu</span><span class=o>.</span><span class=n>pow</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span> <span class=o>-</span> <span class=n>log_var</span><span class=o>.</span><span class=n>exp</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>recon_loss</span> <span class=o>+</span> <span class=n>kl_loss</span>
+</span></span></code></pre></div><hr><h2 id=公式速查表>公式速查表<a hidden class=anchor aria-hidden=true href=#公式速查表>#</a></h2><h3 id=核心公式>核心公式<a hidden class=anchor aria-hidden=true href=#核心公式>#</a></h3><table><thead><tr><th>公式</th><th>用途</th><th>论文</th></tr></thead><tbody><tr><td>$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}}$</td><td>分类、注意力权重</td><td>几乎所有</td></tr><tr><td>$\text{Attention} = \text{softmax}(\frac{QK^T}{\sqrt{d_k}})V$</td><td>Transformer核心</td><td>Attention Is All You Need</td></tr><tr><td>$\theta \leftarrow \theta - \eta \nabla L$</td><td>模型训练</td><td>所有深度学习</td></tr><tr><td>$c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t$</td><td>序列建模</td><td>LSTM</td></tr><tr><td>$y = F(x) + x$</td><td>深层网络训练</td><td>ResNet, Transformer</td></tr><tr><td>$D_{KL}(P | Q) = \sum P \log \frac{P}{Q}$</td><td>分布匹配</td><td>VAE, RLHF</td></tr></tbody></table><h3 id=损失函数>损失函数<a hidden class=anchor aria-hidden=true href=#损失函数>#</a></h3><table><thead><tr><th>公式</th><th>用途</th></tr></thead><tbody><tr><td>$L = -\sum y_i \log \hat{y}_i$</td><td>交叉熵（分类）</td></tr><tr><td>$L = \frac{1}{n}\sum (y - \hat{y})^2$</td><td>MSE（回归）</td></tr><tr><td>$L = -\log P(Y|X)$</td><td>语言模型损失</td></tr><tr><td>$L = \text{Recon} + \beta \cdot D_{KL}$</td><td>VAE损失</td></tr></tbody></table><h3 id=归一化>归一化<a hidden class=anchor aria-hidden=true href=#归一化>#</a></h3><table><thead><tr><th>公式</th><th>用途</th></tr></thead><tbody><tr><td>$\text{LayerNorm}(x) = \gamma \frac{x-\mu}{\sigma} + \beta$</td><td>Transformer</td></tr><tr><td>$\text{BatchNorm}(x) = \gamma \frac{x-\mu_B}{\sigma_B} + \beta$</td><td>CNN</td></tr></tbody></table><h3 id=位置编码>位置编码<a hidden class=anchor aria-hidden=true href=#位置编码>#</a></h3><table><thead><tr><th>公式</th><th>用途</th></tr></thead><tbody><tr><td>$PE_{pos,2i} = \sin(pos/10000^{2i/d})$</td><td>Transformer位置编码</td></tr><tr><td>$PE_{pos,2i+1} = \cos(pos/10000^{2i/d})$</td><td>Transformer位置编码</td></tr></tbody></table><h3 id=输出尺寸计算>输出尺寸计算<a hidden class=anchor aria-hidden=true href=#输出尺寸计算>#</a></h3><table><thead><tr><th>公式</th><th>用途</th></tr></thead><tbody><tr><td>$H_{out} = \lfloor\frac{H_{in}+2p-k}{s}\rfloor + 1$</td><td>卷积输出尺寸</td></tr><tr><td>$H_{out} = \lfloor\frac{H_{in}+2p-d(k-1)-1}{s}\rfloor + 1$</td><td>膨胀卷积输出尺寸</td></tr></tbody></table><hr><h2 id=下一步>下一步<a hidden class=anchor aria-hidden=true href=#下一步>#</a></h2><p>恭喜！你已经掌握了阅读AI论文所需的核心数学。现在可以去挑战这些论文了：</p><ul><li><a href=/posts/2025/chatgpt/>【ChatGPT时刻】系列</a>：从Word2Vec到RLHF</li><li><a href=/posts/2026/paper-read/>【论文解读】系列</a>：Ilya推荐的30篇经典论文</li></ul><p>遇到新符号？回来查<a href=/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/>符号速查手册</a>。</p><hr><p>上一篇：<a href=/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/>【AI数学速成01】30分钟搞懂AI论文里的数学符号</a></p></div><footer class=post-footer><ul class=post-tags><li><a href=https://blog.zhangky.com/tags/%E7%AC%94%E8%AE%B0/>笔记</a></li><li><a href=https://blog.zhangky.com/tags/ai/>AI</a></li></ul><nav class=paginav><a class=prev href=https://blog.zhangky.com/posts/2025/2025-02-ai-chip-war/><span class=title>« Prev</span><br><span>H200发布：NVIDIA赢了性能战，但可能输了未来</span>
+</a><a class=next href=https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/><span class=title>Next »</span><br><span>【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script src=https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js></script><script>mermaid.initialize({startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

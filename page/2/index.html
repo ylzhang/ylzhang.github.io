@@ -1,247 +1,36 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head>
-	<meta name="generator" content="Hugo 0.159.1"><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Zhang&#39;s Blog</title>
-
-<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-<meta name="author" content="ZHANG.z&#34;">
-<link rel="canonical" href="https://blog.zhangky.com/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/index.xml" title="rss">
-<link rel="alternate" type="application/json" href="https://blog.zhangky.com/index.json" title="json">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<meta property="og:url" content="https://blog.zhangky.com/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="Zhang&#39;s Blog">
-  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="website">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="Zhang&#39;s Blog">
-<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Zhang's Blog",
-  "url": "https://blog.zhangky.com/",
-  "description": "Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.",
-  "logo": "https://blog.zhangky.com/images/logo.svg",
-  "sameAs": [
-      "https://github.com/ylzhang/ylzhang.github.io", "https://x.com/ZHANG_on_mars"
-  ]
-}
-</script>
-</head>
-<body class="list" id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
-                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 11a9 9 0 0 1 9 9" />
-    <path d="M4 4a16 16 0 0 1 16 16" />
-    <circle cx="5" cy="19" r="1" />
-</svg>
-                </a>
-                
-
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://blog.zhangky.com/" title="Posts">
-                    <span class="active">Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/faq" title="FAQ">
-                    <span>FAQ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <style>
-        .nav.scrolled {
-            background: var(--theme);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .nav.scrolled #menu {
-            display: none;
-        }
-        .nav.scrolled .logo {
-            margin: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > nav.offsetHeight) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-</header>
-<main class="main"> 
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">高段领导力从哪里来
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 领导力不是职位特权，而是一种「让别人心甘情愿做你想做的事」的元能力。它不分层级，不论场景，是每个人终其一生都可以修炼的功课。
-今天参加了一场领导力培训。开场前有个细节让我印象深刻：讲师没有问&#34;在座多少人是管理者&#34;，而是问&#34;有多少人希望自己更有影响力&#34;。全场举手。
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta name=generator content="Hugo 0.159.2"><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Zhang's Blog</title><meta name=description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.zhangky.com/index.xml title=rss><link rel=alternate type=application/json href=https://blog.zhangky.com/index.json title=json><link rel=alternate hreflang=en href=https://blog.zhangky.com/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://blog.zhangky.com/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="Zhang's Blog"><meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta property="og:locale" content="zh-cn"><meta property="og:type" content="website"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="Zhang's Blog"><meta name=twitter:description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Zhang's Blog","url":"https://blog.zhangky.com/","description":"Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.","logo":"https://blog.zhangky.com/images/logo.svg","sameAs":["https://github.com/ylzhang/ylzhang.github.io","https://x.com/ZHANG_on_mars"]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span class=active>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>高段领导力从哪里来</h2></header><div class=entry-content><p>领导力不是职位特权，而是一种「让别人心甘情愿做你想做的事」的元能力。它不分层级，不论场景，是每个人终其一生都可以修炼的功课。
+今天参加了一场领导力培训。开场前有个细节让我印象深刻：讲师没有问"在座多少人是管理者"，而是问"有多少人希望自己更有影响力"。全场举手。
 那一刻我突然意识到，我们对领导力的理解，可能从一开始就窄化了。
 领导力的祛魅：从职位到元能力 传统观念里，领导力似乎专属于那些带团队、管项目的人。但培训中的第一个观点就颠覆了这个认知：
 领导力是每个人都拥有的影响力——你影响家人周末去哪里吃饭，影响朋友接受你的建议，影响同事支持你的方案。这些时刻，你都在运用领导力。
 这让我想到一个更本质的定义：领导力的核心，是「让别人做你想做的事」。
-注意，不是&#34;替别人做事&#34;，不是&#34;命令别人做事&#34;，而是让别人心甘情愿地，朝着你想去的方向行动。这里面藏着两层深意：一是你要清楚自己想要什么（方向感），二是你要理解别人为何愿意跟随你（影响力）。
-高段位的领导者，从来不是最忙的那个人。他们善于授权——把Ownership真正交给团队，让每个人都觉得&#34;这是我的事&#34;。低段位的管理者，往往陷在事务里亲力亲为，团队却动力涣散。
+注意，不是"替别人做事"，不是"命令别人做事"，而是让别人心甘情愿地，朝着你想去的方向行动。这里面藏着两层深意：一是你要清楚自己想要什么（方向感），二是你要理解别人为何愿意跟随你（影响力）。
+高段位的领导者，从来不是最忙的那个人。他们善于授权——把Ownership真正交给团队，让每个人都觉得"这是我的事"。低段位的管理者，往往陷在事务里亲力亲为，团队却动力涣散。
 管理与领导：性恶论与性善论的分野 培训中最精彩的部分，是把管理和领导放在了哲学的高度对比。
-管理基于性恶论——它假设人需要规则约束，需要流程规范，需要考核驱动。管理的逻辑是&#34;怕你做错&#34;，所以设定边界、监控过程、追求确定性。管理问的是：如何正确地做事？
-领导基于性善论——它相信人有向善的潜力，有自发的创造力，有追求卓越的本能。领导的逻辑是&#34;信你能成&#34;，所以描绘愿景、创造机会、拥抱不确定性。领导问的是：如何做正确的事？
+管理基于性恶论——它假设人需要规则约束，需要流程规范，需要考核驱动。管理的逻辑是"怕你做错"，所以设定边界、监控过程、追求确定性。管理问的是：如何正确地做事？
+领导基于性善论——它相信人有向善的潜力，有自发的创造力，有追求卓越的本能。领导的逻辑是"信你能成"，所以描绘愿景、创造机会、拥抱不确定性。领导问的是：如何做正确的事？
 这两者的关系不是对立，而是分形。
-面对不成熟的团队（新人居多、能力不足、方向不清），你需要管理——建立规则、明确流程、降低试错成本。这时候团队是&#34;团伙&#34;状态：成员相似度高、目标短期功利、依赖外部驱动。
-面对成熟的团队（能力匹配、目标共识、自我驱动），你需要领导——激发潜能、授权决策、容忍试错。这时候团队才是&#34;团队&#34;状态：成员能力互补、目标长远积极、内在动机驱动。
+面对不成熟的团队（新人居多、能力不足、方向不清），你需要管理——建立规则、明确流程、降低试错成本。这时候团队是"团伙"状态：成员相似度高、目标短期功利、依赖外部驱动。
+面对成熟的团队（能力匹配、目标共识、自我驱动），你需要领导——激发潜能、授权决策、容忍试错。这时候团队才是"团队"状态：成员能力互补、目标长远积极、内在动机驱动。
 最危险的领导者，是用管理成熟团队的方式带新人（放任自流），或用带新人的方式管成熟团队（过度控制）。
 领导与领导力：职位与能力的错位 培训中有个扎心的案例：某大厂总监，管着两百人的团队，却发现关键时刻没人真正听他的。他拥有最大的「职权」，却缺乏最基本的「影响力」。
 这揭示了一个残酷真相：领导职位是组织赋予的，领导力却是他人授予的。
 有职位的人，天然拥有通过职权影响他人的权力——你可以分配任务、决定薪酬、影响晋升。但这种影响力是交易型的：下属听你的，是因为你手里有他想要的东西。
 真正的领导力是感召型的：别人听你的，是因为信任你的判断、认同你的价值观、愿意和你一起赌一个不确定的未来。
 职权领导力在顺境时好用，逆境时失灵。非职权领导力——基于专业、品格、愿景的影响力——才是穿越周期的硬通货。
-这也解释了为什么有些创业者在资源匮乏时能凝聚团队：他们没有职权筹码，只能靠Ownership的让渡和愿景的感召来凝聚人。这种&#34;赤手空拳&#34;练出来的领导力，往往比大公司高管的&#34;职权惯性&#34;更扎实。
+这也解释了为什么有些创业者在资源匮乏时能凝聚团队：他们没有职权筹码，只能靠Ownership的让渡和愿景的感召来凝聚人。这种"赤手空拳"练出来的领导力，往往比大公司高管的"职权惯性"更扎实。
 领导力的习得：从知到行的鸿沟 培训最后抛出一个问题：领导力可以教会吗？
 答案是：可以学习，无法教授。
 课堂上可以讲清楚概念、模型、工具，但真正的领导力只能在真实的博弈中长出来。当你被逼到墙角不得不决策，当你要为他人的错误兜底，当你必须在信息不足时选择方向——这些时刻，领导力才开始生长。
 现代领导力理论强调结果论：不管你用什么风格，能否持续为组织创造卓越业绩，是检验领导力的唯一标准。
-但这不意味着领导力是少数人的天赋。恰恰相反，每一次你主动承担责任，每一次你把&#34;这是我的问题&#34;说出口，每一次你在不确定中选择相信团队，你都在修炼领导力。
+但这不意味着领导力是少数人的天赋。恰恰相反，每一次你主动承担责任，每一次你把"这是我的问题"说出口，每一次你在不确定中选择相信团队，你都在修炼领导力。
 培训结束时，我想起一句话：领导力的终极考验，不是你能爬多高，而是当你跌落时，还有多少人愿意托住你。
-职位可以任命，权力可以继承，但那种让人心甘情愿跟随的力量——那种即使你不发号施令，团队也会向着共同方向奔跑的感召力——只能靠自己一次次站在悬崖边，一次次选择不后退，一次次把&#34;我们一起扛&#34;说出口，才能慢慢长出来。
-这或许是领导力最公平的地方：它不问出身，不论起点，只问你是否愿意为他人承担不确定性。
-</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-03-14 10:00:00 +0800 HKT'>March 14, 2026</span> | <span>9 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 高段领导力从哪里来" href="https://blog.zhangky.com/posts/2026/2026-03-14-leadership-source-reflection/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Coding Agents 正在重塑工程、产品与设计的分工逻辑
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 原文：Harrison Chase, How Coding Agents Are Reshaping Engineering, Product and Design, LangChain Blog, 2026 年 3 月。以下为编译，保留原文结构与论点，部分段落做了压缩和意译。
+职位可以任命，权力可以继承，但那种让人心甘情愿跟随的力量——那种即使你不发号施令，团队也会向着共同方向奔跑的感召力——只能靠自己一次次站在悬崖边，一次次选择不后退，一次次把"我们一起扛"说出口，才能慢慢长出来。
+这或许是领导力最公平的地方：它不问出身，不论起点，只问你是否愿意为他人承担不确定性。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-03-14 10:00:00 +0800 +0800'>March 14, 2026</span> | <span>9 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 高段领导力从哪里来" href=https://blog.zhangky.com/posts/2026/2026-03-14-leadership-source-reflection/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Coding Agents 正在重塑工程、产品与设计的分工逻辑</h2></header><div class=entry-content><p>原文：Harrison Chase, How Coding Agents Are Reshaping Engineering, Product and Design, LangChain Blog, 2026 年 3 月。以下为编译，保留原文结构与论点，部分段落做了压缩和意译。
 软件公司里的 EPD——工程（Engineering）、产品（Product）、设计（Design）——存在的目的只有一个：造出能用的软件。角色分得再细，最终交付物也只是代码。
 认清这一点很重要，因为 Coding Agents 突然让写代码变得极其廉价。那么，EPD 的角色会怎么变？
 PRDs 已死 在 Coding Agent 出现之前，PRD（产品需求文档）是软件开发的起点。标准流程是一条清晰的瀑布：
@@ -253,20 +42,7 @@ Coding Agents 改变了这一切。它们可以把一个想法直接变成能跑
 问题在于——生成代码太容易了。以前写代码需要时间，审查者桌上同时摆的项目有限。现在任何人都能写代码，在做的项目数量在膨胀。我们在三个职能中看到的瓶颈都是同一个：审查——拿着原型，确保它们是「好的」。
 PRDs 万岁 以写 PRD 为起点的旧流程死了，但描述产品需求的文档依然必不可少。
 假设有人冒出一个想法，快速生成了一个原型。这个原型怎么进生产？它需要 EPD 其他成员审查。审查时，一份书面文档总是有帮助的，甚至是必需的——别人看代码时，怎么知道某段代码是手误还是有意为之？这取决于意图，而意图需要被传达。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-03-12 18:30:00 +0800 HKT'>March 12, 2026</span> | <span>17 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to Coding Agents 正在重塑工程、产品与设计的分工逻辑" href="https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Robin：叫人，开会！
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-声明：本文纯属虚构。数据是真的，人是真的，会议是编的。如有雷同，说明百度确实该开这个会。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-03-12 18:30:00 +0800 +0800'>March 12, 2026</span> | <span>17 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to Coding Agents 正在重塑工程、产品与设计的分工逻辑" href=https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Robin：叫人，开会！</h2></header><div class=entry-content><p>声明：本文纯属虚构。数据是真的，人是真的，会议是编的。如有雷同，说明百度确实该开这个会。
 下午三点半，百度大厦 E 座 23 层，Robin 的助理敲了三下门。
 “Robin，港股收盘了。”
 “嗯。”
@@ -280,7 +56,7 @@ Robin 放下手里的 iPad。屏幕上是海螺 AI 生成的一段视频——�
 助理犹豫了一下：“Robin，现在是 OKR 对齐周，大家都在——”
 “我说叫人。OKR 对齐个屁，先对齐一下市值。”
 会议室的灯亮了。六个人陆续到齐。
-Dou 穿着卫衣，上面印着&#34;AI Native&#34;——百度去年团建发的。Jackson 系着领带，手里端着瑞幸。Haifeng 带了笔记本电脑，屏幕上开着飞桨的 dashboard，仿佛随时准备汇报技术指标。
+Dou 穿着卫衣，上面印着"AI Native"——百度去年团建发的。Jackson 系着领带，手里端着瑞幸。Haifeng 带了笔记本电脑，屏幕上开着飞桨的 dashboard，仿佛随时准备汇报技术指标。
 Robin 把一张纸推到桌中间。上面手写了两行字：
 MiniMax：4 岁，收入 7900 万美元，73% 海外，市值 3800 亿。
 百度：26 岁，收入千亿，AI 砸了近千亿，市值 3300 亿。
@@ -291,19 +67,7 @@ Dou 条件反射地接话：“Robin，市值不完全反映——”
 “我们的 narrative 是什么？”
 没人说话。
 “我来帮你们 align 一下：百度是中国最早布局 AI 的公司，拥有从芯片到框架到模型到应用的全栈能力，文心大模型 5.0 在 LMArena 排名国内第一——”
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-03-11 20:00:00 +0800 HKT'>March 11, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to Robin：叫人，开会！" href="https://blog.zhangky.com/posts/2026/2026-03-11-baidu-how-to-lose-everything/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">龙虾大会：一场关于AI编程的集体幻觉
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫OpenClaw的工具，在GitHub上已经收获了超过27万颗星星1，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：云服务厂商摆出一键部署的展台，模型公司推销着按Token计费的服务包，开发者们热切地交流着提示词工程的心得。这场被称为**“龙虾大会”**的运动，正在以一种近乎狂热的姿态席卷整个行业。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-03-11 20:00:00 +0800 +0800'>March 11, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to Robin：叫人，开会！" href=https://blog.zhangky.com/posts/2026/2026-03-11-baidu-how-to-lose-everything/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>龙虾大会：一场关于AI编程的集体幻觉</h2></header><div class=entry-content><p>三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫OpenClaw的工具，在GitHub上已经收获了超过27万颗星星1，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：云服务厂商摆出一键部署的展台，模型公司推销着按Token计费的服务包，开发者们热切地交流着提示词工程的心得。这场被称为**“龙虾大会”**的运动，正在以一种近乎狂热的姿态席卷整个行业。
 但热闹的背后，一个根本性的问题被有意无意地忽略了：这些大会究竟在解决什么问题？
 参会者带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被"AI替代程序员"的焦虑驱动。然而，当演讲者们反复演示如何用几句自然语言生成一个待办事项应用，或者如何让AI自动修复简单的代码错误时，细心的观察者会发现，**这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。**那些在舞台上被展示的神奇能力，往往建立在精心设计的demo环境之上；一旦进入真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。
 这种落差并非偶然。
@@ -336,115 +100,9 @@ Anthropic, “Introducing Claude Sonnet 4.6”, February 17, 2026, https://www.a
 据说离职消息传出后，投资圈瞬间沸腾。
 不止一家头部机构的合伙人通过各种渠道打探他的联系方式——有人发朋友圈暗示「有预算、等团队」，有人通过千问团队的熟人递话，有人直接私信阿里内部的朋友「能不能帮我引荐林俊旸」。不到 48 小时，他的微信被加爆，未读消息里挤满了红杉、高瓴、五源、启明等一线基金的合伙人。
 开出的条件一个比一个诱人：有人直接开价数千万美元估值，不占大股，「你说了算」；有人承诺「只管做技术，商业化我们来」，配套完整的 GTM 团队。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-03-07 21:29:02 +0800 HKT'>March 7, 2026</span> | <span>21 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 千问核心离职风波：林俊旸下一步是创业吗？" href="https://blog.zhangky.com/posts/2026/2026-03-07-linjunyang-next-move-startup/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="https://blog.zhangky.com/">
-      «&nbsp;Prev&nbsp;1/22
-    </a>
-    <a class="next" href="https://blog.zhangky.com/page/3/">Next&nbsp;3/22&nbsp;»
-    </a>
-  </nav>
-</footer>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script>
-  mermaid.initialize({
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
-  });
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-03-07 21:29:02 +0800 +0800'>March 7, 2026</span> | <span>21 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 千问核心离职风波：林俊旸下一步是创业吗？" href=https://blog.zhangky.com/posts/2026/2026-03-07-linjunyang-next-move-startup/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/>«&nbsp;Prev&nbsp;1/22
+</a><a class=next href=https://blog.zhangky.com/page/3/>Next&nbsp;3/22&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script src=https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js></script><script>mermaid.initialize({startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
