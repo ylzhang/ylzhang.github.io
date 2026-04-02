@@ -1,24 +1,15 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>工程师Yann LeCun | Zhang&#39;s Blog</title>
-<meta name="keywords" content="Yann LeCun, 卷积神经网络, CNN, Meta AI, World Model, 自监督学习">
-<meta name="description" content="
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>工程师Yann LeCun | Zhang's Blog</title><meta name=keywords content="Yann LeCun,卷积神经网络,CNN,Meta AI,World Model,自监督学习"><meta name=description content='
 AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。
 
 当理论家还在争论神经网络是否可行时，一个法国工程师已经让机器看清楚了世界。
-1989年，新泽西州霍姆德尔镇的一栋灰色办公楼里，一位留着长发、穿着皮夹克的法国年轻人正在向一群西装革履的银行家演示他的&quot;疯狂想法&quot;。他面前是一台笨重的计算机，屏幕上跳动着一串串手写数字。当机器准确识别出那些潦草的字迹时，银行家们交换着困惑的眼神——他们不知道，自己刚刚见证了人工智能历史上最重要的突破之一。
+1989年，新泽西州霍姆德尔镇的一栋灰色办公楼里，一位留着长发、穿着皮夹克的法国年轻人正在向一群西装革履的银行家演示他的"疯狂想法"。他面前是一台笨重的计算机，屏幕上跳动着一串串手写数字。当机器准确识别出那些潦草的字迹时，银行家们交换着困惑的眼神——他们不知道，自己刚刚见证了人工智能历史上最重要的突破之一。
 这位年轻人叫Yann LeCun。他带来的不是理论论文，而是一个能工作的系统。&ldquo;我不在乎它为什么工作，&ldquo;他后来回忆当时的想法，&ldquo;我只在乎它确实工作了。&rdquo;
 这是工程师的思维，也是LeCun一生的注脚。
 巴黎的地下实验室：一个工程师的觉醒
-1960年，LeCun出生在法国巴黎郊区的一个普通家庭。与Hinton的&quot;天才家族&quot;不同，LeCun的童年没有什么传奇色彩。他喜欢拆东西——收音机、电视机、任何他能拿到手的电子设备。&ldquo;我不是想修好它们，&ldquo;他说，&ldquo;我只是想知道它们是怎么工作的。&rdquo;
+1960年，LeCun出生在法国巴黎郊区的一个普通家庭。与Hinton的"天才家族"不同，LeCun的童年没有什么传奇色彩。他喜欢拆东西——收音机、电视机、任何他能拿到手的电子设备。&ldquo;我不是想修好它们，&ldquo;他说，&ldquo;我只是想知道它们是怎么工作的。&rdquo;
 这种好奇心把他带向了工程学。1980年代，LeCun在巴黎的ESIEE工程学院学习电气工程。那是一个AI的寒冬，神经网络被视为死路，但LeCun在一个偶然的机会接触到了一本关于认知科学的书，书中提到了一种模仿人脑视觉皮层结构的算法——卷积神经网络。
 &ldquo;我当时就想，这东西太美了，&ldquo;LeCun回忆，&ldquo;它不是抽象的数学，它是可以实现的。&rdquo;
-与Hinton不同，LeCun没有被神经网络的&quot;不可解释性&quot;困扰。作为一个工程师，他关心的是效果，而不是原理。如果一种方法能让机器学会识别图像，那它就是好方法——至于为什么，可以以后慢慢研究。
+与Hinton不同，LeCun没有被神经网络的"不可解释性"困扰。作为一个工程师，他关心的是效果，而不是原理。如果一种方法能让机器学会识别图像，那它就是好方法——至于为什么，可以以后慢慢研究。
 这种实用主义态度让LeCun在1985年做出了一个大胆的决定：他要去见Geoffrey Hinton。
 多伦多的那个夏天：两个偏执狂的相遇
 1985年的夏天，LeCun带着自己写的代码来到多伦多大学。他敲开了Hinton办公室的门，两个改变AI历史的人第一次面对面。
@@ -32,19 +23,19 @@ AT&amp;T贝尔实验室：从实验室到现实世界
 LeCun接手的第一个大项目是手写数字识别。美国邮政系统每天处理数百万封信件，需要自动识别信封上的邮编。这是一个完美的测试场：数据充足，问题明确，而且——如果成功——有巨大的商业价值。
 LeCun花了两年时间构建了一个名为LeNet的系统。它有多层卷积结构，有池化层降低计算量，有反向传播训练参数。当LeNet在1990年投入使用时，它能以99%的准确率识别手写数字，处理速度超过每秒100张。
 &ldquo;那是我人生中最骄傲的时刻，&ldquo;LeCun回忆，&ldquo;不是因为我发表了论文，而是因为我的系统真的在帮助人们送信。&rdquo;
-LeNet的成功证明了深度学习的实用价值，但它并没有改变学术界的看法。1990年代，支持向量机（SVM）成为机器学习的主流，神经网络再次被视为&quot;过时的技术&rdquo;。LeCun在会议上发表论文，听众寥寥；他申请研究经费，评审人质疑&quot;这东西真的有用吗&rdquo;。
+LeNet的成功证明了深度学习的实用价值，但它并没有改变学术界的看法。1990年代，支持向量机（SVM）成为机器学习的主流，神经网络再次被视为"过时的技术&rdquo;。LeCun在会议上发表论文，听众寥寥；他申请研究经费，评审人质疑"这东西真的有用吗&rdquo;。
 &ldquo;那时候很孤独，&ldquo;LeCun说，&ldquo;但我有LeNet。只要它还在工作，我就知道我们是对的。&rdquo;
 被驱逐的十年：在工业界坚守
 1996年，AT&amp;T拆分，贝尔实验室的辉煌时代结束。LeCun被迫离开，加入了一家初创公司NEC研究院。后来他又去了纽约大学，在学术界和工业界之间来回切换。
-这十年被称为LeCun的&quot;被驱逐期&rdquo;。深度学习在学术界几乎消失，LeCun是少数几个还在坚持的人。但他没有Hinton那样的耐心——Hinton可以在多伦多安静地等待春天，LeCun需要行动。
-他开始做一件在当时看来&quot;不务正业&quot;的事：把深度学习带到工业界。
-2003年，LeCun创办了一个名为&quot;深度学习研究&quot;的研讨会，邀请工业界的工程师参加。他向他们展示卷积神经网络如何用于人脸识别、自动驾驶、医学影像。&ldquo;我不跟他们说理论，&ldquo;LeCun解释，&ldquo;我给他们看demo。&rdquo;
+这十年被称为LeCun的"被驱逐期&rdquo;。深度学习在学术界几乎消失，LeCun是少数几个还在坚持的人。但他没有Hinton那样的耐心——Hinton可以在多伦多安静地等待春天，LeCun需要行动。
+他开始做一件在当时看来"不务正业"的事：把深度学习带到工业界。
+2003年，LeCun创办了一个名为"深度学习研究"的研讨会，邀请工业界的工程师参加。他向他们展示卷积神经网络如何用于人脸识别、自动驾驶、医学影像。&ldquo;我不跟他们说理论，&ldquo;LeCun解释，&ldquo;我给他们看demo。&rdquo;
 这种策略奏效了。2010年代初，随着GPU计算能力的提升和数据量的爆炸，工业界开始意识到深度学习的潜力。Facebook、Google、百度纷纷成立AI实验室，而LeCun成了最抢手的人才。
 2013年，Mark Zuckerberg亲自邀请LeCun加入Facebook，领导新成立的AI研究院（FAIR）。LeCun提出了一个条件：研究院必须开源所有研究成果。&ldquo;如果深度学习要改变世界，它必须是开放的，&ldquo;他说。
 Zuckerberg同意了。FAIR成为工业界AI研究的标杆，而LeCun终于有了一个可以大展拳脚的平台。
 与Transformer的对抗：一个工程师的固执
-2017年，Google发表了Transformer架构，彻底改变了自然语言处理领域。Transformer抛弃了卷积和循环结构，完全基于&quot;注意力机制&rdquo;，在翻译、文本生成等任务上取得了惊人效果。
-深度学习社区沸腾了。人们开始说&quot;CNN已死&quot;&ldquo;RNN已死&rdquo;，所有人都转向Transformer。但LeCun没有。
+2017年，Google发表了Transformer架构，彻底改变了自然语言处理领域。Transformer抛弃了卷积和循环结构，完全基于"注意力机制&rdquo;，在翻译、文本生成等任务上取得了惊人效果。
+深度学习社区沸腾了。人们开始说"CNN已死"&ldquo;RNN已死&rdquo;，所有人都转向Transformer。但LeCun没有。
 &ldquo;Transformer是伟大的工程成就，&ldquo;LeCun承认，&ldquo;但它不是智能的全部。它缺乏对世界的基本理解。&rdquo;
 LeCun的批评基于一个工程师的直觉：Transformer处理的是符号序列，但人类智能建立在世界模型之上。我们看、听、触摸，构建对物理世界的内在表征，然后用这个模型来预测、规划、行动。Transformer没有这种模型，它只是在统计符号之间的关联。
 &ldquo;你可以用Transformer生成一段关于&rsquo;猫在垫子上&rsquo;的文字，&ldquo;LeCun说，&ldquo;但它不知道什么是猫，什么是垫子，什么是&rsquo;在&rsquo;。它只是在重复训练数据中的模式。&rdquo;
@@ -67,97 +58,18 @@ LeCun认为，真正的AI需要这种能力。不是识别图像、生成文本�
 回顾LeCun的一生，他的方法论清晰可见：先让它工作，再理解它为什么工作。
 这与科学研究的经典路径相反。经典路径是先建立理论，然后用实验验证。但LeCun走的是另一条路——他先构建系统，观察它如何表现，然后从中提炼理论。
 &ldquo;CNN就是这样诞生的，&ldquo;LeCun说，&ldquo;我先让它工作，然后才理解为什么卷积结构有效。World Model也会是这样——我们先构建它，然后理解世界模型的本质。&rdquo;
-这种方法论让LeCun成为深度学习三巨头中最&quot;接地气&quot;的一个。Hinton是先知，Bengio是学者，LeCun是工程师。他不追求完美的理论，他追求能工作的系统。他不等待世界的认可，他改变世界。
+这种方法论让LeCun成为深度学习三巨头中最"接地气"的一个。Hinton是先知，Bengio是学者，LeCun是工程师。他不追求完美的理论，他追求能工作的系统。他不等待世界的认可，他改变世界。
 一位曾与LeCun共事的工程师对我们说：&ldquo;LeCun教会我最重要的一课是：不要等理论完善才开始。如果你有一个想法，就构建它，测试它，迭代它。理论会在实践中自然涌现。&rdquo;
-全局来看，LeCun的一生诠释了工程精神的价值。在AI的寒冬中，他用LeNet证明了深度学习的实用价值；在Transformer的热潮中，他用World Model坚守对&quot;理解&quot;的追求。他可能不是最耀眼的明星，但他是最可靠的基石——当理论家还在争论时，工程师已经让机器看清楚了世界。
-而这个世界，正在因为他的工作而改变。">
-<meta name="author" content="ZHANG.z&#34;">
-<link rel="canonical" href="https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<style>
-  .post-content p { text-indent: 2em; }
-  .post-content > p:first-of-type { text-indent: 0; }
-  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
-  .post-content blockquote,
-  .post-content blockquote p,
-  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
-  .post-content figure, .post-content figure p, .post-content img,
-  .post-content table, .post-content ul, .post-content ol, .post-content li,
-  .post-content .footnotes, .post-content .footnotes p,
-  .post-content section.footnotes p { text-indent: 0; }
-</style>
-<meta property="og:url" content="https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="工程师Yann LeCun">
-  <meta property="og:description" content=" AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。
+全局来看，LeCun的一生诠释了工程精神的价值。在AI的寒冬中，他用LeNet证明了深度学习的实用价值；在Transformer的热潮中，他用World Model坚守对"理解"的追求。他可能不是最耀眼的明星，但他是最可靠的基石——当理论家还在争论时，工程师已经让机器看清楚了世界。
+而这个世界，正在因为他的工作而改变。'><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>.post-content p{text-indent:2em}.post-content>p:first-of-type{text-indent:0}.post-content h1,.post-content h2,.post-content h3,.post-content h4{text-indent:0}.post-content blockquote,.post-content blockquote p,.post-content pre,.post-content code,.post-content .highlight,.post-content div.highlight,.post-content figure,.post-content figure p,.post-content img,.post-content table,.post-content ul,.post-content ol,.post-content li,.post-content .footnotes,.post-content .footnotes p,.post-content section.footnotes p{text-indent:0}</style><meta property="og:url" content="https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="工程师Yann LeCun"><meta property="og:description" content=' AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。
 当理论家还在争论神经网络是否可行时，一个法国工程师已经让机器看清楚了世界。
-1989年，新泽西州霍姆德尔镇的一栋灰色办公楼里，一位留着长发、穿着皮夹克的法国年轻人正在向一群西装革履的银行家演示他的&#34;疯狂想法&#34;。他面前是一台笨重的计算机，屏幕上跳动着一串串手写数字。当机器准确识别出那些潦草的字迹时，银行家们交换着困惑的眼神——他们不知道，自己刚刚见证了人工智能历史上最重要的突破之一。
+1989年，新泽西州霍姆德尔镇的一栋灰色办公楼里，一位留着长发、穿着皮夹克的法国年轻人正在向一群西装革履的银行家演示他的"疯狂想法"。他面前是一台笨重的计算机，屏幕上跳动着一串串手写数字。当机器准确识别出那些潦草的字迹时，银行家们交换着困惑的眼神——他们不知道，自己刚刚见证了人工智能历史上最重要的突破之一。
 这位年轻人叫Yann LeCun。他带来的不是理论论文，而是一个能工作的系统。“我不在乎它为什么工作，“他后来回忆当时的想法，“我只在乎它确实工作了。”
 这是工程师的思维，也是LeCun一生的注脚。
-巴黎的地下实验室：一个工程师的觉醒 1960年，LeCun出生在法国巴黎郊区的一个普通家庭。与Hinton的&#34;天才家族&#34;不同，LeCun的童年没有什么传奇色彩。他喜欢拆东西——收音机、电视机、任何他能拿到手的电子设备。“我不是想修好它们，“他说，“我只是想知道它们是怎么工作的。”
+巴黎的地下实验室：一个工程师的觉醒 1960年，LeCun出生在法国巴黎郊区的一个普通家庭。与Hinton的"天才家族"不同，LeCun的童年没有什么传奇色彩。他喜欢拆东西——收音机、电视机、任何他能拿到手的电子设备。“我不是想修好它们，“他说，“我只是想知道它们是怎么工作的。”
 这种好奇心把他带向了工程学。1980年代，LeCun在巴黎的ESIEE工程学院学习电气工程。那是一个AI的寒冬，神经网络被视为死路，但LeCun在一个偶然的机会接触到了一本关于认知科学的书，书中提到了一种模仿人脑视觉皮层结构的算法——卷积神经网络。
 “我当时就想，这东西太美了，“LeCun回忆，“它不是抽象的数学，它是可以实现的。”
-与Hinton不同，LeCun没有被神经网络的&#34;不可解释性&#34;困扰。作为一个工程师，他关心的是效果，而不是原理。如果一种方法能让机器学会识别图像，那它就是好方法——至于为什么，可以以后慢慢研究。
+与Hinton不同，LeCun没有被神经网络的"不可解释性"困扰。作为一个工程师，他关心的是效果，而不是原理。如果一种方法能让机器学会识别图像，那它就是好方法——至于为什么，可以以后慢慢研究。
 这种实用主义态度让LeCun在1985年做出了一个大胆的决定：他要去见Geoffrey Hinton。
 多伦多的那个夏天：两个偏执狂的相遇 1985年的夏天，LeCun带着自己写的代码来到多伦多大学。他敲开了Hinton办公室的门，两个改变AI历史的人第一次面对面。
 “他看起来像个嬉皮士，“Hinton后来回忆，“长发、皮夹克，说话带着浓重的法国口音。但他眼睛里有火。”
@@ -169,17 +81,17 @@ AT&amp;T贝尔实验室：从实验室到现实世界 1988年，LeCun加入了�
 LeCun接手的第一个大项目是手写数字识别。美国邮政系统每天处理数百万封信件，需要自动识别信封上的邮编。这是一个完美的测试场：数据充足，问题明确，而且——如果成功——有巨大的商业价值。
 LeCun花了两年时间构建了一个名为LeNet的系统。它有多层卷积结构，有池化层降低计算量，有反向传播训练参数。当LeNet在1990年投入使用时，它能以99%的准确率识别手写数字，处理速度超过每秒100张。
 “那是我人生中最骄傲的时刻，“LeCun回忆，“不是因为我发表了论文，而是因为我的系统真的在帮助人们送信。”
-LeNet的成功证明了深度学习的实用价值，但它并没有改变学术界的看法。1990年代，支持向量机（SVM）成为机器学习的主流，神经网络再次被视为&#34;过时的技术”。LeCun在会议上发表论文，听众寥寥；他申请研究经费，评审人质疑&#34;这东西真的有用吗”。
+LeNet的成功证明了深度学习的实用价值，但它并没有改变学术界的看法。1990年代，支持向量机（SVM）成为机器学习的主流，神经网络再次被视为"过时的技术”。LeCun在会议上发表论文，听众寥寥；他申请研究经费，评审人质疑"这东西真的有用吗”。
 “那时候很孤独，“LeCun说，“但我有LeNet。只要它还在工作，我就知道我们是对的。”
 被驱逐的十年：在工业界坚守 1996年，AT&amp;T拆分，贝尔实验室的辉煌时代结束。LeCun被迫离开，加入了一家初创公司NEC研究院。后来他又去了纽约大学，在学术界和工业界之间来回切换。
-这十年被称为LeCun的&#34;被驱逐期”。深度学习在学术界几乎消失，LeCun是少数几个还在坚持的人。但他没有Hinton那样的耐心——Hinton可以在多伦多安静地等待春天，LeCun需要行动。
-他开始做一件在当时看来&#34;不务正业&#34;的事：把深度学习带到工业界。
-2003年，LeCun创办了一个名为&#34;深度学习研究&#34;的研讨会，邀请工业界的工程师参加。他向他们展示卷积神经网络如何用于人脸识别、自动驾驶、医学影像。“我不跟他们说理论，“LeCun解释，“我给他们看demo。”
+这十年被称为LeCun的"被驱逐期”。深度学习在学术界几乎消失，LeCun是少数几个还在坚持的人。但他没有Hinton那样的耐心——Hinton可以在多伦多安静地等待春天，LeCun需要行动。
+他开始做一件在当时看来"不务正业"的事：把深度学习带到工业界。
+2003年，LeCun创办了一个名为"深度学习研究"的研讨会，邀请工业界的工程师参加。他向他们展示卷积神经网络如何用于人脸识别、自动驾驶、医学影像。“我不跟他们说理论，“LeCun解释，“我给他们看demo。”
 这种策略奏效了。2010年代初，随着GPU计算能力的提升和数据量的爆炸，工业界开始意识到深度学习的潜力。Facebook、Google、百度纷纷成立AI实验室，而LeCun成了最抢手的人才。
 2013年，Mark Zuckerberg亲自邀请LeCun加入Facebook，领导新成立的AI研究院（FAIR）。LeCun提出了一个条件：研究院必须开源所有研究成果。“如果深度学习要改变世界，它必须是开放的，“他说。
 Zuckerberg同意了。FAIR成为工业界AI研究的标杆，而LeCun终于有了一个可以大展拳脚的平台。
-与Transformer的对抗：一个工程师的固执 2017年，Google发表了Transformer架构，彻底改变了自然语言处理领域。Transformer抛弃了卷积和循环结构，完全基于&#34;注意力机制”，在翻译、文本生成等任务上取得了惊人效果。
-深度学习社区沸腾了。人们开始说&#34;CNN已死&#34;“RNN已死”，所有人都转向Transformer。但LeCun没有。
+与Transformer的对抗：一个工程师的固执 2017年，Google发表了Transformer架构，彻底改变了自然语言处理领域。Transformer抛弃了卷积和循环结构，完全基于"注意力机制”，在翻译、文本生成等任务上取得了惊人效果。
+深度学习社区沸腾了。人们开始说"CNN已死"“RNN已死”，所有人都转向Transformer。但LeCun没有。
 “Transformer是伟大的工程成就，“LeCun承认，“但它不是智能的全部。它缺乏对世界的基本理解。”
 LeCun的批评基于一个工程师的直觉：Transformer处理的是符号序列，但人类智能建立在世界模型之上。我们看、听、触摸，构建对物理世界的内在表征，然后用这个模型来预测、规划、行动。Transformer没有这种模型，它只是在统计符号之间的关联。
 “你可以用Transformer生成一段关于’猫在垫子上’的文字，“LeCun说，“但它不知道什么是猫，什么是垫子，什么是’在’。它只是在重复训练数据中的模式。”
@@ -199,33 +111,21 @@ LeCun认为，真正的AI需要这种能力。不是识别图像、生成文本�
 说到底：一个工程师的方法论 回顾LeCun的一生，他的方法论清晰可见：先让它工作，再理解它为什么工作。
 这与科学研究的经典路径相反。经典路径是先建立理论，然后用实验验证。但LeCun走的是另一条路——他先构建系统，观察它如何表现，然后从中提炼理论。
 “CNN就是这样诞生的，“LeCun说，“我先让它工作，然后才理解为什么卷积结构有效。World Model也会是这样——我们先构建它，然后理解世界模型的本质。”
-这种方法论让LeCun成为深度学习三巨头中最&#34;接地气&#34;的一个。Hinton是先知，Bengio是学者，LeCun是工程师。他不追求完美的理论，他追求能工作的系统。他不等待世界的认可，他改变世界。
+这种方法论让LeCun成为深度学习三巨头中最"接地气"的一个。Hinton是先知，Bengio是学者，LeCun是工程师。他不追求完美的理论，他追求能工作的系统。他不等待世界的认可，他改变世界。
 一位曾与LeCun共事的工程师对我们说：“LeCun教会我最重要的一课是：不要等理论完善才开始。如果你有一个想法，就构建它，测试它，迭代它。理论会在实践中自然涌现。”
-全局来看，LeCun的一生诠释了工程精神的价值。在AI的寒冬中，他用LeNet证明了深度学习的实用价值；在Transformer的热潮中，他用World Model坚守对&#34;理解&#34;的追求。他可能不是最耀眼的明星，但他是最可靠的基石——当理论家还在争论时，工程师已经让机器看清楚了世界。
-而这个世界，正在因为他的工作而改变。">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-04-02T18:09:00+08:00">
-    <meta property="article:modified_time" content="2026-04-02T18:09:00+08:00">
-    <meta property="article:tag" content="AI">
-    <meta property="article:tag" content="人物">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="工程师Yann LeCun">
-<meta name="twitter:description" content="
+全局来看，LeCun的一生诠释了工程精神的价值。在AI的寒冬中，他用LeNet证明了深度学习的实用价值；在Transformer的热潮中，他用World Model坚守对"理解"的追求。他可能不是最耀眼的明星，但他是最可靠的基石——当理论家还在争论时，工程师已经让机器看清楚了世界。
+而这个世界，正在因为他的工作而改变。'><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-04-02T18:09:00+08:00"><meta property="article:modified_time" content="2026-04-02T18:09:00+08:00"><meta property="article:tag" content="AI"><meta property="article:tag" content="人物"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="工程师Yann LeCun"><meta name=twitter:description content='
 AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。
 
 当理论家还在争论神经网络是否可行时，一个法国工程师已经让机器看清楚了世界。
-1989年，新泽西州霍姆德尔镇的一栋灰色办公楼里，一位留着长发、穿着皮夹克的法国年轻人正在向一群西装革履的银行家演示他的&quot;疯狂想法&quot;。他面前是一台笨重的计算机，屏幕上跳动着一串串手写数字。当机器准确识别出那些潦草的字迹时，银行家们交换着困惑的眼神——他们不知道，自己刚刚见证了人工智能历史上最重要的突破之一。
+1989年，新泽西州霍姆德尔镇的一栋灰色办公楼里，一位留着长发、穿着皮夹克的法国年轻人正在向一群西装革履的银行家演示他的"疯狂想法"。他面前是一台笨重的计算机，屏幕上跳动着一串串手写数字。当机器准确识别出那些潦草的字迹时，银行家们交换着困惑的眼神——他们不知道，自己刚刚见证了人工智能历史上最重要的突破之一。
 这位年轻人叫Yann LeCun。他带来的不是理论论文，而是一个能工作的系统。&ldquo;我不在乎它为什么工作，&ldquo;他后来回忆当时的想法，&ldquo;我只在乎它确实工作了。&rdquo;
 这是工程师的思维，也是LeCun一生的注脚。
 巴黎的地下实验室：一个工程师的觉醒
-1960年，LeCun出生在法国巴黎郊区的一个普通家庭。与Hinton的&quot;天才家族&quot;不同，LeCun的童年没有什么传奇色彩。他喜欢拆东西——收音机、电视机、任何他能拿到手的电子设备。&ldquo;我不是想修好它们，&ldquo;他说，&ldquo;我只是想知道它们是怎么工作的。&rdquo;
+1960年，LeCun出生在法国巴黎郊区的一个普通家庭。与Hinton的"天才家族"不同，LeCun的童年没有什么传奇色彩。他喜欢拆东西——收音机、电视机、任何他能拿到手的电子设备。&ldquo;我不是想修好它们，&ldquo;他说，&ldquo;我只是想知道它们是怎么工作的。&rdquo;
 这种好奇心把他带向了工程学。1980年代，LeCun在巴黎的ESIEE工程学院学习电气工程。那是一个AI的寒冬，神经网络被视为死路，但LeCun在一个偶然的机会接触到了一本关于认知科学的书，书中提到了一种模仿人脑视觉皮层结构的算法——卷积神经网络。
 &ldquo;我当时就想，这东西太美了，&ldquo;LeCun回忆，&ldquo;它不是抽象的数学，它是可以实现的。&rdquo;
-与Hinton不同，LeCun没有被神经网络的&quot;不可解释性&quot;困扰。作为一个工程师，他关心的是效果，而不是原理。如果一种方法能让机器学会识别图像，那它就是好方法——至于为什么，可以以后慢慢研究。
+与Hinton不同，LeCun没有被神经网络的"不可解释性"困扰。作为一个工程师，他关心的是效果，而不是原理。如果一种方法能让机器学会识别图像，那它就是好方法——至于为什么，可以以后慢慢研究。
 这种实用主义态度让LeCun在1985年做出了一个大胆的决定：他要去见Geoffrey Hinton。
 多伦多的那个夏天：两个偏执狂的相遇
 1985年的夏天，LeCun带着自己写的代码来到多伦多大学。他敲开了Hinton办公室的门，两个改变AI历史的人第一次面对面。
@@ -239,19 +139,19 @@ AT&amp;T贝尔实验室：从实验室到现实世界
 LeCun接手的第一个大项目是手写数字识别。美国邮政系统每天处理数百万封信件，需要自动识别信封上的邮编。这是一个完美的测试场：数据充足，问题明确，而且——如果成功——有巨大的商业价值。
 LeCun花了两年时间构建了一个名为LeNet的系统。它有多层卷积结构，有池化层降低计算量，有反向传播训练参数。当LeNet在1990年投入使用时，它能以99%的准确率识别手写数字，处理速度超过每秒100张。
 &ldquo;那是我人生中最骄傲的时刻，&ldquo;LeCun回忆，&ldquo;不是因为我发表了论文，而是因为我的系统真的在帮助人们送信。&rdquo;
-LeNet的成功证明了深度学习的实用价值，但它并没有改变学术界的看法。1990年代，支持向量机（SVM）成为机器学习的主流，神经网络再次被视为&quot;过时的技术&rdquo;。LeCun在会议上发表论文，听众寥寥；他申请研究经费，评审人质疑&quot;这东西真的有用吗&rdquo;。
+LeNet的成功证明了深度学习的实用价值，但它并没有改变学术界的看法。1990年代，支持向量机（SVM）成为机器学习的主流，神经网络再次被视为"过时的技术&rdquo;。LeCun在会议上发表论文，听众寥寥；他申请研究经费，评审人质疑"这东西真的有用吗&rdquo;。
 &ldquo;那时候很孤独，&ldquo;LeCun说，&ldquo;但我有LeNet。只要它还在工作，我就知道我们是对的。&rdquo;
 被驱逐的十年：在工业界坚守
 1996年，AT&amp;T拆分，贝尔实验室的辉煌时代结束。LeCun被迫离开，加入了一家初创公司NEC研究院。后来他又去了纽约大学，在学术界和工业界之间来回切换。
-这十年被称为LeCun的&quot;被驱逐期&rdquo;。深度学习在学术界几乎消失，LeCun是少数几个还在坚持的人。但他没有Hinton那样的耐心——Hinton可以在多伦多安静地等待春天，LeCun需要行动。
-他开始做一件在当时看来&quot;不务正业&quot;的事：把深度学习带到工业界。
-2003年，LeCun创办了一个名为&quot;深度学习研究&quot;的研讨会，邀请工业界的工程师参加。他向他们展示卷积神经网络如何用于人脸识别、自动驾驶、医学影像。&ldquo;我不跟他们说理论，&ldquo;LeCun解释，&ldquo;我给他们看demo。&rdquo;
+这十年被称为LeCun的"被驱逐期&rdquo;。深度学习在学术界几乎消失，LeCun是少数几个还在坚持的人。但他没有Hinton那样的耐心——Hinton可以在多伦多安静地等待春天，LeCun需要行动。
+他开始做一件在当时看来"不务正业"的事：把深度学习带到工业界。
+2003年，LeCun创办了一个名为"深度学习研究"的研讨会，邀请工业界的工程师参加。他向他们展示卷积神经网络如何用于人脸识别、自动驾驶、医学影像。&ldquo;我不跟他们说理论，&ldquo;LeCun解释，&ldquo;我给他们看demo。&rdquo;
 这种策略奏效了。2010年代初，随着GPU计算能力的提升和数据量的爆炸，工业界开始意识到深度学习的潜力。Facebook、Google、百度纷纷成立AI实验室，而LeCun成了最抢手的人才。
 2013年，Mark Zuckerberg亲自邀请LeCun加入Facebook，领导新成立的AI研究院（FAIR）。LeCun提出了一个条件：研究院必须开源所有研究成果。&ldquo;如果深度学习要改变世界，它必须是开放的，&ldquo;他说。
 Zuckerberg同意了。FAIR成为工业界AI研究的标杆，而LeCun终于有了一个可以大展拳脚的平台。
 与Transformer的对抗：一个工程师的固执
-2017年，Google发表了Transformer架构，彻底改变了自然语言处理领域。Transformer抛弃了卷积和循环结构，完全基于&quot;注意力机制&rdquo;，在翻译、文本生成等任务上取得了惊人效果。
-深度学习社区沸腾了。人们开始说&quot;CNN已死&quot;&ldquo;RNN已死&rdquo;，所有人都转向Transformer。但LeCun没有。
+2017年，Google发表了Transformer架构，彻底改变了自然语言处理领域。Transformer抛弃了卷积和循环结构，完全基于"注意力机制&rdquo;，在翻译、文本生成等任务上取得了惊人效果。
+深度学习社区沸腾了。人们开始说"CNN已死"&ldquo;RNN已死&rdquo;，所有人都转向Transformer。但LeCun没有。
 &ldquo;Transformer是伟大的工程成就，&ldquo;LeCun承认，&ldquo;但它不是智能的全部。它缺乏对世界的基本理解。&rdquo;
 LeCun的批评基于一个工程师的直觉：Transformer处理的是符号序列，但人类智能建立在世界模型之上。我们看、听、触摸，构建对物理世界的内在表征，然后用这个模型来预测、规划、行动。Transformer没有这种模型，它只是在统计符号之间的关联。
 &ldquo;你可以用Transformer生成一段关于&rsquo;猫在垫子上&rsquo;的文字，&ldquo;LeCun说，&ldquo;但它不知道什么是猫，什么是垫子，什么是&rsquo;在&rsquo;。它只是在重复训练数据中的模式。&rdquo;
@@ -274,7 +174,7 @@ LeCun认为，真正的AI需要这种能力。不是识别图像、生成文本�
 回顾LeCun的一生，他的方法论清晰可见：先让它工作，再理解它为什么工作。
 这与科学研究的经典路径相反。经典路径是先建立理论，然后用实验验证。但LeCun走的是另一条路——他先构建系统，观察它如何表现，然后从中提炼理论。
 &ldquo;CNN就是这样诞生的，&ldquo;LeCun说，&ldquo;我先让它工作，然后才理解为什么卷积结构有效。World Model也会是这样——我们先构建它，然后理解世界模型的本质。&rdquo;
-这种方法论让LeCun成为深度学习三巨头中最&quot;接地气&quot;的一个。Hinton是先知，Bengio是学者，LeCun是工程师。他不追求完美的理论，他追求能工作的系统。他不等待世界的认可，他改变世界。
+这种方法论让LeCun成为深度学习三巨头中最"接地气"的一个。Hinton是先知，Bengio是学者，LeCun是工程师。他不追求完美的理论，他追求能工作的系统。他不等待世界的认可，他改变世界。
 一位曾与LeCun共事的工程师对我们说：&ldquo;LeCun教会我最重要的一课是：不要等理论完善才开始。如果你有一个想法，就构建它，测试它，迭代它。理论会在实践中自然涌现。&rdquo;
 全局来看，LeCun的一生诠释了工程精神的价值。在AI的寒冬中，他用LeNet证明了深度学习的实用价值；在Transformer的热潮中，他用World Model坚守对&quot;理解&quot;的追求。他可能不是最耀眼的明星，但他是最可靠的基石——当理论家还在争论时，工程师已经让机器看清楚了世界。
 而这个世界，正在因为他的工作而改变。">
