@@ -296,6 +296,24 @@ Andy Grove 在《高产出管理》里算过一笔账：一个经理人花一小
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  });
+</script>
 
 <script>
     let menu = document.getElementById('menu');

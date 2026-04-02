@@ -11,8 +11,293 @@
     </image>
     <generator>Hugo -- 0.159.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 29 Mar 2026 20:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 19:34:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PIPE-AI项目白皮书</title>
+      <link>https://blog.zhangky.com/posts/2026/2026-04-02-pipe-ai-global-token-hub/</link>
+      <pubDate>Thu, 02 Apr 2026 19:34:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/2026-04-02-pipe-ai-global-token-hub/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;面向全人类的AI智能管道&lt;/strong&gt;
+&lt;em&gt;Pipe Intelligence &amp;amp; Processing Engine for AI&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;文档信息&#34;&gt;文档信息&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;项目&lt;/th&gt;
+          &lt;th&gt;内容&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;文档版本&lt;/td&gt;
+          &lt;td&gt;v1.0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;发布日期&lt;/td&gt;
+          &lt;td&gt;2026年4月2日&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;文档性质&lt;/td&gt;
+          &lt;td&gt;创业白皮书&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;编制&lt;/td&gt;
+          &lt;td&gt;zyl&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;当所有人都在追逐大模型和AI应用时，我们选择成为AI时代的&amp;quot;电力公司&amp;quot;。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;PIPE-AI（Pipe Intelligence &amp;amp; Processing Engine for AI）定位为全球化TOKEN运营商，构建面向全人类的AI智能管道。我们不做AI模型，不做AI应用，而是成为AI时代的&amp;quot;电力公司&amp;quot;——生产、输送、交易Token这一AI时代的核心能源。&lt;/p&gt;
+&lt;h2 id=&#34;一执行摘要ai时代的电力公司&#34;&gt;一、执行摘要：AI时代的电力公司&lt;/h2&gt;
+&lt;h3 id=&#34;核心命题&#34;&gt;核心命题&lt;/h3&gt;
+&lt;p&gt;PIPE-AI定位为全球化TOKEN运营商，构建面向全人类的AI智能管道。我们不做AI模型，不做AI应用，而是成为AI时代的&amp;quot;电力公司&amp;quot;——生产、输送、交易Token这一AI时代的核心能源。&lt;/p&gt;
+&lt;h3 id=&#34;市场机遇&#34;&gt;市场机遇&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;指标&lt;/th&gt;
+          &lt;th&gt;数据&lt;/th&gt;
+          &lt;th&gt;来源&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;全球AI支出&lt;/td&gt;
+          &lt;td&gt;2.52万亿美元（2026年）&lt;/td&gt;
+          &lt;td&gt;Gartner&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;AI基础设施投资&lt;/td&gt;
+          &lt;td&gt;3万亿美元（2028年前）&lt;/td&gt;
+          &lt;td&gt;Morgan Stanley&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;中国日均Token调用量&lt;/td&gt;
+          &lt;td&gt;140万亿&lt;/td&gt;
+          &lt;td&gt;国家数据局&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;中国算力租赁市场&lt;/td&gt;
+          &lt;td&gt;2600亿元（2026年）&lt;/td&gt;
+          &lt;td&gt;IDC&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Token经济年增长率&lt;/td&gt;
+          &lt;td&gt;1000倍（2年）&lt;/td&gt;
+          &lt;td&gt;国家数据局&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;战略路径&#34;&gt;战略路径&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;flowchart TB
+    subgraph P1[&amp;#34;PHASE 1（Year 1-2）：中国根基&amp;#34;]
+        P1A[&amp;#34;西部智算中心集群（500-3000P）&amp;#34;]
+        P1B[&amp;#34;政府长期合约锁定（3-5年）&amp;#34;]
+        P1C[&amp;#34;Tokens/Watt效率领先&amp;#34;]
+    end
+    
+    subgraph P2[&amp;#34;PHASE 2（Year 3-4）：亚太扩张&amp;#34;]
+        P2A[&amp;#34;新加坡（亚太总部）&amp;#34;]
+        P2B[&amp;#34;东南亚节点（印尼/越南）&amp;#34;]
+        P2C[&amp;#34;中东GW级工厂（主权基金合作）&amp;#34;]
+    end
+    
+    subgraph P3[&amp;#34;PHASE 3（Year 5+）：全球网络&amp;#34;]
+        P3A[&amp;#34;欧洲（并购/合作）&amp;#34;]
+        P3B[&amp;#34;北美（边缘节点）&amp;#34;]
+        P3C[&amp;#34;非洲/拉美（绿电+算力出口）&amp;#34;]
+    end
+    
+    P1 --&amp;gt; P2 --&amp;gt; P3
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;核心差异化&#34;&gt;核心差异化&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;维度&lt;/th&gt;
+          &lt;th&gt;传统云厂商&lt;/th&gt;
+          &lt;th&gt;CoreWeave等&lt;/th&gt;
+          &lt;th&gt;PIPE-AI&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;定位&lt;/td&gt;
+          &lt;td&gt;全栈服务&lt;/td&gt;
+          &lt;td&gt;AI专用云&lt;/td&gt;
+          &lt;td&gt;AI智能管道&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;核心指标&lt;/td&gt;
+          &lt;td&gt;营收规模&lt;/td&gt;
+          &lt;td&gt;GPU数量&lt;/td&gt;
+          &lt;td&gt;Tokens/Watt&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;商业模式&lt;/td&gt;
+          &lt;td&gt;订阅+按需&lt;/td&gt;
+          &lt;td&gt;租赁+Token&lt;/td&gt;
+          &lt;td&gt;成果计费+Token交易&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;能源策略&lt;/td&gt;
+          &lt;td&gt;传统电力&lt;/td&gt;
+          &lt;td&gt;绿电优先&lt;/td&gt;
+          &lt;td&gt;算电协同+Token期货&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;生态位&lt;/td&gt;
+          &lt;td&gt;平台垄断&lt;/td&gt;
+          &lt;td&gt;算力供应商&lt;/td&gt;
+          &lt;td&gt;Token Hub节点&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;二愿景与使命让token像电力一样无处不在&#34;&gt;二、愿景与使命：让Token像电力一样无处不在&lt;/h2&gt;
+&lt;h3 id=&#34;愿景&#34;&gt;愿景&lt;/h3&gt;
+&lt;p&gt;让每瓦电力产生最大智能价值，让Token像电力一样无处不在&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>工程师Yann LeCun</title>
+      <link>https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/</link>
+      <pubDate>Thu, 02 Apr 2026 18:09:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;AI人物志系列&lt;/strong&gt;：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;当理论家还在争论神经网络是否可行时，一个法国工程师已经让机器看清楚了世界。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1989年，新泽西州霍姆德尔镇的一栋灰色办公楼里，一位留着长发、穿着皮夹克的法国年轻人正在向一群西装革履的银行家演示他的&amp;quot;疯狂想法&amp;quot;。他面前是一台笨重的计算机，屏幕上跳动着一串串手写数字。当机器准确识别出那些潦草的字迹时，银行家们交换着困惑的眼神——他们不知道，自己刚刚见证了人工智能历史上最重要的突破之一。&lt;/p&gt;
+&lt;p&gt;这位年轻人叫Yann LeCun。他带来的不是理论论文，而是一个能工作的系统。&amp;ldquo;我不在乎它为什么工作，&amp;ldquo;他后来回忆当时的想法，&amp;ldquo;我只在乎它确实工作了。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这是工程师的思维，也是LeCun一生的注脚。&lt;/p&gt;
+&lt;h2 id=&#34;巴黎的地下实验室一个工程师的觉醒&#34;&gt;巴黎的地下实验室：一个工程师的觉醒&lt;/h2&gt;
+&lt;p&gt;1960年，LeCun出生在法国巴黎郊区的一个普通家庭。与Hinton的&amp;quot;天才家族&amp;quot;不同，LeCun的童年没有什么传奇色彩。他喜欢拆东西——收音机、电视机、任何他能拿到手的电子设备。&amp;ldquo;我不是想修好它们，&amp;ldquo;他说，&amp;ldquo;我只是想知道它们是怎么工作的。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种好奇心把他带向了工程学。1980年代，LeCun在巴黎的ESIEE工程学院学习电气工程。那是一个AI的寒冬，神经网络被视为死路，但LeCun在一个偶然的机会接触到了一本关于认知科学的书，书中提到了一种模仿人脑视觉皮层结构的算法——&lt;strong&gt;卷积神经网络&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我当时就想，这东西太美了，&amp;ldquo;LeCun回忆，&amp;ldquo;它不是抽象的数学，它是可以实现的。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;与Hinton不同，LeCun没有被神经网络的&amp;quot;不可解释性&amp;quot;困扰。作为一个工程师，他关心的是&lt;strong&gt;效果&lt;/strong&gt;，而不是&lt;strong&gt;原理&lt;/strong&gt;。如果一种方法能让机器学会识别图像，那它就是好方法——至于为什么，可以以后慢慢研究。&lt;/p&gt;
+&lt;p&gt;这种实用主义态度让LeCun在1985年做出了一个大胆的决定：他要去见Geoffrey Hinton。&lt;/p&gt;
+&lt;h2 id=&#34;多伦多的那个夏天两个偏执狂的相遇&#34;&gt;多伦多的那个夏天：两个偏执狂的相遇&lt;/h2&gt;
+&lt;p&gt;1985年的夏天，LeCun带着自己写的代码来到多伦多大学。他敲开了Hinton办公室的门，两个改变AI历史的人第一次面对面。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;他看起来像个嬉皮士，&amp;ldquo;Hinton后来回忆，&amp;ldquo;长发、皮夹克，说话带着浓重的法国口音。但他眼睛里有火。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;LeCun向Hinton展示了他对卷积神经网络的改进。当时的神经网络研究主要集中在全连接网络，但LeCun意识到，对于图像识别这种任务，全连接是低效的——图像中的相邻像素有天然的关联性，应该被一起处理，而不是分别处理。&lt;/p&gt;
+&lt;p&gt;Hinton被震动了。&amp;ldquo;他解决了我在论文里提到但没有解决的问题，&amp;ldquo;Hinton说，&amp;ldquo;这个年轻人不只是理解了我的理论，他超越了它。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;那个夏天，LeCun和Hinton一起工作，完善反向传播算法，探索多层网络的训练方法。但两人的分歧也很快显现：Hinton痴迷于理解大脑，LeCun只关心让系统工作；Hinton愿意花十年打磨一个理论，LeCun想要六个月看到成果。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我们是两种完全不同的动物，&amp;ldquo;LeCun后来形容这段关系，&amp;ldquo;他是哲学家，我是工程师。但奇怪的是，这种差异让我们互补。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;att贝尔实验室从实验室到现实世界&#34;&gt;AT&amp;amp;T贝尔实验室：从实验室到现实世界&lt;/h2&gt;
+&lt;p&gt;1988年，LeCun加入了传奇的AT&amp;amp;T贝尔实验室。那是全球最先进的科研机构，诞生了晶体管、激光、Unix操作系统。对LeCun来说，这里是天堂——有无限的计算资源，有聪明的同事，最重要的是，有&lt;strong&gt;真实的问题&lt;/strong&gt;需要解决。&lt;/p&gt;
+&lt;p&gt;LeCun接手的第一个大项目是&lt;strong&gt;手写数字识别&lt;/strong&gt;。美国邮政系统每天处理数百万封信件，需要自动识别信封上的邮编。这是一个完美的测试场：数据充足，问题明确，而且——如果成功——有巨大的商业价值。&lt;/p&gt;
+&lt;p&gt;LeCun花了两年时间构建了一个名为&lt;strong&gt;LeNet&lt;/strong&gt;的系统。它有多层卷积结构，有池化层降低计算量，有反向传播训练参数。当LeNet在1990年投入使用时，它能以99%的准确率识别手写数字，处理速度超过每秒100张。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那是我人生中最骄傲的时刻，&amp;ldquo;LeCun回忆，&amp;ldquo;不是因为我发表了论文，而是因为我的系统真的在帮助人们送信。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;LeNet的成功证明了深度学习的实用价值，但它并没有改变学术界的看法。1990年代，支持向量机（SVM）成为机器学习的主流，神经网络再次被视为&amp;quot;过时的技术&amp;rdquo;。LeCun在会议上发表论文，听众寥寥；他申请研究经费，评审人质疑&amp;quot;这东西真的有用吗&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那时候很孤独，&amp;ldquo;LeCun说，&amp;ldquo;但我有LeNet。只要它还在工作，我就知道我们是对的。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;被驱逐的十年在工业界坚守&#34;&gt;被驱逐的十年：在工业界坚守&lt;/h2&gt;
+&lt;p&gt;1996年，AT&amp;amp;T拆分，贝尔实验室的辉煌时代结束。LeCun被迫离开，加入了一家初创公司NEC研究院。后来他又去了纽约大学，在学术界和工业界之间来回切换。&lt;/p&gt;
+&lt;p&gt;这十年被称为LeCun的&amp;quot;被驱逐期&amp;rdquo;。深度学习在学术界几乎消失，LeCun是少数几个还在坚持的人。但他没有Hinton那样的耐心——Hinton可以在多伦多安静地等待春天，LeCun需要行动。&lt;/p&gt;
+&lt;p&gt;他开始做一件在当时看来&amp;quot;不务正业&amp;quot;的事：&lt;strong&gt;把深度学习带到工业界&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;2003年，LeCun创办了一个名为&amp;quot;深度学习研究&amp;quot;的研讨会，邀请工业界的工程师参加。他向他们展示卷积神经网络如何用于人脸识别、自动驾驶、医学影像。&amp;ldquo;我不跟他们说理论，&amp;ldquo;LeCun解释，&amp;ldquo;我给他们看demo。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种策略奏效了。2010年代初，随着GPU计算能力的提升和数据量的爆炸，工业界开始意识到深度学习的潜力。Facebook、Google、百度纷纷成立AI实验室，而LeCun成了最抢手的人才。&lt;/p&gt;
+&lt;p&gt;2013年，Mark Zuckerberg亲自邀请LeCun加入Facebook，领导新成立的AI研究院（FAIR）。LeCun提出了一个条件：研究院必须开源所有研究成果。&amp;ldquo;如果深度学习要改变世界，它必须是开放的，&amp;ldquo;他说。&lt;/p&gt;
+&lt;p&gt;Zuckerberg同意了。FAIR成为工业界AI研究的标杆，而LeCun终于有了一个可以大展拳脚的平台。&lt;/p&gt;
+&lt;h2 id=&#34;与transformer的对抗一个工程师的固执&#34;&gt;与Transformer的对抗：一个工程师的固执&lt;/h2&gt;
+&lt;p&gt;2017年，Google发表了Transformer架构，彻底改变了自然语言处理领域。Transformer抛弃了卷积和循环结构，完全基于&amp;quot;注意力机制&amp;rdquo;，在翻译、文本生成等任务上取得了惊人效果。&lt;/p&gt;
+&lt;p&gt;深度学习社区沸腾了。人们开始说&amp;quot;CNN已死&amp;quot;&amp;ldquo;RNN已死&amp;rdquo;，所有人都转向Transformer。但LeCun没有。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Transformer是伟大的工程成就，&amp;ldquo;LeCun承认，&amp;ldquo;但它不是智能的全部。它缺乏对世界的基本理解。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;LeCun的批评基于一个工程师的直觉：Transformer处理的是&lt;strong&gt;符号序列&lt;/strong&gt;，但人类智能建立在&lt;strong&gt;世界模型&lt;/strong&gt;之上。我们看、听、触摸，构建对物理世界的内在表征，然后用这个模型来预测、规划、行动。Transformer没有这种模型，它只是在统计符号之间的关联。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;你可以用Transformer生成一段关于&amp;rsquo;猫在垫子上&amp;rsquo;的文字，&amp;ldquo;LeCun说，&amp;ldquo;但它不知道什么是猫，什么是垫子，什么是&amp;rsquo;在&amp;rsquo;。它只是在重复训练数据中的模式。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种看法让LeCun在2010年代末显得格格不入。当所有人都在追逐大语言模型时，他在研究&lt;strong&gt;自监督学习&lt;/strong&gt;——让机器通过观察世界来学习，而不是通过人类标注的数据。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这是Hinton路线和我路线的分歧，&amp;ldquo;LeCun解释，&amp;ldquo;Hinton相信，只要有足够大的模型和足够多的数据，智能就会涌现。我相信，我们需要先教会机器理解世界，然后智能才会出现。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;world-model最后的赌注&#34;&gt;World Model：最后的赌注&lt;/h2&gt;
+&lt;p&gt;2022年，LeCun发表了一篇长达60页的论文，阐述他对AI未来的愿景：&lt;strong&gt;World Model（世界模型）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这不是一个新概念。人类大脑一直在做这件事——我们观察世界，构建内在模型，然后用这个模型预测未来。当你扔出一个球，你的大脑会自动预测它的轨迹；当你看到一扇门，你的大脑会预测推开它会发生什么。&lt;/p&gt;
+&lt;p&gt;LeCun认为，真正的AI需要这种能力。不是识别图像、生成文本，而是&lt;strong&gt;理解物理世界，预测行动后果&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;大语言模型是&amp;rsquo;系统二&amp;rsquo;——逻辑推理、语言处理，&amp;ldquo;LeCun说，&amp;ldquo;但人类智能的大部分是&amp;rsquo;系统一&amp;rsquo;——直觉、感知、运动控制。我们需要先解决系统一，才能真正理解系统二。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个愿景让LeCun在Meta（Facebook改名后的公司）投入了大量资源。他领导团队开发JEPA（联合嵌入预测架构），试图让AI通过观看视频来学习物理规律。不是通过标注，而是通过&lt;strong&gt;预测&lt;/strong&gt;——预测下一帧画面会是什么样子，预测物体的运动轨迹，预测行动的后果。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这是工程问题，&amp;ldquo;LeCun说，&amp;ldquo;不是理论问题。我们需要构建一个系统，让它自己学会理解世界。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;当下的沉思工程师的乐观与警惕&#34;&gt;当下的沉思：工程师的乐观与警惕&lt;/h2&gt;
+&lt;p&gt;站在2026年，LeCun的World Model仍然是一个未完成的愿景。大语言模型已经统治了AI领域，Transformer架构无处不在，而LeCun的坚持看起来像是固执。&lt;/p&gt;
+&lt;p&gt;但LeCun并不沮丧。&amp;ldquo;工程师的职业生涯就是不断被证明是错的，然后找到新的方法，&amp;ldquo;他说，&amp;ldquo;我在1990年代被证明是错的，2010年代又被证明是对的。现在可能又是错的，但那没关系——重要的是找到下一个对的方法。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;与Hinton的悲观不同，LeCun对AI的未来保持乐观。他不认为AI会毁灭人类，至少不会很快。&amp;ldquo;我们离真正的智能还差得远，&amp;ldquo;他说，&amp;ldquo;大语言模型只是工具，它们没有目标，没有欲望，没有自我。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;但LeCun也有担忧。他担心的是AI的&lt;strong&gt;集中化&lt;/strong&gt;——当只有少数几家公司拥有训练大模型的资源时，AI的力量会被滥用。他担心的是&lt;strong&gt;幻觉&lt;/strong&gt;——大语言模型生成虚假信息的能力。他担心的是&lt;strong&gt;就业&lt;/strong&gt;——当AI可以完成越来越多的工作时，社会如何适应。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这些问题需要工程师来解决，&amp;ldquo;LeCun说，&amp;ldquo;不是哲学家，不是政治家，是工程师。我们需要构建更好的系统，更安全的系统，更公平的系统。这是我们的责任。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;说到底一个工程师的方法论&#34;&gt;说到底：一个工程师的方法论&lt;/h2&gt;
+&lt;p&gt;回顾LeCun的一生，他的方法论清晰可见：&lt;strong&gt;先让它工作，再理解它为什么工作&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这与科学研究的经典路径相反。经典路径是先建立理论，然后用实验验证。但LeCun走的是另一条路——他先构建系统，观察它如何表现，然后从中提炼理论。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;CNN就是这样诞生的，&amp;ldquo;LeCun说，&amp;ldquo;我先让它工作，然后才理解为什么卷积结构有效。World Model也会是这样——我们先构建它，然后理解世界模型的本质。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种方法论让LeCun成为深度学习三巨头中最&amp;quot;接地气&amp;quot;的一个。Hinton是先知，Bengio是学者，LeCun是工程师。他不追求完美的理论，他追求能工作的系统。他不等待世界的认可，他改变世界。&lt;/p&gt;
+&lt;p&gt;一位曾与LeCun共事的工程师对我们说：&amp;ldquo;LeCun教会我最重要的一课是：不要等理论完善才开始。如果你有一个想法，就构建它，测试它，迭代它。理论会在实践中自然涌现。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;全局来看&lt;/strong&gt;，LeCun的一生诠释了工程精神的价值。在AI的寒冬中，他用LeNet证明了深度学习的实用价值；在Transformer的热潮中，他用World Model坚守对&amp;quot;理解&amp;quot;的追求。他可能不是最耀眼的明星，但他是最可靠的基石——当理论家还在争论时，工程师已经让机器看清楚了世界。&lt;/p&gt;
+&lt;p&gt;而这个世界，正在因为他的工作而改变。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>木匠Geoffrey Hinton</title>
+      <link>https://blog.zhangky.com/posts/2026/april/2026-04-01-geoffrey-hinton-the-carpenter/</link>
+      <pubDate>Wed, 01 Apr 2026 21:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/april/2026-04-01-geoffrey-hinton-the-carpenter/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;AI人物志系列&lt;/strong&gt;：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;当全世界都说神经网络是死胡同时，一个木匠决定再凿一下那块木头。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2018年3月，多伦多大学的一间办公室里，70岁的Geoffrey Hinton收到了图灵奖获奖通知。那是计算机科学界的最高荣誉，相当于这一领域的诺贝尔奖。但Hinton的第一反应不是庆祝，而是困惑——&amp;ldquo;为什么是现在？&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;答案要追溯到40年前。那时神经网络被视为&amp;quot;伪科学&amp;quot;，研究它的人被嘲笑为&amp;quot;炼金术士&amp;quot;。而Hinton，这个曾在大学做过两年木匠的英国人，几乎是孤身一人扛起了这面旗帜。一位长期观察AI发展的研究者对我们说：&amp;ldquo;如果没有Hinton的坚持，深度学习可能还要晚来20年。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;剑桥的退学信一个关于直觉的决定&#34;&gt;剑桥的退学信：一个关于&amp;quot;直觉&amp;quot;的决定&lt;/h2&gt;
+&lt;p&gt;1947年，Hinton出生在一个充满&amp;quot;天才&amp;quot;气息的英国家庭。他的父亲是昆虫学家，母亲是教师，家族里还有数学家、经济学家、作家。但Hinton的童年并不快乐——他患有阅读障碍，在精英教育体系中显得格格不入。&lt;/p&gt;
+&lt;p&gt;1960年代，年轻的Hinton进入剑桥大学学习物理和化学，但很快发现这不是他想要的。&amp;ldquo;我对人脑如何工作更感兴趣，&amp;ldquo;他后来回忆。于是他从剑桥退学，转而去爱丁堡大学学习心理学。&lt;/p&gt;
+&lt;p&gt;这个决定在当时看起来毫无道理。心理学在1960年代还是一门&amp;quot;文科&amp;rdquo;，充斥着哲学思辨，缺乏严格的科学方法。但Hinton在这里接触到了一样东西，改变了他的一生——&lt;strong&gt;人工神经网络&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;那是1960年代末，神经网络的概念刚刚诞生不久。科学家们试图用数学模型模拟人脑神经元的工作方式，但很快就遇到了瓶颈。1969年，AI领域的权威Marvin Minsky和Seymour Papert出版了一本名为《感知机》的书，用数学证明证明单层神经网络存在根本缺陷。这本书像一盆冷水，浇灭了整个领域的热情。&lt;/p&gt;
+&lt;p&gt;神经网络进入了第一次&amp;quot;寒冬&amp;rdquo;。大多数研究者转向其他方向，但Hinton没有。他看到了别人没看到的东西。&lt;/p&gt;
+&lt;h2 id=&#34;木匠的两年在木头中寻找答案&#34;&gt;木匠的两年：在木头中寻找答案&lt;/h2&gt;
+&lt;p&gt;1970年代末，Hinton做了一件让同行们更加不解的事——他去当木匠了。&lt;/p&gt;
+&lt;p&gt;整整两年，他在伦敦的工坊里制作橱柜、书架、门窗。这不是逃避，而是一种独特的思考方式。&amp;ldquo;做木工和做研究很像，&amp;ldquo;他后来解释，&amp;ldquo;你面对一块木头，需要理解它的纹理、它的特性，然后决定如何下刀。神经网络也是一样——你需要理解它的结构，然后找到训练它的方法。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这段经历给了Hinton两样东西：&lt;strong&gt;耐心&lt;/strong&gt;和&lt;strong&gt;手感&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;在那个年代，训练一个神经网络需要手动调整成千上万个参数，没有自动化工具，没有GPU加速。Hinton像打磨木头一样，一点点摸索神经网络的&amp;quot;纹理&amp;rdquo;。他后来发明的&amp;quot;反向传播算法&amp;rdquo;，某种程度上就是这种&amp;quot;手感&amp;quot;的结晶——一种让神经网络自己调整参数的方法。&lt;/p&gt;
+&lt;p&gt;1986年，Hinton与David Rumelhart、Ronald Williams合作发表了关于反向传播的论文。这篇论文后来被视为深度学习的奠基之作，但当时并没有引起太大轰动。神经网络仍然处于&amp;quot;寒冬&amp;quot;，大多数AI研究者仍然坚信符号主义才是未来。&lt;/p&gt;
+&lt;h2 id=&#34;至暗时刻在多伦多独自坚守&#34;&gt;至暗时刻：在多伦多独自坚守&lt;/h2&gt;
+&lt;p&gt;1980年代末，Hinton接受了多伦多大学的教职，离开英国前往加拿大。这个选择在当时看来是一种&amp;quot;流放&amp;quot;——远离AI研究的核心圈子，远离资金和资源。&lt;/p&gt;
+&lt;p&gt;但Hinton需要这种孤独。在多伦多，他可以不受干扰地继续自己的研究，哪怕这意味着发表论文困难、申请经费被拒、学生招不到。&lt;/p&gt;
+&lt;p&gt;一位曾在1980年代末拜访过Hinton实验室的研究者向我们回忆：&amp;ldquo;那是一间很普通的办公室，墙上贴着几张神经网络的示意图。Hinton当时正在调试一个模型，已经跑了好几天。他说，&amp;lsquo;我相信这东西会工作的，只是需要更多时间。&amp;rsquo;&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;更多时间。这是Hinton最不缺的东西。&lt;/p&gt;
+&lt;p&gt;1990年代到2000年代，神经网络经历了第二次&amp;quot;寒冬&amp;quot;。支持向量机（SVM）等机器学习方法成为主流，神经网络被视为&amp;quot;过时的技术&amp;quot;。Hinton的学生们毕业后很难找到工作，很多人被迫转行。&lt;/p&gt;
+&lt;p&gt;但Hinton仍然坚持。他不断调整神经网络的结构，尝试不同的训练方法，发表了一篇又一篇被主流忽视的论文。他像一个在荒原上种树的园丁，知道这些树可能需要几十年才能长大。&lt;/p&gt;
+&lt;h2 id=&#34;2006年的那个晚上深度学习的黎明&#34;&gt;2006年的那个晚上：深度学习的黎明&lt;/h2&gt;
+&lt;p&gt;转折点出现在2006年。&lt;/p&gt;
+&lt;p&gt;那一年，Hinton发表了一篇关于&amp;quot;深度信念网络&amp;quot;（Deep Belief Networks）的论文。这篇论文提出了一种有效训练深层神经网络的方法，让多层神经网络的训练变得可行。&lt;/p&gt;
+&lt;p&gt;论文发表后的那个晚上，Hinton独自走在多伦多的街头。他后来回忆，那是一个寒冷的冬夜，但他感到一种奇怪的温暖。&amp;ldquo;我知道，有些东西改变了，&amp;ldquo;他说，&amp;ldquo;但我不知道它会改变得这么快。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;改变确实来得很快。2012年，Hinton的两个学生Alex Krizhevsky和Ilya Sutskever参加ImageNet图像识别竞赛，使用Hinton设计的深度卷积神经网络AlexNet，以压倒性优势击败所有对手。错误率比第二名低了整整10个百分点——在图像识别领域，这几乎是代差。&lt;/p&gt;
+&lt;p&gt;一夜之间，深度学习从&amp;quot;边缘技术&amp;quot;变成了&amp;quot;主流范式&amp;rdquo;。Google、Facebook、微软等科技巨头开始疯狂收购深度学习团队和人才。Hinton的实验室成了朝圣之地，他的学生们成了最抢手的人才。&lt;/p&gt;
+&lt;p&gt;但Hinton本人并没有因此变得高调。他仍然每天步行去实验室，仍然亲手调试模型，仍然在白板上画满公式。一位Hinton的学生告诉我们：&amp;ldquo;他对待深度学习的态度，就像对待一块需要精心打磨的木头。技术会过时，但手艺不会。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;人的大脑就是这么工作的一个木匠的哲学&#34;&gt;&amp;ldquo;人的大脑就是这么工作的&amp;rdquo;：一个木匠的哲学&lt;/h2&gt;
+&lt;p&gt;2016年，AlphaGo击败李世石，深度学习彻底出圈。媒体开始称Hinton为&amp;quot;AI教父&amp;quot;&amp;ldquo;深度学习之父&amp;rdquo;，但他本人对这些称号感到不适。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我不是在创造什么新东西，&amp;ldquo;他在一次采访中说，&amp;ldquo;我只是在模仿自然。人的大脑就是这么工作的——神经元连接，学习，涌现智能。没理由人工神经网络不这么工作。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这句话道出了Hinton的底层逻辑：&lt;strong&gt;仿生不是选择，而是必然&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;在他看来，智能的本质不是符号操作，不是逻辑推理，而是学习。人类之所以能够涌现出智能，就是因为大脑具有学习能力。只要给神经网络正确的架构，它就能学会任何东西——从识别猫狗到下棋，从翻译语言到生成图像。&lt;/p&gt;
+&lt;p&gt;这种哲学与符号主义AI形成了鲜明对比。符号主义者相信，智能可以通过明确的规则和符号来实现；而Hinton相信，智能必须从数据中&amp;quot;学习&amp;quot;出来，就像婴儿学习认识世界一样。&lt;/p&gt;
+&lt;p&gt;这场争论持续了半个世纪，最终Hinton赢了。但胜利并没有让他变得傲慢。2018年获得图灵奖后，他把奖金捐给了培养年轻研究者的基金。&amp;ldquo;我只是比其他人多坚持了一会儿，&amp;ldquo;他说。&lt;/p&gt;
+&lt;h2 id=&#34;2023年的告别一个关于责任的转身&#34;&gt;2023年的告别：一个关于责任的转身&lt;/h2&gt;
+&lt;p&gt;2023年5月，Hinton做了一件让全世界震惊的事——他从Google离职，并公开警告AI的风险。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我后悔，&amp;ldquo;他在接受《纽约时报》采访时说，&amp;ldquo;我后悔我的一生工作可能带来的后果。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这不是一个科学家的矫情。Hinton真正担心的是，深度学习的发展速度已经超出了人类的控制能力。大语言模型展现出惊人的能力，但人类并不完全理解这些能力是如何产生的。更可怕的是，这些系统正在以指数级速度变得更强大。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我原以为AI超越人类还需要30到50年，&amp;ldquo;他说，&amp;ldquo;现在我意识到，可能只需要5到10年。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;从Google离职后，Hinton开始花更多时间思考AI的安全问题。他不再每天去实验室，而是参加各种研讨会、接受媒体采访、与政策制定者对话。他想让更多人意识到，我们正站在一个历史的转折点上。&lt;/p&gt;
+&lt;p&gt;一位在2024年与Hinton有过长谈的研究者向我们转述：&amp;ldquo;他说，他这一生都在教机器如何学习，现在他发现，人类自己还没有学会如何与这些机器共处。这是他最后想解决的问题。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;弯路与开悟一个木匠如何找到那条路&#34;&gt;弯路与开悟：一个木匠如何找到那条路&lt;/h2&gt;
+&lt;p&gt;回顾Hinton的一生，他并非没有走过弯路。&lt;/p&gt;
+&lt;p&gt;1970年代末，当他放下神经网络研究去当木匠时，那是一次逃避，也是一次迷失。他在伦敦的工坊里日复一日地刨木头、打榫卯，试图用身体的疲惫来麻痹精神的困惑。神经网络似乎真的走进了死胡同——Minsky的批评是对的，单层感知机确实有根本缺陷。&lt;/p&gt;
+&lt;p&gt;但正是在那些与木头相处的日子里，Hinton开始理解一个道理：&lt;strong&gt;有时候，你需要先退一步，才能看清前面的路&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;木工教会了他观察纹理——每一块木头都有自己的纹理，顺着纹理下刀，事半功倍；逆着纹理硬来，只会崩裂。神经网络也是如此。当时的研究者们都在试图用数学证明来证明神经网络的可行性，但Hinton意识到，也许问题不在于证明，而在于&lt;strong&gt;结构&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;人脑不是单层感知机，人脑是深层的、多层的、有反馈的。如果单层不行，为什么不试试多层？&lt;/p&gt;
+&lt;p&gt;这个念头像一道闪电，在1978年的某个下午击中了Hinton。他后来回忆，那天他正在打磨一个橱柜的门板，突然停下了手中的刨子。&amp;ldquo;如果神经网络也像木头一样有层次呢？&amp;ldquo;他问自己，&amp;ldquo;如果我们不是试图让单层网络学会一切，而是让每一层学会一点点，然后层层传递呢？&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这就是后来被称为&amp;quot;深度学习&amp;quot;的核心理念——&lt;strong&gt;不是让一个复杂的系统做一件复杂的事，而是让许多简单的系统层层协作，最终完成复杂的事&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;但光有想法还不够。1980年代的Hinton仍然面临一个根本问题：如何训练多层网络？如何调整那些隐藏层的参数？&lt;/p&gt;
+&lt;p&gt;他尝试过各种方法。有一段时间，他甚至考虑过放弃神经网络，转向遗传算法——让网络自己进化，而不是被训练。那是一段更加黑暗的日子，Hinton后来称之为&amp;quot;我的遗传算法时期&amp;rdquo;。&amp;ldquo;那时候我真的迷失了，&amp;ldquo;他说，&amp;ldquo;我以为进化能解决一切问题，但我忽略了进化的代价——它需要数百万年的时间，而我只有一辈子。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;真正的开悟发生在1985年。&lt;/p&gt;
+&lt;p&gt;那一年，Hinton在卡内基梅隆大学做访问学者。一天晚上，他在酒吧里遇到了David Rumelhart，一位认知心理学家。两人聊起了神经网络的训练问题，Rumelhart提到了一个想法：如果误差可以从输出层反向传播回输入层呢？&lt;/p&gt;
+&lt;p&gt;Hinton听后沉默了整整一分钟。然后他抓起一张餐巾纸，开始在上面画公式。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那天晚上，我知道我们找到了，&amp;ldquo;Hinton后来回忆，&amp;ldquo;不是因为我算出了什么，而是因为那个想法感觉对了。就像你刨木头时，突然感觉到刨子顺着一个完美的角度滑过——你知道，就是这里。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这就是反向传播算法的诞生。它不是什么天才的灵光一现，而是两个疲惫的研究者在酒吧里的一次碰撞，是无数次失败后的偶然相遇，是一个木匠在木头中找到的直觉。&lt;/p&gt;
+&lt;h2 id=&#34;当下的沉思当ai真的学会了学习&#34;&gt;当下的沉思：当AI真的学会了学习&lt;/h2&gt;
+&lt;p&gt;站在2026年回望，Hinton的弯路和开悟给了我们一个启示：&lt;strong&gt;真正的突破往往来自于对&amp;quot;不可能&amp;quot;的坚持，以及对&amp;quot;可能&amp;quot;的重新定义&lt;/strong&gt;。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>AI 编程框架的约束竞赛：Superpowers、GSD、gstack </title>
       <link>https://blog.zhangky.com/posts/2026/2026-03-29-ai-coding-frameworks-harness-analysis/</link>

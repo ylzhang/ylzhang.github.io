@@ -11,13 +11,34 @@
     </image>
     <generator>Hugo -- 0.159.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 29 Mar 2026 20:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 19:34:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI</title>
       <link>https://blog.zhangky.com/tags/ai/</link>
-      <pubDate>Sun, 29 Mar 2026 20:00:00 +0800</pubDate>
+      <pubDate>Thu, 02 Apr 2026 19:34:00 +0800</pubDate>
       <guid>https://blog.zhangky.com/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Token</title>
+      <link>https://blog.zhangky.com/tags/token/</link>
+      <pubDate>Thu, 02 Apr 2026 19:34:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/token/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>算力</title>
+      <link>https://blog.zhangky.com/tags/%E7%AE%97%E5%8A%9B/</link>
+      <pubDate>Thu, 02 Apr 2026 19:34:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E7%AE%97%E5%8A%9B/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>人物</title>
+      <link>https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/</link>
+      <pubDate>Thu, 02 Apr 2026 18:09:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/</guid>
       <description></description>
     </item>
     <item>
@@ -25,13 +46,6 @@
       <link>https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/</link>
       <pubDate>Sun, 29 Mar 2026 20:00:00 +0800</pubDate>
       <guid>https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>人物</title>
-      <link>https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/</link>
-      <pubDate>Sat, 14 Mar 2026 10:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/</guid>
       <description></description>
     </item>
     <item>
