@@ -282,12 +282,24 @@ AI的未来，应该是既快速发展又安全可控，既创新突破又造福
 人类不需要数千个训练样本，仅需要任务描述和少量示例就能泛化。GPT-3的目标是：让机器具备类似的学习能力。
 GPT-3的核心创新 前所未有的规模 GPT-3将规模推向极致：
 参数 GPT-2 GPT-3 Small GPT-3 Medium GPT-3 Large GPT-3 XL GPT-3 175B 层数 48 12 24 24 32 96 隐藏维度 1600 768 1024 1536 2048 12288 注意力头数 25 12 16 16 24 96 参数量 1.5B 125M 350M 760M 1.3B 175B 最大的GPT-3模型参数量达到1750亿，是GPT-2的100倍以上。
-...</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-12-15 21:48:02 +0800 +0800'>December 15, 2025</span> | <span>14 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【ChatGPT时刻09】GPT-3：少样本学习的突破与涌现能力" href=https://blog.zhangky.com/posts/2025/chatgpt/2025-12-15-chatgpt-09-gpt3/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>【ChatGPT时刻08】Scaling Laws：规模与性能的幂律关系</h2></header><div class=entry-content><p>本文解读的是Jared Kaplan、Sam McCandlish、Tom Henighan、Tom B. Brown、Benjamin Chess、Rewon Child、Scott Gray、Alec Radford、Jeffrey Wu和Dario Amodei于2020年发表的里程碑论文《Scaling Laws for Neural Language Models》，该论文发现了神经语言模型的缩放定律（Scaling Laws），揭示了模型规模、数据规模、计算量与模型性能之间的幂律关系。这一发现不仅为大模型的发展提供了理论指导，更为理解"规模即智能"提供了科学依据，是当今大模型时代的理论基础。
-“规模是性能的关键。"——这是缩放定律论文的核心发现。通过系统性的实验，论文发现模型性能（损失）与模型规模、数据规模、计算量之间存在清晰的幂律关系。这意味着，只要增加模型规模、数据规模或计算量，模型性能就会可预测地提升。这一发现为大模型的发展指明了方向。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-12-15 21:48:02 +0800 HKT'>December 15, 2025</span> | <span>14 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【ChatGPT时刻09】GPT-3：少样本学习的突破与涌现能力" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-15-chatgpt-09-gpt3/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">【ChatGPT时刻08】Scaling Laws：规模与性能的幂律关系
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Jared Kaplan、Sam McCandlish、Tom Henighan、Tom B. Brown、Benjamin Chess、Rewon Child、Scott Gray、Alec Radford、Jeffrey Wu和Dario Amodei于2020年发表的里程碑论文《Scaling Laws for Neural Language Models》，该论文发现了神经语言模型的缩放定律（Scaling Laws），揭示了模型规模、数据规模、计算量与模型性能之间的幂律关系。这一发现不仅为大模型的发展提供了理论指导，更为理解&#34;规模即智能&#34;提供了科学依据，是当今大模型时代的理论基础。
+“规模是性能的关键。&#34;——这是缩放定律论文的核心发现。通过系统性的实验，论文发现模型性能（损失）与模型规模、数据规模、计算量之间存在清晰的幂律关系。这意味着，只要增加模型规模、数据规模或计算量，模型性能就会可预测地提升。这一发现为大模型的发展指明了方向。
 缩放定律的核心发现是幂律关系：模型损失 $L$ 与模型参数 $N$、数据规模 $D$、计算量 $C$ 之间存在幂律关系：
-$$ L(N, D) = \left(\frac{N_c}{N}\right)^{\alpha_N} + \left(\frac{D_c}{D}\right)^{\alpha_D} + L_\infty $$
+$$ L(N, D) = \left(\frac{N_c}{N}\right)^{\alpha_N} &#43; \left(\frac{D_c}{D}\right)^{\alpha_D} &#43; L_\infty $$
 其中 $\alpha_N$、$\alpha_D$ 是幂律指数，$L_\infty$ 是无限规模下的极限损失。
-这一发现的意义深远：它证明了"规模即智能"的科学性，为大模型的发展提供了可预测的路径。理解缩放定律，就是理解大模型时代的底层规律。
+这一发现的意义深远：它证明了&#34;规模即智能&#34;的科学性，为大模型的发展提供了可预测的路径。理解缩放定律，就是理解大模型时代的底层规律。
 本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读缩放定律，包含完整的数学推导、实验分析和理论探讨，并在文末提供阅读研究论文的时间线计划。
 大模型发展的经验性探索 问题一：规模与性能的关系不明确 在大模型发展的早期，规模与性能的关系不明确：
 经验性探索的问题：
@@ -325,20 +337,22 @@ $$ L(N, D) = \left(\frac{N_c}{N}\right)^{\alpha_N} + \left(\frac{D_c}{D}\right)^
 </a>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 <script>
-  mermaid.initialize({
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
+  document.addEventListener('DOMContentLoaded', function() {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default',
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: 'basis'
+      },
+      sequence: {
+        useMaxWidth: true
+      },
+      gantt: {
+        useMaxWidth: true
+      }
+    });
   });
 </script>
 
