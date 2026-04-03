@@ -186,29 +186,6 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。
-语言理解的根本挑战 问题一：词语表示的离散性困境 在传统NLP中，词语通常用one-hot编码表示。对于一个包含 $V$ 个词的词表，每个词被表示为一个 $V$ 维向量，只有对应位置为1，其余为0。
-这种表示方法存在三个根本问题：
-维度灾难：词表规模通常在万到百万级别，导致向量维度极高 稀疏性：每个向量只有一个非零元素，绝大多数信息为0 语义缺失：任意两个词的向量正交，无法表达语义相似性 例如，“king&#34;和&#34;queen&#34;虽然语义相近，但在one-hot表示下：
-$$ \text{sim}(\text{king}, \text{queen}) = \text{king}^\top \cdot \text{queen} = 0 $$
-向量的内积为0，完全无法捕捉它们的语义关联。
-问题二：分布式假设与向量空间 语言学中的分布式假设（Distributional Hypothesis）指出：“一个词的含义由其上下文决定”（You shall know a word by the company it keeps）。这一假设为词向量学习提供了理论基础。
-如果我们能够将词映射到一个连续的向量空间，使得语义相似的词在空间中距离相近，那么：
-词之间的语义关系可以通过向量运算表达 模型可以泛化到未见过的词组合 下游任务可以利用预学习的语义知识 问题是：如何高效地学习这样的词向量？
-问题三：计算效率的瓶颈 在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：
-$$ \text{时间复杂度} = O(V \times H &#43; H \times H) \times E \times T $$
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-08-01 21:59:17 +0800 HKT'>August 1, 2025</span> | <span>17 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">边缘AI：美国在连接设备，中国在连接城市
     </h2>
   </header>
@@ -331,6 +308,36 @@ GPT-o3代表了AI的未来方向，它试图构建一个能理解所有模态的
   </div>
   <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-04-18 16:16:53 +0800 HKT'>April 18, 2025</span> | <span>5 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 多模态AI：GPT-o3想理解世界，文心一言想理解购物车" href="https://blog.zhangky.com/posts/2025/2025-04-multimodal-ai/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AI治理：欧盟在立法，美国在扯皮，中国在试错
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>欧盟AI法案正式生效那天，我在布鲁塞尔参加治理论坛。论坛上，欧洲专家拍着桌子说：“绝不允许AI伤害人类！“中国专家则缓缓回应：“没有发展，就没有安全的基础。“两种治理思路的碰撞，让整个会场陷入沉默。
+我坐在台下，脑子里闪过一个画面：三年前，我在硅谷参加AI伦理研讨会，当时所有人都在讨论&#34;如何监管AI”，但三年过去了，只有欧盟真正立了法，美国还在国会扯皮，中国则在实践中试错。
+看现在：三种治理路径的分化
+欧盟把AI分成四个风险等级，高风险AI（医疗设备、教育工具）需要严格审批，思路是&#34;风险防控优先”。他们的逻辑是：先立法，再发展。这是典型的&#34;安全第一&#34;路径。
+美国还在国会扯皮，法案难产。他们的逻辑是：让市场自己调节，政府不要过度干预。这是典型的&#34;市场优先&#34;路径。
+中国已经发布了《生成式人工智能服务管理暂行办法》修订版，强调&#34;发展与安全并重”。他们的逻辑是：在发展中规范，在规范中发展。这是典型的&#34;平衡发展&#34;路径。
+关键洞察：这不是治理理念的分歧，是治理节奏的差异。欧盟跑得太快，美国跑得太慢，中国在中间找平衡。
+想深一层：监管与创新的两难
+上周跟一家德国AI创业公司聊天，他们说已经在考虑把研发中心搬到新加坡——“欧盟的审批流程太繁琐，我们等不起。“这家公司做的是AI医疗诊断，技术很先进，但欧盟的审批周期至少需要18个月。
+而中国的弹性治理给了企业更多试错空间。百度文心一言和抖音AI都发展得很快，虽然也出过一些争议，但整体上是在可控范围内快速迭代。这种&#34;先发展，后规范&#34;的模式，让中国AI应用走在了全球前列。
+但这也带来风险：过于宽松的监管可能让一些有问题的AI应用流入市场。去年某AI聊天机器人就因为性别歧视言论引发争议，如果监管更严格，可能就不会出现这种情况。
+关键洞察：监管与创新是两难。过于严格会扼杀创新，过于宽松会带来风险。关键是如何在两者之间找到平衡点。
+望前方：全球治理的协同与竞争
+2025年，我判断会出现&#34;治理竞赛”：各国会互相借鉴最佳实践，形成更灵活的全球治理框架。欧盟的严格监管会被美国借鉴，中国的弹性治理会被欧盟学习，美国的市场机制会被中国参考。
+毕竟，AI是全人类的技术，需要全球协同的治理方案。但协同不等于统一，每个国家都有自己的国情和价值观，治理路径也会不同。
+治理不是枷锁，而是护栏。好的治理能保护创新，而不是扼杀它。
+AI治理的终极目标，从来不是阻止技术发展，而是让技术更好地服务人类。欧盟在立法，美国在扯皮，中国在试错——但最终，我们都需要找到自己的平衡点。
+2025年，我期待看到欧盟的灵活性，也期待看到美国的立法，更期待看到中国的规范。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-03-12 11:08:29 +0800 HKT'>March 12, 2025</span> | <span>5 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to AI治理：欧盟在立法，美国在扯皮，中国在试错" href="https://blog.zhangky.com/posts/2025/2025-03-ai-governance/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

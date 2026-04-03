@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Zhang&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="Claude Agent理念专栏篇目表
+系列名: Claude Agent理念专栏-拆解零件·理解原理
+系列slug: kelaode
+发表日期: 2026-04-01
+文章类型: insight（技术洞见类）
+目标目录: content/posts/2026/kelaode/
+8篇文章规划
+
+  
+      
+          序号
+          标题
+          slug
+          核心问题
+          素材来源
+      
+  
+  
+      
+          1
+          架构哲学：智能与控制的永恒张力
+          kelaode-01-philosophy
+          如何平衡AI自主性与用户控制？
+          docs/architecture/01-philosophy.md
+      
+      
+          2
+          Agent架构设计：受控的自主之道
+          kelaode-02-architecture
+          Agent与传统函数的本质区别是什么？
+          docs/agent-design/02-agent-architecture.md
+      
+      
+          3
+          权限系统：六层信任梯度
+          kelaode-03-permissions
+          如何设计分层的权限决策引擎？
+          docs/permissions/03-permission-system.md
+      
+      
+          4
+          工具系统：AI与世界的强类型接口
+          kelaode-04-tools
+          工具如何成为自描述、可组合的智能接口？
+          docs/tools/04-intelligent-tools.md
+      
+      
+          5
+          上下文管理：有限注意力的艺术
+          kelaode-05-context
+          如何在有限上下文窗口中分配注意力？
+          docs/context/05-context-management.md
+      
+      
+          6
+          编程体验：流式交互的本质优化
+          kelaode-06-experience
+          什么是极致的AI编程交互体验？
+          docs/experience/06-programming-experience.md
+      
+      
+          7
+          动手构建：从零打造智能编程助手
+          kelaode-07-building
+          如何构建生产级的AI编程助手？
+          docs/implementation/07-building-your-own.md
+      
+      
+          8
+          进阶揭秘：遥测、安全与隐藏能力
+          kelaode-08-advanced
+          Claude Code如何处理隐私、安全与隐藏功能？
+          docs/advanced/08-telemetry-security-hidden-features.md
+      
+  
+
+统一配置
+
+date: 2026-04-01T08:00:00&#43;08:00
+draft: true（写作中）→ false（定稿后）
+author: 张凯洋
+language: zh
+series: [&ldquo;Claude Agent理念专栏&rdquo;]
+tags: 从【AI/大公司/技术】选取
+categories: [&ldquo;Technology&rdquo;]
+ShowToc: true
+
+封面图路径
+static/images/posts/2026/04/{slug}-cover.png">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/kelaode/series-plan/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/kelaode/series-plan/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/kelaode/series-plan/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="Zhang&#39;s Blog">
+  <meta property="og:description" content="Claude Agent理念专栏篇目表 系列名: Claude Agent理念专栏-拆解零件·理解原理 系列slug: kelaode 发表日期: 2026-04-01 文章类型: insight（技术洞见类） 目标目录: content/posts/2026/kelaode/
+8篇文章规划 序号 标题 slug 核心问题 素材来源 1 架构哲学：智能与控制的永恒张力 kelaode-01-philosophy 如何平衡AI自主性与用户控制？ docs/architecture/01-philosophy.md 2 Agent架构设计：受控的自主之道 kelaode-02-architecture Agent与传统函数的本质区别是什么？ docs/agent-design/02-agent-architecture.md 3 权限系统：六层信任梯度 kelaode-03-permissions 如何设计分层的权限决策引擎？ docs/permissions/03-permission-system.md 4 工具系统：AI与世界的强类型接口 kelaode-04-tools 工具如何成为自描述、可组合的智能接口？ docs/tools/04-intelligent-tools.md 5 上下文管理：有限注意力的艺术 kelaode-05-context 如何在有限上下文窗口中分配注意力？ docs/context/05-context-management.md 6 编程体验：流式交互的本质优化 kelaode-06-experience 什么是极致的AI编程交互体验？ docs/experience/06-programming-experience.md 7 动手构建：从零打造智能编程助手 kelaode-07-building 如何构建生产级的AI编程助手？ docs/implementation/07-building-your-own.md 8 进阶揭秘：遥测、安全与隐藏能力 kelaode-08-advanced Claude Code如何处理隐私、安全与隐藏功能？ docs/advanced/08-telemetry-security-hidden-features.md 统一配置 date: 2026-04-01T08:00:00&#43;08:00 draft: true（写作中）→ false（定稿后） author: 张凯洋 language: zh series: [“Claude Agent理念专栏”] tags: 从【AI/大公司/技术】选取 categories: [“Technology”] ShowToc: true 封面图路径 static/images/posts/2026/04/{slug}-cover.png">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="Claude Agent理念专栏篇目表
+系列名: Claude Agent理念专栏-拆解零件·理解原理
+系列slug: kelaode
+发表日期: 2026-04-01
+文章类型: insight（技术洞见类）
+目标目录: content/posts/2026/kelaode/
+8篇文章规划
+
+  
+      
+          序号
+          标题
+          slug
+          核心问题
+          素材来源
+      
+  
+  
+      
+          1
+          架构哲学：智能与控制的永恒张力
+          kelaode-01-philosophy
+          如何平衡AI自主性与用户控制？
+          docs/architecture/01-philosophy.md
+      
+      
+          2
+          Agent架构设计：受控的自主之道
+          kelaode-02-architecture
+          Agent与传统函数的本质区别是什么？
+          docs/agent-design/02-agent-architecture.md
+      
+      
+          3
+          权限系统：六层信任梯度
+          kelaode-03-permissions
+          如何设计分层的权限决策引擎？
+          docs/permissions/03-permission-system.md
+      
+      
+          4
+          工具系统：AI与世界的强类型接口
+          kelaode-04-tools
+          工具如何成为自描述、可组合的智能接口？
+          docs/tools/04-intelligent-tools.md
+      
+      
+          5
+          上下文管理：有限注意力的艺术
+          kelaode-05-context
+          如何在有限上下文窗口中分配注意力？
+          docs/context/05-context-management.md
+      
+      
+          6
+          编程体验：流式交互的本质优化
+          kelaode-06-experience
+          什么是极致的AI编程交互体验？
+          docs/experience/06-programming-experience.md
+      
+      
+          7
+          动手构建：从零打造智能编程助手
+          kelaode-07-building
+          如何构建生产级的AI编程助手？
+          docs/implementation/07-building-your-own.md
+      
+      
+          8
+          进阶揭秘：遥测、安全与隐藏能力
+          kelaode-08-advanced
+          Claude Code如何处理隐私、安全与隐藏功能？
+          docs/advanced/08-telemetry-security-hidden-features.md
+      
+  
+
+统一配置
+
+date: 2026-04-01T08:00:00&#43;08:00
+draft: true（写作中）→ false（定稿后）
+author: 张凯洋
+language: zh
+series: [&ldquo;Claude Agent理念专栏&rdquo;]
+tags: 从【AI/大公司/技术】选取
+categories: [&ldquo;Technology&rdquo;]
+ShowToc: true
+
+封面图路径
+static/images/posts/2026/04/{slug}-cover.png">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "https://blog.zhangky.com/posts/2026/kelaode/series-plan/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Claude Agent理念专栏篇目表 系列名: Claude Agent理念专栏-拆解零件·理解原理 系列slug: kelaode 发表日期: 2026-04-01 文章类型: insight（技术洞见类） 目标目录: content/posts/2026/kelaode/\n8篇文章规划 序号 标题 slug 核心问题 素材来源 1 架构哲学：智能与控制的永恒张力 kelaode-01-philosophy 如何平衡AI自主性与用户控制？ docs/architecture/01-philosophy.md 2 Agent架构设计：受控的自主之道 kelaode-02-architecture Agent与传统函数的本质区别是什么？ docs/agent-design/02-agent-architecture.md 3 权限系统：六层信任梯度 kelaode-03-permissions 如何设计分层的权限决策引擎？ docs/permissions/03-permission-system.md 4 工具系统：AI与世界的强类型接口 kelaode-04-tools 工具如何成为自描述、可组合的智能接口？ docs/tools/04-intelligent-tools.md 5 上下文管理：有限注意力的艺术 kelaode-05-context 如何在有限上下文窗口中分配注意力？ docs/context/05-context-management.md 6 编程体验：流式交互的本质优化 kelaode-06-experience 什么是极致的AI编程交互体验？ docs/experience/06-programming-experience.md 7 动手构建：从零打造智能编程助手 kelaode-07-building 如何构建生产级的AI编程助手？ docs/implementation/07-building-your-own.md 8 进阶揭秘：遥测、安全与隐藏能力 kelaode-08-advanced Claude Code如何处理隐私、安全与隐藏功能？ docs/advanced/08-telemetry-security-hidden-features.md 统一配置 date: 2026-04-01T08:00:00+08:00 draft: true（写作中）→ false（定稿后） author: 张凯洋 language: zh series: [\u0026ldquo;Claude Agent理念专栏\u0026rdquo;] tags: 从【AI/大公司/技术】选取 categories: [\u0026ldquo;Technology\u0026rdquo;] ShowToc: true 封面图路径 static/images/posts/2026/04/{slug}-cover.png\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Claude Agent理念专栏篇目表 系列名: Claude Agent理念专栏-拆解零件·理解原理 系列slug: kelaode 发表日期: 2026-04-01 文章类型: insight（技术洞见类） 目标目录: content/posts/2026/kelaode/\n8篇文章规划 序号 标题 slug 核心问题 素材来源 1 架构哲学：智能与控制的永恒张力 kelaode-01-philosophy 如何平衡AI自主性与用户控制？ docs/architecture/01-philosophy.md 2 Agent架构设计：受控的自主之道 kelaode-02-architecture Agent与传统函数的本质区别是什么？ docs/agent-design/02-agent-architecture.md 3 权限系统：六层信任梯度 kelaode-03-permissions 如何设计分层的权限决策引擎？ docs/permissions/03-permission-system.md 4 工具系统：AI与世界的强类型接口 kelaode-04-tools 工具如何成为自描述、可组合的智能接口？ docs/tools/04-intelligent-tools.md 5 上下文管理：有限注意力的艺术 kelaode-05-context 如何在有限上下文窗口中分配注意力？ docs/context/05-context-management.md 6 编程体验：流式交互的本质优化 kelaode-06-experience 什么是极致的AI编程交互体验？ docs/experience/06-programming-experience.md 7 动手构建：从零打造智能编程助手 kelaode-07-building 如何构建生产级的AI编程助手？ docs/implementation/07-building-your-own.md 8 进阶揭秘：遥测、安全与隐藏能力 kelaode-08-advanced Claude Code如何处理隐私、安全与隐藏功能？ docs/advanced/08-telemetry-security-hidden-features.md 统一配置 date: 2026-04-01T08:00:00+08:00 draft: true（写作中）→ false（定稿后） author: 张凯洋 language: zh series: [“Claude Agent理念专栏”] tags: 从【AI/大公司/技术】选取 categories: [“Technology”] ShowToc: true 封面图路径 static/images/posts/2026/04/{slug}-cover.png\n",
+  "wordCount" : "81",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "ZHANG.z\""
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/kelaode/series-plan/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhang's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta">   ZHANG.z&#34; | <span>About 3 min</span> | <span>Shanghai, China</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/kelaode/SERIES-PLAN.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#claude-agent%e7%90%86%e5%bf%b5%e4%b8%93%e6%a0%8f%e7%af%87%e7%9b%ae%e8%a1%a8" aria-label="Claude Agent理念专栏篇目表">Claude Agent理念专栏篇目表</a><ul>
+                        
+                <li>
+                    <a href="#8%e7%af%87%e6%96%87%e7%ab%a0%e8%a7%84%e5%88%92" aria-label="8篇文章规划">8篇文章规划</a></li>
+                <li>
+                    <a href="#%e7%bb%9f%e4%b8%80%e9%85%8d%e7%bd%ae" aria-label="统一配置">统一配置</a></li>
+                <li>
+                    <a href="#%e5%b0%81%e9%9d%a2%e5%9b%be%e8%b7%af%e5%be%84" aria-label="封面图路径">封面图路径</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="claude-agent理念专栏篇目表">Claude Agent理念专栏篇目表<a hidden class="anchor" aria-hidden="true" href="#claude-agent理念专栏篇目表">#</a></h1>
+<p><strong>系列名</strong>: Claude Agent理念专栏-拆解零件·理解原理
+<strong>系列slug</strong>: kelaode
+<strong>发表日期</strong>: 2026-04-01
+<strong>文章类型</strong>: insight（技术洞见类）
+<strong>目标目录</strong>: content/posts/2026/kelaode/</p>
+<h2 id="8篇文章规划">8篇文章规划<a hidden class="anchor" aria-hidden="true" href="#8篇文章规划">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>序号</th>
+          <th>标题</th>
+          <th>slug</th>
+          <th>核心问题</th>
+          <th>素材来源</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>架构哲学：智能与控制的永恒张力</td>
+          <td>kelaode-01-philosophy</td>
+          <td>如何平衡AI自主性与用户控制？</td>
+          <td>docs/architecture/01-philosophy.md</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Agent架构设计：受控的自主之道</td>
+          <td>kelaode-02-architecture</td>
+          <td>Agent与传统函数的本质区别是什么？</td>
+          <td>docs/agent-design/02-agent-architecture.md</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>权限系统：六层信任梯度</td>
+          <td>kelaode-03-permissions</td>
+          <td>如何设计分层的权限决策引擎？</td>
+          <td>docs/permissions/03-permission-system.md</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>工具系统：AI与世界的强类型接口</td>
+          <td>kelaode-04-tools</td>
+          <td>工具如何成为自描述、可组合的智能接口？</td>
+          <td>docs/tools/04-intelligent-tools.md</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>上下文管理：有限注意力的艺术</td>
+          <td>kelaode-05-context</td>
+          <td>如何在有限上下文窗口中分配注意力？</td>
+          <td>docs/context/05-context-management.md</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>编程体验：流式交互的本质优化</td>
+          <td>kelaode-06-experience</td>
+          <td>什么是极致的AI编程交互体验？</td>
+          <td>docs/experience/06-programming-experience.md</td>
+      </tr>
+      <tr>
+          <td>7</td>
+          <td>动手构建：从零打造智能编程助手</td>
+          <td>kelaode-07-building</td>
+          <td>如何构建生产级的AI编程助手？</td>
+          <td>docs/implementation/07-building-your-own.md</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>进阶揭秘：遥测、安全与隐藏能力</td>
+          <td>kelaode-08-advanced</td>
+          <td>Claude Code如何处理隐私、安全与隐藏功能？</td>
+          <td>docs/advanced/08-telemetry-security-hidden-features.md</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="统一配置">统一配置<a hidden class="anchor" aria-hidden="true" href="#统一配置">#</a></h2>
+<ul>
+<li><strong>date</strong>: 2026-04-01T08:00:00+08:00</li>
+<li><strong>draft</strong>: true（写作中）→ false（定稿后）</li>
+<li><strong>author</strong>: 张凯洋</li>
+<li><strong>language</strong>: zh</li>
+<li><strong>series</strong>: [&ldquo;Claude Agent理念专栏&rdquo;]</li>
+<li><strong>tags</strong>: 从【AI/大公司/技术】选取</li>
+<li><strong>categories</strong>: [&ldquo;Technology&rdquo;]</li>
+<li><strong>ShowToc</strong>: true</li>
+</ul>
+<h2 id="封面图路径">封面图路径<a hidden class="anchor" aria-hidden="true" href="#封面图路径">#</a></h2>
+<p>static/images/posts/2026/04/{slug}-cover.png</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.zhangky.com/posts/2015/bitcoin-whitepaper-notes/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>比特币白皮书读书笔记：这篇论文如何改变了我对货币的理解</span>
+  </a>
+  <a class="next" href="https://blog.zhangky.com/posts/2026/paper-read/_paper-navigation/">
+    <span class="title">Next »</span>
+    <br>
+    <span></span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

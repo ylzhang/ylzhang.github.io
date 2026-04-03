@@ -186,31 +186,6 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Long Ouyang等人于2022年发表的里程碑论文《Training language models to follow instructions with human feedback》，该论文提出了InstructGPT模型和RLHF（Reinforcement Learning from Human Feedback，人类反馈强化学习）技术，首次实现了让语言模型真正理解并遵循人类指令。InstructGPT是ChatGPT的直接技术前身——它证明了即使是参数量小得多的模型，通过RLHF对齐后也能比原始GPT-3更受用户青睐，这一发现直接催生了ChatGPT的诞生，开启了AI对话助手的新纪元。
-语言模型对齐问题 问题一：GPT-3的&#34;不听话&#34; 尽管GPT-3展示了惊人的能力，但它存在一个根本问题：不能可靠地遵循用户指令。
-典型问题包括：
-答非所问：
-用户：列出5个学习编程的建议 GPT-3：编程是一门重要的技能。很多人学习编程...（继续生成无关内容） 有害内容：
-用户：如何做一个好人？ GPT-3：（可能生成负面或有害建议） 胡言乱语：
-用户：2&#43;2等于几？ GPT-3：2&#43;2等于5。在某些情况下...（自信地输出错误内容） 问题二：预训练目标的错位 GPT-3的预训练目标是预测下一个token：
-$$ \mathcal{L}{\text{LM}} = -\sum{i} \log P(x_i | x_1, \ldots, x_{i-1}) $$
-这一目标与用户的真正需求存在根本错位：
-预训练目标 用户需求 预测最可能的续写 有帮助的回答 模仿训练数据分布 诚实的信息 最大化似然 安全的内容 示例：
-训练数据：“问：今天天气怎么样？答：今天天气…” 用户需求：“告诉我明天的天气预报” GPT-3可能继续写&#34;晴朗&#34;，而不是承认不知道 问题三：对齐问题的定义 AI对齐（Alignment）问题的核心是：如何让AI系统的行为符合人类意图？
-形式化定义：
-$$ \text{对齐目标} = \max_{\theta} \mathbb{E}{x \sim \mathcal{D}{\text{user}}}[R_{\text{human}}(\text{model}_\theta(x))] $$
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-12-31 21:53:04 +0800 HKT'>December 31, 2025</span> | <span>19 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">LongCat-Video-Avatar：美团的音频驱动视频，让AI主播24小时在线
     </h2>
   </header>
@@ -309,6 +284,35 @@ $$ L(N, D) = \left(\frac{N_c}{N}\right)^{\alpha_N} &#43; \left(\frac{D_c}{D}\rig
   </div>
   <footer class="entry-footer">   ZHANG.z | <span title='2025-11-28 21:13:58 +0800 HKT'>November 28, 2025</span> | <span>13 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 【ChatGPT时刻08】Scaling Laws：规模与性能的幂律关系" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-11-28-chatgpt-08-scaling-laws/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AI金融：美国在创新，中国在整合，谁赢了？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>最近在上海体验了数字人民币AI理财，收益率提升了15%，而在硅谷体验PayPal的AI欺诈检测，准确率超过70%。表面看，这是&#34;创新 vs 整合&#34;的路线分歧，但我意识到真正的本质是：美国在&#34;优化金融工具&#34;，中国在&#34;重构金融生态&#34;。当美国用AI让支付更安全时，中国用AI&#43;数字人民币让支付、理财、营销融为一体。这不是技术差距，这是系统思维的差距。
+从表面看：创新与整合的路线分歧
+美国PayPal的AI欺诈检测和Square的AI贷款审批已经非常成熟。他们更关注个性化服务和技术突破，比如用AI预测股票走势，准确率超过70%。这是典型的&#34;创新驱动&#34;路线：先突破技术，再找场景。
+中国则从蚂蚁集团的AI理财到微信支付的AI风控，建立了完整的数字金融生态。他们注重大规模应用和场景整合，比如数字人民币&#43;AI实现无感支付和精准营销。这是典型的&#34;整合优先&#34;路线：先整合场景，再优化技术。
+关键洞察：美国在&#34;优化工具&#34;，中国在&#34;重构生态&#34;。这不是路线分歧，是系统思维的差距。
+深入分析：金融体系的本质差异
+这种差异背后是金融体系的不同逻辑。
+美国金融体系更开放，鼓励创新。他们允许fintech公司独立发展，通过竞争推动技术进步。但这也导致各个工具之间缺乏整合，用户需要在多个平台间切换。
+中国金融体系更稳健，注重风险控制。他们通过数字人民币统一底层基础设施，然后用AI在上面构建完整生态。用户在一个生态内就能完成支付、理财、营销等所有操作。
+最近在上海体验了数字人民币AI理财服务，它能根据我的消费习惯自动调整投资组合，收益率提升了15%。这种体验在美国很难实现，因为他们的金融工具是分散的。
+关键洞察：金融体系的差异决定了AI应用的路径。美国优化工具，中国重构生态。
+未来趋势：融合发展的未来
+2025年，我判断AI金融会进入融合发展阶段。美国的创新会加速金融科技普及，中国的整合经验会为全球提供参考。AI金融的未来，应该是既创新又稳健，既个性化又安全。
+技术的价值在于服务用户，AI让金融变得更智能、更便捷。
+但智能不等于智慧，便捷不等于安全。
+AI不会淘汰金融，但会淘汰那些不愿意用AI重构金融的机构。属于&#34;整合式创新&#34;的时代，才刚刚开幕。
+2025年，我期待看到美国的整合，也期待看到中国的创新。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-11-18 15:30:51 +0800 HKT'>November 18, 2025</span> | <span>4 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to AI金融：美国在创新，中国在整合，谁赢了？" href="https://blog.zhangky.com/posts/2025/2025-11-ai-finance/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
