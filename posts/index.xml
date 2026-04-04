@@ -4880,7 +4880,7 @@ $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;date&lt;/strong&gt;: 2026-04-01T08:00:00+08:00&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;draft&lt;/strong&gt;: true（写作中）→ false（定稿后）&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;author&lt;/strong&gt;: 张凯洋&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;author&lt;/strong&gt;: yalong&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;language&lt;/strong&gt;: zh&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;series&lt;/strong&gt;: [&amp;ldquo;Claude Agent理念专栏&amp;rdquo;]&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;tags&lt;/strong&gt;: 从【AI/大公司/技术】选取&lt;/li&gt;
