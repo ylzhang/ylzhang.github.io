@@ -186,6 +186,27 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【ChatGPT时刻09】GPT-3：少样本学习的突破与涌现能力
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Tom Brown等人于2020年发表的划时代论文《Language Models are Few-Shot Learners》，该论文提出了GPT-3模型，以1750亿参数的前所未有规模，首次展示了大语言模型的上下文学习（In-context Learning）和涌现能力（Emergent Abilities）。GPT-3证明了一个惊人的事实：足够大的语言模型无需更新参数，仅通过在输入中提供少量示例，就能执行从未见过的任务——这一发现彻底改变了AI的发展轨迹，直接催生了ChatGPT的诞生。
+从零样本到少样本的飞跃 问题一：零样本学习的局限 GPT-2展示了零样本学习的可能性，但性能仍然有限：
+任务 零样本GPT-2 微调SOTA 差距 CoQA 55 F1 82 F1 -27 翻译（法英） 11.5 BLEU 45.6 BLEU -34 摘要 21.6 ROUGE 44.2 ROUGE -23 零样本学习虽然证明了概念，但实用性不足。
+问题二：微调的代价 传统微调方法虽然有效，但存在显著问题：
+数据需求：每个任务需要数千到数十万标注样本 过拟合风险：在小数据集上容易过拟合 分布偏移：微调数据与测试数据分布不一致 计算成本：大模型微调需要大量计算资源 灵活性差：每个任务需要单独模型 问题三：人类学习的启示 人类可以从极少量示例中学习新任务：
+“看一个例子：‘狗’的复数是’dogs’。那’猫’的复数是什么？”
+人类不需要数千个训练样本，仅需要任务描述和少量示例就能泛化。GPT-3的目标是：让机器具备类似的学习能力。
+GPT-3的核心创新 前所未有的规模 GPT-3将规模推向极致：
+参数 GPT-2 GPT-3 Small GPT-3 Medium GPT-3 Large GPT-3 XL GPT-3 175B 层数 48 12 24 24 32 96 隐藏维度 1600 768 1024 1536 2048 12288 注意力头数 25 12 16 16 24 96 参数量 1.5B 125M 350M 760M 1.3B 175B 最大的GPT-3模型参数量达到1750亿，是GPT-2的100倍以上。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-12-15 21:48:02 +0800 HKT'>December 15, 2025</span> | <span>14 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【ChatGPT时刻09】GPT-3：少样本学习的突破与涌现能力" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-15-chatgpt-09-gpt3/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">OpenAI的12天发布会：生成式AI的终极形态，还是营销噱头？
     </h2>
   </header>

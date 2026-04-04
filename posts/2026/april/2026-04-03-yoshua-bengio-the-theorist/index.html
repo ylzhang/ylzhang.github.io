@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AI人物志-理论家Yoshua Bengio | Zhang&#39;s Blog</title>
+<meta name="keywords" content="Yoshua Bengio, 深度学习理论, 表示学习, 注意力机制, 因果推断">
+<meta name="description" content="
+AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。
+
+当工程师们在调试代码、哲学家们在争论本质时，一个理论家在寻找数学上的必然。
+2018年12月，蒙特利尔的一间会议室里，三位老人正在等待一个改变他们一生的电话。Geoffrey Hinton在多伦多，Yann LeCun在纽约，而Yoshua Bengio就在这里——他的家乡，他工作了三十年的城市。
+电话响了。图灵奖。三人共享。
+Hinton的反应是困惑，LeCun的反应是兴奋，而Bengio的反应是——沉思。&ldquo;这证明了一件事，&ldquo;他后来对一位同事说，&ldquo;坚持正确的理论，时间会站在你这边。&rdquo;
+这是Bengio的风格。他不追求轰动，不追求速度，他追求理解。
+蒙特利尔的冬天：一个数学家的选择
+1964年，Bengio出生在巴黎，但他的童年在蒙特利尔度过。那是加拿大最寒冷的城市，冬天漫长而黑暗。年轻的Bengio喜欢在室内读书——数学书、物理书、任何他能找到的科学书籍。
+&ldquo;我从小就知道我想做研究，&ldquo;Bengio回忆，&ldquo;不是应用，是纯粹的研究。我想理解事物为什么是这样。&rdquo;
+这种追求把他带向了机器学习。1980年代末，当Bengio在麦吉尔大学读博士时，神经网络正处于第一次寒冬。但Bengio看到了别人忽略的东西：不是神经网络本身，而是学习的过程。
+&ldquo;Hinton关注的是结构，LeCun关注的是应用，&ldquo;一位曾与Bengio共事的研究者分析，&ldquo;而Bengio关注的是——学习到底在发生什么？&rdquo;
+这是一个理论问题，也是一个根本问题。如果神经网络能学习，那它学到了什么？它如何表示知识？这种表示与人类智能的表示有何不同？
+Bengio花了十年时间回答这些问题。
+表示学习：在黑暗中寻找光
+1990年代，Bengio在AT&amp;T贝尔实验室与LeCun共事。那是深度学习最黑暗的时期，但Bengio没有放弃。他开始研究一个当时几乎无人关注的领域：表示学习（Representation Learning）。
+核心问题很简单：当神经网络学习时，它在内部构建了什么样的表示？这些表示为什么有效？
+&ldquo;大多数人只关心网络的输出，&ldquo;Bengio解释，&ldquo;但我关心的是中间层。当网络识别一张猫的图片时，它的第一层在学习边缘，第二层在学习纹理，第三层在学习形状——这种层次化的表示，就是智能的本质。&rdquo;
+Bengio在2000年代初发表了一系列论文，奠定了表示学习的理论基础。他证明了，好的表示应该具有某些数学性质：平滑性、稀疏性、可分解性。这些性质让神经网络能够泛化，能够从有限的例子中学到通用的规律。
+&ldquo;Bengio的贡献是建立了一座桥梁，&ldquo;一位深度学习研究者评价，&ldquo;一边是工程实践，一边是数学理论。他让我们理解为什么深度学习有效，而不只是知道它有效。&rdquo;
+但这座桥梁在当时几乎无人通行。2000年代，支持向量机统治着机器学习领域，神经网络仍然被视为&quot;黑箱&rdquo;。Bengio的论文引用寥寥，他的学生毕业后找不到工作。
+&ldquo;那是我最困难的时期，&ldquo;Bengio承认，&ldquo;但我知道我在做正确的事。理论不会过时，只有应用会。&rdquo;
+注意力机制：一个理论的意外应用
+2014年，Bengio做出了一个让他自己都感到意外的贡献——注意力机制（Attention Mechanism）。
+当时，Bengio正在研究神经机器翻译。传统的序列到序列模型有一个瓶颈：输入序列的所有信息必须被压缩成一个固定长度的向量。对于长句子，这会导致信息丢失。
+Bengio提出了一个简单而优雅的解决方案：让模型选择性地关注输入序列的不同部分。当翻译一个词时，模型可以&quot;看&quot;回原文的相关部分，而不是依赖一个压缩的表示。
+&ldquo;这不是工程技巧，&ldquo;Bengio强调，&ldquo;这是关于选择性的理论。人类智能的核心就是选择性——我们无法处理所有信息，我们必须选择重要的部分。&rdquo;
+注意力机制彻底改变了自然语言处理。2017年，Google的Transformer架构完全基于注意力机制，开启了大规模语言模型的时代。今天，从GPT到Claude，所有的大语言模型都建立在Bengio的理论基础之上。
+但Bengio对注意力机制的流行感到复杂。&ldquo;它被滥用了，&ldquo;他说，&ldquo;人们把它当作万能药，但注意力只是智能的一部分。我们还需要因果推理，还需要世界模型，还需要很多其他东西。&rdquo;
+这种谨慎是Bengio的标志。当业界为大语言模型欢呼时，他保持冷静；当投资人为AI疯狂时，他提出警告。他不是反对进步，他反对的是盲目的进步。
+因果推断：下一个前沿
+2019年，Bengio做出了一个让同行惊讶的决定：他把研究重心转向了因果推断（Causal Inference）。
+这是一个与深度学习完全不同的领域。因果推断研究的是如何从数据中发现因果关系，而不仅仅是相关性。 Judea Pearl——因果推断的先驱——曾批评深度学习只是&quot;曲线拟合&rdquo;，没有真正理解世界。
+Bengio同意这个批评。&ldquo;深度学习让我们能够预测，&ldquo;他说，&ldquo;但它不能让我们理解为什么。如果我们想要真正的智能，我们需要因果推理。&rdquo;
+这个转向在深度学习社区引起了争议。有人质疑Bengio是不是&quot;背叛&quot;了深度学习，有人担心他正在远离主流。但Bengio不为所动。
+&ldquo;科学不是时尚，&ldquo;他回应，&ldquo;我们不能因为某个方向流行就追随它，因为某个方向不流行就放弃它。因果推断是智能的基础，无论它是否流行，我都必须研究它。&rdquo;
+过去五年，Bengio在因果推断和深度学习的交叉领域做出了开创性工作。他提出了&quot;因果表示学习&quot;的概念，试图让神经网络不仅学习统计规律，还学习因果结构。
+&ldquo;这是下一个十年最重要的方向，&ldquo;Bengio预测，&ldquo;当AI系统能够进行因果推理时，它们将不再是工具，而是真正的智能体。&rdquo;
+在Hinton和LeCun之间：第三条路
+回顾Bengio的职业生涯，他的位置很独特——在Hinton和LeCun之间，在理论和应用之间，在坚持和开放之间。
+Hinton是先知，他相信神经网络的潜力，愿意为之孤独地等待。LeCun是工程师，他相信实践的力量，愿意为之不断地构建。而Bengio是理论家，他相信理解的价值，愿意为之耐心地探索。
+&ldquo;我们三个人代表了深度学习的三个维度，&ldquo;Bengio曾这样描述，&ldquo;Hinton是深度，LeCun是广度，我是连接。我试图理解深度和广度背后的原理。&rdquo;
+这种连接让Bengio成为深度学习社区的关键人物。他创办了ICLR（国际学习表示会议），这是深度学习领域最重要的学术会议之一。他培养了大量学生，其中许多人成为了业界的领军人物。他坚持开源和开放科学，让深度学习的研究成果能够被全世界共享。
+但Bengio最珍视的角色是教育者。他在蒙特利尔大学任教三十年，每年都给本科生上课。&ldquo;理论必须被传承，&ldquo;他说，&ldquo;如果只有我一个人理解，那我的研究就没有意义。&rdquo;
+当下的沉思：理论的黄昏还是黎明？
+站在2026年，Bengio面临着与Hinton和LeCun不同的挑战。
+大语言模型的成功让许多人质疑理论的价值。&ldquo;为什么我们需要理论？&ldquo;一些工程师问，&ldquo;只要堆更多的数据、更大的模型，性能就会提升。&rdquo;
+Bengio不同意这种观点。&ldquo;这是短视的，&ldquo;他说，&ldquo;没有理论指导，我们只是在盲目地试错。我们需要理解为什么大模型有效，它们的局限在哪里，如何改进它们。&rdquo;
+他指出了当前AI的几个根本问题：
+泛化问题：大语言模型在训练数据上表现很好，但在分布外的数据上常常失败。为什么？因为我们不理解它们真正学到了什么。
+因果问题：大语言模型能够生成流畅的文本，但它们不理解因果关系。它们知道&quot;火导致烟&rdquo;，但它们不知道为什么。
+效率问题：训练大模型需要巨大的计算资源。如果我们理解学习的本质，也许可以用更少的资源达到同样的效果。
+&ldquo;这些问题需要理论来解决，&ldquo;Bengio坚持，&ldquo;不是更多的数据，不是更大的模型，是更深的理解。&rdquo;
+但Bengio也承认，当前的理论研究面临困境。大模型太复杂了，超出了传统数学工具的适用范围。我们需要新的理论框架，新的数学工具，新的思维方式。
+&ldquo;这是理论的黄昏，也是理论的黎明，&ldquo;Bengio说，&ldquo;旧的理论不够用了，但新的理论正在诞生。这是最令人兴奋的时刻。&rdquo;
+说到底：一个理论家的坚守
+Bengio的故事，是一个关于耐心的故事。
+当工程师们急于构建系统时，他选择先理解原理。当业界追逐热点时，他选择坚持基础。当大模型的成功让理论显得无用时，他选择相信理论的价值。
+这种耐心不是固执，而是一种更深层的信念：知识的积累是渐进的，真正的理解需要时间。
+&ldquo;我年轻时想要快速成功，&ldquo;Bengio回忆，&ldquo;我羡慕那些发表论文、获得关注的人。但随着年龄增长，我意识到，真正重要的不是速度，是深度。一篇深刻的论文比十篇肤浅的论文更有价值。&rdquo;
+这种哲学影响了Bengio的整个职业生涯。他不追求论文数量，他追求论文质量。他不追逐研究热点，他追求根本问题。他不关心个人名声，他关心知识的传承。
+一位Bengio的学生告诉我们：&ldquo;他教会我最重要的一课是——做研究不是为了发表，是为了理解。如果你真正理解了一个问题，发表是自然的结果。&rdquo;
+全局来看，Bengio的一生诠释了理论的价值。在深度学习的三次浪潮中，他始终站在幕后，不追求聚光灯，但提供了不可或缺的支撑。他的表示学习让深度学习有了理论基础，他的注意力机制让自然语言处理有了突破，他的因果推断研究正在为AI的下一个阶段铺路。">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/april/2026-04-03-yoshua-bengio-the-theorist/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/april/2026-04-03-yoshua-bengio-the-theorist/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/april/2026-04-03-yoshua-bengio-the-theorist/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="AI人物志-理论家Yoshua Bengio">
+  <meta property="og:description" content=" AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。
+当工程师们在调试代码、哲学家们在争论本质时，一个理论家在寻找数学上的必然。
+2018年12月，蒙特利尔的一间会议室里，三位老人正在等待一个改变他们一生的电话。Geoffrey Hinton在多伦多，Yann LeCun在纽约，而Yoshua Bengio就在这里——他的家乡，他工作了三十年的城市。
+电话响了。图灵奖。三人共享。
+Hinton的反应是困惑，LeCun的反应是兴奋，而Bengio的反应是——沉思。“这证明了一件事，“他后来对一位同事说，“坚持正确的理论，时间会站在你这边。”
+这是Bengio的风格。他不追求轰动，不追求速度，他追求理解。
+蒙特利尔的冬天：一个数学家的选择 1964年，Bengio出生在巴黎，但他的童年在蒙特利尔度过。那是加拿大最寒冷的城市，冬天漫长而黑暗。年轻的Bengio喜欢在室内读书——数学书、物理书、任何他能找到的科学书籍。
+“我从小就知道我想做研究，“Bengio回忆，“不是应用，是纯粹的研究。我想理解事物为什么是这样。”
+这种追求把他带向了机器学习。1980年代末，当Bengio在麦吉尔大学读博士时，神经网络正处于第一次寒冬。但Bengio看到了别人忽略的东西：不是神经网络本身，而是学习的过程。
+“Hinton关注的是结构，LeCun关注的是应用，“一位曾与Bengio共事的研究者分析，“而Bengio关注的是——学习到底在发生什么？”
+这是一个理论问题，也是一个根本问题。如果神经网络能学习，那它学到了什么？它如何表示知识？这种表示与人类智能的表示有何不同？
+Bengio花了十年时间回答这些问题。
+表示学习：在黑暗中寻找光 1990年代，Bengio在AT&amp;T贝尔实验室与LeCun共事。那是深度学习最黑暗的时期，但Bengio没有放弃。他开始研究一个当时几乎无人关注的领域：表示学习（Representation Learning）。
+核心问题很简单：当神经网络学习时，它在内部构建了什么样的表示？这些表示为什么有效？
+“大多数人只关心网络的输出，“Bengio解释，“但我关心的是中间层。当网络识别一张猫的图片时，它的第一层在学习边缘，第二层在学习纹理，第三层在学习形状——这种层次化的表示，就是智能的本质。”
+Bengio在2000年代初发表了一系列论文，奠定了表示学习的理论基础。他证明了，好的表示应该具有某些数学性质：平滑性、稀疏性、可分解性。这些性质让神经网络能够泛化，能够从有限的例子中学到通用的规律。
+“Bengio的贡献是建立了一座桥梁，“一位深度学习研究者评价，“一边是工程实践，一边是数学理论。他让我们理解为什么深度学习有效，而不只是知道它有效。”
+但这座桥梁在当时几乎无人通行。2000年代，支持向量机统治着机器学习领域，神经网络仍然被视为&#34;黑箱”。Bengio的论文引用寥寥，他的学生毕业后找不到工作。
+“那是我最困难的时期，“Bengio承认，“但我知道我在做正确的事。理论不会过时，只有应用会。”
+注意力机制：一个理论的意外应用 2014年，Bengio做出了一个让他自己都感到意外的贡献——注意力机制（Attention Mechanism）。
+当时，Bengio正在研究神经机器翻译。传统的序列到序列模型有一个瓶颈：输入序列的所有信息必须被压缩成一个固定长度的向量。对于长句子，这会导致信息丢失。
+Bengio提出了一个简单而优雅的解决方案：让模型选择性地关注输入序列的不同部分。当翻译一个词时，模型可以&#34;看&#34;回原文的相关部分，而不是依赖一个压缩的表示。
+“这不是工程技巧，“Bengio强调，“这是关于选择性的理论。人类智能的核心就是选择性——我们无法处理所有信息，我们必须选择重要的部分。”
+注意力机制彻底改变了自然语言处理。2017年，Google的Transformer架构完全基于注意力机制，开启了大规模语言模型的时代。今天，从GPT到Claude，所有的大语言模型都建立在Bengio的理论基础之上。
+但Bengio对注意力机制的流行感到复杂。“它被滥用了，“他说，“人们把它当作万能药，但注意力只是智能的一部分。我们还需要因果推理，还需要世界模型，还需要很多其他东西。”
+这种谨慎是Bengio的标志。当业界为大语言模型欢呼时，他保持冷静；当投资人为AI疯狂时，他提出警告。他不是反对进步，他反对的是盲目的进步。
+因果推断：下一个前沿 2019年，Bengio做出了一个让同行惊讶的决定：他把研究重心转向了因果推断（Causal Inference）。
+这是一个与深度学习完全不同的领域。因果推断研究的是如何从数据中发现因果关系，而不仅仅是相关性。 Judea Pearl——因果推断的先驱——曾批评深度学习只是&#34;曲线拟合”，没有真正理解世界。
+Bengio同意这个批评。“深度学习让我们能够预测，“他说，“但它不能让我们理解为什么。如果我们想要真正的智能，我们需要因果推理。”
+这个转向在深度学习社区引起了争议。有人质疑Bengio是不是&#34;背叛&#34;了深度学习，有人担心他正在远离主流。但Bengio不为所动。
+“科学不是时尚，“他回应，“我们不能因为某个方向流行就追随它，因为某个方向不流行就放弃它。因果推断是智能的基础，无论它是否流行，我都必须研究它。”
+过去五年，Bengio在因果推断和深度学习的交叉领域做出了开创性工作。他提出了&#34;因果表示学习&#34;的概念，试图让神经网络不仅学习统计规律，还学习因果结构。
+“这是下一个十年最重要的方向，“Bengio预测，“当AI系统能够进行因果推理时，它们将不再是工具，而是真正的智能体。”
+在Hinton和LeCun之间：第三条路 回顾Bengio的职业生涯，他的位置很独特——在Hinton和LeCun之间，在理论和应用之间，在坚持和开放之间。
+Hinton是先知，他相信神经网络的潜力，愿意为之孤独地等待。LeCun是工程师，他相信实践的力量，愿意为之不断地构建。而Bengio是理论家，他相信理解的价值，愿意为之耐心地探索。
+“我们三个人代表了深度学习的三个维度，“Bengio曾这样描述，“Hinton是深度，LeCun是广度，我是连接。我试图理解深度和广度背后的原理。”
+这种连接让Bengio成为深度学习社区的关键人物。他创办了ICLR（国际学习表示会议），这是深度学习领域最重要的学术会议之一。他培养了大量学生，其中许多人成为了业界的领军人物。他坚持开源和开放科学，让深度学习的研究成果能够被全世界共享。
+但Bengio最珍视的角色是教育者。他在蒙特利尔大学任教三十年，每年都给本科生上课。“理论必须被传承，“他说，“如果只有我一个人理解，那我的研究就没有意义。”
+当下的沉思：理论的黄昏还是黎明？ 站在2026年，Bengio面临着与Hinton和LeCun不同的挑战。
+大语言模型的成功让许多人质疑理论的价值。“为什么我们需要理论？“一些工程师问，“只要堆更多的数据、更大的模型，性能就会提升。”
+Bengio不同意这种观点。“这是短视的，“他说，“没有理论指导，我们只是在盲目地试错。我们需要理解为什么大模型有效，它们的局限在哪里，如何改进它们。”
+他指出了当前AI的几个根本问题：
+泛化问题：大语言模型在训练数据上表现很好，但在分布外的数据上常常失败。为什么？因为我们不理解它们真正学到了什么。
+因果问题：大语言模型能够生成流畅的文本，但它们不理解因果关系。它们知道&#34;火导致烟”，但它们不知道为什么。
+效率问题：训练大模型需要巨大的计算资源。如果我们理解学习的本质，也许可以用更少的资源达到同样的效果。
+“这些问题需要理论来解决，“Bengio坚持，“不是更多的数据，不是更大的模型，是更深的理解。”
+但Bengio也承认，当前的理论研究面临困境。大模型太复杂了，超出了传统数学工具的适用范围。我们需要新的理论框架，新的数学工具，新的思维方式。
+“这是理论的黄昏，也是理论的黎明，“Bengio说，“旧的理论不够用了，但新的理论正在诞生。这是最令人兴奋的时刻。”
+说到底：一个理论家的坚守 Bengio的故事，是一个关于耐心的故事。
+当工程师们急于构建系统时，他选择先理解原理。当业界追逐热点时，他选择坚持基础。当大模型的成功让理论显得无用时，他选择相信理论的价值。
+这种耐心不是固执，而是一种更深层的信念：知识的积累是渐进的，真正的理解需要时间。
+“我年轻时想要快速成功，“Bengio回忆，“我羡慕那些发表论文、获得关注的人。但随着年龄增长，我意识到，真正重要的不是速度，是深度。一篇深刻的论文比十篇肤浅的论文更有价值。”
+这种哲学影响了Bengio的整个职业生涯。他不追求论文数量，他追求论文质量。他不追逐研究热点，他追求根本问题。他不关心个人名声，他关心知识的传承。
+一位Bengio的学生告诉我们：“他教会我最重要的一课是——做研究不是为了发表，是为了理解。如果你真正理解了一个问题，发表是自然的结果。”
+全局来看，Bengio的一生诠释了理论的价值。在深度学习的三次浪潮中，他始终站在幕后，不追求聚光灯，但提供了不可或缺的支撑。他的表示学习让深度学习有了理论基础，他的注意力机制让自然语言处理有了突破，他的因果推断研究正在为AI的下一个阶段铺路。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-04-03T20:00:00+08:00">
+    <meta property="article:modified_time" content="2026-04-03T20:00:00+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="人物">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="AI人物志-理论家Yoshua Bengio">
+<meta name="twitter:description" content="
+AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。
+
+当工程师们在调试代码、哲学家们在争论本质时，一个理论家在寻找数学上的必然。
+2018年12月，蒙特利尔的一间会议室里，三位老人正在等待一个改变他们一生的电话。Geoffrey Hinton在多伦多，Yann LeCun在纽约，而Yoshua Bengio就在这里——他的家乡，他工作了三十年的城市。
+电话响了。图灵奖。三人共享。
+Hinton的反应是困惑，LeCun的反应是兴奋，而Bengio的反应是——沉思。&ldquo;这证明了一件事，&ldquo;他后来对一位同事说，&ldquo;坚持正确的理论，时间会站在你这边。&rdquo;
+这是Bengio的风格。他不追求轰动，不追求速度，他追求理解。
+蒙特利尔的冬天：一个数学家的选择
+1964年，Bengio出生在巴黎，但他的童年在蒙特利尔度过。那是加拿大最寒冷的城市，冬天漫长而黑暗。年轻的Bengio喜欢在室内读书——数学书、物理书、任何他能找到的科学书籍。
+&ldquo;我从小就知道我想做研究，&ldquo;Bengio回忆，&ldquo;不是应用，是纯粹的研究。我想理解事物为什么是这样。&rdquo;
+这种追求把他带向了机器学习。1980年代末，当Bengio在麦吉尔大学读博士时，神经网络正处于第一次寒冬。但Bengio看到了别人忽略的东西：不是神经网络本身，而是学习的过程。
+&ldquo;Hinton关注的是结构，LeCun关注的是应用，&ldquo;一位曾与Bengio共事的研究者分析，&ldquo;而Bengio关注的是——学习到底在发生什么？&rdquo;
+这是一个理论问题，也是一个根本问题。如果神经网络能学习，那它学到了什么？它如何表示知识？这种表示与人类智能的表示有何不同？
+Bengio花了十年时间回答这些问题。
+表示学习：在黑暗中寻找光
+1990年代，Bengio在AT&amp;T贝尔实验室与LeCun共事。那是深度学习最黑暗的时期，但Bengio没有放弃。他开始研究一个当时几乎无人关注的领域：表示学习（Representation Learning）。
+核心问题很简单：当神经网络学习时，它在内部构建了什么样的表示？这些表示为什么有效？
+&ldquo;大多数人只关心网络的输出，&ldquo;Bengio解释，&ldquo;但我关心的是中间层。当网络识别一张猫的图片时，它的第一层在学习边缘，第二层在学习纹理，第三层在学习形状——这种层次化的表示，就是智能的本质。&rdquo;
+Bengio在2000年代初发表了一系列论文，奠定了表示学习的理论基础。他证明了，好的表示应该具有某些数学性质：平滑性、稀疏性、可分解性。这些性质让神经网络能够泛化，能够从有限的例子中学到通用的规律。
+&ldquo;Bengio的贡献是建立了一座桥梁，&ldquo;一位深度学习研究者评价，&ldquo;一边是工程实践，一边是数学理论。他让我们理解为什么深度学习有效，而不只是知道它有效。&rdquo;
+但这座桥梁在当时几乎无人通行。2000年代，支持向量机统治着机器学习领域，神经网络仍然被视为&quot;黑箱&rdquo;。Bengio的论文引用寥寥，他的学生毕业后找不到工作。
+&ldquo;那是我最困难的时期，&ldquo;Bengio承认，&ldquo;但我知道我在做正确的事。理论不会过时，只有应用会。&rdquo;
+注意力机制：一个理论的意外应用
+2014年，Bengio做出了一个让他自己都感到意外的贡献——注意力机制（Attention Mechanism）。
+当时，Bengio正在研究神经机器翻译。传统的序列到序列模型有一个瓶颈：输入序列的所有信息必须被压缩成一个固定长度的向量。对于长句子，这会导致信息丢失。
+Bengio提出了一个简单而优雅的解决方案：让模型选择性地关注输入序列的不同部分。当翻译一个词时，模型可以&quot;看&quot;回原文的相关部分，而不是依赖一个压缩的表示。
+&ldquo;这不是工程技巧，&ldquo;Bengio强调，&ldquo;这是关于选择性的理论。人类智能的核心就是选择性——我们无法处理所有信息，我们必须选择重要的部分。&rdquo;
+注意力机制彻底改变了自然语言处理。2017年，Google的Transformer架构完全基于注意力机制，开启了大规模语言模型的时代。今天，从GPT到Claude，所有的大语言模型都建立在Bengio的理论基础之上。
+但Bengio对注意力机制的流行感到复杂。&ldquo;它被滥用了，&ldquo;他说，&ldquo;人们把它当作万能药，但注意力只是智能的一部分。我们还需要因果推理，还需要世界模型，还需要很多其他东西。&rdquo;
+这种谨慎是Bengio的标志。当业界为大语言模型欢呼时，他保持冷静；当投资人为AI疯狂时，他提出警告。他不是反对进步，他反对的是盲目的进步。
+因果推断：下一个前沿
+2019年，Bengio做出了一个让同行惊讶的决定：他把研究重心转向了因果推断（Causal Inference）。
+这是一个与深度学习完全不同的领域。因果推断研究的是如何从数据中发现因果关系，而不仅仅是相关性。 Judea Pearl——因果推断的先驱——曾批评深度学习只是&quot;曲线拟合&rdquo;，没有真正理解世界。
+Bengio同意这个批评。&ldquo;深度学习让我们能够预测，&ldquo;他说，&ldquo;但它不能让我们理解为什么。如果我们想要真正的智能，我们需要因果推理。&rdquo;
+这个转向在深度学习社区引起了争议。有人质疑Bengio是不是&quot;背叛&quot;了深度学习，有人担心他正在远离主流。但Bengio不为所动。
+&ldquo;科学不是时尚，&ldquo;他回应，&ldquo;我们不能因为某个方向流行就追随它，因为某个方向不流行就放弃它。因果推断是智能的基础，无论它是否流行，我都必须研究它。&rdquo;
+过去五年，Bengio在因果推断和深度学习的交叉领域做出了开创性工作。他提出了&quot;因果表示学习&quot;的概念，试图让神经网络不仅学习统计规律，还学习因果结构。
+&ldquo;这是下一个十年最重要的方向，&ldquo;Bengio预测，&ldquo;当AI系统能够进行因果推理时，它们将不再是工具，而是真正的智能体。&rdquo;
+在Hinton和LeCun之间：第三条路
+回顾Bengio的职业生涯，他的位置很独特——在Hinton和LeCun之间，在理论和应用之间，在坚持和开放之间。
+Hinton是先知，他相信神经网络的潜力，愿意为之孤独地等待。LeCun是工程师，他相信实践的力量，愿意为之不断地构建。而Bengio是理论家，他相信理解的价值，愿意为之耐心地探索。
+&ldquo;我们三个人代表了深度学习的三个维度，&ldquo;Bengio曾这样描述，&ldquo;Hinton是深度，LeCun是广度，我是连接。我试图理解深度和广度背后的原理。&rdquo;
+这种连接让Bengio成为深度学习社区的关键人物。他创办了ICLR（国际学习表示会议），这是深度学习领域最重要的学术会议之一。他培养了大量学生，其中许多人成为了业界的领军人物。他坚持开源和开放科学，让深度学习的研究成果能够被全世界共享。
+但Bengio最珍视的角色是教育者。他在蒙特利尔大学任教三十年，每年都给本科生上课。&ldquo;理论必须被传承，&ldquo;他说，&ldquo;如果只有我一个人理解，那我的研究就没有意义。&rdquo;
+当下的沉思：理论的黄昏还是黎明？
+站在2026年，Bengio面临着与Hinton和LeCun不同的挑战。
+大语言模型的成功让许多人质疑理论的价值。&ldquo;为什么我们需要理论？&ldquo;一些工程师问，&ldquo;只要堆更多的数据、更大的模型，性能就会提升。&rdquo;
+Bengio不同意这种观点。&ldquo;这是短视的，&ldquo;他说，&ldquo;没有理论指导，我们只是在盲目地试错。我们需要理解为什么大模型有效，它们的局限在哪里，如何改进它们。&rdquo;
+他指出了当前AI的几个根本问题：
+泛化问题：大语言模型在训练数据上表现很好，但在分布外的数据上常常失败。为什么？因为我们不理解它们真正学到了什么。
+因果问题：大语言模型能够生成流畅的文本，但它们不理解因果关系。它们知道&quot;火导致烟&rdquo;，但它们不知道为什么。
+效率问题：训练大模型需要巨大的计算资源。如果我们理解学习的本质，也许可以用更少的资源达到同样的效果。
+&ldquo;这些问题需要理论来解决，&ldquo;Bengio坚持，&ldquo;不是更多的数据，不是更大的模型，是更深的理解。&rdquo;
+但Bengio也承认，当前的理论研究面临困境。大模型太复杂了，超出了传统数学工具的适用范围。我们需要新的理论框架，新的数学工具，新的思维方式。
+&ldquo;这是理论的黄昏，也是理论的黎明，&ldquo;Bengio说，&ldquo;旧的理论不够用了，但新的理论正在诞生。这是最令人兴奋的时刻。&rdquo;
+说到底：一个理论家的坚守
+Bengio的故事，是一个关于耐心的故事。
+当工程师们急于构建系统时，他选择先理解原理。当业界追逐热点时，他选择坚持基础。当大模型的成功让理论显得无用时，他选择相信理论的价值。
+这种耐心不是固执，而是一种更深层的信念：知识的积累是渐进的，真正的理解需要时间。
+&ldquo;我年轻时想要快速成功，&ldquo;Bengio回忆，&ldquo;我羡慕那些发表论文、获得关注的人。但随着年龄增长，我意识到，真正重要的不是速度，是深度。一篇深刻的论文比十篇肤浅的论文更有价值。&rdquo;
+这种哲学影响了Bengio的整个职业生涯。他不追求论文数量，他追求论文质量。他不追逐研究热点，他追求根本问题。他不关心个人名声，他关心知识的传承。
+一位Bengio的学生告诉我们：&ldquo;他教会我最重要的一课是——做研究不是为了发表，是为了理解。如果你真正理解了一个问题，发表是自然的结果。&rdquo;
+全局来看，Bengio的一生诠释了理论的价值。在深度学习的三次浪潮中，他始终站在幕后，不追求聚光灯，但提供了不可或缺的支撑。他的表示学习让深度学习有了理论基础，他的注意力机制让自然语言处理有了突破，他的因果推断研究正在为AI的下一个阶段铺路。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "AI人物志-理论家Yoshua Bengio",
+      "item": "https://blog.zhangky.com/posts/2026/april/2026-04-03-yoshua-bengio-the-theorist/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI人物志-理论家Yoshua Bengio",
+  "name": "AI人物志-理论家Yoshua Bengio",
+  "description": " AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。\n当工程师们在调试代码、哲学家们在争论本质时，一个理论家在寻找数学上的必然。\n2018年12月，蒙特利尔的一间会议室里，三位老人正在等待一个改变他们一生的电话。Geoffrey Hinton在多伦多，Yann LeCun在纽约，而Yoshua Bengio就在这里——他的家乡，他工作了三十年的城市。\n电话响了。图灵奖。三人共享。\nHinton的反应是困惑，LeCun的反应是兴奋，而Bengio的反应是——沉思。\u0026ldquo;这证明了一件事，\u0026ldquo;他后来对一位同事说，\u0026ldquo;坚持正确的理论，时间会站在你这边。\u0026rdquo;\n这是Bengio的风格。他不追求轰动，不追求速度，他追求理解。\n蒙特利尔的冬天：一个数学家的选择 1964年，Bengio出生在巴黎，但他的童年在蒙特利尔度过。那是加拿大最寒冷的城市，冬天漫长而黑暗。年轻的Bengio喜欢在室内读书——数学书、物理书、任何他能找到的科学书籍。\n\u0026ldquo;我从小就知道我想做研究，\u0026ldquo;Bengio回忆，\u0026ldquo;不是应用，是纯粹的研究。我想理解事物为什么是这样。\u0026rdquo;\n这种追求把他带向了机器学习。1980年代末，当Bengio在麦吉尔大学读博士时，神经网络正处于第一次寒冬。但Bengio看到了别人忽略的东西：不是神经网络本身，而是学习的过程。\n\u0026ldquo;Hinton关注的是结构，LeCun关注的是应用，\u0026ldquo;一位曾与Bengio共事的研究者分析，\u0026ldquo;而Bengio关注的是——学习到底在发生什么？\u0026rdquo;\n这是一个理论问题，也是一个根本问题。如果神经网络能学习，那它学到了什么？它如何表示知识？这种表示与人类智能的表示有何不同？\nBengio花了十年时间回答这些问题。\n表示学习：在黑暗中寻找光 1990年代，Bengio在AT\u0026amp;T贝尔实验室与LeCun共事。那是深度学习最黑暗的时期，但Bengio没有放弃。他开始研究一个当时几乎无人关注的领域：表示学习（Representation Learning）。\n核心问题很简单：当神经网络学习时，它在内部构建了什么样的表示？这些表示为什么有效？\n\u0026ldquo;大多数人只关心网络的输出，\u0026ldquo;Bengio解释，\u0026ldquo;但我关心的是中间层。当网络识别一张猫的图片时，它的第一层在学习边缘，第二层在学习纹理，第三层在学习形状——这种层次化的表示，就是智能的本质。\u0026rdquo;\nBengio在2000年代初发表了一系列论文，奠定了表示学习的理论基础。他证明了，好的表示应该具有某些数学性质：平滑性、稀疏性、可分解性。这些性质让神经网络能够泛化，能够从有限的例子中学到通用的规律。\n\u0026ldquo;Bengio的贡献是建立了一座桥梁，\u0026ldquo;一位深度学习研究者评价，\u0026ldquo;一边是工程实践，一边是数学理论。他让我们理解为什么深度学习有效，而不只是知道它有效。\u0026rdquo;\n但这座桥梁在当时几乎无人通行。2000年代，支持向量机统治着机器学习领域，神经网络仍然被视为\u0026quot;黑箱\u0026rdquo;。Bengio的论文引用寥寥，他的学生毕业后找不到工作。\n\u0026ldquo;那是我最困难的时期，\u0026ldquo;Bengio承认，\u0026ldquo;但我知道我在做正确的事。理论不会过时，只有应用会。\u0026rdquo;\n注意力机制：一个理论的意外应用 2014年，Bengio做出了一个让他自己都感到意外的贡献——注意力机制（Attention Mechanism）。\n当时，Bengio正在研究神经机器翻译。传统的序列到序列模型有一个瓶颈：输入序列的所有信息必须被压缩成一个固定长度的向量。对于长句子，这会导致信息丢失。\nBengio提出了一个简单而优雅的解决方案：让模型选择性地关注输入序列的不同部分。当翻译一个词时，模型可以\u0026quot;看\u0026quot;回原文的相关部分，而不是依赖一个压缩的表示。\n\u0026ldquo;这不是工程技巧，\u0026ldquo;Bengio强调，\u0026ldquo;这是关于选择性的理论。人类智能的核心就是选择性——我们无法处理所有信息，我们必须选择重要的部分。\u0026rdquo;\n注意力机制彻底改变了自然语言处理。2017年，Google的Transformer架构完全基于注意力机制，开启了大规模语言模型的时代。今天，从GPT到Claude，所有的大语言模型都建立在Bengio的理论基础之上。\n但Bengio对注意力机制的流行感到复杂。\u0026ldquo;它被滥用了，\u0026ldquo;他说，\u0026ldquo;人们把它当作万能药，但注意力只是智能的一部分。我们还需要因果推理，还需要世界模型，还需要很多其他东西。\u0026rdquo;\n这种谨慎是Bengio的标志。当业界为大语言模型欢呼时，他保持冷静；当投资人为AI疯狂时，他提出警告。他不是反对进步，他反对的是盲目的进步。\n因果推断：下一个前沿 2019年，Bengio做出了一个让同行惊讶的决定：他把研究重心转向了因果推断（Causal Inference）。\n这是一个与深度学习完全不同的领域。因果推断研究的是如何从数据中发现因果关系，而不仅仅是相关性。 Judea Pearl——因果推断的先驱——曾批评深度学习只是\u0026quot;曲线拟合\u0026rdquo;，没有真正理解世界。\nBengio同意这个批评。\u0026ldquo;深度学习让我们能够预测，\u0026ldquo;他说，\u0026ldquo;但它不能让我们理解为什么。如果我们想要真正的智能，我们需要因果推理。\u0026rdquo;\n这个转向在深度学习社区引起了争议。有人质疑Bengio是不是\u0026quot;背叛\u0026quot;了深度学习，有人担心他正在远离主流。但Bengio不为所动。\n\u0026ldquo;科学不是时尚，\u0026ldquo;他回应，\u0026ldquo;我们不能因为某个方向流行就追随它，因为某个方向不流行就放弃它。因果推断是智能的基础，无论它是否流行，我都必须研究它。\u0026rdquo;\n过去五年，Bengio在因果推断和深度学习的交叉领域做出了开创性工作。他提出了\u0026quot;因果表示学习\u0026quot;的概念，试图让神经网络不仅学习统计规律，还学习因果结构。\n\u0026ldquo;这是下一个十年最重要的方向，\u0026ldquo;Bengio预测，\u0026ldquo;当AI系统能够进行因果推理时，它们将不再是工具，而是真正的智能体。\u0026rdquo;\n在Hinton和LeCun之间：第三条路 回顾Bengio的职业生涯，他的位置很独特——在Hinton和LeCun之间，在理论和应用之间，在坚持和开放之间。\nHinton是先知，他相信神经网络的潜力，愿意为之孤独地等待。LeCun是工程师，他相信实践的力量，愿意为之不断地构建。而Bengio是理论家，他相信理解的价值，愿意为之耐心地探索。\n\u0026ldquo;我们三个人代表了深度学习的三个维度，\u0026ldquo;Bengio曾这样描述，\u0026ldquo;Hinton是深度，LeCun是广度，我是连接。我试图理解深度和广度背后的原理。\u0026rdquo;\n这种连接让Bengio成为深度学习社区的关键人物。他创办了ICLR（国际学习表示会议），这是深度学习领域最重要的学术会议之一。他培养了大量学生，其中许多人成为了业界的领军人物。他坚持开源和开放科学，让深度学习的研究成果能够被全世界共享。\n但Bengio最珍视的角色是教育者。他在蒙特利尔大学任教三十年，每年都给本科生上课。\u0026ldquo;理论必须被传承，\u0026ldquo;他说，\u0026ldquo;如果只有我一个人理解，那我的研究就没有意义。\u0026rdquo;\n当下的沉思：理论的黄昏还是黎明？ 站在2026年，Bengio面临着与Hinton和LeCun不同的挑战。\n大语言模型的成功让许多人质疑理论的价值。\u0026ldquo;为什么我们需要理论？\u0026ldquo;一些工程师问，\u0026ldquo;只要堆更多的数据、更大的模型，性能就会提升。\u0026rdquo;\nBengio不同意这种观点。\u0026ldquo;这是短视的，\u0026ldquo;他说，\u0026ldquo;没有理论指导，我们只是在盲目地试错。我们需要理解为什么大模型有效，它们的局限在哪里，如何改进它们。\u0026rdquo;\n他指出了当前AI的几个根本问题：\n泛化问题：大语言模型在训练数据上表现很好，但在分布外的数据上常常失败。为什么？因为我们不理解它们真正学到了什么。\n因果问题：大语言模型能够生成流畅的文本，但它们不理解因果关系。它们知道\u0026quot;火导致烟\u0026rdquo;，但它们不知道为什么。\n效率问题：训练大模型需要巨大的计算资源。如果我们理解学习的本质，也许可以用更少的资源达到同样的效果。\n\u0026ldquo;这些问题需要理论来解决，\u0026ldquo;Bengio坚持，\u0026ldquo;不是更多的数据，不是更大的模型，是更深的理解。\u0026rdquo;\n但Bengio也承认，当前的理论研究面临困境。大模型太复杂了，超出了传统数学工具的适用范围。我们需要新的理论框架，新的数学工具，新的思维方式。\n\u0026ldquo;这是理论的黄昏，也是理论的黎明，\u0026ldquo;Bengio说，\u0026ldquo;旧的理论不够用了，但新的理论正在诞生。这是最令人兴奋的时刻。\u0026rdquo;\n说到底：一个理论家的坚守 Bengio的故事，是一个关于耐心的故事。\n当工程师们急于构建系统时，他选择先理解原理。当业界追逐热点时，他选择坚持基础。当大模型的成功让理论显得无用时，他选择相信理论的价值。\n这种耐心不是固执，而是一种更深层的信念：知识的积累是渐进的，真正的理解需要时间。\n\u0026ldquo;我年轻时想要快速成功，\u0026ldquo;Bengio回忆，\u0026ldquo;我羡慕那些发表论文、获得关注的人。但随着年龄增长，我意识到，真正重要的不是速度，是深度。一篇深刻的论文比十篇肤浅的论文更有价值。\u0026rdquo;\n这种哲学影响了Bengio的整个职业生涯。他不追求论文数量，他追求论文质量。他不追逐研究热点，他追求根本问题。他不关心个人名声，他关心知识的传承。\n一位Bengio的学生告诉我们：\u0026ldquo;他教会我最重要的一课是——做研究不是为了发表，是为了理解。如果你真正理解了一个问题，发表是自然的结果。\u0026rdquo;\n全局来看，Bengio的一生诠释了理论的价值。在深度学习的三次浪潮中，他始终站在幕后，不追求聚光灯，但提供了不可或缺的支撑。他的表示学习让深度学习有了理论基础，他的注意力机制让自然语言处理有了突破，他的因果推断研究正在为AI的下一个阶段铺路。\n",
+  "keywords": [
+    "Yoshua Bengio", "深度学习理论", "表示学习", "注意力机制", "因果推断"
+  ],
+  "articleBody": " AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。\n当工程师们在调试代码、哲学家们在争论本质时，一个理论家在寻找数学上的必然。\n2018年12月，蒙特利尔的一间会议室里，三位老人正在等待一个改变他们一生的电话。Geoffrey Hinton在多伦多，Yann LeCun在纽约，而Yoshua Bengio就在这里——他的家乡，他工作了三十年的城市。\n电话响了。图灵奖。三人共享。\nHinton的反应是困惑，LeCun的反应是兴奋，而Bengio的反应是——沉思。“这证明了一件事，“他后来对一位同事说，“坚持正确的理论，时间会站在你这边。”\n这是Bengio的风格。他不追求轰动，不追求速度，他追求理解。\n蒙特利尔的冬天：一个数学家的选择 1964年，Bengio出生在巴黎，但他的童年在蒙特利尔度过。那是加拿大最寒冷的城市，冬天漫长而黑暗。年轻的Bengio喜欢在室内读书——数学书、物理书、任何他能找到的科学书籍。\n“我从小就知道我想做研究，“Bengio回忆，“不是应用，是纯粹的研究。我想理解事物为什么是这样。”\n这种追求把他带向了机器学习。1980年代末，当Bengio在麦吉尔大学读博士时，神经网络正处于第一次寒冬。但Bengio看到了别人忽略的东西：不是神经网络本身，而是学习的过程。\n“Hinton关注的是结构，LeCun关注的是应用，“一位曾与Bengio共事的研究者分析，“而Bengio关注的是——学习到底在发生什么？”\n这是一个理论问题，也是一个根本问题。如果神经网络能学习，那它学到了什么？它如何表示知识？这种表示与人类智能的表示有何不同？\nBengio花了十年时间回答这些问题。\n表示学习：在黑暗中寻找光 1990年代，Bengio在AT\u0026T贝尔实验室与LeCun共事。那是深度学习最黑暗的时期，但Bengio没有放弃。他开始研究一个当时几乎无人关注的领域：表示学习（Representation Learning）。\n核心问题很简单：当神经网络学习时，它在内部构建了什么样的表示？这些表示为什么有效？\n“大多数人只关心网络的输出，“Bengio解释，“但我关心的是中间层。当网络识别一张猫的图片时，它的第一层在学习边缘，第二层在学习纹理，第三层在学习形状——这种层次化的表示，就是智能的本质。”\nBengio在2000年代初发表了一系列论文，奠定了表示学习的理论基础。他证明了，好的表示应该具有某些数学性质：平滑性、稀疏性、可分解性。这些性质让神经网络能够泛化，能够从有限的例子中学到通用的规律。\n“Bengio的贡献是建立了一座桥梁，“一位深度学习研究者评价，“一边是工程实践，一边是数学理论。他让我们理解为什么深度学习有效，而不只是知道它有效。”\n但这座桥梁在当时几乎无人通行。2000年代，支持向量机统治着机器学习领域，神经网络仍然被视为\"黑箱”。Bengio的论文引用寥寥，他的学生毕业后找不到工作。\n“那是我最困难的时期，“Bengio承认，“但我知道我在做正确的事。理论不会过时，只有应用会。”\n注意力机制：一个理论的意外应用 2014年，Bengio做出了一个让他自己都感到意外的贡献——注意力机制（Attention Mechanism）。\n当时，Bengio正在研究神经机器翻译。传统的序列到序列模型有一个瓶颈：输入序列的所有信息必须被压缩成一个固定长度的向量。对于长句子，这会导致信息丢失。\nBengio提出了一个简单而优雅的解决方案：让模型选择性地关注输入序列的不同部分。当翻译一个词时，模型可以\"看\"回原文的相关部分，而不是依赖一个压缩的表示。\n“这不是工程技巧，“Bengio强调，“这是关于选择性的理论。人类智能的核心就是选择性——我们无法处理所有信息，我们必须选择重要的部分。”\n注意力机制彻底改变了自然语言处理。2017年，Google的Transformer架构完全基于注意力机制，开启了大规模语言模型的时代。今天，从GPT到Claude，所有的大语言模型都建立在Bengio的理论基础之上。\n但Bengio对注意力机制的流行感到复杂。“它被滥用了，“他说，“人们把它当作万能药，但注意力只是智能的一部分。我们还需要因果推理，还需要世界模型，还需要很多其他东西。”\n这种谨慎是Bengio的标志。当业界为大语言模型欢呼时，他保持冷静；当投资人为AI疯狂时，他提出警告。他不是反对进步，他反对的是盲目的进步。\n因果推断：下一个前沿 2019年，Bengio做出了一个让同行惊讶的决定：他把研究重心转向了因果推断（Causal Inference）。\n这是一个与深度学习完全不同的领域。因果推断研究的是如何从数据中发现因果关系，而不仅仅是相关性。 Judea Pearl——因果推断的先驱——曾批评深度学习只是\"曲线拟合”，没有真正理解世界。\nBengio同意这个批评。“深度学习让我们能够预测，“他说，“但它不能让我们理解为什么。如果我们想要真正的智能，我们需要因果推理。”\n这个转向在深度学习社区引起了争议。有人质疑Bengio是不是\"背叛\"了深度学习，有人担心他正在远离主流。但Bengio不为所动。\n“科学不是时尚，“他回应，“我们不能因为某个方向流行就追随它，因为某个方向不流行就放弃它。因果推断是智能的基础，无论它是否流行，我都必须研究它。”\n过去五年，Bengio在因果推断和深度学习的交叉领域做出了开创性工作。他提出了\"因果表示学习\"的概念，试图让神经网络不仅学习统计规律，还学习因果结构。\n“这是下一个十年最重要的方向，“Bengio预测，“当AI系统能够进行因果推理时，它们将不再是工具，而是真正的智能体。”\n在Hinton和LeCun之间：第三条路 回顾Bengio的职业生涯，他的位置很独特——在Hinton和LeCun之间，在理论和应用之间，在坚持和开放之间。\nHinton是先知，他相信神经网络的潜力，愿意为之孤独地等待。LeCun是工程师，他相信实践的力量，愿意为之不断地构建。而Bengio是理论家，他相信理解的价值，愿意为之耐心地探索。\n“我们三个人代表了深度学习的三个维度，“Bengio曾这样描述，“Hinton是深度，LeCun是广度，我是连接。我试图理解深度和广度背后的原理。”\n这种连接让Bengio成为深度学习社区的关键人物。他创办了ICLR（国际学习表示会议），这是深度学习领域最重要的学术会议之一。他培养了大量学生，其中许多人成为了业界的领军人物。他坚持开源和开放科学，让深度学习的研究成果能够被全世界共享。\n但Bengio最珍视的角色是教育者。他在蒙特利尔大学任教三十年，每年都给本科生上课。“理论必须被传承，“他说，“如果只有我一个人理解，那我的研究就没有意义。”\n当下的沉思：理论的黄昏还是黎明？ 站在2026年，Bengio面临着与Hinton和LeCun不同的挑战。\n大语言模型的成功让许多人质疑理论的价值。“为什么我们需要理论？“一些工程师问，“只要堆更多的数据、更大的模型，性能就会提升。”\nBengio不同意这种观点。“这是短视的，“他说，“没有理论指导，我们只是在盲目地试错。我们需要理解为什么大模型有效，它们的局限在哪里，如何改进它们。”\n他指出了当前AI的几个根本问题：\n泛化问题：大语言模型在训练数据上表现很好，但在分布外的数据上常常失败。为什么？因为我们不理解它们真正学到了什么。\n因果问题：大语言模型能够生成流畅的文本，但它们不理解因果关系。它们知道\"火导致烟”，但它们不知道为什么。\n效率问题：训练大模型需要巨大的计算资源。如果我们理解学习的本质，也许可以用更少的资源达到同样的效果。\n“这些问题需要理论来解决，“Bengio坚持，“不是更多的数据，不是更大的模型，是更深的理解。”\n但Bengio也承认，当前的理论研究面临困境。大模型太复杂了，超出了传统数学工具的适用范围。我们需要新的理论框架，新的数学工具，新的思维方式。\n“这是理论的黄昏，也是理论的黎明，“Bengio说，“旧的理论不够用了，但新的理论正在诞生。这是最令人兴奋的时刻。”\n说到底：一个理论家的坚守 Bengio的故事，是一个关于耐心的故事。\n当工程师们急于构建系统时，他选择先理解原理。当业界追逐热点时，他选择坚持基础。当大模型的成功让理论显得无用时，他选择相信理论的价值。\n这种耐心不是固执，而是一种更深层的信念：知识的积累是渐进的，真正的理解需要时间。\n“我年轻时想要快速成功，“Bengio回忆，“我羡慕那些发表论文、获得关注的人。但随着年龄增长，我意识到，真正重要的不是速度，是深度。一篇深刻的论文比十篇肤浅的论文更有价值。”\n这种哲学影响了Bengio的整个职业生涯。他不追求论文数量，他追求论文质量。他不追逐研究热点，他追求根本问题。他不关心个人名声，他关心知识的传承。\n一位Bengio的学生告诉我们：“他教会我最重要的一课是——做研究不是为了发表，是为了理解。如果你真正理解了一个问题，发表是自然的结果。”\n全局来看，Bengio的一生诠释了理论的价值。在深度学习的三次浪潮中，他始终站在幕后，不追求聚光灯，但提供了不可或缺的支撑。他的表示学习让深度学习有了理论基础，他的注意力机制让自然语言处理有了突破，他的因果推断研究正在为AI的下一个阶段铺路。\n他不是最耀眼的明星，但他是最坚实的基石。当工程师们建造高楼时，他们站在Bengio铺设的地基上。\n而这，就是一个理论家的最高成就。\nFIN - 参考 ",
+  "wordCount" : "75",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-04-03T20:00:00+08:00",
+  "dateModified": "2026-04-03T20:00:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "ZHANG.z\""
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/april/2026-04-03-yoshua-bengio-the-theorist/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhang's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      AI人物志-理论家Yoshua Bengio
+    </h1>
+    <div class="post-meta">   ZHANG.z&#34; | <span title='2026-04-03 20:00:00 +0800 HKT'>April 3, 2026</span> | <span>18 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/april/2026-04-03-yoshua-bengio-the-theorist.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e8%92%99%e7%89%b9%e5%88%a9%e5%b0%94%e7%9a%84%e5%86%ac%e5%a4%a9%e4%b8%80%e4%b8%aa%e6%95%b0%e5%ad%a6%e5%ae%b6%e7%9a%84%e9%80%89%e6%8b%a9" aria-label="蒙特利尔的冬天：一个数学家的选择">蒙特利尔的冬天：一个数学家的选择</a></li>
+                <li>
+                    <a href="#%e8%a1%a8%e7%a4%ba%e5%ad%a6%e4%b9%a0%e5%9c%a8%e9%bb%91%e6%9a%97%e4%b8%ad%e5%af%bb%e6%89%be%e5%85%89" aria-label="表示学习：在黑暗中寻找光">表示学习：在黑暗中寻找光</a></li>
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e4%b8%80%e4%b8%aa%e7%90%86%e8%ae%ba%e7%9a%84%e6%84%8f%e5%a4%96%e5%ba%94%e7%94%a8" aria-label="注意力机制：一个理论的意外应用">注意力机制：一个理论的意外应用</a></li>
+                <li>
+                    <a href="#%e5%9b%a0%e6%9e%9c%e6%8e%a8%e6%96%ad%e4%b8%8b%e4%b8%80%e4%b8%aa%e5%89%8d%e6%b2%bf" aria-label="因果推断：下一个前沿">因果推断：下一个前沿</a></li>
+                <li>
+                    <a href="#%e5%9c%a8hinton%e5%92%8clecun%e4%b9%8b%e9%97%b4%e7%ac%ac%e4%b8%89%e6%9d%a1%e8%b7%af" aria-label="在Hinton和LeCun之间：第三条路">在Hinton和LeCun之间：第三条路</a></li>
+                <li>
+                    <a href="#%e5%bd%93%e4%b8%8b%e7%9a%84%e6%b2%89%e6%80%9d%e7%90%86%e8%ae%ba%e7%9a%84%e9%bb%84%e6%98%8f%e8%bf%98%e6%98%af%e9%bb%8e%e6%98%8e" aria-label="当下的沉思：理论的黄昏还是黎明？">当下的沉思：理论的黄昏还是黎明？</a></li>
+                <li>
+                    <a href="#%e8%af%b4%e5%88%b0%e5%ba%95%e4%b8%80%e4%b8%aa%e7%90%86%e8%ae%ba%e5%ae%b6%e7%9a%84%e5%9d%9a%e5%ae%88" aria-label="说到底：一个理论家的坚守">说到底：一个理论家的坚守</a></li>
+                <li>
+                    <a href="#%e5%8f%82%e8%80%83" aria-label="参考">参考</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p><strong>AI人物志系列</strong>：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。</p>
+</blockquote>
+<p><strong>当工程师们在调试代码、哲学家们在争论本质时，一个理论家在寻找数学上的必然。</strong></p>
+<p>2018年12月，蒙特利尔的一间会议室里，三位老人正在等待一个改变他们一生的电话。Geoffrey Hinton在多伦多，Yann LeCun在纽约，而Yoshua Bengio就在这里——他的家乡，他工作了三十年的城市。</p>
+<p>电话响了。图灵奖。三人共享。</p>
+<p>Hinton的反应是困惑，LeCun的反应是兴奋，而Bengio的反应是——沉思。&ldquo;这证明了一件事，&ldquo;他后来对一位同事说，&ldquo;坚持正确的理论，时间会站在你这边。&rdquo;</p>
+<p>这是Bengio的风格。他不追求轰动，不追求速度，他追求<strong>理解</strong>。</p>
+<h2 id="蒙特利尔的冬天一个数学家的选择">蒙特利尔的冬天：一个数学家的选择<a hidden class="anchor" aria-hidden="true" href="#蒙特利尔的冬天一个数学家的选择">#</a></h2>
+<p>1964年，Bengio出生在巴黎，但他的童年在蒙特利尔度过。那是加拿大最寒冷的城市，冬天漫长而黑暗。年轻的Bengio喜欢在室内读书——数学书、物理书、任何他能找到的科学书籍。</p>
+<p>&ldquo;我从小就知道我想做研究，&ldquo;Bengio回忆，&ldquo;不是应用，是纯粹的研究。我想理解事物为什么是这样。&rdquo;</p>
+<p>这种追求把他带向了机器学习。1980年代末，当Bengio在麦吉尔大学读博士时，神经网络正处于第一次寒冬。但Bengio看到了别人忽略的东西：不是神经网络本身，而是<strong>学习的过程</strong>。</p>
+<p>&ldquo;Hinton关注的是结构，LeCun关注的是应用，&ldquo;一位曾与Bengio共事的研究者分析，&ldquo;而Bengio关注的是——学习到底在发生什么？&rdquo;</p>
+<p>这是一个理论问题，也是一个根本问题。如果神经网络能学习，那它学到了什么？它如何表示知识？这种表示与人类智能的表示有何不同？</p>
+<p>Bengio花了十年时间回答这些问题。</p>
+<h2 id="表示学习在黑暗中寻找光">表示学习：在黑暗中寻找光<a hidden class="anchor" aria-hidden="true" href="#表示学习在黑暗中寻找光">#</a></h2>
+<p>1990年代，Bengio在AT&amp;T贝尔实验室与LeCun共事。那是深度学习最黑暗的时期，但Bengio没有放弃。他开始研究一个当时几乎无人关注的领域：<strong>表示学习（Representation Learning）</strong>。</p>
+<p>核心问题很简单：当神经网络学习时，它在内部构建了什么样的表示？这些表示为什么有效？</p>
+<p>&ldquo;大多数人只关心网络的输出，&ldquo;Bengio解释，&ldquo;但我关心的是中间层。当网络识别一张猫的图片时，它的第一层在学习边缘，第二层在学习纹理，第三层在学习形状——这种层次化的表示，就是智能的本质。&rdquo;</p>
+<p>Bengio在2000年代初发表了一系列论文，奠定了表示学习的理论基础。他证明了，好的表示应该具有某些数学性质：平滑性、稀疏性、可分解性。这些性质让神经网络能够泛化，能够从有限的例子中学到通用的规律。</p>
+<p>&ldquo;Bengio的贡献是建立了一座桥梁，&ldquo;一位深度学习研究者评价，&ldquo;一边是工程实践，一边是数学理论。他让我们理解为什么深度学习有效，而不只是知道它有效。&rdquo;</p>
+<p>但这座桥梁在当时几乎无人通行。2000年代，支持向量机统治着机器学习领域，神经网络仍然被视为&quot;黑箱&rdquo;。Bengio的论文引用寥寥，他的学生毕业后找不到工作。</p>
+<p>&ldquo;那是我最困难的时期，&ldquo;Bengio承认，&ldquo;但我知道我在做正确的事。理论不会过时，只有应用会。&rdquo;</p>
+<h2 id="注意力机制一个理论的意外应用">注意力机制：一个理论的意外应用<a hidden class="anchor" aria-hidden="true" href="#注意力机制一个理论的意外应用">#</a></h2>
+<p>2014年，Bengio做出了一个让他自己都感到意外的贡献——<strong>注意力机制（Attention Mechanism）</strong>。</p>
+<p>当时，Bengio正在研究神经机器翻译。传统的序列到序列模型有一个瓶颈：输入序列的所有信息必须被压缩成一个固定长度的向量。对于长句子，这会导致信息丢失。</p>
+<p>Bengio提出了一个简单而优雅的解决方案：让模型<strong>选择性地关注</strong>输入序列的不同部分。当翻译一个词时，模型可以&quot;看&quot;回原文的相关部分，而不是依赖一个压缩的表示。</p>
+<p>&ldquo;这不是工程技巧，&ldquo;Bengio强调，&ldquo;这是关于<strong>选择性</strong>的理论。人类智能的核心就是选择性——我们无法处理所有信息，我们必须选择重要的部分。&rdquo;</p>
+<p>注意力机制彻底改变了自然语言处理。2017年，Google的Transformer架构完全基于注意力机制，开启了大规模语言模型的时代。今天，从GPT到Claude，所有的大语言模型都建立在Bengio的理论基础之上。</p>
+<p>但Bengio对注意力机制的流行感到复杂。&ldquo;它被滥用了，&ldquo;他说，&ldquo;人们把它当作万能药，但注意力只是智能的一部分。我们还需要因果推理，还需要世界模型，还需要很多其他东西。&rdquo;</p>
+<p>这种谨慎是Bengio的标志。当业界为大语言模型欢呼时，他保持冷静；当投资人为AI疯狂时，他提出警告。他不是反对进步，他反对的是<strong>盲目的进步</strong>。</p>
+<h2 id="因果推断下一个前沿">因果推断：下一个前沿<a hidden class="anchor" aria-hidden="true" href="#因果推断下一个前沿">#</a></h2>
+<p>2019年，Bengio做出了一个让同行惊讶的决定：他把研究重心转向了<strong>因果推断（Causal Inference）</strong>。</p>
+<p>这是一个与深度学习完全不同的领域。因果推断研究的是如何从数据中发现因果关系，而不仅仅是相关性。 Judea Pearl——因果推断的先驱——曾批评深度学习只是&quot;曲线拟合&rdquo;，没有真正理解世界。</p>
+<p>Bengio同意这个批评。&ldquo;深度学习让我们能够预测，&ldquo;他说，&ldquo;但它不能让我们理解<strong>为什么</strong>。如果我们想要真正的智能，我们需要因果推理。&rdquo;</p>
+<p>这个转向在深度学习社区引起了争议。有人质疑Bengio是不是&quot;背叛&quot;了深度学习，有人担心他正在远离主流。但Bengio不为所动。</p>
+<p>&ldquo;科学不是时尚，&ldquo;他回应，&ldquo;我们不能因为某个方向流行就追随它，因为某个方向不流行就放弃它。因果推断是智能的基础，无论它是否流行，我都必须研究它。&rdquo;</p>
+<p>过去五年，Bengio在因果推断和深度学习的交叉领域做出了开创性工作。他提出了&quot;因果表示学习&quot;的概念，试图让神经网络不仅学习统计规律，还学习因果结构。</p>
+<p>&ldquo;这是下一个十年最重要的方向，&ldquo;Bengio预测，&ldquo;当AI系统能够进行因果推理时，它们将不再是工具，而是真正的智能体。&rdquo;</p>
+<h2 id="在hinton和lecun之间第三条路">在Hinton和LeCun之间：第三条路<a hidden class="anchor" aria-hidden="true" href="#在hinton和lecun之间第三条路">#</a></h2>
+<p>回顾Bengio的职业生涯，他的位置很独特——在Hinton和LeCun之间，在理论和应用之间，在坚持和开放之间。</p>
+<p>Hinton是先知，他相信神经网络的潜力，愿意为之孤独地等待。LeCun是工程师，他相信实践的力量，愿意为之不断地构建。而Bengio是理论家，他相信理解的价值，愿意为之耐心地探索。</p>
+<p>&ldquo;我们三个人代表了深度学习的三个维度，&ldquo;Bengio曾这样描述，&ldquo;Hinton是深度，LeCun是广度，我是连接。我试图理解深度和广度背后的原理。&rdquo;</p>
+<p>这种连接让Bengio成为深度学习社区的关键人物。他创办了ICLR（国际学习表示会议），这是深度学习领域最重要的学术会议之一。他培养了大量学生，其中许多人成为了业界的领军人物。他坚持开源和开放科学，让深度学习的研究成果能够被全世界共享。</p>
+<p>但Bengio最珍视的角色是<strong>教育者</strong>。他在蒙特利尔大学任教三十年，每年都给本科生上课。&ldquo;理论必须被传承，&ldquo;他说，&ldquo;如果只有我一个人理解，那我的研究就没有意义。&rdquo;</p>
+<h2 id="当下的沉思理论的黄昏还是黎明">当下的沉思：理论的黄昏还是黎明？<a hidden class="anchor" aria-hidden="true" href="#当下的沉思理论的黄昏还是黎明">#</a></h2>
+<p>站在2026年，Bengio面临着与Hinton和LeCun不同的挑战。</p>
+<p>大语言模型的成功让许多人质疑理论的价值。&ldquo;为什么我们需要理论？&ldquo;一些工程师问，&ldquo;只要堆更多的数据、更大的模型，性能就会提升。&rdquo;</p>
+<p>Bengio不同意这种观点。&ldquo;这是短视的，&ldquo;他说，&ldquo;没有理论指导，我们只是在盲目地试错。我们需要理解为什么大模型有效，它们的局限在哪里，如何改进它们。&rdquo;</p>
+<p>他指出了当前AI的几个根本问题：</p>
+<p><strong>泛化问题</strong>：大语言模型在训练数据上表现很好，但在分布外的数据上常常失败。为什么？因为我们不理解它们真正学到了什么。</p>
+<p><strong>因果问题</strong>：大语言模型能够生成流畅的文本，但它们不理解因果关系。它们知道&quot;火导致烟&rdquo;，但它们不知道为什么。</p>
+<p><strong>效率问题</strong>：训练大模型需要巨大的计算资源。如果我们理解学习的本质，也许可以用更少的资源达到同样的效果。</p>
+<p>&ldquo;这些问题需要理论来解决，&ldquo;Bengio坚持，&ldquo;不是更多的数据，不是更大的模型，是更深的理解。&rdquo;</p>
+<p>但Bengio也承认，当前的理论研究面临困境。大模型太复杂了，超出了传统数学工具的适用范围。我们需要新的理论框架，新的数学工具，新的思维方式。</p>
+<p>&ldquo;这是理论的黄昏，也是理论的黎明，&ldquo;Bengio说，&ldquo;旧的理论不够用了，但新的理论正在诞生。这是最令人兴奋的时刻。&rdquo;</p>
+<h2 id="说到底一个理论家的坚守">说到底：一个理论家的坚守<a hidden class="anchor" aria-hidden="true" href="#说到底一个理论家的坚守">#</a></h2>
+<p>Bengio的故事，是一个关于<strong>耐心</strong>的故事。</p>
+<p>当工程师们急于构建系统时，他选择先理解原理。当业界追逐热点时，他选择坚持基础。当大模型的成功让理论显得无用时，他选择相信理论的价值。</p>
+<p>这种耐心不是固执，而是一种更深层的信念：知识的积累是渐进的，真正的理解需要时间。</p>
+<p>&ldquo;我年轻时想要快速成功，&ldquo;Bengio回忆，&ldquo;我羡慕那些发表论文、获得关注的人。但随着年龄增长，我意识到，真正重要的不是速度，是深度。一篇深刻的论文比十篇肤浅的论文更有价值。&rdquo;</p>
+<p>这种哲学影响了Bengio的整个职业生涯。他不追求论文数量，他追求论文质量。他不追逐研究热点，他追求根本问题。他不关心个人名声，他关心知识的传承。</p>
+<p>一位Bengio的学生告诉我们：&ldquo;他教会我最重要的一课是——做研究不是为了发表，是为了理解。如果你真正理解了一个问题，发表是自然的结果。&rdquo;</p>
+<p><strong>全局来看</strong>，Bengio的一生诠释了理论的价值。在深度学习的三次浪潮中，他始终站在幕后，不追求聚光灯，但提供了不可或缺的支撑。他的表示学习让深度学习有了理论基础，他的注意力机制让自然语言处理有了突破，他的因果推断研究正在为AI的下一个阶段铺路。</p>
+<p>他不是最耀眼的明星，但他是最坚实的基石。当工程师们建造高楼时，他们站在Bengio铺设的地基上。</p>
+<p>而这，就是一个理论家的最高成就。</p>
+<ul>
+<li>FIN -</li>
+</ul>
+<h2 id="参考">参考<a hidden class="anchor" aria-hidden="true" href="#参考">#</a></h2>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/">人物</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/">
+    <span class="title">Next »</span>
+    <br>
+    <span>AI人物志-工程师Yann LeCun</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

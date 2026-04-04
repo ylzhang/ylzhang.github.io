@@ -190,7 +190,8 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>
+    <p> Claude Agent理念专栏是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。
+本文是第2篇：探讨Agent与传统函数的本质区别，拆解Claude Code的四层Agent架构与三种隔离策略。
 Agent的本质是受控的自主——拥有独立状态、生命周期和决策能力，但其边界被严格限定。
 这是理解Claude Code多Agent架构的钥匙。与简单函数调用不同，Agent是长时间运行的、可能出错需要恢复的、需要被监督和控制的计算过程。据Anthropic工程团队透露，Claude Code每天处理的Agent任务超过百万级，其中约15%需要某种形式的干预或恢复。本文拆解其四层Agent架构与三种隔离策略。
 Agent与函数：为什么需要新的计算抽象 传统的函数调用模型无法满足复杂AI任务的需求。
@@ -219,7 +220,7 @@ Agent调度链包含14个步骤：解析输入、判断类型、选择agent defi
 系列阅读快速跳转 日期 篇目 核心问题 04-01 架构哲学：智能与控制的永恒张力 如何平衡AI自主性与用户控制？ 04-01 Agent架构设计：受控的自主之道 Agent与传统函数的本质区别是什么？ 04-01 权限系统：六层信任梯度 如何设计分层的权限决策引擎？ 04-01 工具系统：AI与世界的强类型接口 工具如何成为自描述、可组合的智能接口？ 04-01 上下文管理：有限注意力的艺术 如何在有限上下文窗口中分配注意力？ 04-01 编程体验：流式交互的本质优化 什么是极致的AI编程交互体验？ 04-01 动手构建：从零打造智能编程助手 如何构建生产级的AI编程助手？ 04-01 进阶揭秘：遥测、安全与隐藏能力 Claude Code如何处理隐私、安全与隐藏功能？ 引用 本文基于Claude Code源码中AgentTool、runAgent、worktree、forkedAgent等模块分析。
 ...</p>
   </div>
-  <footer class="entry-footer">   张凯洋 | <span title='2026-04-01 08:00:00 +0800 HKT'>April 1, 2026</span> | <span>11 min</span> | <span>Shanghai, China</span></footer>
+  <footer class="entry-footer">   张凯洋 | <span title='2026-04-01 08:00:00 +0800 HKT'>April 1, 2026</span> | <span>12 min</span> | <span>Shanghai, China</span></footer>
   <a class="entry-link" aria-label="post link to Agent架构设计：受控的自主之道" href="https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-02-architecture/"></a>
 </article>
 
@@ -229,7 +230,8 @@ Agent调度链包含14个步骤：解析输入、判断类型、选择agent defi
     </h2>
   </header>
   <div class="entry-content">
-    <p>
+    <p> Claude Agent理念专栏是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。
+本文是第5篇：探讨上下文作为有限资源的本质，拆解Claude Code的智能压缩策略、增量更新机制与注意力分配算法。
 上下文是有限资源，不是一切信息都值得关注——智能地分配注意力是高效AI的关键。
 这是Claude Code上下文管理的设计哲学。LLM有上下文长度限制（如200K tokens），带来信息过载、注意力分散、成本上升、延迟增加等挑战。据我们了解，Claude Code每天处理的上下文压缩请求超过千万次，智能压缩算法节省了约40%的API成本。本文拆解其智能压缩策略、增量更新机制与注意力分配算法。
 上下文限制的现实：为什么必须精打细算 大语言模型的上下文窗口虽然不断扩大，但始终有限，而且每个token都有成本。
@@ -270,7 +272,8 @@ TokenBudget接口定义了预算分配：total（总预算，如200K）、used�
     </h2>
   </header>
   <div class="entry-content">
-    <p>
+    <p> Claude Agent理念专栏是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。
+本文是第7篇：将理论付诸实践，提供从零构建生产级AI编程助手的完整架构蓝图、核心实现代码和演进路线图。
 将理论付诸实践，从零构建一个生产级的AI编程助手。
 这是Claude Code系列的最后几篇，也是最具实践性的部分。前面的文章拆解了架构哲学、Agent设计、权限系统、工具系统、上下文管理和编程体验，本文将把这些知识整合为可运行的代码。据我们了解，基于类似架构的开源项目在过去一年中增长了约300%，AI编程工具正从概念验证走向生产应用。本文提供完整的架构蓝图、核心实现代码和演进路线图。
 架构蓝图：五层系统架构 生产级AI编程助手需要清晰的层次划分。
@@ -314,7 +317,8 @@ ai-coder.config.ts定义：llm（provider、model、apiKey）、permissions（de
     </h2>
   </header>
   <div class="entry-content">
-    <p>
+    <p> Claude Agent理念专栏是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。
+本文是第4篇：探讨工具作为AI与世界的强类型接口，拆解Claude Code的工具注册机制、智能特性与编排策略。
 工具是AI与外部环境交互的强类型接口——设计良好的工具应该自描述、可组合、可观察。
 这是Claude Code工具系统的设计哲学。与传统函数不同，工具面向AI调用，需要Schema验证，文档是自描述的，权限由用户授权，输出是结构化的，并发由系统自动管理。据我们了解，Claude Code支持超过50种内置工具，MCP生态更有数百种扩展工具。本文拆解其工具注册机制、智能特性与编排策略。
 工具的本质：超越函数调用的新抽象 工具与函数的根本差异在于设计目标和使用方式。
@@ -344,7 +348,7 @@ Bash结果采用渐进式渲染：默认显示前10行，“Show more&#34;链接
 系列阅读快速跳转 日期 篇目 核心问题 04-01 架构哲学：智能与控制的永恒张力 如何平衡AI自主性与用户控制？ 04-01 Agent架构设计：受控的自主之道 Agent与传统函数的本质区别是什么？ 04-01 权限系统：六层信任梯度 如何设计分层的权限决策引擎？ 04-01 工具系统：AI与世界的强类型接口 工具如何成为自描述、可组合的智能接口？ 04-01 上下文管理：有限注意力的艺术 如何在有限上下文窗口中分配注意力？ 04-01 编程体验：流式交互的本质优化 什么是极致的AI编程交互体验？ 04-01 动手构建：从零打造智能编程助手 如何构建生产级的AI编程助手？ 04-01 进阶揭秘：遥测、安全与隐藏能力 Claude Code如何处理隐私、安全与隐藏功能？ 引用 本文基于Claude Code源码中Tool.ts、tools.ts、toolOrchestration.ts等模块分析，以及MCP协议规范。
 ...</p>
   </div>
-  <footer class="entry-footer">   张凯洋 | <span title='2026-04-01 08:00:00 +0800 HKT'>April 1, 2026</span> | <span>11 min</span> | <span>Shanghai, China</span></footer>
+  <footer class="entry-footer">   张凯洋 | <span title='2026-04-01 08:00:00 +0800 HKT'>April 1, 2026</span> | <span>12 min</span> | <span>Shanghai, China</span></footer>
   <a class="entry-link" aria-label="post link to 工具系统：AI与世界的强类型接口" href="https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-04-tools/"></a>
 </article>
 
@@ -354,7 +358,8 @@ Bash结果采用渐进式渲染：默认显示前10行，“Show more&#34;链接
     </h2>
   </header>
   <div class="entry-content">
-    <p>
+    <p> Claude Agent理念专栏是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。
+本文是第3篇：探讨权限作为信任梯度的本质，拆解Claude Code的六层权限模式与四层决策引擎。
 权限的本质是信任的梯度——在什么条件下，允许系统自主执行操作？
 这是Claude Code权限系统的核心设计哲学。简单的&#34;允许/拒绝&#34;二元模型无法满足AI编程助手的需求，因为操作风险不同、上下文影响不同、用户信任度不同、任务阶段不同。据我们了解，Claude Code的权限系统每天处理超过500万次权限检查，其中约12%需要AI分类器介入决策。本文拆解其六层权限模式与四层决策引擎。
 为什么需要复杂的权限系统 AI编程工具面临的权限挑战远超传统软件。
@@ -390,7 +395,7 @@ Hook系统提供强大的扩展能力。PreToolUse Hook可以追加消息到上�
 系列阅读快速跳转 日期 篇目 核心问题 04-01 架构哲学：智能与控制的永恒张力 如何平衡AI自主性与用户控制？ 04-01 Agent架构设计：受控的自主之道 Agent与传统函数的本质区别是什么？ 04-01 权限系统：六层信任梯度 如何设计分层的权限决策引擎？ 04-01 工具系统：AI与世界的强类型接口 工具如何成为自描述、可组合的智能接口？ 04-01 上下文管理：有限注意力的艺术 如何在有限上下文窗口中分配注意力？ 04-01 编程体验：流式交互的本质优化 什么是极致的AI编程交互体验？ 04-01 动手构建：从零打造智能编程助手 如何构建生产级的AI编程助手？ 04-01 进阶揭秘：遥测、安全与隐藏能力 Claude Code如何处理隐私、安全与隐藏功能？ 引用 本文基于Claude Code源码中PermissionMode、useCanUseTool、autoClassifier等模块分析。
 ...</p>
   </div>
-  <footer class="entry-footer">   张凯洋 | <span title='2026-04-01 08:00:00 +0800 HKT'>April 1, 2026</span> | <span>12 min</span> | <span>Shanghai, China</span></footer>
+  <footer class="entry-footer">   张凯洋 | <span title='2026-04-01 08:00:00 +0800 HKT'>April 1, 2026</span> | <span>13 min</span> | <span>Shanghai, China</span></footer>
   <a class="entry-link" aria-label="post link to 权限系统：六层信任梯度" href="https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-03-permissions/"></a>
 </article>
 <footer class="page-footer">
