@@ -160,7 +160,7 @@
             margin-top: 8px;
         }
         
-        /* 金字塔原则：结论先行 */
+        /* 执行摘要区 */
         .conclusion-first {
             background: #fff;
             border-radius: 8px;
@@ -402,31 +402,84 @@
     </script>
 </head>
 <body>
+    <!-- 私密访问蒙版（与 plan.html 同源交互，密码独立） -->
+    <div id="invite-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(20px); z-index:99999; display:flex; justify-content:center; align-items:center;">
+        <div style="background:linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%); border:1px solid rgba(255,255,255,0.2); border-radius:20px; padding:40px; text-align:center; max-width:360px; width:90%;">
+            <div style="font-size:48px; margin-bottom:16px;">🔐</div>
+            <h2 style="color:#fff; font-size:24px; font-weight:bold; margin-bottom:8px;">私密访问</h2>
+            <p style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:24px;">请输入 4 位访问密码</p>
+            <div style="display:flex; justify-content:center; gap:10px; margin-bottom:20px;">
+                <input type="tel" inputmode="numeric" pattern="[0-9]" maxlength="1" class="pipe-invite-input" style="width:50px; height:60px; text-align:center; font-size:24px; font-weight:bold; border:2px solid rgba(255,255,255,0.3); border-radius:12px; background:rgba(255,255,255,0.1); color:#fff; outline:none;" oninput="this.value=this.value.replace(/[^0-9]/g,''); if(this.value) this.nextElementSibling?.focus();" onkeydown="if(event.key==='Backspace' && !this.value) this.previousElementSibling?.focus();">
+                <input type="tel" inputmode="numeric" pattern="[0-9]" maxlength="1" class="pipe-invite-input" style="width:50px; height:60px; text-align:center; font-size:24px; font-weight:bold; border:2px solid rgba(255,255,255,0.3); border-radius:12px; background:rgba(255,255,255,0.1); color:#fff; outline:none;" oninput="this.value=this.value.replace(/[^0-9]/g,''); if(this.value) this.nextElementSibling?.focus();" onkeydown="if(event.key==='Backspace' && !this.value) this.previousElementSibling?.focus();">
+                <input type="tel" inputmode="numeric" pattern="[0-9]" maxlength="1" class="pipe-invite-input" style="width:50px; height:60px; text-align:center; font-size:24px; font-weight:bold; border:2px solid rgba(255,255,255,0.3); border-radius:12px; background:rgba(255,255,255,0.1); color:#fff; outline:none;" oninput="this.value=this.value.replace(/[^0-9]/g,''); if(this.value) this.nextElementSibling?.focus();" onkeydown="if(event.key==='Backspace' && !this.value) this.previousElementSibling?.focus();">
+                <input type="tel" inputmode="numeric" pattern="[0-9]" maxlength="1" class="pipe-invite-input" style="width:50px; height:60px; text-align:center; font-size:24px; font-weight:bold; border:2px solid rgba(255,255,255,0.3); border-radius:12px; background:rgba(255,255,255,0.1); color:#fff; outline:none;" oninput="this.value=this.value.replace(/[^0-9]/g,''); if(this.value) window.verifyPipeInvite();" onkeydown="if(event.key==='Backspace' && !this.value) this.previousElementSibling?.focus();">
+            </div>
+            <p id="pipe-invite-error" style="color:#ef4444; font-size:13px; margin-bottom:16px; display:none;">密码错误，请重试</p>
+            <button type="button" onclick="verifyPipeInvite()" style="width:100%; padding:14px; background:linear-gradient(135deg, #0c4a6e 0%, #1e3a5f 100%); color:#fff; border:none; border-radius:12px; font-size:16px; font-weight:bold; cursor:pointer; transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 10px 30px rgba(12,74,110,0.4)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">验证并进入</button>
+            <p style="color:rgba(255,255,255,0.4); font-size:12px; margin-top:16px;">PIPE-AI 投资备忘录</p>
+        </div>
+    </div>
+    <script>
+    (function() {
+        var ACCESS_CODE = '6666';
+        var STORAGE_KEY = 'pipe_ai_memo_access_v1';
+        var overlay = document.getElementById('invite-overlay');
+        if (localStorage.getItem(STORAGE_KEY) === 'true') {
+            overlay.style.display = 'none';
+        } else {
+            overlay.style.display = 'flex';
+            setTimeout(function() { document.querySelector('.pipe-invite-input')?.focus(); }, 100);
+        }
+        window.verifyPipeInvite = function() {
+            var inputs = document.querySelectorAll('.pipe-invite-input');
+            var code = '';
+            inputs.forEach(function(input) { code += input.value; });
+            var err = document.getElementById('pipe-invite-error');
+            if (code === ACCESS_CODE) {
+                localStorage.setItem(STORAGE_KEY, 'true');
+                overlay.style.transition = 'opacity 0.3s ease';
+                overlay.style.opacity = '0';
+                setTimeout(function() { overlay.style.display = 'none'; }, 300);
+            } else {
+                err.style.display = 'block';
+                inputs.forEach(function(input) {
+                    input.value = '';
+                    input.style.borderColor = '#ef4444';
+                });
+                inputs[0]?.focus();
+                setTimeout(function() {
+                    inputs.forEach(function(input) { input.style.borderColor = 'rgba(255,255,255,0.3)'; });
+                }, 1000);
+            }
+        };
+    })();
+    </script>
+
     <div class="container">
         <div class="confidential">
-            <p><strong>保密与用途</strong>：本文件仅供潜在投资人及顾问在保密前提下进行初步评估；不构成任何证券发行要约或投资建议。文中凡标注「假设」「区间」「待核验」之数值，均需以第三方可研、电网批复、设备招标与经审计模型替换后方可进入投资决策。</p>
+            <p><strong>保密与用途</strong>：本文件仅供潜在投资人在保密前提下评估本轮融资；不构成证券发行要约或投资建议。涉及规划装机、电价、PUE、财务预测及第三方公司财务数据的，以经审计报表、招股文件、电网批复及法律尽调文件为准。</p>
         </div>
         <header>
             <h1>PIPE-AI 投资备忘录</h1>
             <p class="subtitle">Pipe Intelligence & Processing Engine for AI · 智算基础设施与 Token 服务</p>
-            <p class="header-meta">本文采用<strong>金字塔原则</strong>：文首给出结论与投资要点，其后各章为白皮书式展开与依据。</p>
+            <p class="header-meta">智算托管与推理服务 · 执行摘要见第一节 · 详细论证见第二至第十二节</p>
         </header>
         
         <div class="conclusion-first" id="conclusions">
-            <span class="pyramid-tag">Pyramid · Conclusion first</span>
-            <h2>结论先行：读此一节再决定是否深入</h2>
-            <p class="pyramid-dek">面向合伙人会议的前 3 分钟：我们在做什么、规模与钱的硬账、为何可能值钱、最大风险是什么、下一步是什么。细节见下文「白皮书正文」。</p>
+            <span class="pyramid-tag">Executive summary</span>
+            <h2>执行摘要</h2>
+            <p class="pyramid-dek">项目定位、规划规模、资本结构、主要风险及建议尽调范围如下；后文为分项论证、测算与市场对标。</p>
             
             <h3>1. 我们是谁（一句话）</h3>
-            <p style="margin-bottom: 8px;"><strong>PIPE-AI</strong>不训练闭源基础模型，而做<strong>智算基础设施 + 推理与 Token 服务 + 行业微调</strong>，定位为 Token 网络中的<strong>产能与路由节点</strong>；用<strong>长期合约可见度</strong>与<strong>Tokens/Watt</strong>向资本交代单位经济，公开市场对标 <strong>CRWV（CoreWeave）、NBIS（Nebius）</strong> 等。</p>
+            <p style="margin-bottom: 8px;"><strong>PIPE-AI</strong>不训练闭源基础模型，而做<strong>智算基础设施 + 推理与 Token 服务 + 行业微调</strong>，定位为 Token 网络中的<strong>产能与路由节点</strong>；以<strong>长期合约可见度</strong>与<strong>Tokens/Watt</strong>刻画单位经济，海外参照 <strong>CRWV（CoreWeave）、NBIS（Nebius）</strong>，中国二级市场语境见第六节。</p>
             
-            <h3>2. 核心结论（论据见第二节至第十节）</h3>
+            <h3>2. 核心结论</h3>
             <ul class="bullet-conclusions">
-                <li><strong>规划装机</strong>：2,500 柜（12kW 风冷）+ 6,000 柜（21kW 液冷）共 <strong>8,500 柜</strong>；IT 功率算术合计 <strong>156 MW</strong>（30 + 126 MW）。对外「约 160MW 级」须与投资人解释余量或分期，避免复核时算术不一致。</li>
-                <li><strong>电力与 OPEX 量级</strong>：在分区 PUE 假设下，满负荷站级用电约 <strong>15.6 亿 kWh/年</strong>；半负荷粗算约 <strong>9.3–10.5 亿 kWh/年</strong>。仅能源侧年电费粗算约 <strong>4.4–6.5 亿</strong>（满负荷）、<strong>2.6–4.4 亿</strong>（半负荷，电价 0.28–0.42 元/kWh），不含折旧与融资。</li>
-                <li><strong>资本结构结论</strong>：模拟<strong>首期股本金约 50 亿元人民币</strong>与<strong>满配 156MW IT</strong>的工程总投入<strong>不在同一量级</strong>——50 亿应明示为<strong>账本 A（股权/首期可动用资金）</strong>；<strong>总 program</strong>需项目贷、租赁、产投、预付款等（见第十节）。材料Integrity要求两本账分开讲。</li>
+                <li><strong>规划装机</strong>：2,500 柜（12kW 风冷）+ 6,000 柜（21kW 液冷）共 <strong>8,500 柜</strong>；IT 功率合计 <strong>156 MW</strong>（30 + 126 MW）。若对外沟通「约 160MW 级」，应与审计/可研口径对齐（余量、分期或辅助 IT）。</li>
+                <li><strong>电力与 OPEX 量级</strong>：按分区 PUE 测算，满负荷站级用电约 <strong>15.6 亿 kWh/年</strong>；半负荷约 <strong>9.3–10.5 亿 kWh/年</strong>。能源侧年电费粗算约 <strong>4.4–6.5 亿元</strong>（满负荷）、<strong>2.6–4.4 亿元</strong>（半负荷，电价 0.28–0.42 元/kWh），不含折旧与融资。</li>
+                <li><strong>资本结构</strong>：<strong>首期股本金约 50 亿元人民币</strong>与<strong>满配 156MW IT</strong>所需总资本开支<strong>不在同一量级</strong>。50 亿元为<strong>股权侧首期可动用资金</strong>；总 program 须叠加项目贷、设备租赁、产业投资与客户预付款等（第十节）。</li>
                 <li><strong>Token 与收入</strong>：产出与单价高度依赖模型与 SLA，正文给<strong>敏感性区间</strong>而非单点承诺；收入需与电力及折旧联表测算。</li>
-                <li><strong>策略边界</strong>：依赖<strong>开源权重 + 微调</strong>时，护城河在<strong>交付成本、合约与客户记录</strong>，而非模型独占（见第十一节 SWOT）。</li>
+                <li><strong>技术与市场边界</strong>：以<strong>开源权重 + 垂直微调</strong>服务客户时，差异化重点在<strong>交付成本、合约能见度与客户交付记录</strong>，而非基础模型独占权（第十一节）。</li>
             </ul>
             
             <h3>3. 硬数字一览</h3>
@@ -448,38 +501,38 @@
                     <td>约 <strong>9.3–10.5 亿 kWh</strong></td>
                 </tr>
                 <tr>
-                    <td>模拟首期股本金</td>
-                    <td><strong>50 亿元人民币</strong>（≠ 满配总 capex）</td>
+                    <td>首期股本金（示例）</td>
+                    <td><strong>50 亿元人民币</strong>；满配总 capex 另计（第十节）</td>
                 </tr>
                 <tr>
-                    <td>估值参照（上市/公众公司）</td>
-                    <td><strong>CRWV · NBIS</strong>（详见第六节）</td>
+                    <td>估值与流动性参照</td>
+                    <td>海外：<strong>CRWV、NBIS</strong> 等；中国语境：<strong>智谱、MiniMax</strong> 等港交所上市/已披露年报的基础模型与云服务商（第六节，与 PIPE-AI 赛道不同但影响资金环境与退出预期）</td>
                 </tr>
             </table>
             
-            <h3>4. 为什么要看（投资要点，理性版）</h3>
+            <h3>4. 投资要点</h3>
             <ul class="bullet-conclusions">
                 <li><strong>板块β</strong>：AI 推理与托管算力需求增长，区域电价差与长协能见度是可资本化叙事（对标海外高 backlog 公司）。</li>
                 <li><strong>中国α</strong>（若落地）：西部电价、东数西算、政企私有化与合规交付——与「卖 Token」的轻营销相比，更重<strong>可审计的 MW 与合同</strong>。</li>
                 <li><strong>资本效率叙事</strong>：开源+微调降低自研基模资本强度，但<strong>不降低</strong>机房与芯片的绝对资本需求——须与「两本账」一起讲清。</li>
             </ul>
             
-            <h3>5. 最大风险（不减配披露）</h3>
+            <h3>5. 主要风险</h3>
             <ul class="bullet-conclusions">
                 <li><strong>供应链</strong>：高端 GPU 可得性与价格波动。</li>
                 <li><strong>价格与集中度</strong>：云厂商降价、客户集中与大单流失。</li>
                 <li><strong>资本与执行</strong>：重资产现金流、建设延期、PUE 与利用率不及预期。</li>
             </ul>
             
-            <h3>6. 建议下一步（IC / DD）</h3>
+            <h3>6. 建议尽调范围</h3>
             <ul class="bullet-conclusions">
-                <li>可研级：<strong>8760h 负荷曲线</strong>、电网批复、EPC 概算与<strong>分阶段装机</strong>对齐 50 亿首期。</li>
-                <li>商业：<strong>意向合同 / LOI</strong>、付款条款、take-or-pay 可复制性。</li>
-                <li>对标：更新 <strong>CRWV、NBIS</strong> 最近季报中的 backlog、MW、capex 口径。</li>
+                <li><strong>工程与能源</strong>：8760h 负荷曲线、电网接入批复、EPC 概算及分阶段装机与首期 50 亿元股本的匹配方案。</li>
+                <li><strong>商业与合同</strong>：意向订单或 LOI、付款与 take-or-pay（如适用）条款及客户集中度。</li>
+                <li><strong>市场对标数据</strong>：CRWV、NBIS 等最新季报（backlog、MW、capex）；境内港交所 AI 相关标的招股书与年报更新。</li>
             </ul>
         </div>
         
-        <div class="divider-whitepaper">以下进入白皮书正文 — 按章节展开依据、数据表与风险细节（支持上文结论）</div>
+        <div class="divider-whitepaper">正文</div>
         
         <div class="document-info">
             <h2>文档信息</h2>
@@ -490,7 +543,7 @@
                 </tr>
                 <tr>
                     <td>文档版本</td>
-                    <td>v1.1-institutional</td>
+                    <td>v2.0</td>
                 </tr>
                 <tr>
                     <td>发布日期</td>
@@ -498,7 +551,7 @@
                 </tr>
                 <tr>
                     <td>文档性质</td>
-                    <td>机构投资人材料（草案）</td>
+                    <td>投资备忘录（正式稿）</td>
                 </tr>
                 <tr>
                     <td>编制</td>
@@ -509,7 +562,7 @@
         
         <section>
             <h2>一、执行摘要（扩展）：AI 时代的电力公司</h2>
-            <p class="small-note">本章在文首<a href="#conclusions">「结论先行」</a>基础上展开市场背景与差异化；工程、电力与资本硬账以<strong>第二节、第十节</strong>为准。</p>
+            <p class="small-note">文首为执行摘要。本节补充市场背景与战略差异化；工程、电力与资本口径以<strong>第二、第十节</strong>为准。</p>
             
             <h3>核心命题</h3>
             <p>PIPE-AI定位为全球化TOKEN运营商，构建面向全人类的AI智能管道。我们不做AI模型，不做AI应用，而是成为AI时代的"电力公司"——生产、输送、交易Token这一AI时代的核心能源。</p>
@@ -543,8 +596,8 @@
                 </tr>
                 <tr>
                     <td>Token 相关宏观表述</td>
-                    <td>高增长（具体倍数随统计口径变化）</td>
-                    <td>政策与行业材料（<strong>待核验</strong>原始出处与口径）</td>
+                    <td>高增长（倍数随统计口径变化）</td>
+                    <td>政策与行业材料（引用时请注明年份与出处）</td>
                 </tr>
             </table>
             <p class="small-note">上表中第三方预测数字仅作背景参考；董事会材料应以可引用的原始报告页码为准。PIPE-AI 的商业计划不依赖单一宏观预测的精确性。</p>
@@ -688,11 +741,11 @@
             <p class="small-note">电费敏感性（仅能源 OPEX，不含折旧）：若综合电价 0.28–0.42 元/kWh，则<strong>满负荷</strong>年电费约 <strong>4.4–6.5 亿元</strong>；<strong>半负荷</strong>约 <strong>2.6–4.4 亿元</strong>。此数字<strong>不包含</strong> GPU/加速芯片折旧、资金成本与网络费用。</p>
             
             <div class="callout-risk">
-                <p><strong>资本开支现实检验（与「总投资 50 亿元」对齐）</strong>：仅 156MW IT 的机电、土建、外电与冷却，若以行业常见的<strong>每 IT kW 8–15 万元人民币（不含芯片）</strong>粗算，土建+机电已是<strong>约 125–234 亿元</strong>量级；加速芯片与网络通常<strong>另计</strong>且波动极大。因此，<strong>「50 亿元」在工程上不足以独立完成本文规划的满配机柜与芯片填充</strong>，应明确为：<strong>首期股本金</strong> + 撬动<strong>地方产投 / 项目贷 / 设备融资租赁 / 客户预付款</strong>的组合；或下调首阶段交付机柜规模。若向红杉、真格等机构呈现，建议单列「资本金 / 总 program」两张表，避免被现场拆穿算术。</p>
+                <p><strong>资本开支与首期股本</strong>：仅 156MW IT 的机电、土建、外电与冷却，若以行业常见的<strong>每 IT kW 8–15 万元人民币（不含芯片）</strong>粗算，土建与机电已达<strong>约 125–234 亿元</strong>量级；加速芯片与网络<strong>另行计列</strong>且价格波动大。因而<strong>50 亿元首期股本金</strong>不足以单独覆盖满配机柜与芯片填充，须与<strong>地方产投、项目贷、设备融资租赁、客户预付款</strong>等组合安排配套，或分阶段下调首年可交付机柜规模。本章与第十节将<strong>股本金</strong>与<strong>总 program</strong>分账列示。</p>
             </div>
             
-            <h3>2.3 「有效 Token」产出：假设、区间与不可承诺事项</h3>
-            <p>Token 产出由<strong>模型结构、批大小、精度、SLA、并发、缓存命中率与集群网络</strong>共同决定，无法用单一常数描述。对投资人更诚实的做法是给出<strong>可替换参数</strong>的敏感性表，而不是一个「精确到个位」的伪科学数字。</p>
+            <h3>2.3 有效 Token 产出：参数、区间与敏感性</h3>
+            <p>Token 产出由<strong>模型结构、批大小、精度、SLA、并发、缓存命中率与集群网络</strong>共同决定。以下采用<strong>可替换参数</strong>的敏感性表述，具体项目以 benchmark 与合同约定为准。</p>
             <table>
                 <tr>
                     <th>参数</th>
@@ -715,7 +768,7 @@
                     <td>内部测试、故障切换、赠额会稀释「可开票」部分</td>
                 </tr>
             </table>
-            <p>在上述示意参数下，<strong>年化输出 Token（量级）</strong>大致落在 <strong>约 6×10<sup>15</sup>–4×10<sup>16</sup></strong>（即约 6000–40000 万亿 output tokens/年）的<strong>宽区间</strong>内。<strong>任何窄区间承诺均需要已锁定的芯片型号、模型清单与 SLA 合同支撑。</strong></p>
+            <p>在上述示意参数下，<strong>年化输出 Token（量级）</strong>大致落在 <strong>约 6×10<sup>15</sup>–4×10<sup>16</sup></strong>（约 6000–40000 万亿 output tokens/年）的区间内。若需收窄预测区间，应以已锁定的芯片型号、模型清单与 SLA 合同为依据。</p>
             
             <h3>2.4 Token 价格到收入：敏感性（非预测）</h3>
             <table>
@@ -952,7 +1005,7 @@
         <section>
             <h2>五、PIPE-AI战略定位：三层业务模型</h2>
             
-            <h3>战略定位金字塔</h3>
+            <h3>战略定位层级</h3>
             <div class="mermaid">
                 flowchart TB
                     subgraph Vision["愿景层"]
@@ -1138,6 +1191,56 @@
                 </tr>
             </table>
             <p class="small-note">PIPE-AI 若主打「中国西部电价 + 长协 + Token 服务」，更接近 <strong>CRWV / NBIS</strong> 的交集，但需额外披露<strong>GPU 供给、数据合规与客户集中度</strong>等折价因素。</p>
+            
+            <h3>中国基础模型与全球化产品公司：智谱、MiniMax 及 Anthropic 估值语境</h3>
+            <p>2026 年 1 月，<strong>智谱</strong>与 <strong>MiniMax</strong>相继于<strong>香港联合交易所</strong>主板挂牌（证券简称及股份代号以交易所披露为准）。两家公司仍处于<strong>战略性亏损</strong>阶段，研发开支显著高于当前营收；二级市场在一定时期的定价隐含<strong>极高的市值与收入倍数</strong>。下表数据摘自两家公司已公开的招股及上市后财务披露与主流媒体测算；<strong>市值峰值、汇率折算与市销率须按指定交易日与会计准则复算</strong>。</p>
+            <table>
+                <tr>
+                    <th>指标（约 2025 财年或公司披露期）</th>
+                    <th>智谱</th>
+                    <th>MiniMax</th>
+                    <th>Anthropic（私募融资口径，对照用）</th>
+                </tr>
+                <tr>
+                    <td>总营收</td>
+                    <td>约 <strong>7.24 亿元</strong>人民币，同比约 <strong>+131.9%</strong></td>
+                    <td>约 <strong>7900 万</strong>美元，同比约 <strong>+158.9%</strong></td>
+                    <td>媒体报道年化营收约 <strong>140 亿美元</strong>量级（G 轮融资前后市场讨论）</td>
+                </tr>
+                <tr>
+                    <td>收入结构</td>
+                    <td>约 <strong>73.7%</strong> 来自<strong>私有化部署</strong>（政企与行业定制）；开放平台与 API 收入增速较高，云端部署占比提升至约 <strong>26.3%</strong></td>
+                    <td>约 <strong>73.0%</strong> 来自<strong>中国大陆以外</strong>市场；AI 原生应用（Talkie、海螺视频等）占收入约 <strong>67.2%</strong></td>
+                    <td>「Claude」系列驱动的 <strong>API + 订阅</strong>多元结构，企业及开发者粘性高（定性对照）</td>
+                </tr>
+                <tr>
+                    <td>整体毛利率</td>
+                    <td>约 <strong>41.0%</strong>（2024 年约 56.3%）；私有化主业毛利率约 <strong>48.8%</strong>（2024 年约 66.0%）</td>
+                    <td>约 <strong>25.4%</strong>（2024 年约 12.2%）</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>销售费用</td>
+                    <td>销售及营销约 <strong>3.91 亿元</strong>，规模接近云端业务全年收入的两倍（重交付与获客结构）</td>
+                    <td>销售及分销约 <strong>5190 万美元</strong>，同比约 <strong>−40.3%</strong>（产品驱动、自然增长）</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>研发与亏损</td>
+                    <td>研发费用约 <strong>31.8 亿元</strong>，同比约 <strong>+44.9%</strong>；经调整净亏损约 <strong>31.82 亿元</strong>；全职员工约 <strong>1094 人</strong></td>
+                    <td>研发费用约 <strong>2.53 亿美元</strong>；经调整净亏损约 <strong>2.51 亿美元</strong>；全职员工约 <strong>428 人</strong></td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>现金与安全边际</td>
+                    <td>现金类约 <strong>22.59 亿元</strong>（若按当年调整后亏损静态推演，须关注再融资节奏）</td>
+                    <td>现金、定存及金融资产等约 <strong>10.5 亿美元</strong>，报表披露层面的缓冲相对较厚</td>
+                    <td>G 轮后媒体报道估值约 <strong>3800 亿美元</strong>，对应前述营收量级的市销率约 <strong>27 倍</strong>（量级示意）</td>
+                </tr>
+            </table>
+            <p><strong>二级市场定价与可比倍数。</strong> 相对 Anthropic 私募融资所隐含的收入倍数，智谱与 MiniMax 在部分交易日曾对应<strong>数百倍市销率</strong>的量级（取决于市值峰值、汇率与营收口径）。常见解释包括：AI 主题与流动性溢价、<strong>战略配售与流通盘占比</strong>导致的筹码稀缺、以及市场对「中国版顶尖模型公司」的预期。上述倍数<strong>不可直接套用</strong>于 PIPE-AI：PIPE-AI 主业为<strong>智算基础设施与托管推理</strong>，盈利逻辑更接近<strong>电力、利用率与合同 backlog</strong>，应优先采用 <strong>CRWV、NBIS、IREN</strong> 等链条上的估值语言，中国模型公司数据仅反映<strong>区域内资金情绪与退出环境</strong>。</p>
+            <p><strong>商业路径差异（To B 交付 vs 海外 To C / 订阅）。</strong> 智谱深度绑定国内政企私有化，收入与交付人力<strong>同步扩张</strong>，应收账款占营收比例较高（例如报表披露应收约占全年营收<strong>近四成以上量级</strong>），历史上亦存在<strong>大客户集中度</strong>需持续披露。MiniMax 以海外 C 端与创作者产品为主，销售费用收缩与营收高增的组合更接近<strong>产品驱动型</strong>早期特征。MiniMax 亦披露部分子公司涉及<strong>知识产权诉讼</strong>（如影视权利人针对生成内容护栏的主张），诉争金额在公开材料中可能达<strong>数千万美元量级</strong>，结果未定，属重大或有负债与合规风险。</p>
+            <p class="small-note">市场评论常将「智谱与 MiniMax 谁更接近 Anthropic」作为修辞问题；对本备忘录而言，结论是<strong>赛道不同则倍数不可混用</strong>——PIPE-AI 需在模型公司热度与算力运营商基本面之间，向投资人交代<strong>清晰的可比组与折价逻辑</strong>。</p>
             
             <h3>CoreWeave（CRWV）：长协与 backlog 能见度</h3>
             <ul>
@@ -1603,7 +1706,7 @@
         
         <section>
             <h2>十、融资与财务规划：资本金与总 program 拆分</h2>
-            <p>本节将<strong>「模拟总投资 50 亿元人民币」</strong>明确为<strong>首期可动用股本金（或股本金+政策性资金的上限）</strong>，并与第二节的<strong>156MW IT 满配</strong>所需总投入解耦，避免投资人在 DD 中发现「50 亿建 8500 柜」不可行而一票否决。</p>
+            <p>本节将<strong>50 亿元人民币</strong>列示为<strong>首期股本金（含政策性资金时的合并口径由协议确定）</strong>；<strong>156MW IT 满配</strong>所需总资本开支见第二节工程测算及第三方可研，二者分账披露。</p>
             
             <h3>10.1 两本账：股本金 vs 总 program</h3>
             <table>
@@ -1615,7 +1718,7 @@
                 <tr>
                     <td><strong>账本 A：股本金</strong></td>
                     <td>创始团队、VC（如红杉/真格等）、战略方、地方产投以股权或类股权进入的资金</td>
-                    <td><strong>50 亿元（模拟上限）</strong>，用于首期土地、外电、部分机柜与芯片、平台研发与营运资金</td>
+                    <td><strong>50 亿元</strong>（首期股本金目标示例），用于首期土地、外电、部分机柜与芯片、平台研发与营运资金</td>
                 </tr>
                 <tr>
                     <td><strong>账本 B：总 program</strong></td>
@@ -2002,9 +2105,9 @@
         </section>
         
         <section>
-            <h2>结语：可验证的重资产叙事</h2>
-            <p>文首<a href="#conclusions">「结论先行」</a>已按金字塔原则汇总可挑战的三件事：<strong>（1）装机与电力是否对得上账；</strong><strong>（2）资本金与总 program 是否拆得清；</strong><strong>（3）开源+微调路径下，单位经济是否经得起与 CRWV、NBIS 等公开标的的对照。</strong>正文各章是对上述结论的展开与证据；若结论站不住，后文无须久读。</p>
-            <p class="footer-note">本文为 PIPE-AI 机构投资人草案，保密持有，未经授权不得转载。</p>
+            <h2>结语</h2>
+            <p>PIPE-AI 的业务验证最终落在三类可核查命题：<strong>装机与电力</strong>是否与设计及电价一致；<strong>股权资金与总 program</strong>是否已在财务模型中拆开；<strong>单位经济</strong>能否与 CRWV、NBIS 等基础设施参照组对照，并与中国市场<strong>模型与应用标的的估值环境</strong>（第六节）区分使用。文首<a href="#conclusions">执行摘要</a>汇总要点。</p>
+            <p class="footer-note">本投资备忘录仅供指定收件人使用，未经授权不得复制、转发或公开发布。</p>
         </section>
         
         <footer>
