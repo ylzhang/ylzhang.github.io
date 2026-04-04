@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIPE-AI备忘录（Institutional Draft）</title>
+    <title>PIPE-AI 投资备忘录</title>
     <style>
         * {
             margin: 0;
@@ -158,6 +158,87 @@
             font-size: 0.85em;
             color: #64748b;
             margin-top: 8px;
+        }
+        
+        /* 金字塔原则：结论先行 */
+        .conclusion-first {
+            background: #fff;
+            border-radius: 8px;
+            padding: 28px 28px 32px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+            border: 2px solid #0c4a6e;
+        }
+        
+        .conclusion-first > .pyramid-tag {
+            display: inline-block;
+            font-size: 0.72em;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #0c4a6e;
+            background: #e0f2fe;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+        
+        .conclusion-first h2 {
+            border-bottom: none;
+            margin-bottom: 8px;
+            padding-bottom: 0;
+            font-size: 1.45em;
+        }
+        
+        .conclusion-first .pyramid-dek {
+            color: #475569;
+            font-size: 0.98em;
+            margin-bottom: 22px;
+            line-height: 1.55;
+        }
+        
+        .conclusion-first h3 {
+            margin-top: 22px;
+            margin-bottom: 10px;
+            font-size: 1.02em;
+            color: #0f172a;
+        }
+        
+        .conclusion-first h3:first-of-type {
+            margin-top: 18px;
+        }
+        
+        .bullet-conclusions {
+            list-style: none;
+            margin: 12px 0 8px 0;
+            padding-left: 0;
+        }
+        
+        .bullet-conclusions li {
+            margin-bottom: 12px;
+            padding-left: 1.1em;
+            position: relative;
+            line-height: 1.55;
+        }
+        
+        .bullet-conclusions li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #0c4a6e;
+            font-weight: 700;
+        }
+        
+        .divider-whitepaper {
+            text-align: center;
+            margin: 28px 0 24px;
+            padding: 16px 20px;
+            background: linear-gradient(90deg, transparent, #e2e8f0 15%, #e2e8f0 85%, transparent);
+            border-radius: 6px;
+            color: #475569;
+            font-size: 0.92em;
+            font-weight: 600;
+            letter-spacing: 0.02em;
         }
         
         ul {
@@ -328,8 +409,77 @@
         <header>
             <h1>PIPE-AI 投资备忘录</h1>
             <p class="subtitle">Pipe Intelligence & Processing Engine for AI · 智算基础设施与 Token 服务</p>
-            <p class="header-meta">面向机构投资人的一页纸结论：以可核查的装机与电力为硬约束，以公开市场的同类公司为估值锚，明确资本金与追加融资边界。</p>
+            <p class="header-meta">本文采用<strong>金字塔原则</strong>：文首给出结论与投资要点，其后各章为白皮书式展开与依据。</p>
         </header>
+        
+        <div class="conclusion-first" id="conclusions">
+            <span class="pyramid-tag">Pyramid · Conclusion first</span>
+            <h2>结论先行：读此一节再决定是否深入</h2>
+            <p class="pyramid-dek">面向合伙人会议的前 3 分钟：我们在做什么、规模与钱的硬账、为何可能值钱、最大风险是什么、下一步是什么。细节见下文「白皮书正文」。</p>
+            
+            <h3>1. 我们是谁（一句话）</h3>
+            <p style="margin-bottom: 8px;"><strong>PIPE-AI</strong>不训练闭源基础模型，而做<strong>智算基础设施 + 推理与 Token 服务 + 行业微调</strong>，定位为 Token 网络中的<strong>产能与路由节点</strong>；用<strong>长期合约可见度</strong>与<strong>Tokens/Watt</strong>向资本交代单位经济，公开市场对标 <strong>CRWV（CoreWeave）、NBIS（Nebius）</strong> 等。</p>
+            
+            <h3>2. 核心结论（论据见第二节至第十节）</h3>
+            <ul class="bullet-conclusions">
+                <li><strong>规划装机</strong>：2,500 柜（12kW 风冷）+ 6,000 柜（21kW 液冷）共 <strong>8,500 柜</strong>；IT 功率算术合计 <strong>156 MW</strong>（30 + 126 MW）。对外「约 160MW 级」须与投资人解释余量或分期，避免复核时算术不一致。</li>
+                <li><strong>电力与 OPEX 量级</strong>：在分区 PUE 假设下，满负荷站级用电约 <strong>15.6 亿 kWh/年</strong>；半负荷粗算约 <strong>9.3–10.5 亿 kWh/年</strong>。仅能源侧年电费粗算约 <strong>4.4–6.5 亿</strong>（满负荷）、<strong>2.6–4.4 亿</strong>（半负荷，电价 0.28–0.42 元/kWh），不含折旧与融资。</li>
+                <li><strong>资本结构结论</strong>：模拟<strong>首期股本金约 50 亿元人民币</strong>与<strong>满配 156MW IT</strong>的工程总投入<strong>不在同一量级</strong>——50 亿应明示为<strong>账本 A（股权/首期可动用资金）</strong>；<strong>总 program</strong>需项目贷、租赁、产投、预付款等（见第十节）。材料Integrity要求两本账分开讲。</li>
+                <li><strong>Token 与收入</strong>：产出与单价高度依赖模型与 SLA，正文给<strong>敏感性区间</strong>而非单点承诺；收入需与电力及折旧联表测算。</li>
+                <li><strong>策略边界</strong>：依赖<strong>开源权重 + 微调</strong>时，护城河在<strong>交付成本、合约与客户记录</strong>，而非模型独占（见第十一节 SWOT）。</li>
+            </ul>
+            
+            <h3>3. 硬数字一览</h3>
+            <table>
+                <tr>
+                    <th>项目</th>
+                    <th>结论值</th>
+                </tr>
+                <tr>
+                    <td>IT 总功率（规划算术）</td>
+                    <td><strong>156 MW</strong></td>
+                </tr>
+                <tr>
+                    <td>年满负荷站级耗电（示意）</td>
+                    <td>约 <strong>15.6 亿 kWh</strong></td>
+                </tr>
+                <tr>
+                    <td>年半负荷耗电（粗算）</td>
+                    <td>约 <strong>9.3–10.5 亿 kWh</strong></td>
+                </tr>
+                <tr>
+                    <td>模拟首期股本金</td>
+                    <td><strong>50 亿元人民币</strong>（≠ 满配总 capex）</td>
+                </tr>
+                <tr>
+                    <td>估值参照（上市/公众公司）</td>
+                    <td><strong>CRWV · NBIS</strong>（详见第六节）</td>
+                </tr>
+            </table>
+            
+            <h3>4. 为什么要看（投资要点，理性版）</h3>
+            <ul class="bullet-conclusions">
+                <li><strong>板块β</strong>：AI 推理与托管算力需求增长，区域电价差与长协能见度是可资本化叙事（对标海外高 backlog 公司）。</li>
+                <li><strong>中国α</strong>（若落地）：西部电价、东数西算、政企私有化与合规交付——与「卖 Token」的轻营销相比，更重<strong>可审计的 MW 与合同</strong>。</li>
+                <li><strong>资本效率叙事</strong>：开源+微调降低自研基模资本强度，但<strong>不降低</strong>机房与芯片的绝对资本需求——须与「两本账」一起讲清。</li>
+            </ul>
+            
+            <h3>5. 最大风险（不减配披露）</h3>
+            <ul class="bullet-conclusions">
+                <li><strong>供应链</strong>：高端 GPU 可得性与价格波动。</li>
+                <li><strong>价格与集中度</strong>：云厂商降价、客户集中与大单流失。</li>
+                <li><strong>资本与执行</strong>：重资产现金流、建设延期、PUE 与利用率不及预期。</li>
+            </ul>
+            
+            <h3>6. 建议下一步（IC / DD）</h3>
+            <ul class="bullet-conclusions">
+                <li>可研级：<strong>8760h 负荷曲线</strong>、电网批复、EPC 概算与<strong>分阶段装机</strong>对齐 50 亿首期。</li>
+                <li>商业：<strong>意向合同 / LOI</strong>、付款条款、take-or-pay 可复制性。</li>
+                <li>对标：更新 <strong>CRWV、NBIS</strong> 最近季报中的 backlog、MW、capex 口径。</li>
+            </ul>
+        </div>
+        
+        <div class="divider-whitepaper">以下进入白皮书正文 — 按章节展开依据、数据表与风险细节（支持上文结论）</div>
         
         <div class="document-info">
             <h2>文档信息</h2>
@@ -357,14 +507,9 @@
             </table>
         </div>
         
-        <div class="highlight">
-            <p><strong>一句话定位</strong>：PIPE-AI 不训练闭源基础模型，而以「算力基础设施 + 推理与 Token 服务 + 行业微调节点」切入产业链；对标已上市的 AI 基础设施与算力运营商，用<strong>长期合约可见度</strong>与<strong>Tokens/Watt</strong>效率向资本方交代单位经济。</p>
-        </div>
-        
-        <p>PIPE-AI（Pipe Intelligence & Processing Engine for AI）将自身定义为全球化 Token 网络中的<strong>产能与路由节点</strong>：向上承接电力、机柜与加速芯片，向下以 API / 托管推理 / 行业微调交付可用产出。下文给出与规划装机一致的<strong>电力衡算</strong>、在明确假设下的<strong>Token 产出与收入敏感性</strong>，并直陈<strong>50 亿元人民币首期投资与满配 156MW IT 目标之间的资本缺口</strong>，避免叙事与工程现实脱节。</p>
-        
         <section>
-            <h2>一、执行摘要：AI时代的电力公司</h2>
+            <h2>一、执行摘要（扩展）：AI 时代的电力公司</h2>
+            <p class="small-note">本章在文首<a href="#conclusions">「结论先行」</a>基础上展开市场背景与差异化；工程、电力与资本硬账以<strong>第二节、第十节</strong>为准。</p>
             
             <h3>核心命题</h3>
             <p>PIPE-AI定位为全球化TOKEN运营商，构建面向全人类的AI智能管道。我们不做AI模型，不做AI应用，而是成为AI时代的"电力公司"——生产、输送、交易Token这一AI时代的核心能源。</p>
@@ -465,38 +610,6 @@
                     <td>平台垄断</td>
                     <td>算力供应商</td>
                     <td>Token Hub节点</td>
-                </tr>
-            </table>
-            
-            <h3>本版材料中的「硬数字」速览（详见第二节、第六节、第十节）</h3>
-            <table>
-                <tr>
-                    <th>项目</th>
-                    <th>数值</th>
-                </tr>
-                <tr>
-                    <td>规划机柜</td>
-                    <td>2,500（12kW 风冷）+ 6,000（21kW 液冷）= 8,500 柜</td>
-                </tr>
-                <tr>
-                    <td>IT 总功率（算术）</td>
-                    <td><strong>156 MW</strong>（30 + 126）；「160MW 级」对外表述须解释余量或分期</td>
-                </tr>
-                <tr>
-                    <td>年满负荷站级耗电（示意）</td>
-                    <td>约 <strong>15.6 亿 kWh</strong>（≈178MW 站级 × 8,760h，PUE 分区假设见第二节）</td>
-                </tr>
-                <tr>
-                    <td>年半负荷耗电（粗算）</td>
-                    <td>约 <strong>9.3–10.5 亿 kWh</strong></td>
-                </tr>
-                <tr>
-                    <td>模拟首期股本金</td>
-                    <td><strong>50 亿元人民币</strong>（与满配总 program 不同账，见第十节）</td>
-                </tr>
-                <tr>
-                    <td>估值锚（公开市场对标）</td>
-                    <td><strong>CRWV、NBIS</strong> 等（第六节）</td>
                 </tr>
             </table>
         </section>
@@ -1890,7 +2003,7 @@
         
         <section>
             <h2>结语：可验证的重资产叙事</h2>
-            <p>PIPE-AI 的叙事若要在红杉、真格等机构面前成立，核心不是「Token 即货币」的修辞，而是三件事：<strong>（1）装机与电力是否对得上账；</strong><strong>（2）资本金与总 program 是否拆得清；</strong><strong>（3）开源+微调路径下，单位经济是否经得起与 CRWV、NBIS 等公开标的的对照。</strong>本版材料已将 156MW IT 的算术、分区 PUE、年满负荷/半负荷电量区间、以及 50 亿元股本金的边界写在前排，便于你们直接挑战假设。</p>
+            <p>文首<a href="#conclusions">「结论先行」</a>已按金字塔原则汇总可挑战的三件事：<strong>（1）装机与电力是否对得上账；</strong><strong>（2）资本金与总 program 是否拆得清；</strong><strong>（3）开源+微调路径下，单位经济是否经得起与 CRWV、NBIS 等公开标的的对照。</strong>正文各章是对上述结论的展开与证据；若结论站不住，后文无须久读。</p>
             <p class="footer-note">本文为 PIPE-AI 机构投资人草案，保密持有，未经授权不得转载。</p>
         </section>
         
