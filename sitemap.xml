@@ -2,25 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.zhangky.com/tags/ai/</loc>
-    <lastmod>2026-04-03T20:00:00+08:00</lastmod>
+    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-01-philosophy/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangky.com/posts/2026/april/2026-04-03-yoshua-bengio-the-theorist/</loc>
-    <lastmod>2026-04-03T20:00:00+08:00</lastmod>
+    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-02-architecture/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-03-permissions/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-04-tools/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-05-context/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-06-experience/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-07-building/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-08-advanced/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/tags/agentic/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/tags/ai/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/categories/</loc>
-    <lastmod>2026-04-03T20:00:00+08:00</lastmod>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/series/claude-agent%E7%90%86%E5%BF%B5%E4%B8%93%E6%A0%8F/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/</loc>
-    <lastmod>2026-04-03T20:00:00+08:00</lastmod>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/series/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/tags/</loc>
-    <lastmod>2026-04-03T20:00:00+08:00</lastmod>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/categories/technology/</loc>
-    <lastmod>2026-04-03T20:00:00+08:00</lastmod>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/2026/april/2026-04-03-yoshua-bengio-the-theorist/</loc>
     <lastmod>2026-04-03T20:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/</loc>
@@ -31,42 +67,6 @@
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/april/2026-04-01-geoffrey-hinton-the-carpenter/</loc>
     <lastmod>2026-04-01T21:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-01-philosophy/</loc>
-    <lastmod>2026-04-01T08:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-02-architecture/</loc>
-    <lastmod>2026-04-01T08:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-03-permissions/</loc>
-    <lastmod>2026-04-01T08:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-04-tools/</loc>
-    <lastmod>2026-04-01T08:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-05-context/</loc>
-    <lastmod>2026-04-01T08:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-06-experience/</loc>
-    <lastmod>2026-04-01T08:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-07-building/</loc>
-    <lastmod>2026-04-01T08:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-08-advanced/</loc>
-    <lastmod>2026-04-01T08:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/tags/agentic/</loc>
-    <lastmod>2026-04-01T08:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/series/claude-agent%E7%90%86%E5%BF%B5%E4%B8%93%E6%A0%8F/</loc>
-    <lastmod>2026-04-01T08:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/series/</loc>
-    <lastmod>2026-04-01T08:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2026-04-01T08:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/2026-03-29-ai-coding-frameworks-harness-analysis/</loc>
     <lastmod>2026-03-29T20:00:00+08:00</lastmod>

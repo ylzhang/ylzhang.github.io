@@ -11,13 +11,13 @@
     </image>
     <generator>Hugo -- 0.159.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 01 Apr 2026 08:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 04 Apr 2026 06:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/series/claude-agent%E7%90%86%E5%BF%B5%E4%B8%93%E6%A0%8F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>01-架构哲学：智能与控制的永恒张力</title>
-      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-01-philosophy/</link>
-      <pubDate>Wed, 01 Apr 2026 08:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-01-philosophy/</guid>
+      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-01-philosophy/</link>
+      <pubDate>Sat, 04 Apr 2026 06:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-01-philosophy/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Claude Agent理念专栏&lt;/strong&gt;是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本文是第1篇&lt;/strong&gt;：探讨AI编程工具中智能与控制的永恒张力，以及Claude Code的四大设计原则和五层架构模型。&lt;/p&gt;
@@ -107,9 +107,9 @@
     </item>
     <item>
       <title>02-Agent架构设计：受控的自主之道</title>
-      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-02-architecture/</link>
-      <pubDate>Wed, 01 Apr 2026 08:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-02-architecture/</guid>
+      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-02-architecture/</link>
+      <pubDate>Sat, 04 Apr 2026 06:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-02-architecture/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Claude Agent理念专栏&lt;/strong&gt;是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本文是第2篇&lt;/strong&gt;：探讨Agent与传统函数的本质区别，拆解Claude Code的四层Agent架构与三种隔离策略。&lt;/p&gt;
@@ -208,9 +208,9 @@
     </item>
     <item>
       <title>03-权限系统：六层信任梯度</title>
-      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-03-permissions/</link>
-      <pubDate>Wed, 01 Apr 2026 08:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-03-permissions/</guid>
+      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-03-permissions/</link>
+      <pubDate>Sat, 04 Apr 2026 06:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-03-permissions/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Claude Agent理念专栏&lt;/strong&gt;是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本文是第3篇&lt;/strong&gt;：探讨权限作为信任梯度的本质，拆解Claude Code的六层权限模式与四层决策引擎。&lt;/p&gt;
@@ -318,9 +318,9 @@
     </item>
     <item>
       <title>04-工具系统：AI与世界的强类型接口</title>
-      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-04-tools/</link>
-      <pubDate>Wed, 01 Apr 2026 08:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-04-tools/</guid>
+      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-04-tools/</link>
+      <pubDate>Sat, 04 Apr 2026 06:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-04-tools/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Claude Agent理念专栏&lt;/strong&gt;是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本文是第4篇&lt;/strong&gt;：探讨工具作为AI与世界的强类型接口，拆解Claude Code的工具注册机制、智能特性与编排策略。&lt;/p&gt;
@@ -422,9 +422,9 @@
     </item>
     <item>
       <title>05-上下文管理：有限注意力的艺术</title>
-      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-05-context/</link>
-      <pubDate>Wed, 01 Apr 2026 08:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-05-context/</guid>
+      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-05-context/</link>
+      <pubDate>Sat, 04 Apr 2026 06:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-05-context/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Claude Agent理念专栏&lt;/strong&gt;是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本文是第5篇&lt;/strong&gt;：探讨上下文作为有限资源的本质，拆解Claude Code的智能压缩策略、增量更新机制与注意力分配算法。&lt;/p&gt;
@@ -527,9 +527,9 @@
     </item>
     <item>
       <title>06-编程体验：流式交互的本质优化</title>
-      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-06-experience/</link>
-      <pubDate>Wed, 01 Apr 2026 08:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-06-experience/</guid>
+      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-06-experience/</link>
+      <pubDate>Sat, 04 Apr 2026 06:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-06-experience/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Claude Agent理念专栏&lt;/strong&gt;是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本文是第6篇&lt;/strong&gt;：探讨编程体验的本质优化，拆解Claude Code的流式事件系统、增量渲染优化、预测性执行与代码感知编辑。&lt;/p&gt;
@@ -634,9 +634,9 @@
     </item>
     <item>
       <title>07-动手构建：从零打造智能编程助手</title>
-      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-07-building/</link>
-      <pubDate>Wed, 01 Apr 2026 08:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-07-building/</guid>
+      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-07-building/</link>
+      <pubDate>Sat, 04 Apr 2026 06:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-07-building/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Claude Agent理念专栏&lt;/strong&gt;是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本文是第7篇&lt;/strong&gt;：将理论付诸实践，提供从零构建生产级AI编程助手的完整架构蓝图、核心实现代码和演进路线图。&lt;/p&gt;
@@ -742,9 +742,9 @@
     </item>
     <item>
       <title>08-进阶揭秘：遥测、安全与隐藏能力</title>
-      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-08-advanced/</link>
-      <pubDate>Wed, 01 Apr 2026 08:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-01-kelaode-08-advanced/</guid>
+      <link>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-08-advanced/</link>
+      <pubDate>Sat, 04 Apr 2026 06:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-08-advanced/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Claude Agent理念专栏&lt;/strong&gt;是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本文是第8篇（完结）&lt;/strong&gt;：深入运营层面，拆解Claude Code的遥测系统、Token安全机制与隐藏功能设计。&lt;/p&gt;
