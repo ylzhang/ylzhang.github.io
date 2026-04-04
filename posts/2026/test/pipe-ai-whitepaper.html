@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIPE-AI项目白皮书</title>
+    <title>PIPE-AI 投资备忘录（Institutional Draft）</title>
     <style>
         * {
             margin: 0;
@@ -12,46 +12,72 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f7fa;
+            font-family: 'Georgia', 'Songti SC', 'SimSun', 'PingFang SC', 'Microsoft YaHei', serif;
+            line-height: 1.65;
+            color: #1a1d21;
+            background-color: #f0f2f5;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 920px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 36px 22px 48px;
+        }
+        
+        .confidential {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin-bottom: 22px;
+            font-size: 0.88em;
+            line-height: 1.5;
+        }
+        
+        .confidential strong {
+            color: #fbbf24;
         }
         
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            border-radius: 10px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 55%, #0c4a6e 100%);
+            color: #f8fafc;
+            padding: 48px 28px;
+            text-align: left;
+            border-radius: 8px;
+            margin-bottom: 28px;
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.25);
+            border: 1px solid rgba(148, 163, 184, 0.2);
         }
         
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 1.85em;
+            margin-bottom: 8px;
             font-weight: 700;
+            letter-spacing: -0.02em;
         }
         
         .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-            margin-bottom: 20px;
+            font-size: 1.05em;
+            opacity: 0.92;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+        
+        .header-meta {
+            font-size: 0.82em;
+            opacity: 0.78;
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(248, 250, 252, 0.15);
         }
         
         .document-info {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            background: #fff;
+            border-radius: 8px;
+            padding: 26px 28px;
+            margin-bottom: 26px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
         }
         
         .info-table {
@@ -74,25 +100,28 @@
         }
         
         section {
-            background: white;
-            border-radius: 10px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            background: #fff;
+            border-radius: 8px;
+            padding: 32px 28px;
+            margin-bottom: 22px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
         }
         
         h2 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
+            color: #0f172a;
+            font-size: 1.35em;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #0c4a6e;
+            font-weight: 700;
         }
         
         h3 {
-            color: #34495e;
-            font-size: 1.4em;
-            margin: 30px 0 15px 0;
+            color: #334155;
+            font-size: 1.12em;
+            margin: 26px 0 12px 0;
+            font-weight: 600;
         }
         
         p {
@@ -101,15 +130,34 @@
         }
         
         .highlight {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
+            background: #f8fafc;
+            border-left: 4px solid #0c4a6e;
+            padding: 16px 20px;
+            margin: 18px 0;
+            border-radius: 0 6px 6px 0;
         }
         
         .highlight strong {
-            color: #667eea;
+            color: #0c4a6e;
+        }
+        
+        .callout-risk {
+            background: #fffbeb;
+            border: 1px solid #fcd34d;
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin: 16px 0;
+            font-size: 0.95em;
+        }
+        
+        .callout-risk strong {
+            color: #b45309;
+        }
+        
+        .small-note {
+            font-size: 0.85em;
+            color: #64748b;
+            margin-top: 8px;
         }
         
         ul {
@@ -130,11 +178,12 @@
         }
         
         table th {
-            background-color: #667eea;
-            color: white;
-            padding: 15px;
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 12px 14px;
             text-align: left;
             font-weight: 600;
+            font-size: 0.92em;
         }
         
         table td {
@@ -147,7 +196,7 @@
         }
         
         table tr:hover {
-            background-color: #f0f4ff;
+            background-color: #f1f5f9;
         }
         
         .mermaid {
@@ -198,7 +247,7 @@
         }
         
         .team-card h4 {
-            color: #667eea;
+            color: #0c4a6e;
             margin-bottom: 10px;
         }
         
@@ -273,10 +322,13 @@
 </head>
 <body>
     <div class="container">
+        <div class="confidential">
+            <p><strong>保密与用途</strong>：本文件仅供潜在投资人及顾问在保密前提下进行初步评估；不构成任何证券发行要约或投资建议。文中凡标注「假设」「区间」「待核验」之数值，均需以第三方可研、电网批复、设备招标与经审计模型替换后方可进入投资决策。</p>
+        </div>
         <header>
-            <h1>PIPE-AI项目白皮书</h1>
-            <p class="subtitle">面向全人类的AI智能管道</p>
-            <p>Pipe Intelligence & Processing Engine for AI</p>
+            <h1>PIPE-AI 投资备忘录</h1>
+            <p class="subtitle">Pipe Intelligence & Processing Engine for AI · 智算基础设施与 Token 服务</p>
+            <p class="header-meta">面向机构投资人的一页纸结论：以可核查的装机与电力为硬约束，以公开市场的同类公司为估值锚，明确资本金与追加融资边界。</p>
         </header>
         
         <div class="document-info">
@@ -288,15 +340,15 @@
                 </tr>
                 <tr>
                     <td>文档版本</td>
-                    <td>v1.0</td>
+                    <td>v1.1-institutional</td>
                 </tr>
                 <tr>
                     <td>发布日期</td>
-                    <td>2026年4月2日</td>
+                    <td>2026年4月4日</td>
                 </tr>
                 <tr>
                     <td>文档性质</td>
-                    <td>创业白皮书</td>
+                    <td>机构投资人材料（草案）</td>
                 </tr>
                 <tr>
                     <td>编制</td>
@@ -306,10 +358,10 @@
         </div>
         
         <div class="highlight">
-            <p><strong>当所有人都在追逐大模型和AI应用时，我们选择成为AI时代的"电力公司"。</strong></p>
+            <p><strong>一句话定位</strong>：PIPE-AI 不训练闭源基础模型，而以「算力基础设施 + 推理与 Token 服务 + 行业微调节点」切入产业链；对标已上市的 AI 基础设施与算力运营商，用<strong>长期合约可见度</strong>与<strong>Tokens/Watt</strong>效率向资本方交代单位经济。</p>
         </div>
         
-        <p>PIPE-AI（Pipe Intelligence & Processing Engine for AI）定位为全球化TOKEN运营商，构建面向全人类的AI智能管道。我们不做AI模型，不做AI应用，而是成为AI时代的"电力公司"——生产、输送、交易Token这一AI时代的核心能源。</p>
+        <p>PIPE-AI（Pipe Intelligence & Processing Engine for AI）将自身定义为全球化 Token 网络中的<strong>产能与路由节点</strong>：向上承接电力、机柜与加速芯片，向下以 API / 托管推理 / 行业微调交付可用产出。下文给出与规划装机一致的<strong>电力衡算</strong>、在明确假设下的<strong>Token 产出与收入敏感性</strong>，并直陈<strong>50 亿元人民币首期投资与满配 156MW IT 目标之间的资本缺口</strong>，避免叙事与工程现实脱节。</p>
         
         <section>
             <h2>一、执行摘要：AI时代的电力公司</h2>
@@ -345,19 +397,20 @@
                     <td>IDC</td>
                 </tr>
                 <tr>
-                    <td>Token经济年增长率</td>
-                    <td>1000倍（2年）</td>
-                    <td>国家数据局</td>
+                    <td>Token 相关宏观表述</td>
+                    <td>高增长（具体倍数随统计口径变化）</td>
+                    <td>政策与行业材料（<strong>待核验</strong>原始出处与口径）</td>
                 </tr>
             </table>
+            <p class="small-note">上表中第三方预测数字仅作背景参考；董事会材料应以可引用的原始报告页码为准。PIPE-AI 的商业计划不依赖单一宏观预测的精确性。</p>
             
             <h3>战略路径</h3>
             <div class="mermaid">
                 flowchart TB
                     subgraph P1["PHASE 1（Year 1-2）：中国根基"]
-                        P1A["西部智算中心集群（500-3000P）"]
-                        P1B["政府长期合约锁定（3-5年）"]
-                        P1C["Tokens/Watt效率领先"]
+                        P1A["西部智算：首期交付 + 分期扩容至规划机柜"]
+                        P1B["政府/国资背景长协或 take-or-pay（若可落地）"]
+                        P1C["Tokens/Watt 与 PUE 分区达标"]
                     end
                     
                     subgraph P2["PHASE 2（Year 3-4）：亚太扩张"]
@@ -405,7 +458,7 @@
                     <td>能源策略</td>
                     <td>传统电力</td>
                     <td>绿电优先</td>
-                    <td>算电协同+Token期货</td>
+                    <td>算电协同 + 电力长约/套保（合规前提下）</td>
                 </tr>
                 <tr>
                     <td>生态位</td>
@@ -414,10 +467,178 @@
                     <td>Token Hub节点</td>
                 </tr>
             </table>
+            
+            <h3>本版材料中的「硬数字」速览（详见第二节、第六节、第十节）</h3>
+            <table>
+                <tr>
+                    <th>项目</th>
+                    <th>数值</th>
+                </tr>
+                <tr>
+                    <td>规划机柜</td>
+                    <td>2,500（12kW 风冷）+ 6,000（21kW 液冷）= 8,500 柜</td>
+                </tr>
+                <tr>
+                    <td>IT 总功率（算术）</td>
+                    <td><strong>156 MW</strong>（30 + 126）；「160MW 级」对外表述须解释余量或分期</td>
+                </tr>
+                <tr>
+                    <td>年满负荷站级耗电（示意）</td>
+                    <td>约 <strong>15.6 亿 kWh</strong>（≈178MW 站级 × 8,760h，PUE 分区假设见第二节）</td>
+                </tr>
+                <tr>
+                    <td>年半负荷耗电（粗算）</td>
+                    <td>约 <strong>9.3–10.5 亿 kWh</strong></td>
+                </tr>
+                <tr>
+                    <td>模拟首期股本金</td>
+                    <td><strong>50 亿元人民币</strong>（与满配总 program 不同账，见第十节）</td>
+                </tr>
+                <tr>
+                    <td>估值锚（公开市场对标）</td>
+                    <td><strong>CRWV、NBIS</strong> 等（第六节）</td>
+                </tr>
+            </table>
+        </section>
+        
+        <section id="sizing-power-token">
+            <h2>二、规划建设、电力衡算与 Token 产出（硬约束与敏感性）</h2>
+            <p>本节将「机柜数量 × 单柜 IT 功率」与「站级用电量」对齐，并给出 Token 产出与收入的<strong>区间化</strong>测算。所有乘除可在 Excel 复核；若与可研不一致，以可研为准。</p>
+            
+            <h3>2.1 规划装机与 IT 总功率（算术校正）</h3>
+            <table>
+                <tr>
+                    <th>分区</th>
+                    <th>机柜数</th>
+                    <th>单柜 IT 功率</th>
+                    <th>分区 IT 功率</th>
+                </tr>
+                <tr>
+                    <td>风冷通用计算区（规划）</td>
+                    <td>2,500</td>
+                    <td>12 kW</td>
+                    <td>30.0 MW</td>
+                </tr>
+                <tr>
+                    <td>液冷高密度推理/训练区（规划）</td>
+                    <td>6,000</td>
+                    <td>21 kW</td>
+                    <td>126.0 MW</td>
+                </tr>
+                <tr>
+                    <td><strong>合计（名义 IT）</strong></td>
+                    <td>8,500</td>
+                    <td>—</td>
+                    <td><strong>156.0 MW</strong></td>
+                </tr>
+            </table>
+            <p class="small-note"><strong>口径说明</strong>：2,500×12 kW + 6,000×21 kW = <strong>156 MW（IT）</strong>。若对外沟通使用「约 160MW 级」，应解释为<strong>规划余量、网络与存储 overhead、或后续小幅扩容</strong>，并在同一页披露 156MW 基准算术，避免投资人复核时发现不一致。</p>
+            
+            <h3>2.2 年满负荷 / 半负荷电力（站级）</h3>
+            <p>站级用电量 = IT 功率 × PUE × 时间。风冷与液冷分区 PUE 差异显著，下表采用<strong>假设区间</strong>（可替换为设计值）：风冷区 PUE 1.22–1.32；液冷区 PUE 1.08–1.14（不含极端气候与调试期）。</p>
+            <table>
+                <tr>
+                    <th>场景</th>
+                    <th>风冷区站级功率（假设）</th>
+                    <th>液冷区站级功率（假设）</th>
+                    <th>合计站级功率（约）</th>
+                </tr>
+                <tr>
+                    <td>满负荷（IT 100% 铭牌）</td>
+                    <td>30×1.27 ≈ 38.1 MW</td>
+                    <td>126×1.11 ≈ 139.9 MW</td>
+                    <td><strong>≈ 178 MW</strong></td>
+                </tr>
+                <tr>
+                    <td>半负荷（IT 平均 50% 利用，辅助负载部分跟随）</td>
+                    <td colspan="2">工程上常将站级电量近似为满负荷的 55%–68%（固定损耗占比上升）</td>
+                    <td><strong>≈ 98–121 MW 年均等效</strong>（需负荷仿真）</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>运营情景</th>
+                    <th>估算年用电量（亿 kWh）</th>
+                    <th>测算式（说明）</th>
+                </tr>
+                <tr>
+                    <td>满负荷连续运行（简化）</td>
+                    <td><strong>约 15.6</strong></td>
+                    <td>178 MW × 8,760 h ≈ 1.56×10<sup>9</sup> kWh；实际运行率 &lt;100%，应乘以可用性系数</td>
+                </tr>
+                <tr>
+                    <td>半负荷（取站级 60% 等效）</td>
+                    <td><strong>约 9.3–10.5</strong></td>
+                    <td>15.6 × 0.60–0.67 粗算；最终以8760小时负荷曲线为准</td>
+                </tr>
+            </table>
+            <p class="small-note">电费敏感性（仅能源 OPEX，不含折旧）：若综合电价 0.28–0.42 元/kWh，则<strong>满负荷</strong>年电费约 <strong>4.4–6.5 亿元</strong>；<strong>半负荷</strong>约 <strong>2.6–4.4 亿元</strong>。此数字<strong>不包含</strong> GPU/加速芯片折旧、资金成本与网络费用。</p>
+            
+            <div class="callout-risk">
+                <p><strong>资本开支现实检验（与「总投资 50 亿元」对齐）</strong>：仅 156MW IT 的机电、土建、外电与冷却，若以行业常见的<strong>每 IT kW 8–15 万元人民币（不含芯片）</strong>粗算，土建+机电已是<strong>约 125–234 亿元</strong>量级；加速芯片与网络通常<strong>另计</strong>且波动极大。因此，<strong>「50 亿元」在工程上不足以独立完成本文规划的满配机柜与芯片填充</strong>，应明确为：<strong>首期股本金</strong> + 撬动<strong>地方产投 / 项目贷 / 设备融资租赁 / 客户预付款</strong>的组合；或下调首阶段交付机柜规模。若向红杉、真格等机构呈现，建议单列「资本金 / 总 program」两张表，避免被现场拆穿算术。</p>
+            </div>
+            
+            <h3>2.3 「有效 Token」产出：假设、区间与不可承诺事项</h3>
+            <p>Token 产出由<strong>模型结构、批大小、精度、SLA、并发、缓存命中率与集群网络</strong>共同决定，无法用单一常数描述。对投资人更诚实的做法是给出<strong>可替换参数</strong>的敏感性表，而不是一个「精确到个位」的伪科学数字。</p>
+            <table>
+                <tr>
+                    <th>参数</th>
+                    <th>基准假设（可改）</th>
+                    <th>备注</th>
+                </tr>
+                <tr>
+                    <td>用于 Token 生产的 IT 功率占比</td>
+                    <td>55%–70% of 156 MW</td>
+                    <td>余量含存储、网络、管理与波谷</td>
+                </tr>
+                <tr>
+                    <td>输出 Token 强度（示意）</td>
+                    <td>每 1 MW 有效 IT：0.8×10<sup>14</sup>–4×10<sup>14</sup> output tokens/年</td>
+                    <td>对应不同模型与利用率；需用目标模型在目标硬件上的 benchmark 替换</td>
+                </tr>
+                <tr>
+                    <td>可计费 Token 比例</td>
+                    <td>70%–95%</td>
+                    <td>内部测试、故障切换、赠额会稀释「可开票」部分</td>
+                </tr>
+            </table>
+            <p>在上述示意参数下，<strong>年化输出 Token（量级）</strong>大致落在 <strong>约 6×10<sup>15</sup>–4×10<sup>16</sup></strong>（即约 6000–40000 万亿 output tokens/年）的<strong>宽区间</strong>内。<strong>任何窄区间承诺均需要已锁定的芯片型号、模型清单与 SLA 合同支撑。</strong></p>
+            
+            <h3>2.4 Token 价格到收入：敏感性（非预测）</h3>
+            <table>
+                <tr>
+                    <th>可计费 Token（示意中值）</th>
+                    <th>综合净价（元/百万 tokens）</th>
+                    <th>隐含年化收入（亿元）</th>
+                </tr>
+                <tr>
+                    <td>1×10<sup>16</sup>（约 1 亿亿）</td>
+                    <td>1.0</td>
+                    <td>约 100</td>
+                </tr>
+                <tr>
+                    <td>同上</td>
+                    <td>0.3</td>
+                    <td>约 30</td>
+                </tr>
+                <tr>
+                    <td>5×10<sup>15</sup></td>
+                    <td>0.5</td>
+                    <td>约 25</td>
+                </tr>
+            </table>
+            <p class="small-note">「综合净价」应扣减渠道分成、免费额度与坏账；国内竞价环境下单价下行速度快，上表仅为<strong>乘法敏感性</strong>，不构成收入预测。</p>
+            
+            <h3>2.5 项目价值叙事建议（对 IC 友好）</h3>
+            <ul>
+                <li><strong>单位经济</strong>：同时披露「每 MW IT 的年电费」「每 MW IT 的折旧+利息」「每百万 tokens 的边际成本」三类曲线。</li>
+                <li><strong>可见度</strong>：参照上市公司，用「合同剩余履约价值 / revenue backlog」类指标沟通（若有法律依据）。</li>
+                <li><strong>估值锚</strong>：用公开市场 EV/Revenue、EV/GW（或 EV/MW）区间作对照，并承认流动性与条款差异带来的折价。</li>
+            </ul>
         </section>
         
         <section>
-            <h2>二、愿景与使命：让Token像电力一样无处不在</h2>
+            <h2>三、愿景与使命：让Token像电力一样无处不在</h2>
             
             <h3>愿景</h3>
             <p>让每瓦电力产生最大智能价值，让Token像电力一样无处不在</p>
@@ -437,7 +658,7 @@
                 </tr>
                 <tr>
                     <td>长期主义</td>
-                    <td>96%+长期合约锁定，拒绝短期价格战</td>
+                    <td>争取高比例长协或 take-or-pay（比例以可签约为准，对标 CRWV 类「高 backlog」叙事）</td>
                 </tr>
                 <tr>
                     <td>开放生态</td>
@@ -494,7 +715,7 @@
         </section>
         
         <section>
-            <h2>三、全球Token经济格局：从"卖算力"到"卖Token"</h2>
+            <h2>四、全球Token经济格局：从"卖算力"到"卖Token"</h2>
             
             <h3>Token经济范式转移</h3>
             <table>
@@ -526,10 +747,9 @@
             </table>
             
             <blockquote>
-                <p><strong>NVIDIA GTC 2026：Token工厂经济学</strong></p>
-                <p>"未来的数据中心不再是存储文件的仓库，而是生产Token的工厂。"—— 黄仁勋，NVIDIA CEO</p>
-                <p><strong>核心公式</strong>：Revenue = Tokens per Watt × Available Gigawatts</p>
-                <p>收入 = 每瓦Token产量 × 可用吉瓦数</p>
+                <p><strong>行业共识（非直接引语）</strong>：产业界普遍将大规模 AI 数据中心视为「Token 产能装置」，其商业结果近似由<strong>单位电力可交付的有效 Token</strong>与<strong>可签约的可用功率（GW 级）</strong>共同决定。</p>
+                <p><strong>示意公式（用于搭建财务模型，非会计定义）</strong>：Revenue ≈（每瓦·小时有效 Token）×（可计费单价）×（可用 IT 功率）×（利用率）×（可开票系数）</p>
+                <p class="small-note">不宜将「Tokens per Watt × Gigawatts」直接等同于收入：中间还有模型结构、议价、折扣与 SLAs。</p>
             </blockquote>
             
             <h3>全球Token分层定价体系</h3>
@@ -617,7 +837,7 @@
         </section>
         
         <section>
-            <h2>四、PIPE-AI战略定位：三层业务模型</h2>
+            <h2>五、PIPE-AI战略定位：三层业务模型</h2>
             
             <h3>战略定位金字塔</h3>
             <div class="mermaid">
@@ -701,9 +921,9 @@
                 </tr>
                 <tr>
                     <td>PUE</td>
-                    <td>1.25</td>
-                    <td>≤1.15</td>
-                    <td>液冷全覆盖</td>
+                    <td>1.25（行业常见）</td>
+                    <td>分区达标（见第二节）</td>
+                    <td>液冷高密度区拉低平均</td>
                 </tr>
                 <tr>
                     <td>集群利用率</td>
@@ -770,15 +990,49 @@
         </section>
         
         <section>
-            <h2>五、全球六大标杆深度解析</h2>
+            <h2>六、全球标杆与上市公司对标（估值锚）</h2>
+            <p>已上市或已公开披露财报的同类公司，是 PIPE-AI 向美元基金沟通时最有效的「估值语言」。下表仅摘录<strong>便于交叉验证</strong>的公开信息，倍数与市值随行情变化，材料中应更新至最近交易日。</p>
+            <table>
+                <tr>
+                    <th>公司</th>
+                    <th>上市地 / 代码</th>
+                    <th>与 PIPE-AI 的可比点</th>
+                    <th>最近公开披露（示例口径）</th>
+                </tr>
+                <tr>
+                    <td>CoreWeave</td>
+                    <td>Nasdaq：<strong>CRWV</strong></td>
+                    <td>AI 原生云、长协驱动的算力租赁与托管</td>
+                    <td>FY2025 营收约 <strong>51.3 亿美元</strong>；收入储备（revenue backlog）约 <strong>668 亿美元</strong>（公司新闻稿/SEC，2026-02-26）</td>
+                </tr>
+                <tr>
+                    <td>Nebius Group</td>
+                    <td>Nasdaq：<strong>NBIS</strong></td>
+                    <td>自建 AI 云产能、与 hyperscaler 大单绑定</td>
+                    <td>FY2025 营收约 <strong>5.3 亿美元</strong>量级（公司财报新闻稿，约 2026-02）；市值波动大，EV/Revenue 不宜静态抄用</td>
+                </tr>
+                <tr>
+                    <td>Iris Energy</td>
+                    <td>Nasdaq：<strong>IREN</strong></td>
+                    <td>数据中心能源与 HPC/AI 负载转型叙事</td>
+                    <td>更偏能源与数据中心资本结构对照；模型差异大，需折价比较</td>
+                </tr>
+                <tr>
+                    <td>Applied Digital</td>
+                    <td>Nasdaq：<strong>APLD</strong></td>
+                    <td>托管 HPC/AI 数据中心</td>
+                    <td>体量与条款与 PIPE-AI 未必可比，用于「板块β」参考</td>
+                </tr>
+            </table>
+            <p class="small-note">PIPE-AI 若主打「中国西部电价 + 长协 + Token 服务」，更接近 <strong>CRWV / NBIS</strong> 的交集，但需额外披露<strong>GPU 供给、数据合规与客户集中度</strong>等折价因素。</p>
             
-            <h3>CoreWeave：长期合约之王</h3>
+            <h3>CoreWeave（CRWV）：长协与 backlog 能见度</h3>
             <ul>
-                <li><strong>2025年营收</strong>：51.3亿美元（YoY +168%）</li>
-                <li><strong>2026年指引</strong>：120-130亿美元（+140%）</li>
-                <li><strong>订单积压</strong>：668亿美元</li>
-                <li><strong>长期合约占比</strong>：96%</li>
-                <li><strong>CapEx</strong>：300-350亿美元</li>
+                <li><strong>FY2025 营收</strong>：约 <strong>51.3 亿美元</strong>（公司披露）</li>
+                <li><strong>FY2025 调整后 EBITDA</strong>：约 <strong>30.9 亿美元</strong>、利润率约 60%（非 GAAP，需读脚注）</li>
+                <li><strong>净亏损</strong>：约 <strong>11.7 亿美元</strong>（反映折旧、利息与扩张节奏）</li>
+                <li><strong>收入储备</strong>：约 <strong>668 亿美元</strong>（2025-12-31）</li>
+                <li><strong>功率维度</strong>：公司披露活跃电力容量与签约功率持续上升（用于「EV/MW」粗对标）</li>
             </ul>
             <p><strong>核心启示</strong>：</p>
             <ul>
@@ -857,7 +1111,7 @@
         </section>
         
         <section>
-            <h2>六、PIPE-AI商业模式：从算力到Token</h2>
+            <h2>七、PIPE-AI商业模式：从算力到Token</h2>
             
             <h3>收入模型演进</h3>
             <div class="mermaid">
@@ -987,14 +1241,14 @@
         </section>
         
         <section>
-            <h2>七、全球化实施路线图：三阶段扩张</h2>
+            <h2>八、全球化实施路线图：三阶段扩张</h2>
             <div class="mermaid">
                 flowchart TB
                     subgraph P1["PHASE 1（Year 1-2）：中国根基"]
                         P1A["西部智算中心集群（500-3000P）"]
                         P1B["政府长期合约锁定（3-5年）"]
                         P1C["Tokens/Watt效率领先"]
-                        P1D["目标收入：2-3亿元 → 8-12亿元"]
+                        P1D["收入目标：见第十节（需与装机一致）"]
                     end
                     
                     subgraph P2["PHASE 2（Year 3-4）：亚太扩张"]
@@ -1023,13 +1277,13 @@
                 </tr>
                 <tr>
                     <td>Year 1 Q1</td>
-                    <td>公司成立+融资关闭</td>
-                    <td>5-8亿元资金到账</td>
+                    <td>公司设立 + 首轮交割</td>
+                    <td>股本金首期到账（目标区间与第十节 50 亿元模拟一致，可分笔）</td>
                 </tr>
                 <tr>
                     <td>Year 1 Q3</td>
                     <td>首期集群上线</td>
-                    <td>500P算力投产</td>
+                    <td>以实际采购到的加速卡与机柜为准（可用 IT MW 披露，避免仅写「500P」而缺乏审计口径）</td>
                 </tr>
                 <tr>
                     <td>Year 1 Q4</td>
@@ -1139,7 +1393,7 @@
         </section>
         
         <section>
-            <h2>八、技术架构与核心指标：Tokens/Watt效率领先</h2>
+            <h2>九、技术架构与核心指标：Tokens/Watt效率领先</h2>
             
             <h3>技术栈</h3>
             <table>
@@ -1175,8 +1429,8 @@
                 </tr>
                 <tr>
                     <td>液冷方案</td>
-                    <td>英维克/曙光模块化液冷</td>
-                    <td>PUE≤1.15</td>
+                    <td>英维克/曙光等模块化液冷</td>
+                    <td>高密度区目标 PUE ≤1.12（设计值，以实测为准）</td>
                 </tr>
             </table>
             
@@ -1195,16 +1449,16 @@
                     <td>持续优化</td>
                 </tr>
                 <tr>
-                    <td>PUE</td>
-                    <td>≤1.15</td>
-                    <td>1.2</td>
-                    <td>液冷全覆盖</td>
+                    <td>分区 PUE</td>
+                    <td>风冷区 ≤1.30；液冷区 ≤1.14（目标）</td>
+                    <td>单区约 1.2–1.35</td>
+                    <td>与第二节电力衡算假设一致</td>
                 </tr>
                 <tr>
-                    <td>液冷覆盖率</td>
-                    <td>100%</td>
-                    <td>60%</td>
-                    <td>领先</td>
+                    <td>液冷装机占比</td>
+                    <td>按规划约 6,000/8,500 机柜（≈71% 机柜数为液冷高密度区）</td>
+                    <td>因项目而异</td>
+                    <td>风冷区承担通用与弹性负载</td>
                 </tr>
                 <tr>
                     <td>集群利用率</td>
@@ -1227,75 +1481,109 @@
                         F1["标准模块：2MW/模块"]
                         F2["交付周期：3个月"]
                         F3["扩展能力：按需堆叠"]
-                        F4["液冷方案：全浸没式"]
-                        F5["PUE目标：≤1.15"]
+                        F4["液冷 + 风冷分区"]
+                        F5["分区 PUE：液冷≤1.14 / 风冷≤1.30（目标）"]
                         F6["芯片配置：H100/昇腾/寒武纪"]
                     end
             </div>
         </section>
         
         <section>
-            <h2>九、融资与财务规划：从零到百亿</h2>
+            <h2>十、融资与财务规划：资本金与总 program 拆分</h2>
+            <p>本节将<strong>「模拟总投资 50 亿元人民币」</strong>明确为<strong>首期可动用股本金（或股本金+政策性资金的上限）</strong>，并与第二节的<strong>156MW IT 满配</strong>所需总投入解耦，避免投资人在 DD 中发现「50 亿建 8500 柜」不可行而一票否决。</p>
             
-            <h3>融资路径</h3>
-            <p><strong>第一阶段（Year 1）：种子轮+政府基金</strong></p>
+            <h3>10.1 两本账：股本金 vs 总 program</h3>
+            <table>
+                <tr>
+                    <th>账本</th>
+                    <th>含义</th>
+                    <th>本材料中的示意规模</th>
+                </tr>
+                <tr>
+                    <td><strong>账本 A：股本金</strong></td>
+                    <td>创始团队、VC（如红杉/真格等）、战略方、地方产投以股权或类股权进入的资金</td>
+                    <td><strong>50 亿元（模拟上限）</strong>，用于首期土地、外电、部分机柜与芯片、平台研发与营运资金</td>
+                </tr>
+                <tr>
+                    <td><strong>账本 B：总 program</strong></td>
+                    <td>含项目贷、融资租赁、客户预付款、EPC 垫资、与地方政府「投建管退」组合后的<strong>全口径</strong>资本开支</td>
+                    <td>与 156MW IT + 对应芯片和网络匹配，通常<strong>显著高于</strong>账本 A；需第三方可研填数</td>
+                </tr>
+            </table>
+            
+            <h3>10.2 示意股权结构（仅供谈判起点，非要约条款）</h3>
+            <p><strong>第一阶段（Year 1）：天使/种子 + Pre-A + 政府配套</strong></p>
             <table>
                 <tr>
                     <th>股东类型</th>
-                    <th>持股比例</th>
-                    <th>出资额</th>
+                    <th>示意持股</th>
+                    <th>示意出资 / 资源</th>
                     <th>资源贡献</th>
                 </tr>
                 <tr>
                     <td>创始团队</td>
-                    <td>40%</td>
-                    <td>技术+管理</td>
-                    <td>技术架构+运营</td>
+                    <td>35%–45%</td>
+                    <td>IP、运营与治理</td>
+                    <td>技术架构、交付与关键客户关系</td>
                 </tr>
                 <tr>
-                    <td>地方政府产业基金</td>
-                    <td>30%</td>
-                    <td>3-5亿元</td>
-                    <td>场地+绿电+政策</td>
+                    <td>VC 联合（美元/人民币基金）</td>
+                    <td>25%–40%</td>
+                    <td><strong>合计约 20–35 亿元</strong>（可分两笔）</td>
+                    <td>品牌背书、公司治理、海外资源对接</td>
                 </tr>
                 <tr>
-                    <td>战略投资人</td>
-                    <td>20%</td>
-                    <td>2-3亿元</td>
-                    <td>供应链+客户</td>
+                    <td>地方政府产业基金 / 国资平台</td>
+                    <td>15%–25%</td>
+                    <td><strong>约 8–15 亿元</strong> + 土地/电价承诺</td>
+                    <td>能耗指标、接入、税收优惠与招商协同</td>
+                </tr>
+                <tr>
+                    <td>战略投资人（芯片、云、行业龙头）</td>
+                    <td>5%–15%</td>
+                    <td><strong>约 3–8 亿元</strong> + 订单</td>
+                    <td>供应链、客户导流、联合方案</td>
                 </tr>
                 <tr>
                     <td>员工期权池</td>
-                    <td>10%</td>
-                    <td>-</td>
-                    <td>人才激励</td>
+                    <td>8%–12%</td>
+                    <td>—</td>
+                    <td>核心研发与交付激励</td>
                 </tr>
             </table>
+            <p class="small-note">上表持股比例之和为区间示意，实际以增资协议为准。<strong>50 亿元</strong>可理解为「VC + 国资 + 战略」现金出资与已承诺跟投的<strong>合并上限</strong>之一版本。</p>
             
-            <p><strong>第二阶段（Year 2-3）：A轮+Pre-IPO</strong></p>
+            <h3>10.3 后续轮次与追加融资（与装机节奏绑定）</h3>
             <table>
                 <tr>
-                    <th>融资轮次</th>
-                    <th>金额</th>
-                    <th>估值</th>
-                    <th>用途</th>
+                    <th>轮次（示意）</th>
+                    <th>金额区间</th>
+                    <th>用途锚点</th>
+                    <th>对投资人的沟通要点</th>
                 </tr>
                 <tr>
-                    <td>A轮</td>
-                    <td>10-15亿元</td>
-                    <td>50-80亿元</td>
-                    <td>扩展至5000P+</td>
+                    <td>A 轮</td>
+                    <td>15–30 亿元</td>
+                    <td>扩容机柜与第二园区、补充 GPU 库存</td>
+                    <td>以<strong>已签约 IT MW 或 backlog</strong>作为定价依据，而非故事</td>
                 </tr>
                 <tr>
-                    <td>Pre-IPO</td>
-                    <td>30-50亿元</td>
-                    <td>200-300亿元</td>
-                    <td>国际化+IPO</td>
+                    <td>B 轮 / 项目融资</td>
+                    <td>视可研</td>
+                    <td>接近满配 156MW IT、网络与冷却</td>
+                    <td>拉高 debt capacity，稀释可控</td>
+                </tr>
+                <tr>
+                    <td>Pre-IPO / 并购</td>
+                    <td>—</td>
+                    <td>多区域合规与报表审计</td>
+                    <td>对标 <strong>CRWV、NBIS</strong> 的估值区间与流动性折价</td>
                 </tr>
             </table>
             
             <h3>财务预测</h3>
-            <p><strong>收入预测</strong></p>
+            <p class="small-note"><strong>收入预测表为战略推演，非审计预测</strong>；应与第二节 Token 敏感性交叉校验，避免与能源 OPEX、折旧不匹配。</p>
+            <p><strong>收入预测（结构占比 + 量级）</strong></p>
             <table>
                 <tr>
                     <th>年份</th>
@@ -1364,10 +1652,10 @@
                 </tr>
                 <tr>
                     <td>长期合约占比</td>
-                    <td>70%</td>
-                    <td>75%</td>
-                    <td>80%</td>
-                    <td>96%</td>
+                    <td>50%–70%</td>
+                    <td>60%–75%</td>
+                    <td>65%–80%</td>
+                    <td>CRWV 披露「高比例长协+高 backlog」（对标，非承诺）</td>
                 </tr>
                 <tr>
                     <td>客户留存率</td>
@@ -1380,7 +1668,7 @@
         </section>
         
         <section>
-            <h2>十、风险管控与合规：稳健前行</h2>
+            <h2>十一、风险、合规与开源+微调策略（SWOT）</h2>
             
             <h3>主要风险</h3>
             <table>
@@ -1446,9 +1734,35 @@
                 </tr>
                 <tr>
                     <td>客户</td>
-                    <td>多行业分散 + 96%长期合约结构</td>
+                    <td>多行业分散 + 以长协和 take-or-pay 提升可见度（比例以合同为准）</td>
                 </tr>
             </table>
+            
+            <h3>依赖「开源模型 + 微调」进入市场：客观 SWOT</h3>
+            <p>不训练闭源基础模型、以开源权重 + 垂直微调切入，是<strong>资本效率较高</strong>的路径，但与 hyperscaler 自研栈竞争时，需在材料中主动披露边界。</p>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>内容（理性表述）</th>
+                </tr>
+                <tr>
+                    <td><strong>优势（S）</strong></td>
+                    <td>上市速度快：可基于 Llama/Qwen/Mistral 等生态快速交付推理与 Agent；研发摊销低于从头预训练；易与国产芯片栈做联合适配；便于向客户展示「可迁移、可审计」的模型血缘。</td>
+                </tr>
+                <tr>
+                    <td><strong>劣势（W）</strong></td>
+                    <td>同质化：开源权重人人可用，议价权更多来自<strong>运维、时延、合规、行业数据与 SLA</strong>而非模型独占；顶尖能力滞后于闭源前沿；品牌上易被归类为「套壳」除非工程指标过硬。</td>
+                </tr>
+                <tr>
+                    <td><strong>机会（O）</strong></td>
+                    <td>政企与金融更偏好<strong>私有化与可控链路</strong>；「东数西算」电价差支撑推理工厂；开源工具链（vLLM、SGLang 等）降低软件门槛；可与云厂商形成「他们做平台、PIPE-AI 做专用产能」的分工。</td>
+                </tr>
+                <tr>
+                    <td><strong>威胁（T）</strong></td>
+                    <td>云厂商降价与打包销售；许可证变更（开源协议、商用条款）；出口管制导致高端 GPU 波动；客户自建集群；电价与碳排政策收紧。</td>
+                </tr>
+            </table>
+            <p><strong>给 IC 的结论句</strong>：PIPE-AI 的护城河应写成<strong>「单位 Token 的可靠交付成本 + 合同可见度 + 合规交付记录」</strong>，而不是「拥有某开源模型的独占权」。</p>
             
             <h3>合规框架</h3>
             <table>
@@ -1462,7 +1776,7 @@
                 </tr>
                 <tr>
                     <td>能源环保</td>
-                    <td>绿电占比≥80%、PUE≤1.15</td>
+                    <td>绿电占比目标与地方承诺对齐；<strong>分区 PUE</strong>以环评/设计批复为准（材料第二节为假设）</td>
                 </tr>
                 <tr>
                     <td>国产替代</td>
@@ -1476,7 +1790,7 @@
         </section>
         
         <section>
-            <h2>十一、附录：核心数据与术语</h2>
+            <h2>十二、附录：核心数据与术语</h2>
             
             <h3>核心数据汇总</h3>
             <table>
@@ -1506,9 +1820,9 @@
                     <td>IDC</td>
                 </tr>
                 <tr>
-                    <td>CoreWeave订单积压</td>
-                    <td>668亿美元</td>
-                    <td>财报</td>
+                    <td>CoreWeave（CRWV）收入储备</td>
+                    <td>约 668 亿美元（2025-12-31，公司新闻稿）</td>
+                    <td>SEC / 投资者关系</td>
                 </tr>
                 <tr>
                     <td>Crusoe估值</td>
@@ -1575,12 +1889,9 @@
         </section>
         
         <section>
-            <h2>结语：AI时代的新基建</h2>
-            <p>2026年，我们站在AI革命的十字路口。大模型的爆发、算力的短缺、Token经济的崛起，正在重塑整个科技行业的格局。</p>
-            <p>PIPE-AI的使命，不是要成为另一个大模型公司，也不是要开发另一个AI应用，而是要构建AI时代的基础设施——让Token像电力一样无处不在，让每瓦电力产生最大的智能价值。</p>
-            <p>这是一条艰难的路，需要重资产投入，需要长期主义的坚持，需要对技术和商业的深刻理解。但我们相信，这是AI时代最有价值的事情。</p>
-            <p>正如电力革命改变了工业时代，Token经济将改变AI时代。而我们，将成为这个时代的"电力公司"。</p>
-            <p class="footer-note">*本文为PIPE-AI创业白皮书，未经授权不得转载。*</p>
+            <h2>结语：可验证的重资产叙事</h2>
+            <p>PIPE-AI 的叙事若要在红杉、真格等机构面前成立，核心不是「Token 即货币」的修辞，而是三件事：<strong>（1）装机与电力是否对得上账；</strong><strong>（2）资本金与总 program 是否拆得清；</strong><strong>（3）开源+微调路径下，单位经济是否经得起与 CRWV、NBIS 等公开标的的对照。</strong>本版材料已将 156MW IT 的算术、分区 PUE、年满负荷/半负荷电量区间、以及 50 亿元股本金的边界写在前排，便于你们直接挑战假设。</p>
+            <p class="footer-note">本文为 PIPE-AI 机构投资人草案，保密持有，未经授权不得转载。</p>
         </section>
         
         <footer>
