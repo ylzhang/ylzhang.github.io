@@ -11,8 +11,217 @@
     </image>
     <generator>Hugo -- 0.159.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 03 Apr 2026 20:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2026 20:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI人物志-强化学习之父Richard Sutton</title>
+      <link>https://blog.zhangky.com/posts/2026/april/2026-04-06-richard-sutton-the-reinforcer/</link>
+      <pubDate>Mon, 06 Apr 2026 20:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/april/2026-04-06-richard-sutton-the-reinforcer/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;AI人物志系列&lt;/strong&gt;：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;当全世界都在谈论AlphaGo的奇迹时，很少有人知道，那个让机器学会&amp;quot;思考未来&amp;quot;的人，已经在加拿大的寒风中等待了四十年。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2016年3月，韩国首尔四季酒店。AlphaGo与李世石的围棋对决进入白热化。当AlphaGo下出那手震惊世界的&amp;quot;神之一手&amp;quot;时，全球数亿观众为之疯狂。但在遥远的加拿大埃德蒙顿，一位留着胡子、穿着格子衬衫的老人只是微微一笑，然后继续在他的白板上写着公式。&lt;/p&gt;
+&lt;p&gt;他叫Richard Sutton。他是强化学习之父，是AlphaGo背后的理论奠基人。但此刻，他没有在看直播——他已经知道结果。四十年的等待，终于等到了这一天。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;AlphaGo证明了强化学习可以工作，&amp;ldquo;Sutton后来平静地说，&amp;ldquo;但我更关心的是，它还能做什么。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;马萨诸塞州的童年一个关于选择的谜题&#34;&gt;马萨诸塞州的童年：一个关于选择的谜题&lt;/h2&gt;
+&lt;p&gt;1957年，Sutton出生在美国马萨诸塞州的一个普通家庭。他的父亲是一位工程师，母亲是一位教师。从小，Sutton就展现出对数学和逻辑的痴迷。&lt;/p&gt;
+&lt;p&gt;但真正改变他的是一本旧书。&lt;/p&gt;
+&lt;p&gt;那是1960年代末，Sutton在图书馆的角落里发现了一本关于心理学的书。书中描述了一个实验：老鼠在迷宫中学习找到食物。Sutton被这个简单的场景迷住了——&lt;strong&gt;没有老师，没有标签，只有尝试、错误、和奖励。老鼠通过不断尝试，学会了最优路径。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这就是学习的本质，&amp;ldquo;年轻的Sutton想，&amp;ldquo;不是被教导，而是通过互动。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个念头像一颗种子，埋进了Sutton的心里。他不知道，这颗种子将在四十年后长成参天大树。&lt;/p&gt;
+&lt;h2 id=&#34;斯坦福的困惑监督学习的局限&#34;&gt;斯坦福的困惑：监督学习的局限&lt;/h2&gt;
+&lt;p&gt;1970年代末，Sutton进入斯坦福大学学习计算机科学。那是AI的第一次寒冬，但Sutton对主流的方向感到困惑。&lt;/p&gt;
+&lt;p&gt;当时的主流是&lt;strong&gt;监督学习&lt;/strong&gt;——给机器大量标注数据，让它学会从输入到输出的映射。但Sutton觉得这种方法有问题：人类不是这样学习的。婴儿学走路，不是通过看一万个&amp;quot;正确走路&amp;quot;的示例；棋手学棋，不是通过记忆所有可能的局面。&lt;/p&gt;
+&lt;p&gt;人类学习是通过&lt;strong&gt;试错&lt;/strong&gt;，通过&lt;strong&gt;与环境的互动&lt;/strong&gt;，通过&lt;strong&gt;奖励和惩罚&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;监督学习假设有一个&amp;rsquo;正确答案&amp;rsquo;，&amp;ldquo;Sutton后来解释，&amp;ldquo;但现实中，很多问题的答案取决于你未来的行动。下棋时，这一步的好坏取决于你后面怎么下；投资时，这个决策的好坏取决于市场未来的变化。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Sutton想要一种不同的学习范式——&lt;strong&gt;强化学习（Reinforcement Learning）&lt;/strong&gt;。在这种范式中，智能体通过行动影响环境，环境反馈奖励或惩罚，智能体的目标是最大化长期累积奖励。&lt;/p&gt;
+&lt;p&gt;这不是简单的输入-输出映射，这是一个&lt;strong&gt;序列决策问题&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;时序差分在未知中寻找答案&#34;&gt;时序差分：在未知中寻找答案&lt;/h2&gt;
+&lt;p&gt;1984年，Sutton在麻省大学阿默斯特分校读博士时，做出了他一生中最重要的贡献——&lt;strong&gt;时序差分学习（Temporal Difference Learning）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;核心问题很简单：如何估计一个状态的价值？在棋局中，当前局面的价值取决于从当前局面出发，最终能赢还是输。但我们不知道最终结果，我们只能一步步走下去。&lt;/p&gt;
+&lt;p&gt;Sutton的洞见是：&lt;strong&gt;我们可以用当前的估计来更新当前的估计&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;具体来说，当我们从状态A走到状态B时，我们可以用状态B的当前价值估计来更新状态A的价值估计。如果状态B看起来很好，那么状态A也应该变得更好；如果状态B看起来很糟，那么状态A也应该变得更糟。&lt;/p&gt;
+&lt;p&gt;这种&amp;quot;自举（bootstrapping）&amp;ldquo;的方法看起来像是循环论证——用估计来更新估计，能收敛吗？&lt;/p&gt;
+&lt;p&gt;Sutton用数学证明了，在某些条件下，它能收敛。而且，它比传统的蒙特卡洛方法（等到游戏结束才更新）更快、更高效。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;时序差分是人类学习的方式，&amp;ldquo;Sutton说，&amp;ldquo;当我们做一件事时，我们不需要等到最终结果才知道好坏。我们可以根据中间反馈实时调整。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这篇1988年发表的论文，成为强化学习领域的奠基之作。但当时的AI社区对此反应冷淡。&lt;/p&gt;
+&lt;h2 id=&#34;漫长的冬天在边缘坚守&#34;&gt;漫长的冬天：在边缘坚守&lt;/h2&gt;
+&lt;p&gt;1980年代到2000年代，强化学习处于AI的边缘。&lt;/p&gt;
+&lt;p&gt;监督学习有ImageNet，有深度学习，有耀眼的成果。但强化学习呢？它只能在简单的玩具问题上演示，比如让机器人在网格世界里找路，或者让杆子在车上保持平衡。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那时候很难，&amp;ldquo;Sutton回忆，&amp;ldquo;申请经费被拒，发表论文困难，学生招不到。人们问，&amp;lsquo;这东西能做什么？&amp;lsquo;我回答不了。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;但Sutton没有放弃。他相信，强化学习的问题不是理论问题，是&lt;strong&gt;规模问题&lt;/strong&gt;。当时的计算机不够快，模拟环境不够复杂，算法无法展现真正的能力。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我们需要等待，&amp;ldquo;Sutton说，&amp;ldquo;等待计算能力的提升，等待合适的应用场景。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个等待持续了将近三十年。&lt;/p&gt;
+&lt;p&gt;在这期间，Sutton培养了一批学生，其中最著名的包括David Silver——后来AlphaGo的核心开发者。Sutton把强化学习的火种传递给了下一代，即使他自己看不到火焰燃起的那一天。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我告诉他们，这不是一个热门的领域，&amp;ldquo;Sutton说，&amp;ldquo;但如果你相信它，就坚持下去。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;2013年的突破atari游戏上的奇迹&#34;&gt;2013年的突破：Atari游戏上的奇迹&lt;/h2&gt;
+&lt;p&gt;2013年，DeepMind发表了一篇论文，震惊了整个AI社区。&lt;/p&gt;
+&lt;p&gt;他们用一个简单的强化学习算法（DQN，深度Q网络），在没有任何先验知识的情况下，学会了玩Atari电子游戏。不是一两个游戏，是几十个游戏。而且，在某些游戏上，AI的表现超越了人类专家。&lt;/p&gt;
+&lt;p&gt;Sutton看到这篇论文时，知道等待结束了。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;DeepMind证明了，强化学习可以扩展到复杂问题，&amp;ldquo;Sutton说，&amp;ldquo;不是通过更聪明的算法，而是通过深度学习来近似价值函数。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这是Sutton理论的完美验证。时序差分学习需要估计状态的价值，但对于复杂问题（比如游戏画面），状态空间太大，无法用表格存储。深度学习提供了近似价值函数的方法——用神经网络来估计&amp;quot;这个画面有多好&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;DeepMind的创始人Demis Hassabis后来承认，他们的工作建立在Sutton的理论基础之上。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Sutton是强化学习的奠基人，&amp;ldquo;Hassabis说，&amp;ldquo;没有他的工作，就没有AlphaGo。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;alphago等待四十年的答案&#34;&gt;AlphaGo：等待四十年的答案&lt;/h2&gt;
+&lt;p&gt;2016年，AlphaGo击败李世石，成为AI历史上的里程碑。&lt;/p&gt;
+&lt;p&gt;AlphaGo的核心是&lt;strong&gt;蒙特卡洛树搜索（MCTS）&lt;strong&gt;结合&lt;/strong&gt;深度神经网络&lt;/strong&gt;。但很少有人知道，MCTS的理论基础正是Sutton在1980年代发展的强化学习方法。&lt;/p&gt;
+&lt;p&gt;具体来说，AlphaGo使用了Sutton的**策略梯度（Policy Gradient）**方法。它不是简单地估计状态价值，而是直接优化策略——教网络&amp;quot;在这种情况下应该怎么下&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;AlphaGo是强化学习的胜利，&amp;ldquo;Sutton说，&amp;ldquo;但它也是开始，不是结束。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Sutton指出，AlphaGo的成功有几个关键因素：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;完美的模拟环境&lt;/strong&gt;：围棋规则明确，可以完美模拟。现实世界没有这么干净。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;大量的自对弈数据&lt;/strong&gt;：AlphaGo通过自己跟自己下棋，生成了数百万局数据。现实世界的数据是昂贵的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;明确的奖励信号&lt;/strong&gt;：赢或输，一目了然。现实世界的奖励是延迟的、模糊的。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;ldquo;围棋是强化学习的理想测试场，&amp;ldquo;Sutton说，&amp;ldquo;但真正的挑战在现实世界。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;当下的沉思强化学习的下一个前沿&#34;&gt;当下的沉思：强化学习的下一个前沿&lt;/h2&gt;
+&lt;p&gt;站在2026年，Sutton正在思考强化学习的下一个前沿。&lt;/p&gt;
+&lt;p&gt;他认为，当前的强化学习还有几个根本问题需要解决：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;样本效率&lt;/strong&gt;：AlphaGo需要数百万局游戏才能学会下棋，人类只需要几百局。如何让学习更高效？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;泛化能力&lt;/strong&gt;：AlphaGo只会下围棋，不会下象棋。如何让学到的知识迁移到其他任务？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;真实世界&lt;/strong&gt;：围棋有完美的模拟器，但现实世界没有。如何让强化学习在真实环境中工作？&lt;/p&gt;
+&lt;p&gt;Sutton的答案是：&lt;strong&gt;预测&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;智能的本质是预测，&amp;ldquo;Sutton说，&amp;ldquo;预测接下来会发生什么，预测行动的后果，预测什么策略会带来好的结果。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;他提出了**预测学习（Predictive Learning）**的概念——不是学习特定的任务，而是学习预测世界。这种预测能力是通用的，可以迁移到任何任务。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI人物志-天选之人刘嘉</title>
+      <link>https://blog.zhangky.com/posts/2026/april/2026-04-05-liu-jia-the-chosen-one/</link>
+      <pubDate>Sun, 05 Apr 2026 20:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/april/2026-04-05-liu-jia-the-chosen-one/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;AI人物志系列&lt;/strong&gt;：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;当AI的信仰丢失20年后，一个研究大脑的人重新找到了回家的路。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2016年3月，江苏卫视《最强大脑》的录制现场，一位戴着眼镜、气质儒雅的教授正盯着监视器，眉头紧锁。屏幕上，人工智能系统正在与人类选手进行人脸识别对决。当AI以压倒性优势获胜时，现场爆发出欢呼声，但这位教授却感到一阵眩晕。&lt;/p&gt;
+&lt;p&gt;他叫刘嘉，当时是北师大心理学院院长，一个研究人脑20多年的脑科学家。那一刻，他意识到一件事：&lt;strong&gt;丢失20年的信仰，回来了。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我当时以为AI还是一如既往的弱智，&amp;ldquo;他后来回忆，&amp;ldquo;结果它已经在最强大脑的赛场上击败了人类。那种感觉，就像你一直以为走丢的孩子已经死了，突然有一天，他站在你面前，而且比你想象的更强大。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;北大的第一堂神经网络课一个被遗忘的名字&#34;&gt;北大的第一堂神经网络课：一个被遗忘的名字&lt;/h2&gt;
+&lt;p&gt;刘嘉的AI故事，要从1994年说起。&lt;/p&gt;
+&lt;p&gt;那一年，刘嘉还是北京大学心理学系的学生。他对数理充满热情，但心理学的课程让他失望——&amp;ldquo;太文科了，不讲逻辑，太哲学思辨&amp;rdquo;。他一度想转去学计算机，直到他偶然选了一门课。&lt;/p&gt;
+&lt;p&gt;那门课叫&amp;quot;人工神经网络&amp;rdquo;，授课老师是一位刚从日本做完博士后回国的年轻教师。刘嘉至今记得那间教室的位置，记得黑板上画着的神经元连接图，记得那种&amp;quot;终于找到组织了&amp;quot;的激动。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那是我国内可能第一门人工神经网络的课程，&amp;ldquo;刘嘉回忆，&amp;ldquo;老师的样子我都记得，但名字全忘了。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个被遗忘的名字，改变了刘嘉的一生。人工神经网络完美契合了他的背景——既有心理世界的复杂性，又有理科的严谨逻辑。他决定把神经网络作为一辈子的事业。&lt;/p&gt;
+&lt;p&gt;但命运弄人。就在刘嘉准备投身AI时，他遇到了Marvin Minsky。&lt;/p&gt;
+&lt;h2 id=&#34;mit的低谷信仰被亲手埋葬&#34;&gt;MIT的低谷：信仰被亲手埋葬&lt;/h2&gt;
+&lt;p&gt;1995年，刘嘉来到MIT读研究生。他满怀憧憬，想要跟随AI界的教父Marvin Minsky学习神经网络。但他不知道的是，Minsky对神经网络&amp;quot;深仇大恨&amp;rdquo;，而当时的AI正处于最后一次寒冬。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我去见Minsky的时候，他非常depressed，&amp;ldquo;刘嘉回忆，&amp;ldquo;我问他做AI应该选哪个方向，他说他自己也不知道promising的方向在哪里。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Minsky建议刘嘉去学脑科学——&amp;ldquo;脑科学太好了，有太多frontier可以探索&amp;rdquo;。刘嘉听从了这个建议，留在了脑与认知科学系。但他没有意识到，这个选择意味着与AI的20年分离。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我当时并没有底层的逻辑或信念，&amp;ldquo;刘嘉后来反思，&amp;ldquo;只是觉得神经网络很酷，但一旦大家说这东西不行，特别是像Minsky这种权威说AI不行，我就没细想，然后放弃掉了。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;那是AI的最后一次寒冬，90%以上的人都放弃了。刘嘉也是其中之一。&lt;/p&gt;
+&lt;h2 id=&#34;20年的弯路从脑科学到最强大脑&#34;&gt;20年的弯路：从脑科学到《最强大脑》&lt;/h2&gt;
+&lt;p&gt;接下来的20年，刘嘉把AI&amp;quot;彻底给忘记了&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;他专注于脑科学研究，从MIT博士毕业，回国任教，先在中科院，后去北师大。他研究视觉认知、神经机制、大脑的可塑性，发表了大量论文，成为脑科学领域的权威。2015年，他甚至成为北师大心理学院院长，行政职务一片坦途。&lt;/p&gt;
+&lt;p&gt;但刘嘉心里始终有一个空缺。那个1994年在北大课堂上点燃的热情，那个关于人工神经网络的梦，被深埋在心底，几乎被遗忘。&lt;/p&gt;
+&lt;p&gt;直到2016年，《最强大脑》的人机大战。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;当时我们想做一个酷炫的节目，想到了人机大战，&amp;ldquo;刘嘉回忆，&amp;ldquo;其实我对AI的进展、对深度学习了解基本上为0，当时以为AI还是一如既往的弱智。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;结果让他震惊。AI在人脸识别上超越了人类最顶尖的高手。而那一年，正是AlphaGo击败李世石的年份。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这两件事情结合起来，让我重新回到了20年前，&amp;ldquo;刘嘉说，&amp;ldquo;丢失20年的信仰，回来了。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;信仰的重建从hinton的传记中找到底层逻辑&#34;&gt;信仰的重建：从Hinton的传记中找到底层逻辑&lt;/h2&gt;
+&lt;p&gt;2016年之后，刘嘉开始疯狂地补课。他读深度学习的论文，学习神经网络的新进展，试图理解这20年发生了什么。&lt;/p&gt;
+&lt;p&gt;但他很快发现，技术细节不是最重要的。重要的是理解&lt;strong&gt;为什么&lt;/strong&gt;——为什么深度学习突然行了？为什么神经网络在20年后复活了？&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我看了半天也没看明白啥，&amp;ldquo;刘嘉承认，&amp;ldquo;后来我想应该从Hinton的传记史里面入手。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;他研究了Geoffrey Hinton的历史，看了Yann LeCun和Yoshua Bengio的背景。但Hinton的经历最触动他——那个在AI寒冬中孤独坚守40年的人，那个即使被全世界嘲笑也不放弃的人。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Hinton有一句话对我触动特别大，&amp;ldquo;刘嘉说，&amp;ldquo;别人问他为什么要坚持做人工神经网络，他说：&amp;lsquo;人的大脑就是这么工作的，没理由人工神经网络不这么工作。&amp;rsquo;&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这句话道出了底层逻辑：&lt;strong&gt;人工神经网络不是仿生，而是对智能本质的回归。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;刘嘉突然明白了。他20年的脑科学研究不是弯路，而是必要的准备。正因为研究了大脑，他才能真正理解为什么深度学习有效——因为大脑就是这么工作的，神经元连接、学习、涌现智能。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我找到了我的底层逻辑，&amp;ldquo;刘嘉说，&amp;ldquo;当年就应该选人工神经网络来做。至于Hopfield网络还是其他，都不重要。只要底层架构对了，其他都是技术问题。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;辞掉院长不想错过这个时代&#34;&gt;辞掉院长：不想错过这个时代&lt;/h2&gt;
+&lt;p&gt;找到底层逻辑后，刘嘉做了一个让所有人震惊的决定：辞去北师大心理学院院长的职务。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我当时不到45岁，级别做得比较高，从行政的路来讲是一片坦途，&amp;ldquo;刘嘉解释，&amp;ldquo;但我想，不能在那上面浪费时间。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;学校不允许他辞职。刘嘉花了一年时间，每两天给大书记发一次短信，&amp;ldquo;你赶紧批准吧&amp;rdquo;。最终，他成功了，成为一个普通的教授，把所有行政职务全部辞掉。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;现在是最伟大的时代，&amp;ldquo;刘嘉说，&amp;ldquo;为什么说要把所有的行政职务全部给辞掉？道理非常简单——不想错过这个时代。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;2019年，刘嘉加入清华，成为脑与智能实验室的负责人。清华的AI很强，但脑科学比较弱；刘嘉的脑科学很强，但AI比较弱。这是一个完美的互补。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我和清华之前完全没有任何交集，&amp;ldquo;刘嘉说，&amp;ldquo;但我觉得那是一个很好的地方。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;降临派的天选之人脑科学ai的融合&#34;&gt;降临派的天选之人：脑科学+AI的融合&lt;/h2&gt;
+&lt;p&gt;刘嘉把自己称为&amp;quot;降临派&amp;rdquo;——相信AI终将超越人类，而人类应该迎接这个未来。&lt;/p&gt;
+&lt;p&gt;但与其他降临派不同，刘嘉的信仰有坚实的科学基础。他认为，光靠Transformer堆数量是不够的，神经元的质量需要脑科学的借鉴。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我们可以堆数量，但是光靠堆数量是不行的，还要去提升质量，&amp;ldquo;刘嘉说，&amp;ldquo;这时候需要脑科学的借鉴。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;他指出了当前AI的三大缺陷：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;缺乏复杂度&lt;/strong&gt;：Transformer没有动力学，没有偏微分方程，而生物神经网络是四维的（三维结构+时间）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;缺乏长程反馈&lt;/strong&gt;：人脑40%是长程feedback连接，而Transformer接近零。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;缺乏并行加工&lt;/strong&gt;：Transformer只能串行predict next token，而人类有快速的并行加工系统。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这三个东西是目前人脑和人工神经网络最大的区别，&amp;ldquo;刘嘉说，&amp;ldquo;而这三个东西，导致我们现在做脑机接口和机器人最大的瓶颈。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;刘嘉认为，AI要进入下一个阶段，必须有一场基于脑科学的启蒙运动——就像当年脑科学启蒙了感知机、卷积神经网络一样。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我觉得下面还需要一个脑科学，在第一系统上面对AI有一个启蒙，&amp;ldquo;刘嘉说，&amp;ldquo;这个启蒙一旦完成了，AI才会变成一个真正的AI，或者真正的物种。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;当下的沉思与ai共生是最难的课题&#34;&gt;当下的沉思：与AI共生是最难的课题&lt;/h2&gt;
+&lt;p&gt;站在2026年，刘嘉正在拼命思考一个课题：&lt;strong&gt;怎么和AI对话，怎么和AI共生。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;很难很难，&amp;ldquo;他承认，&amp;ldquo;很多人觉得能够用AI就叫AI原生，那就是瞎扯。AI原生是一种思维范式的、一种根本性的改变。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;刘嘉把与AI的关系比作&amp;quot;谈恋爱&amp;rdquo;——不是工具的使用，而是伙伴的合作。AI不是word、不是PPT，它有能动性，有创造力，有&amp;quot;小性格&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;她就像一个小女生一样，你今天对她还好好的，你说句话她还挺开心，你明天说同样的话她就给你使脸色，&amp;ldquo;刘嘉形容，&amp;ldquo;那一定是我philosophy哪儿没做对。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种困惑是普遍的。AI时代，&amp;ldquo;小术易求，大道难得&amp;rdquo;——各种工具、技巧层出不穷，但从底层理解AI的philosophy，反而成为这个时代最困惑的问题。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;全世界所有的人，现在都没有这个philosophy，&amp;ldquo;刘嘉说，&amp;ldquo;大家都是在摸索的过程中。但有些人走到前面，他有更深刻的理解。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;刘嘉希望成为那个&amp;quot;走到前面&amp;quot;的人。他用20年研究人脑，用20年远离AI，然后在2016年重新找到信仰。这种经历让他有独特的视角——既懂脑科学，又懂AI；既懂人的智能，又懂人工智能。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;如果从一个降临派的角度来说，我的那个歧路可能是必要的安排，&amp;ldquo;刘嘉说，&amp;ldquo;从头到尾没有放弃过信仰，但是需要去学习别的东西，从而可以帮助AI更好的发展。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;说到底一个天选之人的使命&#34;&gt;说到底：一个天选之人的使命&lt;/h2&gt;
+&lt;p&gt;刘嘉的故事，是一个关于&lt;strong&gt;信仰与弯路&lt;/strong&gt;的故事。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI人物志-教父Marvin Minsky</title>
+      <link>https://blog.zhangky.com/posts/2026/april/2026-04-04-marvin-minsky-the-godfather/</link>
+      <pubDate>Sat, 04 Apr 2026 20:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/april/2026-04-04-marvin-minsky-the-godfather/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;AI人物志系列&lt;/strong&gt;：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;他是人工智能的命名者，却亲手扼杀了它的第一个春天。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1956年夏天，达特茅斯学院的一间会议室里，四位年轻人正在讨论一个疯狂的想法：让机器像人一样思考。他们中有数学家、信息论专家、神经科学家，还有一个刚刚从哈佛毕业的年轻人——Marvin Minsky。&lt;/p&gt;
+&lt;p&gt;会议持续了八周，没有产生任何实质性的成果。但Minsky提出了一个词，改变了历史：&lt;strong&gt;人工智能（Artificial Intelligence）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我当时只是想找一个词来描述我们要做的事，&amp;ldquo;Minsky后来回忆，&amp;ldquo;没想到它会变成这么大的一个领域。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;他更没想到的是，二十年后，他会成为这个领域的&amp;quot;杀手&amp;rdquo;。&lt;/p&gt;
+&lt;h2 id=&#34;哈佛的天才一个关于心智的谜题&#34;&gt;哈佛的天才：一个关于心智的谜题&lt;/h2&gt;
+&lt;p&gt;1927年，Minsky出生在纽约的一个犹太家庭。他的父亲是一位眼科医生，母亲是一位艺术家。从小，Minsky就展现出惊人的天赋——他读遍了家里的所有书籍，从医学到艺术，从哲学到数学。&lt;/p&gt;
+&lt;p&gt;但真正改变他的是一台玩具。&lt;/p&gt;
+&lt;p&gt;那是1940年代，Minsky的父亲给他买了一台显微镜。年轻的Minsky开始观察一切——昆虫的翅膀、植物的细胞、自己的皮肤。但他最着迷的不是这些实物，而是&lt;strong&gt;观察本身&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我看着显微镜，突然意识到一个问题，&amp;ldquo;Minsky后来写道，&amp;ldquo;我在用我的眼睛观察细胞，但我的眼睛也是由细胞组成的。那么，是什么在观察？&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个关于&lt;strong&gt;自我&lt;/strong&gt;的谜题，成为Minsky一生的追求。他想知道心智是如何工作的，意识是如何产生的，智能是如何涌现的。&lt;/p&gt;
+&lt;p&gt;1946年，Minsky进入哈佛大学。他主修数学，但他的兴趣遍布所有学科。他听神经科学的课，参加哲学的讨论，在心理学实验室做实验。他想要找到一个统一的框架，来解释所有关于心智的问题。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我当时相信，智能是可以被形式化的，&amp;ldquo;Minsky回忆，&amp;ldquo;如果我们能描述心智的规则，我们就能在机器上实现它。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这是符号主义AI的核心理念，也是Minsky一生的信仰。&lt;/p&gt;
+&lt;h2 id=&#34;达特茅斯一个夏天的野心&#34;&gt;达特茅斯：一个夏天的野心&lt;/h2&gt;
+&lt;p&gt;1956年的达特茅斯会议，是AI历史上的里程碑。但很少有人知道，这次会议几乎是一场灾难。&lt;/p&gt;
+&lt;p&gt;会议的组织者是John McCarthy，一位年轻的数学家。他邀请了Minsky、Claude Shannon（信息论创始人）、Nathaniel Rochester（IBM首席设计师）等人，希望讨论&amp;quot;如何让机器模拟人类智能的各个方面&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;但会议开始后，大家发现根本不知道该讨论什么。每个人对&amp;quot;智能&amp;quot;的理解都不同，每个方向看起来都充满可能。争论持续了八周，没有达成任何共识。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那是一次失败的会议，&amp;ldquo;一位参与者后来承认，&amp;ldquo;但Minsky拯救了它。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Minsky做了什么？他提出了一个&lt;strong&gt;框架&lt;/strong&gt;。他说，智能可以被分解为几个核心问题：推理、知识表示、学习、语言理解。每个问题都可以被独立研究，最终组合成一个完整的智能系统。&lt;/p&gt;
+&lt;p&gt;这个框架让混乱的讨论有了方向。它也成为符号主义AI的路线图，影响了接下来二十年的研究。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Minsky的天才在于抽象，&amp;ldquo;一位AI历史学家评价，&amp;ldquo;他能把复杂的问题简化成可管理的部分。这种能力在科学史上是罕见的。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;mit-ai-lab符号主义的黄金时代&#34;&gt;MIT AI Lab：符号主义的黄金时代&lt;/h2&gt;
+&lt;p&gt;1959年，Minsky和McCarthy共同创立了MIT人工智能实验室。这是世界上第一个专门研究AI的机构，也是符号主义AI的大本营。&lt;/p&gt;
+&lt;p&gt;在接下来的二十年里，MIT AI Lab诞生了无数传奇。Minsky的学生们开发了最早的专家系统、自然语言处理程序、机器人视觉系统。他们相信，只要积累足够多的规则，机器就能拥有通用的智能。&lt;/p&gt;
+&lt;p&gt;Minsky本人也做出了重要贡献。他开发了&lt;strong&gt;框架理论（Frame Theory）&lt;/strong&gt;，一种知识表示的方法；他设计了&lt;strong&gt;Snarc&lt;/strong&gt;，最早的神经网络模拟器之一；他写了《心智社会（The Society of Mind）》，一本试图解释意识如何产生的哲学著作。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那是一段令人兴奋的时光，&amp;ldquo;一位Minsky的学生回忆，&amp;ldquo;我们相信自己在创造历史。Minsky告诉我们，智能的奥秘就在我们眼前，只要再努力一点，就能揭开它。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;但Minsky的自信背后，隐藏着一种傲慢。他相信符号主义是正确的道路，其他方向都是歧途。特别是神经网络——那种模仿大脑结构的&amp;quot;连接主义&amp;quot;方法，在Minsky看来是&amp;quot;不科学的&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;神经网络只是统计学，&amp;ldquo;Minsky在一次演讲中说，&amp;ldquo;它没有告诉我们任何关于智能本质的东西。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种偏见，最终导致了AI历史上最大的悲剧之一。&lt;/p&gt;
+&lt;h2 id=&#34;感知机一把双刃剑&#34;&gt;《感知机》：一把双刃剑&lt;/h2&gt;
+&lt;p&gt;1969年，Minsky和Seymour Papert出版了《感知机（Perceptrons）》一书。这本书用严格的数学证明，指出了单层神经网络的致命缺陷：它们无法解决简单的异或（XOR）问题。&lt;/p&gt;
+&lt;p&gt;从技术角度，这本书是正确的。单层感知机确实有局限性，需要多层结构才能解决复杂问题。但Minsky和Papert的表述方式——强调神经网络的&amp;quot;不可能性&amp;rdquo;，而不是讨论如何改进——给整个领域泼了一盆冷水。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那本书杀死了神经网络研究，&amp;ldquo;一位经历过那个时代的科学家说，&amp;ldquo;Minsky是当时AI界的权威，他的话有决定性的影响。当他说神经网络是死胡同时，没有人敢继续研究它。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;神经网络进入了第一次&amp;quot;寒冬&amp;rdquo;。研究经费被削减，学术职位消失，年轻的研究者被迫转行。Hinton后来回忆，他在1970年代几乎找不到任何关于神经网络的论文，因为&amp;quot;那个领域已经不存在了&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;Minsky知道这本书的影响，但他从未为此道歉。&amp;ldquo;我只是在陈述事实，&amp;ldquo;他坚持，&amp;ldquo;如果神经网络研究者不能解决这些问题，那他们就不应该继续。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种冷酷让许多人感到愤怒。但Minsky不在乎。他相信真理比人情更重要，即使这个真理可能伤害了别人。&lt;/p&gt;
+&lt;h2 id=&#34;1980年代一个教父的困惑&#34;&gt;1980年代：一个教父的困惑&lt;/h2&gt;
+&lt;p&gt;1980年代，专家系统的成功让AI迎来了第二次春天。Minsky似乎被证明是对的——符号主义确实可以产生实用的系统。&lt;/p&gt;
+&lt;p&gt;但Minsky本人并不满意。&lt;/p&gt;
+&lt;p&gt;专家系统只能在特定领域工作，它们没有通用智能，不能学习新知识，不能理解常识。Minsky想要的不是这种&amp;quot;窄AI&amp;rdquo;，他想要的是真正的智能——像人类一样灵活、创造性、有自我意识的智能。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我们在建造工具，不是在理解心智，&amp;ldquo;Minsky在一次会议上抱怨，&amp;ldquo;这不是我想要的AI。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种困惑让Minsky在1980年代陷入了一种奇怪的境地。他仍然是AI界的权威，但他的研究方向与主流脱节。他继续研究知识表示、意识理论、心智哲学，但这些工作越来越抽象，越来越远离实际应用。&lt;/p&gt;
+&lt;p&gt;一位Minsky的同事回忆：&amp;ldquo;那是一段孤独的时期。Minsky还在MIT，但他不再是那个引领潮流的人。他在思考一些太超前的问题，而业界只关心眼前的应用。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;更讽刺的是，神经网络在1980年代复活了。反向传播算法的出现让多层神经网络变得可行，Hinton、LeCun、Bengio等人开始取得突破。Minsky曾经的&amp;quot;受害者&amp;quot;们，正在证明他错了。&lt;/p&gt;
+&lt;p&gt;Minsky的反应是沉默。他不再公开批评神经网络，但他也不承认自己的错误。他继续走自己的路，研究符号主义，研究心智哲学，等待符号主义的复兴。&lt;/p&gt;
+&lt;p&gt;那个复兴从未到来。&lt;/p&gt;
+&lt;h2 id=&#34;2000年代一个老人的守望&#34;&gt;2000年代：一个老人的守望&lt;/h2&gt;
+&lt;p&gt;进入21世纪，Minsky已经七十多岁。他仍然活跃在学术界，但他的影响力已经大不如前。&lt;/p&gt;
+&lt;p&gt;深度学习在2010年代的爆发，彻底终结了符号主义的时代。神经网络在图像识别、语音识别、自然语言处理等领域全面超越符号方法。Minsky曾经嘲笑的&amp;quot;统计学&amp;rdquo;，正在成为AI的主流。&lt;/p&gt;
+&lt;p&gt;Minsky对此的反应很复杂。一方面，他承认神经网络的成就；另一方面，他坚持认为这些系统没有真正理解任何东西。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;它们只是在模式匹配，&amp;ldquo;他在2010年的一次采访中说，&amp;ldquo;它们没有概念，没有推理，没有自我。这不是智能，这是高级的计算。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种批评有一定的道理。大语言模型确实缺乏常识推理、因果理解和真正的创造力。但Minsky的问题在于，他也没有提供替代方案。符号主义在理论上优雅，但在实践中失败。神经网络在实践中成功，但在理论上不透明。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Minsky被困在自己的框架里，&amp;ldquo;一位AI研究者评价，&amp;ldquo;他太相信符号主义了，以至于无法看到其他可能性。这是一个悲剧——一个如此聪明的人，却被自己的偏见限制。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;2016年，Minsky去世，享年88岁。他没有看到AlphaGo击败李世石，没有看到GPT的爆发，没有看到AI成为全社会的焦点。从某种意义上，这是幸运的——他不必面对符号主义的彻底失败。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>AI人物志-理论家Yoshua Bengio</title>
       <link>https://blog.zhangky.com/posts/2026/april/2026-04-03-yoshua-bengio-the-theorist/</link>

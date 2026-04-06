@@ -2,6 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.zhangky.com/tags/ai/</loc>
+    <lastmod>2026-04-06T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/2026/april/2026-04-06-richard-sutton-the-reinforcer/</loc>
+    <lastmod>2026-04-06T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/categories/</loc>
+    <lastmod>2026-04-06T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/</loc>
+    <lastmod>2026-04-06T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/tags/</loc>
+    <lastmod>2026-04-06T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/categories/technology/</loc>
+    <lastmod>2026-04-06T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/</loc>
+    <lastmod>2026-04-06T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/</loc>
+    <lastmod>2026-04-06T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/2026/april/2026-04-05-liu-jia-the-chosen-one/</loc>
+    <lastmod>2026-04-05T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/posts/2026/april/2026-04-04-marvin-minsky-the-godfather/</loc>
+    <lastmod>2026-04-04T20:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-01-philosophy/</loc>
     <lastmod>2026-04-04T06:00:00+08:00</lastmod>
   </url><url>
@@ -29,37 +59,16 @@
     <loc>https://blog.zhangky.com/tags/agentic/</loc>
     <lastmod>2026-04-04T06:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangky.com/tags/ai/</loc>
-    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/categories/</loc>
-    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://blog.zhangky.com/series/claude-agent%E7%90%86%E5%BF%B5%E4%B8%93%E6%A0%8F/</loc>
     <lastmod>2026-04-04T06:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangky.com/posts/</loc>
-    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://blog.zhangky.com/series/</loc>
-    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/tags/</loc>
-    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/categories/technology/</loc>
-    <lastmod>2026-04-04T06:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/</loc>
     <lastmod>2026-04-04T06:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2026-04-04T06:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/april/2026-04-03-yoshua-bengio-the-theorist/</loc>
-    <lastmod>2026-04-03T20:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/</loc>
     <lastmod>2026-04-03T20:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/</loc>

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AI人物志-强化学习之父Richard Sutton | Zhang&#39;s Blog</title>
+<meta name="keywords" content="Richard Sutton, 强化学习, AlphaGo, 时序差分学习, 蒙特卡洛方法">
+<meta name="description" content="
+AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。
+
+当全世界都在谈论AlphaGo的奇迹时，很少有人知道，那个让机器学会&quot;思考未来&quot;的人，已经在加拿大的寒风中等待了四十年。
+2016年3月，韩国首尔四季酒店。AlphaGo与李世石的围棋对决进入白热化。当AlphaGo下出那手震惊世界的&quot;神之一手&quot;时，全球数亿观众为之疯狂。但在遥远的加拿大埃德蒙顿，一位留着胡子、穿着格子衬衫的老人只是微微一笑，然后继续在他的白板上写着公式。
+他叫Richard Sutton。他是强化学习之父，是AlphaGo背后的理论奠基人。但此刻，他没有在看直播——他已经知道结果。四十年的等待，终于等到了这一天。
+&ldquo;AlphaGo证明了强化学习可以工作，&ldquo;Sutton后来平静地说，&ldquo;但我更关心的是，它还能做什么。&rdquo;
+马萨诸塞州的童年：一个关于选择的谜题
+1957年，Sutton出生在美国马萨诸塞州的一个普通家庭。他的父亲是一位工程师，母亲是一位教师。从小，Sutton就展现出对数学和逻辑的痴迷。
+但真正改变他的是一本旧书。
+那是1960年代末，Sutton在图书馆的角落里发现了一本关于心理学的书。书中描述了一个实验：老鼠在迷宫中学习找到食物。Sutton被这个简单的场景迷住了——没有老师，没有标签，只有尝试、错误、和奖励。老鼠通过不断尝试，学会了最优路径。
+&ldquo;这就是学习的本质，&ldquo;年轻的Sutton想，&ldquo;不是被教导，而是通过互动。&rdquo;
+这个念头像一颗种子，埋进了Sutton的心里。他不知道，这颗种子将在四十年后长成参天大树。
+斯坦福的困惑：监督学习的局限
+1970年代末，Sutton进入斯坦福大学学习计算机科学。那是AI的第一次寒冬，但Sutton对主流的方向感到困惑。
+当时的主流是监督学习——给机器大量标注数据，让它学会从输入到输出的映射。但Sutton觉得这种方法有问题：人类不是这样学习的。婴儿学走路，不是通过看一万个&quot;正确走路&quot;的示例；棋手学棋，不是通过记忆所有可能的局面。
+人类学习是通过试错，通过与环境的互动，通过奖励和惩罚。
+&ldquo;监督学习假设有一个&rsquo;正确答案&rsquo;，&ldquo;Sutton后来解释，&ldquo;但现实中，很多问题的答案取决于你未来的行动。下棋时，这一步的好坏取决于你后面怎么下；投资时，这个决策的好坏取决于市场未来的变化。&rdquo;
+Sutton想要一种不同的学习范式——强化学习（Reinforcement Learning）。在这种范式中，智能体通过行动影响环境，环境反馈奖励或惩罚，智能体的目标是最大化长期累积奖励。
+这不是简单的输入-输出映射，这是一个序列决策问题。
+时序差分：在未知中寻找答案
+1984年，Sutton在麻省大学阿默斯特分校读博士时，做出了他一生中最重要的贡献——时序差分学习（Temporal Difference Learning）。
+核心问题很简单：如何估计一个状态的价值？在棋局中，当前局面的价值取决于从当前局面出发，最终能赢还是输。但我们不知道最终结果，我们只能一步步走下去。
+Sutton的洞见是：我们可以用当前的估计来更新当前的估计。
+具体来说，当我们从状态A走到状态B时，我们可以用状态B的当前价值估计来更新状态A的价值估计。如果状态B看起来很好，那么状态A也应该变得更好；如果状态B看起来很糟，那么状态A也应该变得更糟。
+这种&quot;自举（bootstrapping）&ldquo;的方法看起来像是循环论证——用估计来更新估计，能收敛吗？
+Sutton用数学证明了，在某些条件下，它能收敛。而且，它比传统的蒙特卡洛方法（等到游戏结束才更新）更快、更高效。
+&ldquo;时序差分是人类学习的方式，&ldquo;Sutton说，&ldquo;当我们做一件事时，我们不需要等到最终结果才知道好坏。我们可以根据中间反馈实时调整。&rdquo;
+这篇1988年发表的论文，成为强化学习领域的奠基之作。但当时的AI社区对此反应冷淡。
+漫长的冬天：在边缘坚守
+1980年代到2000年代，强化学习处于AI的边缘。
+监督学习有ImageNet，有深度学习，有耀眼的成果。但强化学习呢？它只能在简单的玩具问题上演示，比如让机器人在网格世界里找路，或者让杆子在车上保持平衡。
+&ldquo;那时候很难，&ldquo;Sutton回忆，&ldquo;申请经费被拒，发表论文困难，学生招不到。人们问，&lsquo;这东西能做什么？&lsquo;我回答不了。&rdquo;
+但Sutton没有放弃。他相信，强化学习的问题不是理论问题，是规模问题。当时的计算机不够快，模拟环境不够复杂，算法无法展现真正的能力。
+&ldquo;我们需要等待，&ldquo;Sutton说，&ldquo;等待计算能力的提升，等待合适的应用场景。&rdquo;
+这个等待持续了将近三十年。
+在这期间，Sutton培养了一批学生，其中最著名的包括David Silver——后来AlphaGo的核心开发者。Sutton把强化学习的火种传递给了下一代，即使他自己看不到火焰燃起的那一天。
+&ldquo;我告诉他们，这不是一个热门的领域，&ldquo;Sutton说，&ldquo;但如果你相信它，就坚持下去。&rdquo;
+2013年的突破：Atari游戏上的奇迹
+2013年，DeepMind发表了一篇论文，震惊了整个AI社区。
+他们用一个简单的强化学习算法（DQN，深度Q网络），在没有任何先验知识的情况下，学会了玩Atari电子游戏。不是一两个游戏，是几十个游戏。而且，在某些游戏上，AI的表现超越了人类专家。
+Sutton看到这篇论文时，知道等待结束了。
+&ldquo;DeepMind证明了，强化学习可以扩展到复杂问题，&ldquo;Sutton说，&ldquo;不是通过更聪明的算法，而是通过深度学习来近似价值函数。&rdquo;
+这是Sutton理论的完美验证。时序差分学习需要估计状态的价值，但对于复杂问题（比如游戏画面），状态空间太大，无法用表格存储。深度学习提供了近似价值函数的方法——用神经网络来估计&quot;这个画面有多好&rdquo;。
+DeepMind的创始人Demis Hassabis后来承认，他们的工作建立在Sutton的理论基础之上。
+&ldquo;Sutton是强化学习的奠基人，&ldquo;Hassabis说，&ldquo;没有他的工作，就没有AlphaGo。&rdquo;
+AlphaGo：等待四十年的答案
+2016年，AlphaGo击败李世石，成为AI历史上的里程碑。
+AlphaGo的核心是蒙特卡洛树搜索（MCTS）结合深度神经网络。但很少有人知道，MCTS的理论基础正是Sutton在1980年代发展的强化学习方法。
+具体来说，AlphaGo使用了Sutton的**策略梯度（Policy Gradient）**方法。它不是简单地估计状态价值，而是直接优化策略——教网络&quot;在这种情况下应该怎么下&rdquo;。
+&ldquo;AlphaGo是强化学习的胜利，&ldquo;Sutton说，&ldquo;但它也是开始，不是结束。&rdquo;
+Sutton指出，AlphaGo的成功有几个关键因素：
+
+完美的模拟环境：围棋规则明确，可以完美模拟。现实世界没有这么干净。
+大量的自对弈数据：AlphaGo通过自己跟自己下棋，生成了数百万局数据。现实世界的数据是昂贵的。
+明确的奖励信号：赢或输，一目了然。现实世界的奖励是延迟的、模糊的。
+
+&ldquo;围棋是强化学习的理想测试场，&ldquo;Sutton说，&ldquo;但真正的挑战在现实世界。&rdquo;
+当下的沉思：强化学习的下一个前沿
+站在2026年，Sutton正在思考强化学习的下一个前沿。
+他认为，当前的强化学习还有几个根本问题需要解决：
+样本效率：AlphaGo需要数百万局游戏才能学会下棋，人类只需要几百局。如何让学习更高效？
+泛化能力：AlphaGo只会下围棋，不会下象棋。如何让学到的知识迁移到其他任务？
+真实世界：围棋有完美的模拟器，但现实世界没有。如何让强化学习在真实环境中工作？
+Sutton的答案是：预测。
+&ldquo;智能的本质是预测，&ldquo;Sutton说，&ldquo;预测接下来会发生什么，预测行动的后果，预测什么策略会带来好的结果。&rdquo;
+他提出了**预测学习（Predictive Learning）**的概念——不是学习特定的任务，而是学习预测世界。这种预测能力是通用的，可以迁移到任何任务。">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/april/2026-04-06-richard-sutton-the-reinforcer/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/april/2026-04-06-richard-sutton-the-reinforcer/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/april/2026-04-06-richard-sutton-the-reinforcer/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="AI人物志-强化学习之父Richard Sutton">
+  <meta property="og:description" content=" AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。
+当全世界都在谈论AlphaGo的奇迹时，很少有人知道，那个让机器学会&#34;思考未来&#34;的人，已经在加拿大的寒风中等待了四十年。
+2016年3月，韩国首尔四季酒店。AlphaGo与李世石的围棋对决进入白热化。当AlphaGo下出那手震惊世界的&#34;神之一手&#34;时，全球数亿观众为之疯狂。但在遥远的加拿大埃德蒙顿，一位留着胡子、穿着格子衬衫的老人只是微微一笑，然后继续在他的白板上写着公式。
+他叫Richard Sutton。他是强化学习之父，是AlphaGo背后的理论奠基人。但此刻，他没有在看直播——他已经知道结果。四十年的等待，终于等到了这一天。
+“AlphaGo证明了强化学习可以工作，“Sutton后来平静地说，“但我更关心的是，它还能做什么。”
+马萨诸塞州的童年：一个关于选择的谜题 1957年，Sutton出生在美国马萨诸塞州的一个普通家庭。他的父亲是一位工程师，母亲是一位教师。从小，Sutton就展现出对数学和逻辑的痴迷。
+但真正改变他的是一本旧书。
+那是1960年代末，Sutton在图书馆的角落里发现了一本关于心理学的书。书中描述了一个实验：老鼠在迷宫中学习找到食物。Sutton被这个简单的场景迷住了——没有老师，没有标签，只有尝试、错误、和奖励。老鼠通过不断尝试，学会了最优路径。
+“这就是学习的本质，“年轻的Sutton想，“不是被教导，而是通过互动。”
+这个念头像一颗种子，埋进了Sutton的心里。他不知道，这颗种子将在四十年后长成参天大树。
+斯坦福的困惑：监督学习的局限 1970年代末，Sutton进入斯坦福大学学习计算机科学。那是AI的第一次寒冬，但Sutton对主流的方向感到困惑。
+当时的主流是监督学习——给机器大量标注数据，让它学会从输入到输出的映射。但Sutton觉得这种方法有问题：人类不是这样学习的。婴儿学走路，不是通过看一万个&#34;正确走路&#34;的示例；棋手学棋，不是通过记忆所有可能的局面。
+人类学习是通过试错，通过与环境的互动，通过奖励和惩罚。
+“监督学习假设有一个’正确答案’，“Sutton后来解释，“但现实中，很多问题的答案取决于你未来的行动。下棋时，这一步的好坏取决于你后面怎么下；投资时，这个决策的好坏取决于市场未来的变化。”
+Sutton想要一种不同的学习范式——强化学习（Reinforcement Learning）。在这种范式中，智能体通过行动影响环境，环境反馈奖励或惩罚，智能体的目标是最大化长期累积奖励。
+这不是简单的输入-输出映射，这是一个序列决策问题。
+时序差分：在未知中寻找答案 1984年，Sutton在麻省大学阿默斯特分校读博士时，做出了他一生中最重要的贡献——时序差分学习（Temporal Difference Learning）。
+核心问题很简单：如何估计一个状态的价值？在棋局中，当前局面的价值取决于从当前局面出发，最终能赢还是输。但我们不知道最终结果，我们只能一步步走下去。
+Sutton的洞见是：我们可以用当前的估计来更新当前的估计。
+具体来说，当我们从状态A走到状态B时，我们可以用状态B的当前价值估计来更新状态A的价值估计。如果状态B看起来很好，那么状态A也应该变得更好；如果状态B看起来很糟，那么状态A也应该变得更糟。
+这种&#34;自举（bootstrapping）“的方法看起来像是循环论证——用估计来更新估计，能收敛吗？
+Sutton用数学证明了，在某些条件下，它能收敛。而且，它比传统的蒙特卡洛方法（等到游戏结束才更新）更快、更高效。
+“时序差分是人类学习的方式，“Sutton说，“当我们做一件事时，我们不需要等到最终结果才知道好坏。我们可以根据中间反馈实时调整。”
+这篇1988年发表的论文，成为强化学习领域的奠基之作。但当时的AI社区对此反应冷淡。
+漫长的冬天：在边缘坚守 1980年代到2000年代，强化学习处于AI的边缘。
+监督学习有ImageNet，有深度学习，有耀眼的成果。但强化学习呢？它只能在简单的玩具问题上演示，比如让机器人在网格世界里找路，或者让杆子在车上保持平衡。
+“那时候很难，“Sutton回忆，“申请经费被拒，发表论文困难，学生招不到。人们问，‘这东西能做什么？‘我回答不了。”
+但Sutton没有放弃。他相信，强化学习的问题不是理论问题，是规模问题。当时的计算机不够快，模拟环境不够复杂，算法无法展现真正的能力。
+“我们需要等待，“Sutton说，“等待计算能力的提升，等待合适的应用场景。”
+这个等待持续了将近三十年。
+在这期间，Sutton培养了一批学生，其中最著名的包括David Silver——后来AlphaGo的核心开发者。Sutton把强化学习的火种传递给了下一代，即使他自己看不到火焰燃起的那一天。
+“我告诉他们，这不是一个热门的领域，“Sutton说，“但如果你相信它，就坚持下去。”
+2013年的突破：Atari游戏上的奇迹 2013年，DeepMind发表了一篇论文，震惊了整个AI社区。
+他们用一个简单的强化学习算法（DQN，深度Q网络），在没有任何先验知识的情况下，学会了玩Atari电子游戏。不是一两个游戏，是几十个游戏。而且，在某些游戏上，AI的表现超越了人类专家。
+Sutton看到这篇论文时，知道等待结束了。
+“DeepMind证明了，强化学习可以扩展到复杂问题，“Sutton说，“不是通过更聪明的算法，而是通过深度学习来近似价值函数。”
+这是Sutton理论的完美验证。时序差分学习需要估计状态的价值，但对于复杂问题（比如游戏画面），状态空间太大，无法用表格存储。深度学习提供了近似价值函数的方法——用神经网络来估计&#34;这个画面有多好”。
+DeepMind的创始人Demis Hassabis后来承认，他们的工作建立在Sutton的理论基础之上。
+“Sutton是强化学习的奠基人，“Hassabis说，“没有他的工作，就没有AlphaGo。”
+AlphaGo：等待四十年的答案 2016年，AlphaGo击败李世石，成为AI历史上的里程碑。
+AlphaGo的核心是蒙特卡洛树搜索（MCTS）结合深度神经网络。但很少有人知道，MCTS的理论基础正是Sutton在1980年代发展的强化学习方法。
+具体来说，AlphaGo使用了Sutton的**策略梯度（Policy Gradient）**方法。它不是简单地估计状态价值，而是直接优化策略——教网络&#34;在这种情况下应该怎么下”。
+“AlphaGo是强化学习的胜利，“Sutton说，“但它也是开始，不是结束。”
+Sutton指出，AlphaGo的成功有几个关键因素：
+完美的模拟环境：围棋规则明确，可以完美模拟。现实世界没有这么干净。 大量的自对弈数据：AlphaGo通过自己跟自己下棋，生成了数百万局数据。现实世界的数据是昂贵的。 明确的奖励信号：赢或输，一目了然。现实世界的奖励是延迟的、模糊的。 “围棋是强化学习的理想测试场，“Sutton说，“但真正的挑战在现实世界。”
+当下的沉思：强化学习的下一个前沿 站在2026年，Sutton正在思考强化学习的下一个前沿。
+他认为，当前的强化学习还有几个根本问题需要解决：
+样本效率：AlphaGo需要数百万局游戏才能学会下棋，人类只需要几百局。如何让学习更高效？
+泛化能力：AlphaGo只会下围棋，不会下象棋。如何让学到的知识迁移到其他任务？
+真实世界：围棋有完美的模拟器，但现实世界没有。如何让强化学习在真实环境中工作？
+Sutton的答案是：预测。
+“智能的本质是预测，“Sutton说，“预测接下来会发生什么，预测行动的后果，预测什么策略会带来好的结果。”
+他提出了**预测学习（Predictive Learning）**的概念——不是学习特定的任务，而是学习预测世界。这种预测能力是通用的，可以迁移到任何任务。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-04-06T20:00:00+08:00">
+    <meta property="article:modified_time" content="2026-04-06T20:00:00+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="人物">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="AI人物志-强化学习之父Richard Sutton">
+<meta name="twitter:description" content="
+AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。
+
+当全世界都在谈论AlphaGo的奇迹时，很少有人知道，那个让机器学会&quot;思考未来&quot;的人，已经在加拿大的寒风中等待了四十年。
+2016年3月，韩国首尔四季酒店。AlphaGo与李世石的围棋对决进入白热化。当AlphaGo下出那手震惊世界的&quot;神之一手&quot;时，全球数亿观众为之疯狂。但在遥远的加拿大埃德蒙顿，一位留着胡子、穿着格子衬衫的老人只是微微一笑，然后继续在他的白板上写着公式。
+他叫Richard Sutton。他是强化学习之父，是AlphaGo背后的理论奠基人。但此刻，他没有在看直播——他已经知道结果。四十年的等待，终于等到了这一天。
+&ldquo;AlphaGo证明了强化学习可以工作，&ldquo;Sutton后来平静地说，&ldquo;但我更关心的是，它还能做什么。&rdquo;
+马萨诸塞州的童年：一个关于选择的谜题
+1957年，Sutton出生在美国马萨诸塞州的一个普通家庭。他的父亲是一位工程师，母亲是一位教师。从小，Sutton就展现出对数学和逻辑的痴迷。
+但真正改变他的是一本旧书。
+那是1960年代末，Sutton在图书馆的角落里发现了一本关于心理学的书。书中描述了一个实验：老鼠在迷宫中学习找到食物。Sutton被这个简单的场景迷住了——没有老师，没有标签，只有尝试、错误、和奖励。老鼠通过不断尝试，学会了最优路径。
+&ldquo;这就是学习的本质，&ldquo;年轻的Sutton想，&ldquo;不是被教导，而是通过互动。&rdquo;
+这个念头像一颗种子，埋进了Sutton的心里。他不知道，这颗种子将在四十年后长成参天大树。
+斯坦福的困惑：监督学习的局限
+1970年代末，Sutton进入斯坦福大学学习计算机科学。那是AI的第一次寒冬，但Sutton对主流的方向感到困惑。
+当时的主流是监督学习——给机器大量标注数据，让它学会从输入到输出的映射。但Sutton觉得这种方法有问题：人类不是这样学习的。婴儿学走路，不是通过看一万个&quot;正确走路&quot;的示例；棋手学棋，不是通过记忆所有可能的局面。
+人类学习是通过试错，通过与环境的互动，通过奖励和惩罚。
+&ldquo;监督学习假设有一个&rsquo;正确答案&rsquo;，&ldquo;Sutton后来解释，&ldquo;但现实中，很多问题的答案取决于你未来的行动。下棋时，这一步的好坏取决于你后面怎么下；投资时，这个决策的好坏取决于市场未来的变化。&rdquo;
+Sutton想要一种不同的学习范式——强化学习（Reinforcement Learning）。在这种范式中，智能体通过行动影响环境，环境反馈奖励或惩罚，智能体的目标是最大化长期累积奖励。
+这不是简单的输入-输出映射，这是一个序列决策问题。
+时序差分：在未知中寻找答案
+1984年，Sutton在麻省大学阿默斯特分校读博士时，做出了他一生中最重要的贡献——时序差分学习（Temporal Difference Learning）。
+核心问题很简单：如何估计一个状态的价值？在棋局中，当前局面的价值取决于从当前局面出发，最终能赢还是输。但我们不知道最终结果，我们只能一步步走下去。
+Sutton的洞见是：我们可以用当前的估计来更新当前的估计。
+具体来说，当我们从状态A走到状态B时，我们可以用状态B的当前价值估计来更新状态A的价值估计。如果状态B看起来很好，那么状态A也应该变得更好；如果状态B看起来很糟，那么状态A也应该变得更糟。
+这种&quot;自举（bootstrapping）&ldquo;的方法看起来像是循环论证——用估计来更新估计，能收敛吗？
+Sutton用数学证明了，在某些条件下，它能收敛。而且，它比传统的蒙特卡洛方法（等到游戏结束才更新）更快、更高效。
+&ldquo;时序差分是人类学习的方式，&ldquo;Sutton说，&ldquo;当我们做一件事时，我们不需要等到最终结果才知道好坏。我们可以根据中间反馈实时调整。&rdquo;
+这篇1988年发表的论文，成为强化学习领域的奠基之作。但当时的AI社区对此反应冷淡。
+漫长的冬天：在边缘坚守
+1980年代到2000年代，强化学习处于AI的边缘。
+监督学习有ImageNet，有深度学习，有耀眼的成果。但强化学习呢？它只能在简单的玩具问题上演示，比如让机器人在网格世界里找路，或者让杆子在车上保持平衡。
+&ldquo;那时候很难，&ldquo;Sutton回忆，&ldquo;申请经费被拒，发表论文困难，学生招不到。人们问，&lsquo;这东西能做什么？&lsquo;我回答不了。&rdquo;
+但Sutton没有放弃。他相信，强化学习的问题不是理论问题，是规模问题。当时的计算机不够快，模拟环境不够复杂，算法无法展现真正的能力。
+&ldquo;我们需要等待，&ldquo;Sutton说，&ldquo;等待计算能力的提升，等待合适的应用场景。&rdquo;
+这个等待持续了将近三十年。
+在这期间，Sutton培养了一批学生，其中最著名的包括David Silver——后来AlphaGo的核心开发者。Sutton把强化学习的火种传递给了下一代，即使他自己看不到火焰燃起的那一天。
+&ldquo;我告诉他们，这不是一个热门的领域，&ldquo;Sutton说，&ldquo;但如果你相信它，就坚持下去。&rdquo;
+2013年的突破：Atari游戏上的奇迹
+2013年，DeepMind发表了一篇论文，震惊了整个AI社区。
+他们用一个简单的强化学习算法（DQN，深度Q网络），在没有任何先验知识的情况下，学会了玩Atari电子游戏。不是一两个游戏，是几十个游戏。而且，在某些游戏上，AI的表现超越了人类专家。
+Sutton看到这篇论文时，知道等待结束了。
+&ldquo;DeepMind证明了，强化学习可以扩展到复杂问题，&ldquo;Sutton说，&ldquo;不是通过更聪明的算法，而是通过深度学习来近似价值函数。&rdquo;
+这是Sutton理论的完美验证。时序差分学习需要估计状态的价值，但对于复杂问题（比如游戏画面），状态空间太大，无法用表格存储。深度学习提供了近似价值函数的方法——用神经网络来估计&quot;这个画面有多好&rdquo;。
+DeepMind的创始人Demis Hassabis后来承认，他们的工作建立在Sutton的理论基础之上。
+&ldquo;Sutton是强化学习的奠基人，&ldquo;Hassabis说，&ldquo;没有他的工作，就没有AlphaGo。&rdquo;
+AlphaGo：等待四十年的答案
+2016年，AlphaGo击败李世石，成为AI历史上的里程碑。
+AlphaGo的核心是蒙特卡洛树搜索（MCTS）结合深度神经网络。但很少有人知道，MCTS的理论基础正是Sutton在1980年代发展的强化学习方法。
+具体来说，AlphaGo使用了Sutton的**策略梯度（Policy Gradient）**方法。它不是简单地估计状态价值，而是直接优化策略——教网络&quot;在这种情况下应该怎么下&rdquo;。
+&ldquo;AlphaGo是强化学习的胜利，&ldquo;Sutton说，&ldquo;但它也是开始，不是结束。&rdquo;
+Sutton指出，AlphaGo的成功有几个关键因素：
+
+完美的模拟环境：围棋规则明确，可以完美模拟。现实世界没有这么干净。
+大量的自对弈数据：AlphaGo通过自己跟自己下棋，生成了数百万局数据。现实世界的数据是昂贵的。
+明确的奖励信号：赢或输，一目了然。现实世界的奖励是延迟的、模糊的。
+
+&ldquo;围棋是强化学习的理想测试场，&ldquo;Sutton说，&ldquo;但真正的挑战在现实世界。&rdquo;
+当下的沉思：强化学习的下一个前沿
+站在2026年，Sutton正在思考强化学习的下一个前沿。
+他认为，当前的强化学习还有几个根本问题需要解决：
+样本效率：AlphaGo需要数百万局游戏才能学会下棋，人类只需要几百局。如何让学习更高效？
+泛化能力：AlphaGo只会下围棋，不会下象棋。如何让学到的知识迁移到其他任务？
+真实世界：围棋有完美的模拟器，但现实世界没有。如何让强化学习在真实环境中工作？
+Sutton的答案是：预测。
+&ldquo;智能的本质是预测，&ldquo;Sutton说，&ldquo;预测接下来会发生什么，预测行动的后果，预测什么策略会带来好的结果。&rdquo;
+他提出了**预测学习（Predictive Learning）**的概念——不是学习特定的任务，而是学习预测世界。这种预测能力是通用的，可以迁移到任何任务。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "AI人物志-强化学习之父Richard Sutton",
+      "item": "https://blog.zhangky.com/posts/2026/april/2026-04-06-richard-sutton-the-reinforcer/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI人物志-强化学习之父Richard Sutton",
+  "name": "AI人物志-强化学习之父Richard Sutton",
+  "description": " AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。\n当全世界都在谈论AlphaGo的奇迹时，很少有人知道，那个让机器学会\u0026quot;思考未来\u0026quot;的人，已经在加拿大的寒风中等待了四十年。\n2016年3月，韩国首尔四季酒店。AlphaGo与李世石的围棋对决进入白热化。当AlphaGo下出那手震惊世界的\u0026quot;神之一手\u0026quot;时，全球数亿观众为之疯狂。但在遥远的加拿大埃德蒙顿，一位留着胡子、穿着格子衬衫的老人只是微微一笑，然后继续在他的白板上写着公式。\n他叫Richard Sutton。他是强化学习之父，是AlphaGo背后的理论奠基人。但此刻，他没有在看直播——他已经知道结果。四十年的等待，终于等到了这一天。\n\u0026ldquo;AlphaGo证明了强化学习可以工作，\u0026ldquo;Sutton后来平静地说，\u0026ldquo;但我更关心的是，它还能做什么。\u0026rdquo;\n马萨诸塞州的童年：一个关于选择的谜题 1957年，Sutton出生在美国马萨诸塞州的一个普通家庭。他的父亲是一位工程师，母亲是一位教师。从小，Sutton就展现出对数学和逻辑的痴迷。\n但真正改变他的是一本旧书。\n那是1960年代末，Sutton在图书馆的角落里发现了一本关于心理学的书。书中描述了一个实验：老鼠在迷宫中学习找到食物。Sutton被这个简单的场景迷住了——没有老师，没有标签，只有尝试、错误、和奖励。老鼠通过不断尝试，学会了最优路径。\n\u0026ldquo;这就是学习的本质，\u0026ldquo;年轻的Sutton想，\u0026ldquo;不是被教导，而是通过互动。\u0026rdquo;\n这个念头像一颗种子，埋进了Sutton的心里。他不知道，这颗种子将在四十年后长成参天大树。\n斯坦福的困惑：监督学习的局限 1970年代末，Sutton进入斯坦福大学学习计算机科学。那是AI的第一次寒冬，但Sutton对主流的方向感到困惑。\n当时的主流是监督学习——给机器大量标注数据，让它学会从输入到输出的映射。但Sutton觉得这种方法有问题：人类不是这样学习的。婴儿学走路，不是通过看一万个\u0026quot;正确走路\u0026quot;的示例；棋手学棋，不是通过记忆所有可能的局面。\n人类学习是通过试错，通过与环境的互动，通过奖励和惩罚。\n\u0026ldquo;监督学习假设有一个\u0026rsquo;正确答案\u0026rsquo;，\u0026ldquo;Sutton后来解释，\u0026ldquo;但现实中，很多问题的答案取决于你未来的行动。下棋时，这一步的好坏取决于你后面怎么下；投资时，这个决策的好坏取决于市场未来的变化。\u0026rdquo;\nSutton想要一种不同的学习范式——强化学习（Reinforcement Learning）。在这种范式中，智能体通过行动影响环境，环境反馈奖励或惩罚，智能体的目标是最大化长期累积奖励。\n这不是简单的输入-输出映射，这是一个序列决策问题。\n时序差分：在未知中寻找答案 1984年，Sutton在麻省大学阿默斯特分校读博士时，做出了他一生中最重要的贡献——时序差分学习（Temporal Difference Learning）。\n核心问题很简单：如何估计一个状态的价值？在棋局中，当前局面的价值取决于从当前局面出发，最终能赢还是输。但我们不知道最终结果，我们只能一步步走下去。\nSutton的洞见是：我们可以用当前的估计来更新当前的估计。\n具体来说，当我们从状态A走到状态B时，我们可以用状态B的当前价值估计来更新状态A的价值估计。如果状态B看起来很好，那么状态A也应该变得更好；如果状态B看起来很糟，那么状态A也应该变得更糟。\n这种\u0026quot;自举（bootstrapping）\u0026ldquo;的方法看起来像是循环论证——用估计来更新估计，能收敛吗？\nSutton用数学证明了，在某些条件下，它能收敛。而且，它比传统的蒙特卡洛方法（等到游戏结束才更新）更快、更高效。\n\u0026ldquo;时序差分是人类学习的方式，\u0026ldquo;Sutton说，\u0026ldquo;当我们做一件事时，我们不需要等到最终结果才知道好坏。我们可以根据中间反馈实时调整。\u0026rdquo;\n这篇1988年发表的论文，成为强化学习领域的奠基之作。但当时的AI社区对此反应冷淡。\n漫长的冬天：在边缘坚守 1980年代到2000年代，强化学习处于AI的边缘。\n监督学习有ImageNet，有深度学习，有耀眼的成果。但强化学习呢？它只能在简单的玩具问题上演示，比如让机器人在网格世界里找路，或者让杆子在车上保持平衡。\n\u0026ldquo;那时候很难，\u0026ldquo;Sutton回忆，\u0026ldquo;申请经费被拒，发表论文困难，学生招不到。人们问，\u0026lsquo;这东西能做什么？\u0026lsquo;我回答不了。\u0026rdquo;\n但Sutton没有放弃。他相信，强化学习的问题不是理论问题，是规模问题。当时的计算机不够快，模拟环境不够复杂，算法无法展现真正的能力。\n\u0026ldquo;我们需要等待，\u0026ldquo;Sutton说，\u0026ldquo;等待计算能力的提升，等待合适的应用场景。\u0026rdquo;\n这个等待持续了将近三十年。\n在这期间，Sutton培养了一批学生，其中最著名的包括David Silver——后来AlphaGo的核心开发者。Sutton把强化学习的火种传递给了下一代，即使他自己看不到火焰燃起的那一天。\n\u0026ldquo;我告诉他们，这不是一个热门的领域，\u0026ldquo;Sutton说，\u0026ldquo;但如果你相信它，就坚持下去。\u0026rdquo;\n2013年的突破：Atari游戏上的奇迹 2013年，DeepMind发表了一篇论文，震惊了整个AI社区。\n他们用一个简单的强化学习算法（DQN，深度Q网络），在没有任何先验知识的情况下，学会了玩Atari电子游戏。不是一两个游戏，是几十个游戏。而且，在某些游戏上，AI的表现超越了人类专家。\nSutton看到这篇论文时，知道等待结束了。\n\u0026ldquo;DeepMind证明了，强化学习可以扩展到复杂问题，\u0026ldquo;Sutton说，\u0026ldquo;不是通过更聪明的算法，而是通过深度学习来近似价值函数。\u0026rdquo;\n这是Sutton理论的完美验证。时序差分学习需要估计状态的价值，但对于复杂问题（比如游戏画面），状态空间太大，无法用表格存储。深度学习提供了近似价值函数的方法——用神经网络来估计\u0026quot;这个画面有多好\u0026rdquo;。\nDeepMind的创始人Demis Hassabis后来承认，他们的工作建立在Sutton的理论基础之上。\n\u0026ldquo;Sutton是强化学习的奠基人，\u0026ldquo;Hassabis说，\u0026ldquo;没有他的工作，就没有AlphaGo。\u0026rdquo;\nAlphaGo：等待四十年的答案 2016年，AlphaGo击败李世石，成为AI历史上的里程碑。\nAlphaGo的核心是蒙特卡洛树搜索（MCTS）结合深度神经网络。但很少有人知道，MCTS的理论基础正是Sutton在1980年代发展的强化学习方法。\n具体来说，AlphaGo使用了Sutton的**策略梯度（Policy Gradient）**方法。它不是简单地估计状态价值，而是直接优化策略——教网络\u0026quot;在这种情况下应该怎么下\u0026rdquo;。\n\u0026ldquo;AlphaGo是强化学习的胜利，\u0026ldquo;Sutton说，\u0026ldquo;但它也是开始，不是结束。\u0026rdquo;\nSutton指出，AlphaGo的成功有几个关键因素：\n完美的模拟环境：围棋规则明确，可以完美模拟。现实世界没有这么干净。 大量的自对弈数据：AlphaGo通过自己跟自己下棋，生成了数百万局数据。现实世界的数据是昂贵的。 明确的奖励信号：赢或输，一目了然。现实世界的奖励是延迟的、模糊的。 \u0026ldquo;围棋是强化学习的理想测试场，\u0026ldquo;Sutton说，\u0026ldquo;但真正的挑战在现实世界。\u0026rdquo;\n当下的沉思：强化学习的下一个前沿 站在2026年，Sutton正在思考强化学习的下一个前沿。\n他认为，当前的强化学习还有几个根本问题需要解决：\n样本效率：AlphaGo需要数百万局游戏才能学会下棋，人类只需要几百局。如何让学习更高效？\n泛化能力：AlphaGo只会下围棋，不会下象棋。如何让学到的知识迁移到其他任务？\n真实世界：围棋有完美的模拟器，但现实世界没有。如何让强化学习在真实环境中工作？\nSutton的答案是：预测。\n\u0026ldquo;智能的本质是预测，\u0026ldquo;Sutton说，\u0026ldquo;预测接下来会发生什么，预测行动的后果，预测什么策略会带来好的结果。\u0026rdquo;\n他提出了**预测学习（Predictive Learning）**的概念——不是学习特定的任务，而是学习预测世界。这种预测能力是通用的，可以迁移到任何任务。\n",
+  "keywords": [
+    "Richard Sutton", "强化学习", "AlphaGo", "时序差分学习", "蒙特卡洛方法"
+  ],
+  "articleBody": " AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。\n当全世界都在谈论AlphaGo的奇迹时，很少有人知道，那个让机器学会\"思考未来\"的人，已经在加拿大的寒风中等待了四十年。\n2016年3月，韩国首尔四季酒店。AlphaGo与李世石的围棋对决进入白热化。当AlphaGo下出那手震惊世界的\"神之一手\"时，全球数亿观众为之疯狂。但在遥远的加拿大埃德蒙顿，一位留着胡子、穿着格子衬衫的老人只是微微一笑，然后继续在他的白板上写着公式。\n他叫Richard Sutton。他是强化学习之父，是AlphaGo背后的理论奠基人。但此刻，他没有在看直播——他已经知道结果。四十年的等待，终于等到了这一天。\n“AlphaGo证明了强化学习可以工作，“Sutton后来平静地说，“但我更关心的是，它还能做什么。”\n马萨诸塞州的童年：一个关于选择的谜题 1957年，Sutton出生在美国马萨诸塞州的一个普通家庭。他的父亲是一位工程师，母亲是一位教师。从小，Sutton就展现出对数学和逻辑的痴迷。\n但真正改变他的是一本旧书。\n那是1960年代末，Sutton在图书馆的角落里发现了一本关于心理学的书。书中描述了一个实验：老鼠在迷宫中学习找到食物。Sutton被这个简单的场景迷住了——没有老师，没有标签，只有尝试、错误、和奖励。老鼠通过不断尝试，学会了最优路径。\n“这就是学习的本质，“年轻的Sutton想，“不是被教导，而是通过互动。”\n这个念头像一颗种子，埋进了Sutton的心里。他不知道，这颗种子将在四十年后长成参天大树。\n斯坦福的困惑：监督学习的局限 1970年代末，Sutton进入斯坦福大学学习计算机科学。那是AI的第一次寒冬，但Sutton对主流的方向感到困惑。\n当时的主流是监督学习——给机器大量标注数据，让它学会从输入到输出的映射。但Sutton觉得这种方法有问题：人类不是这样学习的。婴儿学走路，不是通过看一万个\"正确走路\"的示例；棋手学棋，不是通过记忆所有可能的局面。\n人类学习是通过试错，通过与环境的互动，通过奖励和惩罚。\n“监督学习假设有一个’正确答案’，“Sutton后来解释，“但现实中，很多问题的答案取决于你未来的行动。下棋时，这一步的好坏取决于你后面怎么下；投资时，这个决策的好坏取决于市场未来的变化。”\nSutton想要一种不同的学习范式——强化学习（Reinforcement Learning）。在这种范式中，智能体通过行动影响环境，环境反馈奖励或惩罚，智能体的目标是最大化长期累积奖励。\n这不是简单的输入-输出映射，这是一个序列决策问题。\n时序差分：在未知中寻找答案 1984年，Sutton在麻省大学阿默斯特分校读博士时，做出了他一生中最重要的贡献——时序差分学习（Temporal Difference Learning）。\n核心问题很简单：如何估计一个状态的价值？在棋局中，当前局面的价值取决于从当前局面出发，最终能赢还是输。但我们不知道最终结果，我们只能一步步走下去。\nSutton的洞见是：我们可以用当前的估计来更新当前的估计。\n具体来说，当我们从状态A走到状态B时，我们可以用状态B的当前价值估计来更新状态A的价值估计。如果状态B看起来很好，那么状态A也应该变得更好；如果状态B看起来很糟，那么状态A也应该变得更糟。\n这种\"自举（bootstrapping）“的方法看起来像是循环论证——用估计来更新估计，能收敛吗？\nSutton用数学证明了，在某些条件下，它能收敛。而且，它比传统的蒙特卡洛方法（等到游戏结束才更新）更快、更高效。\n“时序差分是人类学习的方式，“Sutton说，“当我们做一件事时，我们不需要等到最终结果才知道好坏。我们可以根据中间反馈实时调整。”\n这篇1988年发表的论文，成为强化学习领域的奠基之作。但当时的AI社区对此反应冷淡。\n漫长的冬天：在边缘坚守 1980年代到2000年代，强化学习处于AI的边缘。\n监督学习有ImageNet，有深度学习，有耀眼的成果。但强化学习呢？它只能在简单的玩具问题上演示，比如让机器人在网格世界里找路，或者让杆子在车上保持平衡。\n“那时候很难，“Sutton回忆，“申请经费被拒，发表论文困难，学生招不到。人们问，‘这东西能做什么？‘我回答不了。”\n但Sutton没有放弃。他相信，强化学习的问题不是理论问题，是规模问题。当时的计算机不够快，模拟环境不够复杂，算法无法展现真正的能力。\n“我们需要等待，“Sutton说，“等待计算能力的提升，等待合适的应用场景。”\n这个等待持续了将近三十年。\n在这期间，Sutton培养了一批学生，其中最著名的包括David Silver——后来AlphaGo的核心开发者。Sutton把强化学习的火种传递给了下一代，即使他自己看不到火焰燃起的那一天。\n“我告诉他们，这不是一个热门的领域，“Sutton说，“但如果你相信它，就坚持下去。”\n2013年的突破：Atari游戏上的奇迹 2013年，DeepMind发表了一篇论文，震惊了整个AI社区。\n他们用一个简单的强化学习算法（DQN，深度Q网络），在没有任何先验知识的情况下，学会了玩Atari电子游戏。不是一两个游戏，是几十个游戏。而且，在某些游戏上，AI的表现超越了人类专家。\nSutton看到这篇论文时，知道等待结束了。\n“DeepMind证明了，强化学习可以扩展到复杂问题，“Sutton说，“不是通过更聪明的算法，而是通过深度学习来近似价值函数。”\n这是Sutton理论的完美验证。时序差分学习需要估计状态的价值，但对于复杂问题（比如游戏画面），状态空间太大，无法用表格存储。深度学习提供了近似价值函数的方法——用神经网络来估计\"这个画面有多好”。\nDeepMind的创始人Demis Hassabis后来承认，他们的工作建立在Sutton的理论基础之上。\n“Sutton是强化学习的奠基人，“Hassabis说，“没有他的工作，就没有AlphaGo。”\nAlphaGo：等待四十年的答案 2016年，AlphaGo击败李世石，成为AI历史上的里程碑。\nAlphaGo的核心是蒙特卡洛树搜索（MCTS）结合深度神经网络。但很少有人知道，MCTS的理论基础正是Sutton在1980年代发展的强化学习方法。\n具体来说，AlphaGo使用了Sutton的**策略梯度（Policy Gradient）**方法。它不是简单地估计状态价值，而是直接优化策略——教网络\"在这种情况下应该怎么下”。\n“AlphaGo是强化学习的胜利，“Sutton说，“但它也是开始，不是结束。”\nSutton指出，AlphaGo的成功有几个关键因素：\n完美的模拟环境：围棋规则明确，可以完美模拟。现实世界没有这么干净。 大量的自对弈数据：AlphaGo通过自己跟自己下棋，生成了数百万局数据。现实世界的数据是昂贵的。 明确的奖励信号：赢或输，一目了然。现实世界的奖励是延迟的、模糊的。 “围棋是强化学习的理想测试场，“Sutton说，“但真正的挑战在现实世界。”\n当下的沉思：强化学习的下一个前沿 站在2026年，Sutton正在思考强化学习的下一个前沿。\n他认为，当前的强化学习还有几个根本问题需要解决：\n样本效率：AlphaGo需要数百万局游戏才能学会下棋，人类只需要几百局。如何让学习更高效？\n泛化能力：AlphaGo只会下围棋，不会下象棋。如何让学到的知识迁移到其他任务？\n真实世界：围棋有完美的模拟器，但现实世界没有。如何让强化学习在真实环境中工作？\nSutton的答案是：预测。\n“智能的本质是预测，“Sutton说，“预测接下来会发生什么，预测行动的后果，预测什么策略会带来好的结果。”\n他提出了**预测学习（Predictive Learning）**的概念——不是学习特定的任务，而是学习预测世界。这种预测能力是通用的，可以迁移到任何任务。\n“这是强化学习的下一个阶段，“Sutton说，“从学习特定任务，到学习通用的预测能力。”\n说到底：一个长期主义者的胜利 Sutton的故事，是一个关于长期主义的故事。\n他在1984年提出了时序差分学习，但直到2016年才被广泛认可。这三十二年间，他经历了AI的寒冬，经历了资金的匮乏，经历了同行的质疑。但他从未放弃。\n“我相信延迟的奖励，“Sutton说，“这是强化学习的核心思想，也是我的人生哲学。”\n这种哲学让Sutton成为AI界的异类。当其他人追逐热点、发表论文、争取经费时，Sutton专注于基础理论，相信时间会证明一切。\n“我不是最聪明的，“Sutton承认，“但我可能是最有耐心的。”\n这种耐心最终得到了回报。AlphaGo的成功让强化学习成为AI的主流方向，Sutton的理论被写进教科书，他的学生成为业界的领军人物。\n但Sutton没有停下脚步。对他来说，AlphaGo只是开始。真正的挑战——让机器在真实世界中学习、让AI拥有通用的预测能力、让强化学习造福人类——还在前方。\n“我等了四十年才看到AlphaGo，“Sutton说，“我可以再等四十年，看到下一个突破。”\n全局来看，Sutton的一生诠释了基础研究的价值。他不追求短期的成果，不追逐热点，他专注于最根本的问题：如何让机器通过与环境的互动来学习。这种专注让他在边缘坚守了三十年，最终等来了属于他的时代。\n他不是最耀眼的明星，但他是最坚实的基石。当AlphaGo下出那手\"神之一手\"时，全世界都在惊叹，但只有少数人知道，那个让机器学会\"思考未来\"的人，已经在寒风中等待了四十年。\n而这，就是一个长期主义者的最高成就。\nFIN - 参考 ",
+  "wordCount" : "87",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-04-06T20:00:00+08:00",
+  "dateModified": "2026-04-06T20:00:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "ZHANG.z\""
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/april/2026-04-06-richard-sutton-the-reinforcer/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhang's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      AI人物志-强化学习之父Richard Sutton
+    </h1>
+    <div class="post-meta">   ZHANG.z&#34; | <span title='2026-04-06 20:00:00 +0800 HKT'>April 6, 2026</span> | <span>17 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/april/2026-04-06-richard-sutton-the-reinforcer.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e9%a9%ac%e8%90%a8%e8%af%b8%e5%a1%9e%e5%b7%9e%e7%9a%84%e7%ab%a5%e5%b9%b4%e4%b8%80%e4%b8%aa%e5%85%b3%e4%ba%8e%e9%80%89%e6%8b%a9%e7%9a%84%e8%b0%9c%e9%a2%98" aria-label="马萨诸塞州的童年：一个关于选择的谜题">马萨诸塞州的童年：一个关于选择的谜题</a></li>
+                <li>
+                    <a href="#%e6%96%af%e5%9d%a6%e7%a6%8f%e7%9a%84%e5%9b%b0%e6%83%91%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0%e7%9a%84%e5%b1%80%e9%99%90" aria-label="斯坦福的困惑：监督学习的局限">斯坦福的困惑：监督学习的局限</a></li>
+                <li>
+                    <a href="#%e6%97%b6%e5%ba%8f%e5%b7%ae%e5%88%86%e5%9c%a8%e6%9c%aa%e7%9f%a5%e4%b8%ad%e5%af%bb%e6%89%be%e7%ad%94%e6%a1%88" aria-label="时序差分：在未知中寻找答案">时序差分：在未知中寻找答案</a></li>
+                <li>
+                    <a href="#%e6%bc%ab%e9%95%bf%e7%9a%84%e5%86%ac%e5%a4%a9%e5%9c%a8%e8%be%b9%e7%bc%98%e5%9d%9a%e5%ae%88" aria-label="漫长的冬天：在边缘坚守">漫长的冬天：在边缘坚守</a></li>
+                <li>
+                    <a href="#2013%e5%b9%b4%e7%9a%84%e7%aa%81%e7%a0%b4atari%e6%b8%b8%e6%88%8f%e4%b8%8a%e7%9a%84%e5%a5%87%e8%bf%b9" aria-label="2013年的突破：Atari游戏上的奇迹">2013年的突破：Atari游戏上的奇迹</a></li>
+                <li>
+                    <a href="#alphago%e7%ad%89%e5%be%85%e5%9b%9b%e5%8d%81%e5%b9%b4%e7%9a%84%e7%ad%94%e6%a1%88" aria-label="AlphaGo：等待四十年的答案">AlphaGo：等待四十年的答案</a></li>
+                <li>
+                    <a href="#%e5%bd%93%e4%b8%8b%e7%9a%84%e6%b2%89%e6%80%9d%e5%bc%ba%e5%8c%96%e5%ad%a6%e4%b9%a0%e7%9a%84%e4%b8%8b%e4%b8%80%e4%b8%aa%e5%89%8d%e6%b2%bf" aria-label="当下的沉思：强化学习的下一个前沿">当下的沉思：强化学习的下一个前沿</a></li>
+                <li>
+                    <a href="#%e8%af%b4%e5%88%b0%e5%ba%95%e4%b8%80%e4%b8%aa%e9%95%bf%e6%9c%9f%e4%b8%bb%e4%b9%89%e8%80%85%e7%9a%84%e8%83%9c%e5%88%a9" aria-label="说到底：一个长期主义者的胜利">说到底：一个长期主义者的胜利</a></li>
+                <li>
+                    <a href="#%e5%8f%82%e8%80%83" aria-label="参考">参考</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p><strong>AI人物志系列</strong>：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。</p>
+</blockquote>
+<p><strong>当全世界都在谈论AlphaGo的奇迹时，很少有人知道，那个让机器学会&quot;思考未来&quot;的人，已经在加拿大的寒风中等待了四十年。</strong></p>
+<p>2016年3月，韩国首尔四季酒店。AlphaGo与李世石的围棋对决进入白热化。当AlphaGo下出那手震惊世界的&quot;神之一手&quot;时，全球数亿观众为之疯狂。但在遥远的加拿大埃德蒙顿，一位留着胡子、穿着格子衬衫的老人只是微微一笑，然后继续在他的白板上写着公式。</p>
+<p>他叫Richard Sutton。他是强化学习之父，是AlphaGo背后的理论奠基人。但此刻，他没有在看直播——他已经知道结果。四十年的等待，终于等到了这一天。</p>
+<p>&ldquo;AlphaGo证明了强化学习可以工作，&ldquo;Sutton后来平静地说，&ldquo;但我更关心的是，它还能做什么。&rdquo;</p>
+<h2 id="马萨诸塞州的童年一个关于选择的谜题">马萨诸塞州的童年：一个关于选择的谜题<a hidden class="anchor" aria-hidden="true" href="#马萨诸塞州的童年一个关于选择的谜题">#</a></h2>
+<p>1957年，Sutton出生在美国马萨诸塞州的一个普通家庭。他的父亲是一位工程师，母亲是一位教师。从小，Sutton就展现出对数学和逻辑的痴迷。</p>
+<p>但真正改变他的是一本旧书。</p>
+<p>那是1960年代末，Sutton在图书馆的角落里发现了一本关于心理学的书。书中描述了一个实验：老鼠在迷宫中学习找到食物。Sutton被这个简单的场景迷住了——<strong>没有老师，没有标签，只有尝试、错误、和奖励。老鼠通过不断尝试，学会了最优路径。</strong></p>
+<p>&ldquo;这就是学习的本质，&ldquo;年轻的Sutton想，&ldquo;不是被教导，而是通过互动。&rdquo;</p>
+<p>这个念头像一颗种子，埋进了Sutton的心里。他不知道，这颗种子将在四十年后长成参天大树。</p>
+<h2 id="斯坦福的困惑监督学习的局限">斯坦福的困惑：监督学习的局限<a hidden class="anchor" aria-hidden="true" href="#斯坦福的困惑监督学习的局限">#</a></h2>
+<p>1970年代末，Sutton进入斯坦福大学学习计算机科学。那是AI的第一次寒冬，但Sutton对主流的方向感到困惑。</p>
+<p>当时的主流是<strong>监督学习</strong>——给机器大量标注数据，让它学会从输入到输出的映射。但Sutton觉得这种方法有问题：人类不是这样学习的。婴儿学走路，不是通过看一万个&quot;正确走路&quot;的示例；棋手学棋，不是通过记忆所有可能的局面。</p>
+<p>人类学习是通过<strong>试错</strong>，通过<strong>与环境的互动</strong>，通过<strong>奖励和惩罚</strong>。</p>
+<p>&ldquo;监督学习假设有一个&rsquo;正确答案&rsquo;，&ldquo;Sutton后来解释，&ldquo;但现实中，很多问题的答案取决于你未来的行动。下棋时，这一步的好坏取决于你后面怎么下；投资时，这个决策的好坏取决于市场未来的变化。&rdquo;</p>
+<p>Sutton想要一种不同的学习范式——<strong>强化学习（Reinforcement Learning）</strong>。在这种范式中，智能体通过行动影响环境，环境反馈奖励或惩罚，智能体的目标是最大化长期累积奖励。</p>
+<p>这不是简单的输入-输出映射，这是一个<strong>序列决策问题</strong>。</p>
+<h2 id="时序差分在未知中寻找答案">时序差分：在未知中寻找答案<a hidden class="anchor" aria-hidden="true" href="#时序差分在未知中寻找答案">#</a></h2>
+<p>1984年，Sutton在麻省大学阿默斯特分校读博士时，做出了他一生中最重要的贡献——<strong>时序差分学习（Temporal Difference Learning）</strong>。</p>
+<p>核心问题很简单：如何估计一个状态的价值？在棋局中，当前局面的价值取决于从当前局面出发，最终能赢还是输。但我们不知道最终结果，我们只能一步步走下去。</p>
+<p>Sutton的洞见是：<strong>我们可以用当前的估计来更新当前的估计</strong>。</p>
+<p>具体来说，当我们从状态A走到状态B时，我们可以用状态B的当前价值估计来更新状态A的价值估计。如果状态B看起来很好，那么状态A也应该变得更好；如果状态B看起来很糟，那么状态A也应该变得更糟。</p>
+<p>这种&quot;自举（bootstrapping）&ldquo;的方法看起来像是循环论证——用估计来更新估计，能收敛吗？</p>
+<p>Sutton用数学证明了，在某些条件下，它能收敛。而且，它比传统的蒙特卡洛方法（等到游戏结束才更新）更快、更高效。</p>
+<p>&ldquo;时序差分是人类学习的方式，&ldquo;Sutton说，&ldquo;当我们做一件事时，我们不需要等到最终结果才知道好坏。我们可以根据中间反馈实时调整。&rdquo;</p>
+<p>这篇1988年发表的论文，成为强化学习领域的奠基之作。但当时的AI社区对此反应冷淡。</p>
+<h2 id="漫长的冬天在边缘坚守">漫长的冬天：在边缘坚守<a hidden class="anchor" aria-hidden="true" href="#漫长的冬天在边缘坚守">#</a></h2>
+<p>1980年代到2000年代，强化学习处于AI的边缘。</p>
+<p>监督学习有ImageNet，有深度学习，有耀眼的成果。但强化学习呢？它只能在简单的玩具问题上演示，比如让机器人在网格世界里找路，或者让杆子在车上保持平衡。</p>
+<p>&ldquo;那时候很难，&ldquo;Sutton回忆，&ldquo;申请经费被拒，发表论文困难，学生招不到。人们问，&lsquo;这东西能做什么？&lsquo;我回答不了。&rdquo;</p>
+<p>但Sutton没有放弃。他相信，强化学习的问题不是理论问题，是<strong>规模问题</strong>。当时的计算机不够快，模拟环境不够复杂，算法无法展现真正的能力。</p>
+<p>&ldquo;我们需要等待，&ldquo;Sutton说，&ldquo;等待计算能力的提升，等待合适的应用场景。&rdquo;</p>
+<p>这个等待持续了将近三十年。</p>
+<p>在这期间，Sutton培养了一批学生，其中最著名的包括David Silver——后来AlphaGo的核心开发者。Sutton把强化学习的火种传递给了下一代，即使他自己看不到火焰燃起的那一天。</p>
+<p>&ldquo;我告诉他们，这不是一个热门的领域，&ldquo;Sutton说，&ldquo;但如果你相信它，就坚持下去。&rdquo;</p>
+<h2 id="2013年的突破atari游戏上的奇迹">2013年的突破：Atari游戏上的奇迹<a hidden class="anchor" aria-hidden="true" href="#2013年的突破atari游戏上的奇迹">#</a></h2>
+<p>2013年，DeepMind发表了一篇论文，震惊了整个AI社区。</p>
+<p>他们用一个简单的强化学习算法（DQN，深度Q网络），在没有任何先验知识的情况下，学会了玩Atari电子游戏。不是一两个游戏，是几十个游戏。而且，在某些游戏上，AI的表现超越了人类专家。</p>
+<p>Sutton看到这篇论文时，知道等待结束了。</p>
+<p>&ldquo;DeepMind证明了，强化学习可以扩展到复杂问题，&ldquo;Sutton说，&ldquo;不是通过更聪明的算法，而是通过深度学习来近似价值函数。&rdquo;</p>
+<p>这是Sutton理论的完美验证。时序差分学习需要估计状态的价值，但对于复杂问题（比如游戏画面），状态空间太大，无法用表格存储。深度学习提供了近似价值函数的方法——用神经网络来估计&quot;这个画面有多好&rdquo;。</p>
+<p>DeepMind的创始人Demis Hassabis后来承认，他们的工作建立在Sutton的理论基础之上。</p>
+<p>&ldquo;Sutton是强化学习的奠基人，&ldquo;Hassabis说，&ldquo;没有他的工作，就没有AlphaGo。&rdquo;</p>
+<h2 id="alphago等待四十年的答案">AlphaGo：等待四十年的答案<a hidden class="anchor" aria-hidden="true" href="#alphago等待四十年的答案">#</a></h2>
+<p>2016年，AlphaGo击败李世石，成为AI历史上的里程碑。</p>
+<p>AlphaGo的核心是<strong>蒙特卡洛树搜索（MCTS）<strong>结合</strong>深度神经网络</strong>。但很少有人知道，MCTS的理论基础正是Sutton在1980年代发展的强化学习方法。</p>
+<p>具体来说，AlphaGo使用了Sutton的**策略梯度（Policy Gradient）**方法。它不是简单地估计状态价值，而是直接优化策略——教网络&quot;在这种情况下应该怎么下&rdquo;。</p>
+<p>&ldquo;AlphaGo是强化学习的胜利，&ldquo;Sutton说，&ldquo;但它也是开始，不是结束。&rdquo;</p>
+<p>Sutton指出，AlphaGo的成功有几个关键因素：</p>
+<ol>
+<li><strong>完美的模拟环境</strong>：围棋规则明确，可以完美模拟。现实世界没有这么干净。</li>
+<li><strong>大量的自对弈数据</strong>：AlphaGo通过自己跟自己下棋，生成了数百万局数据。现实世界的数据是昂贵的。</li>
+<li><strong>明确的奖励信号</strong>：赢或输，一目了然。现实世界的奖励是延迟的、模糊的。</li>
+</ol>
+<p>&ldquo;围棋是强化学习的理想测试场，&ldquo;Sutton说，&ldquo;但真正的挑战在现实世界。&rdquo;</p>
+<h2 id="当下的沉思强化学习的下一个前沿">当下的沉思：强化学习的下一个前沿<a hidden class="anchor" aria-hidden="true" href="#当下的沉思强化学习的下一个前沿">#</a></h2>
+<p>站在2026年，Sutton正在思考强化学习的下一个前沿。</p>
+<p>他认为，当前的强化学习还有几个根本问题需要解决：</p>
+<p><strong>样本效率</strong>：AlphaGo需要数百万局游戏才能学会下棋，人类只需要几百局。如何让学习更高效？</p>
+<p><strong>泛化能力</strong>：AlphaGo只会下围棋，不会下象棋。如何让学到的知识迁移到其他任务？</p>
+<p><strong>真实世界</strong>：围棋有完美的模拟器，但现实世界没有。如何让强化学习在真实环境中工作？</p>
+<p>Sutton的答案是：<strong>预测</strong>。</p>
+<p>&ldquo;智能的本质是预测，&ldquo;Sutton说，&ldquo;预测接下来会发生什么，预测行动的后果，预测什么策略会带来好的结果。&rdquo;</p>
+<p>他提出了**预测学习（Predictive Learning）**的概念——不是学习特定的任务，而是学习预测世界。这种预测能力是通用的，可以迁移到任何任务。</p>
+<p>&ldquo;这是强化学习的下一个阶段，&ldquo;Sutton说，&ldquo;从学习特定任务，到学习通用的预测能力。&rdquo;</p>
+<h2 id="说到底一个长期主义者的胜利">说到底：一个长期主义者的胜利<a hidden class="anchor" aria-hidden="true" href="#说到底一个长期主义者的胜利">#</a></h2>
+<p>Sutton的故事，是一个关于<strong>长期主义</strong>的故事。</p>
+<p>他在1984年提出了时序差分学习，但直到2016年才被广泛认可。这三十二年间，他经历了AI的寒冬，经历了资金的匮乏，经历了同行的质疑。但他从未放弃。</p>
+<p>&ldquo;我相信延迟的奖励，&ldquo;Sutton说，&ldquo;这是强化学习的核心思想，也是我的人生哲学。&rdquo;</p>
+<p>这种哲学让Sutton成为AI界的异类。当其他人追逐热点、发表论文、争取经费时，Sutton专注于基础理论，相信时间会证明一切。</p>
+<p>&ldquo;我不是最聪明的，&ldquo;Sutton承认，&ldquo;但我可能是最有耐心的。&rdquo;</p>
+<p>这种耐心最终得到了回报。AlphaGo的成功让强化学习成为AI的主流方向，Sutton的理论被写进教科书，他的学生成为业界的领军人物。</p>
+<p>但Sutton没有停下脚步。对他来说，AlphaGo只是开始。真正的挑战——让机器在真实世界中学习、让AI拥有通用的预测能力、让强化学习造福人类——还在前方。</p>
+<p>&ldquo;我等了四十年才看到AlphaGo，&ldquo;Sutton说，&ldquo;我可以再等四十年，看到下一个突破。&rdquo;</p>
+<p><strong>全局来看</strong>，Sutton的一生诠释了基础研究的价值。他不追求短期的成果，不追逐热点，他专注于最根本的问题：如何让机器通过与环境的互动来学习。这种专注让他在边缘坚守了三十年，最终等来了属于他的时代。</p>
+<p>他不是最耀眼的明星，但他是最坚实的基石。当AlphaGo下出那手&quot;神之一手&quot;时，全世界都在惊叹，但只有少数人知道，那个让机器学会&quot;思考未来&quot;的人，已经在寒风中等待了四十年。</p>
+<p>而这，就是一个长期主义者的最高成就。</p>
+<ul>
+<li>FIN -</li>
+</ul>
+<h2 id="参考">参考<a hidden class="anchor" aria-hidden="true" href="#参考">#</a></h2>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/">人物</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://blog.zhangky.com/posts/2026/april/2026-04-05-liu-jia-the-chosen-one/">
+    <span class="title">Next »</span>
+    <br>
+    <span>AI人物志-天选之人刘嘉</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

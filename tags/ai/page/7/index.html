@@ -186,6 +186,69 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【论文解读07】循环神经网络正则化（Ilya经典论文）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Wojciech Zaremba、Ilya Sutskever和Oriol Vinyals于2014年发表的经典论文《Recurrent Neural Network Regularization》，该论文首次将Dropout正则化技术系统性地应用于循环神经网络（RNN），通过只在非循环连接上应用Dropout，既保持了RNN的记忆能力，又有效防止了过拟合。这一创新为RNN在序列建模任务中的成功应用奠定了重要基础，特别是在机器翻译、语言模型等需要处理长序列的任务中取得了突破性成果。
+“正则化是深度学习的艺术。&#34;——这是Ilya Sutskever等人在2014年提出的深刻洞察。RNN虽然能够处理变长序列，但在训练过程中极易过拟合，特别是在大规模数据集上训练深层RNN时。传统的Dropout技术直接应用于RNN会导致网络无法保持长期记忆，因为随机失活会破坏RNN的循环结构。
+论文的核心创新是只在非循环连接上应用Dropout：在LSTM的输入-隐藏层连接和隐藏-输出层连接上应用Dropout，但在循环连接（hidden-to-hidden）上不使用Dropout。这种设计既保持了RNN的记忆能力，又有效防止了过拟合，使RNN能够在大型数据集上训练深层网络。
+在当今大语言模型时代，这一思想仍然具有重要意义：虽然Transformer已经取代RNN成为主流架构，但正则化的核心思想（防止过拟合、提高泛化能力）仍然是深度学习的关键。理解RNN正则化，就是理解如何在高容量模型中平衡记忆能力和泛化能力。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读RNN正则化技术，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
+本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
+RNN过拟合问题的根源 问题一：RNN的高容量与过拟合风险 RNN的参数共享机制使其能够处理任意长度的序列，但这也带来了过拟合风险。对于长度为 $T$ 的序列，RNN实际上使用了 $T$ 次相同的权重矩阵 $W_h$（hidden-to-hidden连接），相当于将参数&#34;复用&#34;了 $T$ 次。
+参数有效性的量化：虽然RNN的参数量是固定的（例如，对于隐藏维度 $d_h$，hidden-to-hidden权重矩阵 $W_h$ 的大小为 $d_h \times d_h$），但每个参数在序列的每个时间步都被使用，相当于有 $T$ 个&#34;虚拟参数”。这种参数复用使得RNN具有很高的表达能力，但也增加了过拟合的风险。
+过拟合的数学表现：当训练集规模 $N$ 相对于模型容量较小时，模型可能&#34;记住&#34;训练数据的细节，而不是学习数据的规律。在RNN中，这种过拟合表现为：训练集上的困惑度（perplexity）很低，但验证集上的困惑度很高，模型无法泛化到新序列。
+问题二：传统Dropout在RNN中的失效 传统Dropout在RNN中直接应用会导致严重问题。Dropout的核心思想是在训练时随机将部分神经元输出置0，迫使网络学习更鲁棒的表示。但在RNN中，这种随机失活会破坏循环结构。
+循环连接的脆弱性：RNN的循环连接 $h_t = f(W_h h_{t-1} &#43; W_x x_t &#43; b)$ 依赖于前一时刻的隐藏状态 $h_{t-1}$。如果在 $h_{t-1}$ 上应用Dropout，会导致信息在时间维度上的传播被随机打断，网络无法保持长期记忆。
+数学分析：假设在隐藏状态上应用Dropout，则：
+$$ h_t = f(W_h (\text{Dropout}(h_{t-1})) &#43; W_x x_t &#43; b) $$
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-01-27 10:00:43 +0800 HKT'>January 27, 2026</span> | <span>24 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【论文解读07】循环神经网络正则化（Ilya经典论文）" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-27-paper-07-rnn-regularization/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">【论文解读06】理解LSTM网络：解决长期依赖问题
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Sepp Hochreiter和Jürgen Schmidhuber于1997年发表的经典论文《Long Short-Term Memory》，该论文提出了长短期记忆（LSTM）网络架构，通过门控机制和细胞状态彻底解决了循环神经网络（RNN）的梯度消失问题，使网络能够学习长期依赖关系。LSTM不仅成为序列建模领域的重要里程碑，更为后续的GRU、Transformer等架构奠定了理论基础，在机器翻译、语音识别、时间序列预测等任务中取得了突破性成果。
+“记忆是智能的基础。&#34;——这是Hochreiter和Schmidhuber在1997年提出的深刻洞察。传统RNN虽然理论上可以处理任意长度的序列，但在实际训练中面临严重的梯度消失问题：当序列长度超过几十个时间步时，梯度在反向传播过程中会指数级衰减，导致网络无法学习长期依赖关系。
+LSTM通过门控机制和细胞状态解决了这一根本问题。细胞状态像一个&#34;传送带”，信息可以在上面直接流动，不受梯度消失的影响；门控机制（遗忘门、输入门、输出门）控制信息的流动，使网络能够有选择地保存和遗忘信息。这种设计使得LSTM能够学习跨越数百甚至数千个时间步的依赖关系。
+在当今大语言模型时代，LSTM的思想以新的形式延续：Transformer的自注意力机制可以看作是对LSTM门控机制的改进，GPT等模型虽然不再使用LSTM，但其序列建模的核心思想仍然源于LSTM。理解LSTM，就是理解序列建模的本质，理解神经网络如何&#34;记忆&#34;和&#34;遗忘&#34;。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读LSTM网络，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
+本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
+RNN长期依赖问题的根源 问题一：梯度消失的数学本质 传统RNN在每个时间步的计算为：
+$$ h_t = \tanh(W_h h_{t-1} &#43; W_x x_t &#43; b) $$
+其中 $h_t$ 是隐藏状态，$W_h$、$W_x$ 是权重矩阵，$b$ 是偏置向量。
+在反向传播过程中，需要计算损失函数 $L$ 对早期时间步 $h_k$ 的梯度：
+$$ \frac{\partial L}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \frac{\partial h_t}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \prod_{j=k&#43;1}^{t} \frac{\partial h_j}{\partial h_{j-1}} $$
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-01-25 10:25:51 +0800 HKT'>January 25, 2026</span> | <span>27 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【论文解读06】理解LSTM网络：解决长期依赖问题" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Longevity Analysis: AI vs. Longevity
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> INTERNAL USE ONLY | Venture Capital Due Diligence Report
+To: Investment Committee (IC) From: Senior Industry Analyst, Pre-Investment Division Date: January 27, 2026 Subject: Sector Analysis &amp; Strategic Outlook: Longevity &amp; Geroscience (2026) Classification: Confidential 1. Executive Summary &amp; Investment Thesis 1.1 Market Overview The longevity sector has matured from speculative biology into a rigorous clinical engineering discipline. As of Q1 2026:
+Metric Value Source Longevity Biotech Market Size $31.6B (2026) [1] Projected Market Size (2031) $46.8B [1] Implied CAGR ~8.2% Calculated 1.2 Core Investment Thesis “Clinical Inflection Point” — The 2024–2025 cycle de-risked systemic interventions (TPE, Rapamycin) while filtering out underperforming monotherapies. 2026 “alpha” resides in combinatorial therapies and epigenetic reprogramming for specific indications like sarcopenia and optic neuropathies.
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-01-22 21:57:10 +0800 HKT'>January 22, 2026</span> | <span>About 16 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to Longevity Analysis: AI vs. Longevity" href="https://blog.zhangky.com/posts/2026/2026-01-22-ai-4-longevity/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">OpenAI与网景：三十年轮回，但这次可能真的不同
     </h2>
   </header>
@@ -248,91 +311,12 @@ $$ h_t = \tanh(W_h h_{t-1} &#43; W_x x_t &#43; b) $$
   <footer class="entry-footer">   ZHANG.z | <span title='2026-01-11 10:25:22 +0800 HKT'>January 11, 2026</span> | <span>28 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 【论文解读05】循环神经网络的不可思议的有效性" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-11-paper-05-rnn-effectiveness/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">A Good Company Everyday - Waymo One
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 真正伟大的产品从不纠结于&#34;它能做什么&#34;，而是追问&#34;它能为生活带来什么改变&#34;。Waymo One在App Store拿下满分，本质上不是因为它是全球首个商用无人驾驶网约车服务，而是它用AI撕开了传统出行的边界，把&#34;必须有人驾驶&#34;的固有认知，变成了&#34;人人可自由支配的出行时间&#34;。它到底是什么？是从谷歌2009年自动驾驶项目孵化而来，用十六年时间打磨出的&#34;移动自由空间&#34;，更是未来智能交通的基础设施雏形。
-这种对出行本质的重构，从来不是突发奇想。Waymo的起点是谷歌内部一个看似不切实际的目标：让出行更安全、更平等。2009年，当大多数公司还在纠结辅助驾驶功能时，他们已经开始搭建完整的自动驾驶系统。2016年从谷歌独立成为Alphabet子公司，Waymo的使命更清晰——做&#34;世界上最值得信任的司机&#34;。2018年Waymo One应用推出，从凤凰城的小规模测试，到如今覆盖旧金山、洛杉矶、凤凰城等多座城市，甚至通过与Uber合作进入奥斯汀、亚特兰大，每一步都不是为了抢占市场，而是用真实场景打磨技术，建立用户信任。这种长期主义的打磨，让它积累了1.55亿英里安全行驶里程，完成超2000万次付费出行，周订单量突破45万单。这些数据不是炫耀的资本，而是支撑&#34;永远不疲劳、永远不分心&#34;承诺的基石。
-真正用过Waymo One，才会明白它的聪明之处从不是&#34;无人&#34;这个标签，而是把技术彻底融入体验的细节里。打开App叫车，你不用像传统网约车那样反复确认位置，系统会自动选择最安全的上下车点。车辆到达前，车顶会亮起你在App里设置的专属字母，再加上可以通过App让车辆鸣笛或播放旋律的设计，在停车场找车变成了一件轻松的事。坐进车内，没有司机的局促感，宽敞的全电动Jaguar I-PACE车厢每天都会细致清洁，你可以通过屏幕连接Spotify播放音乐，调整到自己舒服的温度，甚至随时添加中途停靠点。最关键的是那份安全感。车内屏幕会实时显示Waymo Driver看到的路况，行人和车辆都被清晰标记，你能直观感受到它的决策逻辑，这种&#34;透明化&#34;的设计，比任何宣传都能打消对无人驾驶的顾虑。而技术层面，它没有走纯视觉的捷径，而是用激光雷达&#43;摄像头&#43;雷达的三重感知方案，在旧金山停电导致信号灯失效时，依然能稳定运行，这种冗余设计不是技术堆砌，而是对生命的敬畏。更难得的是它的包容性，为视障用户优化的屏幕阅读器、可预约的无障碍车辆，让出行自由不再是少数人的特权，这才是技术应有的温度。
-至于Waymo One的未来，绝不止于&#34;更大的网约车公司&#34;。它刚刚获得内华达州的全面运营许可，计划2026年引入极氪RT平台把单车成本从12万美元降到8万美元以下，还将与丰田合作进军东京市场，这些动作都是在为规模化铺路。但规模化的终极目标，是让无人驾驶成为像水电一样的基础设施。当单车成本足够低，覆盖范围足够广，改变的就不只是个人出行。更少的交通事故会减轻社会负担，更高效的路线规划能缓解拥堵，全电动车队会推动环保，甚至城市规划都会因为&#34;无需大量停车场&#34;而重新设计。未来的Waymo One，可能不再只是一个叫车App，而是智能出行管家，提前预判拥堵，联动目的地的服务，把&#34;出行&#34;和&#34;生活&#34;无缝衔接。更重要的是，它积累的每一公里路况数据、每一次AI决策经验，都会成为智能交通的核心资产，推动整个行业从&#34;有人驾驶&#34;向&#34;智能出行&#34;跃迁。
-说到底，Waymo One的5分好评，是用户对&#34;技术向善&#34;的投票。它证明了最先进的AI技术，不该用来制造焦虑，而是要帮人们摆脱负担。最伟大的产品，不是颠覆世界的口号，而是让每个人的生活都变得更自由、更平等。这也是所有伟大产品的共通之处：用技术读懂人性，用体验改变生活。
-</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-01-08 12:40:14 +0800 HKT'>January 8, 2026</span> | <span>7 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to A Good Company Everyday - Waymo One" href="https://blog.zhangky.com/posts/2026/2016-01-08-a-good-company-everyday-waymo-one/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【论文解读04】复杂动力学第一定律：复杂系统的基础理论
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是关于复杂动力学第一定律的理论工作，该理论为理解复杂系统的演化规律提供了统一的理论框架。复杂动力学第一定律揭示了复杂系统从简单到复杂、从有序到无序的演化机制，为理解AI系统的涌现行为、神经网络的学习动态以及大模型的复杂性增长提供了新的视角。
-复杂系统无处不在：从生物进化到社会网络，从神经网络训练到语言模型涌现，这些系统都展现出令人困惑的复杂性增长模式。为什么简单的规则能产生复杂的行为？为什么系统会自发地从有序走向无序，又从无序中涌现出新的有序？复杂动力学第一定律试图回答这些根本问题。
-传统热力学第二定律告诉我们，孤立系统的熵总是增加的，系统会自发地从有序走向无序。但复杂系统（如生命、智能、社会）却展现出相反的趋势：它们能够自发地增加复杂性，从简单状态演化到复杂状态。这种&#34;反熵&#34;行为背后的机制是什么？复杂动力学第一定律提供了数学严谨的答案。
-在AI领域，这一理论具有特殊意义。神经网络训练过程中的损失下降、语言模型的涌现能力、多智能体系统的协作演化，都可以从复杂动力学的角度重新理解。理解复杂系统的演化规律，就是理解AI系统如何从简单规则中涌现出智能。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读复杂动力学第一定律，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
-本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
-复杂系统演化的根本问题 问题一：熵增与复杂性增长的矛盾 热力学第二定律告诉我们，孤立系统的熵总是增加的：$\Delta S \geq 0$。这意味着系统会自发地从有序走向无序，从复杂走向简单。但现实中的复杂系统（如生物进化、神经网络学习、社会演化）却展现出相反的趋势：它们能够自发地增加复杂性，从简单状态演化到复杂状态。
-这一矛盾的核心在于：熵和复杂性是不同的概念。熵衡量的是系统的无序程度，而复杂性衡量的是系统的结构丰富程度。一个高度有序的系统（如晶体）熵很低，但复杂性也很低；一个完全随机的系统（如理想气体）熵很高，但复杂性也很低；只有介于两者之间的系统（如生命、智能）才具有高复杂性。
-复杂系统的演化不是简单的熵增或熵减，而是在保持或增加熵的同时，增加系统的结构复杂性。这需要系统能够从环境中获取能量和信息，维持远离平衡态的状态。
-问题二：涌现与自组织的机制 复杂系统的一个关键特征是涌现（emergence）：系统的整体行为无法从组成部分的行为简单推导出来。例如，单个神经元的行为很简单，但由大量神经元组成的神经网络却能产生智能；单个个体的行为遵循简单规则，但由大量个体组成的社会系统却能产生复杂的社会现象。
-涌现的本质是自组织（self-organization）：系统通过局部相互作用，自发地形成全局有序结构。这种自组织过程需要满足三个条件：系统远离平衡态（有能量/信息输入）、存在正反馈机制（小扰动能放大）、存在约束条件（限制系统的演化方向）。
-在AI系统中，神经网络的训练过程就是典型的自组织过程：通过反向传播（正反馈）和正则化（约束），网络从随机初始化演化到能够完成复杂任务的状态。
-问题三：复杂性的量化难题 如何量化系统的复杂性？传统方法面临三个核心问题：复杂性是多维度的（结构复杂性、功能复杂性、计算复杂性等不同维度难以统一）、复杂性依赖于观察者（同一系统在不同尺度、不同视角下表现出不同的复杂性）、复杂性是动态的（系统的复杂性会随时间演化）。
-信息论提供了量化复杂性的一个角度：Kolmogorov复杂度（能够生成系统状态的最短程序的长度）可以作为系统复杂性的度量。但Kolmogorov复杂度在计算上不可行，且无法捕捉系统的动态演化。
-复杂动力学第一定律试图通过描述系统状态空间的演化来量化复杂性，将复杂性的增长与系统的动力学过程联系起来。
-复杂动力学第一定律的核心机制 信息论基础：状态空间的复杂度 考虑一个复杂系统，其状态可以用 $N$ 维向量 $\mathbf{x}(t) = (x_1(t), x_2(t), \ldots, x_N(t))$ 表示。系统的演化遵循动力学方程：
-$$ \frac{d\mathbf{x}}{dt} = \mathbf{F}(\mathbf{x}, t) $$
-其中 $\mathbf{F}$ 是系统的动力学函数。
-系统的状态空间复杂度可以定义为系统能够访问的状态空间的&#34;大小&#34;。如果系统只能访问状态空间的一个小区域，复杂度较低；如果系统能够访问状态空间的大部分区域，复杂度较高。
-更精确地，状态空间的复杂度可以用可达状态空间的体积或状态分布的熵来度量：
-$$ C(t) = -\int p(\mathbf{x}, t) \log p(\mathbf{x}, t) d\mathbf{x} $$
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-01-08 10:07:36 +0800 HKT'>January 8, 2026</span> | <span>27 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【论文解读04】复杂动力学第一定律：复杂系统的基础理论" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-08-paper-04-first-law-complexodynamics/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【论文解读03】通过最小化权重描述长度简化神经网络
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Geoffrey Hinton和Dirk van Camp于1993年发表的经典论文《Keeping Neural Networks Simple by Minimizing the Description Length of the Weights》，该论文将最小描述长度（MDL）原理直接应用于神经网络权重优化，开创了神经网络压缩和正则化的新范式。论文的核心思想是通过最小化权重的描述长度来自动找到既简单又有效的网络结构，这一思想在深度学习尚未兴起的年代就为现代模型压缩技术奠定了理论基础。
-“最简单的神经网络往往是最好的神经网络。&#34;——这是Hinton等人在1993年提出的深刻洞察。在深度学习尚未兴起的年代，他们就已经意识到：神经网络的复杂度不应该由参数数量衡量，而应该由描述这些参数所需的信息量决定。
-通过最小化权重的描述长度，可以自动找到既简单又有效的网络结构，避免过拟合，提高泛化能力。
-在当今大模型时代，这一思想显得更加重要。GPT-3有1750亿参数，但真正&#34;有效&#34;的参数可能远少于这个数字。如何识别和利用权重的稀疏性？如何量化模型的真实复杂度？如何在不损失性能的前提下简化模型？这些问题都可以从权重描述长度的角度重新审视。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读这一经典工作，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
-本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
-神经网络复杂度的根本问题 问题一：参数数量与模型复杂度的脱节 传统观点认为，参数越多的神经网络越复杂，越容易过拟合。但这一观点过于简化。一个包含1000个参数的模型，如果这些参数高度相关或存在大量冗余，其真实复杂度可能远低于一个只有100个参数但彼此独立的模型。
-真实复杂度取决于权重的信息量：如果权重可以用简单的规则描述（如&#34;所有权重都接近0&#34;或&#34;权重遵循某种规律”），那么即使参数数量很多，模型的真实复杂度也很低。相反，如果每个权重都需要独立编码，那么即使参数数量较少，模型的复杂度也很高。
-这种脱节导致了模型选择的困难：我们无法仅凭参数数量判断模型的真实复杂度，也无法预测模型的泛化能力。需要一种能够量化权重信息量的方法。
-问题二：过拟合的权重编码视角 从信息论的角度看，过拟合的本质是模型&#34;记住&#34;了训练数据。如果一个神经网络能够完美拟合训练集，那么它的权重实际上包含了训练数据的编码信息。当权重的信息量接近或超过训练数据的信息量时，模型就失去了泛化能力。
-考虑一个极端例子：如果训练集有 $n$ 个样本，每个样本需要 $b$ 位编码，那么训练数据的总信息量约为 $nb$ 位。如果模型的权重需要 $nb$ 位或更多位来编码，那么模型实际上是在用权重&#34;存储&#34;训练数据，而不是学习数据的规律。
-MDL原理告诉我们，最优模型应该能够用最少的信息描述数据。对于神经网络，这意味着权重的描述长度应该远小于数据的描述长度，这样才能保证模型捕捉的是数据的规律性，而不是随机性。
-问题三：权重分布的复杂性与编码效率 不同的权重分布需要不同的编码长度。如果所有权重都接近0，可以用很少的位编码；如果权重均匀分布在某个区间，需要更多位编码；如果权重完全没有规律，需要最多的位编码。
-权重分布的熵决定了编码长度：对于连续权重，如果权重遵循某种先验分布（如高斯分布），可以使用该分布的负对数似然作为编码长度。权重的方差越小、越集中，编码长度越短。
-这一观察为权重正则化提供了理论基础：L2正则化（权重衰减）通过惩罚大权重，使权重分布更集中，从而减少描述长度；L1正则化通过鼓励稀疏性（大量权重为0），进一步减少描述长度。
-权重描述长度的核心机制 信息论基础：权重的编码长度 给定神经网络权重 $\mathbf{w} = (w_1, w_2, \ldots, w_k)$，描述这些权重所需的编码长度取决于权重的分布和精度。
-离散权重的编码：如果权重被量化为 $b$ 位精度，$k$ 个权重需要 $kb$ 位。但如果我们知道权重的分布，可以使用更高效的编码方案（如Huffman编码），编码长度为：
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-01-05 10:56:02 +0800 HKT'>January 5, 2026</span> | <span>32 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【论文解读03】通过最小化权重描述长度简化神经网络" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-05-paper-03-minimizing-description-length/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://blog.zhangky.com/tags/ai/page/6/">
-      «&nbsp;Prev&nbsp;6/15
+      «&nbsp;Prev&nbsp;6/16
     </a>
-    <a class="next" href="https://blog.zhangky.com/tags/ai/page/8/">Next&nbsp;8/15&nbsp;»
+    <a class="next" href="https://blog.zhangky.com/tags/ai/page/8/">Next&nbsp;8/16&nbsp;»
     </a>
   </nav>
 </footer>

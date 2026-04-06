@@ -196,6 +196,82 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
+前置要求：高中数学水平，会基础Python。
+一、求和与连乘 1.1 求和符号 $\sum$ 读法：Sigma（西格玛），读作&#34;sum&#34;
+含义：把一堆数加起来
+公式示例： $$\sum_{i=1}^{n} x_i = x_1 &#43; x_2 &#43; \cdots &#43; x_n$$
+论文中常见形式：
+损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和） Python实现：
+import numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi &gt; 0) 1.2 连乘符号 $\prod$ 读法：Pi（派），读作&#34;product&#34;
+含义：把一堆数乘起来
+公式示例： $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$
+论文中常见形式：
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-01-15 10:55:01 +0800 HKT'>January 15, 2025</span> | <span>25 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AI医疗：99%的准确率在实验室，95%的准确率在村寨
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>上周从杭州飞回上海，行李箱里装着阿里健康的AI乡村医生项目资料。前一天刚在北京参加完中美AI医疗研讨会，脑子里还在回放斯坦福教授和阿里工程师的发言。
+晚上在酒店，Dr. Wang给我看他们团队最新的GPT-5驱动CT诊断系统：17种肺部疾病实时标注，连早期肺癌的微小结节都能揪出来，准确率超过99%，刚在Nature Medicine发了论文。“这技术太牛了！什么时候能临床应用？“我问他。他叹了口气：“至少等3年，FDA的审批流程你懂的。”
+第二天，阿里健康的张工给我看了一组数据：他们的&#34;AI乡村医生&#34;已经覆盖了全国1.2万个偏远村落，累计看了超过1000万次门诊。“上个月我们在云南一个苗族村寨做调研，一个70多岁的老奶奶拉着我的手说，活了一辈子第一次能在家门口看专家，“张工的语气里带着自豪，“虽然我们的AI准确率只有95%左右，但解决了最基本的看病问题。”
+我突然想起去年冬天陪外婆去县城医院看病的场景——凌晨三点就去排队挂号，上午十点才看上医生，结果还没说两句话就被打发走了。如果当时有AI乡村医生，外婆是不是就不用遭这份罪了？
+从数字看：准确率的数字游戏
+表面上看，这是&#34;99% vs 95%“的准确率差距。斯坦福的CT诊断系统能识别17种肺部疾病，连微小结节都不放过；阿里的AI乡村医生只能做基础诊断，准确率还低了4个百分点。
+但数字背后是完全不同的逻辑：一个在实验室里追求极致，一个在村寨里解决刚需。美国科学家说&#34;我们需要更高的准确率”，中国工程师则说&#34;我们需要更快的覆盖速度”。
+关键洞察：这不是技术差距，是应用场景的错位。一个瞄准&#34;未来5年的医疗突破”，一个瞄准&#34;今天就能用的医疗服务”。
+往深里想：医疗资源的时空错配
+AI医疗的本质不是技术竞赛，而是资源分配。
+斯坦福的技术代表了AI医疗的未来，准确率99%的CT诊断系统能拯救更多生命。但它的代价是：至少3年的审批周期，高昂的研发成本，只有顶级医院才能用得起。这是典型的&#34;技术驱动&#34;路径：先突破技术，再找应用。
+阿里的AI乡村医生代表了AI医疗的现在，它已经在服务千万级的患者，解决了最迫切的医疗资源不均衡问题。虽然准确率只有95%，但它让偏远地区的老人不用凌晨三点去县城排队，让农村孩子也能看&#34;专家门诊”。这是典型的&#34;需求驱动&#34;路径：先解决实际问题，再优化技术。
+去年冬天陪外婆看病，我深刻体会到医疗资源不均衡的痛苦。如果当时有AI乡村医生，外婆是不是就不用遭这份罪了？这个问题，比&#34;准确率能否再提升1%“更重要。
+关键洞察：医疗资源的时空错配，比技术准确率更重要。一个在实验室里等待审批，一个在村寨里服务患者。
+看未来：从实验室到田间地头的融合
+今天刷朋友圈，看到Dr. Wang发了条动态：“刚和一家中国医疗科技公司签了合作协议，他们帮我们加速临床试验，我们提供技术支持。”
+这个信号很明确：美国的技术突破和中国的落地速度，正在走向融合。斯坦福的99%准确率&#43;中国的快速落地，或许能创造出真正普惠的AI医疗。
+2025年的AI医疗，会是一场从&#34;实验室到田间地头&#34;的革命。不是技术替代技术，而是技术&#43;场景的深度融合。
+AI医疗的终极目标，从来不是发表Nature论文，而是让每个人都能享受到更好的医疗服务。99%的准确率在实验室，95%的准确率在村寨——但村寨里的95%，可能比实验室里的99%更有价值。
+2025年，我期待看到斯坦福的技术走进村寨，也期待看到阿里的经验走向世界。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-01-15 09:24:51 +0800 HKT'>January 15, 2025</span> | <span>6 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to AI医疗：99%的准确率在实验室，95%的准确率在村寨" href="https://blog.zhangky.com/posts/2025/2025-01-ai-medical/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">OpenAI的12天发布会：生成式AI的终极形态，还是营销噱头？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>OpenAI的12天发布会终于结束了，我全程追完了所有直播。当演示者用自然语言和视频交互时，我突然有种穿越到未来的感觉——这可能就是生成式AI的终极形态了。
+表层：AI视频的技术突破
+Sora的视频生成能力又提升了，现在能生成5分钟高清视频，连人物微表情都能模拟。视频交互模式也落地了，直接对视频内容提问，AI会实时回答。上周跟做内容创作的朋友聊天，他说：“以前拍短视频要2000块，现在用AI只要200块，效果还不差。“已经不用请摄影师了。
+深层：中美视频AI的竞争格局
+中美在生成式视频领域的竞争很激烈：谷歌发布了Veo 2大模型，腾讯也开源了视频大模型。美国在技术前沿领先，中国在落地应用更快——抖音已经在测试AI生成视频功能了。但冷静下来想，深度伪造的风险也不容忽视：生成的人物和真实几乎一模一样，要是用来制作虚假视频，后果不堪设想。
+终局：GPT-o3的营销噱头？
+最让我感慨的是OpenAI预测的GPT-o3，2025年发布，据说能实现真正的多模态交互，甚至理解人类情感。但这会不会是又一个营销噱头？毕竟，GPT-4o刚发布时，也有很多承诺没兑现。
+生成式AI的终极形态到底是什么？是理解和创造任何内容的超级智能，还是人类想象力的延伸？
+2025年的GPT-o3会给我们答案。但无论如何，OpenAI的12天发布会已经展示了AI的未来——更加智能、自然的人机交互时代。我已经迫不及待想看到那一天了。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-12-28 10:43:01 +0800 HKT'>December 28, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to OpenAI的12天发布会：生成式AI的终极形态，还是营销噱头？" href="https://blog.zhangky.com/posts/2024/2024-12-28-ai-ultimate-form/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">比特币白皮书读书笔记
     </h2>
   </header>
@@ -271,69 +347,6 @@
   </div>
   <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-11-22 14:18:42 +0800 HKT'>November 22, 2024</span> | <span>1 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 从GE的&#34;活力曲线&#34;看杰克韦尔奇的管理智慧" href="https://blog.zhangky.com/posts/2024/2024-11-22-ge_jack_welch_lessons/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">小数据与优质数据：AI从&#34;拼规模&#34;到&#34;拼质量&#34;的转折点？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>中科院发布AI前沿趋势那天，我正在实验室调试小样本学习模型。看到&#34;小数据与优质数据成AI核心引擎&#34;这句话，我差点从椅子上跳起来——终于有人认可我们的方向了！
-表层：小数据的商业化突破
-作为做了5年小样本学习的研究者，我太懂传统AI的痛点：需要海量数据，标注成本高，泛化能力差。最让我兴奋的是，小数据技术终于开始商业化了。腾讯开源的AI生成3D模型，就是用小数据训练的，效果不比百万级数据模型差。
-深层：中美小数据的路径分歧
-中美在小数据领域的研究路径截然不同：美国是&#34;算法驱动&#34;，比如OpenAI的few-shot learning；中国是&#34;数据驱动&#34;，比如百度的知识增强小样本学习。上周跟医疗AI公司CTO聊天，他说：“以前有100万张X光片，标注质量参差不齐；现在只有10万张，但每张经过三个医生审核，模型性能反而提升30%。”
-终局：优质数据的成本难题
-但问题也存在：优质数据的获取成本还是太高了，尤其是垂直领域的数据。法律文档、医疗记录，获取和标注成本都非常高。AI从&#34;拼规模&#34;到&#34;拼质量&#34;，这是重要转折点，但如何降低优质数据获取成本，让小数据技术真正普及？
-大数据是AI的过去，小数据是AI的未来。但这个未来，需要先解决优质数据的成本问题。
-真正的AI革命，不是用更多的数据，而是用更聪明的方法使用更少的数据。
-</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-11-20 16:43:41 +0800 HKT'>November 20, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 小数据与优质数据：AI从&#34;拼规模&#34;到&#34;拼质量&#34;的转折点？" href="https://blog.zhangky.com/posts/2024/2024-11-20-small-data-ai/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">乌镇峰会的AI治理共识：全球协同，还是各说各话？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>乌镇峰会结束后，我在茶馆坐了一下午整理笔记。这次主题是&#34;AI技术创新与治理&#34;，来了很多全球AI专家和企业家。
-表层：中美欧治理的撕裂
-最让我印象深刻的是圆桌论坛，中美欧专家各执一词：欧洲强调&#34;监管先行&#34;，美国主张&#34;行业自律&#34;，中国提出&#34;包容审慎&#34;。马斯克在峰会上展示Cybercab和Tesla Bot，依然乐观：“AI好处远大于风险，不应过度监管。“但台下伦理学家显然不这么认为。
-深层：全球治理的利益博弈
-我当然希望看到全球协同的治理框架，但现实是各国利益诉求差异太大。发达国家想主导规则制定，发展中国家希望有更多发展空间。上周跟联合国官员聊天，他说联合国正推动全球AI治理框架，但进展缓慢：“每个国家都有自己的算盘，很难达成一致。”
-终局：监管碎片化的隐忧
-最让我担忧的是&#34;监管碎片化”。如果每个国家都制定自己的AI规则，跨国企业合规成本会直线上升，最终受伤的还是中小企业和普通用户。AI是全球的，治理也应该是全球的，但在民族国家体系下，全球协同谈何容易？
-乌镇峰会虽然没达成实质性协议，但至少开启了对话——这已经是好的开始。
-AI治理的终极挑战，不是技术，而是如何在不同国家的利益之间找到平衡。
-</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-10-12 13:13:41 +0800 HKT'>October 12, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 乌镇峰会的AI治理共识：全球协同，还是各说各话？" href="https://blog.zhangky.com/posts/2024/2024-10-12-ai-governance/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">马斯克的超级计算机：算力军备竞赛的开始？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>马斯克的xAI团队只用四个月就建成全球最大超级计算机&#34;巨像&#34;，这个消息让我下巴都掉了。传统超算建设周期至少2-3年，这速度太疯狂了。
-表层：算力军备竞赛的加速
-算力是AI发展的核心驱动力，这点我当然兴奋。但冷静下来想，这会不会引发全球算力军备竞赛？“巨像&#34;用了3万多块H100 GPU，一年电费得多少钱？上周跟AI创业公司CTO聊天，他说算力成本占公司开支60%，“跑个大模型训练得等半个月排算力”。
-深层：中美超算的技术博弈
-中美在超算领域的竞争早已开始。中国的神威·太湖之光和天河二号多次登TOP500榜首，美国通过AMD、英伟达技术优势反超。马斯克这次直接用GPU堆出超算，绕过了传统超算的建设周期，是另一种路径突破。
-终局：算力集中的隐忧
-更让我担忧的是，高端算力正集中在少数科技巨头手中，中小企业根本用不起。而且，算力竞争会不会像核武器竞赛一样，最终变成资源浪费？毕竟，AI发展的瓶颈从来都不只是算力，还有算法和数据。
-马斯克总喜欢搞大新闻，这次的超级计算机到底是进步利器，还是烧钱游戏？
-算力不是AI的全部，就像核武器不是战争的全部。真正的AI革命，需要的是算力、算法和数据的平衡，而不是单一维度的军备竞赛。
-</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-09-25 09:32:00 +0800 HKT'>September 25, 2024</span> | <span>2 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 马斯克的超级计算机：算力军备竞赛的开始？" href="https://blog.zhangky.com/posts/2024/2024-09-25-supercomputers/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
