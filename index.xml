@@ -19,13 +19,13 @@
       <pubDate>Fri, 17 Apr 2026 22:00:00 +0800</pubDate>
       <guid>https://blog.zhangky.com/posts/2026/04/2026-04-17-harness-what-is-it/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;核心观点&lt;/strong&gt;：实现10倍、100倍甚至1000倍生产力的秘密不在于AI模型本身，而在于包裹模型的那个&amp;quot;Harness&amp;quot;。这是Garry Tan和Steve Yegge等行业专家的共同洞见。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心观点&lt;/strong&gt;：实现10倍、100倍甚至1000倍生产力的秘密不在于AI模型本身，而在于包裹模型的那个&amp;quot;Harness&amp;quot;。这是Garry Tan（Y Combinator总裁）和Steve Yegge（前亚马逊/谷歌工程师）等行业专家的共同洞见。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;生产力的巨大差距&#34;&gt;生产力的巨大差距&lt;/h2&gt;
 &lt;p&gt;新一轮AI编程革命正在带来前所未有的生产力提升。&lt;/p&gt;
 &lt;p&gt;&amp;ldquo;使用 AI 编程代理的人比今天使用 Cursor 和聊天的工程师生产效率高 10 倍到 100 倍，并且比 2005 年时的谷歌员工高约 1000 倍。&amp;quot;[1]&lt;/p&gt;
-&lt;p&gt;这个数字来自Steve Yegge——一位在美国程序员圈里的网红人物。他曾在亚马逊工作7年、在谷歌任职13年，目前担任Sourcegraph的工程主管，职业生涯经历了从1992年开始，到2005年谷歌黄金时代，再到今天的AI时代，三十多年的技术演变。&lt;/p&gt;
-&lt;p&gt;现任Y Combinator总裁兼首席执行官的Garry Tan在帖子里引用Steve的话时特别强调：这个数字是真的，他自己亲眼见过，也亲身实践过。&lt;/p&gt;
+&lt;p&gt;这个数字来自Steve Yegge——一位在美国程序员圈里的网红人物，曾在亚马逊工作7年、谷歌任职13年，现任Sourcegraph工程主管，职业生涯跨越从1992年到AI时代的三十多年技术演变。&lt;/p&gt;
+&lt;p&gt;现任Y Combinator（知名创业加速器）总裁兼首席执行官的Garry Tan在帖子里引用Steve的话时特别强调：这个数字是真的，他自己亲眼见过，也亲身实践过。&lt;/p&gt;
 &lt;p&gt;但最关键的一点是——实现10倍、100倍甚至1000倍生产力的人，和只提升2倍的人，用的其实是同一个AI模型。&lt;/p&gt;
 &lt;p&gt;Garry Tan认为：&lt;strong&gt;秘密不在于模型，而在于包裹模型的那个东西&lt;/strong&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;harness是什么&#34;&gt;Harness是什么&lt;/h2&gt;
@@ -46,8 +46,7 @@
 &lt;p&gt;当你把目标指向一家空壳公司 + 联邦选举委员会的申报文件时，它又会变成一位法医调查员，专门追踪有组织的竞选捐款路径。&lt;/p&gt;
 &lt;p&gt;同样的技能文件，同样的七个步骤，同样的Markdown文档。&lt;/p&gt;
 &lt;p&gt;Garry Tan：&amp;ldquo;Skill文件描述的是判断过程，而调用时提供的参数才是&amp;rsquo;世界&amp;rsquo;。&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;这不是提示词工程，而是软件设计——使用Markdown作为编程语言，使用人类判断作为运行时。&lt;/p&gt;
-&lt;p&gt;Markdown反而比僵硬的源代码更适合封装能力（encapsulation of capability），它使用模型最熟悉的语言，来描述流程、判断逻辑和上下文。&lt;/p&gt;</description>
+&lt;p&gt;这不是提示词工程，而是软件设计——使用Markdown作为编程语言，使用人类判断作为运行时。&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI人物志-人文主义者李飞飞</title>
