@@ -11,42 +11,72 @@
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 17 Apr 2026 22:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2026 22:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Harness到底在做什么</title>
-      <link>https://blog.zhangky.com/posts/2026/04/2026-04-17-harness-what-is-it/</link>
-      <pubDate>Fri, 17 Apr 2026 22:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/04/2026-04-17-harness-what-is-it/</guid>
+      <title>Harness：AI编程的中间站还是终点站？</title>
+      <link>https://blog.zhangky.com/posts/2026/04/2026-04-19-harness-future-ai-agent/</link>
+      <pubDate>Sun, 19 Apr 2026 22:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/04/2026-04-19-harness-future-ai-agent/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;核心观点&lt;/strong&gt;：实现10倍、100倍甚至1000倍生产力的秘密不在于AI模型本身，而在于包裹模型的那个&amp;quot;Harness&amp;quot;。这是Garry Tan（Y Combinator总裁）和Steve Yegge（前亚马逊/谷歌工程师）等行业专家的共同洞见。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心思考&lt;/strong&gt;：当我们为AI构建Harness时，究竟是在弥补模型能力的不足，还是在定义智能系统的终极架构？2026年4月的技术讨论已经超越了工具层面，指向了更根本的问题：人类与AI的协作边界究竟在哪里？&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;生产力的巨大差距&#34;&gt;生产力的巨大差距&lt;/h2&gt;
-&lt;p&gt;新一轮AI编程革命正在带来前所未有的生产力提升。&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;使用 AI 编程代理的人比今天使用 Cursor 和聊天的工程师生产效率高 10 倍到 100 倍，并且比 2005 年时的谷歌员工高约 1000 倍。&amp;quot;[1]&lt;/p&gt;
-&lt;p&gt;这个数字来自Steve Yegge——一位在美国程序员圈里的网红人物，曾在亚马逊工作7年、谷歌任职13年，现任Sourcegraph工程主管，职业生涯跨越从1992年到AI时代的三十多年技术演变。&lt;/p&gt;
-&lt;p&gt;现任Y Combinator（知名创业加速器）总裁兼首席执行官的Garry Tan在帖子里引用Steve的话时特别强调：这个数字是真的，他自己亲眼见过，也亲身实践过。&lt;/p&gt;
-&lt;p&gt;但最关键的一点是——实现10倍、100倍甚至1000倍生产力的人，和只提升2倍的人，用的其实是同一个AI模型。&lt;/p&gt;
-&lt;p&gt;Garry Tan认为：&lt;strong&gt;秘密不在于模型，而在于包裹模型的那个东西&lt;/strong&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;harness是什么&#34;&gt;Harness是什么&lt;/h2&gt;
-&lt;p&gt;在2026年3月31日，Anthropic意外地将Claude Code的51.2万行源代码上传到了npm注册中心，证实了Garry Tan一直在YC所教授的一切：秘密不在于模型，而在于包裹模型的那个东西。[2]&lt;/p&gt;
-&lt;p&gt;实时仓库上下文、提示缓存、专门构建的工具、上下文冗余最小化、结构化会话记忆、并行子代理——这些都不让模型变得更聪明，而是全部为模型提供恰当的上下文，在恰当的时间，不让它被噪音淹没。&lt;/p&gt;
-&lt;p&gt;Garry Tan把那个包裹器称为&amp;quot;harness&amp;rdquo;。&lt;/p&gt;
-&lt;p&gt;而每个AI构建者都应该问的问题是：什么东西应该放在harness里，什么东西应该留在harness外？&lt;/p&gt;
-&lt;p&gt;Garry Tan的回答是**&amp;ldquo;瘦外壳 + 胖技能&amp;rdquo;**——harness要&amp;quot;瘦&amp;quot;（轻量简单，只负责最基本的调度和管理）；Skills要厚（内容丰富、可反复使用）。&lt;/p&gt;
-&lt;h2 id=&#34;五个核心定义&#34;&gt;五个核心定义&lt;/h2&gt;
-&lt;p&gt;为解决这个问题，Garry Tan给出了五个定义：&lt;/p&gt;
-&lt;h3 id=&#34;1-skill文件教会ai如何思考&#34;&gt;1. Skill文件：教会AI如何思考&lt;/h3&gt;
-&lt;p&gt;Skill文件其实就是一个可重复使用的Markdown文档，它提供的是过程——不是直接告诉AI&amp;quot;做什么&amp;quot;，而是&lt;strong&gt;教AI&amp;quot;怎么做&amp;quot;&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;用户只提供目标和内容，技能文件提供的是完整的思考过程和判断流程。&lt;/p&gt;
-&lt;p&gt;这里有一个最多人忽略的关键：技能文件就像一个方法调用——它需要参数。当用不同的参数去调用它，同一个技能就能发挥出完全不同的能力。&lt;/p&gt;
-&lt;p&gt;Garry Tan举了个例子：有一个叫/investigate的技能文件，里面写了固定的七个步骤：界定数据范围 → 构建时间线 → 分析每份文件 → 综合判断 → 正反方论证 → 引用来源。&lt;/p&gt;
-&lt;p&gt;这个技能只需要三个参数：TARGET（目标）、QUESTION（问题）和DATASET（数据集）。&lt;/p&gt;
-&lt;p&gt;当你把目标指向一位安全科学家 + 210万封邮件时，它就会变成一位医疗研究分析师，专门判断是否有人举报人进行压制。&lt;/p&gt;
-&lt;p&gt;当你把目标指向一家空壳公司 + 联邦选举委员会的申报文件时，它又会变成一位法医调查员，专门追踪有组织的竞选捐款路径。&lt;/p&gt;
-&lt;p&gt;同样的技能文件，同样的七个步骤，同样的Markdown文档。&lt;/p&gt;
-&lt;p&gt;Garry Tan：&amp;ldquo;Skill文件描述的是判断过程，而调用时提供的参数才是&amp;rsquo;世界&amp;rsquo;。&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;这不是提示词工程，而是软件设计——使用Markdown作为编程语言，使用人类判断作为运行时。&lt;/p&gt;</description>
+&lt;h2 id=&#34;从prompt到harness智能的进化路径&#34;&gt;从Prompt到Harness：智能的进化路径&lt;/h2&gt;
+&lt;p&gt;2026年4月，AI编程的讨论重心已经从&amp;quot;如何写好提示词&amp;quot;转向了&amp;quot;如何构建智能系统&amp;quot;。这不是简单的术语替换，而是认知范式的跃迁。&lt;/p&gt;
+&lt;p&gt;当Garry Tan在Y Combinator的分享中提出&amp;quot;瘦外壳+胖技能&amp;quot;架构时，他触及了一个被忽视的真相：&lt;strong&gt;AI的能力边界不是由模型参数决定的，而是由我们如何组织和引导这些能力决定的&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;为什么harness成为必然&#34;&gt;为什么Harness成为必然？&lt;/h3&gt;
+&lt;p&gt;这不是因为AI能力不足，恰恰相反，是因为AI能力太强——强到我们无法用简单的指令驾驭。当模型能够处理复杂推理、生成代码、分析数据时，我们需要的不再是更聪明的模型，而是更智能的&amp;quot;操作系统&amp;quot;。&lt;/p&gt;
+&lt;p&gt;Harness的出现，本质上是在回答一个核心问题：如何将AI的通用智能转化为领域专精的生产力？&lt;/p&gt;
+&lt;h2 id=&#34;智能的分层从能力到架构&#34;&gt;智能的分层：从能力到架构&lt;/h2&gt;
+&lt;p&gt;2026年的技术实践已经证明，最有效的AI系统不是单一的大模型，而是由三层构成的智能体：&lt;/p&gt;
+&lt;h3 id=&#34;1-厚技能层人类判断的编码&#34;&gt;1. 厚技能层：人类判断的编码&lt;/h3&gt;
+&lt;p&gt;Skill文件不是简单的提示词集合，而是人类领域知识的结构化表达。当我们将&amp;quot;如何分析用户反馈&amp;quot;编码为Markdown文档时，我们实际上是在创建一个可复用的认知框架。&lt;/p&gt;
+&lt;p&gt;这种方法的革命性在于：&lt;strong&gt;它将人类的隐性知识转化为AI可执行的显性流程&lt;/strong&gt;。一个好的Skill文件不是告诉AI&amp;quot;做什么&amp;quot;，而是教会它&amp;quot;如何思考&amp;quot;。&lt;/p&gt;
+&lt;h3 id=&#34;2-薄harness层智能的调度中心&#34;&gt;2. 薄Harness层：智能的调度中心&lt;/h3&gt;
+&lt;p&gt;理想的Harness应该像一个轻量的操作系统，只负责最核心的功能：上下文管理、工具调用、安全检查。它不是智能的来源，而是智能的组织者。&lt;/p&gt;
+&lt;p&gt;2026年4月的实践数据显示，一个精简的Harness（约200行代码）配合厚技能，比复杂的框架（数千行代码）能实现75倍的性能提升。这印证了一个古老的工程原则：&lt;strong&gt;简洁是智慧的灵魂&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;3-确定性工具层信任的基石&#34;&gt;3. 确定性工具层：信任的基石&lt;/h3&gt;
+&lt;p&gt;当我们将精确计算、数据查询、代码执行等任务交给确定性工具时，我们不是在限制AI，而是在为它创造发挥优势的空间。&lt;/p&gt;
+&lt;p&gt;最成功的AI系统都遵循一个原则：&lt;strong&gt;让AI做它擅长的（思考、判断、综合），让工具做它们擅长的（精确、可靠、可重复）&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;这是终点还是中间站&#34;&gt;这是终点还是中间站？&lt;/h2&gt;
+&lt;p&gt;2026年4月的技术讨论中，最具争议的问题是：Harness架构是AI编程的最终形态，还是通往更高级智能的过渡阶段？&lt;/p&gt;
+&lt;h3 id=&#34;进化的可能路径&#34;&gt;进化的可能路径&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;路径一：Harness作为终极架构&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果我们将智能定义为&amp;quot;能力的组织方式&amp;quot;，那么Harness可能就是最终答案。因为无论模型如何进化，我们始终需要一个框架来组织和引导智能。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;路径二：Harness的自我进化&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;更有可能的是，Harness本身会进化。未来的Harness可能会：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自动生成和优化Skill文件&lt;/li&gt;
+&lt;li&gt;动态调整上下文管理策略&lt;/li&gt;
+&lt;li&gt;从系统交互中学习最佳实践&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;路径三：超越Harness的智能体&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;最激进的观点认为，当模型能力达到一定阈值时，Harness会内化到模型本身。那时，模型将能够：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自我组织上下文&lt;/li&gt;
+&lt;li&gt;动态创建和执行工具&lt;/li&gt;
+&lt;li&gt;自主学习和优化流程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;为什么现在做这件事&#34;&gt;为什么现在做这件事？&lt;/h2&gt;
+&lt;p&gt;2026年不是偶然的时间点。我们正处于AI能力爆发与应用落地的临界点：&lt;/p&gt;
+&lt;h3 id=&#34;1-模型能力的成熟&#34;&gt;1. 模型能力的成熟&lt;/h3&gt;
+&lt;p&gt;GPT-5、Claude 3等模型已经具备了处理复杂任务的能力，但如何将这种能力转化为实际生产力，成为了新的挑战。&lt;/p&gt;
+&lt;h3 id=&#34;2-实践经验的积累&#34;&gt;2. 实践经验的积累&lt;/h3&gt;
+&lt;p&gt;经过2024-2025年的探索，开发者已经意识到：单纯依赖提示词工程无法构建可靠的AI系统。我们需要更系统的方法。&lt;/p&gt;
+&lt;h3 id=&#34;3-行业需求的倒逼&#34;&gt;3. 行业需求的倒逼&lt;/h3&gt;
+&lt;p&gt;企业级应用对AI系统的可靠性、可扩展性和可维护性提出了更高要求。Harness架构正是回应这种需求的产物。&lt;/p&gt;
+&lt;h2 id=&#34;未来的创想智能的新范式&#34;&gt;未来的创想：智能的新范式&lt;/h2&gt;
+&lt;p&gt;如果我们将Harness视为智能系统的核心架构，那么未来的AI编程将呈现以下特征：&lt;/p&gt;
+&lt;h3 id=&#34;1-技能的民主化&#34;&gt;1. 技能的民主化&lt;/h3&gt;
+&lt;p&gt;Skill文件的Markdown格式使得领域专家可以直接参与AI系统的构建，而不需要深厚的编程背景。这将开启一个&amp;quot;人人都是AI工程师&amp;quot;的时代。&lt;/p&gt;
+&lt;h3 id=&#34;2-系统的自进化&#34;&gt;2. 系统的自进化&lt;/h3&gt;
+&lt;p&gt;当Skill文件能够从系统交互中学习和优化时，AI系统将进入一个持续进化的状态。每一次使用都成为系统改进的机会。&lt;/p&gt;
+&lt;h3 id=&#34;3-人类与ai的新协作模式&#34;&gt;3. 人类与AI的新协作模式&lt;/h3&gt;
+&lt;p&gt;Harness架构清晰地界定了人类与AI的职责边界：人类负责定义目标和提供领域知识，AI负责执行和优化。这种协作模式将释放出前所未有的生产力。&lt;/p&gt;
+&lt;h2 id=&#34;结语架构的革命&#34;&gt;结语：架构的革命&lt;/h2&gt;
+&lt;p&gt;2026年4月的技术讨论已经超越了工具层面，指向了智能系统的本质。Harness不是对AI能力的弥补，而是对智能组织方式的重新思考。&lt;/p&gt;
+&lt;p&gt;无论它是终点还是中间站，Harness架构已经为我们打开了一扇通往更高效、更可靠、更智能的AI编程未来的大门。真正的革命不是模型参数的增长，而是我们组织和引导智能的方式。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;系统会不断叠加，智能会持续进化。但核心的架构原则将永远存在：让智能归智能，让执行归执行，让框架归框架。&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI人物志-人文主义者李飞飞</title>
