@@ -9,19 +9,15 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-<<<<<<< HEAD
-    <generator>Hugo -- 0.160.0</generator>
-=======
     <generator>Hugo -- 0.160.1</generator>
->>>>>>> 9cf4c52 (publish)
     <language>zh-cn</language>
     <lastBuildDate>Wed, 11 Mar 2026 20:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/tags/%E5%A4%A7%E5%85%AC%E5%8F%B8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Robin：叫人，开会！</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-11-baidu-how-to-lose-everything/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-11-baidu-how-to-lose-everything/</link>
       <pubDate>Wed, 11 Mar 2026 20:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-11-baidu-how-to-lose-everything/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-11-baidu-how-to-lose-everything/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;百度是怎么把一手好牌打烂的&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/03/baidu-how-to-lose-everything-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;声明：本文纯属虚构。数据是真的，人是真的，会议是编的。如有雷同，说明百度确实该开这个会。&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -55,9 +51,9 @@
     </item>
     <item>
       <title>元宝派内测：给马老板交的这份作业，及格吗?</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-28-tencent-yuanbao-pai-review/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-28-tencent-yuanbao-pai-review/</link>
       <pubDate>Wed, 28 Jan 2026 23:31:13 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-28-tencent-yuanbao-pai-review/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-28-tencent-yuanbao-pai-review/</guid>
       <description>&lt;p&gt;腾讯和Meta都有巨量社交数据, 但是还没有找到AI+社交的机会。26号元宝发布了一个体验功能: 元宝派, 像是在AI+社交+Agent上的试水。拿到内测后体验了半天元宝派，也看了马化腾年会讲话。一句话总结：&lt;strong&gt;想做Agent，又不敢All in，最后搞了个AI群聊，里面塞了个元宝机器人。&lt;/strong&gt; 这份作业，我自己都觉得不及格。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;数据不会说谎&#34;&gt;数据不会说谎&lt;/h2&gt;
@@ -99,9 +95,9 @@
     </item>
     <item>
       <title>阿里有战略吗？</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-26-alibaba-short-strategy/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-26-alibaba-short-strategy/</link>
       <pubDate>Mon, 26 Jan 2026 21:21:12 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-26-alibaba-short-strategy/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-26-alibaba-short-strategy/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;维基百科对战略做以下解释: &lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%88%98%E7%95%A5&#34;&gt;&lt;strong&gt;战略或策略，是指为实现某种目标（如政治、军事、经济、商业或国家利益等方面的目标）而制定的高层次、全方位的长期行动计划。&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -187,9 +183,9 @@
     </item>
     <item>
       <title>OpenAI与网景：三十年轮回，但这次可能真的不同</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-20-openai-netscape/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-20-openai-netscape/</link>
       <pubDate>Tue, 20 Jan 2026 12:59:25 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-20-openai-netscape/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-20-openai-netscape/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;技术会老去，但商业规律永远年轻。当OpenAI以ChatGPT重演网景浏览器式的辉煌时，我们不禁要问：历史会重演，还是已经改写？&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -215,9 +211,9 @@
     </item>
     <item>
       <title>Meta AI大裁员：CEO视角下的组织手术</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-12-meta-ai-layoff-ceo-perspective/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-12-meta-ai-layoff-ceo-perspective/</link>
       <pubDate>Mon, 12 Jan 2026 21:07:48 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-12-meta-ai-layoff-ceo-perspective/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-12-meta-ai-layoff-ceo-perspective/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;既然选择了汪滔，就必须为他创造环境。这是合格CEO必须做的。&lt;/p&gt;
 &lt;/blockquote&gt;

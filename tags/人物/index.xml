@@ -9,11 +9,7 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-<<<<<<< HEAD
-    <generator>Hugo -- 0.160.0</generator>
-=======
     <generator>Hugo -- 0.160.1</generator>
->>>>>>> 9cf4c52 (publish)
     <language>zh-cn</language>
     <lastBuildDate>Tue, 07 Apr 2026 20:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/index.xml" rel="self" type="application/rss+xml" />
@@ -516,9 +512,9 @@
     </item>
     <item>
       <title>高段领导力从哪里来</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-14-leadership-source-reflection/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-14-leadership-source-reflection/</link>
       <pubDate>Sat, 14 Mar 2026 10:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-14-leadership-source-reflection/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-14-leadership-source-reflection/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;领导力不是职位特权，而是一种「让别人心甘情愿做你想做的事」的元能力。它不分层级，不论场景，是每个人终其一生都可以修炼的功课。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -562,9 +558,9 @@
     </item>
     <item>
       <title>千问核心离职风波：林俊旸下一步是创业吗？</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-07-linjunyang-next-move-startup/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-07-linjunyang-next-move-startup/</link>
       <pubDate>Sat, 07 Mar 2026 21:29:02 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-07-linjunyang-next-move-startup/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-07-linjunyang-next-move-startup/</guid>
       <description>&lt;p&gt;3 月 6 日，林俊旸正式确认离职。距离那条「bye my beloved qwen」的推文过去 48 小时，这场震动中国 AI 圈的人事风波进入下半场——不是八卦内幕的下半场，而是更实质的问题：一个 32 岁、带出了全球顶级开源模型、被 Google DeepMind 公开喊话抢人的技术领袖，下一步该往哪走？&lt;/p&gt;
 &lt;p&gt;我的判断很直接：&lt;strong&gt;创业是他唯一合理的选择。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;不是情感上的「创业浪漫」，而是结构性推演后的结论。大厂、学术机构、加入其他独角兽——这三条路都有明显的逻辑断裂，只有创业能承接他过去三年积累的所有资产，并给他真正的自由度。&lt;/p&gt;
@@ -578,9 +574,9 @@
     </item>
     <item>
       <title>千问核心离职风波：开源社区需要什么人</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-06-qwen-open-source-needs-him/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-06-qwen-open-source-needs-him/</link>
       <pubDate>Fri, 06 Mar 2026 01:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-06-qwen-open-source-needs-him/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-06-qwen-open-source-needs-him/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;从千问核心离职风波看：开源社区需要什么人&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/03/qwen-open-source-needs-him-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Qwen 的技术报告单篇引用超过 6000 次&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，Hugging Face 下载量突破 7 亿次&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;，衍生模型超过 18 万个&lt;sup id=&#34;fnref1:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。斯坦福《2025 年人工智能指数报告》把它排在全球第三&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;。然后，带着这一切走到今天的人，在凌晨 0:11 发了一条推文就走了&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 &lt;p&gt;这两天 AI 圈讨论最多的不是模型，而是人。但我注意到一个有意思的现象：中文互联网上讨论的焦点是&amp;quot;阿里怎么了&amp;quot;&amp;ldquo;管理出了什么问题&amp;quot;&amp;ldquo;谁来接班&amp;rdquo;，而英文社区——从 Hugging Face 到 GitHub 到 X 的评论区——讨论的焦点是一个更本质的问题：开源社区到底需要什么样的人？失去这样的人意味着什么？&lt;/p&gt;
@@ -596,9 +592,9 @@
     </item>
     <item>
       <title>千问团队离职风波：一个管理者应该看到什么</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-05-qwen-departure-leadership-reflection/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-05-qwen-departure-leadership-reflection/</link>
       <pubDate>Thu, 05 Mar 2026 12:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-05-qwen-departure-leadership-reflection/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-05-qwen-departure-leadership-reflection/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;千问团队离职风波：一个管理者应该看到什么&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/03/qwen-departure-leadership-reflection-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;3 月 4 日凌晨 0:11，林俊旸在 X 上写下一句话：&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;林俊旸宣布离职&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/03/2026-03-05_135641_qwen_justing_x.png&#34;&gt;&lt;/p&gt;
@@ -627,9 +623,9 @@
     </item>
     <item>
       <title>从巴菲特的并购与数字观，看CEO该盯住什么</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-09-buffett-operating-efficiency-ceo/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-09-buffett-operating-efficiency-ceo/</link>
       <pubDate>Mon, 09 Feb 2026 23:45:03 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-09-buffett-operating-efficiency-ceo/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-09-buffett-operating-efficiency-ceo/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;「大都会公司的运营利润率为 29%，ABC 公司是 11%。如果墨菲能将 ABC 公司的运营利润率提高 1/3 到 15%，那么公司每年将多增收益 1.25 亿美元，合并后的新公司盈利将是 3.25 亿美元。」&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -654,9 +650,9 @@ $$&lt;/li&gt;
     </item>
     <item>
       <title>AI引起的大规模失业怎么办?</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-02-hinton-ubi-ai-job-loss/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-02-hinton-ubi-ai-job-loss/</link>
       <pubDate>Mon, 02 Feb 2026 20:24:22 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-02-hinton-ubi-ai-job-loss/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-02-hinton-ubi-ai-job-loss/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;「深度学习之父」杰弗里·辛顿（Geoffrey Hinton）说：超级智能 AI 会带来大规模岗位流失、加剧不平等，我们必须重新思考人们如何获得收入与意义；&lt;span style=&#34;color: red;&#34;&gt;全民基本收入（UBI）&lt;/span&gt;将「必要但不充分」——能让人不饿肚子，却补不上失业带来的尊严缺口。他主张通过对 AI 征税或设立分红，让增长被更公平地分享。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -676,9 +672,9 @@ $$&lt;/li&gt;
     </item>
     <item>
       <title>安德森谈AI：没有人口崩塌，我们才该慌</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-01-andreessen-ai-era/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-01-andreessen-ai-era/</link>
       <pubDate>Sun, 01 Feb 2026 10:05:31 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-01-andreessen-ai-era/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-01-andreessen-ai-era/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;网景的发明人、a16z 的 &amp;ldquo;a&amp;rdquo;，在播客里说：如果没有 AI，我们此刻该慌的是经济——人口在塌、生产力几十年没真起来；AI 和机器人恰恰在我们最需要的时候来了。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -704,9 +700,9 @@ $$&lt;/li&gt;
     </item>
     <item>
       <title>物理学的尽头是AGI？</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-27-physicists-in-ai/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-27-physicists-in-ai/</link>
       <pubDate>Tue, 27 Jan 2026 23:15:04 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-27-physicists-in-ai/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-27-physicists-in-ai/</guid>
       <description>&lt;p&gt;物理学界流传着一个古老的笑话：物理学家无所不能，除了物理。&lt;/p&gt;
 &lt;p&gt;虽然是句调侃，但在当今的 AI 浪潮中，这似乎成了某种预言。当你剥开 ChatGPT、Claude 或是 Llama 的外衣，往最核心的算法层和决策层看去，会惊讶地发现：&lt;strong&gt;怎么满屋子都是学物理的？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;从 OpenAI 的分裂到 Anthropic 的崛起，从 Scaling Laws 的发现到 Transformer 的优化，这群曾经天天琢磨量子态、黑洞和宇宙学的聪明脑袋，似乎集体决定换个赛道——不再纠结上帝掷不掷骰子，而是教 GPU 怎么掷出下一个 Token。&lt;/p&gt;
@@ -741,9 +737,9 @@ $$&lt;/li&gt;
     </item>
     <item>
       <title>中本聪真身锁定？最接近真相的3个人，藏着数字时代的红楼密码</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-19-zhongbencong-who-is/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-19-zhongbencong-who-is/</link>
       <pubDate>Sun, 18 Jan 2026 21:35:50 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-19-zhongbencong-who-is/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-19-zhongbencong-who-is/</guid>
       <description>&lt;p&gt;就像曹雪芹用红楼文字藏起吊明秘事，中本聪也用比特币白皮书埋下了身份密码。这个缔造数字货币神话的人，自2011年突然销声匿迹后，留下的谜题比红楼判画还烧脑。今天不搞玄学猜测，纯科普硬核证据——从技术背景、时间线到行文习惯，拆解3位最可能是中本聪的人选，聊聊为什么说&amp;quot;中本聪不是一个人，就是一群人的缩影&amp;quot;。&lt;/p&gt;
 &lt;p&gt;中本聪这谜之存在，简直是数字时代的曹雪芹。前者用《红楼梦》藏王朝兴衰，后者用比特币藏身份踪迹，连&amp;quot;隐身套路&amp;quot;都一模一样——不直接消失，只留下一堆当代人能抠、后代人懵圈的线索。市面上关于中本聪的猜测多到离谱，从&amp;quot;日本物理学家&amp;quot;到&amp;quot;CIA秘密项目&amp;quot;，但剔除无稽之谈后，只剩3个候选人站得住脚。今天就顺着&amp;quot;技术匹配度+时间线吻合+行为逻辑自洽&amp;quot;三大维度，扒一扒最接近真相的答案。&lt;/p&gt;
 &lt;p&gt;如果说中本聪是比特币的&amp;quot;生父&amp;quot;，那尼克·萨博绝对是&amp;quot;养父&amp;quot;。他的研究几乎为比特币铺好了全部路基，证据链密到让人怀疑&amp;quot;否认都是欲盖弥彰&amp;quot;。核心逻辑先摆死：比特币不是凭空诞生的，它的前身是萨博1998年研发的&amp;quot;比特金&amp;quot;（Bit Gold）体系，而这两者的相似度，堪比黛玉判画与崇祯自缢场景的对应。比特金同样采用密码学验证、去中心化记账，甚至连&amp;quot;安全资产所有权&amp;quot;&amp;ldquo;数字时间戳&amp;quot;这些比特币的核心概念，萨博早在十年前就玩透了。&lt;/p&gt;
@@ -760,9 +756,9 @@ $$&lt;/li&gt;
     </item>
     <item>
       <title>中本聪=当代曹雪芹？我们玩的梗，都是给后代挖的坑</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-10-zhongbencong-caoxueqin/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-10-zhongbencong-caoxueqin/</link>
       <pubDate>Sat, 10 Jan 2026 21:03:39 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-10-zhongbencong-caoxueqin/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-10-zhongbencong-caoxueqin/</guid>
       <description>&lt;p&gt;今天刷到有人考古&amp;quot;鸡你太美&amp;quot;的离谱解读，突然惊出一身冷汗。我们现在随口玩的梗、说的暗号，一百年后可能会变成考古界的&amp;quot;未解之谜&amp;quot;。这事儿往深了想更绝：曹雪芹藏了三百年的红楼密码，中本聪埋了十几年的身份谜题，和我们现在说的&amp;quot;栓Q&amp;quot;&amp;ldquo;显眼包&amp;rdquo;，本质上都是一回事——用当代人懂、后代人懵的语言，给岁月留了个钩子。等懂这门语言的人全退场，天才和烂梗，都成了千年谜。&lt;/p&gt;
 &lt;p&gt;曹雪芹和中本聪，堪称&amp;quot;跨时空密码大师&amp;quot;。他俩的套路一模一样：不藏身份，只藏&amp;quot;解读身份的语言&amp;quot;。曹雪芹写《红楼梦》，没在书里明说&amp;quot;我要吊明揭清&amp;quot;，而是把密码嵌进明末文人的&amp;quot;行业黑话&amp;quot;里。&amp;ldquo;双木&amp;quot;代&amp;quot;朱&amp;quot;姓，&amp;ldquo;枯木悬玉带&amp;quot;暗喻崇祯自缢，就像我们现在说&amp;quot;显眼包&amp;rdquo;，不用解释，当代人秒懂是指爱出风头的人，可后代人说不定会解读成&amp;quot;古代贵族专属称谓&amp;rdquo;。他靠《明季北略》《脂砚斋批语》当&amp;quot;梗注释&amp;quot;，让密码活了三百年。而我们的梗连注释都留不下，大概率死得比&amp;quot;电子木鱼&amp;quot;的热度还快。&lt;/p&gt;
 &lt;p&gt;中本聪更狠，直接把密码藏进2008年的互联网语境里。他写的比特币白皮书，满是程序员才懂的隐喻，比如&amp;quot;区块时间戳&amp;quot;对应&amp;quot;不可篡改的记录&amp;quot;，像极了曹雪芹用&amp;quot;葬花时间&amp;quot;对应明末节点。现在懂密码学、懂互联网史的人，还能从白皮书里抠点线索。可等我们这代人不在了，后代人对着代码只会懵圈，说不定会把中本聪当成&amp;quot;来自未来的数字先知&amp;quot;，就像我们曾经把曹雪芹只当成&amp;quot;写爱情小说的大佬&amp;quot;。&lt;/p&gt;

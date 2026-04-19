@@ -9,19 +9,15 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-<<<<<<< HEAD
-    <generator>Hugo -- 0.160.0</generator>
-=======
     <generator>Hugo -- 0.160.1</generator>
->>>>>>> 9cf4c52 (publish)
     <language>zh-cn</language>
     <lastBuildDate>Sun, 08 Mar 2026 14:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>龙虾大会：一场关于AI编程的集体幻觉</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-08-openclaw-fever-behind-the-hype/</link>
       <pubDate>Sun, 08 Mar 2026 14:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-08-openclaw-fever-behind-the-hype/</guid>
       <description>&lt;p&gt;三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫&lt;strong&gt;OpenClaw&lt;/strong&gt;的工具，在GitHub上已经收获了超过&lt;strong&gt;27万颗星星&lt;/strong&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：&lt;strong&gt;云服务厂商&lt;/strong&gt;摆出一键部署的展台，&lt;strong&gt;模型公司&lt;/strong&gt;推销着按Token计费的服务包，&lt;strong&gt;开发者们&lt;/strong&gt;热切地交流着提示词工程的心得。这场被称为**&amp;ldquo;龙虾大会&amp;rdquo;**的运动，正在以一种近乎狂热的姿态席卷整个行业。&lt;/p&gt;
 &lt;p&gt;但热闹的背后，一个&lt;strong&gt;根本性的问题&lt;/strong&gt;被有意无意地忽略了：&lt;strong&gt;这些大会究竟在解决什么问题？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;参会者带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被&amp;quot;AI替代程序员&amp;quot;的焦虑驱动。然而，当演讲者们反复演示如何用几句自然语言生成一个待办事项应用，或者如何让AI自动修复简单的代码错误时，细心的观察者会发现，**这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。**那些在舞台上被展示的神奇能力，往往建立在精心设计的demo环境之上；一旦进入真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。&lt;/p&gt;
@@ -71,9 +67,9 @@
     </item>
     <item>
       <title>AI 编程的终态肯定不是 Tab：直接要二进制</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-15-ai-coding-skip-compile/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-15-ai-coding-skip-compile/</link>
       <pubDate>Sun, 15 Feb 2026 19:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-15-ai-coding-skip-compile/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-15-ai-coding-skip-compile/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;AI 编程的终态：从 Tab 到直接要二进制&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/02/ai-coding-skip-compile-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;你大概已经习惯用 Tab 补全下一行代码了——但 AI 编程的终态，多半不是一直这样「补下去」。真正的方向，是有一天你不再写那一行行代码，而是用自然语言直接向 AI 要一个优化好的二进制；而这件事的引爆点，很可能就在 2026 年。&lt;/p&gt;
 &lt;p&gt;今年 2 月初，埃隆·马斯克在 xAI 活动上的一段视频被剪成片段，在 X 上疯传。他在台上说：今年年底前，你可能连代码都不用写了，AI 会直接生成二进制，而且比任何编译器都做得更优；Grok 的代码能力，两三个月内就会到业界顶尖。原话不长，四十来秒，底下已经吵成一片：有人喊「编程奇点」来了，也有人反问——AI 直接吐机器码，你怎么调试、怎么审？吵的其实是同一件事：AI 正在从「帮你写源代码」的助手，变成「从意图到可执行文件」的管道。&lt;strong&gt;不再是你写、它补全，而是你提需求、它直接给出能跑的二进制。&lt;/strong&gt; 传统开发里，编译和优化往往吃掉 20%～30% 的周期；一旦这一步被 AI 吞掉，从自然语言到可运行结果，中间那层「人类写码再编译」就会越来越薄。Anthropic 年初那份报告里已经提到，有团队在用 AI 跑通从测试、调试到部署的整条线；OpenAI 也披露过用 GPT-5.3-Codex 搭出零人类代码的完整应用。下面顺着这条线，看看技术已经铺到哪儿了、卡在哪儿，以及 2026 年底前我们大概会看到什么。&lt;/p&gt;
@@ -87,9 +83,9 @@
     </item>
     <item>
       <title>AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/</link>
       <pubDate>Wed, 11 Feb 2026 10:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;AI 幻觉与洗车悖论&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/02/ai-hallucination-car-wash-paradox-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。&lt;/p&gt;
 &lt;p&gt;最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 &lt;strong&gt;AI 幻觉&lt;/strong&gt;（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。&lt;/p&gt;
@@ -110,9 +106,9 @@
     </item>
     <item>
       <title>AI引起的大规模失业怎么办?</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-02-hinton-ubi-ai-job-loss/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-02-hinton-ubi-ai-job-loss/</link>
       <pubDate>Mon, 02 Feb 2026 20:24:22 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-02-hinton-ubi-ai-job-loss/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-02-hinton-ubi-ai-job-loss/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;「深度学习之父」杰弗里·辛顿（Geoffrey Hinton）说：超级智能 AI 会带来大规模岗位流失、加剧不平等，我们必须重新思考人们如何获得收入与意义；&lt;span style=&#34;color: red;&#34;&gt;全民基本收入（UBI）&lt;/span&gt;将「必要但不充分」——能让人不饿肚子，却补不上失业带来的尊严缺口。他主张通过对 AI 征税或设立分红，让增长被更公平地分享。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -132,9 +128,9 @@
     </item>
     <item>
       <title>安德森谈AI：没有人口崩塌，我们才该慌</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-01-andreessen-ai-era/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-01-andreessen-ai-era/</link>
       <pubDate>Sun, 01 Feb 2026 10:05:31 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-01-andreessen-ai-era/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-01-andreessen-ai-era/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;网景的发明人、a16z 的 &amp;ldquo;a&amp;rdquo;，在播客里说：如果没有 AI，我们此刻该慌的是经济——人口在塌、生产力几十年没真起来；AI 和机器人恰恰在我们最需要的时候来了。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -160,9 +156,9 @@
     </item>
     <item>
       <title>元宝派内测：给马老板交的这份作业，及格吗?</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-28-tencent-yuanbao-pai-review/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-28-tencent-yuanbao-pai-review/</link>
       <pubDate>Wed, 28 Jan 2026 23:31:13 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-28-tencent-yuanbao-pai-review/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-28-tencent-yuanbao-pai-review/</guid>
       <description>&lt;p&gt;腾讯和Meta都有巨量社交数据, 但是还没有找到AI+社交的机会。26号元宝发布了一个体验功能: 元宝派, 像是在AI+社交+Agent上的试水。拿到内测后体验了半天元宝派，也看了马化腾年会讲话。一句话总结：&lt;strong&gt;想做Agent，又不敢All in，最后搞了个AI群聊，里面塞了个元宝机器人。&lt;/strong&gt; 这份作业，我自己都觉得不及格。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;数据不会说谎&#34;&gt;数据不会说谎&lt;/h2&gt;
@@ -204,9 +200,9 @@
     </item>
     <item>
       <title>物理学的尽头是AGI？</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-27-physicists-in-ai/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-27-physicists-in-ai/</link>
       <pubDate>Tue, 27 Jan 2026 23:15:04 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-27-physicists-in-ai/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-27-physicists-in-ai/</guid>
       <description>&lt;p&gt;物理学界流传着一个古老的笑话：物理学家无所不能，除了物理。&lt;/p&gt;
 &lt;p&gt;虽然是句调侃，但在当今的 AI 浪潮中，这似乎成了某种预言。当你剥开 ChatGPT、Claude 或是 Llama 的外衣，往最核心的算法层和决策层看去，会惊讶地发现：&lt;strong&gt;怎么满屋子都是学物理的？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;从 OpenAI 的分裂到 Anthropic 的崛起，从 Scaling Laws 的发现到 Transformer 的优化，这群曾经天天琢磨量子态、黑洞和宇宙学的聪明脑袋，似乎集体决定换个赛道——不再纠结上帝掷不掷骰子，而是教 GPU 怎么掷出下一个 Token。&lt;/p&gt;
@@ -241,9 +237,9 @@
     </item>
     <item>
       <title>OpenAI与网景：三十年轮回，但这次可能真的不同</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-20-openai-netscape/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-20-openai-netscape/</link>
       <pubDate>Tue, 20 Jan 2026 12:59:25 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-20-openai-netscape/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-20-openai-netscape/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;技术会老去，但商业规律永远年轻。当OpenAI以ChatGPT重演网景浏览器式的辉煌时，我们不禁要问：历史会重演，还是已经改写？&lt;/p&gt;
 &lt;/blockquote&gt;

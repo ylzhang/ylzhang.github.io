@@ -9,19 +9,15 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-<<<<<<< HEAD
-    <generator>Hugo -- 0.160.0</generator>
-=======
     <generator>Hugo -- 0.160.1</generator>
->>>>>>> 9cf4c52 (publish)
     <language>zh-cn</language>
     <lastBuildDate>Sat, 14 Mar 2026 10:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>高段领导力从哪里来</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-14-leadership-source-reflection/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-14-leadership-source-reflection/</link>
       <pubDate>Sat, 14 Mar 2026 10:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-14-leadership-source-reflection/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-14-leadership-source-reflection/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;领导力不是职位特权，而是一种「让别人心甘情愿做你想做的事」的元能力。它不分层级，不论场景，是每个人终其一生都可以修炼的功课。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -65,9 +61,9 @@
     </item>
     <item>
       <title>《反脆弱》与《非对称风险》读书笔记</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-03-antifragile-skin-in-the-game-reading-note/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-03-antifragile-skin-in-the-game-reading-note/</link>
       <pubDate>Tue, 03 Feb 2026 22:37:37 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-03-antifragile-skin-in-the-game-reading-note/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-03-antifragile-skin-in-the-game-reading-note/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;反脆弱与切身利害&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/02/antifragile-skin-in-the-game-reading-note-summary.png&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;一图总览&lt;/strong&gt;：两本书一根讲「结构」（脆弱→强健→反脆弱），一根讲「激励」（谁承担后果谁才有资格决策）。林迪效应与杠铃策略是时间检验过的智慧；普通人要做的就是保持可选性、与有切身利害的人为伍。&lt;/p&gt;

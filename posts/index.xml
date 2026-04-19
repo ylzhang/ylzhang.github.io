@@ -9,19 +9,15 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-<<<<<<< HEAD
-    <generator>Hugo -- 0.160.0</generator>
-=======
     <generator>Hugo -- 0.160.1</generator>
->>>>>>> 9cf4c52 (publish)
     <language>zh-cn</language>
     <lastBuildDate>Fri, 17 Apr 2026 22:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Harness到底在做什么</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-04-17-harness-what-is-it/</link>
+      <link>https://blog.zhangky.com/posts/2026/04/2026-04-17-harness-what-is-it/</link>
       <pubDate>Fri, 17 Apr 2026 22:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-04-17-harness-what-is-it/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/04/2026-04-17-harness-what-is-it/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;核心观点&lt;/strong&gt;：实现10倍、100倍甚至1000倍生产力的秘密不在于AI模型本身，而在于包裹模型的那个&amp;quot;Harness&amp;quot;。这是Garry Tan和Steve Yegge等行业专家的共同洞见。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1384,9 +1380,9 @@
     </item>
     <item>
       <title>AI 编程框架的约束竞赛：Superpowers、GSD、gstack </title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-29-ai-coding-frameworks-harness-analysis/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/</link>
       <pubDate>Sun, 29 Mar 2026 20:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-29-ai-coding-frameworks-harness-analysis/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/</guid>
       <description>&lt;p&gt;&lt;strong&gt;当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。&lt;/p&gt;
 &lt;p&gt;但问题在于——&lt;strong&gt;约束不是解决方案，而是问题的转移&lt;/strong&gt;。&lt;/p&gt;
@@ -1400,9 +1396,9 @@
     </item>
     <item>
       <title>Agent 写代码的下一站：不是写得快，而是记得住、跑得远</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-20-agent-web-coding-memory-challenge/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-20-agent-web-coding-memory-challenge/</link>
       <pubDate>Fri, 20 Mar 2026 20:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-20-agent-web-coding-memory-challenge/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-20-agent-web-coding-memory-challenge/</guid>
       <description>&lt;p&gt;&lt;strong&gt;当 AI Agent 能够连续运行数天、自主管理复杂工程任务时，Web Coding 的竞争规则已经变了。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;2026 年开年，AI 编程工具的讨论焦点正在从「能写多少代码」转向「能持续跑多久」。以 Cursor Composer 为代表的新一代工具，正在探索「multi-day autonomy」（多日自主性）——让 Agent 在没有人工干预的情况下连续运行数天，处理从代码生成到架构设计的全流程任务。这不是简单的「自动化」，而是一场关于 Agent 「记忆力」和「决策力」的工程实验。&lt;/p&gt;
 &lt;p&gt;据我们了解，Cursor 团队在 2026 年 3 月发布的 Composer 2 版本&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，将上下文窗口扩展至 20 万 Token，并引入了「会话记忆」「上下文压缩」等能力，试图解决长期运行中的致命问题：上下文爆炸和错误累积。传统 AI 编程在几小时后就会因为上下文过长而「失忆」，而新一代技术通过智能压缩和总结机制，让 Agent 的「有效记忆」远远超出物理窗口限制。&lt;/p&gt;
@@ -1419,9 +1415,9 @@
     </item>
     <item>
       <title>高段领导力从哪里来</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-14-leadership-source-reflection/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-14-leadership-source-reflection/</link>
       <pubDate>Sat, 14 Mar 2026 10:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-14-leadership-source-reflection/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-14-leadership-source-reflection/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;领导力不是职位特权，而是一种「让别人心甘情愿做你想做的事」的元能力。它不分层级，不论场景，是每个人终其一生都可以修炼的功课。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1465,9 +1461,9 @@
     </item>
     <item>
       <title>Coding Agents 正在重塑工程、产品与设计的分工逻辑</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-12-coding-agents-reshaping-epd/</link>
       <pubDate>Thu, 12 Mar 2026 18:30:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-12-coding-agents-reshaping-epd/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;原文：Harrison Chase, &lt;a href=&#34;https://blog.langchain.com/how-coding-agents-are-reshaping-engineering-product-and-design/&#34;&gt;How Coding Agents Are Reshaping Engineering, Product and Design&lt;/a&gt;, LangChain Blog, 2026 年 3 月。以下为编译，保留原文结构与论点，部分段落做了压缩和意译。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1500,9 +1496,9 @@
     </item>
     <item>
       <title>Robin：叫人，开会！</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-11-baidu-how-to-lose-everything/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-11-baidu-how-to-lose-everything/</link>
       <pubDate>Wed, 11 Mar 2026 20:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-11-baidu-how-to-lose-everything/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-11-baidu-how-to-lose-everything/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;百度是怎么把一手好牌打烂的&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/03/baidu-how-to-lose-everything-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;声明：本文纯属虚构。数据是真的，人是真的，会议是编的。如有雷同，说明百度确实该开这个会。&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -1536,9 +1532,9 @@
     </item>
     <item>
       <title>龙虾大会：一场关于AI编程的集体幻觉</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-08-openclaw-fever-behind-the-hype/</link>
       <pubDate>Sun, 08 Mar 2026 14:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-08-openclaw-fever-behind-the-hype/</guid>
       <description>&lt;p&gt;三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫&lt;strong&gt;OpenClaw&lt;/strong&gt;的工具，在GitHub上已经收获了超过&lt;strong&gt;27万颗星星&lt;/strong&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：&lt;strong&gt;云服务厂商&lt;/strong&gt;摆出一键部署的展台，&lt;strong&gt;模型公司&lt;/strong&gt;推销着按Token计费的服务包，&lt;strong&gt;开发者们&lt;/strong&gt;热切地交流着提示词工程的心得。这场被称为**&amp;ldquo;龙虾大会&amp;rdquo;**的运动，正在以一种近乎狂热的姿态席卷整个行业。&lt;/p&gt;
 &lt;p&gt;但热闹的背后，一个&lt;strong&gt;根本性的问题&lt;/strong&gt;被有意无意地忽略了：&lt;strong&gt;这些大会究竟在解决什么问题？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;参会者带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被&amp;quot;AI替代程序员&amp;quot;的焦虑驱动。然而，当演讲者们反复演示如何用几句自然语言生成一个待办事项应用，或者如何让AI自动修复简单的代码错误时，细心的观察者会发现，**这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。**那些在舞台上被展示的神奇能力，往往建立在精心设计的demo环境之上；一旦进入真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。&lt;/p&gt;
@@ -1588,9 +1584,9 @@
     </item>
     <item>
       <title>千问核心离职风波：林俊旸下一步是创业吗？</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-07-linjunyang-next-move-startup/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-07-linjunyang-next-move-startup/</link>
       <pubDate>Sat, 07 Mar 2026 21:29:02 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-07-linjunyang-next-move-startup/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-07-linjunyang-next-move-startup/</guid>
       <description>&lt;p&gt;3 月 6 日，林俊旸正式确认离职。距离那条「bye my beloved qwen」的推文过去 48 小时，这场震动中国 AI 圈的人事风波进入下半场——不是八卦内幕的下半场，而是更实质的问题：一个 32 岁、带出了全球顶级开源模型、被 Google DeepMind 公开喊话抢人的技术领袖，下一步该往哪走？&lt;/p&gt;
 &lt;p&gt;我的判断很直接：&lt;strong&gt;创业是他唯一合理的选择。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;不是情感上的「创业浪漫」，而是结构性推演后的结论。大厂、学术机构、加入其他独角兽——这三条路都有明显的逻辑断裂，只有创业能承接他过去三年积累的所有资产，并给他真正的自由度。&lt;/p&gt;
@@ -1604,9 +1600,9 @@
     </item>
     <item>
       <title>大模型的开源，到底开源了什么</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-06-what-does-open-source-mean-for-llm/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-06-what-does-open-source-mean-for-llm/</link>
       <pubDate>Fri, 06 Mar 2026 08:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-06-what-does-open-source-mean-for-llm/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-06-what-does-open-source-mean-for-llm/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;大模型的开源，到底开源了什么&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/03/what-does-open-source-mean-for-llm-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;大模型时代喊的&amp;quot;开源&amp;quot;，99% 不是你以为的那种开源。&lt;/p&gt;
 &lt;p&gt;当我们说 Linux 开源、Redis 开源的时候，意思很明确：把软件的&amp;quot;设计图纸&amp;quot;——源代码——全部公开，任何人都可以照着图纸把软件重新造一遍。这是&lt;strong&gt;软件的开源&lt;/strong&gt;，公开图纸就等于公开一切。&lt;/p&gt;
@@ -1662,9 +1658,9 @@
     </item>
     <item>
       <title>千问核心离职风波：开源社区需要什么人</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-06-qwen-open-source-needs-him/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-06-qwen-open-source-needs-him/</link>
       <pubDate>Fri, 06 Mar 2026 01:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-06-qwen-open-source-needs-him/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-06-qwen-open-source-needs-him/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;从千问核心离职风波看：开源社区需要什么人&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/03/qwen-open-source-needs-him-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Qwen 的技术报告单篇引用超过 6000 次&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，Hugging Face 下载量突破 7 亿次&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;，衍生模型超过 18 万个&lt;sup id=&#34;fnref1:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。斯坦福《2025 年人工智能指数报告》把它排在全球第三&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;。然后，带着这一切走到今天的人，在凌晨 0:11 发了一条推文就走了&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 &lt;p&gt;这两天 AI 圈讨论最多的不是模型，而是人。但我注意到一个有意思的现象：中文互联网上讨论的焦点是&amp;quot;阿里怎么了&amp;quot;&amp;ldquo;管理出了什么问题&amp;quot;&amp;ldquo;谁来接班&amp;rdquo;，而英文社区——从 Hugging Face 到 GitHub 到 X 的评论区——讨论的焦点是一个更本质的问题：开源社区到底需要什么样的人？失去这样的人意味着什么？&lt;/p&gt;
@@ -1680,9 +1676,9 @@
     </item>
     <item>
       <title>千问团队离职风波：一个管理者应该看到什么</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-05-qwen-departure-leadership-reflection/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-05-qwen-departure-leadership-reflection/</link>
       <pubDate>Thu, 05 Mar 2026 12:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-05-qwen-departure-leadership-reflection/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-05-qwen-departure-leadership-reflection/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;千问团队离职风波：一个管理者应该看到什么&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/03/qwen-departure-leadership-reflection-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;3 月 4 日凌晨 0:11，林俊旸在 X 上写下一句话：&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;林俊旸宣布离职&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/03/2026-03-05_135641_qwen_justing_x.png&#34;&gt;&lt;/p&gt;
@@ -1711,9 +1707,9 @@
     </item>
     <item>
       <title>精准打击会不会改写人类的组织方式？</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-01-decapitation-war-distributed-organization/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-01-decapitation-war-distributed-organization/</link>
       <pubDate>Sun, 01 Mar 2026 23:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-01-decapitation-war-distributed-organization/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-01-decapitation-war-distributed-organization/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;从斩首战争到分布式国家&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/03/20260301-decapitation-war-distributed-organization-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;精准打击刺穿的不是一座建筑，而是人类延续了两百年的组织幻觉。&lt;/p&gt;
 &lt;p&gt;2026 年 2 月 28 日，美国与以色列联合发动代号&amp;quot;史诗怒火&amp;quot;（Operation Epic Fury）的军事行动，对伊朗多座城市实施空袭。据以色列军方声明，以空军出动约 200 架战机执行了&amp;quot;以色列历史上最大规模的飞行任务&amp;quot;，打击了伊朗全境约 500 个目标&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;。伊朗国家媒体随后证实，最高领袖哈梅内伊在其德黑兰官邸遭袭后身亡，伊朗宣布全国哀悼 40 天&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。据 Reuters 报道，国防部长纳西尔扎德、革命卫队总司令帕克普尔、国防委员会秘书沙姆哈尼等多名高级官员同日被确认死亡&lt;sup id=&#34;fnref1:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;。3 月 1 日，多家外媒报道称前总统内贾德也在德黑兰纳尔马克区住所遭空袭身亡，但截至发稿时伊朗官方尚未正式确认这一消息&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;。没有地面推进，没有大规模地面战——情报锁定位置，空中精准打击，一个拥有 8800 万人口的国家在数小时内陷入权力真空。&lt;/p&gt;
@@ -2207,9 +2203,9 @@
     </item>
     <item>
       <title>AI 编程的终态肯定不是 Tab：直接要二进制</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-15-ai-coding-skip-compile/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-15-ai-coding-skip-compile/</link>
       <pubDate>Sun, 15 Feb 2026 19:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-15-ai-coding-skip-compile/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-15-ai-coding-skip-compile/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;AI 编程的终态：从 Tab 到直接要二进制&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/02/ai-coding-skip-compile-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;你大概已经习惯用 Tab 补全下一行代码了——但 AI 编程的终态，多半不是一直这样「补下去」。真正的方向，是有一天你不再写那一行行代码，而是用自然语言直接向 AI 要一个优化好的二进制；而这件事的引爆点，很可能就在 2026 年。&lt;/p&gt;
 &lt;p&gt;今年 2 月初，埃隆·马斯克在 xAI 活动上的一段视频被剪成片段，在 X 上疯传。他在台上说：今年年底前，你可能连代码都不用写了，AI 会直接生成二进制，而且比任何编译器都做得更优；Grok 的代码能力，两三个月内就会到业界顶尖。原话不长，四十来秒，底下已经吵成一片：有人喊「编程奇点」来了，也有人反问——AI 直接吐机器码，你怎么调试、怎么审？吵的其实是同一件事：AI 正在从「帮你写源代码」的助手，变成「从意图到可执行文件」的管道。&lt;strong&gt;不再是你写、它补全，而是你提需求、它直接给出能跑的二进制。&lt;/strong&gt; 传统开发里，编译和优化往往吃掉 20%～30% 的周期；一旦这一步被 AI 吞掉，从自然语言到可运行结果，中间那层「人类写码再编译」就会越来越薄。Anthropic 年初那份报告里已经提到，有团队在用 AI 跑通从测试、调试到部署的整条线；OpenAI 也披露过用 GPT-5.3-Codex 搭出零人类代码的完整应用。下面顺着这条线，看看技术已经铺到哪儿了、卡在哪儿，以及 2026 年底前我们大概会看到什么。&lt;/p&gt;
@@ -2246,9 +2242,9 @@
     </item>
     <item>
       <title>AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/</link>
       <pubDate>Wed, 11 Feb 2026 10:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;AI 幻觉与洗车悖论&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/02/ai-hallucination-car-wash-paradox-cover.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。&lt;/p&gt;
 &lt;p&gt;最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 &lt;strong&gt;AI 幻觉&lt;/strong&gt;（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。&lt;/p&gt;
@@ -2300,9 +2296,9 @@ $$&lt;/p&gt;</description>
     </item>
     <item>
       <title>从巴菲特的并购与数字观，看CEO该盯住什么</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-09-buffett-operating-efficiency-ceo/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-09-buffett-operating-efficiency-ceo/</link>
       <pubDate>Mon, 09 Feb 2026 23:45:03 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-09-buffett-operating-efficiency-ceo/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-09-buffett-operating-efficiency-ceo/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;「大都会公司的运营利润率为 29%，ABC 公司是 11%。如果墨菲能将 ABC 公司的运营利润率提高 1/3 到 15%，那么公司每年将多增收益 1.25 亿美元，合并后的新公司盈利将是 3.25 亿美元。」&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2350,9 +2346,9 @@ $$&lt;/li&gt;
     </item>
     <item>
       <title>货币、黄金、比特币、人口与政权的底层逻辑</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-04-currency-gold-bitcoin-population-power/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-04-currency-gold-bitcoin-population-power/</link>
       <pubDate>Wed, 04 Feb 2026 20:14:51 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-04-currency-gold-bitcoin-population-power/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-04-currency-gold-bitcoin-population-power/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;货币、黄金、比特币、人口与政权的底层逻辑&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/02/currency-gold-bitcoin-population-power-cover.png&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;在金本位时代，稀缺的是黄金，锁死的是人类；在信用货币时代，稀缺的是&lt;strong&gt;人&lt;/strong&gt;——合格、有未来、讲信用的借款人。政权可以驯化黄金、招安比特币，但无法驯化「谁才是真正的资产」这条逻辑。&lt;/p&gt;
@@ -2373,9 +2369,9 @@ $$&lt;/li&gt;
     </item>
     <item>
       <title>《反脆弱》与《非对称风险》读书笔记</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-03-antifragile-skin-in-the-game-reading-note/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-03-antifragile-skin-in-the-game-reading-note/</link>
       <pubDate>Tue, 03 Feb 2026 22:37:37 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-03-antifragile-skin-in-the-game-reading-note/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-03-antifragile-skin-in-the-game-reading-note/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;反脆弱与切身利害&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/02/antifragile-skin-in-the-game-reading-note-summary.png&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;一图总览&lt;/strong&gt;：两本书一根讲「结构」（脆弱→强健→反脆弱），一根讲「激励」（谁承担后果谁才有资格决策）。林迪效应与杠铃策略是时间检验过的智慧；普通人要做的就是保持可选性、与有切身利害的人为伍。&lt;/p&gt;
@@ -2444,9 +2440,9 @@ $$&lt;/li&gt;
     </item>
     <item>
       <title>AI引起的大规模失业怎么办?</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-02-hinton-ubi-ai-job-loss/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-02-hinton-ubi-ai-job-loss/</link>
       <pubDate>Mon, 02 Feb 2026 20:24:22 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-02-hinton-ubi-ai-job-loss/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-02-hinton-ubi-ai-job-loss/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;「深度学习之父」杰弗里·辛顿（Geoffrey Hinton）说：超级智能 AI 会带来大规模岗位流失、加剧不平等，我们必须重新思考人们如何获得收入与意义；&lt;span style=&#34;color: red;&#34;&gt;全民基本收入（UBI）&lt;/span&gt;将「必要但不充分」——能让人不饿肚子，却补不上失业带来的尊严缺口。他主张通过对 AI 征税或设立分红，让增长被更公平地分享。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2466,9 +2462,9 @@ $$&lt;/li&gt;
     </item>
     <item>
       <title>安德森谈AI：没有人口崩塌，我们才该慌</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-01-andreessen-ai-era/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-01-andreessen-ai-era/</link>
       <pubDate>Sun, 01 Feb 2026 10:05:31 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-01-andreessen-ai-era/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-01-andreessen-ai-era/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;网景的发明人、a16z 的 &amp;ldquo;a&amp;rdquo;，在播客里说：如果没有 AI，我们此刻该慌的是经济——人口在塌、生产力几十年没真起来；AI 和机器人恰恰在我们最需要的时候来了。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2494,9 +2490,9 @@ $$&lt;/li&gt;
     </item>
     <item>
       <title>元宝派内测：给马老板交的这份作业，及格吗?</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-28-tencent-yuanbao-pai-review/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-28-tencent-yuanbao-pai-review/</link>
       <pubDate>Wed, 28 Jan 2026 23:31:13 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-28-tencent-yuanbao-pai-review/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-28-tencent-yuanbao-pai-review/</guid>
       <description>&lt;p&gt;腾讯和Meta都有巨量社交数据, 但是还没有找到AI+社交的机会。26号元宝发布了一个体验功能: 元宝派, 像是在AI+社交+Agent上的试水。拿到内测后体验了半天元宝派，也看了马化腾年会讲话。一句话总结：&lt;strong&gt;想做Agent，又不敢All in，最后搞了个AI群聊，里面塞了个元宝机器人。&lt;/strong&gt; 这份作业，我自己都觉得不及格。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;数据不会说谎&#34;&gt;数据不会说谎&lt;/h2&gt;
@@ -2538,9 +2534,9 @@ $$&lt;/li&gt;
     </item>
     <item>
       <title>物理学的尽头是AGI？</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-27-physicists-in-ai/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-27-physicists-in-ai/</link>
       <pubDate>Tue, 27 Jan 2026 23:15:04 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-27-physicists-in-ai/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-27-physicists-in-ai/</guid>
       <description>&lt;p&gt;物理学界流传着一个古老的笑话：物理学家无所不能，除了物理。&lt;/p&gt;
 &lt;p&gt;虽然是句调侃，但在当今的 AI 浪潮中，这似乎成了某种预言。当你剥开 ChatGPT、Claude 或是 Llama 的外衣，往最核心的算法层和决策层看去，会惊讶地发现：&lt;strong&gt;怎么满屋子都是学物理的？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;从 OpenAI 的分裂到 Anthropic 的崛起，从 Scaling Laws 的发现到 Transformer 的优化，这群曾经天天琢磨量子态、黑洞和宇宙学的聪明脑袋，似乎集体决定换个赛道——不再纠结上帝掷不掷骰子，而是教 GPU 怎么掷出下一个 Token。&lt;/p&gt;
@@ -2603,9 +2599,9 @@ $$&lt;/p&gt;</description>
     </item>
     <item>
       <title>阿里有战略吗？</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-26-alibaba-short-strategy/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-26-alibaba-short-strategy/</link>
       <pubDate>Mon, 26 Jan 2026 21:21:12 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-26-alibaba-short-strategy/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-26-alibaba-short-strategy/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;维基百科对战略做以下解释: &lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%88%98%E7%95%A5&#34;&gt;&lt;strong&gt;战略或策略，是指为实现某种目标（如政治、军事、经济、商业或国家利益等方面的目标）而制定的高层次、全方位的长期行动计划。&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2718,9 +2714,9 @@ $$&lt;/p&gt;</description>
     </item>
     <item>
       <title>Longevity Analysis: AI vs. Longevity</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-22-ai-4-longevity/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-22-ai-4-longevity/</link>
       <pubDate>Thu, 22 Jan 2026 21:57:10 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-22-ai-4-longevity/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-22-ai-4-longevity/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;INTERNAL USE ONLY&lt;/strong&gt; | Venture Capital Due Diligence Report&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2791,9 +2787,9 @@ $$&lt;/p&gt;</description>
     </item>
     <item>
       <title>OpenAI与网景：三十年轮回，但这次可能真的不同</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-20-openai-netscape/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-20-openai-netscape/</link>
       <pubDate>Tue, 20 Jan 2026 12:59:25 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-20-openai-netscape/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-20-openai-netscape/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;技术会老去，但商业规律永远年轻。当OpenAI以ChatGPT重演网景浏览器式的辉煌时，我们不禁要问：历史会重演，还是已经改写？&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2819,9 +2815,9 @@ $$&lt;/p&gt;</description>
     </item>
     <item>
       <title>中本聪真身锁定？最接近真相的3个人，藏着数字时代的红楼密码</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-19-zhongbencong-who-is/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-19-zhongbencong-who-is/</link>
       <pubDate>Sun, 18 Jan 2026 21:35:50 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-19-zhongbencong-who-is/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-19-zhongbencong-who-is/</guid>
       <description>&lt;p&gt;就像曹雪芹用红楼文字藏起吊明秘事，中本聪也用比特币白皮书埋下了身份密码。这个缔造数字货币神话的人，自2011年突然销声匿迹后，留下的谜题比红楼判画还烧脑。今天不搞玄学猜测，纯科普硬核证据——从技术背景、时间线到行文习惯，拆解3位最可能是中本聪的人选，聊聊为什么说&amp;quot;中本聪不是一个人，就是一群人的缩影&amp;quot;。&lt;/p&gt;
 &lt;p&gt;中本聪这谜之存在，简直是数字时代的曹雪芹。前者用《红楼梦》藏王朝兴衰，后者用比特币藏身份踪迹，连&amp;quot;隐身套路&amp;quot;都一模一样——不直接消失，只留下一堆当代人能抠、后代人懵圈的线索。市面上关于中本聪的猜测多到离谱，从&amp;quot;日本物理学家&amp;quot;到&amp;quot;CIA秘密项目&amp;quot;，但剔除无稽之谈后，只剩3个候选人站得住脚。今天就顺着&amp;quot;技术匹配度+时间线吻合+行为逻辑自洽&amp;quot;三大维度，扒一扒最接近真相的答案。&lt;/p&gt;
 &lt;p&gt;如果说中本聪是比特币的&amp;quot;生父&amp;quot;，那尼克·萨博绝对是&amp;quot;养父&amp;quot;。他的研究几乎为比特币铺好了全部路基，证据链密到让人怀疑&amp;quot;否认都是欲盖弥彰&amp;quot;。核心逻辑先摆死：比特币不是凭空诞生的，它的前身是萨博1998年研发的&amp;quot;比特金&amp;quot;（Bit Gold）体系，而这两者的相似度，堪比黛玉判画与崇祯自缢场景的对应。比特金同样采用密码学验证、去中心化记账，甚至连&amp;quot;安全资产所有权&amp;quot;&amp;ldquo;数字时间戳&amp;quot;这些比特币的核心概念，萨博早在十年前就玩透了。&lt;/p&gt;
@@ -2838,9 +2834,9 @@ $$&lt;/p&gt;</description>
     </item>
     <item>
       <title>Meta AI大裁员：CEO视角下的组织手术</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-12-meta-ai-layoff-ceo-perspective/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-12-meta-ai-layoff-ceo-perspective/</link>
       <pubDate>Mon, 12 Jan 2026 21:07:48 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-12-meta-ai-layoff-ceo-perspective/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-12-meta-ai-layoff-ceo-perspective/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;既然选择了汪滔，就必须为他创造环境。这是合格CEO必须做的。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2902,9 +2898,9 @@ $$&lt;/p&gt;</description>
     </item>
     <item>
       <title>中本聪=当代曹雪芹？我们玩的梗，都是给后代挖的坑</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-10-zhongbencong-caoxueqin/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-10-zhongbencong-caoxueqin/</link>
       <pubDate>Sat, 10 Jan 2026 21:03:39 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-10-zhongbencong-caoxueqin/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-10-zhongbencong-caoxueqin/</guid>
       <description>&lt;p&gt;今天刷到有人考古&amp;quot;鸡你太美&amp;quot;的离谱解读，突然惊出一身冷汗。我们现在随口玩的梗、说的暗号，一百年后可能会变成考古界的&amp;quot;未解之谜&amp;quot;。这事儿往深了想更绝：曹雪芹藏了三百年的红楼密码，中本聪埋了十几年的身份谜题，和我们现在说的&amp;quot;栓Q&amp;quot;&amp;ldquo;显眼包&amp;rdquo;，本质上都是一回事——用当代人懂、后代人懵的语言，给岁月留了个钩子。等懂这门语言的人全退场，天才和烂梗，都成了千年谜。&lt;/p&gt;
 &lt;p&gt;曹雪芹和中本聪，堪称&amp;quot;跨时空密码大师&amp;quot;。他俩的套路一模一样：不藏身份，只藏&amp;quot;解读身份的语言&amp;quot;。曹雪芹写《红楼梦》，没在书里明说&amp;quot;我要吊明揭清&amp;quot;，而是把密码嵌进明末文人的&amp;quot;行业黑话&amp;quot;里。&amp;ldquo;双木&amp;quot;代&amp;quot;朱&amp;quot;姓，&amp;ldquo;枯木悬玉带&amp;quot;暗喻崇祯自缢，就像我们现在说&amp;quot;显眼包&amp;rdquo;，不用解释，当代人秒懂是指爱出风头的人，可后代人说不定会解读成&amp;quot;古代贵族专属称谓&amp;rdquo;。他靠《明季北略》《脂砚斋批语》当&amp;quot;梗注释&amp;quot;，让密码活了三百年。而我们的梗连注释都留不下，大概率死得比&amp;quot;电子木鱼&amp;quot;的热度还快。&lt;/p&gt;
 &lt;p&gt;中本聪更狠，直接把密码藏进2008年的互联网语境里。他写的比特币白皮书，满是程序员才懂的隐喻，比如&amp;quot;区块时间戳&amp;quot;对应&amp;quot;不可篡改的记录&amp;quot;，像极了曹雪芹用&amp;quot;葬花时间&amp;quot;对应明末节点。现在懂密码学、懂互联网史的人，还能从白皮书里抠点线索。可等我们这代人不在了，后代人对着代码只会懵圈，说不定会把中本聪当成&amp;quot;来自未来的数字先知&amp;quot;，就像我们曾经把曹雪芹只当成&amp;quot;写爱情小说的大佬&amp;quot;。&lt;/p&gt;
@@ -2918,9 +2914,9 @@ $$&lt;/p&gt;</description>
     </item>
     <item>
       <title>系统熵增和明末一样会崩溃的结局</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-09-xitong-xiubu-zengshang/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-09-xitong-xiubu-zengshang/</link>
       <pubDate>Fri, 09 Jan 2026 21:10:51 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-09-xitong-xiubu-zengshang/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-09-xitong-xiubu-zengshang/</guid>
       <description>&lt;p&gt;去年年底我们整个团队领导被一窝端，管理层的动荡发生得非常快，出乎所有人的意料。真的是管理层突然不堪重负？真的是管理层一年无所作为到了临界点？我不这样思考。最近几天我在读明史时突然发现，崇祯遇到的困局与我们的处境惊人地相似。没人会否认崇祯的勤勉。比起万历的怠政、天启的昏聩，这位末代皇帝更像个拼命想堵住堤坝缺口的纤夫。他夙兴夜寐，布衣蔬食，甚至在朝堂上对着大臣痛哭流涕，恳求他们捐出家产以充军饷。他雷厉风行，登基三个月便扳倒权倾朝野的魏忠贤，试图肃清阉党乱政的积弊。但历史的吊诡之处正在于此：最勤勉的拯救者，往往是压垮系统的最后一根稻草。这不是个人能力的问题，而是他从一开始就陷入了一种致命的幻觉：以为靠不断&amp;quot;加补丁&amp;quot;，就能修复一个早已冗余过载的系统。&lt;/p&gt;
 &lt;p&gt;朱元璋奠定的大明框架，本质是一套低冗余的极简系统。废丞相、简机构，权力高度集中，靠君主的个人能力就能驱动。这种设计在初始阶段效率极高，就像一艘结构简洁的快艇，能快速劈开乱世的波涛。但问题在于，极简系统的容错率极低，一旦核心驱动力（君主能力）下滑，后继者的第一反应不是重构船体，而是往船上堆压舱石。朱棣加内阁，是给快艇装了辅助舵。万历派税监，是在船舷外挂了一堆临时货舱。天启朝的阉党与党争，更是让船身缠满了相互拉扯的缆绳。&lt;/p&gt;
 &lt;p&gt;到崇祯接手时，这艘快艇早已变成一艘臃肿不堪、四处漏水的破船。他的所有努力，都停留在&amp;quot;补漏&amp;quot;而非&amp;quot;重构&amp;quot;。辽东告急，后金的铁蹄一次次叩关，他便加征辽饷。相当于在漏水的船底钉一块木板，暂时挡住渗水，却让船身更沉。百姓本就被万历、天启朝的苛捐杂税榨得只剩一口气，辽饷一出，北方饥民遍地，流民四起。紧接着，高迎祥、李自成的起义军在陕西揭竿，他又增练饷，招募新兵镇压。又在船舷补一块铁板，加重负载的同时，让船的转向愈发迟缓。军饷依旧短缺，他竟异想天开地裁撤驿站，以为这是&amp;quot;节流&amp;quot;的妙棋，却亲手把银川驿卒李自成逼上了梁山。这个被他视为&amp;quot;冗余部件&amp;quot;的小人物，后来带着百万义军，成了撞向大明船体最致命的暗礁。&lt;/p&gt;
@@ -2932,9 +2928,9 @@ $$&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Good Company Everyday - Waymo One</title>
-      <link>https://blog.zhangky.com/posts/2026/2016-01-08-a-good-company-everyday-waymo-one/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2016-01-08-a-good-company-everyday-waymo-one/</link>
       <pubDate>Thu, 08 Jan 2026 12:40:14 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2016-01-08-a-good-company-everyday-waymo-one/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2016-01-08-a-good-company-everyday-waymo-one/</guid>
       <description>&lt;div style=&#34;text-align: center;&#34;&gt;
   &lt;img src=&#34;https://blog.zhangky.com/images/posts/2026/01/waymo.appstore.png&#34; alt=&#34;Waymo in appstore&#34; style=&#34;width: 40%; margin: 0 auto; display: block;&#34;&gt;
 &lt;/div&gt;  
@@ -2989,9 +2985,9 @@ $$&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Folding of Currency: 2036 Stablecoin Endgame &amp; The Liquidity Caste</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-07-the_folding_of_currency/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-07-the_folding_of_currency/</link>
       <pubDate>Wed, 07 Jan 2026 21:14:44 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-07-the_folding_of_currency/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-07-the_folding_of_currency/</guid>
       <description>&lt;p&gt;假设我站在了2036年，回望2020年代中期，无论是华尔街还是硅谷，都犯了一个战略性错误：他们将稳定币视为法币的&amp;quot;竞争者&amp;quot;。站在2036年复盘，真相残酷而简单：稳定币没有颠覆美元，它拯救了美元。&lt;/p&gt;
 &lt;p&gt;过去十年，我们见证的不是去中心化革命，而是一场&amp;quot;铸币权的特许经营化&amp;quot;。美联储意识到，与其亲自下场做低效且侵犯隐私的CBDC（央行数字货币），不如将美元的&amp;quot;API接口&amp;quot;开放给私营部门。稳定币，最终成为了法币的&amp;quot;数字外骨骼&amp;quot;。&lt;/p&gt;
 &lt;p&gt;现在的世界不再争论&amp;quot;中心化&amp;quot;与&amp;quot;去中心化&amp;quot;，因为货币体系已经完成了阶级固化。全球流动性被割裂为三个互不兼容、但垂直嵌套的平行世界。&lt;/p&gt;
@@ -3003,9 +2999,9 @@ $$&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why did I study business in the AI era?：AI时代我为何选择再去读商科？</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-06-why-did-i-study-business-in-the-ai-era/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-06-why-did-i-study-business-in-the-ai-era/</link>
       <pubDate>Tue, 06 Jan 2026 16:06:59 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-06-why-did-i-study-business-in-the-ai-era/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-06-why-did-i-study-business-in-the-ai-era/</guid>
       <description>&lt;p&gt;回望求学与创业的征程，我始终感恩大学时期选择理科的决定。我的本科是计算机科学与技术，严谨的理科训练，让我养成了以数据为依据、以结果为导向的实证思维。这种&amp;quot;凡事求有效、凡事讲逻辑&amp;quot;的认知底色，帮我搞定了职业过程中理性的思考问题。在工作过程中这种思维模版帮我解决很多问题，比如产品迭代、流程优化这些&amp;quot;硬骨头&amp;quot;。但真到了从生产到市场环节打拼才发现，光会解决技术问题远远不够。好几次，我周围很多创业者拿着看似完美的产品推向市场，要么找不到精准客户，要么定价不合理导致盈利微薄，甚至因为没摸清行业周期，在市场低谷时盲目投入，亏了不少钱。这种&amp;quot;懂技术却不懂经营&amp;quot;的迷茫，让我彻底明白：创业的核心是盈利，而盈利的关键在于经营思维。也正因如此，我在21年选择攻读MBA。这段学习历程不是对过往理科知识的否定，而是给我补上了&amp;quot;经营&amp;quot;这堂关键必修课，让我从&amp;quot;做事&amp;quot;的层面，真正升级到&amp;quot;做局&amp;quot;的层面，成为我创业路上扭转困局的核心支撑。又一次我的老板在闲聊时问我，我为什么选择要读MBA呢，以上也是我的回答。&lt;/p&gt;
 &lt;p&gt;MBA最让我受益的，是帮我升级了视野。用经营思维，真正看见市场里藏在表象下的获利机会点。以前做市场，我只会盯着竞品的价格和功能，跟着别人的节奏走，永远赚不到认知之外的钱。但通过MBA里的经济学和市场分析课程，我学会了从供需关系、行业周期、政策导向的全局视角看市场。比如在分析细分领域时，我不再只看当下的销量，而是用经济模型预判未来的需求趋势，结合成本结构算出&amp;quot;最优盈利区间&amp;quot;，最终找到一个被大公司忽略的小众需求点。就像去年，我通过分析区域消费升级的经济数据，发现本地中小企业对&amp;quot;低成本数字化转型&amp;quot;的需求迫切，但市场上的解决方案要么太贵要么太复杂，于是我针对性地推出轻量化产品，短短半年就实现了盈利翻倍。这种&amp;quot;从经济规律里找机会，用经营思维抓盈利&amp;quot;的能力，正是商科学习带给我的核心价值。同时，不同学科的碰撞也让我打通了认知：管理学让我明白，找到机会只是第一步，能把机会落地的组织能力才是关键。商业历史案例则提醒我，再优质的获利机会，也需要避开周期陷阱，这都是保证收益稳定的重要前提。&lt;/p&gt;
 &lt;p&gt;&amp;ldquo;一个人做不大&amp;quot;的想法，在MBA学习中不仅得到印证，更让我找到了&amp;quot;整合全局&amp;quot;的经营解法。从市场分析到组织制度，搭建全方位的经营策略，才能让盈利持续放大。以前我带团队，只会把任务分配下去，却忽略了&amp;quot;组织能力要匹配市场机会&amp;rdquo;。比如找到轻量化数字化转型的机会后，初期因为团队分工模糊、激励不到位，导致交付效率低，客户投诉多，明明是好机会，却差点因为组织问题错失收益。后来，我把MBA学到的组织设计、激励机制知识用在实践中：先根据市场需求拆分核心业务模块，再对应搭建销售、交付、售后团队，同时设计&amp;quot;基础薪资+盈利分成&amp;quot;的激励方案，让团队目标和公司盈利目标绑定。这样一来，团队效率直接提升了40%，客户复购率也从30%涨到了60%。更重要的是，MBA圈层里的精英伙伴，不仅帮我验证了市场机会的可行性，还为我对接了不少中小企业资源，让我的经营策略能更快落地。这让我深刻体会到，商业盈利从来不是&amp;quot;单点突破&amp;quot;，而是&amp;quot;全局协同&amp;quot;。用市场分析找机会，用组织制度保落地，再用团队协作放大收益，这就是商科教给我的完整经营逻辑。&lt;/p&gt;

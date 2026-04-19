@@ -9,19 +9,15 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-<<<<<<< HEAD
-    <generator>Hugo -- 0.160.0</generator>
-=======
     <generator>Hugo -- 0.160.1</generator>
->>>>>>> 9cf4c52 (publish)
     <language>zh-cn</language>
     <lastBuildDate>Fri, 17 Apr 2026 22:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Harness到底在做什么</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-04-17-harness-what-is-it/</link>
+      <link>https://blog.zhangky.com/posts/2026/04/2026-04-17-harness-what-is-it/</link>
       <pubDate>Fri, 17 Apr 2026 22:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-04-17-harness-what-is-it/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/04/2026-04-17-harness-what-is-it/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;核心观点&lt;/strong&gt;：实现10倍、100倍甚至1000倍生产力的秘密不在于AI模型本身，而在于包裹模型的那个&amp;quot;Harness&amp;quot;。这是Garry Tan和Steve Yegge等行业专家的共同洞见。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1384,9 +1380,9 @@
     </item>
     <item>
       <title>AI 编程框架的约束竞赛：Superpowers、GSD、gstack </title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-29-ai-coding-frameworks-harness-analysis/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/</link>
       <pubDate>Sun, 29 Mar 2026 20:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-29-ai-coding-frameworks-harness-analysis/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/</guid>
       <description>&lt;p&gt;&lt;strong&gt;当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。&lt;/p&gt;
 &lt;p&gt;但问题在于——&lt;strong&gt;约束不是解决方案，而是问题的转移&lt;/strong&gt;。&lt;/p&gt;
@@ -1400,9 +1396,9 @@
     </item>
     <item>
       <title>Agent 写代码的下一站：不是写得快，而是记得住、跑得远</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-20-agent-web-coding-memory-challenge/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-20-agent-web-coding-memory-challenge/</link>
       <pubDate>Fri, 20 Mar 2026 20:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-20-agent-web-coding-memory-challenge/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-20-agent-web-coding-memory-challenge/</guid>
       <description>&lt;p&gt;&lt;strong&gt;当 AI Agent 能够连续运行数天、自主管理复杂工程任务时，Web Coding 的竞争规则已经变了。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;2026 年开年，AI 编程工具的讨论焦点正在从「能写多少代码」转向「能持续跑多久」。以 Cursor Composer 为代表的新一代工具，正在探索「multi-day autonomy」（多日自主性）——让 Agent 在没有人工干预的情况下连续运行数天，处理从代码生成到架构设计的全流程任务。这不是简单的「自动化」，而是一场关于 Agent 「记忆力」和「决策力」的工程实验。&lt;/p&gt;
 &lt;p&gt;据我们了解，Cursor 团队在 2026 年 3 月发布的 Composer 2 版本&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，将上下文窗口扩展至 20 万 Token，并引入了「会话记忆」「上下文压缩」等能力，试图解决长期运行中的致命问题：上下文爆炸和错误累积。传统 AI 编程在几小时后就会因为上下文过长而「失忆」，而新一代技术通过智能压缩和总结机制，让 Agent 的「有效记忆」远远超出物理窗口限制。&lt;/p&gt;
@@ -1419,9 +1415,9 @@
     </item>
     <item>
       <title>Coding Agents 正在重塑工程、产品与设计的分工逻辑</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-12-coding-agents-reshaping-epd/</link>
       <pubDate>Thu, 12 Mar 2026 18:30:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-12-coding-agents-reshaping-epd/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-12-coding-agents-reshaping-epd/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;原文：Harrison Chase, &lt;a href=&#34;https://blog.langchain.com/how-coding-agents-are-reshaping-engineering-product-and-design/&#34;&gt;How Coding Agents Are Reshaping Engineering, Product and Design&lt;/a&gt;, LangChain Blog, 2026 年 3 月。以下为编译，保留原文结构与论点，部分段落做了压缩和意译。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1454,9 +1450,9 @@
     </item>
     <item>
       <title>A Good Company Everyday - Waymo One</title>
-      <link>https://blog.zhangky.com/posts/2026/2016-01-08-a-good-company-everyday-waymo-one/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2016-01-08-a-good-company-everyday-waymo-one/</link>
       <pubDate>Thu, 08 Jan 2026 12:40:14 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2016-01-08-a-good-company-everyday-waymo-one/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2016-01-08-a-good-company-everyday-waymo-one/</guid>
       <description>&lt;div style=&#34;text-align: center;&#34;&gt;
   &lt;img src=&#34;https://blog.zhangky.com/images/posts/2026/01/waymo.appstore.png&#34; alt=&#34;Waymo in appstore&#34; style=&#34;width: 40%; margin: 0 auto; display: block;&#34;&gt;
 &lt;/div&gt;  

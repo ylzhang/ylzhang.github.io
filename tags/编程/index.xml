@@ -15,9 +15,9 @@
     <atom:link href="https://blog.zhangky.com/tags/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Harness到底在做什么</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-04-17-harness-what-is-it/</link>
+      <link>https://blog.zhangky.com/posts/2026/04/2026-04-17-harness-what-is-it/</link>
       <pubDate>Fri, 17 Apr 2026 22:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-04-17-harness-what-is-it/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/04/2026-04-17-harness-what-is-it/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;核心观点&lt;/strong&gt;：实现10倍、100倍甚至1000倍生产力的秘密不在于AI模型本身，而在于包裹模型的那个&amp;quot;Harness&amp;quot;。这是Garry Tan和Steve Yegge等行业专家的共同洞见。&lt;/p&gt;
 &lt;/blockquote&gt;

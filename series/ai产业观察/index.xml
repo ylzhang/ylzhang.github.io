@@ -9,19 +9,15 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-<<<<<<< HEAD
-    <generator>Hugo -- 0.160.0</generator>
-=======
     <generator>Hugo -- 0.160.1</generator>
->>>>>>> 9cf4c52 (publish)
     <language>zh-cn</language>
     <lastBuildDate>Sun, 08 Mar 2026 14:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/series/ai%E4%BA%A7%E4%B8%9A%E8%A7%82%E5%AF%9F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>龙虾大会：一场关于AI编程的集体幻觉</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/</link>
+      <link>https://blog.zhangky.com/posts/2026/03/2026-03-08-openclaw-fever-behind-the-hype/</link>
       <pubDate>Sun, 08 Mar 2026 14:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-03-08-openclaw-fever-behind-the-hype/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/03/2026-03-08-openclaw-fever-behind-the-hype/</guid>
       <description>&lt;p&gt;三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫&lt;strong&gt;OpenClaw&lt;/strong&gt;的工具，在GitHub上已经收获了超过&lt;strong&gt;27万颗星星&lt;/strong&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：&lt;strong&gt;云服务厂商&lt;/strong&gt;摆出一键部署的展台，&lt;strong&gt;模型公司&lt;/strong&gt;推销着按Token计费的服务包，&lt;strong&gt;开发者们&lt;/strong&gt;热切地交流着提示词工程的心得。这场被称为**&amp;ldquo;龙虾大会&amp;rdquo;**的运动，正在以一种近乎狂热的姿态席卷整个行业。&lt;/p&gt;
 &lt;p&gt;但热闹的背后，一个&lt;strong&gt;根本性的问题&lt;/strong&gt;被有意无意地忽略了：&lt;strong&gt;这些大会究竟在解决什么问题？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;参会者带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被&amp;quot;AI替代程序员&amp;quot;的焦虑驱动。然而，当演讲者们反复演示如何用几句自然语言生成一个待办事项应用，或者如何让AI自动修复简单的代码错误时，细心的观察者会发现，**这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。**那些在舞台上被展示的神奇能力，往往建立在精心设计的demo环境之上；一旦进入真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。&lt;/p&gt;

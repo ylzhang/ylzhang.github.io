@@ -9,11 +9,7 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-<<<<<<< HEAD
-    <generator>Hugo -- 0.160.0</generator>
-=======
     <generator>Hugo -- 0.160.1</generator>
->>>>>>> 9cf4c52 (publish)
     <language>zh-cn</language>
     <lastBuildDate>Thu, 19 Feb 2026 10:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/tags/%E6%8A%95%E8%B5%84/index.xml" rel="self" type="application/rss+xml" />
@@ -38,9 +34,9 @@
     </item>
     <item>
       <title>货币、黄金、比特币、人口与政权的底层逻辑</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-04-currency-gold-bitcoin-population-power/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-04-currency-gold-bitcoin-population-power/</link>
       <pubDate>Wed, 04 Feb 2026 20:14:51 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-04-currency-gold-bitcoin-population-power/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-04-currency-gold-bitcoin-population-power/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;货币、黄金、比特币、人口与政权的底层逻辑&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/02/currency-gold-bitcoin-population-power-cover.png&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;在金本位时代，稀缺的是黄金，锁死的是人类；在信用货币时代，稀缺的是&lt;strong&gt;人&lt;/strong&gt;——合格、有未来、讲信用的借款人。政权可以驯化黄金、招安比特币，但无法驯化「谁才是真正的资产」这条逻辑。&lt;/p&gt;
@@ -61,9 +57,9 @@
     </item>
     <item>
       <title>《反脆弱》与《非对称风险》读书笔记</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-02-03-antifragile-skin-in-the-game-reading-note/</link>
+      <link>https://blog.zhangky.com/posts/2026/02/2026-02-03-antifragile-skin-in-the-game-reading-note/</link>
       <pubDate>Tue, 03 Feb 2026 22:37:37 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-02-03-antifragile-skin-in-the-game-reading-note/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/02/2026-02-03-antifragile-skin-in-the-game-reading-note/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;反脆弱与切身利害&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/02/antifragile-skin-in-the-game-reading-note-summary.png&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;一图总览&lt;/strong&gt;：两本书一根讲「结构」（脆弱→强健→反脆弱），一根讲「激励」（谁承担后果谁才有资格决策）。林迪效应与杠铃策略是时间检验过的智慧；普通人要做的就是保持可选性、与有切身利害的人为伍。&lt;/p&gt;
@@ -132,9 +128,9 @@
     </item>
     <item>
       <title>Longevity Analysis: AI vs. Longevity</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-22-ai-4-longevity/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-22-ai-4-longevity/</link>
       <pubDate>Thu, 22 Jan 2026 21:57:10 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-22-ai-4-longevity/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-22-ai-4-longevity/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;INTERNAL USE ONLY&lt;/strong&gt; | Venture Capital Due Diligence Report&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -205,9 +201,9 @@
     </item>
     <item>
       <title>中本聪真身锁定？最接近真相的3个人，藏着数字时代的红楼密码</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-19-zhongbencong-who-is/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-19-zhongbencong-who-is/</link>
       <pubDate>Sun, 18 Jan 2026 21:35:50 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-19-zhongbencong-who-is/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-19-zhongbencong-who-is/</guid>
       <description>&lt;p&gt;就像曹雪芹用红楼文字藏起吊明秘事，中本聪也用比特币白皮书埋下了身份密码。这个缔造数字货币神话的人，自2011年突然销声匿迹后，留下的谜题比红楼判画还烧脑。今天不搞玄学猜测，纯科普硬核证据——从技术背景、时间线到行文习惯，拆解3位最可能是中本聪的人选，聊聊为什么说&amp;quot;中本聪不是一个人，就是一群人的缩影&amp;quot;。&lt;/p&gt;
 &lt;p&gt;中本聪这谜之存在，简直是数字时代的曹雪芹。前者用《红楼梦》藏王朝兴衰，后者用比特币藏身份踪迹，连&amp;quot;隐身套路&amp;quot;都一模一样——不直接消失，只留下一堆当代人能抠、后代人懵圈的线索。市面上关于中本聪的猜测多到离谱，从&amp;quot;日本物理学家&amp;quot;到&amp;quot;CIA秘密项目&amp;quot;，但剔除无稽之谈后，只剩3个候选人站得住脚。今天就顺着&amp;quot;技术匹配度+时间线吻合+行为逻辑自洽&amp;quot;三大维度，扒一扒最接近真相的答案。&lt;/p&gt;
 &lt;p&gt;如果说中本聪是比特币的&amp;quot;生父&amp;quot;，那尼克·萨博绝对是&amp;quot;养父&amp;quot;。他的研究几乎为比特币铺好了全部路基，证据链密到让人怀疑&amp;quot;否认都是欲盖弥彰&amp;quot;。核心逻辑先摆死：比特币不是凭空诞生的，它的前身是萨博1998年研发的&amp;quot;比特金&amp;quot;（Bit Gold）体系，而这两者的相似度，堪比黛玉判画与崇祯自缢场景的对应。比特金同样采用密码学验证、去中心化记账，甚至连&amp;quot;安全资产所有权&amp;quot;&amp;ldquo;数字时间戳&amp;quot;这些比特币的核心概念，萨博早在十年前就玩透了。&lt;/p&gt;
@@ -224,9 +220,9 @@
     </item>
     <item>
       <title>中本聪=当代曹雪芹？我们玩的梗，都是给后代挖的坑</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-10-zhongbencong-caoxueqin/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-10-zhongbencong-caoxueqin/</link>
       <pubDate>Sat, 10 Jan 2026 21:03:39 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-10-zhongbencong-caoxueqin/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-10-zhongbencong-caoxueqin/</guid>
       <description>&lt;p&gt;今天刷到有人考古&amp;quot;鸡你太美&amp;quot;的离谱解读，突然惊出一身冷汗。我们现在随口玩的梗、说的暗号，一百年后可能会变成考古界的&amp;quot;未解之谜&amp;quot;。这事儿往深了想更绝：曹雪芹藏了三百年的红楼密码，中本聪埋了十几年的身份谜题，和我们现在说的&amp;quot;栓Q&amp;quot;&amp;ldquo;显眼包&amp;rdquo;，本质上都是一回事——用当代人懂、后代人懵的语言，给岁月留了个钩子。等懂这门语言的人全退场，天才和烂梗，都成了千年谜。&lt;/p&gt;
 &lt;p&gt;曹雪芹和中本聪，堪称&amp;quot;跨时空密码大师&amp;quot;。他俩的套路一模一样：不藏身份，只藏&amp;quot;解读身份的语言&amp;quot;。曹雪芹写《红楼梦》，没在书里明说&amp;quot;我要吊明揭清&amp;quot;，而是把密码嵌进明末文人的&amp;quot;行业黑话&amp;quot;里。&amp;ldquo;双木&amp;quot;代&amp;quot;朱&amp;quot;姓，&amp;ldquo;枯木悬玉带&amp;quot;暗喻崇祯自缢，就像我们现在说&amp;quot;显眼包&amp;rdquo;，不用解释，当代人秒懂是指爱出风头的人，可后代人说不定会解读成&amp;quot;古代贵族专属称谓&amp;rdquo;。他靠《明季北略》《脂砚斋批语》当&amp;quot;梗注释&amp;quot;，让密码活了三百年。而我们的梗连注释都留不下，大概率死得比&amp;quot;电子木鱼&amp;quot;的热度还快。&lt;/p&gt;
 &lt;p&gt;中本聪更狠，直接把密码藏进2008年的互联网语境里。他写的比特币白皮书，满是程序员才懂的隐喻，比如&amp;quot;区块时间戳&amp;quot;对应&amp;quot;不可篡改的记录&amp;quot;，像极了曹雪芹用&amp;quot;葬花时间&amp;quot;对应明末节点。现在懂密码学、懂互联网史的人，还能从白皮书里抠点线索。可等我们这代人不在了，后代人对着代码只会懵圈，说不定会把中本聪当成&amp;quot;来自未来的数字先知&amp;quot;，就像我们曾经把曹雪芹只当成&amp;quot;写爱情小说的大佬&amp;quot;。&lt;/p&gt;
@@ -240,9 +236,9 @@
     </item>
     <item>
       <title>The Folding of Currency: 2036 Stablecoin Endgame &amp; The Liquidity Caste</title>
-      <link>https://blog.zhangky.com/posts/2026/2026-01-07-the_folding_of_currency/</link>
+      <link>https://blog.zhangky.com/posts/2026/01/2026-01-07-the_folding_of_currency/</link>
       <pubDate>Wed, 07 Jan 2026 21:14:44 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/2026-01-07-the_folding_of_currency/</guid>
+      <guid>https://blog.zhangky.com/posts/2026/01/2026-01-07-the_folding_of_currency/</guid>
       <description>&lt;p&gt;假设我站在了2036年，回望2020年代中期，无论是华尔街还是硅谷，都犯了一个战略性错误：他们将稳定币视为法币的&amp;quot;竞争者&amp;quot;。站在2036年复盘，真相残酷而简单：稳定币没有颠覆美元，它拯救了美元。&lt;/p&gt;
 &lt;p&gt;过去十年，我们见证的不是去中心化革命，而是一场&amp;quot;铸币权的特许经营化&amp;quot;。美联储意识到，与其亲自下场做低效且侵犯隐私的CBDC（央行数字货币），不如将美元的&amp;quot;API接口&amp;quot;开放给私营部门。稳定币，最终成为了法币的&amp;quot;数字外骨骼&amp;quot;。&lt;/p&gt;
 &lt;p&gt;现在的世界不再争论&amp;quot;中心化&amp;quot;与&amp;quot;去中心化&amp;quot;，因为货币体系已经完成了阶级固化。全球流动性被割裂为三个互不兼容、但垂直嵌套的平行世界。&lt;/p&gt;
