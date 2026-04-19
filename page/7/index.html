@@ -1,206 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head>
-	<meta name="generator" content="Hugo 0.160.1"><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Zhang&#39;s Blog</title>
-
-<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-<meta name="author" content="ZHANG.z&#34;">
-<link rel="canonical" href="https://blog.zhangky.com/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/index.xml" title="rss">
-<link rel="alternate" type="application/json" href="https://blog.zhangky.com/index.json" title="json">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<meta property="og:url" content="https://blog.zhangky.com/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="Zhang&#39;s Blog">
-  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="website">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="Zhang&#39;s Blog">
-<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Zhang's Blog",
-  "url": "https://blog.zhangky.com/",
-  "description": "Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.",
-  "logo": "https://blog.zhangky.com/images/logo.svg",
-  "sameAs": [
-      "https://github.com/ylzhang/ylzhang.github.io", "https://x.com/ZHANG_on_mars"
-  ]
-}
-</script>
-</head>
-<body class="list" id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
-                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 11a9 9 0 0 1 9 9" />
-    <path d="M4 4a16 16 0 0 1 16 16" />
-    <circle cx="5" cy="19" r="1" />
-</svg>
-                </a>
-                
-
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://blog.zhangky.com/" title="Posts">
-                    <span class="active">Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/faq" title="FAQ">
-                    <span>FAQ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <style>
-        .nav.scrolled {
-            background: var(--theme);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .nav.scrolled #menu {
-            display: none;
-        }
-        .nav.scrolled .logo {
-            margin: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > nav.offsetHeight) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-</header>
-<main class="main"> 
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">第六康波的中国机会：AI、新能源与生物技术
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta name=generator content="Hugo 0.160.1"><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Zhang's Blog</title><meta name=description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.zhangky.com/index.xml title=rss><link rel=alternate type=application/json href=https://blog.zhangky.com/index.json title=json><link rel=alternate hreflang=en href=https://blog.zhangky.com/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://blog.zhangky.com/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="Zhang's Blog"><meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta property="og:locale" content="zh-cn"><meta property="og:type" content="website"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="Zhang's Blog"><meta name=twitter:description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Zhang's Blog","url":"https://blog.zhangky.com/","description":"Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.","logo":"https://blog.zhangky.com/images/logo.svg","sameAs":["https://github.com/ylzhang/ylzhang.github.io","https://x.com/ZHANG_on_mars"]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span class=active>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>第六康波的中国机会：AI、新能源与生物技术</h2></header><div class=entry-content><p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
 他预言中国将主导第六次康波；今天看，AI、新能源、生物技术正在写答案。
 《涛动周期论》里有一张雅各布·范杜因的长波表，以及清晰的逻辑链：康波由技术革命驱动，每一波有主导国与主导产业更替——第一、二波英国主导，第三波起美国一直处于创新领导地位，日德在第四波繁荣期崛起。书中对中国的位置有过一句很锋利的判断（2016 年演讲）：「当技术从主导国传导到中国，扩散到生活的每一个角落，中国作为本轮康波中的追赶国，那么这个技术在中国还有什么前途可言？一个技术当它在追赶国的渗透程度达到了无孔不入的时候，一定到达了它生命周期的最后阶段。」1 也就是说，第五康波的信息技术在中国已到成熟末期；下一波谁主导、中国能否从追赶变为主导，书中没有写死结论，但「技术革命决定主导产业与主导国」的框架是原文就有的。
 这篇在这套框架下，用当前可查的产业与政策事实，看 AI、新能源、生物技术三条主线在中国的位置，以及个人可以如何理解「参与方式」。文中数据与事实均标注来源。
@@ -215,25 +17,13 @@ AI：技术成熟度与产业链 技术成熟度：大模型与生成式 AI 在 
 上游资源、中游制造（电池、组件、整车）、下游运营与电网都有可跟踪的环节；部分环节产能过剩、利润率承压，需区分环节与公司。个人参与需关注供需与政策变化，不盲目追高。
 生物技术：基因编辑、合成生物学、脑机接口 技术成熟度：基因编辑（如 CRISPR）已进入临床与部分商业化；合成生物学在材料、医药、农业有应用；脑机接口仍以早期与示范为主。整体成熟度低于 AI 与新能源，但长期空间被广泛讨论。
 中国位置：国内有生物医药与合成生物学相关企业与政策支持（部委与地方规划）；监管与伦理在演进。与欧美在原创技术与监管路径上存在差距与追赶。
-以创新药、器械、合成生物等为主；估值波动大、研发周期长，个人参与更适合用「主题&#43;分散」方式，或通过专业基金。国内有生物医药与合成生物学相关企业与政策支持（部委与地方规划）；与欧美在原创技术与监管路径上存在差距与追赶。
+以创新药、器械、合成生物等为主；估值波动大、研发周期长，个人参与更适合用「主题+分散」方式，或通过专业基金。国内有生物医药与合成生物学相关企业与政策支持（部委与地方规划）；与欧美在原创技术与监管路径上存在差距与追赶。
 中国优势与挑战 优势：数据与场景（AI）、制造与产业链（新能源、部分生物制造）、政策与市场体量。与他「中国将主导第六康波」的论断在方向上一致——不是已经主导，而是有机会在若干主线上占优。
 挑战在于：顶尖算力与基础模型、部分关键设备与材料、原创生物技术仍受制于人或处于追赶；地缘与贸易政策会改变产业链分布。因此「主导」是过程而非既成事实，需要持续用数据和政策验证。
-用当下数据充实一下：铜价 2025 年涨约 34%、12 月突破 10 万元/吨，部分机构预期 2026 年算力基建带动铜需求大增5，和中国在电力、新能源与数据中心用铜需求上的占比一致；金价 2025 年大涨、2026 年初破 4500 美元/盎司，央行购金与避险叙事里中国央行连续多月增持6——这些都可放在「第六康波萌芽 &#43; 中国参与度」的图景里看。站在现在反思他的论断与论证方式：他论证「中国将主导第六康波」用的是市场规模、制造与产业链、政策投入；以今视昔，逻辑成立——中国在新能源与部分金属链条、AI 应用与数据场景上确有优势；但「主导」是否成立要看你怎么定义、以及用多长的时间验证。若定义成「在若干主线上占优、参与度提升」，则当前数据支持；若定义成「全面领先、不受制于人」，则顶尖环节仍要诚实面对。所以逻辑对，结论要随实时数据与政策更新。
+用当下数据充实一下：铜价 2025 年涨约 34%、12 月突破 10 万元/吨，部分机构预期 2026 年算力基建带动铜需求大增5，和中国在电力、新能源与数据中心用铜需求上的占比一致；金价 2025 年大涨、2026 年初破 4500 美元/盎司，央行购金与避险叙事里中国央行连续多月增持6——这些都可放在「第六康波萌芽 + 中国参与度」的图景里看。站在现在反思他的论断与论证方式：他论证「中国将主导第六康波」用的是市场规模、制造与产业链、政策投入；以今视昔，逻辑成立——中国在新能源与部分金属链条、AI 应用与数据场景上确有优势；但「主导」是否成立要看你怎么定义、以及用多长的时间验证。若定义成「在若干主线上占优、参与度提升」，则当前数据支持；若定义成「全面领先、不受制于人」，则顶尖环节仍要诚实面对。所以逻辑对，结论要随实时数据与政策更新。
 个人参与时，不押单一赛道；区分成熟环节与早期环节；关注政策与供需；数据有出处。下一篇写周期思维的个人应用：如何判断自己的「财富相位」——宏观、行业、职业与资产四层。
 系列阅读快速跳转 日期 篇目 核心问题 02-15 2026年，周金涛的预言兑现了吗？ 三条预言，十年数据，逐条验证 02-16 那些他没说对的事：周期天王的预测盲区 时间偏差、政策低估、技术加速 02-17 五层嵌套：周金涛看世界的底层代码 康波、库兹涅茨、朱格拉、基钦 02-18 人生发财靠康波：是宿命论还是概率学？ 概率分布 vs 命运决定论 02-19 萧条期的生存法则：按他的方法做，能跑赢大盘吗？ 现金/黄金/债券回测推演 02-20 2025年真的是萧条终点吗？我站在拐点的观察 拐点信号与余波风险 02-21 第六康波的中国机会：AI、新能源与生物技术 三条主线与参与方式 02-22 周期思维的个人应用：如何判断自己的「财富相位」 宏观/行业/职业/资产四层 02-24 周期天王的阿喀琉斯之踵：理论边界与争议 时间模糊、政策市、技术加速 02-25 穿越周期的智慧：给理性乐观主义者的信 相位、敬畏趋势、利用波动 引用 周金涛观点均引用自：周金涛等《涛动周期论：经济周期决定人生财富命运》，北京：机械工业出版社，2017；《涛动周期录》；及其生前公开演讲与报告（如 2016 年 3 月上海清算所沙龙演讲实录；书中雅各布·范杜因长波表及技术革命与主导国论述见《涛动周期论》等）。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-02-21 10:00:00 +0800 HKT'>February 21, 2026</span> | <span>14 min</span> | <span>shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 第六康波的中国机会：AI、新能源与生物技术" href="https://blog.zhangky.com/posts/2026/read-jintao/2026-02-21-zhou-jintao-sixth-kangbo-china/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">2025年真的是萧条终点吗？我站在拐点的观察
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
+...</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-02-21 10:00:00 +0800 +0800'>February 21, 2026</span> | <span>14 min</span> | <span>shanghai</span></footer><a class=entry-link aria-label="post link to 第六康波的中国机会：AI、新能源与生物技术" href=https://blog.zhangky.com/posts/2026/read-jintao/2026-02-21-zhou-jintao-sixth-kangbo-china/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>2025年真的是萧条终点吗？我站在拐点的观察</h2></header><div class=entry-content><p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
 此刻我写下这篇时，降息、AI 与政策拐点已发生；但拐点不等于一路晴空。
 春节那几天我翻《涛动周期论》，又看了一遍他画的第五康波时间轴。拐点的起点和终点，他在 2016 年演讲里都写死了：「到了 2015 年的时候，我有一个判断，2015 年是全球经济及资产价格的重要拐点……过去 6 年投资看一个指标就是央行政策……大家发现今年放水不管用了，这就是资产价格的转换点。」萧条区间的终点则是：「2015 年之后应该进入全球康波的萧条阶段」，「到 2025 年，都是第五次康波的萧条阶段」——不是「大约 2025」，而是「都是」，即整段 2015–2025 都在萧条内。他还有一句常被忽略的：「供给侧改革是全球进入萧条的标志，似乎没有必要兴高采烈的。」1
 站在 2026 年初，我们正好在他说的「终点」另一侧。下面用能查到的公开信息盘点：哪些信号支持「拐点已至」，哪些风险说明「萧条余波未尽」。不做断言，只做观察。
@@ -245,61 +35,25 @@ AI 投资与产业化在 2023–2025 年快速升温。大模型从 2022 年底 
 中国房地产出清未完全结束。部分房企债务重组与保交楼仍在进行，部分城市房价与销量仍在寻底或分化7。居民资产负债表与预期修复需要时间，不能因短期政策放松就断定「熊市彻底结束」。你若在二三线持有房产，体感上可能还会有一段时间的「磨底」。
 地缘与贸易不确定性仍在。大国博弈、关税与产业政策仍在演变（可查各国商务部与 WTO 相关报道）。若出现新的贸易摩擦或供应链冲击，会再次扰动增长与通胀，延长「萧条余波」的体感。全球增长仍不均衡：部分新兴市场与欧洲增长乏力（IMF、世界银行等有各国增速数据），并非所有经济体都同步进入「复苏」。从全球视角看，「拐点」更多是部分经济体的先验信号，而非普适的「萧条已完全结束」。
 综合判断 从周金涛的框架看，2025 年具备「萧条尾声→复苏过渡」的拐点特征——降息、技术叙事、政策与通胀的边际变化都支持这一点。但「萧条正式结束」需要更长时间确认：例如全球增长是否持续企稳、是否出现新一轮衰退、债务与地缘是否再次发酵。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-02-20 10:00:00 +0800 HKT'>February 20, 2026</span> | <span>14 min</span> | <span>shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 2025年真的是萧条终点吗？我站在拐点的观察" href="https://blog.zhangky.com/posts/2026/read-jintao/2026-02-20-zhou-jintao-2025-inflection/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">萧条期的生存法则：按他的方法做，能跑赢大盘吗？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
+...</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-02-20 10:00:00 +0800 +0800'>February 20, 2026</span> | <span>14 min</span> | <span>shanghai</span></footer><a class=entry-link aria-label="post link to 2025年真的是萧条终点吗？我站在拐点的观察" href=https://blog.zhangky.com/posts/2026/read-jintao/2026-02-20-zhou-jintao-2025-inflection/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>萧条期的生存法则：按他的方法做，能跑赢大盘吗？</h2></header><div class=entry-content><p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
 假设 2016 年你按周金涛的萧条期建议配置资产，今天收益如何？我用公开数据做了推演。
 据《涛动周期论》《涛动周期录》，周金涛在不同周期阶段给出的资产建议可以概括为：萧条期——现金为王、黄金避险、债券防御；回升期——股票进攻、商品布局；繁荣期——股票持有、商品加仓；衰退期——债券切换、现金储备。他 2016 年那场演讲里给过一句极具体的「人生规划」——原话是：「对于个人来讲，今明两年卖掉投资性房地产和新三板股权，买进黄金，休假两年，锻炼身体，2019 年回来，这就是未来给大家做的人生规划。」
-同一场里他还说：「今年做投资就看 CPI 和 PPI，如果涨得动说明经济还 OK，如果说 CPI 和 PPI 有调头往下的趋势，一定要小心了……这个高点出现要抛掉所有的资产，只留现金和黄金等待低点的出现。」黄金的逻辑他讲得很清楚：「黄金这个东西，在未来它最大的机会是什么？除了是货币的锚，具有保值功能之外，还有一个巨大的机会在于 2017 年美元指数牛市结束，人民币加速国际化，这个时候国际货币体系将发生动荡……怎么办？买黄金。」1 不是泛泛的「避险」，而是把黄金和货币体系动荡、美元与人民币的切换绑在一起推演。这篇只聚焦一个问题：若从 2016 年起你按他这套「萧条期」思路（现金 &#43; 黄金 &#43; 债券为主，控制权益与商品），用 2016–2026 年的公开市场表现做简化回测推演，和沪深 300、标普 500 比会怎样？以下用到的均为公开指数与宏观数据，回测为概念性推演，不构成投资建议。
+同一场里他还说：「今年做投资就看 CPI 和 PPI，如果涨得动说明经济还 OK，如果说 CPI 和 PPI 有调头往下的趋势，一定要小心了……这个高点出现要抛掉所有的资产，只留现金和黄金等待低点的出现。」黄金的逻辑他讲得很清楚：「黄金这个东西，在未来它最大的机会是什么？除了是货币的锚，具有保值功能之外，还有一个巨大的机会在于 2017 年美元指数牛市结束，人民币加速国际化，这个时候国际货币体系将发生动荡……怎么办？买黄金。」1 不是泛泛的「避险」，而是把黄金和货币体系动荡、美元与人民币的切换绑在一起推演。这篇只聚焦一个问题：若从 2016 年起你按他这套「萧条期」思路（现金 + 黄金 + 债券为主，控制权益与商品），用 2016–2026 年的公开市场表现做简化回测推演，和沪深 300、标普 500 比会怎样？以下用到的均为公开指数与宏观数据，回测为概念性推演，不构成投资建议。
 他给的萧条期框架 周金涛在书与演讲中多次提到：康波萧条期里，波动大、增长弱，现金与避险资产的边际价值上升，高估值权益与部分商品风险加大。对应到资产：现金类提高持有比例，等待错杀与拐点；黄金作为避险与抗通胀的配置之一，在萧条与货币宽松预期下常有相对表现；债券在利率下行阶段有资本利得，且波动通常低于股票；股票不主张在萧条主跌段重仓进攻，更强调在「萧条尾声」或「回升初期」再加大权益；商品大宗在萧条期多承压，其框架下 2011 年商品见顶、2020–2025 年区间筑底的说法，对应的是控制商品多头、等待周期底部。
 下面用简化组合做 2016–2026 的概念回测：不精确复现其每一条建议，而是用「萧条期逻辑」构造一个可比的组合，与宽基指数对比。
 假设 2016 年初有一笔资金，按「萧条期」思路配置，并每年再平衡一次（仅作逻辑演示，不考虑税费与摩擦）：现金/货币 30%（用货币基金或短端利率近似，年化约 2–3% 量级）；黄金 20%（用国际金价或黄金 ETF 走势近似）；债券 30%（用中债综合财富指数或类似宽基债券指数近似）；股票 20%（用沪深 300 或一半沪深 300 一半标普 500 近似，体现「低配但不空仓」）。
 纯沪深 300 从 2016 年初至今，经历 2017 蓝筹牛、2018 贸易战大跌（当年跌约 24.6%）、2019–2020 反弹、2021 回调、2022 大跌、2023–2025 震荡与修复，长期年化约在个位数区间2。纯标普 500 在 2016–2026 经历长牛与 2022 加息回调，长期年化明显高于 A 股3。黄金方面，伦敦现货金价从 2016 年初约 1060 美元/盎司到 2020 年 8 月突破 2000，2022–2024 年再次创出新高4，在组合里贡献了避险与分散化收益。债券方面，中国 10 年期国债收益率在 2017–2018 年上行到 3.9% 左右，之后震荡下行，2020 年后一度跌破 2.5%，中债综合财富指数有阶段牛市5，对组合有稳定与抗回撤作用。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-02-19 10:00:00 +0800 HKT'>February 19, 2026</span> | <span>16 min</span> | <span>shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 萧条期的生存法则：按他的方法做，能跑赢大盘吗？" href="https://blog.zhangky.com/posts/2026/read-jintao/2026-02-19-zhou-jintao-asset-allocation/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">人生发财靠康波：是宿命论还是概率学？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
+...</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-02-19 10:00:00 +0800 +0800'>February 19, 2026</span> | <span>16 min</span> | <span>shanghai</span></footer><a class=entry-link aria-label="post link to 萧条期的生存法则：按他的方法做，能跑赢大盘吗？" href=https://blog.zhangky.com/posts/2026/read-jintao/2026-02-19-zhou-jintao-asset-allocation/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>人生发财靠康波：是宿命论还是概率学？</h2></header><div class=entry-content><p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
 这句话争议最大，因为有人听成宿命，有人听成顺势。
 「人生发财靠康波」——周金涛这句话出圈到几乎没人不知道，但争议也最大。他在 2016 年 3 月上海清算所演讲里亲口下的定义是：「我有一句名言叫『人生发财靠康波』，这句话的意思就是说我们每个人的财富积累一定不要以为是你多有本事，财富积累完全来源于经济周期运动的阶段给你带来的机会。」紧接着他举了煤老板的例子，然后说：「你一个人的一生中，你所能够获得的机会，理论上来讲只有三次，如果每一个机会都没有抓到，肯定你一生的财富就没有了。如果抓住其中一个机会，你就能够至少成为中产阶级。」1
 所以「靠康波」在他嘴里不是鸡汤，而是可数的三次机会、以及「财富轨迹有迹可循」的断言。有人把这句话听成宿命，有人听成顺势；这篇用原文和可查的事实，把这句话拆开看。
 为什么争议大？ 字面意思很直白：人生财富机会和康波高度相关。争议集中在两种读法。宿命论解读：康波决定一切，生在萧条期就认命。周金涛本人却把「宿命」说到极透——同一场演讲里：「为什么在那个年代美国会出现比尔盖茨，这个是因为技术创新是在那个年代展开的，现在中国出不了比尔盖茨，你的人生机会由康波的运动决定。有人觉得自己很牛，有很大的本事，能赚很多的钱，事实上每个人都是在命运中运行。这就是我研究完经济周期以后非常相信的一点，人的生命都是宿命的。」
 他甚至拿巴菲特举例：「巴菲特其实没什么，为什么能够投资成功，原因就在于他出生在第五次康波周期的回升阶段，所以他能成功，如果是出生在现在一样不会成功，这个就是由你的宿命决定的。」——若只截这几句，确实像彻底宿命论。但同一篇里他又给了具体时间表：「40 岁以上的人，人生第一次机会在 2008 年……第二次机会在 2019 年，最后一次在 2030 年附近，能够抓住一次，你就能够成为中产阶级。」「1985 年之后出生的人，现在 30 岁以下的人，注定你的人生机会第一次只能在 2019 年出现，35 岁之前出现。」1
 所以更准确的读法是：他承认「宿命」是相位给的机遇次数与时间窗口，但「抓住」仍要你自己下注——三次机会、三个时间窗口，抓不抓得住、抓哪一次，还在个人。你若只记住一句：人生发财靠康波，但康波不保证人人发财；它只是把机会的次数和大致时间写死了，剩下的还要靠你自己。
-不同年代的真实机遇差异 不用杜撰数据，用公开可查的「时代红利」做对照，就能看出相位确实在起作用。60 后、70 初赶上改革开放、乡镇企业、下海、住房商品化与 2000 年后房地产长牛。若在 1998–2008 年在一二线买房，或参与制造业与外贸，财富跃迁的概率明显高于此前一代；胡润、福布斯等榜单上那一代企业家的出生年份分布，和这段「库兹涅茨&#43;康波繁荣」高度重叠（可查历年榜单与传记）。
+不同年代的真实机遇差异 不用杜撰数据，用公开可查的「时代红利」做对照，就能看出相位确实在起作用。60 后、70 初赶上改革开放、乡镇企业、下海、住房商品化与 2000 年后房地产长牛。若在 1998–2008 年在一二线买房，或参与制造业与外贸，财富跃迁的概率明显高于此前一代；胡润、福布斯等榜单上那一代企业家的出生年份分布，和这段「库兹涅茨+康波繁荣」高度重叠（可查历年榜单与传记）。
 80 后赶上 PC 互联网、移动互联网、2014–2015 年双创与移动红利、2016 年后一二线房产最后一波主升。若在 2010 年前后进大厂或 2015 年前在一线买房，同样有「时代送来的概率」；那一波互联网上市与期权造富，集中在这代人的 30–40 岁。85 后、90 后：周金涛曾提到「2019 年是 85 后第一次财富机遇」——对应科创板开板、新能源与硬科技融资潮。事后看 2019–2021 年确实有一波科技与新能源的造富窗口，宁德时代、比亚迪以及一批科创板公司的市值与造富效应在那几年集中释放；但随后 2022 年市场回调，机遇窗口短且波动大，若你 2021 年才重仓杀入，体验会差很多。
 95 后、00 后当前站在第五康波尾与第六康波起点，AI、新能源、生物技术等正在重写产业与职业；未来十年谁能在新康波里卡位，目前仍是开放问题。上述阶段划分对应公开经济史与政策节点（房改、创业板/科创板、双创、碳中和等），具体财富案例可参考历年富豪榜与行业报道，此处只做结构性归纳：不同出生 cohort 面临的「时代给的机遇密度」确实不同，这与康波相位一致。我身边有 80 后朋友在 2015 年前在一线买了房、2010 年前后进了大厂，今天回头看会感慨「赶上了」；也有同代人 2018 年才高杠杆上车、2021 年又重仓了某赛道，这两年压力就大。同样的「经度」和「纬度」，选错节奏，结果可以差很多——这说明相位决定的是概率，不是剧本。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-02-18 10:00:00 +0800 HKT'>February 18, 2026</span> | <span>15 min</span> | <span>shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 人生发财靠康波：是宿命论还是概率学？" href="https://blog.zhangky.com/posts/2026/read-jintao/2026-02-18-zhou-jintao-kangbo-wealth/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">五层嵌套：周金涛看世界的底层代码
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
+...</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-02-18 10:00:00 +0800 +0800'>February 18, 2026</span> | <span>15 min</span> | <span>shanghai</span></footer><a class=entry-link aria-label="post link to 人生发财靠康波：是宿命论还是概率学？" href=https://blog.zhangky.com/posts/2026/read-jintao/2026-02-18-zhou-jintao-kangbo-wealth/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>五层嵌套：周金涛看世界的底层代码</h2></header><div class=entry-content><p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
 想象你在一张地图上定位自己：经度、纬度、海拔、天气——四个周期，一层套一层。
 前两篇我们验了周金涛的预言、又说了他的盲区；这篇回到他的理论骨架。嵌套的「底层代码」在《涛动周期论》里是一段可以背下来的话——2016 年 3 月上海清算所演讲，他原话是：「60 年波动中会套着三个房地产周期，20 年波动一次。一个房地产周期套着两个固定资产投资周期，10 年波动一次。一个固定资产投资周期套着三个库存周期。所以你的人生就是一次康波，三次房地产周期，九次固定资产投资周期和十八次库存周期，人的一生大致就是这样的过程。」
 不是比喻，是数学：1 康波 = 3 房地产 = 9 朱格拉 = 18 基钦。他还有一句更狠的：「我研究这套东西十几年，我后来发现这套东西的运行规律实际上就是天文学的规律。以后主宰地球的规律是太阳规律。太阳黑子周期的循环就是 55 年到 60 年，20 年一个海耳循环，20 年当中包含 2 个 10 年的施瓦贝循环，然后包含数个厄尔尼诺循环，所以厄尔尼诺就是经济中的库存周期。」1 经度纬度海拔天气的比喻，是帮你在「人生一次康波、三次房产、九次设备、十八次库存」之上，再套一层直觉。下面按这个骨架把四层拆开，每层搭一个你能摸得到的历史锚点。
@@ -307,163 +61,8 @@ AI 投资与产业化在 2023–2025 年快速升温。大模型从 2022 年底 
 你不需要背年份，只要记住：1970 年代石油危机与滞胀，对应第四次康波衰退和萧条；1980 年代初里根-沃尔克时代与个人电脑、通信技术扩散，对应第五次康波回升与繁荣的起点。你出生在 1985 年还是 1995 年，决定了你 25–35 岁时的「时代主旋律」是 PC 互联网、移动互联网还是 AI。这就是经度：大时代的技术底色。
 当前（2026 年）的相位，按他的划分，第五康波萧条在 2025 年前后结束，我们正站在第五康波尾部与第六康波起点的交界。第五次康波（约 1982–2025）在书里被细分为回升、繁荣、衰退、萧条四个阶段——1980 年代到 1990 年代初的回升与繁荣，对应 PC 和早期互联网的扩散；2000 年代中后期的衰退与 2015 年后的萧条，对应移动互联网红利见顶与全球增长放缓。
 所以「经度」上：我们刚从信息技术波的萧条里走出来，面向以 AI 等为标志的新一波技术扩散。你若在这几年做职业或资产选择，经度会告诉你：旧信息技术的红利在收尾，新康波的主线正在展开。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-02-17 10:00:00 +0800 HKT'>February 17, 2026</span> | <span>18 min</span> | <span>shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 五层嵌套：周金涛看世界的底层代码" href="https://blog.zhangky.com/posts/2026/read-jintao/2026-02-17-zhou-jintao-four-cycles/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="https://blog.zhangky.com/page/6/">
-      «&nbsp;Prev&nbsp;6/25
-    </a>
-    <a class="next" href="https://blog.zhangky.com/page/8/">Next&nbsp;8/25&nbsp;»
-    </a>
-  </nav>
-</footer>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<style>
-   
-  .mermaid {
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 95%;
-    overflow-x: auto;
-  }
-  
-   
-  .mermaid > svg {
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-  
-   
-  .mermaid flowchart {
-    width: 100%;
-  }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>
-  
-  window.mermaidConfig = {
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis',
-      width: '100%',
-      height: 'auto'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
-  };
-  
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    var codeBlocks = document.querySelectorAll('code.language-mermaid');
-    
-    
-    codeBlocks.forEach(function(codeBlock) {
-      var preBlock = codeBlock.parentNode;
-      var mermaidCode = codeBlock.textContent;
-      
-      
-      var mermaidContainer = document.createElement('div');
-      mermaidContainer.className = 'mermaid';
-      mermaidContainer.textContent = mermaidCode;
-      
-      
-      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
-    });
-    
-    
-    mermaid.initialize(window.mermaidConfig);
-  });
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+...</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-02-17 10:00:00 +0800 +0800'>February 17, 2026</span> | <span>18 min</span> | <span>shanghai</span></footer><a class=entry-link aria-label="post link to 五层嵌套：周金涛看世界的底层代码" href=https://blog.zhangky.com/posts/2026/read-jintao/2026-02-17-zhou-jintao-four-cycles/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/page/6/>«&nbsp;Prev&nbsp;6/25
+</a><a class=next href=https://blog.zhangky.com/page/8/>Next&nbsp;8/25&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
