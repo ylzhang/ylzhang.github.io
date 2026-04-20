@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Harness到底在做什么 | Zhang&#39;s Blog</title>
+<title>AI需要更强的模型还是更智能的Agent-技术路线 | Zhang&#39;s Blog</title>
 <meta name="keywords" content="Harness, AI编程, Claude Code, 生产力提升">
 <meta name="description" content="
 核心观点：实现10倍、100倍甚至1000倍生产力的秘密不在于AI模型本身，而在于包裹模型的那个&quot;Harness&quot;。这是Garry Tan（Y Combinator总裁）和Steve Yegge（前亚马逊/谷歌工程师）等行业专家的共同洞见。
@@ -113,7 +113,7 @@ Garry Tan：&ldquo;Skill文件描述的是判断过程，而调用时提供的�
 </style>
 <meta property="og:url" content="https://blog.zhangky.com/posts/2026/04/2026-04-17-harness-what-is-it/">
   <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="Harness到底在做什么">
+  <meta property="og:title" content="AI需要更强的模型还是更智能的Agent-技术路线">
   <meta property="og:description" content=" 核心观点：实现10倍、100倍甚至1000倍生产力的秘密不在于AI模型本身，而在于包裹模型的那个&#34;Harness&#34;。这是Garry Tan（Y Combinator总裁）和Steve Yegge（前亚马逊/谷歌工程师）等行业专家的共同洞见。
 生产力的巨大差距 新一轮AI编程革命正在带来前所未有的生产力提升。
 “使用 AI 编程代理的人比今天使用 Cursor 和聊天的工程师生产效率高 10 倍到 100 倍，并且比 2005 年时的谷歌员工高约 1000 倍。&#34;[1]
@@ -148,7 +148,7 @@ Garry Tan：“Skill文件描述的是判断过程，而调用时提供的参数
       <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="Harness到底在做什么">
+<meta name="twitter:title" content="AI需要更强的模型还是更智能的Agent-技术路线">
 <meta name="twitter:description" content="
 核心观点：实现10倍、100倍甚至1000倍生产力的秘密不在于AI模型本身，而在于包裹模型的那个&quot;Harness&quot;。这是Garry Tan（Y Combinator总裁）和Steve Yegge（前亚马逊/谷歌工程师）等行业专家的共同洞见。
 
@@ -194,7 +194,7 @@ Garry Tan：&ldquo;Skill文件描述的是判断过程，而调用时提供的�
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Harness到底在做什么",
+      "name": "AI需要更强的模型还是更智能的Agent-技术路线",
       "item": "https://blog.zhangky.com/posts/2026/04/2026-04-17-harness-what-is-it/"
     }
   ]
@@ -204,8 +204,8 @@ Garry Tan：&ldquo;Skill文件描述的是判断过程，而调用时提供的�
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Harness到底在做什么",
-  "name": "Harness到底在做什么",
+  "headline": "AI需要更强的模型还是更智能的Agent-技术路线",
+  "name": "AI需要更强的模型还是更智能的Agent-技术路线",
   "description": " 核心观点：实现10倍、100倍甚至1000倍生产力的秘密不在于AI模型本身，而在于包裹模型的那个\u0026quot;Harness\u0026quot;。这是Garry Tan（Y Combinator总裁）和Steve Yegge（前亚马逊/谷歌工程师）等行业专家的共同洞见。\n生产力的巨大差距 新一轮AI编程革命正在带来前所未有的生产力提升。\n\u0026ldquo;使用 AI 编程代理的人比今天使用 Cursor 和聊天的工程师生产效率高 10 倍到 100 倍，并且比 2005 年时的谷歌员工高约 1000 倍。\u0026quot;[1]\n这个数字来自Steve Yegge——一位在美国程序员圈里的网红人物，曾在亚马逊工作7年、谷歌任职13年，现任Sourcegraph工程主管，职业生涯跨越从1992年到AI时代的三十多年技术演变。\n现任Y Combinator（知名创业加速器）总裁兼首席执行官的Garry Tan在帖子里引用Steve的话时特别强调：这个数字是真的，他自己亲眼见过，也亲身实践过。\n但最关键的一点是——实现10倍、100倍甚至1000倍生产力的人，和只提升2倍的人，用的其实是同一个AI模型。\nGarry Tan认为：秘密不在于模型，而在于包裹模型的那个东西。\nHarness是什么 在2026年3月31日，Anthropic意外地将Claude Code的51.2万行源代码上传到了npm注册中心，证实了Garry Tan一直在YC所教授的一切：秘密不在于模型，而在于包裹模型的那个东西。[2]\n实时仓库上下文、提示缓存、专门构建的工具、上下文冗余最小化、结构化会话记忆、并行子代理——这些都不让模型变得更聪明，而是全部为模型提供恰当的上下文，在恰当的时间，不让它被噪音淹没。\nGarry Tan把那个包裹器称为\u0026quot;harness\u0026rdquo;。\n而每个AI构建者都应该问的问题是：什么东西应该放在harness里，什么东西应该留在harness外？\nGarry Tan的回答是**\u0026ldquo;瘦外壳 + 胖技能\u0026rdquo;**——harness要\u0026quot;瘦\u0026quot;（轻量简单，只负责最基本的调度和管理）；Skills要厚（内容丰富、可反复使用）。\n五个核心定义 为解决这个问题，Garry Tan给出了五个定义：\n1. Skill文件：教会AI如何思考 Skill文件其实就是一个可重复使用的Markdown文档，它提供的是过程——不是直接告诉AI\u0026quot;做什么\u0026quot;，而是教AI\u0026quot;怎么做\u0026quot;。\n用户只提供目标和内容，技能文件提供的是完整的思考过程和判断流程。\n这里有一个最多人忽略的关键：技能文件就像一个方法调用——它需要参数。当用不同的参数去调用它，同一个技能就能发挥出完全不同的能力。\nGarry Tan举了个例子：有一个叫/investigate的技能文件，里面写了固定的七个步骤：界定数据范围 → 构建时间线 → 分析每份文件 → 综合判断 → 正反方论证 → 引用来源。\n这个技能只需要三个参数：TARGET（目标）、QUESTION（问题）和DATASET（数据集）。\n当你把目标指向一位安全科学家 + 210万封邮件时，它就会变成一位医疗研究分析师，专门判断是否有人举报人进行压制。\n当你把目标指向一家空壳公司 + 联邦选举委员会的申报文件时，它又会变成一位法医调查员，专门追踪有组织的竞选捐款路径。\n同样的技能文件，同样的七个步骤，同样的Markdown文档。\nGarry Tan：\u0026ldquo;Skill文件描述的是判断过程，而调用时提供的参数才是\u0026rsquo;世界\u0026rsquo;。\u0026rdquo;\n这不是提示词工程，而是软件设计——使用Markdown作为编程语言，使用人类判断作为运行时。\n",
   "keywords": [
     "Harness", "AI编程", "Claude Code", "生产力提升"
@@ -332,7 +332,7 @@ Garry Tan：&ldquo;Skill文件描述的是判断过程，而调用时提供的�
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
-      Harness到底在做什么
+      AI需要更强的模型还是更智能的Agent-技术路线
     </h1>
     <div class="post-meta">   ZHANG.z | <span title='2026-04-17 22:05:00 +0800 HKT'>April 17, 2026</span> | <span>21 min</span> | <span>zhejiang, China</span>&nbsp;|&nbsp;<span>
     <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/04/2026-04-17-harness-what-is-it.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
