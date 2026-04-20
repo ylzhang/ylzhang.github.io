@@ -196,6 +196,30 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Coding Agents 正在重塑工程、产品与设计的分工逻辑
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 原文：Harrison Chase, How Coding Agents Are Reshaping Engineering, Product and Design, LangChain Blog, 2026 年 3 月。以下为编译，保留原文结构与论点，部分段落做了压缩和意译。
+软件公司里的 EPD——工程（Engineering）、产品（Product）、设计（Design）——存在的目的只有一个：造出能用的软件。角色分得再细，最终交付物也只是代码。
+认清这一点很重要，因为 Coding Agents 突然让写代码变得极其廉价。那么，EPD 的角色会怎么变？
+PRDs 已死 在 Coding Agent 出现之前，PRD（产品需求文档）是软件开发的起点。标准流程是一条清晰的瀑布：
+有人（通常是 PM）冒出一个想法 PM 写 PRD 设计师根据 PRD 画 Mock 工程师把 Mock 变成代码 这不是铁律——创业公司里这些步骤经常混在一起，最好的 Builder 能一个人跨好几个环节。但之所以还有这条「标准流程」，是因为写软件和画 Mock 都需要大量时间。于是产生了专业分工，也产生了跨分工沟通的需求。PRD 就是这个沟通的起点，一切从这里瀑布到设计，再瀑布到工程。
+Coding Agents 改变了这一切。它们可以把一个想法直接变成能跑的软件。所以当我（和其他人）说「PRDs 已死」，真正的意思是：这种以写 PRD 为起点的传统软件开发方式已死。
+瓶颈从实现转向审查 任何人现在都能写代码，也就意味着任何人都能做东西。但这不代表做出来的东西架构良好，不代表解决了正确的问题，也不代表好用。
+工程、产品和设计应该成为这些维度的审查者和仲裁者。生成的代码并不总是「好的」，EPD 的角色变成了审查并确保它是「好的」。「好的」意味着：
+工程视角：架构是否可扩展、高性能、健壮？ 产品视角：是否真正解决了用户痛点？ 设计视角：界面是否易用、直观？ 由于生成初版代码的成本极低，原型数量大幅增加。这些原型成为焦点，EPD 围着它们审查。
+问题在于——生成代码太容易了。以前写代码需要时间，审查者桌上同时摆的项目有限。现在任何人都能写代码，在做的项目数量在膨胀。我们在三个职能中看到的瓶颈都是同一个：审查——拿着原型，确保它们是「好的」。
+PRDs 万岁 以写 PRD 为起点的旧流程死了，但描述产品需求的文档依然必不可少。
+假设有人冒出一个想法，快速生成了一个原型。这个原型怎么进生产？它需要 EPD 其他成员审查。审查时，一份书面文档总是有帮助的，甚至是必需的——别人看代码时，怎么知道某段代码是手误还是有意为之？这取决于意图，而意图需要被传达。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-03-12 18:30:00 +0800 HKT'>March 12, 2026</span> | <span>17 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to Coding Agents 正在重塑工程、产品与设计的分工逻辑" href="https://blog.zhangky.com/posts/2026/03/2026-03-12-coding-agents-reshaping-epd/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Robin：叫人，开会！
     </h2>
   </header>
@@ -316,26 +340,6 @@ Anthropic, “Introducing Claude Sonnet 4.6”, February 17, 2026, https://www.a
   </div>
   <footer class="entry-footer">   ZHANG.z | <span title='2026-03-06 08:00:00 +0800 HKT'>March 6, 2026</span> | <span>25 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 大模型的开源，到底开源了什么" href="https://blog.zhangky.com/posts/2026/03/2026-03-06-what-does-open-source-mean-for-llm/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">千问核心离职风波：开源社区需要什么人
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-Qwen 的技术报告单篇引用超过 6000 次1，Hugging Face 下载量突破 7 亿次2，衍生模型超过 18 万个2。斯坦福《2025 年人工智能指数报告》把它排在全球第三3。然后，带着这一切走到今天的人，在凌晨 0:11 发了一条推文就走了4。
-这两天 AI 圈讨论最多的不是模型，而是人。但我注意到一个有意思的现象：中文互联网上讨论的焦点是&#34;阿里怎么了&#34;“管理出了什么问题&#34;“谁来接班”，而英文社区——从 Hugging Face 到 GitHub 到 X 的评论区——讨论的焦点是一个更本质的问题：开源社区到底需要什么样的人？失去这样的人意味着什么？
-这两种反应之间的落差，可能比林俊旸的离职本身更值得想一想。
-全球顶级机构在用行动投票 艾伦人工智能研究院的研究员 Nathan Lambert 在 X 上写了一句话：“如果 Qwen 倒塌，在开放研究生态中留下的巨大空缺将很难填补。那些小模型是不可替代的。”5
-Hyperbolic Labs 的 CTO Yuchen Jin 说：“一个时代的结束。“MiniMax、Unsloth、Ollama 都在林俊旸的推文下留言感谢。Hugging Face 亚太区负责人 Tiezhen Wang 说这是 Qwen 的&#34;巨大损失”。智谱 AI 创始人唐杰评论说：“酷，开始新的旅程吧。”
-而截至发稿，事情已经从哀悼升级为抢人。Google DeepMind 的 Omar Sanseviero 直接在 X 上向 Qwen 团队公开喊话6：
-Qwen friends: if any of you want a new home to build great models and contribute to the open models ecosystem, please reach out!
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-03-06 01:00:00 +0800 HKT'>March 6, 2026</span> | <span>26 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 千问核心离职风波：开源社区需要什么人" href="https://blog.zhangky.com/posts/2026/03/2026-03-06-qwen-open-source-needs-him/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
