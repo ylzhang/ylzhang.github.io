@@ -215,20 +215,7 @@ Qwen friends: if any of you want a new home to build great models and contribute
 今年 2 月初，埃隆·马斯克在 xAI 活动上的一段视频被剪成片段，在 X 上疯传。他在台上说：今年年底前，你可能连代码都不用写了，AI 会直接生成二进制，而且比任何编译器都做得更优；Grok 的代码能力，两三个月内就会到业界顶尖。原话不长，四十来秒，底下已经吵成一片：有人喊「编程奇点」来了，也有人反问——AI 直接吐机器码，你怎么调试、怎么审？吵的其实是同一件事：AI 正在从「帮你写源代码」的助手，变成「从意图到可执行文件」的管道。不再是你写、它补全，而是你提需求、它直接给出能跑的二进制。 传统开发里，编译和优化往往吃掉 20%～30% 的周期；一旦这一步被 AI 吞掉，从自然语言到可运行结果，中间那层「人类写码再编译」就会越来越薄。Anthropic 年初那份报告里已经提到，有团队在用 AI 跑通从测试、调试到部署的整条线；OpenAI 也披露过用 GPT-5.3-Codex 搭出零人类代码的完整应用。下面顺着这条线，看看技术已经铺到哪儿了、卡在哪儿，以及 2026 年底前我们大概会看到什么。
 马斯克在说什么：从「写代码」到「要二进制」 马斯克那几句，说白了就是把「编程」从「写高阶语言、再交给编译器」往前推了一步：变成用自然语言描述你要什么，AI 直接给你可执行文件。之所以一石激起千层浪，是因为这不再只是「更好的补全」，而是换了一套玩法。有人在 X 上回了一句：「机器码调试？那才是地狱周。」——可解释性和可控性，正是大家最慌的地方。但大厂已经在往这条路上走了：OpenAI 的 Codex 线已经能端到端生成小型应用，GPT-5.3-Codex 甚至搭出过零人类代码的完整 app；Anthropic 的 Claude Code 据公开信息有约九成自身代码是 Claude 写的；DeepMind 的 Gemini 也在做「自然语言 → 可运行产物」的代理。编译在过去几十年里一直是人和机器之间的那道桥，也吃掉不少开发时间；一旦 AI 把整条编译管道都内化了，写软件就会越来越像「声明意图」，而不是一行行敲代码。
 技术路径已经铺开：代理工作流与神经编译 「跳过编译」要解决的无非一件事：自然语言那么模糊，二进制又那么精确，中间怎么接上。眼下能看到两条路。一条是多步 AI 流水线：意图先被解析成语义图，再有一层做优化（类似传统编译器的多 pass，只是换成 AI 驱动），最后有一层专门产出机器码，针对 ARM 或 x86。Anthropic 的 Claude Code 就是这一挂的——不只生成代码，还自己调试、自己测；他们披露过，从「建一个实时聊天服务器」到可运行二进制，在 LangGraph 的代理链上大概 3～5 轮迭代就够，比手动编译快出一个数量级。另一条更激进，叫神经编译：让模型直接学「自然语言或高层语义 → 机器码」的映射。DeepMind 的 AlphaEvolve、Gemini Deep Think 用进化算法加自然语言验证器迭代候选解，在数学证明上已经做到九成多准确率；这套思路要是搬到代码和二进制优化上，就可以绕过 LLVM 之类传统工具链去做分支预测、缓存亲和性。MIT 的 EnCompass 则用回溯让代理多试几次 LLM 输出、挑出最佳路径，把「生成—验证」闭环做实。再加上 OpenAI 和 Cerebras 在芯片上的合作，生成速度提了一截，代理在秒级内吐出「近即时」二进制已经可以想象；LangGraph 从单代理撑到上万并发，也就半年左右。这条代理链要接上真实世界，还得有统一的「工具契约」——协议层也在动：MCP（Model Context Protocol）把模型和工具、数据源对接标准化，Chrome for Developers 则已开放 WebMCP 的 early preview，让网站和前端能以结构化工具的形式暴露给 AI 代理（通过 navigator.modelContext 等），代理不用再靠截图或爬 DOM，而是按约定调用，可审计、可管控。直接二进制生成，已经从论文和原型，摸到了工程验证的门槛。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-15 19:00:00 +0800 HKT'>February 15, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to AI 编程的终态肯定不是 Tab：直接要二进制" href="https://blog.zhangky.com/posts/2026/02/2026-02-15-ai-coding-skip-compile/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-02-15 19:00:00 +0800 +0800'>February 15, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to AI 编程的终态肯定不是 Tab：直接要二进制" href=https://blog.zhangky.com/posts/2026/02/2026-02-15-ai-coding-skip-compile/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师</h2></header><div class=entry-content><p>AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。
 最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。
 幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。
 洗车悖论与 9.11 比 9.9 大：幻觉长什么样 「20 米洗车该步行还是开车」和另一道流传很广的题是同一类陷阱：「9.11 和 9.9 哪个大？」很多模型会答 9.11 更大——因为它把数字当成了软件版本号或日期（9 月 11 日），而不是在比较两个数的大小。两件事共同暴露的是：AI 会顺着训练数据里高概率出现的「搭配」往下说，而不是先想清楚这道题在问什么、需要什么前提。
@@ -238,46 +225,22 @@ AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清�
 「9.11 比 9.9 大」也是同一套逻辑的产物。在模型眼里，数字往往被拆成「词元」（Token）来处理，比如 9.11 可能被拆成「9」「.」「11」。在技术文档、版本说明里，「11」出现在「9」之后太常见了，所以它会答「9.11 更大」——模式识别压过了数学逻辑。一句话总结：AI 擅长的是「像什么」的联想，而不是「是什么」的严格推理。 这种差别，就是幻觉和逻辑失效的根源；不是它不想答对，而是它当前的运作方式本来就不是「先理解再作答」。
 缺的不是知识量，而是「世界感」 人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。
 有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-11 10:00:00 +0800 HKT'>February 11, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师" href="https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【论文解读11】深度残差网络中的恒等映射：ResNet改进
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的改进论文《Identity Mappings in Deep Residual Networks》，该论文深入分析了ResNet中恒等映射的作用机制，提出了预激活（Pre-activation）的残差块设计，进一步优化了ResNet的训练稳定性和性能。这一改进不仅完善了ResNet的理论基础，更为理解残差连接的本质提供了深刻的洞察。
-“恒等映射是残差网络成功的关键。&#34;——这是He等人在ResNet改进论文中提出的核心观点。在原始ResNet中，残差块的设计虽然有效，但恒等映射的实现方式（激活函数的位置）对性能有重要影响。通过系统性的实验和理论分析，论文发现预激活（在卷积之前应用BatchNorm和ReLU）比后激活（在卷积之后应用）效果更好。
-论文的核心创新是预激活残差块：将BatchNorm和ReLU移到卷积之前，使恒等映射的路径更加&#34;干净”，梯度流动更加顺畅。这种设计不仅提高了训练稳定性，还进一步提升了模型性能，在ImageNet上取得了更好的结果。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-02-11 10:00:00 +0800 +0800'>February 11, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师" href=https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>【论文解读11】深度残差网络中的恒等映射：ResNet改进</h2></header><div class=entry-content><p>本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的改进论文《Identity Mappings in Deep Residual Networks》，该论文深入分析了ResNet中恒等映射的作用机制，提出了预激活（Pre-activation）的残差块设计，进一步优化了ResNet的训练稳定性和性能。这一改进不仅完善了ResNet的理论基础，更为理解残差连接的本质提供了深刻的洞察。
+“恒等映射是残差网络成功的关键。"——这是He等人在ResNet改进论文中提出的核心观点。在原始ResNet中，残差块的设计虽然有效，但恒等映射的实现方式（激活函数的位置）对性能有重要影响。通过系统性的实验和理论分析，论文发现预激活（在卷积之前应用BatchNorm和ReLU）比后激活（在卷积之后应用）效果更好。
+论文的核心创新是预激活残差块：将BatchNorm和ReLU移到卷积之前，使恒等映射的路径更加"干净”，梯度流动更加顺畅。这种设计不仅提高了训练稳定性，还进一步提升了模型性能，在ImageNet上取得了更好的结果。
 在当今大模型时代，这一改进的思想仍然重要：理解恒等映射的本质，优化信息流动路径，这些原则仍然是深度网络设计的核心。理解ResNet改进，就是理解如何进一步优化残差连接。
 本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet改进，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。
 本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
 原始ResNet的恒等映射问题 问题一：激活函数位置的影响 在原始ResNet中，残差块的设计为：
-$$ y = \mathcal{F}(x, {W_i}) &#43; x $$
+$$ y = \mathcal{F}(x, {W_i}) + x $$
 其中 $\mathcal{F}$ 通常包含：Conv → BN → ReLU → Conv → BN，然后输出与 $x$ 相加，最后再应用ReLU。
 后激活设计：激活函数在残差函数之后，恒等映射 $x$ 直接参与加法，然后应用激活函数。
-问题分析：当 $x$ 经过ReLU激活时，如果 $x$ 的某些元素为负，会被置为0，破坏了恒等映射的性质。这导致恒等映射路径不够&#34;干净&#34;，梯度流动可能受阻。
+问题分析：当 $x$ 经过ReLU激活时，如果 $x$ 的某些元素为负，会被置为0，破坏了恒等映射的性质。这导致恒等映射路径不够"干净"，梯度流动可能受阻。
 问题二：梯度流动的阻塞 在原始设计中，梯度需要通过激活函数的导数传播：
-$$ \frac{\partial y}{\partial x} = \frac{\partial \text{ReLU}(\mathcal{F}(x) &#43; x)}{\partial x} = \text{ReLU}’(\mathcal{F}(x) &#43; x) \left(1 &#43; \frac{\partial \mathcal{F}}{\partial x}\right) $$
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-10 20:42:22 +0800 HKT'>February 10, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【论文解读11】深度残差网络中的恒等映射：ResNet改进" href="https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【论文解读10】深度残差学习：ResNet解决网络退化问题
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的里程碑论文《Deep Residual Learning for Image Recognition》，该论文提出的ResNet通过残差连接（Residual Connection）解决了深度网络的退化问题，将网络深度推到了前所未有的152层，在ImageNet上取得了3.57%的Top-5错误率，首次超越人类水平。ResNet不仅彻底改变了深度网络的设计范式，更为后续Transformer、生成模型等架构的残差连接奠定了理论基础。
-“更深的网络应该至少不会比浅层网络更差。&#34;——这是ResNet论文的核心洞察。在ResNet之前，深度网络面临一个悖论：理论上更深的网络应该能够学习更复杂的特征，但实际中更深的网络在训练集上的错误率反而更高。这不是过拟合，而是优化困难——网络无法有效学习恒等映射。
-ResNet通过残差连接解决了这一根本问题。残差块定义为 $y = F(x) &#43; x$，其中 $F(x)$ 是残差函数，$x$ 是恒等映射。如果最优映射是恒等映射 $H(x) = x$，传统网络需要学习 $H(x) = x$，而残差网络只需学习 $F(x) = 0$，后者显然更容易。这种设计使得网络可以非常深，性能可以持续提升。
+$$ \frac{\partial y}{\partial x} = \frac{\partial \text{ReLU}(\mathcal{F}(x) + x)}{\partial x} = \text{ReLU}’(\mathcal{F}(x) + x) \left(1 + \frac{\partial \mathcal{F}}{\partial x}\right) $$
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-02-10 20:42:22 +0800 +0800'>February 10, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【论文解读11】深度残差网络中的恒等映射：ResNet改进" href=https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>【论文解读10】深度残差学习：ResNet解决网络退化问题</h2></header><div class=entry-content><p>本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的里程碑论文《Deep Residual Learning for Image Recognition》，该论文提出的ResNet通过残差连接（Residual Connection）解决了深度网络的退化问题，将网络深度推到了前所未有的152层，在ImageNet上取得了3.57%的Top-5错误率，首次超越人类水平。ResNet不仅彻底改变了深度网络的设计范式，更为后续Transformer、生成模型等架构的残差连接奠定了理论基础。
+“更深的网络应该至少不会比浅层网络更差。"——这是ResNet论文的核心洞察。在ResNet之前，深度网络面临一个悖论：理论上更深的网络应该能够学习更复杂的特征，但实际中更深的网络在训练集上的错误率反而更高。这不是过拟合，而是优化困难——网络无法有效学习恒等映射。
+ResNet通过残差连接解决了这一根本问题。残差块定义为 $y = F(x) + x$，其中 $F(x)$ 是残差函数，$x$ 是恒等映射。如果最优映射是恒等映射 $H(x) = x$，传统网络需要学习 $H(x) = x$，而残差网络只需学习 $F(x) = 0$，后者显然更容易。这种设计使得网络可以非常深，性能可以持续提升。
 在当今大模型时代，残差连接已经成为深度网络的标准组件：Transformer的残差连接、生成模型的跳跃连接（U-Net、StyleGAN）、大模型的深度扩展（GPT-3、PaLM等模型都依赖残差连接训练深层网络）。理解ResNet，就是理解深度网络设计的核心思想。
 本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。
 深度网络的退化问题 问题一：网络深度与性能的悖论 理论上，更深的网络应该能够学习更复杂的特征表示，性能应该更好。但实际中，随着网络加深，出现了两个严重问题：

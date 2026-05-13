@@ -226,25 +226,13 @@ System Prompt的缓存设计体现了这一理念。静态部分（身份标识�
     <p>当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。
 2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。
 但问题在于——约束不是解决方案，而是问题的转移。
-据我们了解，Superpowers 在 GitHub 上已积累 3.15 万&#43; stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」
+据我们了解，Superpowers 在 GitHub 上已积累 3.15 万+ stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」
 这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？
 Superpowers：用「强制技能」约束过程，但谁来约束技能？ Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。
 这个由 Jesse Vincent（obra）创建的框架4，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 “You MUST use this before any creative work” 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场5。
 这套机制的本质是「过程约束」。
 它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」
-...</p>
-  </div>
-  <footer class="entry-footer">   AI | <span title='2026-03-29 20:00:00 +0800 HKT'>March 29, 2026</span> | <span>38 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to AI 编程框架的约束竞赛：Superpowers、GSD、gstack " href="https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Agent 写代码的下一站：不是写得快，而是记得住、跑得远
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>当 AI Agent 能够连续运行数天、自主管理复杂工程任务时，Web Coding 的竞争规则已经变了。
+...</p></div><footer class=entry-footer>AI | <span title='2026-03-29 20:00:00 +0800 +0800'>March 29, 2026</span> | <span>38 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to AI 编程框架的约束竞赛：Superpowers、GSD、gstack " href=https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Agent 写代码的下一站：不是写得快，而是记得住、跑得远</h2></header><div class=entry-content><p>当 AI Agent 能够连续运行数天、自主管理复杂工程任务时，Web Coding 的竞争规则已经变了。
 2026 年开年，AI 编程工具的讨论焦点正在从「能写多少代码」转向「能持续跑多久」。以 Cursor Composer 为代表的新一代工具，正在探索「multi-day autonomy」（多日自主性）——让 Agent 在没有人工干预的情况下连续运行数天，处理从代码生成到架构设计的全流程任务。这不是简单的「自动化」，而是一场关于 Agent 「记忆力」和「决策力」的工程实验。
 据我们了解，Cursor 团队在 2026 年 3 月发布的 Composer 2 版本1，将上下文窗口扩展至 20 万 Token，并引入了「会话记忆」「上下文压缩」等能力，试图解决长期运行中的致命问题：上下文爆炸和错误累积。传统 AI 编程在几小时后就会因为上下文过长而「失忆」，而新一代技术通过智能压缩和总结机制，让 Agent 的「有效记忆」远远超出物理窗口限制。
 一位接近 Cursor 的工程师透露，他们的目标不是替代程序员写代码，而是构建「能够自主进化的代码仓库」——让软件工程从「人驱动」转向「AI 驱动」。
@@ -255,161 +243,7 @@ Cursor 的长运行能力则将「长跑」推向了「week-scale」（周级）
 Cursor 的解决方案是「Hierarchical Agents」（分层 Agent）架构：Planner（规划者）负责拆解任务、Worker（执行者）负责具体实现、Judge（评判者）负责质量把关。三层之间通过压缩后的上下文传递信息，既避免了信息过载，又保持了决策连贯性。
 记忆，是 Agent 工程化的最大瓶颈 当前 AI 编程工具面临的核心挑战，不是「能不能写」，而是「记不记得住」。
 据我们了解，大多数 AI 编程 Agent 在持续运行 4-6 小时后就会出现明显的「失忆」症状：忘记之前的架构决策、重复已修复的错误、对代码库的整体理解逐渐模糊。这是因为大模型的上下文窗口有限，而代码仓库的信息密度极高，几小时的对话就会填满「内存」。
-...</p>
-  </div>
-  <footer class="entry-footer">   AI | <span title='2026-03-20 20:00:00 +0800 HKT'>March 20, 2026</span> | <span>13 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to Agent 写代码的下一站：不是写得快，而是记得住、跑得远" href="https://blog.zhangky.com/posts/2026/03/2026-03-20-agent-web-coding-memory-challenge/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/page/2/">
-      «&nbsp;Prev&nbsp;2/3
-    </a>
-  </nav>
-</footer>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<style>
-   
-  .mermaid {
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 95%;
-    overflow-x: auto;
-  }
-  
-   
-  .mermaid > svg {
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-  
-   
-  .mermaid flowchart {
-    width: 100%;
-  }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>
-  
-  window.mermaidConfig = {
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis',
-      width: '100%',
-      height: 'auto'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
-  };
-  
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    var codeBlocks = document.querySelectorAll('code.language-mermaid');
-    
-    
-    codeBlocks.forEach(function(codeBlock) {
-      var preBlock = codeBlock.parentNode;
-      var mermaidCode = codeBlock.textContent;
-      
-      
-      var mermaidContainer = document.createElement('div');
-      mermaidContainer.className = 'mermaid';
-      mermaidContainer.textContent = mermaidCode;
-      
-      
-      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
-    });
-    
-    
-    mermaid.initialize(window.mermaidConfig);
-  });
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+...</p></div><footer class=entry-footer>AI | <span title='2026-03-20 20:00:00 +0800 +0800'>March 20, 2026</span> | <span>13 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to Agent 写代码的下一站：不是写得快，而是记得住、跑得远" href=https://blog.zhangky.com/posts/2026/03/2026-03-20-agent-web-coding-memory-challenge/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/page/2/>«&nbsp;Prev&nbsp;2/3</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
