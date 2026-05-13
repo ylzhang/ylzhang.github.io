@@ -11,13 +11,20 @@
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 19 Apr 2026 22:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2026 08:11:23 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Technology</title>
       <link>https://blog.zhangky.com/categories/technology/</link>
-      <pubDate>Sun, 19 Apr 2026 22:00:00 +0800</pubDate>
+      <pubDate>Wed, 13 May 2026 08:11:23 +0800</pubDate>
       <guid>https://blog.zhangky.com/categories/technology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Insight</title>
+      <link>https://blog.zhangky.com/categories/insight/</link>
+      <pubDate>Fri, 08 May 2026 06:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/categories/insight/</guid>
       <description></description>
     </item>
     <item>
