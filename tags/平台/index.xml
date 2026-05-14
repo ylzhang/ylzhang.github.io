@@ -11,12 +11,12 @@
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 14 May 2026 11:18:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2026 07:18:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/tags/%E5%B9%B3%E5%8F%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>智能体：AI 时代的操作系统级入口</title>
       <link>https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/</link>
-      <pubDate>Thu, 14 May 2026 11:18:00 +0800</pubDate>
+      <pubDate>Thu, 14 May 2026 07:18:00 +0800</pubDate>
       <guid>https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;核心观点&lt;/strong&gt;：李彦宏提出的 DAA（日活智能体数）指标，标志着 AI 时代的入口迁移已经开始。智能体不是独立软件，而是 AI 操作系统——比拼的不是裸模型，而是模型+Harness+ 工具链的整套系统。智能体的使命，就是成为这个操作系统的统一调度者，让不同领域的智能体能够互联互通、协同工作，最终成为 AI 时代的中心化入口。&lt;/p&gt;
