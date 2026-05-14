@@ -213,15 +213,27 @@ $$ \frac{\partial \mathcal{L}}{\partial W} = \sum_{t=1}^{T} \frac{\partial \math
     <p> 本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。
 语言理解的根本挑战 问题一：词语表示的离散性困境 在传统NLP中，词语通常用one-hot编码表示。对于一个包含 $V$ 个词的词表，每个词被表示为一个 $V$ 维向量，只有对应位置为1，其余为0。
 这种表示方法存在三个根本问题：
-维度灾难：词表规模通常在万到百万级别，导致向量维度极高 稀疏性：每个向量只有一个非零元素，绝大多数信息为0 语义缺失：任意两个词的向量正交，无法表达语义相似性 例如，“king"和"queen"虽然语义相近，但在one-hot表示下：
+维度灾难：词表规模通常在万到百万级别，导致向量维度极高 稀疏性：每个向量只有一个非零元素，绝大多数信息为0 语义缺失：任意两个词的向量正交，无法表达语义相似性 例如，“king&#34;和&#34;queen&#34;虽然语义相近，但在one-hot表示下：
 $$ \text{sim}(\text{king}, \text{queen}) = \text{king}^\top \cdot \text{queen} = 0 $$
 向量的内积为0，完全无法捕捉它们的语义关联。
 问题二：分布式假设与向量空间 语言学中的分布式假设（Distributional Hypothesis）指出：“一个词的含义由其上下文决定”（You shall know a word by the company it keeps）。这一假设为词向量学习提供了理论基础。
 如果我们能够将词映射到一个连续的向量空间，使得语义相似的词在空间中距离相近，那么：
 词之间的语义关系可以通过向量运算表达 模型可以泛化到未见过的词组合 下游任务可以利用预学习的语义知识 问题是：如何高效地学习这样的词向量？
 问题三：计算效率的瓶颈 在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：
-$$ \text{时间复杂度} = O(V \times H + H \times H) \times E \times T $$
-...</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-08-01 21:59:17 +0800 +0800'>August 1, 2025</span> | <span>17 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命" href=https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>边缘AI：美国在连接设备，中国在连接城市</h2></header><div class=entry-content><p>上周在深圳参加边缘AI展览，我站在一个展台前，看着屏幕上实时显示的城市交通数据：100万台边缘AI设备正在工作，从交通监控到垃圾分类，AI就在身边。我走到一个智能垃圾桶前，它自动识别垃圾类型，然后分类投放。我扔了一个塑料瓶，它说：“检测到可回收物，已分类。”
+$$ \text{时间复杂度} = O(V \times H &#43; H \times H) \times E \times T $$
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-08-01 21:59:17 +0800 HKT'>August 1, 2025</span> | <span>17 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">边缘AI：美国在连接设备，中国在连接城市
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>上周在深圳参加边缘AI展览，我站在一个展台前，看着屏幕上实时显示的城市交通数据：100万台边缘AI设备正在工作，从交通监控到垃圾分类，AI就在身边。我走到一个智能垃圾桶前，它自动识别垃圾类型，然后分类投放。我扔了一个塑料瓶，它说：“检测到可回收物，已分类。”
 而在美国，我看到的是另一番景象：智能家居系统用边缘AI让灯光、温控、安防无缝协同。我朋友Mike给我演示他的智能家居：他走进房间，灯光自动调亮，温度自动调节，安防系统自动启动。他说：“要让所有设备都能智能交互。”
 两种完全不同的边缘AI图景，让我思考：边缘AI的本质到底是什么？
 从应用场景看：生态 vs 应用的路径分歧

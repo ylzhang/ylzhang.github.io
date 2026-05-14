@@ -211,14 +211,26 @@
 答非所问：
 用户：列出5个学习编程的建议 GPT-3：编程是一门重要的技能。很多人学习编程...（继续生成无关内容） 有害内容：
 用户：如何做一个好人？ GPT-3：（可能生成负面或有害建议） 胡言乱语：
-用户：2+2等于几？ GPT-3：2+2等于5。在某些情况下...（自信地输出错误内容） 问题二：预训练目标的错位 GPT-3的预训练目标是预测下一个token：
+用户：2&#43;2等于几？ GPT-3：2&#43;2等于5。在某些情况下...（自信地输出错误内容） 问题二：预训练目标的错位 GPT-3的预训练目标是预测下一个token：
 $$ \mathcal{L}{\text{LM}} = -\sum{i} \log P(x_i | x_1, \ldots, x_{i-1}) $$
 这一目标与用户的真正需求存在根本错位：
 预训练目标 用户需求 预测最可能的续写 有帮助的回答 模仿训练数据分布 诚实的信息 最大化似然 安全的内容 示例：
-训练数据：“问：今天天气怎么样？答：今天天气…” 用户需求：“告诉我明天的天气预报” GPT-3可能继续写"晴朗"，而不是承认不知道 问题三：对齐问题的定义 AI对齐（Alignment）问题的核心是：如何让AI系统的行为符合人类意图？
+训练数据：“问：今天天气怎么样？答：今天天气…” 用户需求：“告诉我明天的天气预报” GPT-3可能继续写&#34;晴朗&#34;，而不是承认不知道 问题三：对齐问题的定义 AI对齐（Alignment）问题的核心是：如何让AI系统的行为符合人类意图？
 形式化定义：
 $$ \text{对齐目标} = \max_{\theta} \mathbb{E}{x \sim \mathcal{D}{\text{user}}}[R_{\text{human}}(\text{model}_\theta(x))] $$
-...</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-12-31 21:53:04 +0800 +0800'>December 31, 2025</span> | <span>19 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术" href=https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>LongCat-Video-Avatar：美团的音频驱动视频，让AI主播24小时在线</h2></header><div class=entry-content><p>昨晚刷美团直播时，我遇到了一个让我困惑的AI主播：介绍手机时手势自然、表情生动，眨眼和微笑的细节几乎与真人无异，直到5分钟后我才意识到这不是真人主播。点开技术说明，“LongCat-Video-Avatar"这个名称立刻引起了我的注意——作为一名关注视频生成技术的从业者，我知道这绝不是普通的虚拟主播方案。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-12-31 21:53:04 +0800 HKT'>December 31, 2025</span> | <span>19 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">LongCat-Video-Avatar：美团的音频驱动视频，让AI主播24小时在线
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>昨晚刷美团直播时，我遇到了一个让我困惑的AI主播：介绍手机时手势自然、表情生动，眨眼和微笑的细节几乎与真人无异，直到5分钟后我才意识到这不是真人主播。点开技术说明，“LongCat-Video-Avatar&#34;这个名称立刻引起了我的注意——作为一名关注视频生成技术的从业者，我知道这绝不是普通的虚拟主播方案。
 今天深入研究了美团LongCat团队的技术文档后，我发现他们的实践经验远超预期。根据arXiv技术报告，LongCat-Video是一个13.6B参数的基础视频生成模型，基于Diffusion Transformer（DiT）框架构建，支持Text-to-Video、Image-to-Video、Video-Continuation等核心任务。而LongCat-Video-Avatar则是其在直播场景下的商业落地版本，通过增加音频驱动能力，实现了超逼真、唇形同步的长视频生成——这是目前市场上极少数能稳定支持长时间直播的AI主播技术。
 从技术本质看：解决长视频生成的核心痛点
 LongCat-Video-Avatar的技术价值，远不止&#34;音频到视频&#34;的简单转换。其真正突破在于解决了长时间直播的两大核心痛点：

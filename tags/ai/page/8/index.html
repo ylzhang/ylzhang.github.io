@@ -222,12 +222,24 @@ LSTM通过门控机制和细胞状态解决了这一根本问题。细胞状态�
 本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读LSTM网络，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
 本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
 RNN长期依赖问题的根源 问题一：梯度消失的数学本质 传统RNN在每个时间步的计算为：
-$$ h_t = \tanh(W_h h_{t-1} + W_x x_t + b) $$
+$$ h_t = \tanh(W_h h_{t-1} &#43; W_x x_t &#43; b) $$
 其中 $h_t$ 是隐藏状态，$W_h$、$W_x$ 是权重矩阵，$b$ 是偏置向量。
 在反向传播过程中，需要计算损失函数 $L$ 对早期时间步 $h_k$ 的梯度：
-$$ \frac{\partial L}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \frac{\partial h_t}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \prod_{j=k+1}^{t} \frac{\partial h_j}{\partial h_{j-1}} $$
-...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-01-25 10:25:51 +0800 +0800'>January 25, 2026</span> | <span>27 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【论文解读06】理解LSTM网络：解决长期依赖问题" href=https://blog.zhangky.com/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Longevity Analysis: AI vs. Longevity</h2></header><div class=entry-content><p>INTERNAL USE ONLY | Venture Capital Due Diligence Report
-To: Investment Committee (IC) From: Senior Industry Analyst, Pre-Investment Division Date: January 27, 2026 Subject: Sector Analysis & Strategic Outlook: Longevity & Geroscience (2026) Classification: Confidential 1. Executive Summary & Investment Thesis 1.1 Market Overview The longevity sector has matured from speculative biology into a rigorous clinical engineering discipline. As of Q1 2026:
+$$ \frac{\partial L}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \frac{\partial h_t}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \prod_{j=k&#43;1}^{t} \frac{\partial h_j}{\partial h_{j-1}} $$
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-01-25 10:25:51 +0800 HKT'>January 25, 2026</span> | <span>27 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【论文解读06】理解LSTM网络：解决长期依赖问题" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Longevity Analysis: AI vs. Longevity
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> INTERNAL USE ONLY | Venture Capital Due Diligence Report
+To: Investment Committee (IC) From: Senior Industry Analyst, Pre-Investment Division Date: January 27, 2026 Subject: Sector Analysis &amp; Strategic Outlook: Longevity &amp; Geroscience (2026) Classification: Confidential 1. Executive Summary &amp; Investment Thesis 1.1 Market Overview The longevity sector has matured from speculative biology into a rigorous clinical engineering discipline. As of Q1 2026:
 Metric Value Source Longevity Biotech Market Size $31.6B (2026) [1] Projected Market Size (2031) $46.8B [1] Implied CAGR ~8.2% Calculated 1.2 Core Investment Thesis “Clinical Inflection Point” — The 2024–2025 cycle de-risked systemic interventions (TPE, Rapamycin) while filtering out underperforming monotherapies. 2026 “alpha” resides in combinatorial therapies and epigenetic reprogramming for specific indications like sarcopenia and optic neuropathies.
 ...</p>
   </div>
