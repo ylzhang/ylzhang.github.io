@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记 | Zhang&#39;s Blog</title>
-<meta name="keywords" content="AI数学, Paper Read">
-<meta name="description" content="读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记 | Zhang's Blog</title><meta name=keywords content="AI数学,Paper Read"><meta name=description content='读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
 前置要求：高中数学水平，会基础Python。
 
 一、求和与连乘
 1.1 求和符号 $\sum$
-读法：Sigma（西格玛），读作&quot;sum&quot;
+读法：Sigma（西格玛），读作"sum"
 含义：把一堆数加起来
 公式示例：
-$$\sum_{i=1}^{n} x_i = x_1 &#43; x_2 &#43; \cdots &#43; x_n$$
+$$\sum_{i=1}^{n} x_i = x_1 + x_2 + \cdots + x_n$$
 论文中常见形式：
 
 损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来）
@@ -34,142 +25,32 @@ result = np.sum(x)  # 15
 
 # 方法3：带条件的求和（论文常见）
 # 例如：只对正数求和
-result = sum(xi for xi in x if xi &gt; 0)
+result = sum(xi for xi in x if xi > 0)
 
 1.2 连乘符号 $\prod$
-读法：Pi（派），读作&quot;product&quot;
+读法：Pi（派），读作"product"
 含义：把一堆数乘起来
 公式示例：
 $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$
-论文中常见形式：">
-<meta name="author" content="ZHANG.z">
-<link rel="canonical" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<style>
-  .post-content p { text-indent: 2em; }
-  .post-content > p:first-of-type { text-indent: 0; }
-  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
-  .post-content blockquote,
-  .post-content blockquote p,
-  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
-  .post-content figure, .post-content figure p, .post-content img,
-  .post-content table, .post-content ul, .post-content ol, .post-content li,
-  .post-content .footnotes, .post-content .footnotes p,
-  .post-content section.footnotes p { text-indent: 0; }
-</style>
-<script async src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-      enableMenu: false
-    },
-    startup: {
-      typeset: true
-    }
-  };
-</script>
-
-<meta property="og:url" content="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记">
-  <meta property="og:description" content="读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
+论文中常见形式：'><meta name=author content="ZHANG.z"><link rel=canonical href=https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>.post-content p{text-indent:2em}.post-content>p:first-of-type{text-indent:0}.post-content h1,.post-content h2,.post-content h3,.post-content h4{text-indent:0}.post-content blockquote,.post-content blockquote p,.post-content pre,.post-content code,.post-content .highlight,.post-content div.highlight,.post-content figure,.post-content figure p,.post-content img,.post-content table,.post-content ul,.post-content ol,.post-content li,.post-content .footnotes,.post-content .footnotes p,.post-content section.footnotes p{text-indent:0}</style><script async src=https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js crossorigin=anonymous></script><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre"],enableMenu:!1},startup:{typeset:!0}}</script><meta property="og:url" content="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记"><meta property="og:description" content='读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
 前置要求：高中数学水平，会基础Python。
-一、求和与连乘 1.1 求和符号 $\sum$ 读法：Sigma（西格玛），读作&#34;sum&#34;
+一、求和与连乘 1.1 求和符号 $\sum$ 读法：Sigma（西格玛），读作"sum"
 含义：把一堆数加起来
-公式示例： $$\sum_{i=1}^{n} x_i = x_1 &#43; x_2 &#43; \cdots &#43; x_n$$
+公式示例： $$\sum_{i=1}^{n} x_i = x_1 + x_2 + \cdots + x_n$$
 论文中常见形式：
 损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和） Python实现：
-import numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi &gt; 0) 1.2 连乘符号 $\prod$ 读法：Pi（派），读作&#34;product&#34;
+import numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi > 0) 1.2 连乘符号 $\prod$ 读法：Pi（派），读作"product"
 含义：把一堆数乘起来
 公式示例： $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$
-论文中常见形式：">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-01-15T10:55:01+08:00">
-    <meta property="article:modified_time" content="2025-01-15T10:55:01+08:00">
-    <meta property="article:tag" content="笔记">
-    <meta property="article:tag" content="AI">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记">
-<meta name="twitter:description" content="读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
+论文中常见形式：'><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-01-15T10:55:01+08:00"><meta property="article:modified_time" content="2025-01-15T10:55:01+08:00"><meta property="article:tag" content="笔记"><meta property="article:tag" content="AI"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记"><meta name=twitter:description content='读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
 前置要求：高中数学水平，会基础Python。
 
 一、求和与连乘
 1.1 求和符号 $\sum$
-读法：Sigma（西格玛），读作&quot;sum&quot;
+读法：Sigma（西格玛），读作"sum"
 含义：把一堆数加起来
 公式示例：
-$$\sum_{i=1}^{n} x_i = x_1 &#43; x_2 &#43; \cdots &#43; x_n$$
+$$\sum_{i=1}^{n} x_i = x_1 + x_2 + \cdots + x_n$$
 论文中常见形式：
 
 损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来）
@@ -188,1446 +69,224 @@ result = np.sum(x)  # 15
 
 # 方法3：带条件的求和（论文常见）
 # 例如：只对正数求和
-result = sum(xi for xi in x if xi &gt; 0)
+result = sum(xi for xi in x if xi > 0)
 
 1.2 连乘符号 $\prod$
-读法：Pi（派），读作&quot;product&quot;
+读法：Pi（派），读作"product"
 含义：把一堆数乘起来
 公式示例：
 $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$
-论文中常见形式：">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://blog.zhangky.com/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记",
-      "item": "https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记",
-  "name": "【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记",
-  "description": "读AI论文最大的障碍不是英语，是数学符号。看到 $\\sum$、$\\nabla$、$\\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。\n前置要求：高中数学水平，会基础Python。\n一、求和与连乘 1.1 求和符号 $\\sum$ 读法：Sigma（西格玛），读作\u0026quot;sum\u0026quot;\n含义：把一堆数加起来\n公式示例： $$\\sum_{i=1}^{n} x_i = x_1 + x_2 + \\cdots + x_n$$\n论文中常见形式：\n损失函数：$L = \\sum_{i=1}^{N} \\ell(y_i, \\hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \\sum_{i=1}^{T} \\alpha_i h_i$（加权求和） Python实现：\nimport numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi \u0026gt; 0) 1.2 连乘符号 $\\prod$ 读法：Pi（派），读作\u0026quot;product\u0026quot;\n含义：把一堆数乘起来\n公式示例： $$\\prod_{i=1}^{n} x_i = x_1 \\times x_2 \\times \\cdots \\times x_n$$\n论文中常见形式：\n",
-  "keywords": [
-    "AI数学", "Paper Read"
-  ],
-  "articleBody": "读AI论文最大的障碍不是英语，是数学符号。看到 $\\sum$、$\\nabla$、$\\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。\n前置要求：高中数学水平，会基础Python。\n一、求和与连乘 1.1 求和符号 $\\sum$ 读法：Sigma（西格玛），读作\"sum\"\n含义：把一堆数加起来\n公式示例： $$\\sum_{i=1}^{n} x_i = x_1 + x_2 + \\cdots + x_n$$\n论文中常见形式：\n损失函数：$L = \\sum_{i=1}^{N} \\ell(y_i, \\hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \\sum_{i=1}^{T} \\alpha_i h_i$（加权求和） Python实现：\nimport numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi \u003e 0) 1.2 连乘符号 $\\prod$ 读法：Pi（派），读作\"product\"\n含义：把一堆数乘起来\n公式示例： $$\\prod_{i=1}^{n} x_i = x_1 \\times x_2 \\times \\cdots \\times x_n$$\n论文中常见形式：\n概率链式法则：$P(x_1, x_2, \\ldots, x_n) = \\prod_{i=1}^{n} P(x_i | x_{",
-  "wordCount" : "1640",
-  "inLanguage": "en",
-  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2025-01-15T10:55:01+08:00",
-  "dateModified": "2025-01-15T10:55:01+08:00",
-  "author":{
-    "@type": "Person",
-    "name": "ZHANG.z"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Zhang's Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://blog.zhangky.com/images/logo.svg"
-    }
-  }
-}
-</script>
-</head>
-<body id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
-                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 11a9 9 0 0 1 9 9" />
-    <path d="M4 4a16 16 0 0 1 16 16" />
-    <circle cx="5" cy="19" r="1" />
-</svg>
-                </a>
-                
-
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://blog.zhangky.com/" title="Posts">
-                    <span>Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/faq" title="FAQ">
-                    <span>FAQ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <style>
-        .nav.scrolled {
-            background: var(--theme);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .nav.scrolled #menu {
-            display: none;
-        }
-        .nav.scrolled .logo {
-            margin: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > nav.offsetHeight) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
-    <h1 class="post-title entry-hint-parent">
-      【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记
-    </h1>
-    <div class="post-meta">   ZHANG.z | <span title='2025-01-15 10:55:01 +0800 HKT'>January 15, 2025</span> | <span>25 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
-    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2025/math-learn/2025-math-01-symbols-cheatsheet.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
-</span>
-
-</div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e4%b8%80%e6%b1%82%e5%92%8c%e4%b8%8e%e8%bf%9e%e4%b9%98" aria-label="一、求和与连乘">一、求和与连乘</a><ul>
-                        
-                <li>
-                    <a href="#11-%e6%b1%82%e5%92%8c%e7%ac%a6%e5%8f%b7-sum" aria-label="1.1 求和符号 $\sum$">1.1 求和符号 $\sum$</a></li>
-                <li>
-                    <a href="#12-%e8%bf%9e%e4%b9%98%e7%ac%a6%e5%8f%b7-prod" aria-label="1.2 连乘符号 $\prod$">1.2 连乘符号 $\prod$</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%ba%8c%e5%90%91%e9%87%8f%e4%b8%8e%e7%9f%a9%e9%98%b5" aria-label="二、向量与矩阵">二、向量与矩阵</a><ul>
-                        
-                <li>
-                    <a href="#21-%e5%90%91%e9%87%8f-vecv-%e6%88%96-mathbfv" aria-label="2.1 向量 $\vec{v}$ 或 $\mathbf{v}$">2.1 向量 $\vec{v}$ 或 $\mathbf{v}$</a></li>
-                <li>
-                    <a href="#22-%e7%9f%a9%e9%98%b5-wam" aria-label="2.2 矩阵 $W$、$A$、$M$">2.2 矩阵 $W$、$A$、$M$</a></li>
-                <li>
-                    <a href="#23-%e8%bd%ac%e7%bd%ae-wt" aria-label="2.3 转置 $W^T$">2.3 转置 $W^T$</a></li>
-                <li>
-                    <a href="#24-%e8%8c%83%e6%95%b0-w" aria-label="2.4 范数 $|W|$">2.4 范数 $|W|$</a></li>
-                <li>
-                    <a href="#25-%e9%80%90%e5%85%83%e7%b4%a0%e4%b9%98%e6%b3%95-odot" aria-label="2.5 逐元素乘法 $\odot$">2.5 逐元素乘法 $\odot$</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%b8%89%e6%a6%82%e7%8e%87%e7%ac%a6%e5%8f%b7" aria-label="三、概率符号">三、概率符号</a><ul>
-                        
-                <li>
-                    <a href="#31-%e6%a6%82%e7%8e%87-pcdot" aria-label="3.1 概率 $P(\cdot)$">3.1 概率 $P(\cdot)$</a></li>
-                <li>
-                    <a href="#32-%e6%9c%9f%e6%9c%9b-mathbbecdot" aria-label="3.2 期望 $\mathbb{E}[\cdot]$">3.2 期望 $\mathbb{E}[\cdot]$</a></li>
-                <li>
-                    <a href="#33-%e9%ab%98%e6%96%af%e5%88%86%e5%b8%83-mathcalnmu-sigma2" aria-label="3.3 高斯分布 $\mathcal{N}(\mu, \sigma^2)$">3.3 高斯分布 $\mathcal{N}(\mu, \sigma^2)$</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%9b%9b%e5%be%ae%e7%a7%af%e5%88%86%e7%ac%a6%e5%8f%b7" aria-label="四、微积分符号">四、微积分符号</a><ul>
-                        
-                <li>
-                    <a href="#41-%e5%81%8f%e5%af%bc%e6%95%b0-fracpartialpartial-x" aria-label="4.1 偏导数 $\frac{\partial}{\partial x}$">4.1 偏导数 $\frac{\partial}{\partial x}$</a></li>
-                <li>
-                    <a href="#42-%e6%a2%af%e5%ba%a6-nabla" aria-label="4.2 梯度 $\nabla$">4.2 梯度 $\nabla$</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%ba%94%e5%b8%b8%e8%a7%81%e5%87%bd%e6%95%b0" aria-label="五、常见函数">五、常见函数</a><ul>
-                        
-                <li>
-                    <a href="#51-sigmoid-sigmax" aria-label="5.1 Sigmoid $\sigma(x)$">5.1 Sigmoid $\sigma(x)$</a></li>
-                <li>
-                    <a href="#52-tanh-tanhx" aria-label="5.2 Tanh $\tanh(x)$">5.2 Tanh $\tanh(x)$</a></li>
-                <li>
-                    <a href="#53-relu" aria-label="5.3 ReLU">5.3 ReLU</a></li>
-                <li>
-                    <a href="#54-softmax" aria-label="5.4 Softmax">5.4 Softmax</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%85%ad%e9%9b%86%e5%90%88%e4%b8%8e%e9%80%bb%e8%be%91%e7%ac%a6%e5%8f%b7" aria-label="六、集合与逻辑符号">六、集合与逻辑符号</a><ul>
-                        
-                <li>
-                    <a href="#61-%e5%b1%9e%e4%ba%8e-in" aria-label="6.1 属于 $\in$">6.1 属于 $\in$</a></li>
-                <li>
-                    <a href="#62-%e5%af%b9%e6%89%80%e6%9c%89-forall" aria-label="6.2 对所有 $\forall$">6.2 对所有 $\forall$</a></li>
-                <li>
-                    <a href="#63-%e5%ad%98%e5%9c%a8-exists" aria-label="6.3 存在 $\exists$">6.3 存在 $\exists$</a></li>
-                <li>
-                    <a href="#64-argmax--argmin" aria-label="6.4 argmax / argmin">6.4 argmax / argmin</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%b8%83%e7%a7%af%e5%88%86%e7%ac%a6%e5%8f%b7" aria-label="七、积分符号">七、积分符号</a><ul>
-                        
-                <li>
-                    <a href="#71-%e7%a7%af%e5%88%86-int" aria-label="7.1 积分 $\int$">7.1 积分 $\int$</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%85%ab%e4%bf%a1%e6%81%af%e8%ae%ba%e7%ac%a6%e5%8f%b7" aria-label="八、信息论符号">八、信息论符号</a><ul>
-                        
-                <li>
-                    <a href="#81-%e4%bf%a1%e6%81%af%e7%86%b5-hx" aria-label="8.1 信息熵 $H(X)$">8.1 信息熵 $H(X)$</a></li>
-                <li>
-                    <a href="#82-%e4%ba%92%e4%bf%a1%e6%81%af-ix-y" aria-label="8.2 互信息 $I(X; Y)$">8.2 互信息 $I(X; Y)$</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%b9%9d%e7%89%b9%e6%ae%8a%e6%95%b0%e5%ad%a6%e7%ac%a6%e5%8f%b7" aria-label="九、特殊数学符号">九、特殊数学符号</a><ul>
-                        
-                <li>
-                    <a href="#91-%e5%ae%9e%e6%95%b0%e9%9b%86-mathbbr" aria-label="9.1 实数集 $\mathbb{R}$">9.1 实数集 $\mathbb{R}$</a></li>
-                <li>
-                    <a href="#92-%e7%ba%a6%e7%ad%89%e4%ba%8e-approx" aria-label="9.2 约等于 $\approx$">9.2 约等于 $\approx$</a></li>
-                <li>
-                    <a href="#93-%e6%ad%a3%e6%af%94%e4%ba%8e-propto" aria-label="9.3 正比于 $\propto$">9.3 正比于 $\propto$</a></li>
-                <li>
-                    <a href="#94-%e4%b8%8b%e5%8f%96%e6%95%b4%e4%b8%8a%e5%8f%96%e6%95%b4-lfloor-cdot-rfloor--lceil-cdot-rceil" aria-label="9.4 下取整/上取整 $\lfloor \cdot \rfloor$ / $\lceil \cdot \rceil$">9.4 下取整/上取整 $\lfloor \cdot \rfloor$ / $\lceil \cdot \rceil$</a></li>
-                <li>
-                    <a href="#95-%e6%9c%80%e5%b0%8f%e6%9c%80%e5%a4%a7-min--max" aria-label="9.5 最小/最大 $\min$ / $\max$">9.5 最小/最大 $\min$ / $\max$</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%8d%81%e4%b8%8b%e6%a0%87%e4%b8%8e%e4%b8%8a%e6%a0%87%e7%ba%a6%e5%ae%9a" aria-label="十、下标与上标约定">十、下标与上标约定</a></li>
-                <li>
-                    <a href="#%e5%ae%8c%e6%95%b4%e7%ac%a6%e5%8f%b7%e9%80%9f%e6%9f%a5%e8%a1%a8" aria-label="完整符号速查表">完整符号速查表</a><ul>
-                        
-                <li>
-                    <a href="#%e5%9f%ba%e7%a1%80%e8%bf%90%e7%ae%97%e7%ac%a6%e5%8f%b7" aria-label="基础运算符号">基础运算符号</a></li>
-                <li>
-                    <a href="#%e5%90%91%e9%87%8f%e4%b8%8e%e7%9f%a9%e9%98%b5%e7%ac%a6%e5%8f%b7" aria-label="向量与矩阵符号">向量与矩阵符号</a></li>
-                <li>
-                    <a href="#%e6%a6%82%e7%8e%87%e4%b8%8e%e7%bb%9f%e8%ae%a1%e7%ac%a6%e5%8f%b7" aria-label="概率与统计符号">概率与统计符号</a></li>
-                <li>
-                    <a href="#%e5%be%ae%e7%a7%af%e5%88%86%e7%ac%a6%e5%8f%b7" aria-label="微积分符号">微积分符号</a></li>
-                <li>
-                    <a href="#%e6%bf%80%e6%b4%bb%e5%87%bd%e6%95%b0" aria-label="激活函数">激活函数</a></li>
-                <li>
-                    <a href="#%e9%9b%86%e5%90%88%e4%b8%8e%e9%80%bb%e8%be%91%e7%ac%a6%e5%8f%b7" aria-label="集合与逻辑符号">集合与逻辑符号</a></li>
-                <li>
-                    <a href="#%e5%85%b3%e7%b3%bb%e7%ac%a6%e5%8f%b7" aria-label="关系符号">关系符号</a></li>
-                <li>
-                    <a href="#%e4%b8%8b%e6%a0%87%e4%b8%8e%e4%b8%8a%e6%a0%87%e7%ba%a6%e5%ae%9a" aria-label="下标与上标约定">下标与上标约定</a>
-                </li>
-            </ul>
-            </li>
-            </ul>
-        </div>
-    </details>
-</div>
-
-  <div class="post-content"><p>读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用<strong>符号→读法→含义→代码</strong>的模式，30分钟帮你扫清障碍。</p>
-<p><strong>前置要求</strong>：高中数学水平，会基础Python。</p>
-<hr>
-<h2 id="一求和与连乘">一、求和与连乘<a hidden class="anchor" aria-hidden="true" href="#一求和与连乘">#</a></h2>
-<h3 id="11-求和符号-sum">1.1 求和符号 $\sum$<a hidden class="anchor" aria-hidden="true" href="#11-求和符号-sum">#</a></h3>
-<p><strong>读法</strong>：Sigma（西格玛），读作&quot;sum&quot;</p>
-<p><strong>含义</strong>：把一堆数加起来</p>
-<p><strong>公式示例</strong>：
-$$\sum_{i=1}^{n} x_i = x_1 + x_2 + \cdots + x_n$$</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来）</li>
-<li>注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和）</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 方法1：直接求和</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 15</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 方法2：NumPy</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 15</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 方法3：带条件的求和（论文常见）</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 例如：只对正数求和</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">xi</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">xi</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-</span></span></code></pre></div><hr>
-<h3 id="12-连乘符号-prod">1.2 连乘符号 $\prod$<a hidden class="anchor" aria-hidden="true" href="#12-连乘符号-prod">#</a></h3>
-<p><strong>读法</strong>：Pi（派），读作&quot;product&quot;</p>
-<p><strong>含义</strong>：把一堆数乘起来</p>
-<p><strong>公式示例</strong>：
-$$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>概率链式法则：$P(x_1, x_2, \ldots, x_n) = \prod_{i=1}^{n} P(x_i | x_{&lt;i})$</li>
-<li>语言模型：$P(\text{句子}) = \prod_{t=1}^{T} P(w_t | w_1, \ldots, w_{t-1})$</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 120</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 概率连乘（常用log避免下溢）</span>
-</span></span><span class="line"><span class="cl"><span class="n">probs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">log_prob</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">probs</span><span class="p">)</span>  <span class="c1"># 用log求和代替连乘</span>
-</span></span><span class="line"><span class="cl"><span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_prob</span><span class="p">)</span>  <span class="c1"># 转回概率</span>
-</span></span></code></pre></div><hr>
-<h2 id="二向量与矩阵">二、向量与矩阵<a hidden class="anchor" aria-hidden="true" href="#二向量与矩阵">#</a></h2>
-<h3 id="21-向量-vecv-或-mathbfv">2.1 向量 $\vec{v}$ 或 $\mathbf{v}$<a hidden class="anchor" aria-hidden="true" href="#21-向量-vecv-或-mathbfv">#</a></h3>
-<p><strong>读法</strong>：vector v</p>
-<p><strong>含义</strong>：一列（或一行）数字</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>词向量：$\vec{v}_{word}$（一个词的向量表示）</li>
-<li>隐藏状态：$\mathbf{h}_t$（时刻t的隐藏向量）</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 创建向量</span>
-</span></span><span class="line"><span class="cl"><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>  <span class="c1"># shape: (3,)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 向量点积</span>
-</span></span><span class="line"><span class="cl"><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">dot_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>  <span class="c1"># 1*4 + 2*5 + 3*6 = 32</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 向量拼接（论文中的 [h; x] 或 [h, x]）</span>
-</span></span><span class="line"><span class="cl"><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">concat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">h</span><span class="p">,</span> <span class="n">x</span><span class="p">])</span>  <span class="c1"># [1, 2, 3, 4]</span>
-</span></span></code></pre></div><hr>
-<h3 id="22-矩阵-wam">2.2 矩阵 $W$、$A$、$M$<a hidden class="anchor" aria-hidden="true" href="#22-矩阵-wam">#</a></h3>
-<p><strong>读法</strong>：matrix W</p>
-<p><strong>含义</strong>：二维数组，神经网络的权重通常用矩阵表示</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>权重矩阵：$W_Q$, $W_K$, $W_V$（Transformer中的Query/Key/Value权重）</li>
-<li>注意力矩阵：$A_{ij}$（第i个query对第j个key的注意力）</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 创建矩阵</span>
-</span></span><span class="line"><span class="cl"><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>  <span class="c1"># shape: (3, 2)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 矩阵乘法（论文中的 Wx）</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>  <span class="c1"># shape: (2,)</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">W</span> <span class="o">@</span> <span class="n">x</span>  <span class="c1"># 或 np.dot(W, x)，shape: (3,)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># result = [1*1+2*2, 3*1+4*2, 5*1+6*2] = [5, 11, 17]</span>
-</span></span></code></pre></div><hr>
-<h3 id="23-转置-wt">2.3 转置 $W^T$<a hidden class="anchor" aria-hidden="true" href="#23-转置-wt">#</a></h3>
-<p><strong>读法</strong>：W transpose</p>
-<p><strong>含义</strong>：行变列，列变行</p>
-<p><strong>公式</strong>：如果 $W$ 是 $m \times n$ 矩阵，则 $W^T$ 是 $n \times m$ 矩阵</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>注意力计算：$QK^T$（Query和Key的转置相乘）</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>  <span class="c1"># shape: (2, 3)</span>
-</span></span><span class="line"><span class="cl"><span class="n">W_T</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># shape: (3, 2)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># W_T = [[1, 4], [2, 5], [3, 6]]</span>
-</span></span></code></pre></div><hr>
-<h3 id="24-范数-w">2.4 范数 $|W|$<a hidden class="anchor" aria-hidden="true" href="#24-范数-w">#</a></h3>
-<p><strong>读法</strong>：norm of W</p>
-<p><strong>含义</strong>：衡量向量/矩阵的&quot;大小&quot;</p>
-<p><strong>常见类型</strong>：</p>
-<ul>
-<li>L1范数：$|x|_1 = \sum_i |x_i|$（绝对值之和）</li>
-<li>L2范数：$|x|_2 = \sqrt{\sum_i x_i^2}$（平方和开根号）</li>
-<li>Frobenius范数：$|W|<em>F = \sqrt{\sum</em>{i,j} W_{ij}^2}$（矩阵的L2范数）</li>
-</ul>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>正则化：$L = L_{task} + \lambda |W|_2^2$</li>
-<li>归一化：$\hat{x} = \frac{x}{|x|_2}$</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># L1范数</span>
-</span></span><span class="line"><span class="cl"><span class="n">l1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># |3| + |4| = 7</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># L2范数</span>
-</span></span><span class="line"><span class="cl"><span class="n">l2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># sqrt(9 + 16) = 5</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 归一化</span>
-</span></span><span class="line"><span class="cl"><span class="n">x_normalized</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># [0.6, 0.8]</span>
-</span></span></code></pre></div><hr>
-<h3 id="25-逐元素乘法-odot">2.5 逐元素乘法 $\odot$<a hidden class="anchor" aria-hidden="true" href="#25-逐元素乘法-odot">#</a></h3>
-<p><strong>读法</strong>：Hadamard product，或element-wise multiplication</p>
-<p><strong>含义</strong>：对应位置相乘（不是矩阵乘法！）</p>
-<p><strong>公式</strong>：$(A \odot B)<em>{ij} = A</em>{ij} \times B_{ij}$</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>LSTM门控：$c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t$</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>  <span class="c1"># [4, 10, 18]，逐元素相乘</span>
-</span></span></code></pre></div><hr>
-<h2 id="三概率符号">三、概率符号<a hidden class="anchor" aria-hidden="true" href="#三概率符号">#</a></h2>
-<h3 id="31-概率-pcdot">3.1 概率 $P(\cdot)$<a hidden class="anchor" aria-hidden="true" href="#31-概率-pcdot">#</a></h3>
-<p><strong>读法</strong>：probability of</p>
-<p><strong>含义</strong>：某事件发生的可能性，取值0到1</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>条件概率：$P(y|x)$（给定x，y发生的概率）</li>
-<li>联合概率：$P(x, y)$（x和y同时发生的概率）</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 离散概率分布</span>
-</span></span><span class="line"><span class="cl"><span class="n">probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span>  <span class="c1"># 三个类别的概率</span>
-</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">probs</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># 概率和为1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 从概率分布采样</span>
-</span></span><span class="line"><span class="cl"><span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="n">probs</span><span class="p">)</span>
-</span></span></code></pre></div><hr>
-<h3 id="32-期望-mathbbecdot">3.2 期望 $\mathbb{E}[\cdot]$<a hidden class="anchor" aria-hidden="true" href="#32-期望-mathbbecdot">#</a></h3>
-<p><strong>读法</strong>：expectation of，或expected value</p>
-<p><strong>含义</strong>：平均值的推广，概率加权平均</p>
-<p><strong>公式</strong>：
+论文中常见形式：'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.zhangky.com/posts/"},{"@type":"ListItem","position":2,"name":"【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记","item":"https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记","name":"【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记","description":"读AI论文最大的障碍不是英语，是数学符号。看到 $\\sum$、$\\nabla$、$\\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。\n前置要求：高中数学水平，会基础Python。\n一、求和与连乘 1.1 求和符号 $\\sum$ 读法：Sigma（西格玛），读作\u0026quot;sum\u0026quot;\n含义：把一堆数加起来\n公式示例： $$\\sum_{i=1}^{n} x_i = x_1 + x_2 + \\cdots + x_n$$\n论文中常见形式：\n损失函数：$L = \\sum_{i=1}^{N} \\ell(y_i, \\hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \\sum_{i=1}^{T} \\alpha_i h_i$（加权求和） Python实现：\nimport numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi \u0026gt; 0) 1.2 连乘符号 $\\prod$ 读法：Pi（派），读作\u0026quot;product\u0026quot;\n含义：把一堆数乘起来\n公式示例： $$\\prod_{i=1}^{n} x_i = x_1 \\times x_2 \\times \\cdots \\times x_n$$\n论文中常见形式：\n","keywords":["AI数学","Paper Read"],"articleBody":"读AI论文最大的障碍不是英语，是数学符号。看到 $\\sum$、$\\nabla$、$\\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。\n前置要求：高中数学水平，会基础Python。\n一、求和与连乘 1.1 求和符号 $\\sum$ 读法：Sigma（西格玛），读作\"sum\"\n含义：把一堆数加起来\n公式示例： $$\\sum_{i=1}^{n} x_i = x_1 + x_2 + \\cdots + x_n$$\n论文中常见形式：\n损失函数：$L = \\sum_{i=1}^{N} \\ell(y_i, \\hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \\sum_{i=1}^{T} \\alpha_i h_i$（加权求和） Python实现：\nimport numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi \u003e 0) 1.2 连乘符号 $\\prod$ 读法：Pi（派），读作\"product\"\n含义：把一堆数乘起来\n公式示例： $$\\prod_{i=1}^{n} x_i = x_1 \\times x_2 \\times \\cdots \\times x_n$$\n论文中常见形式：\n概率链式法则：$P(x_1, x_2, \\ldots, x_n) = \\prod_{i=1}^{n} P(x_i | x_{","wordCount":"1640","inLanguage":"en","image":"https://blog.zhangky.com/images/logo.svg","datePublished":"2025-01-15T10:55:01+08:00","dateModified":"2025-01-15T10:55:01+08:00","author":{"@type":"Person","name":"ZHANG.z"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"},"publisher":{"@type":"Organization","name":"Zhang's Blog","logo":{"@type":"ImageObject","url":"https://blog.zhangky.com/images/logo.svg"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://blog.zhangky.com/>Home</a>&nbsp;»&nbsp;<a href=https://blog.zhangky.com/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记</h1><div class=post-meta>ZHANG.z | <span title='2025-01-15 10:55:01 +0800 +0800'>January 15, 2025</span> | <span>25 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+<a href=https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2025/math-learn/2025-math-01-symbols-cheatsheet.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></span></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e4%b8%80%e6%b1%82%e5%92%8c%e4%b8%8e%e8%bf%9e%e4%b9%98 aria-label=一、求和与连乘>一、求和与连乘</a><ul><li><a href=#11-%e6%b1%82%e5%92%8c%e7%ac%a6%e5%8f%b7-sum aria-label="1.1 求和符号 $\sum$">1.1 求和符号 $\sum$</a></li><li><a href=#12-%e8%bf%9e%e4%b9%98%e7%ac%a6%e5%8f%b7-prod aria-label="1.2 连乘符号 $\prod$">1.2 连乘符号 $\prod$</a></li></ul></li><li><a href=#%e4%ba%8c%e5%90%91%e9%87%8f%e4%b8%8e%e7%9f%a9%e9%98%b5 aria-label=二、向量与矩阵>二、向量与矩阵</a><ul><li><a href=#21-%e5%90%91%e9%87%8f-vecv-%e6%88%96-mathbfv aria-label="2.1 向量 $\vec{v}$ 或 $\mathbf{v}$">2.1 向量 $\vec{v}$ 或 $\mathbf{v}$</a></li><li><a href=#22-%e7%9f%a9%e9%98%b5-wam aria-label="2.2 矩阵 $W$、$A$、$M$">2.2 矩阵 $W$、$A$、$M$</a></li><li><a href=#23-%e8%bd%ac%e7%bd%ae-wt aria-label="2.3 转置 $W^T$">2.3 转置 $W^T$</a></li><li><a href=#24-%e8%8c%83%e6%95%b0-w aria-label="2.4 范数 $|W|$">2.4 范数 $|W|$</a></li><li><a href=#25-%e9%80%90%e5%85%83%e7%b4%a0%e4%b9%98%e6%b3%95-odot aria-label="2.5 逐元素乘法 $\odot$">2.5 逐元素乘法 $\odot$</a></li></ul></li><li><a href=#%e4%b8%89%e6%a6%82%e7%8e%87%e7%ac%a6%e5%8f%b7 aria-label=三、概率符号>三、概率符号</a><ul><li><a href=#31-%e6%a6%82%e7%8e%87-pcdot aria-label="3.1 概率 $P(\cdot)$">3.1 概率 $P(\cdot)$</a></li><li><a href=#32-%e6%9c%9f%e6%9c%9b-mathbbecdot aria-label="3.2 期望 $\mathbb{E}[\cdot]$">3.2 期望 $\mathbb{E}[\cdot]$</a></li><li><a href=#33-%e9%ab%98%e6%96%af%e5%88%86%e5%b8%83-mathcalnmu-sigma2 aria-label="3.3 高斯分布 $\mathcal{N}(\mu, \sigma^2)$">3.3 高斯分布 $\mathcal{N}(\mu, \sigma^2)$</a></li></ul></li><li><a href=#%e5%9b%9b%e5%be%ae%e7%a7%af%e5%88%86%e7%ac%a6%e5%8f%b7 aria-label=四、微积分符号>四、微积分符号</a><ul><li><a href=#41-%e5%81%8f%e5%af%bc%e6%95%b0-fracpartialpartial-x aria-label="4.1 偏导数 $\frac{\partial}{\partial x}$">4.1 偏导数 $\frac{\partial}{\partial x}$</a></li><li><a href=#42-%e6%a2%af%e5%ba%a6-nabla aria-label="4.2 梯度 $\nabla$">4.2 梯度 $\nabla$</a></li></ul></li><li><a href=#%e4%ba%94%e5%b8%b8%e8%a7%81%e5%87%bd%e6%95%b0 aria-label=五、常见函数>五、常见函数</a><ul><li><a href=#51-sigmoid-sigmax aria-label="5.1 Sigmoid $\sigma(x)$">5.1 Sigmoid $\sigma(x)$</a></li><li><a href=#52-tanh-tanhx aria-label="5.2 Tanh $\tanh(x)$">5.2 Tanh $\tanh(x)$</a></li><li><a href=#53-relu aria-label="5.3 ReLU">5.3 ReLU</a></li><li><a href=#54-softmax aria-label="5.4 Softmax">5.4 Softmax</a></li></ul></li><li><a href=#%e5%85%ad%e9%9b%86%e5%90%88%e4%b8%8e%e9%80%bb%e8%be%91%e7%ac%a6%e5%8f%b7 aria-label=六、集合与逻辑符号>六、集合与逻辑符号</a><ul><li><a href=#61-%e5%b1%9e%e4%ba%8e-in aria-label="6.1 属于 $\in$">6.1 属于 $\in$</a></li><li><a href=#62-%e5%af%b9%e6%89%80%e6%9c%89-forall aria-label="6.2 对所有 $\forall$">6.2 对所有 $\forall$</a></li><li><a href=#63-%e5%ad%98%e5%9c%a8-exists aria-label="6.3 存在 $\exists$">6.3 存在 $\exists$</a></li><li><a href=#64-argmax--argmin aria-label="6.4 argmax / argmin">6.4 argmax / argmin</a></li></ul></li><li><a href=#%e4%b8%83%e7%a7%af%e5%88%86%e7%ac%a6%e5%8f%b7 aria-label=七、积分符号>七、积分符号</a><ul><li><a href=#71-%e7%a7%af%e5%88%86-int aria-label="7.1 积分 $\int$">7.1 积分 $\int$</a></li></ul></li><li><a href=#%e5%85%ab%e4%bf%a1%e6%81%af%e8%ae%ba%e7%ac%a6%e5%8f%b7 aria-label=八、信息论符号>八、信息论符号</a><ul><li><a href=#81-%e4%bf%a1%e6%81%af%e7%86%b5-hx aria-label="8.1 信息熵 $H(X)$">8.1 信息熵 $H(X)$</a></li><li><a href=#82-%e4%ba%92%e4%bf%a1%e6%81%af-ix-y aria-label="8.2 互信息 $I(X; Y)$">8.2 互信息 $I(X; Y)$</a></li></ul></li><li><a href=#%e4%b9%9d%e7%89%b9%e6%ae%8a%e6%95%b0%e5%ad%a6%e7%ac%a6%e5%8f%b7 aria-label=九、特殊数学符号>九、特殊数学符号</a><ul><li><a href=#91-%e5%ae%9e%e6%95%b0%e9%9b%86-mathbbr aria-label="9.1 实数集 $\mathbb{R}$">9.1 实数集 $\mathbb{R}$</a></li><li><a href=#92-%e7%ba%a6%e7%ad%89%e4%ba%8e-approx aria-label="9.2 约等于 $\approx$">9.2 约等于 $\approx$</a></li><li><a href=#93-%e6%ad%a3%e6%af%94%e4%ba%8e-propto aria-label="9.3 正比于 $\propto$">9.3 正比于 $\propto$</a></li><li><a href=#94-%e4%b8%8b%e5%8f%96%e6%95%b4%e4%b8%8a%e5%8f%96%e6%95%b4-lfloor-cdot-rfloor--lceil-cdot-rceil aria-label="9.4 下取整/上取整 $\lfloor \cdot \rfloor$ / $\lceil \cdot \rceil$">9.4 下取整/上取整 $\lfloor \cdot \rfloor$ / $\lceil \cdot \rceil$</a></li><li><a href=#95-%e6%9c%80%e5%b0%8f%e6%9c%80%e5%a4%a7-min--max aria-label="9.5 最小/最大 $\min$ / $\max$">9.5 最小/最大 $\min$ / $\max$</a></li></ul></li><li><a href=#%e5%8d%81%e4%b8%8b%e6%a0%87%e4%b8%8e%e4%b8%8a%e6%a0%87%e7%ba%a6%e5%ae%9a aria-label=十、下标与上标约定>十、下标与上标约定</a></li><li><a href=#%e5%ae%8c%e6%95%b4%e7%ac%a6%e5%8f%b7%e9%80%9f%e6%9f%a5%e8%a1%a8 aria-label=完整符号速查表>完整符号速查表</a><ul><li><a href=#%e5%9f%ba%e7%a1%80%e8%bf%90%e7%ae%97%e7%ac%a6%e5%8f%b7 aria-label=基础运算符号>基础运算符号</a></li><li><a href=#%e5%90%91%e9%87%8f%e4%b8%8e%e7%9f%a9%e9%98%b5%e7%ac%a6%e5%8f%b7 aria-label=向量与矩阵符号>向量与矩阵符号</a></li><li><a href=#%e6%a6%82%e7%8e%87%e4%b8%8e%e7%bb%9f%e8%ae%a1%e7%ac%a6%e5%8f%b7 aria-label=概率与统计符号>概率与统计符号</a></li><li><a href=#%e5%be%ae%e7%a7%af%e5%88%86%e7%ac%a6%e5%8f%b7 aria-label=微积分符号>微积分符号</a></li><li><a href=#%e6%bf%80%e6%b4%bb%e5%87%bd%e6%95%b0 aria-label=激活函数>激活函数</a></li><li><a href=#%e9%9b%86%e5%90%88%e4%b8%8e%e9%80%bb%e8%be%91%e7%ac%a6%e5%8f%b7 aria-label=集合与逻辑符号>集合与逻辑符号</a></li><li><a href=#%e5%85%b3%e7%b3%bb%e7%ac%a6%e5%8f%b7 aria-label=关系符号>关系符号</a></li><li><a href=#%e4%b8%8b%e6%a0%87%e4%b8%8e%e4%b8%8a%e6%a0%87%e7%ba%a6%e5%ae%9a aria-label=下标与上标约定>下标与上标约定</a></li></ul></li></ul></div></details></div><div class=post-content><p>读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用<strong>符号→读法→含义→代码</strong>的模式，30分钟帮你扫清障碍。</p><p><strong>前置要求</strong>：高中数学水平，会基础Python。</p><hr><h2 id=一求和与连乘>一、求和与连乘<a hidden class=anchor aria-hidden=true href=#一求和与连乘>#</a></h2><h3 id=11-求和符号-sum>1.1 求和符号 $\sum$<a hidden class=anchor aria-hidden=true href=#11-求和符号-sum>#</a></h3><p><strong>读法</strong>：Sigma（西格玛），读作"sum"</p><p><strong>含义</strong>：把一堆数加起来</p><p><strong>公式示例</strong>：
+$$\sum_{i=1}^{n} x_i = x_1 + x_2 + \cdots + x_n$$</p><p><strong>论文中常见形式</strong>：</p><ul><li>损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来）</li><li>注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和）</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 方法1：直接求和</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>result</span> <span class=o>=</span> <span class=nb>sum</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>  <span class=c1># 15</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 方法2：NumPy</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>result</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>sum</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>  <span class=c1># 15</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 方法3：带条件的求和（论文常见）</span>
+</span></span><span class=line><span class=cl><span class=c1># 例如：只对正数求和</span>
+</span></span><span class=line><span class=cl><span class=n>result</span> <span class=o>=</span> <span class=nb>sum</span><span class=p>(</span><span class=n>xi</span> <span class=k>for</span> <span class=n>xi</span> <span class=ow>in</span> <span class=n>x</span> <span class=k>if</span> <span class=n>xi</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span>
+</span></span></code></pre></div><hr><h3 id=12-连乘符号-prod>1.2 连乘符号 $\prod$<a hidden class=anchor aria-hidden=true href=#12-连乘符号-prod>#</a></h3><p><strong>读法</strong>：Pi（派），读作"product"</p><p><strong>含义</strong>：把一堆数乘起来</p><p><strong>公式示例</strong>：
+$$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$</p><p><strong>论文中常见形式</strong>：</p><ul><li>概率链式法则：$P(x_1, x_2, \ldots, x_n) = \prod_{i=1}^{n} P(x_i | x_{&lt;i})$</li><li>语言模型：$P(\text{句子}) = \prod_{t=1}^{T} P(w_t | w_1, \ldots, w_{t-1})$</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>result</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>prod</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>  <span class=c1># 120</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 概率连乘（常用log避免下溢）</span>
+</span></span><span class=line><span class=cl><span class=n>probs</span> <span class=o>=</span> <span class=p>[</span><span class=mf>0.9</span><span class=p>,</span> <span class=mf>0.8</span><span class=p>,</span> <span class=mf>0.7</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>log_prob</span> <span class=o>=</span> <span class=nb>sum</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>log</span><span class=p>(</span><span class=n>p</span><span class=p>)</span> <span class=k>for</span> <span class=n>p</span> <span class=ow>in</span> <span class=n>probs</span><span class=p>)</span>  <span class=c1># 用log求和代替连乘</span>
+</span></span><span class=line><span class=cl><span class=n>prob</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>exp</span><span class=p>(</span><span class=n>log_prob</span><span class=p>)</span>  <span class=c1># 转回概率</span>
+</span></span></code></pre></div><hr><h2 id=二向量与矩阵>二、向量与矩阵<a hidden class=anchor aria-hidden=true href=#二向量与矩阵>#</a></h2><h3 id=21-向量-vecv-或-mathbfv>2.1 向量 $\vec{v}$ 或 $\mathbf{v}$<a hidden class=anchor aria-hidden=true href=#21-向量-vecv-或-mathbfv>#</a></h3><p><strong>读法</strong>：vector v</p><p><strong>含义</strong>：一列（或一行）数字</p><p><strong>论文中常见形式</strong>：</p><ul><li>词向量：$\vec{v}_{word}$（一个词的向量表示）</li><li>隐藏状态：$\mathbf{h}_t$（时刻t的隐藏向量）</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 创建向量</span>
+</span></span><span class=line><span class=cl><span class=n>v</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>])</span>  <span class=c1># shape: (3,)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 向量点积</span>
+</span></span><span class=line><span class=cl><span class=n>u</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>dot_product</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>dot</span><span class=p>(</span><span class=n>v</span><span class=p>,</span> <span class=n>u</span><span class=p>)</span>  <span class=c1># 1*4 + 2*5 + 3*6 = 32</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 向量拼接（论文中的 [h; x] 或 [h, x]）</span>
+</span></span><span class=line><span class=cl><span class=n>h</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>concat</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>concatenate</span><span class=p>([</span><span class=n>h</span><span class=p>,</span> <span class=n>x</span><span class=p>])</span>  <span class=c1># [1, 2, 3, 4]</span>
+</span></span></code></pre></div><hr><h3 id=22-矩阵-wam>2.2 矩阵 $W$、$A$、$M$<a hidden class=anchor aria-hidden=true href=#22-矩阵-wam>#</a></h3><p><strong>读法</strong>：matrix W</p><p><strong>含义</strong>：二维数组，神经网络的权重通常用矩阵表示</p><p><strong>论文中常见形式</strong>：</p><ul><li>权重矩阵：$W_Q$, $W_K$, $W_V$（Transformer中的Query/Key/Value权重）</li><li>注意力矩阵：$A_{ij}$（第i个query对第j个key的注意力）</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 创建矩阵</span>
+</span></span><span class=line><span class=cl><span class=n>W</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>],</span> <span class=p>[</span><span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>],</span> <span class=p>[</span><span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>]])</span>  <span class=c1># shape: (3, 2)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 矩阵乘法（论文中的 Wx）</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>])</span>  <span class=c1># shape: (2,)</span>
+</span></span><span class=line><span class=cl><span class=n>result</span> <span class=o>=</span> <span class=n>W</span> <span class=o>@</span> <span class=n>x</span>  <span class=c1># 或 np.dot(W, x)，shape: (3,)</span>
+</span></span><span class=line><span class=cl><span class=c1># result = [1*1+2*2, 3*1+4*2, 5*1+6*2] = [5, 11, 17]</span>
+</span></span></code></pre></div><hr><h3 id=23-转置-wt>2.3 转置 $W^T$<a hidden class=anchor aria-hidden=true href=#23-转置-wt>#</a></h3><p><strong>读法</strong>：W transpose</p><p><strong>含义</strong>：行变列，列变行</p><p><strong>公式</strong>：如果 $W$ 是 $m \times n$ 矩阵，则 $W^T$ 是 $n \times m$ 矩阵</p><p><strong>论文中常见形式</strong>：</p><ul><li>注意力计算：$QK^T$（Query和Key的转置相乘）</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>W</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>],</span> <span class=p>[</span><span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>]])</span>  <span class=c1># shape: (2, 3)</span>
+</span></span><span class=line><span class=cl><span class=n>W_T</span> <span class=o>=</span> <span class=n>W</span><span class=o>.</span><span class=n>T</span>  <span class=c1># shape: (3, 2)</span>
+</span></span><span class=line><span class=cl><span class=c1># W_T = [[1, 4], [2, 5], [3, 6]]</span>
+</span></span></code></pre></div><hr><h3 id=24-范数-w>2.4 范数 $|W|$<a hidden class=anchor aria-hidden=true href=#24-范数-w>#</a></h3><p><strong>读法</strong>：norm of W</p><p><strong>含义</strong>：衡量向量/矩阵的"大小"</p><p><strong>常见类型</strong>：</p><ul><li>L1范数：$|x|_1 = \sum_i |x_i|$（绝对值之和）</li><li>L2范数：$|x|_2 = \sqrt{\sum_i x_i^2}$（平方和开根号）</li><li>Frobenius范数：$|W|<em>F = \sqrt{\sum</em>{i,j} W_{ij}^2}$（矩阵的L2范数）</li></ul><p><strong>论文中常见形式</strong>：</p><ul><li>正则化：$L = L_{task} + \lambda |W|_2^2$</li><li>归一化：$\hat{x} = \frac{x}{|x|_2}$</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># L1范数</span>
+</span></span><span class=line><span class=cl><span class=n>l1</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>linalg</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=nb>ord</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>  <span class=c1># |3| + |4| = 7</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># L2范数</span>
+</span></span><span class=line><span class=cl><span class=n>l2</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>linalg</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=nb>ord</span><span class=o>=</span><span class=mi>2</span><span class=p>)</span>  <span class=c1># sqrt(9 + 16) = 5</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 归一化</span>
+</span></span><span class=line><span class=cl><span class=n>x_normalized</span> <span class=o>=</span> <span class=n>x</span> <span class=o>/</span> <span class=n>np</span><span class=o>.</span><span class=n>linalg</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>  <span class=c1># [0.6, 0.8]</span>
+</span></span></code></pre></div><hr><h3 id=25-逐元素乘法-odot>2.5 逐元素乘法 $\odot$<a hidden class=anchor aria-hidden=true href=#25-逐元素乘法-odot>#</a></h3><p><strong>读法</strong>：Hadamard product，或element-wise multiplication</p><p><strong>含义</strong>：对应位置相乘（不是矩阵乘法！）</p><p><strong>公式</strong>：$(A \odot B)<em>{ij} = A</em>{ij} \times B_{ij}$</p><p><strong>论文中常见形式</strong>：</p><ul><li>LSTM门控：$c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t$</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>a</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>b</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>result</span> <span class=o>=</span> <span class=n>a</span> <span class=o>*</span> <span class=n>b</span>  <span class=c1># [4, 10, 18]，逐元素相乘</span>
+</span></span></code></pre></div><hr><h2 id=三概率符号>三、概率符号<a hidden class=anchor aria-hidden=true href=#三概率符号>#</a></h2><h3 id=31-概率-pcdot>3.1 概率 $P(\cdot)$<a hidden class=anchor aria-hidden=true href=#31-概率-pcdot>#</a></h3><p><strong>读法</strong>：probability of</p><p><strong>含义</strong>：某事件发生的可能性，取值0到1</p><p><strong>论文中常见形式</strong>：</p><ul><li>条件概率：$P(y|x)$（给定x，y发生的概率）</li><li>联合概率：$P(x, y)$（x和y同时发生的概率）</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 离散概率分布</span>
+</span></span><span class=line><span class=cl><span class=n>probs</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mf>0.1</span><span class=p>,</span> <span class=mf>0.3</span><span class=p>,</span> <span class=mf>0.6</span><span class=p>])</span>  <span class=c1># 三个类别的概率</span>
+</span></span><span class=line><span class=cl><span class=k>assert</span> <span class=n>np</span><span class=o>.</span><span class=n>isclose</span><span class=p>(</span><span class=n>probs</span><span class=o>.</span><span class=n>sum</span><span class=p>(),</span> <span class=mf>1.0</span><span class=p>)</span>  <span class=c1># 概率和为1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 从概率分布采样</span>
+</span></span><span class=line><span class=cl><span class=n>sample</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>choice</span><span class=p>([</span><span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>],</span> <span class=n>p</span><span class=o>=</span><span class=n>probs</span><span class=p>)</span>
+</span></span></code></pre></div><hr><h3 id=32-期望-mathbbecdot>3.2 期望 $\mathbb{E}[\cdot]$<a hidden class=anchor aria-hidden=true href=#32-期望-mathbbecdot>#</a></h3><p><strong>读法</strong>：expectation of，或expected value</p><p><strong>含义</strong>：平均值的推广，概率加权平均</p><p><strong>公式</strong>：
 $$\mathbb{E}[X] = \sum_x x \cdot P(x) \quad \text{（离散）}$$
-$$\mathbb{E}[X] = \int x \cdot p(x) dx \quad \text{（连续）}$$</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>损失函数：$L = \mathbb{E}_{x \sim D}[\ell(f(x), y)]$（在数据分布上的期望损失）</li>
-<li>RLHF：$\mathbb{E}_{y \sim \pi}[r(y)]$（策略产生输出的期望奖励）</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 离散期望</span>
-</span></span><span class="line"><span class="cl"><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">expectation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">values</span> <span class="o">*</span> <span class="n">probs</span><span class="p">)</span>  <span class="c1"># 1*0.2 + 2*0.3 + 3*0.5 = 2.3</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 蒙特卡洛估计（采样近似期望）</span>
-</span></span><span class="line"><span class="cl"><span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">probs</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">mc_expectation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>  <span class="c1"># 约等于2.3</span>
-</span></span></code></pre></div><hr>
-<h3 id="33-高斯分布-mathcalnmu-sigma2">3.3 高斯分布 $\mathcal{N}(\mu, \sigma^2)$<a hidden class="anchor" aria-hidden="true" href="#33-高斯分布-mathcalnmu-sigma2">#</a></h3>
-<p><strong>读法</strong>：Normal distribution with mean mu and variance sigma squared</p>
-<p><strong>含义</strong>：正态分布，最常见的连续概率分布</p>
-<p><strong>公式</strong>：
-$$p(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$$</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>VAE编码器：$q(z|x) = \mathcal{N}(\mu(x), \sigma^2(x))$</li>
-<li>重参数化：$z = \mu + \sigma \cdot \epsilon, \quad \epsilon \sim \mathcal{N}(0, 1)$</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 从高斯分布采样</span>
-</span></span><span class="line"><span class="cl"><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 重参数化技巧（VAE中常用）</span>
-</span></span><span class="line"><span class="cl"><span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">epsilon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">mu</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">z</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">epsilon</span>  <span class="c1"># 可微分的采样</span>
-</span></span></code></pre></div><hr>
-<h2 id="四微积分符号">四、微积分符号<a hidden class="anchor" aria-hidden="true" href="#四微积分符号">#</a></h2>
-<h3 id="41-偏导数-fracpartialpartial-x">4.1 偏导数 $\frac{\partial}{\partial x}$<a hidden class="anchor" aria-hidden="true" href="#41-偏导数-fracpartialpartial-x">#</a></h3>
-<p><strong>读法</strong>：partial derivative with respect to x</p>
-<p><strong>含义</strong>：函数对某个变量的变化率（其他变量固定）</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>梯度计算：$\frac{\partial L}{\partial W}$（损失对权重的偏导）</li>
-<li>链式法则：$\frac{\partial L}{\partial x} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial x}$</li>
-</ul>
-<p><strong>Python实现（PyTorch自动微分）</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 定义变量（需要梯度）</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">2.0</span><span class="p">],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>  <span class="c1"># y = x^2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 计算梯度</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>  <span class="c1"># tensor([4.])，即 dy/dx = 2x = 4</span>
-</span></span></code></pre></div><hr>
-<h3 id="42-梯度-nabla">4.2 梯度 $\nabla$<a hidden class="anchor" aria-hidden="true" href="#42-梯度-nabla">#</a></h3>
-<p><strong>读法</strong>：nabla，或gradient</p>
-<p><strong>含义</strong>：所有偏导数组成的向量</p>
-<p><strong>公式</strong>：
-$$\nabla_\theta L = \left[\frac{\partial L}{\partial \theta_1}, \frac{\partial L}{\partial \theta_2}, \ldots\right]$$</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>梯度下降：$\theta \leftarrow \theta - \eta \nabla_\theta L$</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 多变量函数的梯度</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  <span class="c1"># y = x1^2 + x2^2 + x3^2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>  <span class="c1"># tensor([2., 4., 6.])，即 [2x1, 2x2, 2x3]</span>
-</span></span></code></pre></div><hr>
-<h2 id="五常见函数">五、常见函数<a hidden class="anchor" aria-hidden="true" href="#五常见函数">#</a></h2>
-<h3 id="51-sigmoid-sigmax">5.1 Sigmoid $\sigma(x)$<a hidden class="anchor" aria-hidden="true" href="#51-sigmoid-sigmax">#</a></h3>
-<p><strong>公式</strong>：
-$$\sigma(x) = \frac{1}{1 + e^{-x}}$$</p>
-<p><strong>含义</strong>：把任意实数压缩到(0, 1)区间，常用于门控机制</p>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 或使用scipy</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">expit</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">expit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 0.5</span>
-</span></span></code></pre></div><hr>
-<h3 id="52-tanh-tanhx">5.2 Tanh $\tanh(x)$<a hidden class="anchor" aria-hidden="true" href="#52-tanh-tanhx">#</a></h3>
-<p><strong>公式</strong>：
-$$\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$$</p>
-<p><strong>含义</strong>：把任意实数压缩到(-1, 1)区间</p>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 0.0</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 约0.76</span>
-</span></span></code></pre></div><hr>
-<h3 id="53-relu">5.3 ReLU<a hidden class="anchor" aria-hidden="true" href="#53-relu">#</a></h3>
-<p><strong>公式</strong>：
-$$\text{ReLU}(x) = \max(0, x)$$</p>
-<p><strong>含义</strong>：负数变0，正数不变。最常用的激活函数</p>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">relu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">relu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># [0, 0, 1, 2]</span>
-</span></span></code></pre></div><hr>
-<h3 id="54-softmax">5.4 Softmax<a hidden class="anchor" aria-hidden="true" href="#54-softmax">#</a></h3>
-<p><strong>公式</strong>：
-$$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}}$$</p>
-<p><strong>含义</strong>：把一组数转换为概率分布（和为1）</p>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">exp_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># 减max防止溢出</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">exp_x</span> <span class="o">/</span> <span class="n">exp_x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">probs</span> <span class="o">=</span> <span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># [0.09, 0.24, 0.67]</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">probs</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>  <span class="c1"># 1.0</span>
-</span></span></code></pre></div><hr>
-<h2 id="六集合与逻辑符号">六、集合与逻辑符号<a hidden class="anchor" aria-hidden="true" href="#六集合与逻辑符号">#</a></h2>
-<h3 id="61-属于-in">6.1 属于 $\in$<a hidden class="anchor" aria-hidden="true" href="#61-属于-in">#</a></h3>
-<p><strong>读法</strong>：belongs to，或in</p>
-<p><strong>含义</strong>：元素属于某个集合</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>$x \in \mathbb{R}^d$（x是d维实数向量）</li>
-<li>$w \in V$（w是词表V中的词）</li>
-</ul>
-<hr>
-<h3 id="62-对所有-forall">6.2 对所有 $\forall$<a hidden class="anchor" aria-hidden="true" href="#62-对所有-forall">#</a></h3>
-<p><strong>读法</strong>：for all</p>
-<p><strong>含义</strong>：对于所有的&hellip;</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>$\forall i \in {1, \ldots, n}$（对于所有i从1到n）</li>
-</ul>
-<hr>
-<h3 id="63-存在-exists">6.3 存在 $\exists$<a hidden class="anchor" aria-hidden="true" href="#63-存在-exists">#</a></h3>
-<p><strong>读法</strong>：there exists</p>
-<p><strong>含义</strong>：存在某个&hellip;</p>
-<hr>
-<h3 id="64-argmax--argmin">6.4 argmax / argmin<a hidden class="anchor" aria-hidden="true" href="#64-argmax--argmin">#</a></h3>
-<p><strong>公式</strong>：
-$$\arg\max_x f(x) = \text{使} f(x) \text{最大的} x \text{值}$$</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>预测：$\hat{y} = \arg\max_y P(y|x)$（选择概率最大的类别）</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="n">best_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>  <span class="c1"># 1</span>
-</span></span><span class="line"><span class="cl"><span class="n">best_value</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span>  <span class="c1"># 0.7</span>
-</span></span></code></pre></div><hr>
-<h2 id="七积分符号">七、积分符号<a hidden class="anchor" aria-hidden="true" href="#七积分符号">#</a></h2>
-<h3 id="71-积分-int">7.1 积分 $\int$<a hidden class="anchor" aria-hidden="true" href="#71-积分-int">#</a></h3>
-<p><strong>读法</strong>：integral</p>
-<p><strong>含义</strong>：连续版本的求和，计算曲线下的面积</p>
-<p><strong>公式示例</strong>：
-$$\int_a^b f(x) dx$$</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>连续期望：$\mathbb{E}[X] = \int x \cdot p(x) dx$</li>
-<li>信息熵：$H(X) = -\int p(x) \log p(x) dx$</li>
-<li>KL散度：$D_{KL}(P | Q) = \int p(x) \log \frac{p(x)}{q(x)} dx$</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 数值积分</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># ∫x²dx from 0 to 1 = 1/3</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;积分结果: </span><span class="si">{</span><span class="n">result</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>  <span class="c1"># 0.3333</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 蒙特卡洛积分（高维常用）</span>
-</span></span><span class="line"><span class="cl"><span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">mc_result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">samples</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 约0.333</span>
-</span></span></code></pre></div><hr>
-<h2 id="八信息论符号">八、信息论符号<a hidden class="anchor" aria-hidden="true" href="#八信息论符号">#</a></h2>
-<h3 id="81-信息熵-hx">8.1 信息熵 $H(X)$<a hidden class="anchor" aria-hidden="true" href="#81-信息熵-hx">#</a></h3>
-<p><strong>读法</strong>：entropy of X</p>
-<p><strong>含义</strong>：衡量随机变量的不确定性/信息量</p>
-<p><strong>公式</strong>：
-$$H(X) = -\sum_x P(x) \log P(x)$$</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>MDL原理：最小化描述长度</li>
-<li>复杂度度量：系统的信息熵</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;计算离散分布的熵&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 避免log(0)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 示例</span>
-</span></span><span class="line"><span class="cl"><span class="n">p_uniform</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">])</span>  <span class="c1"># 均匀分布</span>
-</span></span><span class="line"><span class="cl"><span class="n">p_peaked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">])</span>    <span class="c1"># 集中分布</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;均匀分布熵: </span><span class="si">{</span><span class="n">entropy</span><span class="p">(</span><span class="n">p_uniform</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>  <span class="c1"># 2.0 (最大)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;集中分布熵: </span><span class="si">{</span><span class="n">entropy</span><span class="p">(</span><span class="n">p_peaked</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>   <span class="c1"># 0.57 (较小)</span>
-</span></span></code></pre></div><hr>
-<h3 id="82-互信息-ix-y">8.2 互信息 $I(X; Y)$<a hidden class="anchor" aria-hidden="true" href="#82-互信息-ix-y">#</a></h3>
-<p><strong>读法</strong>：mutual information between X and Y</p>
-<p><strong>含义</strong>：X和Y共享的信息量</p>
-<p><strong>公式</strong>：
-$$I(X; Y) = H(X) + H(Y) - H(X, Y)$$</p>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mutual_info_score</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 离散变量的互信息</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">mi</span> <span class="o">=</span> <span class="n">mutual_info_score</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;互信息: </span><span class="si">{</span><span class="n">mi</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><hr>
-<h2 id="九特殊数学符号">九、特殊数学符号<a hidden class="anchor" aria-hidden="true" href="#九特殊数学符号">#</a></h2>
-<h3 id="91-实数集-mathbbr">9.1 实数集 $\mathbb{R}$<a hidden class="anchor" aria-hidden="true" href="#91-实数集-mathbbr">#</a></h3>
-<p><strong>读法</strong>：real numbers</p>
-<p><strong>含义</strong>：所有实数的集合</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>$x \in \mathbb{R}^d$：x是d维实数向量</li>
-<li>$W \in \mathbb{R}^{m \times n}$：W是m行n列的实数矩阵</li>
-</ul>
-<hr>
-<h3 id="92-约等于-approx">9.2 约等于 $\approx$<a hidden class="anchor" aria-hidden="true" href="#92-约等于-approx">#</a></h3>
-<p><strong>读法</strong>：approximately equal to</p>
-<p><strong>含义</strong>：近似相等</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>$\pi \approx 3.14$</li>
-<li>近似公式：$\log(1+x) \approx x$（当x很小时）</li>
-</ul>
-<hr>
-<h3 id="93-正比于-propto">9.3 正比于 $\propto$<a hidden class="anchor" aria-hidden="true" href="#93-正比于-propto">#</a></h3>
-<p><strong>读法</strong>：proportional to</p>
-<p><strong>含义</strong>：成正比，忽略常数因子</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>贝叶斯：$P(\theta|D) \propto P(D|\theta) P(\theta)$</li>
-</ul>
-<hr>
-<h3 id="94-下取整上取整-lfloor-cdot-rfloor--lceil-cdot-rceil">9.4 下取整/上取整 $\lfloor \cdot \rfloor$ / $\lceil \cdot \rceil$<a hidden class="anchor" aria-hidden="true" href="#94-下取整上取整-lfloor-cdot-rfloor--lceil-cdot-rceil">#</a></h3>
-<p><strong>读法</strong>：floor / ceiling</p>
-<p><strong>含义</strong>：向下/向上取整</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>卷积输出尺寸：$H_{out} = \lfloor \frac{H_{in} + 2p - k}{s} \rfloor + 1$</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="mf">3.7</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># 3.0 (下取整)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>   <span class="c1"># 4.0 (上取整)</span>
-</span></span></code></pre></div><hr>
-<h3 id="95-最小最大-min--max">9.5 最小/最大 $\min$ / $\max$<a hidden class="anchor" aria-hidden="true" href="#95-最小最大-min--max">#</a></h3>
-<p><strong>公式</strong>：
-$$\min_x f(x) = \text{使} f(x) \text{最小的值}$$</p>
-<p><strong>论文中常见形式</strong>：</p>
-<ul>
-<li>损失最小化：$\min_\theta L(\theta)$</li>
-<li>对抗训练：$\min_G \max_D V(D, G)$（GAN）</li>
-</ul>
-<p><strong>Python实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># 1</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># 5</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># 1 (最小值的索引)</span>
-</span></span></code></pre></div><hr>
-<h2 id="十下标与上标约定">十、下标与上标约定<a hidden class="anchor" aria-hidden="true" href="#十下标与上标约定">#</a></h2>
-<table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>含义</th>
-          <th>示例</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$x_i$</td>
-          <td>第i个元素</td>
-          <td>$x_1, x_2, \ldots$</td>
-      </tr>
-      <tr>
-          <td>$x_t$</td>
-          <td>时刻t的值</td>
-          <td>序列中第t步</td>
-      </tr>
-      <tr>
-          <td>$x^{(l)}$</td>
-          <td>第l层的值</td>
-          <td>神经网络第l层</td>
-      </tr>
-      <tr>
-          <td>$W^T$</td>
-          <td>转置</td>
-          <td>矩阵转置</td>
-      </tr>
-      <tr>
-          <td>$W^{-1}$</td>
-          <td>逆矩阵</td>
-          <td>矩阵求逆</td>
-      </tr>
-      <tr>
-          <td>$x&rsquo;$ 或 $\hat{x}$</td>
-          <td>变换后/预测值</td>
-          <td>预测输出</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="完整符号速查表">完整符号速查表<a hidden class="anchor" aria-hidden="true" href="#完整符号速查表">#</a></h2>
-<h3 id="基础运算符号">基础运算符号<a hidden class="anchor" aria-hidden="true" href="#基础运算符号">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>读法</th>
-          <th>含义</th>
-          <th>Python</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\sum$</td>
-          <td>sigma</td>
-          <td>求和</td>
-          <td><code>np.sum()</code></td>
-      </tr>
-      <tr>
-          <td>$\prod$</td>
-          <td>pi</td>
-          <td>连乘</td>
-          <td><code>np.prod()</code></td>
-      </tr>
-      <tr>
-          <td>$\int$</td>
-          <td>integral</td>
-          <td>积分</td>
-          <td><code>scipy.integrate.quad()</code></td>
-      </tr>
-      <tr>
-          <td>$\min$ / $\max$</td>
-          <td>min / max</td>
-          <td>最小/最大值</td>
-          <td><code>np.min()</code> / <code>np.max()</code></td>
-      </tr>
-      <tr>
-          <td>$\arg\max$ / $\arg\min$</td>
-          <td>argmax / argmin</td>
-          <td>最值索引</td>
-          <td><code>np.argmax()</code> / <code>np.argmin()</code></td>
-      </tr>
-      <tr>
-          <td>$\lfloor x \rfloor$ / $\lceil x \rceil$</td>
-          <td>floor / ceiling</td>
-          <td>下取整/上取整</td>
-          <td><code>np.floor()</code> / <code>np.ceil()</code></td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="向量与矩阵符号">向量与矩阵符号<a hidden class="anchor" aria-hidden="true" href="#向量与矩阵符号">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>读法</th>
-          <th>含义</th>
-          <th>Python</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\vec{v}$ / $\mathbf{v}$</td>
-          <td>vector v</td>
-          <td>向量</td>
-          <td><code>np.array([...])</code></td>
-      </tr>
-      <tr>
-          <td>$W$</td>
-          <td>matrix W</td>
-          <td>矩阵</td>
-          <td><code>np.array([[...]])</code></td>
-      </tr>
-      <tr>
-          <td>$W^T$</td>
-          <td>W transpose</td>
-          <td>转置</td>
-          <td><code>W.T</code></td>
-      </tr>
-      <tr>
-          <td>$W^{-1}$</td>
-          <td>W inverse</td>
-          <td>逆矩阵</td>
-          <td><code>np.linalg.inv(W)</code></td>
-      </tr>
-      <tr>
-          <td>$|x|$ / $|x|_2$</td>
-          <td>norm</td>
-          <td>L2范数</td>
-          <td><code>np.linalg.norm(x)</code></td>
-      </tr>
-      <tr>
-          <td>$|x|_1$</td>
-          <td>L1 norm</td>
-          <td>L1范数</td>
-          <td><code>np.linalg.norm(x, ord=1)</code></td>
-      </tr>
-      <tr>
-          <td>$|W|_F$</td>
-          <td>Frobenius norm</td>
-          <td>F范数</td>
-          <td><code>np.linalg.norm(W, 'fro')</code></td>
-      </tr>
-      <tr>
-          <td>$\odot$</td>
-          <td>hadamard</td>
-          <td>逐元素乘</td>
-          <td><code>a * b</code></td>
-      </tr>
-      <tr>
-          <td>$[h; x]$ / $[h, x]$</td>
-          <td>concatenate</td>
-          <td>向量拼接</td>
-          <td><code>np.concatenate([h, x])</code></td>
-      </tr>
-      <tr>
-          <td>$\cdot$ / $@$</td>
-          <td>dot product</td>
-          <td>矩阵乘法</td>
-          <td><code>A @ B</code> 或 <code>np.dot(A, B)</code></td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="概率与统计符号">概率与统计符号<a hidden class="anchor" aria-hidden="true" href="#概率与统计符号">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>读法</th>
-          <th>含义</th>
-          <th>Python</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$P(\cdot)$</td>
-          <td>probability</td>
-          <td>概率</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>$P(y|x)$</td>
-          <td>conditional prob</td>
-          <td>条件概率</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>$p(\cdot)$</td>
-          <td>density</td>
-          <td>概率密度</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>$\mathbb{E}[\cdot]$</td>
-          <td>expectation</td>
-          <td>期望</td>
-          <td><code>np.mean()</code></td>
-      </tr>
-      <tr>
-          <td>$\text{Var}(\cdot)$</td>
-          <td>variance</td>
-          <td>方差</td>
-          <td><code>np.var()</code></td>
-      </tr>
-      <tr>
-          <td>$\mathcal{N}(\mu, \sigma^2)$</td>
-          <td>normal</td>
-          <td>高斯分布</td>
-          <td><code>np.random.normal(mu, sigma)</code></td>
-      </tr>
-      <tr>
-          <td>$\sim$</td>
-          <td>distributed as</td>
-          <td>服从分布</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>$H(X)$</td>
-          <td>entropy</td>
-          <td>信息熵</td>
-          <td><code>-np.sum(p * np.log(p))</code></td>
-      </tr>
-      <tr>
-          <td>$I(X; Y)$</td>
-          <td>mutual info</td>
-          <td>互信息</td>
-          <td><code>sklearn.metrics.mutual_info_score()</code></td>
-      </tr>
-      <tr>
-          <td>$D_{KL}$</td>
-          <td>KL divergence</td>
-          <td>KL散度</td>
-          <td>见第二篇</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="微积分符号">微积分符号<a hidden class="anchor" aria-hidden="true" href="#微积分符号">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>读法</th>
-          <th>含义</th>
-          <th>Python</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\frac{\partial}{\partial x}$</td>
-          <td>partial</td>
-          <td>偏导数</td>
-          <td><code>tensor.backward()</code></td>
-      </tr>
-      <tr>
-          <td>$\nabla$</td>
-          <td>nabla / gradient</td>
-          <td>梯度</td>
-          <td><code>tensor.grad</code></td>
-      </tr>
-      <tr>
-          <td>$\frac{d}{dx}$</td>
-          <td>derivative</td>
-          <td>导数</td>
-          <td><code>torch.autograd.grad()</code></td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="激活函数">激活函数<a hidden class="anchor" aria-hidden="true" href="#激活函数">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>公式</th>
-          <th>Python</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\sigma(x)$</td>
-          <td>$\frac{1}{1+e^{-x}}$</td>
-          <td><code>1/(1+np.exp(-x))</code></td>
-      </tr>
-      <tr>
-          <td>$\tanh(x)$</td>
-          <td>$\frac{e^x-e^{-x}}{e^x+e^{-x}}$</td>
-          <td><code>np.tanh(x)</code></td>
-      </tr>
-      <tr>
-          <td>$\text{ReLU}(x)$</td>
-          <td>$\max(0, x)$</td>
-          <td><code>np.maximum(0, x)</code></td>
-      </tr>
-      <tr>
-          <td>$\text{softmax}(x)$</td>
-          <td>$\frac{e^{x_i}}{\sum_j e^{x_j}}$</td>
-          <td>见第二篇</td>
-      </tr>
-      <tr>
-          <td>$\text{GELU}(x)$</td>
-          <td>$x \cdot \Phi(x)$</td>
-          <td><code>torch.nn.GELU()</code></td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="集合与逻辑符号">集合与逻辑符号<a hidden class="anchor" aria-hidden="true" href="#集合与逻辑符号">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>读法</th>
-          <th>含义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\in$</td>
-          <td>in / belongs to</td>
-          <td>属于</td>
-      </tr>
-      <tr>
-          <td>$\notin$</td>
-          <td>not in</td>
-          <td>不属于</td>
-      </tr>
-      <tr>
-          <td>$\subset$</td>
-          <td>subset</td>
-          <td>子集</td>
-      </tr>
-      <tr>
-          <td>$\forall$</td>
-          <td>for all</td>
-          <td>对所有</td>
-      </tr>
-      <tr>
-          <td>$\exists$</td>
-          <td>exists</td>
-          <td>存在</td>
-      </tr>
-      <tr>
-          <td>$\mathbb{R}$</td>
-          <td>real numbers</td>
-          <td>实数集</td>
-      </tr>
-      <tr>
-          <td>$\mathbb{R}^d$</td>
-          <td>R to the d</td>
-          <td>d维实数空间</td>
-      </tr>
-      <tr>
-          <td>$\mathbb{Z}$</td>
-          <td>integers</td>
-          <td>整数集</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="关系符号">关系符号<a hidden class="anchor" aria-hidden="true" href="#关系符号">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>读法</th>
-          <th>含义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\approx$</td>
-          <td>approximately</td>
-          <td>约等于</td>
-      </tr>
-      <tr>
-          <td>$\propto$</td>
-          <td>proportional to</td>
-          <td>正比于</td>
-      </tr>
-      <tr>
-          <td>$\equiv$</td>
-          <td>equivalent</td>
-          <td>恒等于</td>
-      </tr>
-      <tr>
-          <td>$\leq$ / $\geq$</td>
-          <td>less/greater or equal</td>
-          <td>小于等于/大于等于</td>
-      </tr>
-      <tr>
-          <td>$\ll$ / $\gg$</td>
-          <td>much less/greater</td>
-          <td>远小于/远大于</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="下标与上标约定">下标与上标约定<a hidden class="anchor" aria-hidden="true" href="#下标与上标约定">#</a></h3>
-<table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>含义</th>
-          <th>示例</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$x_i$</td>
-          <td>第i个元素</td>
-          <td>$x_1, x_2, \ldots$</td>
-      </tr>
-      <tr>
-          <td>$x_t$</td>
-          <td>时刻t的值</td>
-          <td>序列中第t步</td>
-      </tr>
-      <tr>
-          <td>$x^{(l)}$</td>
-          <td>第l层的值</td>
-          <td>神经网络第l层</td>
-      </tr>
-      <tr>
-          <td>$W^T$</td>
-          <td>转置</td>
-          <td>矩阵转置</td>
-      </tr>
-      <tr>
-          <td>$W^{-1}$</td>
-          <td>逆矩阵</td>
-          <td>矩阵求逆</td>
-      </tr>
-      <tr>
-          <td>$\hat{x}$</td>
-          <td>预测值</td>
-          <td>模型输出</td>
-      </tr>
-      <tr>
-          <td>$\tilde{x}$</td>
-          <td>变换后的值</td>
-          <td>候选值</td>
-      </tr>
-      <tr>
-          <td>$x'$</td>
-          <td>导数或变体</td>
-          <td>$f&rsquo;(x)$</td>
-      </tr>
-      <tr>
-          <td>$x^*$</td>
-          <td>最优值</td>
-          <td>$\theta^*$</td>
-      </tr>
-      <tr>
-          <td>$\bar{x}$</td>
-          <td>平均值</td>
-          <td>样本均值</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<p>下一篇：<a href="/posts/2025/math-learn/2025-math-02-core-formulas/">【AI数学速成02】30分钟拆解AI核心公式</a></p>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://blog.zhangky.com/tags/%E7%AC%94%E8%AE%B0/">笔记</a></li>
-      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
-    </ul>
-<nav class="paginav">
-  <a class="prev" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-02-core-formulas/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>【AI数学】30分钟拆解AI核心公式-复习笔记</span>
-  </a>
-  <a class="next" href="https://blog.zhangky.com/posts/2025/2025-01-ai-medical/">
-    <span class="title">Next »</span>
-    <br>
-    <span>AI医疗：99%的准确率在实验室，95%的准确率在村寨</span>
-  </a>
-</nav>
-
-
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<style>
-   
-  .mermaid {
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 95%;
-    overflow-x: auto;
-  }
-  
-   
-  .mermaid > svg {
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-  
-   
-  .mermaid flowchart {
-    width: 100%;
-  }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>
-  
-  window.mermaidConfig = {
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis',
-      width: '100%',
-      height: 'auto'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
-  };
-  
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    var codeBlocks = document.querySelectorAll('code.language-mermaid');
-    
-    
-    codeBlocks.forEach(function(codeBlock) {
-      var preBlock = codeBlock.parentNode;
-      var mermaidCode = codeBlock.textContent;
-      
-      
-      var mermaidContainer = document.createElement('div');
-      mermaidContainer.className = 'mermaid';
-      mermaidContainer.textContent = mermaidCode;
-      
-      
-      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
-    });
-    
-    
-    mermaid.initialize(window.mermaidConfig);
-  });
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-</body>
-
-</html>
+$$\mathbb{E}[X] = \int x \cdot p(x) dx \quad \text{（连续）}$$</p><p><strong>论文中常见形式</strong>：</p><ul><li>损失函数：$L = \mathbb{E}_{x \sim D}[\ell(f(x), y)]$（在数据分布上的期望损失）</li><li>RLHF：$\mathbb{E}_{y \sim \pi}[r(y)]$（策略产生输出的期望奖励）</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 离散期望</span>
+</span></span><span class=line><span class=cl><span class=n>values</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>probs</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mf>0.2</span><span class=p>,</span> <span class=mf>0.3</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>expectation</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>sum</span><span class=p>(</span><span class=n>values</span> <span class=o>*</span> <span class=n>probs</span><span class=p>)</span>  <span class=c1># 1*0.2 + 2*0.3 + 3*0.5 = 2.3</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 蒙特卡洛估计（采样近似期望）</span>
+</span></span><span class=line><span class=cl><span class=n>samples</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>choice</span><span class=p>(</span><span class=n>values</span><span class=p>,</span> <span class=n>size</span><span class=o>=</span><span class=mi>10000</span><span class=p>,</span> <span class=n>p</span><span class=o>=</span><span class=n>probs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>mc_expectation</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>mean</span><span class=p>(</span><span class=n>samples</span><span class=p>)</span>  <span class=c1># 约等于2.3</span>
+</span></span></code></pre></div><hr><h3 id=33-高斯分布-mathcalnmu-sigma2>3.3 高斯分布 $\mathcal{N}(\mu, \sigma^2)$<a hidden class=anchor aria-hidden=true href=#33-高斯分布-mathcalnmu-sigma2>#</a></h3><p><strong>读法</strong>：Normal distribution with mean mu and variance sigma squared</p><p><strong>含义</strong>：正态分布，最常见的连续概率分布</p><p><strong>公式</strong>：
+$$p(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$$</p><p><strong>论文中常见形式</strong>：</p><ul><li>VAE编码器：$q(z|x) = \mathcal{N}(\mu(x), \sigma^2(x))$</li><li>重参数化：$z = \mu + \sigma \cdot \epsilon, \quad \epsilon \sim \mathcal{N}(0, 1)$</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 从高斯分布采样</span>
+</span></span><span class=line><span class=cl><span class=n>mu</span><span class=p>,</span> <span class=n>sigma</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=n>samples</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>normal</span><span class=p>(</span><span class=n>mu</span><span class=p>,</span> <span class=n>sigma</span><span class=p>,</span> <span class=n>size</span><span class=o>=</span><span class=mi>1000</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 重参数化技巧（VAE中常用）</span>
+</span></span><span class=line><span class=cl><span class=n>mu</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mf>1.0</span><span class=p>,</span> <span class=mf>2.0</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>sigma</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.3</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>epsilon</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>normal</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=n>size</span><span class=o>=</span><span class=n>mu</span><span class=o>.</span><span class=n>shape</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>z</span> <span class=o>=</span> <span class=n>mu</span> <span class=o>+</span> <span class=n>sigma</span> <span class=o>*</span> <span class=n>epsilon</span>  <span class=c1># 可微分的采样</span>
+</span></span></code></pre></div><hr><h2 id=四微积分符号>四、微积分符号<a hidden class=anchor aria-hidden=true href=#四微积分符号>#</a></h2><h3 id=41-偏导数-fracpartialpartial-x>4.1 偏导数 $\frac{\partial}{\partial x}$<a hidden class=anchor aria-hidden=true href=#41-偏导数-fracpartialpartial-x>#</a></h3><p><strong>读法</strong>：partial derivative with respect to x</p><p><strong>含义</strong>：函数对某个变量的变化率（其他变量固定）</p><p><strong>论文中常见形式</strong>：</p><ul><li>梯度计算：$\frac{\partial L}{\partial W}$（损失对权重的偏导）</li><li>链式法则：$\frac{\partial L}{\partial x} = \frac{\partial L}{\partial y} \cdot \frac{\partial y}{\partial x}$</li></ul><p><strong>Python实现（PyTorch自动微分）</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 定义变量（需要梯度）</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>tensor</span><span class=p>([</span><span class=mf>2.0</span><span class=p>],</span> <span class=n>requires_grad</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>y</span> <span class=o>=</span> <span class=n>x</span> <span class=o>**</span> <span class=mi>2</span>  <span class=c1># y = x^2</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 计算梯度</span>
+</span></span><span class=line><span class=cl><span class=n>y</span><span class=o>.</span><span class=n>backward</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>x</span><span class=o>.</span><span class=n>grad</span><span class=p>)</span>  <span class=c1># tensor([4.])，即 dy/dx = 2x = 4</span>
+</span></span></code></pre></div><hr><h3 id=42-梯度-nabla>4.2 梯度 $\nabla$<a hidden class=anchor aria-hidden=true href=#42-梯度-nabla>#</a></h3><p><strong>读法</strong>：nabla，或gradient</p><p><strong>含义</strong>：所有偏导数组成的向量</p><p><strong>公式</strong>：
+$$\nabla_\theta L = \left[\frac{\partial L}{\partial \theta_1}, \frac{\partial L}{\partial \theta_2}, \ldots\right]$$</p><p><strong>论文中常见形式</strong>：</p><ul><li>梯度下降：$\theta \leftarrow \theta - \eta \nabla_\theta L$</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 多变量函数的梯度</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>tensor</span><span class=p>([</span><span class=mf>1.0</span><span class=p>,</span> <span class=mf>2.0</span><span class=p>,</span> <span class=mf>3.0</span><span class=p>],</span> <span class=n>requires_grad</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>y</span> <span class=o>=</span> <span class=p>(</span><span class=n>x</span> <span class=o>**</span> <span class=mi>2</span><span class=p>)</span><span class=o>.</span><span class=n>sum</span><span class=p>()</span>  <span class=c1># y = x1^2 + x2^2 + x3^2</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>y</span><span class=o>.</span><span class=n>backward</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>x</span><span class=o>.</span><span class=n>grad</span><span class=p>)</span>  <span class=c1># tensor([2., 4., 6.])，即 [2x1, 2x2, 2x3]</span>
+</span></span></code></pre></div><hr><h2 id=五常见函数>五、常见函数<a hidden class=anchor aria-hidden=true href=#五常见函数>#</a></h2><h3 id=51-sigmoid-sigmax>5.1 Sigmoid $\sigma(x)$<a hidden class=anchor aria-hidden=true href=#51-sigmoid-sigmax>#</a></h3><p><strong>公式</strong>：
+$$\sigma(x) = \frac{1}{1 + e^{-x}}$$</p><p><strong>含义</strong>：把任意实数压缩到(0, 1)区间，常用于门控机制</p><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>sigmoid</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>1</span> <span class=o>/</span> <span class=p>(</span><span class=mi>1</span> <span class=o>+</span> <span class=n>np</span><span class=o>.</span><span class=n>exp</span><span class=p>(</span><span class=o>-</span><span class=n>x</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 或使用scipy</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>scipy.special</span> <span class=kn>import</span> <span class=n>expit</span>
+</span></span><span class=line><span class=cl><span class=n>result</span> <span class=o>=</span> <span class=n>expit</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>  <span class=c1># 0.5</span>
+</span></span></code></pre></div><hr><h3 id=52-tanh-tanhx>5.2 Tanh $\tanh(x)$<a hidden class=anchor aria-hidden=true href=#52-tanh-tanhx>#</a></h3><p><strong>公式</strong>：
+$$\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$$</p><p><strong>含义</strong>：把任意实数压缩到(-1, 1)区间</p><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>result</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>tanh</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>  <span class=c1># 0.0</span>
+</span></span><span class=line><span class=cl><span class=n>result</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>tanh</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>  <span class=c1># 约0.76</span>
+</span></span></code></pre></div><hr><h3 id=53-relu>5.3 ReLU<a hidden class=anchor aria-hidden=true href=#53-relu>#</a></h3><p><strong>公式</strong>：
+$$\text{ReLU}(x) = \max(0, x)$$</p><p><strong>含义</strong>：负数变0，正数不变。最常用的激活函数</p><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>relu</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>np</span><span class=o>.</span><span class=n>maximum</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>result</span> <span class=o>=</span> <span class=n>relu</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>  <span class=c1># [0, 0, 1, 2]</span>
+</span></span></code></pre></div><hr><h3 id=54-softmax>5.4 Softmax<a hidden class=anchor aria-hidden=true href=#54-softmax>#</a></h3><p><strong>公式</strong>：
+$$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}}$$</p><p><strong>含义</strong>：把一组数转换为概率分布（和为1）</p><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>softmax</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>exp_x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>exp</span><span class=p>(</span><span class=n>x</span> <span class=o>-</span> <span class=n>np</span><span class=o>.</span><span class=n>max</span><span class=p>(</span><span class=n>x</span><span class=p>))</span>  <span class=c1># 减max防止溢出</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>exp_x</span> <span class=o>/</span> <span class=n>exp_x</span><span class=o>.</span><span class=n>sum</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>probs</span> <span class=o>=</span> <span class=n>softmax</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>  <span class=c1># [0.09, 0.24, 0.67]</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>probs</span><span class=o>.</span><span class=n>sum</span><span class=p>())</span>  <span class=c1># 1.0</span>
+</span></span></code></pre></div><hr><h2 id=六集合与逻辑符号>六、集合与逻辑符号<a hidden class=anchor aria-hidden=true href=#六集合与逻辑符号>#</a></h2><h3 id=61-属于-in>6.1 属于 $\in$<a hidden class=anchor aria-hidden=true href=#61-属于-in>#</a></h3><p><strong>读法</strong>：belongs to，或in</p><p><strong>含义</strong>：元素属于某个集合</p><p><strong>论文中常见形式</strong>：</p><ul><li>$x \in \mathbb{R}^d$（x是d维实数向量）</li><li>$w \in V$（w是词表V中的词）</li></ul><hr><h3 id=62-对所有-forall>6.2 对所有 $\forall$<a hidden class=anchor aria-hidden=true href=#62-对所有-forall>#</a></h3><p><strong>读法</strong>：for all</p><p><strong>含义</strong>：对于所有的&mldr;</p><p><strong>论文中常见形式</strong>：</p><ul><li>$\forall i \in {1, \ldots, n}$（对于所有i从1到n）</li></ul><hr><h3 id=63-存在-exists>6.3 存在 $\exists$<a hidden class=anchor aria-hidden=true href=#63-存在-exists>#</a></h3><p><strong>读法</strong>：there exists</p><p><strong>含义</strong>：存在某个&mldr;</p><hr><h3 id=64-argmax--argmin>6.4 argmax / argmin<a hidden class=anchor aria-hidden=true href=#64-argmax--argmin>#</a></h3><p><strong>公式</strong>：
+$$\arg\max_x f(x) = \text{使} f(x) \text{最大的} x \text{值}$$</p><p><strong>论文中常见形式</strong>：</p><ul><li>预测：$\hat{y} = \arg\max_y P(y|x)$（选择概率最大的类别）</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>scores</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mf>0.1</span><span class=p>,</span> <span class=mf>0.7</span><span class=p>,</span> <span class=mf>0.2</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>best_idx</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>argmax</span><span class=p>(</span><span class=n>scores</span><span class=p>)</span>  <span class=c1># 1</span>
+</span></span><span class=line><span class=cl><span class=n>best_value</span> <span class=o>=</span> <span class=n>scores</span><span class=p>[</span><span class=n>best_idx</span><span class=p>]</span>  <span class=c1># 0.7</span>
+</span></span></code></pre></div><hr><h2 id=七积分符号>七、积分符号<a hidden class=anchor aria-hidden=true href=#七积分符号>#</a></h2><h3 id=71-积分-int>7.1 积分 $\int$<a hidden class=anchor aria-hidden=true href=#71-积分-int>#</a></h3><p><strong>读法</strong>：integral</p><p><strong>含义</strong>：连续版本的求和，计算曲线下的面积</p><p><strong>公式示例</strong>：
+$$\int_a^b f(x) dx$$</p><p><strong>论文中常见形式</strong>：</p><ul><li>连续期望：$\mathbb{E}[X] = \int x \cdot p(x) dx$</li><li>信息熵：$H(X) = -\int p(x) \log p(x) dx$</li><li>KL散度：$D_{KL}(P | Q) = \int p(x) \log \frac{p(x)}{q(x)} dx$</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>scipy</span> <span class=kn>import</span> <span class=n>integrate</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 数值积分</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>f</span><span class=p>(</span><span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>x</span> <span class=o>**</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>result</span><span class=p>,</span> <span class=n>error</span> <span class=o>=</span> <span class=n>integrate</span><span class=o>.</span><span class=n>quad</span><span class=p>(</span><span class=n>f</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>  <span class=c1># ∫x²dx from 0 to 1 = 1/3</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;积分结果: </span><span class=si>{</span><span class=n>result</span><span class=si>:</span><span class=s2>.4f</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>  <span class=c1># 0.3333</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 蒙特卡洛积分（高维常用）</span>
+</span></span><span class=line><span class=cl><span class=n>samples</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>uniform</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>10000</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>mc_result</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>mean</span><span class=p>(</span><span class=n>samples</span> <span class=o>**</span> <span class=mi>2</span><span class=p>)</span>  <span class=c1># 约0.333</span>
+</span></span></code></pre></div><hr><h2 id=八信息论符号>八、信息论符号<a hidden class=anchor aria-hidden=true href=#八信息论符号>#</a></h2><h3 id=81-信息熵-hx>8.1 信息熵 $H(X)$<a hidden class=anchor aria-hidden=true href=#81-信息熵-hx>#</a></h3><p><strong>读法</strong>：entropy of X</p><p><strong>含义</strong>：衡量随机变量的不确定性/信息量</p><p><strong>公式</strong>：
+$$H(X) = -\sum_x P(x) \log P(x)$$</p><p><strong>论文中常见形式</strong>：</p><ul><li>MDL原理：最小化描述长度</li><li>复杂度度量：系统的信息熵</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>entropy</span><span class=p>(</span><span class=n>p</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;计算离散分布的熵&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>p</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>clip</span><span class=p>(</span><span class=n>p</span><span class=p>,</span> <span class=mf>1e-10</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>  <span class=c1># 避免log(0)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=o>-</span><span class=n>np</span><span class=o>.</span><span class=n>sum</span><span class=p>(</span><span class=n>p</span> <span class=o>*</span> <span class=n>np</span><span class=o>.</span><span class=n>log2</span><span class=p>(</span><span class=n>p</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 示例</span>
+</span></span><span class=line><span class=cl><span class=n>p_uniform</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mf>0.25</span><span class=p>,</span> <span class=mf>0.25</span><span class=p>,</span> <span class=mf>0.25</span><span class=p>,</span> <span class=mf>0.25</span><span class=p>])</span>  <span class=c1># 均匀分布</span>
+</span></span><span class=line><span class=cl><span class=n>p_peaked</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mf>0.9</span><span class=p>,</span> <span class=mf>0.05</span><span class=p>,</span> <span class=mf>0.03</span><span class=p>,</span> <span class=mf>0.02</span><span class=p>])</span>    <span class=c1># 集中分布</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;均匀分布熵: </span><span class=si>{</span><span class=n>entropy</span><span class=p>(</span><span class=n>p_uniform</span><span class=p>)</span><span class=si>:</span><span class=s2>.2f</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>  <span class=c1># 2.0 (最大)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;集中分布熵: </span><span class=si>{</span><span class=n>entropy</span><span class=p>(</span><span class=n>p_peaked</span><span class=p>)</span><span class=si>:</span><span class=s2>.2f</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>   <span class=c1># 0.57 (较小)</span>
+</span></span></code></pre></div><hr><h3 id=82-互信息-ix-y>8.2 互信息 $I(X; Y)$<a hidden class=anchor aria-hidden=true href=#82-互信息-ix-y>#</a></h3><p><strong>读法</strong>：mutual information between X and Y</p><p><strong>含义</strong>：X和Y共享的信息量</p><p><strong>公式</strong>：
+$$I(X; Y) = H(X) + H(Y) - H(X, Y)$$</p><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>sklearn.metrics</span> <span class=kn>import</span> <span class=n>mutual_info_score</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 离散变量的互信息</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>2</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>y</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>mi</span> <span class=o>=</span> <span class=n>mutual_info_score</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;互信息: </span><span class=si>{</span><span class=n>mi</span><span class=si>:</span><span class=s2>.4f</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span></code></pre></div><hr><h2 id=九特殊数学符号>九、特殊数学符号<a hidden class=anchor aria-hidden=true href=#九特殊数学符号>#</a></h2><h3 id=91-实数集-mathbbr>9.1 实数集 $\mathbb{R}$<a hidden class=anchor aria-hidden=true href=#91-实数集-mathbbr>#</a></h3><p><strong>读法</strong>：real numbers</p><p><strong>含义</strong>：所有实数的集合</p><p><strong>论文中常见形式</strong>：</p><ul><li>$x \in \mathbb{R}^d$：x是d维实数向量</li><li>$W \in \mathbb{R}^{m \times n}$：W是m行n列的实数矩阵</li></ul><hr><h3 id=92-约等于-approx>9.2 约等于 $\approx$<a hidden class=anchor aria-hidden=true href=#92-约等于-approx>#</a></h3><p><strong>读法</strong>：approximately equal to</p><p><strong>含义</strong>：近似相等</p><p><strong>论文中常见形式</strong>：</p><ul><li>$\pi \approx 3.14$</li><li>近似公式：$\log(1+x) \approx x$（当x很小时）</li></ul><hr><h3 id=93-正比于-propto>9.3 正比于 $\propto$<a hidden class=anchor aria-hidden=true href=#93-正比于-propto>#</a></h3><p><strong>读法</strong>：proportional to</p><p><strong>含义</strong>：成正比，忽略常数因子</p><p><strong>论文中常见形式</strong>：</p><ul><li>贝叶斯：$P(\theta|D) \propto P(D|\theta) P(\theta)$</li></ul><hr><h3 id=94-下取整上取整-lfloor-cdot-rfloor--lceil-cdot-rceil>9.4 下取整/上取整 $\lfloor \cdot \rfloor$ / $\lceil \cdot \rceil$<a hidden class=anchor aria-hidden=true href=#94-下取整上取整-lfloor-cdot-rfloor--lceil-cdot-rceil>#</a></h3><p><strong>读法</strong>：floor / ceiling</p><p><strong>含义</strong>：向下/向上取整</p><p><strong>论文中常见形式</strong>：</p><ul><li>卷积输出尺寸：$H_{out} = \lfloor \frac{H_{in} + 2p - k}{s} \rfloor + 1$</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=mf>3.7</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>floor</span><span class=p>(</span><span class=n>x</span><span class=p>))</span>  <span class=c1># 3.0 (下取整)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>ceil</span><span class=p>(</span><span class=n>x</span><span class=p>))</span>   <span class=c1># 4.0 (上取整)</span>
+</span></span></code></pre></div><hr><h3 id=95-最小最大-min--max>9.5 最小/最大 $\min$ / $\max$<a hidden class=anchor aria-hidden=true href=#95-最小最大-min--max>#</a></h3><p><strong>公式</strong>：
+$$\min_x f(x) = \text{使} f(x) \text{最小的值}$$</p><p><strong>论文中常见形式</strong>：</p><ul><li>损失最小化：$\min_\theta L(\theta)$</li><li>对抗训练：$\min_G \max_D V(D, G)$（GAN）</li></ul><p><strong>Python实现</strong>：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>([</span><span class=mi>3</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>5</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>min</span><span class=p>(</span><span class=n>x</span><span class=p>))</span>  <span class=c1># 1</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>max</span><span class=p>(</span><span class=n>x</span><span class=p>))</span>  <span class=c1># 5</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>argmin</span><span class=p>(</span><span class=n>x</span><span class=p>))</span>  <span class=c1># 1 (最小值的索引)</span>
+</span></span></code></pre></div><hr><h2 id=十下标与上标约定>十、下标与上标约定<a hidden class=anchor aria-hidden=true href=#十下标与上标约定>#</a></h2><table><thead><tr><th>符号</th><th>含义</th><th>示例</th></tr></thead><tbody><tr><td>$x_i$</td><td>第i个元素</td><td>$x_1, x_2, \ldots$</td></tr><tr><td>$x_t$</td><td>时刻t的值</td><td>序列中第t步</td></tr><tr><td>$x^{(l)}$</td><td>第l层的值</td><td>神经网络第l层</td></tr><tr><td>$W^T$</td><td>转置</td><td>矩阵转置</td></tr><tr><td>$W^{-1}$</td><td>逆矩阵</td><td>矩阵求逆</td></tr><tr><td>$x&rsquo;$ 或 $\hat{x}$</td><td>变换后/预测值</td><td>预测输出</td></tr></tbody></table><hr><h2 id=完整符号速查表>完整符号速查表<a hidden class=anchor aria-hidden=true href=#完整符号速查表>#</a></h2><h3 id=基础运算符号>基础运算符号<a hidden class=anchor aria-hidden=true href=#基础运算符号>#</a></h3><table><thead><tr><th>符号</th><th>读法</th><th>含义</th><th>Python</th></tr></thead><tbody><tr><td>$\sum$</td><td>sigma</td><td>求和</td><td><code>np.sum()</code></td></tr><tr><td>$\prod$</td><td>pi</td><td>连乘</td><td><code>np.prod()</code></td></tr><tr><td>$\int$</td><td>integral</td><td>积分</td><td><code>scipy.integrate.quad()</code></td></tr><tr><td>$\min$ / $\max$</td><td>min / max</td><td>最小/最大值</td><td><code>np.min()</code> / <code>np.max()</code></td></tr><tr><td>$\arg\max$ / $\arg\min$</td><td>argmax / argmin</td><td>最值索引</td><td><code>np.argmax()</code> / <code>np.argmin()</code></td></tr><tr><td>$\lfloor x \rfloor$ / $\lceil x \rceil$</td><td>floor / ceiling</td><td>下取整/上取整</td><td><code>np.floor()</code> / <code>np.ceil()</code></td></tr></tbody></table><h3 id=向量与矩阵符号>向量与矩阵符号<a hidden class=anchor aria-hidden=true href=#向量与矩阵符号>#</a></h3><table><thead><tr><th>符号</th><th>读法</th><th>含义</th><th>Python</th></tr></thead><tbody><tr><td>$\vec{v}$ / $\mathbf{v}$</td><td>vector v</td><td>向量</td><td><code>np.array([...])</code></td></tr><tr><td>$W$</td><td>matrix W</td><td>矩阵</td><td><code>np.array([[...]])</code></td></tr><tr><td>$W^T$</td><td>W transpose</td><td>转置</td><td><code>W.T</code></td></tr><tr><td>$W^{-1}$</td><td>W inverse</td><td>逆矩阵</td><td><code>np.linalg.inv(W)</code></td></tr><tr><td>$|x|$ / $|x|_2$</td><td>norm</td><td>L2范数</td><td><code>np.linalg.norm(x)</code></td></tr><tr><td>$|x|_1$</td><td>L1 norm</td><td>L1范数</td><td><code>np.linalg.norm(x, ord=1)</code></td></tr><tr><td>$|W|_F$</td><td>Frobenius norm</td><td>F范数</td><td><code>np.linalg.norm(W, 'fro')</code></td></tr><tr><td>$\odot$</td><td>hadamard</td><td>逐元素乘</td><td><code>a * b</code></td></tr><tr><td>$[h; x]$ / $[h, x]$</td><td>concatenate</td><td>向量拼接</td><td><code>np.concatenate([h, x])</code></td></tr><tr><td>$\cdot$ / $@$</td><td>dot product</td><td>矩阵乘法</td><td><code>A @ B</code> 或 <code>np.dot(A, B)</code></td></tr></tbody></table><h3 id=概率与统计符号>概率与统计符号<a hidden class=anchor aria-hidden=true href=#概率与统计符号>#</a></h3><table><thead><tr><th>符号</th><th>读法</th><th>含义</th><th>Python</th></tr></thead><tbody><tr><td>$P(\cdot)$</td><td>probability</td><td>概率</td><td>-</td></tr><tr><td>$P(y|x)$</td><td>conditional prob</td><td>条件概率</td><td>-</td></tr><tr><td>$p(\cdot)$</td><td>density</td><td>概率密度</td><td>-</td></tr><tr><td>$\mathbb{E}[\cdot]$</td><td>expectation</td><td>期望</td><td><code>np.mean()</code></td></tr><tr><td>$\text{Var}(\cdot)$</td><td>variance</td><td>方差</td><td><code>np.var()</code></td></tr><tr><td>$\mathcal{N}(\mu, \sigma^2)$</td><td>normal</td><td>高斯分布</td><td><code>np.random.normal(mu, sigma)</code></td></tr><tr><td>$\sim$</td><td>distributed as</td><td>服从分布</td><td>-</td></tr><tr><td>$H(X)$</td><td>entropy</td><td>信息熵</td><td><code>-np.sum(p * np.log(p))</code></td></tr><tr><td>$I(X; Y)$</td><td>mutual info</td><td>互信息</td><td><code>sklearn.metrics.mutual_info_score()</code></td></tr><tr><td>$D_{KL}$</td><td>KL divergence</td><td>KL散度</td><td>见第二篇</td></tr></tbody></table><h3 id=微积分符号>微积分符号<a hidden class=anchor aria-hidden=true href=#微积分符号>#</a></h3><table><thead><tr><th>符号</th><th>读法</th><th>含义</th><th>Python</th></tr></thead><tbody><tr><td>$\frac{\partial}{\partial x}$</td><td>partial</td><td>偏导数</td><td><code>tensor.backward()</code></td></tr><tr><td>$\nabla$</td><td>nabla / gradient</td><td>梯度</td><td><code>tensor.grad</code></td></tr><tr><td>$\frac{d}{dx}$</td><td>derivative</td><td>导数</td><td><code>torch.autograd.grad()</code></td></tr></tbody></table><h3 id=激活函数>激活函数<a hidden class=anchor aria-hidden=true href=#激活函数>#</a></h3><table><thead><tr><th>符号</th><th>公式</th><th>Python</th></tr></thead><tbody><tr><td>$\sigma(x)$</td><td>$\frac{1}{1+e^{-x}}$</td><td><code>1/(1+np.exp(-x))</code></td></tr><tr><td>$\tanh(x)$</td><td>$\frac{e^x-e^{-x}}{e^x+e^{-x}}$</td><td><code>np.tanh(x)</code></td></tr><tr><td>$\text{ReLU}(x)$</td><td>$\max(0, x)$</td><td><code>np.maximum(0, x)</code></td></tr><tr><td>$\text{softmax}(x)$</td><td>$\frac{e^{x_i}}{\sum_j e^{x_j}}$</td><td>见第二篇</td></tr><tr><td>$\text{GELU}(x)$</td><td>$x \cdot \Phi(x)$</td><td><code>torch.nn.GELU()</code></td></tr></tbody></table><h3 id=集合与逻辑符号>集合与逻辑符号<a hidden class=anchor aria-hidden=true href=#集合与逻辑符号>#</a></h3><table><thead><tr><th>符号</th><th>读法</th><th>含义</th></tr></thead><tbody><tr><td>$\in$</td><td>in / belongs to</td><td>属于</td></tr><tr><td>$\notin$</td><td>not in</td><td>不属于</td></tr><tr><td>$\subset$</td><td>subset</td><td>子集</td></tr><tr><td>$\forall$</td><td>for all</td><td>对所有</td></tr><tr><td>$\exists$</td><td>exists</td><td>存在</td></tr><tr><td>$\mathbb{R}$</td><td>real numbers</td><td>实数集</td></tr><tr><td>$\mathbb{R}^d$</td><td>R to the d</td><td>d维实数空间</td></tr><tr><td>$\mathbb{Z}$</td><td>integers</td><td>整数集</td></tr></tbody></table><h3 id=关系符号>关系符号<a hidden class=anchor aria-hidden=true href=#关系符号>#</a></h3><table><thead><tr><th>符号</th><th>读法</th><th>含义</th></tr></thead><tbody><tr><td>$\approx$</td><td>approximately</td><td>约等于</td></tr><tr><td>$\propto$</td><td>proportional to</td><td>正比于</td></tr><tr><td>$\equiv$</td><td>equivalent</td><td>恒等于</td></tr><tr><td>$\leq$ / $\geq$</td><td>less/greater or equal</td><td>小于等于/大于等于</td></tr><tr><td>$\ll$ / $\gg$</td><td>much less/greater</td><td>远小于/远大于</td></tr></tbody></table><h3 id=下标与上标约定>下标与上标约定<a hidden class=anchor aria-hidden=true href=#下标与上标约定>#</a></h3><table><thead><tr><th>符号</th><th>含义</th><th>示例</th></tr></thead><tbody><tr><td>$x_i$</td><td>第i个元素</td><td>$x_1, x_2, \ldots$</td></tr><tr><td>$x_t$</td><td>时刻t的值</td><td>序列中第t步</td></tr><tr><td>$x^{(l)}$</td><td>第l层的值</td><td>神经网络第l层</td></tr><tr><td>$W^T$</td><td>转置</td><td>矩阵转置</td></tr><tr><td>$W^{-1}$</td><td>逆矩阵</td><td>矩阵求逆</td></tr><tr><td>$\hat{x}$</td><td>预测值</td><td>模型输出</td></tr><tr><td>$\tilde{x}$</td><td>变换后的值</td><td>候选值</td></tr><tr><td>$x'$</td><td>导数或变体</td><td>$f&rsquo;(x)$</td></tr><tr><td>$x^*$</td><td>最优值</td><td>$\theta^*$</td></tr><tr><td>$\bar{x}$</td><td>平均值</td><td>样本均值</td></tr></tbody></table><hr><p>下一篇：<a href=/posts/2025/math-learn/2025-math-02-core-formulas/>【AI数学速成02】30分钟拆解AI核心公式</a></p></div><footer class=post-footer><ul class=post-tags><li><a href=https://blog.zhangky.com/tags/%E7%AC%94%E8%AE%B0/>笔记</a></li><li><a href=https://blog.zhangky.com/tags/ai/>AI</a></li></ul><nav class=paginav><a class=prev href=https://blog.zhangky.com/posts/2025/math-learn/2025-math-02-core-formulas/><span class=title>« Prev</span><br><span>【AI数学】30分钟拆解AI核心公式-复习笔记</span>
+</a><a class=next href=https://blog.zhangky.com/posts/2025/2025-01-ai-medical/><span class=title>Next »</span><br><span>AI医疗：99%的准确率在实验室，95%的准确率在村寨</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
