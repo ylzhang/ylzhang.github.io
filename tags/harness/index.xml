@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Harness on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/harness/</link>
+    <description>Recent content in Harness on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.160.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 14 May 2026 11:18:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/harness/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>智能体：AI 时代的操作系统级入口</title>
+      <link>https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/</link>
+      <pubDate>Thu, 14 May 2026 11:18:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;核心观点&lt;/strong&gt;：李彦宏提出的 DAA（日活智能体数）指标，标志着 AI 时代的入口迁移已经开始。智能体不是独立软件，而是 AI 操作系统——比拼的不是裸模型，而是模型+Harness+ 工具链的整套系统。智能体的使命，就是成为这个操作系统的统一调度者，让不同领域的智能体能够互联互通、协同工作，最终成为 AI 时代的中心化入口。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;一daa衡量-ai-时代繁荣度的新指标&#34;&gt;一、DAA：衡量 AI 时代繁荣度的新指标&lt;/h2&gt;
+&lt;p&gt;李彦宏在 Create AI 大会上提出的 DAA 指标，值得深入思考：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;过去互联网时代，大家习惯用 DAU 衡量有多少人在使用产品。但到了 AI 时代，真正重要的事情开始变成，有多少智能体正在替人类干活。&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;DAA 本质上衡量的是：智能体生态到底繁不繁荣，AI 有没有真正开始介入真实世界。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这背后有三个关键判断：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;每个技术时代都会出现中心化入口&lt;/strong&gt;：PC 时代是搜索，Mobile 时代是超级 App，AI 时代是智能体&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能体入口之争已经开始&lt;/strong&gt;：百度、Google、OpenAI 都在下重注&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;移动端是关键&lt;/strong&gt;：谁占据手机屏幕，谁就更有机会成为入口——移动端让智能体真正实现 7×24 小时可用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;二从-tools-到-teammates范式的本质跃迁&#34;&gt;二、从 Tools 到 Teammates：范式的本质跃迁&lt;/h2&gt;
+&lt;p&gt;整个行业的共识正在形成：&lt;strong&gt;AI 正在从 Tools 走向 Teammates&lt;/strong&gt;。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;对比维度&lt;/th&gt;
+          &lt;th&gt;ChatBot 时代&lt;/th&gt;
+          &lt;th&gt;智能体时代&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;核心逻辑&lt;/td&gt;
+          &lt;td&gt;工具逻辑&lt;/td&gt;
+          &lt;td&gt;数字劳动力逻辑&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;用户体验&lt;/td&gt;
+          &lt;td&gt;问问题→直接给答案&lt;/td&gt;
+          &lt;td&gt;说需求→端到端完成&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;典型场景&lt;/td&gt;
+          &lt;td&gt;信息查询、知识问答&lt;/td&gt;
+          &lt;td&gt;PDF 转文档、订机票、做 PPT&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;关键差异&lt;/strong&gt;在于：智能体能主动感知环境、规划任务、调用工具、处理异常，最终完成交付。就像百度 DuMate 能自动判断雪球是否需要登录，然后选择合适的 Skill 完成任务。&lt;/p&gt;
+&lt;p&gt;这种体验会深入用户心智。一旦形成习惯，&lt;strong&gt;谁拿到这个入口，谁就是王者&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三智能体是操作系统不是独立软件&#34;&gt;三、智能体是操作系统，不是独立软件&lt;/h2&gt;
+&lt;p&gt;这是百度最深刻的洞察之一：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;智能体不只是 AI 模型之上的新产品，它更像是 AI 操作系统。&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
