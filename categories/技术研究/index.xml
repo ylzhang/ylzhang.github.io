@@ -18,8 +18,7 @@
       <link>https://blog.zhangky.com/posts/2026/05/2026-05-26-token-api-relay-station-deep-dive/</link>
       <pubDate>Tue, 26 May 2026 08:00:00 +0800</pubDate>
       <guid>https://blog.zhangky.com/posts/2026/05/2026-05-26-token-api-relay-station-deep-dive/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;TOKEN API中转站深度研究：连接红利下的技术逻辑与商业博弈&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/posts/2026/05/token-api-relay-station-deep-dive-cover.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;API中转站的本质是Token经济在AI时代的特殊表现形式——通过破解信息壁垒和准入壁垒，将原本稀缺的计算资源转化为可套利的数字商品。&lt;/p&gt;
+      <description>&lt;p&gt;API中转站的本质是Token经济在AI时代的特殊表现形式——通过破解信息壁垒和准入壁垒，将原本稀缺的计算资源转化为可套利的数字商品。&lt;/p&gt;
 &lt;p&gt;当OpenAI、Anthropic等厂商构建起技术壁垒时，中转站生态正在以轻量技术实现撬动巨大的连接红利。根据CISPA亥姆霍兹信息安全中心2026年3月发布的《真金白银，假冒模型》研究报告，17家被测中转站中有近50%存在模型替换行为，这揭示了行业的核心矛盾：技术门槛低、监管套利空间大、数据安全风险高。本文从Token的本质、技术实现、商业模式、风险评估四个维度展开深度研究，揭示AI与Token之间的逻辑纽带。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;token的本质ai时代的数字货币&#34;&gt;Token的本质：AI时代的数字货币&lt;/h2&gt;
@@ -115,7 +114,8 @@
 &lt;h3 id=&#34;灰色模式暴利操作&#34;&gt;灰色模式：暴利操作&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Web2API逆向&lt;/strong&gt;：就像把ChatGPT Plus的网页界面&amp;quot;扒&amp;quot;下来，做成API接口对外售卖。一个20美元/月的Plus账号，能拆成API卖给几十个人用。&lt;strong&gt;Sub2API拼车&lt;/strong&gt;更有意思，它专门做订阅账号共享，一个账号同时给5-20人用。20美元的订阅费，5个人分摊每人只要4美元，中转站转手卖8美元，净赚100%。这种模式本质是把个人订阅权限当成&amp;quot;批发商品&amp;quot;来卖，成本几乎为零。&lt;/p&gt;
 &lt;h3 id=&#34;黑色模式违法犯罪&#34;&gt;黑色模式：违法犯罪&lt;/h3&gt;
-&lt;p&gt;盗刷信用卡批量注册薅免费额度、模型掉包（Claude标价实际调用国产小模型）、恶意代码注入窃取数据。&lt;/p&gt;</description>
+&lt;p&gt;盗刷信用卡批量注册薅免费额度、模型掉包（Claude标价实际调用国产小模型）、恶意代码注入窃取数据。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;模式对比表&lt;/strong&gt;：&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

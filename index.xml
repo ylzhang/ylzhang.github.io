@@ -18,8 +18,7 @@
       <link>https://blog.zhangky.com/posts/2026/05/2026-05-26-token-api-relay-station-deep-dive/</link>
       <pubDate>Tue, 26 May 2026 08:00:00 +0800</pubDate>
       <guid>https://blog.zhangky.com/posts/2026/05/2026-05-26-token-api-relay-station-deep-dive/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;TOKEN API中转站深度研究：连接红利下的技术逻辑与商业博弈&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/posts/2026/05/token-api-relay-station-deep-dive-cover.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;API中转站的本质是Token经济在AI时代的特殊表现形式——通过破解信息壁垒和准入壁垒，将原本稀缺的计算资源转化为可套利的数字商品。&lt;/p&gt;
+      <description>&lt;p&gt;API中转站的本质是Token经济在AI时代的特殊表现形式——通过破解信息壁垒和准入壁垒，将原本稀缺的计算资源转化为可套利的数字商品。&lt;/p&gt;
 &lt;p&gt;当OpenAI、Anthropic等厂商构建起技术壁垒时，中转站生态正在以轻量技术实现撬动巨大的连接红利。根据CISPA亥姆霍兹信息安全中心2026年3月发布的《真金白银，假冒模型》研究报告，17家被测中转站中有近50%存在模型替换行为，这揭示了行业的核心矛盾：技术门槛低、监管套利空间大、数据安全风险高。本文从Token的本质、技术实现、商业模式、风险评估四个维度展开深度研究，揭示AI与Token之间的逻辑纽带。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;token的本质ai时代的数字货币&#34;&gt;Token的本质：AI时代的数字货币&lt;/h2&gt;
@@ -115,7 +114,8 @@
 &lt;h3 id=&#34;灰色模式暴利操作&#34;&gt;灰色模式：暴利操作&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Web2API逆向&lt;/strong&gt;：就像把ChatGPT Plus的网页界面&amp;quot;扒&amp;quot;下来，做成API接口对外售卖。一个20美元/月的Plus账号，能拆成API卖给几十个人用。&lt;strong&gt;Sub2API拼车&lt;/strong&gt;更有意思，它专门做订阅账号共享，一个账号同时给5-20人用。20美元的订阅费，5个人分摊每人只要4美元，中转站转手卖8美元，净赚100%。这种模式本质是把个人订阅权限当成&amp;quot;批发商品&amp;quot;来卖，成本几乎为零。&lt;/p&gt;
 &lt;h3 id=&#34;黑色模式违法犯罪&#34;&gt;黑色模式：违法犯罪&lt;/h3&gt;
-&lt;p&gt;盗刷信用卡批量注册薅免费额度、模型掉包（Claude标价实际调用国产小模型）、恶意代码注入窃取数据。&lt;/p&gt;</description>
+&lt;p&gt;盗刷信用卡批量注册薅免费额度、模型掉包（Claude标价实际调用国产小模型）、恶意代码注入窃取数据。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;模式对比表&lt;/strong&gt;：&lt;/p&gt;</description>
     </item>
     <item>
       <title>智能体：AI 时代的操作系统级入口</title>
@@ -5452,30 +5452,6 @@ $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;4-区块链&#34;&gt;4. 区块链&lt;/h3&gt;
 &lt;p&gt;所有验证过的区块按时间顺序链接在一起，形成一个不可篡改的区块链。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://blog.zhangky.com/posts/2026/05/token-api-relay-station-deep-dive-cover-prompt/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/05/token-api-relay-station-deep-dive-cover-prompt/</guid>
-      <description>&lt;h1 id=&#34;cover-image-prompt-for-token-api-relay-station-article&#34;&gt;Cover Image Prompt for TOKEN API Relay Station Article&lt;/h1&gt;
-&lt;h2 id=&#34;article-info&#34;&gt;Article Info&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Title: TOKEN API中转站深度研究：连接红利下的技术逻辑与商业博弈&lt;/li&gt;
-&lt;li&gt;Theme: AI API relay stations, Token economy, connection arbitrage, technical implementation, business models, risk assessment&lt;/li&gt;
-&lt;li&gt;Tone: Professional, analytical, insightful&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;visual-concept&#34;&gt;Visual Concept&lt;/h2&gt;
-&lt;p&gt;A modern, tech-inspired illustration showing the concept of API relay stations as a bridge connecting users to AI models across barriers.&lt;/p&gt;
-&lt;h2 id=&#34;prompt-details&#34;&gt;Prompt Details&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;A futuristic digital illustration showing API relay stations as a glowing bridge connecting two worlds. On the left, a Chinese developer icon (silhouette at computer) reaching out towards a wall of barriers (firewall, currency symbols, globe icons). On the right, glowing AI model icons (GPT, Claude, Gemini logos abstracted). In the center, a transparent relay station hub with data streams flowing through it, with floating tokens (digital coins) moving along the data paths. The color scheme blends cool blues and purples with warm gold accents for the tokens. Clean, modern minimalist style with depth and dimensionality. Tech diagram aesthetic but artistic. 16:9 aspect ratio.
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;style&#34;&gt;Style&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Style: Minimalist tech illustration&lt;/li&gt;
-&lt;li&gt;Color: Cool blues, purples, with gold accents&lt;/li&gt;
-&lt;li&gt;Mood: Professional, futuristic, insightful&lt;/li&gt;
-&lt;li&gt;Composition: Central hub connecting two sides&lt;/li&gt;
-&lt;/ul&gt;</description>
     </item>
     <item>
       <title></title>
