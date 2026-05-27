@@ -119,6 +119,39 @@
 &lt;p&gt;这是最高级的模式。中转站将边缘计算的算力资源整合，将不同时段的折扣（如夜间低峰期折扣）整合，实现算力资源和API资源的最大化利用。例如：&lt;/p&gt;</description>
     </item>
     <item>
+      <title>AI-First组织革命：从&#34;信任人&#34;到&#34;信任AI&#34;</title>
+      <link>https://blog.zhangky.com/posts/2026/05/2026-05-25-harness-ai-first-organization/</link>
+      <pubDate>Mon, 25 May 2026 08:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/05/2026-05-25-harness-ai-first-organization/</guid>
+      <description>&lt;h1 id=&#34;harness时代一场从信任人到信任ai的组织革命&#34;&gt;Harness时代：一场从&amp;quot;信任人&amp;quot;到&amp;quot;信任AI&amp;quot;的组织革命&lt;/h1&gt;
+&lt;h2 id=&#34;引言当ai从工具变成主导者&#34;&gt;引言：当AI从工具变成主导者&lt;/h2&gt;
+&lt;p&gt;2026年的春天，硅谷传来一个令技术圈震动的数据：一家25人的公司，99%的代码由AI完成，每天平均3到8次生产部署，过去需要六周的产品开发流程，如今一天就能跑完。这不是科幻，而是CreaoAI在《Why Your &amp;ldquo;AI-First&amp;rdquo; Strategy Is Probably Wrong》中展示的真实案例。&lt;/p&gt;
+&lt;p&gt;这篇博文之所以在X上获得百万级阅读，不是因为它描述了一个美好的愿景，而是因为它撕开了&amp;quot;AI-First&amp;quot;转型中最那道最难跨越的伤疤——&lt;strong&gt;信任&lt;/strong&gt;。不是对AI能力的信任，而是对AI作为生产力主导者的信任，是对整个组织从&amp;quot;人驱动AI&amp;quot;转向&amp;quot;AI驱动人&amp;quot;这一根本性变革的信任。&lt;/p&gt;
+&lt;p&gt;CreaoAI成立于2025年11月，25名员工中只有10名工程师。创始人Peter Pang在2026年1月做出了一个大胆的决定：从零开始重构整个产品架构和工程工作流。两周后，新系统上线。如果产品能够自我构建，它就能work。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一harness-engineering工程团队的首要任务不再是写代码&#34;&gt;一、Harness Engineering：工程团队的首要任务不再是写代码&lt;/h2&gt;
+&lt;h3 id=&#34;从概念到实践openai的定义&#34;&gt;从概念到实践：OpenAI的定义&lt;/h3&gt;
+&lt;p&gt;2026年2月，OpenAI发表了一篇文章，阐述了&amp;quot;Harness Engineering&amp;quot;的概念：Creao其实早就在践行这一理念，只是没有给它命名。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Peter Pang对Harness Engineering的核心定义&lt;/strong&gt;：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;工程团队的首要任务不再是写代码，而是&lt;strong&gt;使Agent能够做有用的工作&lt;/strong&gt;。当某件事失败时，修复方案永远不是&amp;rsquo;再努力试试&amp;rsquo;。修复方案永远是：&lt;strong&gt;缺了什么能力？我们如何让这个能力对Agent可见且可执行？&lt;/strong&gt;&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个定义揭示了Harness的本质：&lt;strong&gt;从&amp;quot;人修复问题&amp;quot;到&amp;quot;系统获得能力&amp;quot;&lt;/strong&gt;。传统思维是&amp;quot;人出了错，人来修&amp;quot;；Harness思维是&amp;quot;系统缺能力，系统补能力&amp;quot;。&lt;/p&gt;
+&lt;h3 id=&#34;从prompt-engineering到harness认知的三次跃迁&#34;&gt;从Prompt Engineering到Harness：认知的三次跃迁&lt;/h3&gt;
+&lt;p&gt;回溯大模型应用的历史，我们经历了三个认知阶段：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一阶段：Prompt Engineering（提示词工程）&lt;/strong&gt;
+这个阶段人们相信，只要写好提示词，AI就能乖乖听话。但prompt的边界太明显——它太依赖人的表达能力和对AI的理解，同样的需求，换一个表述，结果可能天差地别。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二阶段：Context Engineering（上下文工程）&lt;/strong&gt;
+RAG（检索增强生成）技术风靡一时，核心逻辑是&amp;quot;喂给AI足够多、足够准确的上下文&amp;quot;。但上下文是静态的，而AI处理的任务是动态的；上下文是过去的经验，而任务总是面向未知的场景。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第三阶段：Harness Engineering（挽具工程）&lt;/strong&gt;
+Harness不是静态的配套系统，而是&amp;quot;驯化&amp;quot;通用智能的动态过程。&lt;strong&gt;它解决的是如何让一个AI系统从&amp;quot;能干活&amp;quot;进化到&amp;quot;会自我优化&amp;quot;的问题。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;而Harness要做的是，让整个系统成为一个人机共生的生态系统：AI不仅执行任务，还能根据执行结果调整策略；系统不仅能工作，还能识别自身的缺陷并自我修复。&lt;/p&gt;
+&lt;h3 id=&#34;prompts-are-disposable一个反直觉的真相&#34;&gt;&amp;ldquo;Prompts are disposable&amp;rdquo;：一个反直觉的真相&lt;/h3&gt;
+&lt;p&gt;Peter在原文中提到了一个反直觉的观点：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;A production system needs to be stable, reliable, and secure. You need a system that can guarantee those properties when AI writes the code. &lt;strong&gt;You build the system. The prompts are disposable.&lt;/strong&gt;&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>智能体：AI 时代的操作系统级入口</title>
       <link>https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/</link>
       <pubDate>Thu, 14 May 2026 07:18:00 +0800</pubDate>
@@ -5453,6 +5486,57 @@ $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;4-区块链&#34;&gt;4. 区块链&lt;/h3&gt;
 &lt;p&gt;所有验证过的区块按时间顺序链接在一起，形成一个不可篡改的区块链。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://blog.zhangky.com/posts/2026/05/05-27/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/05/05-27/</guid>
+      <description>&lt;p&gt;聊聊Harness时代AI-First的组织架构：从信任人到信任AI
+（点击收听本期音频👆）&lt;/p&gt;
+&lt;p&gt;图片&lt;/p&gt;
+&lt;p&gt;采访｜泓君
+图文｜朱婕&lt;/p&gt;
+&lt;p&gt;图片
+“Harness Engineering”（挽具工程）正在成为硅谷的新共识，Anthropic、OpenAI等公司都在探索这一工程范式。但真正理解Harness的人还不多。前不久，一篇题为《Why Your “AI-First” Strategy Is Probably Wrong》的文章在X上获得百万级阅读和热议，作者是来自硅谷CreaoAI的Peter Pang。在这篇文章里，Peter展示了Harness Agent系统激发出的极致效率：99%的代码由AI完成，每天平均3到8次生产部署，过去六周的产品流程，现在一天就能跑完。
+图片
+本期《硅谷101》播客，主播泓君邀请到Creao的三位创始人，聊聊这家公司对Harness的实践，以及在组织AI-First转型上的深度思考。嘉宾们指出，AI-First不等于“使用AI”，想要把效率提升100倍、1000倍，就不能只把AI当成工具，而要让AI成为所有生产力的主导。组织转型最难跨出的一步在于——是否能让所有员工都能做到信任AI。&lt;/p&gt;
+&lt;p&gt;这场对话中有一些有趣的观察，比如在Creao，市场不用再追着开发提需求，因为开发速度已经远超市场消化能力；当大量对齐工作被AI接管之后，拿掉产品经理，反而让团队效率大幅提升；初级工程师比资深工程师更适应AI时代的转型；尽管过去十年积累的专长正在快速贬值，但资深工程师仍然有竞争力，因为未来的核心竞争力不再是写代码，而是“找到AI Planning的缺陷”和“判断什么是有价值的”。&lt;/p&gt;
+&lt;p&gt;欢迎关注《硅谷101视频号》的音频栏目直接收听本期播客。如果你喜欢我们的节目，更推荐大家使用音频客户端来收听，《硅谷101》已覆盖各大主流音频平台（渠道见文末），欢迎订阅！&lt;/p&gt;
+&lt;p&gt;以下是这次对话内容的精选：&lt;/p&gt;
+&lt;p&gt;01&lt;/p&gt;
+&lt;p&gt;Harness工程详解
+如何把大模型“榨”出极限
+泓君：先请Peter介绍一下，什么是Harness engineering（挽具工程）？&lt;/p&gt;
+&lt;p&gt;Peter：Harness的概念可以追溯到大模型刚开始的时候，很多人在聊prompt engineering（提示词工程），之后演变到context engineering（上下文工程），这时候更多的是聚焦在怎么和大模型本身进行交互。&lt;/p&gt;
+&lt;p&gt;但是对于Harness来讲，我们是在“驯化”一个通用的系统，所以从范围上来讲，它比prompt &amp;amp; context engineering要大很多，涉及到tooling（工具链）的使用，涉及到你的sandbox（沙箱）的架构设计，你的host service（宿主服务）之间是怎么进行交互的？怎么样的交互能够安全？你的sandbox在启动的时间是多少？你的延迟是多少？……这些都是harness的一部分。&lt;/p&gt;
+&lt;p&gt;泓君：可不可以理解成，Harness的工程能力决定了怎么把一个大模型“榨出”最佳使用上限？我记得Kai有提到，一个Agent可以一夜之间干掉三个人做SEO（搜索引擎优化）的工作流；同时还有一个内容流水线，它跑了两天，才有人发现全是垃圾。这两者之间有巨大区别——一个是Harness的胜利，一个是Harness的失败。&lt;/p&gt;
+&lt;p&gt;Peter：我觉得这个完全就印证了为什么我们需要Harness。Harness的本质就是在于，我们怎么能够持续提升一个系统。当你这个系统产生的效果不好的时候，你这个系统是需要人的feedback（反馈）去提升，还是这个系统本身自己能够self healing（自我修复）、self improvement（自我优化），这个正好就是Harness的核心。&lt;/p&gt;
+&lt;p&gt;Harness很重要的一件事情，就是怎么能够让Agent在推理阶段scaling（扩展），包括你怎么能够把更多的上下文、工具链提供给它，让它思考更长的时间，完成一个任务，用一个更长的时间。在这个阶段如果你的Harness做得不好，就很容易产生hallucination（幻觉）或者context overflow（上下文溢出），你的模型能力会降级。所以Harness是一件非常复杂而且需要一些经验的事情。&lt;/p&gt;
+&lt;p&gt;泓君：那今天市场上对Harness有哪些共识和非共识？&lt;/p&gt;
+&lt;p&gt;Peter：很多人认为Harness是静态的，就是开发配套系统发挥LLM优势。但我们认为它是一个动态的过程——你这个系统怎么能够从一个静态的状态真的活起来，能够self-improve（自我优化），能够不停地适配来自市场、产品、用户的各种signal，能够让它不停地、迅速地迭代。我觉得这个是可能很多人还没有意识到的一点。&lt;/p&gt;
+&lt;p&gt;泓君：这个迭代也是以AI为主导的，而不是人为主导的？&lt;/p&gt;
+&lt;p&gt;Peter：对，是以AI为主导的迭代。人所需要做的事情，就是怎么把各种各样的信号feed给AI。&lt;/p&gt;
+&lt;p&gt;02&lt;/p&gt;
+&lt;p&gt;六周变一天
+AI驱动的开发流程有多快？
+泓君：你有一篇很火的推特帖子，讲你们25人的公司，99%的代码由AI写，早上10点写了一个功能，中午就进行了A/B test，下午3点就根据数据的反馈把它砍掉了一部分功能，5点又重写了更好的一个版本。这是一天的工作节奏，在传统的开发产品的过程中，它是需要6周的。这是你们用Harness探索出来的方式。&lt;/p&gt;
+&lt;p&gt;Peter：在我们看来，Harness分为两个部分：一是对Creao自身Agent系统的Harness，二是用户用Creao构建自己Agent时，怎么帮他Harness自己的Agent。传统开发过程中，可能要用两三个月迭代一个功能，现在AI辅助coding只需一两小时实现，如果还用很长时间去设计和测试，就不是很有意义。所以怎么把设计、规划、测试都包含到整个Harness过程中，对公司能不能转型为AI-First至关重要。&lt;/p&gt;
+&lt;p&gt;Clark：我想先跟大家表达一个观点：如果想做到所谓的AI-First或者AI native（AI原生）这样一个状态，它不是在现有流程上去使用AI工具，而是要围绕AI能力重新构建工作流程和组织形态。&lt;/p&gt;
+&lt;p&gt;图片
+图片来源：Peter Pang@intuitiveml&lt;/p&gt;
+&lt;p&gt;我们在之前很长一段时间里，每一个工程师都在用AI写代码，每一个产品经理都在用AI写PRD（产品需求文档），每一个设计师都在用AI做图。但其实这样并没有增加我们的效率，反而导致每一个人的工作进度和节奏不一样之后，我们的alignment（对齐）成本变得非常高，我们还是全部远程办公的状态。&lt;/p&gt;
+&lt;p&gt;所以我们要去重新想，我们到底怎么样才能让AI在公司运营过程中真正地自动化跑起来，才有了Peter设计的一套新的开发流程和架构和新的产品的架构重构，才有了这篇文章里面讲的self-healing（自我修复）的Agent Harness。&lt;/p&gt;
+&lt;p&gt;泓君：可不可以举个例子，你们重塑组织架构时，哪些方向发生了变化？瓶颈在哪里？&lt;/p&gt;
+&lt;p&gt;Peter：首先需要解决人的问题——大家能否接受新工作方式。我们花很多时间对齐mindset（思维模式）。以前做这样一个转型，通常需要一个架构师或工程师花费好几个月来demonstrate（展示）新的工作方式更优，但这个转型成本就很大。&lt;/p&gt;
+&lt;p&gt;现在在AI辅助下，这个过程就会快很多，可能只需要一两周把整个系统，包括前端、后端、架构、基础设施，都进行重构，然后给大家展示它工作起来更高效。不管是部署的频率、部署的可靠性和最后的效果上，都比之前的工作方式有很大提升。这样能在很短时间内对齐思维模式，让大家快速融入到整个开发过程。&lt;/p&gt;
+&lt;p&gt;Kai：其实Harness本身它更多是在于构建一个系统，真的能让所谓的AI-First的组织高效运转。很多组织上的人，思维难以改变，他觉得用AI提升效率就够了。但是AI-First要求的是，你让AI来driven（驱动）你整个公司的方向，可能你每天工作的方式都是由AI来驱动的，这是完全不一样的概念。&lt;/p&gt;
+&lt;p&gt;泓君：是AI给你们布置任务吗？&lt;/p&gt;
+&lt;p&gt;Kai：对。如果还把AI当成一个提升效率的工具，那使用者的效率提升可能最多就是10倍，因为人最多每天可能就工作24小时。如果希望效率提升100倍、1000倍，你不能说你是那个工具的使用者，而是AI应该是所有生产力的主导。人的角色发生变化，更多是在于怎么去复盘结果的好坏。还有在这个系统里，我并不是那个实际的工作者，我应该以怎样的一个方式去跟这个系统配合起来？这是很多企业在做转型时，没意识到或很难去做到的事情。&lt;/p&gt;
+&lt;p&gt;泓君：举个例子，你们的系统怎么和人去配合工作？我觉得传统的团队开发产品的时候，可能很大的一个痛点就是说，我团队之间要对齐，然后我要把信息同步到每一个人，任何一个人他可能miss掉了一个信息点，那他在产品做开发的时候，可能就不知道我们上一版的更新是什么。现在是不是所有的这些工作都可以交给AI，或者在这个流程中它就可以自动去做了？&lt;/p&gt;
+&lt;p&gt;Kai：我觉得这里面核心还是信任的问题。很多人对系统不信任，所以对齐成本就非常高。现在AI-First下，对齐由AI主导，比如AI告诉市场团队今天工程师要发布哪些功能，市场团队不用再反复问工程师。&lt;/p&gt;
+&lt;p&gt;泓君：AI怎么知道工程师团队明天能把所有的工作做完？&lt;/p&gt;
+&lt;p&gt;Peter：在AI的思维模式之下，迭代一个产品的过程中，我们更侧重的是，这个新的功能能不能够带来产品的top line metrics（顶层指标）的提升，或者新的这个功能能不能有真的用户使用的数据。所以在这个过程中，我们更核心聚焦怎么把整个数据链搭建起来。我们把这个链条搭建起来之后，都是Agent通过这些数据来决定，好，这个功能到底是不是有用的，我们到底要不要roll out（上线）这个功能，或者fall back（回退）这个功能。&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>

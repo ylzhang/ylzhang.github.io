@@ -186,6 +186,32 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【ChatGPT时刻06】GPT-1：生成式预训练的开山之作
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Alec Radford等人于2018年发表的里程碑论文《Improving Language Understanding by Generative Pre-Training》，该论文提出了GPT（Generative Pre-Training）模型，首次将大规模无监督预训练与有监督微调相结合，在多个NLP基准上取得了突破性成绩。GPT-1是ChatGPT的直系祖先——它确立了&#34;预训练&#43;微调&#34;的范式，证明了通用语言表示可以从海量无标注文本中学习，为后续GPT-2、GPT-3乃至ChatGPT奠定了架构和方法论基础。
+NLP的迁移学习困境 问题一：标注数据的稀缺性 深度学习在NLP中的应用面临一个根本挑战：高质量标注数据稀缺。
+与计算机视觉不同，NLP任务的标注需要语言专业知识，成本高昂：
+情感分析：需要理解语言的细微差别 问答系统：需要专业领域知识 文本蕴含：需要逻辑推理能力 大多数NLP数据集仅有数千到数万条标注样本，远不足以从头训练大型神经网络。
+问题二：预训练方法的局限 在GPT之前，NLP领域的预训练主要有两种方式：
+词向量预训练（如Word2Vec、GloVe）：
+只提供词级别的表示 无法捕捉上下文信息 无法处理多义词 语言模型预训练（如ELMo）：
+使用双向LSTM 表示能力受限于LSTM架构 预训练和微调架构不一致 这些方法虽然有效，但都存在明显局限：预训练的知识无法充分迁移到下游任务。
+问题三：无监督学习的挑战 无监督学习的核心挑战是找到合适的目标函数。语言建模是一个自然的选择：
+$$ \mathcal{L}{\text{LM}} = \sum{i} \log P(u_i | u_1, \ldots, u_{i-1}; \Theta) $$
+但如何设计一个既能充分利用预训练知识、又能适应多种下游任务的框架？
+GPT的核心设计 Transformer解码器架构 GPT采用Transformer的解码器部分作为基础架构，使用单向自注意力（因果注意力）：
+$$ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}} &#43; M\right)V $$
+其中 $M$ 是掩码矩阵，确保位置 $i$ 只能关注位置 $j \leq i$：
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-10-25 21:03:01 +0800 HKT'>October 25, 2025</span> | <span>14 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【ChatGPT时刻06】GPT-1：生成式预训练的开山之作" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-25-chatgpt-06-gpt1/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">AI气候：美国在实验室做梦，中国在风电场发电
     </h2>
   </header>
@@ -294,29 +320,6 @@ AI在制造业的价值，从来不是取代工人，而是让制造更智能、
   </div>
   <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-09-15 13:46:12 +0800 HKT'>September 15, 2025</span> | <span>6 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to AI制造：特斯拉在造未来，比亚迪在改造过去" href="https://blog.zhangky.com/posts/2025/2025-09-ai-manufacturing/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。
-“注意力是人类智能的核心。&#34;——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。
-论文的核心创新是注意力机制：在解码过程中，模型计算源语言序列中每个位置的注意力权重，根据这些权重对编码器输出进行加权求和，得到上下文向量。这种设计使得模型能够学习源语言和目标语言之间的对齐关系，同时提高翻译质量。
-在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何&#34;关注&#34;和&#34;理解&#34;信息。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读神经机器翻译中的注意力机制，包含完整的数学推导、算法流程和复杂度分析，并在文末提供阅读研究论文的时间线计划。
-传统Seq2Seq模型的根本局限 问题一：固定维度上下文向量的信息瓶颈 传统Seq2Seq模型使用编码器-解码器架构：
-编码器：将源语言序列 $x_1, x_2, \ldots, x_n$ 编码为固定维度的上下文向量 $c$：
-$$ c = f(x_1, x_2, \ldots, x_n) $$
-其中 $f$ 通常是RNN的最后一个隐藏状态：$c = h_n$。
-解码器：根据上下文向量 $c$ 生成目标语言序列 $y_1, y_2, \ldots, y_m$：
-$$ P(y_1, y_2, \ldots, y_m | x_1, x_2, \ldots, x_n) = \prod_{t=1}^{m} P(y_t | y_{&lt;t}, c) $$
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-09-04 21:43:51 +0800 HKT'>September 4, 2025</span> | <span>18 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -11,8 +11,41 @@
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 14 May 2026 07:18:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 25 May 2026 08:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI-First组织革命：从&#34;信任人&#34;到&#34;信任AI&#34;</title>
+      <link>https://blog.zhangky.com/posts/2026/05/2026-05-25-harness-ai-first-organization/</link>
+      <pubDate>Mon, 25 May 2026 08:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/05/2026-05-25-harness-ai-first-organization/</guid>
+      <description>&lt;h1 id=&#34;harness时代一场从信任人到信任ai的组织革命&#34;&gt;Harness时代：一场从&amp;quot;信任人&amp;quot;到&amp;quot;信任AI&amp;quot;的组织革命&lt;/h1&gt;
+&lt;h2 id=&#34;引言当ai从工具变成主导者&#34;&gt;引言：当AI从工具变成主导者&lt;/h2&gt;
+&lt;p&gt;2026年的春天，硅谷传来一个令技术圈震动的数据：一家25人的公司，99%的代码由AI完成，每天平均3到8次生产部署，过去需要六周的产品开发流程，如今一天就能跑完。这不是科幻，而是CreaoAI在《Why Your &amp;ldquo;AI-First&amp;rdquo; Strategy Is Probably Wrong》中展示的真实案例。&lt;/p&gt;
+&lt;p&gt;这篇博文之所以在X上获得百万级阅读，不是因为它描述了一个美好的愿景，而是因为它撕开了&amp;quot;AI-First&amp;quot;转型中最那道最难跨越的伤疤——&lt;strong&gt;信任&lt;/strong&gt;。不是对AI能力的信任，而是对AI作为生产力主导者的信任，是对整个组织从&amp;quot;人驱动AI&amp;quot;转向&amp;quot;AI驱动人&amp;quot;这一根本性变革的信任。&lt;/p&gt;
+&lt;p&gt;CreaoAI成立于2025年11月，25名员工中只有10名工程师。创始人Peter Pang在2026年1月做出了一个大胆的决定：从零开始重构整个产品架构和工程工作流。两周后，新系统上线。如果产品能够自我构建，它就能work。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一harness-engineering工程团队的首要任务不再是写代码&#34;&gt;一、Harness Engineering：工程团队的首要任务不再是写代码&lt;/h2&gt;
+&lt;h3 id=&#34;从概念到实践openai的定义&#34;&gt;从概念到实践：OpenAI的定义&lt;/h3&gt;
+&lt;p&gt;2026年2月，OpenAI发表了一篇文章，阐述了&amp;quot;Harness Engineering&amp;quot;的概念：Creao其实早就在践行这一理念，只是没有给它命名。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Peter Pang对Harness Engineering的核心定义&lt;/strong&gt;：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;工程团队的首要任务不再是写代码，而是&lt;strong&gt;使Agent能够做有用的工作&lt;/strong&gt;。当某件事失败时，修复方案永远不是&amp;rsquo;再努力试试&amp;rsquo;。修复方案永远是：&lt;strong&gt;缺了什么能力？我们如何让这个能力对Agent可见且可执行？&lt;/strong&gt;&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个定义揭示了Harness的本质：&lt;strong&gt;从&amp;quot;人修复问题&amp;quot;到&amp;quot;系统获得能力&amp;quot;&lt;/strong&gt;。传统思维是&amp;quot;人出了错，人来修&amp;quot;；Harness思维是&amp;quot;系统缺能力，系统补能力&amp;quot;。&lt;/p&gt;
+&lt;h3 id=&#34;从prompt-engineering到harness认知的三次跃迁&#34;&gt;从Prompt Engineering到Harness：认知的三次跃迁&lt;/h3&gt;
+&lt;p&gt;回溯大模型应用的历史，我们经历了三个认知阶段：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一阶段：Prompt Engineering（提示词工程）&lt;/strong&gt;
+这个阶段人们相信，只要写好提示词，AI就能乖乖听话。但prompt的边界太明显——它太依赖人的表达能力和对AI的理解，同样的需求，换一个表述，结果可能天差地别。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二阶段：Context Engineering（上下文工程）&lt;/strong&gt;
+RAG（检索增强生成）技术风靡一时，核心逻辑是&amp;quot;喂给AI足够多、足够准确的上下文&amp;quot;。但上下文是静态的，而AI处理的任务是动态的；上下文是过去的经验，而任务总是面向未知的场景。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第三阶段：Harness Engineering（挽具工程）&lt;/strong&gt;
+Harness不是静态的配套系统，而是&amp;quot;驯化&amp;quot;通用智能的动态过程。&lt;strong&gt;它解决的是如何让一个AI系统从&amp;quot;能干活&amp;quot;进化到&amp;quot;会自我优化&amp;quot;的问题。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;而Harness要做的是，让整个系统成为一个人机共生的生态系统：AI不仅执行任务，还能根据执行结果调整策略；系统不仅能工作，还能识别自身的缺陷并自我修复。&lt;/p&gt;
+&lt;h3 id=&#34;prompts-are-disposable一个反直觉的真相&#34;&gt;&amp;ldquo;Prompts are disposable&amp;rdquo;：一个反直觉的真相&lt;/h3&gt;
+&lt;p&gt;Peter在原文中提到了一个反直觉的观点：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;A production system needs to be stable, reliable, and secure. You need a system that can guarantee those properties when AI writes the code. &lt;strong&gt;You build the system. The prompts are disposable.&lt;/strong&gt;&amp;rdquo;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>智能体：AI 时代的操作系统级入口</title>
       <link>https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/</link>
