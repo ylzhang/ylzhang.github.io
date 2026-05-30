@@ -299,55 +299,31 @@ Nick的特殊调整：正准备买房，现金储备增加——这是合理的�
   <div class="entry-content">
     <p>API中转站的本质是Token经济在AI时代的特殊表现形式——通过破解信息壁垒和准入壁垒，将原本稀缺的计算资源转化为可套利的数字商品。
 当OpenAI、Anthropic等厂商构建起技术壁垒时，中转站生态正在以轻量技术实现撬动巨大的连接红利。根据CISPA亥姆霍兹信息安全中心2026年3月发布的《真金白银，假冒模型》研究报告，17家被测中转站中有近50%存在模型替换行为，这揭示了行业的核心矛盾：技术门槛低、监管套利空间大、数据安全风险高。本文从Token的本质、技术实现、商业模式、风险评估四个维度展开深度研究，并新增分销商模式与边缘计算整合模式的分析。
-Token的本质：AI时代的数字货币 Token是AI模型的&#34;燃料&#34;，是衡量AI服务价值的基本单位。Token的本质在于它将复杂的计算资源（GPU算力、模型参数、训练数据）转化为可计量、可交易的数字商品。一个GPT-4的Token约对应0.75个英文单词或1.5个中文字符，背后是数千亿参数模型的推理计算。Token经济的核心逻辑是：算力成本 → Token定价 → 服务变现，中转站正是在这个链条中找到了套利空间。
+Token的本质：AI时代的数字货币 Token是AI模型的"燃料"，是衡量AI服务价值的基本单位。Token的本质在于它将复杂的计算资源（GPU算力、模型参数、训练数据）转化为可计量、可交易的数字商品。一个GPT-4的Token约对应0.75个英文单词或1.5个中文字符，背后是数千亿参数模型的推理计算。Token经济的核心逻辑是：算力成本 → Token定价 → 服务变现，中转站正是在这个链条中找到了套利空间。
 Token与AI模型的逻辑纽带：
-环节 技术本质 经济意义 中转站角色 Token生成 模型推理计算 价值创造 无（厂商完成） Token定价 成本&#43;利润 价值分配 重新定价套利 Token流通 API调用消费 价值交换 渠道垄断 Token结算 按Token计费 价值实现 截留价差 技术实现：轻量架构下的接口统一 中转站的技术实现远比想象中简单，核心是一个API网关层的封装。你可以把它想象成一个&#34;翻译官&#34;——接收用户的请求，翻译成目标模型能理解的语言，拿到结果后再翻译回来。核心技术栈包括：反向代理（Nginx/Envoy）、API路由与鉴权（自定义或使用Kong/Gateway）、请求转换层（将非OpenAI格式转换为标准格式）、负载均衡与限流。以new-api为例，其核心代码不超过5000行，主要实现三个功能：格式转换、密钥管理、请求转发。这个轻量架构正是中转站能低成本运作的关键——技术门槛低意味着任何人都能进入，这也为灰色和黑色模式的滋生提供了土壤。
+环节 技术本质 经济意义 中转站角色 Token生成 模型推理计算 价值创造 无（厂商完成） Token定价 成本+利润 价值分配 重新定价套利 Token流通 API调用消费 价值交换 渠道垄断 Token结算 按Token计费 价值实现 截留价差 技术实现：轻量架构下的接口统一 中转站的技术实现远比想象中简单，核心是一个API网关层的封装。你可以把它想象成一个"翻译官"——接收用户的请求，翻译成目标模型能理解的语言，拿到结果后再翻译回来。核心技术栈包括：反向代理（Nginx/Envoy）、API路由与鉴权（自定义或使用Kong/Gateway）、请求转换层（将非OpenAI格式转换为标准格式）、负载均衡与限流。以new-api为例，其核心代码不超过5000行，主要实现三个功能：格式转换、密钥管理、请求转发。这个轻量架构正是中转站能低成本运作的关键——技术门槛低意味着任何人都能进入，这也为灰色和黑色模式的滋生提供了土壤。
 技术方案对比：
 技术方案 实现复杂度 性能表现 扩展性 代表项目 成本估算 纯反向代理 低 高 低 简单中转脚本 &lt;1万元 API网关封装 中 中高 中 new-api 5-10万元 企业级架构 高 高 高 OpenRouter 50-100万元 关键技术细节：
 格式转换：将Claude的XML格式、Gemini的JSON格式统一转换为OpenAI格式 密钥管理：用户密钥与上游密钥解耦，支持多租户管理 流量控制：防止单个用户耗尽额度，实现公平分配 商业模式：五级光谱下的套利逻辑 商业模式可清晰分为五个层级，从合规到违法形成完整光谱。
-白色模式：正规平台费 以OpenRouter为代表：5.5%充值手续费、300&#43;模型接入、月处理70万亿Token，透明合规但利润微薄。国内的CloseAI宣称服务阿里、腾讯等大客户，通过正规企业合作协议获取批量折扣。
+白色模式：正规平台费 以OpenRouter为代表：5.5%充值手续费、300+模型接入、月处理70万亿Token，透明合规但利润微薄。国内的CloseAI宣称服务阿里、腾讯等大客户，通过正规企业合作协议获取批量折扣。
 分销商模式：返利与折扣整合 这是一种更高级的商业模式。中转站作为中间商，与多家模型厂商（OpenAI、Anthropic、Google等）谈判大客户价格，获取批量折扣和季度返利。然后通过高于供应商成本但低于官方零售价的价格，以分销商模式卖给小型商家或个人用户。小商家可以在多模型中自由对比和切换使用。价值创造：通过规模效应降低成本，为中小客户提供多模型选择的便利。安全风险：数据仍需经过中转站，存在泄露风险；依赖上游厂商政策变化。
-灰色模式：暴利操作 Web2API逆向：就像把ChatGPT Plus的网页界面&#34;扒&#34;下来，做成API接口对外售卖。一个20美元/月的Plus账号，能拆成API卖给几十个人用。Sub2API拼车更有意思，它专门做订阅账号共享，一个账号同时给5-20人用。20美元的订阅费，5个人分摊每人只要4美元，中转站转手卖8美元，净赚100%。这种模式本质是把个人订阅权限当成&#34;批发商品&#34;来卖，成本几乎为零。
+灰色模式：暴利操作 Web2API逆向：就像把ChatGPT Plus的网页界面"扒"下来，做成API接口对外售卖。一个20美元/月的Plus账号，能拆成API卖给几十个人用。Sub2API拼车更有意思，它专门做订阅账号共享，一个账号同时给5-20人用。20美元的订阅费，5个人分摊每人只要4美元，中转站转手卖8美元，净赚100%。这种模式本质是把个人订阅权限当成"批发商品"来卖，成本几乎为零。
 边缘计算整合模式：算力资源最大化 这是最高级的模式。中转站将边缘计算的算力资源整合，将不同时段的折扣（如夜间低峰期折扣）整合，实现算力资源和API资源的最大化利用。例如：
-...</p>
-  </div>
-  <footer class="entry-footer">   ylzhang | <span title='2026-05-26 08:00:00 +0800 HKT'>May 26, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to TOKEN API中转站深度研究：连接红利下的技术逻辑与商业博弈" href="https://blog.zhangky.com/posts/2026/05/2026-05-26-token-api-relay-station-deep-dive/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">AI-First组织革命：从&#34;信任人&#34;到&#34;信任AI&#34;
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Harness时代：一场从&#34;信任人&#34;到&#34;信任AI&#34;的组织革命 引言：当AI从工具变成主导者 2026年的春天，硅谷传来一个令技术圈震动的数据：一家25人的公司，99%的代码由AI完成，每天平均3到8次生产部署，过去需要六周的产品开发流程，如今一天就能跑完。这不是科幻，而是CreaoAI在《Why Your “AI-First” Strategy Is Probably Wrong》中展示的真实案例。
-这篇博文之所以在X上获得百万级阅读，不是因为它描述了一个美好的愿景，而是因为它撕开了&#34;AI-First&#34;转型中最那道最难跨越的伤疤——信任。不是对AI能力的信任，而是对AI作为生产力主导者的信任，是对整个组织从&#34;人驱动AI&#34;转向&#34;AI驱动人&#34;这一根本性变革的信任。
+...</p></div><footer class=entry-footer>ylzhang | <span title='2026-05-26 08:00:00 +0800 +0800'>May 26, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to TOKEN API中转站深度研究：连接红利下的技术逻辑与商业博弈" href=https://blog.zhangky.com/posts/2026/05/2026-05-26-token-api-relay-station-deep-dive/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>AI-First组织革命：从"信任人"到"信任AI"</h2></header><div class=entry-content><p>Harness时代：一场从"信任人"到"信任AI"的组织革命 引言：当AI从工具变成主导者 2026年的春天，硅谷传来一个令技术圈震动的数据：一家25人的公司，99%的代码由AI完成，每天平均3到8次生产部署，过去需要六周的产品开发流程，如今一天就能跑完。这不是科幻，而是CreaoAI在《Why Your “AI-First” Strategy Is Probably Wrong》中展示的真实案例。
+这篇博文之所以在X上获得百万级阅读，不是因为它描述了一个美好的愿景，而是因为它撕开了"AI-First"转型中最那道最难跨越的伤疤——信任。不是对AI能力的信任，而是对AI作为生产力主导者的信任，是对整个组织从"人驱动AI"转向"AI驱动人"这一根本性变革的信任。
 CreaoAI成立于2025年11月，25名员工中只有10名工程师。创始人Peter Pang在2026年1月做出了一个大胆的决定：从零开始重构整个产品架构和工程工作流。两周后，新系统上线。如果产品能够自我构建，它就能work。
-一、Harness Engineering：工程团队的首要任务不再是写代码 从概念到实践：OpenAI的定义 2026年2月，OpenAI发表了一篇文章，阐述了&#34;Harness Engineering&#34;的概念：Creao其实早就在践行这一理念，只是没有给它命名。
+一、Harness Engineering：工程团队的首要任务不再是写代码 从概念到实践：OpenAI的定义 2026年2月，OpenAI发表了一篇文章，阐述了"Harness Engineering"的概念：Creao其实早就在践行这一理念，只是没有给它命名。
 Peter Pang对Harness Engineering的核心定义：
 “工程团队的首要任务不再是写代码，而是使Agent能够做有用的工作。当某件事失败时，修复方案永远不是’再努力试试’。修复方案永远是：缺了什么能力？我们如何让这个能力对Agent可见且可执行？”
-这个定义揭示了Harness的本质：从&#34;人修复问题&#34;到&#34;系统获得能力&#34;。传统思维是&#34;人出了错，人来修&#34;；Harness思维是&#34;系统缺能力，系统补能力&#34;。
+这个定义揭示了Harness的本质：从"人修复问题"到"系统获得能力"。传统思维是"人出了错，人来修"；Harness思维是"系统缺能力，系统补能力"。
 从Prompt Engineering到Harness：认知的三次跃迁 回溯大模型应用的历史，我们经历了三个认知阶段：
 第一阶段：Prompt Engineering（提示词工程） 这个阶段人们相信，只要写好提示词，AI就能乖乖听话。但prompt的边界太明显——它太依赖人的表达能力和对AI的理解，同样的需求，换一个表述，结果可能天差地别。
-第二阶段：Context Engineering（上下文工程） RAG（检索增强生成）技术风靡一时，核心逻辑是&#34;喂给AI足够多、足够准确的上下文&#34;。但上下文是静态的，而AI处理的任务是动态的；上下文是过去的经验，而任务总是面向未知的场景。
-第三阶段：Harness Engineering（挽具工程） Harness不是静态的配套系统，而是&#34;驯化&#34;通用智能的动态过程。它解决的是如何让一个AI系统从&#34;能干活&#34;进化到&#34;会自我优化&#34;的问题。
+第二阶段：Context Engineering（上下文工程） RAG（检索增强生成）技术风靡一时，核心逻辑是"喂给AI足够多、足够准确的上下文"。但上下文是静态的，而AI处理的任务是动态的；上下文是过去的经验，而任务总是面向未知的场景。
+第三阶段：Harness Engineering（挽具工程） Harness不是静态的配套系统，而是"驯化"通用智能的动态过程。它解决的是如何让一个AI系统从"能干活"进化到"会自我优化"的问题。
 而Harness要做的是，让整个系统成为一个人机共生的生态系统：AI不仅执行任务，还能根据执行结果调整策略；系统不仅能工作，还能识别自身的缺陷并自我修复。
 “Prompts are disposable”：一个反直觉的真相 Peter在原文中提到了一个反直觉的观点：
 “A production system needs to be stable, reliable, and secure. You need a system that can guarantee those properties when AI writes the code. You build the system. The prompts are disposable.”
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-05-25 08:00:00 +0800 HKT'>May 25, 2026</span> | <span>31 min</span> | <span>zhejiang, China</span></footer>
-  <a class="entry-link" aria-label="post link to AI-First组织革命：从&#34;信任人&#34;到&#34;信任AI&#34;" href="https://blog.zhangky.com/posts/2026/05/2026-05-25-harness-ai-first-organization/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">智能体：AI 时代的操作系统级入口
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 核心观点：李彦宏提出的 DAA（日活智能体数）指标，标志着 AI 时代的入口迁移已经开始。智能体不是独立软件，而是 AI 操作系统——比拼的不是裸模型，而是模型&#43;Harness&#43; 工具链的整套系统。智能体的使命，就是成为这个操作系统的统一调度者，让不同领域的智能体能够互联互通、协同工作，最终成为 AI 时代的中心化入口。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-05-25 08:00:00 +0800 +0800'>May 25, 2026</span> | <span>31 min</span> | <span>zhejiang, China</span></footer><a class=entry-link aria-label='post link to AI-First组织革命：从"信任人"到"信任AI"' href=https://blog.zhangky.com/posts/2026/05/2026-05-25-harness-ai-first-organization/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>智能体：AI 时代的操作系统级入口</h2></header><div class=entry-content><p>核心观点：李彦宏提出的 DAA（日活智能体数）指标，标志着 AI 时代的入口迁移已经开始。智能体不是独立软件，而是 AI 操作系统——比拼的不是裸模型，而是模型+Harness+ 工具链的整套系统。智能体的使命，就是成为这个操作系统的统一调度者，让不同领域的智能体能够互联互通、协同工作，最终成为 AI 时代的中心化入口。
 一、DAA：衡量 AI 时代繁荣度的新指标 李彦宏在 Create AI 大会上提出的 DAA 指标，值得深入思考：
 “过去互联网时代，大家习惯用 DAU 衡量有多少人在使用产品。但到了 AI 时代，真正重要的事情开始变成，有多少智能体正在替人类干活。”
 DAA 本质上衡量的是：智能体生态到底繁不繁荣，AI 有没有真正开始介入真实世界。
@@ -357,35 +333,23 @@ DAA 本质上衡量的是：智能体生态到底繁不繁荣，AI 有没有真�
 这种体验会深入用户心智。一旦形成习惯，谁拿到这个入口，谁就是王者。
 三、智能体是操作系统，不是独立软件 这是百度最深刻的洞察之一：
 “智能体不只是 AI 模型之上的新产品，它更像是 AI 操作系统。”
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-05-14 07:18:00 +0800 HKT'>May 14, 2026</span> | <span>14 min</span> | <span>zhejiang, China</span></footer>
-  <a class="entry-link" aria-label="post link to 智能体：AI 时代的操作系统级入口" href="https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">模型为王：AI编程的终局判断
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 核心观点：编程十几年，最近几个月我一直在刻意训练自己「不写一行代码完成目标」。实践中遇到的挑战让我更加坚定：当前工具链的爆发不是智能的初衷，模型能力才是真正的护城河。Harness、Agent、Loop这些概念本质上是模型智能化不足的权宜之计。这是黎明前的黑夜，但光明终将到来。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-05-14 07:18:00 +0800 +0800'>May 14, 2026</span> | <span>14 min</span> | <span>zhejiang, China</span></footer><a class=entry-link aria-label="post link to 智能体：AI 时代的操作系统级入口" href=https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>模型为王：AI编程的终局判断</h2></header><div class=entry-content><p>核心观点：编程十几年，最近几个月我一直在刻意训练自己「不写一行代码完成目标」。实践中遇到的挑战让我更加坚定：当前工具链的爆发不是智能的初衷，模型能力才是真正的护城河。Harness、Agent、Loop这些概念本质上是模型智能化不足的权宜之计。这是黎明前的黑夜，但光明终将到来。
 从实践者视角看AI编程的演进 过去几个月，我尝试了各种AI编程工具和工作流。从IDE补全到Agent自动写代码，从手动prompt到Harness框架，我深刻体会到一个事实：工具的复杂度在增加，但真正的突破始终依赖模型能力的提升。
 工具链爆发背后的无奈 今天的AI编程工具链呈现爆炸式增长：各种Harness框架、Agent编排工具、Loop调度系统层出不穷。但仔细想想，这些工具的出现恰恰说明：模型还不够聪明。
 如果模型能自动理解上下文、自我验证代码、自动修复bug，我们还需要这么多外部机制吗？
 Boris的洞见印证了我的判断 Claude Code创建者Boris在Sequoia访谈中的观点，与我几个月的实践感悟不谋而合：
 “模型能做所有这些事，只是还没有产品把它捕捉下来” “随着模型变强，harness的重要性会下降” “一年以后，很多今天围绕安全和权限搭出来的外壳会变得没那么重” 这不是预言，而是正在发生的事实。
 为什么模型才是终极护城河 深入实践后，我对AI编程的本质有了更深的理解。
-Harness是&#34;模型不足补偿器&#34; 当前所有围绕prompt、权限、验证搭建的复杂机制，都是模型不够智能时的过渡方案。
+Harness是"模型不足补偿器" 当前所有围绕prompt、权限、验证搭建的复杂机制，都是模型不够智能时的过渡方案。
 举个例子：
 Prompt injection防护 → 模型理解能力不足 静态验证命令 → 模型自我验证能力不足 权限模式 → 模型对齐能力不足 Human-in-the-loop → 模型决策可靠性不足 当模型真正理解代码的语义、能够自我验证、自动对齐人类意图时，这些外部机制都会变得多余。
 真正的竞争在模型层 Anthropic能做出Claude Code，核心不是Harness设计得有多精巧，而是他们有强大的模型能力。真正决定AI编程未来的，是模型的：
 深度理解能力：理解大型代码库架构、追踪变更影响 自我验证能力：生成代码后自动检查、修复bug 多模态能力：结合文档、测试、上下文做出最优决策 持续学习能力：从错误中学习、快速适应新技术 AI编程的下一步竞争 基于我的实践和判断，未来的竞争会集中在三个维度：
-1. 模型的&#34;代码理解力&#34;跃迁 当前模型能写代码，但还做不到&#34;理解&#34;代码。真正的突破在于：
-理解代码的业务意图和架构设计 在更高抽象层次进行设计决策 自动发现潜在问题和优化空间 2. 从&#34;辅助&#34;到&#34;自主&#34;的跨越 Boris提到的Loop是方向，但真正的自主编程需要：
+1. 模型的"代码理解力"跃迁 当前模型能写代码，但还做不到"理解"代码。真正的突破在于：
+理解代码的业务意图和架构设计 在更高抽象层次进行设计决策 自动发现潜在问题和优化空间 2. 从"辅助"到"自主"的跨越 Boris提到的Loop是方向，但真正的自主编程需要：
 模型能自动拆解任务、规划执行路径 端到端交付无需人类干预 自我发现问题、自我修复、自我优化 3. 组织级AI原生能力 大公司和创业公司的差距将在于：
 谁能把PR、CI、反馈拆成Agent可处理的任务 谁能从第一天就按AI native方式搭建组织 谁能建立有效的验证标准和治理体系 我的实践经验：不写代码完成目标 这几个月的实践让我有了深刻体会：
-从&#34;写代码&#34;到&#34;定义问题&#34; 我不再关注如何写代码，而是关注如何把业务需求转化为模型能理解的指令。这要求：
+从"写代码"到"定义问题" 我不再关注如何写代码，而是关注如何把业务需求转化为模型能理解的指令。这要求：
 清晰定义目标和约束 建立验证标准 设计反馈循环 工具只是手段，模型才是核心 我尝试过各种Harness框架，但最终发现：与其花时间优化工具，不如花时间理解模型能力的边界，找到最适合当前模型的工作方式。
 对AI从业者的建议 不要迷信工具，要理解模型 很多人在研究Harness架构、prompt工程，但真正的护城河是对模型能力的深度理解。要知道模型能做什么、不能做什么、边界在哪里。
 ...</p>
