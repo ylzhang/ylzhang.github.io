@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Nick Maggiulli on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/nick-maggiulli/</link>
+    <description>Recent content in Nick Maggiulli on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.160.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 27 May 2026 08:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/nick-maggiulli/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>当AI泡沫遇见持续买入：一个数据分析师的自我怀疑与坚持</title>
+      <link>https://blog.zhangky.com/posts/2026/05/2026-05-27-just-keep-buying/</link>
+      <pubDate>Wed, 27 May 2026 08:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/05/2026-05-27-just-keep-buying/</guid>
+      <description>&lt;h1 id=&#34;当ai泡沫遇见持续买入一个数据分析师的自我怀疑与坚持&#34;&gt;当AI泡沫遇见持续买入：一个数据分析师的自我怀疑与坚持&lt;/h1&gt;
+&lt;h2 id=&#34;引言连持续买入的作者都动摇了&#34;&gt;引言：连《持续买入》的作者都动摇了&lt;/h2&gt;
+&lt;p&gt;2026年5月，全球股市涨得让很多人开始怀疑人生。&lt;/p&gt;
+&lt;p&gt;标普500连创新高，日韩台股同步起飞。Nvidia一家公司的市值超过中美之外任何一个国家的GDP。巴菲特手持将近4000亿美金历史最高仓位现金，连他都在等。&lt;/p&gt;
+&lt;p&gt;满仓AI的人怕这是顶，一路加仓的人怕自己是高位接盘的傻子，攒着现金等机会的人越等越觉得错过了。&lt;/p&gt;
+&lt;p&gt;而《持续买入》（&lt;em&gt;Just Keep Buying&lt;/em&gt;）的作者Nick Maggiulli，在节目中说了一句让很多人震惊的话：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;一年前，我变得有点悲观了。这可是破天荒头一次。我把股票仓位从100%减到了80%。&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;连写《持续买入》的人都动摇了，这个市场到底怎么了？持续买入还管用吗？&lt;/p&gt;
+&lt;p&gt;带着这些问题，我重新审视了Nick在这期播客中的观点。比起&amp;quot;持续买入&amp;quot;的投资建议，我更感兴趣的是——&lt;strong&gt;一个数据分析师如何在自我怀疑中坚持原则&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这才是这个故事最有意思的地方。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一ai泡沫还是范式转移答案是两者都是&#34;&gt;一、AI：泡沫还是范式转移？答案是两者都是&lt;/h2&gt;
+&lt;p&gt;Nick在节目中给出了一个相当诚实的回答：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;可能两者都有点。如果你回顾任何重大技术变革的历史，总会有大量玩家蜂拥而至，也会有大量资金涌入。过度投资总是难免的。但与此同时，对于很多领域来说，它确实是一场范式转移。&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个回答没有给出明确结论，但恰恰说明了为什么现在的市场让人困惑。如果答案显而易见——要么是2000年的互联网泡沫，要么是真正的历史性变革——我们就不需要讨论了。&lt;/p&gt;
+&lt;h3 id=&#34;市销率的警讯&#34;&gt;市销率的警讯&lt;/h3&gt;
+&lt;p&gt;Nick看跌的理由很有意思：他用市销率（P/S）比较了Nvidia和1999年的Microsoft，发现&lt;strong&gt;两者几乎一模一样&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;他喜欢市销率而不是市盈率，因为&amp;quot;盈利可以通过各种财务技巧来操纵，销售额则是实打实的。你不能伪造销售额，那直接就是诈骗了&amp;quot;。&lt;/p&gt;
+&lt;p&gt;2021年的SPAC热潮、市盈率的高企，让他产生了强烈的既视感。&lt;/p&gt;
+&lt;h3 id=&#34;但增长确实来了&#34;&gt;但增长确实来了&lt;/h3&gt;
+&lt;p&gt;然而，Nick也承认自己错了。他原本认为Anthropic一年内把ARR从30亿做到450亿是&amp;quot;天方夜谭&amp;quot;，结果他们轻轻松松就做到了。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;也许我当时太悲观了，因为我觉得这种增长预期简直是天方夜谭，结果它们真的实现了。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种认知冲突——既觉得像泡沫，又看到真实增长——正是当下每个投资者面临的困境。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;二持续买入的核心信条三个支柱&#34;&gt;二、《持续买入》的核心信条：三个支柱&lt;/h2&gt;
+&lt;p&gt;Nick的核心投资建议只有一句话：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;&lt;strong&gt;持续买入多样化的创收资产。&lt;/strong&gt;&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这三个支柱各有深意：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;持续买入&lt;/strong&gt;：不需要择时，哪怕你掌握了关于未来的所有信息，每月坚持买入仍然是更好的选择。Nick在书中用数据证明了这一点。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;多样化&lt;/strong&gt;：不把鸡蛋放在一个篮子里。股票、债券、房地产——这些都是创收资产。黄金、比特币不算，因为它们不产生收入。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;创收资产&lt;/strong&gt;：能够产生某种收入的资产。黄金可以持有，但不应该成为投资组合的绝大部分。&lt;/p&gt;
+&lt;p&gt;Nick的实践：他从未停止买入，但会根据市场情况调整买什么——少买点美股，多买点国际股或债券。&amp;ldquo;关键是，我始终在买入&amp;rdquo;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三数据不会骗人为什么择时是个伪命题&#34;&gt;三、数据不会骗人：为什么择时是个伪命题&lt;/h2&gt;
+&lt;p&gt;Nick最重要的论点是：数据压倒性地支持&amp;quot;持续买入&amp;quot;。&lt;/p&gt;
+&lt;h3 id=&#34;spiva数据90的主动基金跑输指数&#34;&gt;SPIVA数据：90%的主动基金跑输指数&lt;/h3&gt;
+&lt;p&gt;这是一个让所有&amp;quot;选股高手&amp;quot;尴尬的事实。在长期，大多数专业投资者无法跑赢市场。&lt;/p&gt;
+&lt;p&gt;Nick的逻辑很直接：如果你不想付出任何努力就想战胜市场，这是不可能的。但如果你愿意花时间提升职业收入，那才是真正的财富来源。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;你在某一天，股市大涨或大跌，你赚的或亏的，可能比你当初在非常好的工作大半年里赚的还要多。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;随着投资组合越来越大，市场波动的影响超过工资收入。&lt;strong&gt;专注于职业，利用市场建立财富&lt;/strong&gt;——这才是正道。&lt;/p&gt;
+&lt;h3 id=&#34;收入与财富相关性最高&#34;&gt;收入与财富相关性最高&lt;/h3&gt;
+&lt;p&gt;Nick查阅了大量数据，得出的结论是：收入与财富相关度最高。这不是争议，是事实。&lt;/p&gt;
+&lt;p&gt;高收入人群存更多钱，存下来的钱去投资，形成正向循环。&amp;ldquo;人们最常见的致富途径，要么是有一份工作然后长期攒钱，要么是创办企业卖掉赚大钱。&amp;rdquo;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;四市场恐慌时怎么办&#34;&gt;四、市场恐慌时怎么办？&lt;/h2&gt;
+&lt;h3 id=&#34;2020年3月23日的教训&#34;&gt;2020年3月23日的教训&lt;/h3&gt;
+&lt;p&gt;Nick分享了他最尴尬的一次投资经历。2020年疫情崩盘时，他被恐慌情绪左右，在市场最底部附近卖出了股票。&lt;/p&gt;
+&lt;p&gt;结果呢？市场随后大涨，他完美错过了最肥的一段。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我写《持续买入》这本书，结果连我自己都在那一刻违背了原则。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个故事告诉我们：&lt;strong&gt;情绪是投资最大的敌人&lt;/strong&gt;。哪怕你懂所有道理，在极端市场面前，人性的弱点依然会让你犯错。&lt;/p&gt;
+&lt;h3 id=&#34;大萧条不是常态&#34;&gt;大萧条不是常态&lt;/h3&gt;
+&lt;p&gt;很多人担心&amp;quot;大萧条重演&amp;quot;，但Nick指出这种可能性被高估了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果你在1929年高点买入标普500，持有到1950年代就回本了&lt;/li&gt;
+&lt;li&gt;持有20年，实际回报接近4%&lt;/li&gt;
+&lt;li&gt;100年的股票实际回报约为4%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;时间会熨平波动&lt;/strong&gt;。如果你有20-30年的投资期限，市场最终会给你惊喜。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;五要不要止盈&#34;&gt;五、要不要止盈？&lt;/h2&gt;
+&lt;p&gt;这是很多人现在最纠结的问题：市场这么高了，要不要卖出一部分？&lt;/p&gt;
+&lt;p&gt;Nick的反问很犀利：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;你卖出的目的是什么？&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果你卖掉是为了买房、支付婚礼费用等现实需求，止盈完全合理。但为了&amp;quot;分散投资&amp;quot;或&amp;quot;套现&amp;quot;而卖？&amp;ldquo;如果你不知道自己为什么要这么做，你就不应该做。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;另外，别忘了&lt;strong&gt;应税事件&lt;/strong&gt;。卖出是要交税的，所以在做决定前要把这个因素考虑进去。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;六分散化比你想象的更难&#34;&gt;六、分散化比你想象的更难&lt;/h2&gt;
+&lt;p&gt;Nick的仓位大致是80/20——80%股票、20%债券。股票部分一半美国、一半国际。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;S&amp;amp;P 500集中度问题&lt;/strong&gt;：Nick提醒，很多人觉得持有Nvidia、Microsoft、Apple就是&amp;quot;分散投资&amp;quot;，但实际上他们在科技股上非常集中。S&amp;amp;P 500本身已经集中于科技股，个股持仓只会更糟。&lt;/p&gt;
+&lt;p&gt;如果你担心集中度问题，可以考虑等权重配置，而不是盲目认为&amp;quot;我买S&amp;amp;P 500就是分散投资&amp;quot;。&lt;/p&gt;
+&lt;p&gt;Nick的特殊调整：正准备买房，现金储备增加——这是合理的，因为他有具体的资金需求。一旦买房完成，他会恢复80/20。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心启示&lt;/strong&gt;：分散化不是买几只股票就算完事，而是要理解你真正持有什么。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
