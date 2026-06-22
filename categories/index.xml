@@ -9,10 +9,17 @@
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-    <generator>Hugo -- 0.162.0</generator>
+    <generator>Hugo -- 0.160.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 27 May 2026 08:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2026 08:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Technology</title>
+      <link>https://blog.zhangky.com/categories/technology/</link>
+      <pubDate>Mon, 01 Jun 2026 08:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/categories/technology/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Finance</title>
       <link>https://blog.zhangky.com/categories/finance/</link>
@@ -25,13 +32,6 @@
       <link>https://blog.zhangky.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</link>
       <pubDate>Tue, 26 May 2026 08:00:00 +0800</pubDate>
       <guid>https://blog.zhangky.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Technology</title>
-      <link>https://blog.zhangky.com/categories/technology/</link>
-      <pubDate>Mon, 25 May 2026 08:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/categories/technology/</guid>
       <description></description>
     </item>
     <item>
