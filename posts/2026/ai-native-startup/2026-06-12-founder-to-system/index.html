@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>从创始人驱动到系统化运营：建立不依赖你的机器 | Zhang&#39;s Blog</title>
+<meta name="keywords" content="AI, 管理">
+<meta name="description" content="
+亨利·福特说：&ldquo;我问人们想要什么，他们说要一匹更快的马。&ldquo;但福特真正的天才不是发明了汽车——他发明了生产汽车的系统。没有装配线，T 型车只是另一辆昂贵的实验品。Launch 阶段的核心任务，是把创始人从&quot;T 型车&quot;变成&quot;装配线&rdquo;。
+
+
+创始人成为瓶颈的那一刻
+The Founder&rsquo;s Playbook 描述了一个每个创始人都会经历但很少提前意识到的时刻：你不再是公司的加速器，你成了公司的限速器。
+信号很具体：本该一小时的决策，你现在要一周才能排上；支持请求在堆积，因为只有你知道答案；运营任务只在你记得做的时候才发生；产品路线图卡在你这里，因为所有重要决定都要过你。
+在 Idea 和 MVP 阶段，创始人在每个循环里是一种资产——你需要全局的认知和紧密的反馈循环。但到了 Launch，支持量在增长，产品在变复杂，运营在膨胀。那种&quot;我亲自盯着&quot;的习惯，开始反噬。
+这不是一次突然发生的转变。它是一个渐进的过程，像温水煮青蛙。你某一天突然发现，公司不在&quot;因为你而快&rdquo;，而在&quot;因为你而慢&quot;。
+
+全面审计：你在忙什么
+The Founder&rsquo;s Playbook 的解法是：全面审计你亲自在处理的每件事。
+从最小的任务到最高风险的决策，全部列出来。然后分三类：
+可以系统化的。 CRM 更新、周报生成、用户外联排期、bug 分类——这些是 AI 工作流自动化的理想候选。它们有明确的触发条件、决策规则和输出格式。
+需要人但不一定是你。 某些支持请求、代码审查、内容审核——这些需要人类的判断，但不一定需要创始人的判断。可以委托给团队成员或 AI 辅助的初级处理。
+真的需要创始人。 产品叙事决策、董事会关系、战略合作、创始人对创始人的对话——这些需要你独有的上下文和关系。
+分类完之后，用 Claude Cowork 来设计自动化工作流的逻辑：什么触发、什么规则、输出是什么、完成后去哪里。
+
+技术债的系统性清理
+Launch 阶段的另一个紧迫任务是处理 MVP 阶段积累的技术债。
+MVP 阶段，一些技术债是合理的——你用速度换取了代码质量。但在 Launch 阶段，那些债开始产生利息。生产流量在增长、新功能在叠加、代码库在膨胀——那些&quot;以后再说&quot;的捷径，现在成了结构性负债。
+The Founder&rsquo;s Playbook 建议三步走：先用 Claude Code 做一次完整的架构审计，找出脆弱的地方、维护成本高的捷径、测试覆盖不足的区域。然后把审计结果交给 Claude 做优先级排序——什么需要在下次发布前修，什么可以等一轮 sprint，什么是当前阶段可以接受的持续债。最后，把 MVP 阶段脑子里的架构决策写进 CLAUDE.md——那些当时没时间写下来的决定，现在该落地了。
+
+安全与合规：不再是可选项
+MVP 阶段，安全漏洞是理论风险——你的用户是 beta 测试者，没有敏感数据在生产环境里。
+Launch 阶段，你的产品上有真实用户、真实数据，可能还有企业合同在谈。合规要求也是一样——处理客户数据、处理支付、卖到受监管行业，这些都不再是未来的事。
+书中的态度很直接：在规模到来之前，而不是之后，做一次系统性的安全和合规审查。 把所有发现当作必须修复的项目，不是建议。">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-12-founder-to-system/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-12-founder-to-system/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-12-founder-to-system/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="从创始人驱动到系统化运营：建立不依赖你的机器">
+  <meta property="og:description" content=" 亨利·福特说：“我问人们想要什么，他们说要一匹更快的马。“但福特真正的天才不是发明了汽车——他发明了生产汽车的系统。没有装配线，T 型车只是另一辆昂贵的实验品。Launch 阶段的核心任务，是把创始人从&#34;T 型车&#34;变成&#34;装配线”。
+创始人成为瓶颈的那一刻 The Founder’s Playbook 描述了一个每个创始人都会经历但很少提前意识到的时刻：你不再是公司的加速器，你成了公司的限速器。
+信号很具体：本该一小时的决策，你现在要一周才能排上；支持请求在堆积，因为只有你知道答案；运营任务只在你记得做的时候才发生；产品路线图卡在你这里，因为所有重要决定都要过你。
+在 Idea 和 MVP 阶段，创始人在每个循环里是一种资产——你需要全局的认知和紧密的反馈循环。但到了 Launch，支持量在增长，产品在变复杂，运营在膨胀。那种&#34;我亲自盯着&#34;的习惯，开始反噬。
+这不是一次突然发生的转变。它是一个渐进的过程，像温水煮青蛙。你某一天突然发现，公司不在&#34;因为你而快”，而在&#34;因为你而慢&#34;。
+全面审计：你在忙什么 The Founder’s Playbook 的解法是：全面审计你亲自在处理的每件事。
+从最小的任务到最高风险的决策，全部列出来。然后分三类：
+可以系统化的。 CRM 更新、周报生成、用户外联排期、bug 分类——这些是 AI 工作流自动化的理想候选。它们有明确的触发条件、决策规则和输出格式。
+需要人但不一定是你。 某些支持请求、代码审查、内容审核——这些需要人类的判断，但不一定需要创始人的判断。可以委托给团队成员或 AI 辅助的初级处理。
+真的需要创始人。 产品叙事决策、董事会关系、战略合作、创始人对创始人的对话——这些需要你独有的上下文和关系。
+分类完之后，用 Claude Cowork 来设计自动化工作流的逻辑：什么触发、什么规则、输出是什么、完成后去哪里。
+技术债的系统性清理 Launch 阶段的另一个紧迫任务是处理 MVP 阶段积累的技术债。
+MVP 阶段，一些技术债是合理的——你用速度换取了代码质量。但在 Launch 阶段，那些债开始产生利息。生产流量在增长、新功能在叠加、代码库在膨胀——那些&#34;以后再说&#34;的捷径，现在成了结构性负债。
+The Founder’s Playbook 建议三步走：先用 Claude Code 做一次完整的架构审计，找出脆弱的地方、维护成本高的捷径、测试覆盖不足的区域。然后把审计结果交给 Claude 做优先级排序——什么需要在下次发布前修，什么可以等一轮 sprint，什么是当前阶段可以接受的持续债。最后，把 MVP 阶段脑子里的架构决策写进 CLAUDE.md——那些当时没时间写下来的决定，现在该落地了。
+安全与合规：不再是可选项 MVP 阶段，安全漏洞是理论风险——你的用户是 beta 测试者，没有敏感数据在生产环境里。
+Launch 阶段，你的产品上有真实用户、真实数据，可能还有企业合同在谈。合规要求也是一样——处理客户数据、处理支付、卖到受监管行业，这些都不再是未来的事。
+书中的态度很直接：在规模到来之前，而不是之后，做一次系统性的安全和合规审查。 把所有发现当作必须修复的项目，不是建议。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-06-12T10:00:00+08:00">
+    <meta property="article:modified_time" content="2026-06-12T10:00:00+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="管理">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-25-same-job-new-rules/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-23-build-moat/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-22-tech-debt-architecture/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-11-pmf-lies-truth/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-10-mvp-four-reefs/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-07-build-first-ai-product/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="从创始人驱动到系统化运营：建立不依赖你的机器">
+<meta name="twitter:description" content="
+亨利·福特说：&ldquo;我问人们想要什么，他们说要一匹更快的马。&ldquo;但福特真正的天才不是发明了汽车——他发明了生产汽车的系统。没有装配线，T 型车只是另一辆昂贵的实验品。Launch 阶段的核心任务，是把创始人从&quot;T 型车&quot;变成&quot;装配线&rdquo;。
+
+
+创始人成为瓶颈的那一刻
+The Founder&rsquo;s Playbook 描述了一个每个创始人都会经历但很少提前意识到的时刻：你不再是公司的加速器，你成了公司的限速器。
+信号很具体：本该一小时的决策，你现在要一周才能排上；支持请求在堆积，因为只有你知道答案；运营任务只在你记得做的时候才发生；产品路线图卡在你这里，因为所有重要决定都要过你。
+在 Idea 和 MVP 阶段，创始人在每个循环里是一种资产——你需要全局的认知和紧密的反馈循环。但到了 Launch，支持量在增长，产品在变复杂，运营在膨胀。那种&quot;我亲自盯着&quot;的习惯，开始反噬。
+这不是一次突然发生的转变。它是一个渐进的过程，像温水煮青蛙。你某一天突然发现，公司不在&quot;因为你而快&rdquo;，而在&quot;因为你而慢&quot;。
+
+全面审计：你在忙什么
+The Founder&rsquo;s Playbook 的解法是：全面审计你亲自在处理的每件事。
+从最小的任务到最高风险的决策，全部列出来。然后分三类：
+可以系统化的。 CRM 更新、周报生成、用户外联排期、bug 分类——这些是 AI 工作流自动化的理想候选。它们有明确的触发条件、决策规则和输出格式。
+需要人但不一定是你。 某些支持请求、代码审查、内容审核——这些需要人类的判断，但不一定需要创始人的判断。可以委托给团队成员或 AI 辅助的初级处理。
+真的需要创始人。 产品叙事决策、董事会关系、战略合作、创始人对创始人的对话——这些需要你独有的上下文和关系。
+分类完之后，用 Claude Cowork 来设计自动化工作流的逻辑：什么触发、什么规则、输出是什么、完成后去哪里。
+
+技术债的系统性清理
+Launch 阶段的另一个紧迫任务是处理 MVP 阶段积累的技术债。
+MVP 阶段，一些技术债是合理的——你用速度换取了代码质量。但在 Launch 阶段，那些债开始产生利息。生产流量在增长、新功能在叠加、代码库在膨胀——那些&quot;以后再说&quot;的捷径，现在成了结构性负债。
+The Founder&rsquo;s Playbook 建议三步走：先用 Claude Code 做一次完整的架构审计，找出脆弱的地方、维护成本高的捷径、测试覆盖不足的区域。然后把审计结果交给 Claude 做优先级排序——什么需要在下次发布前修，什么可以等一轮 sprint，什么是当前阶段可以接受的持续债。最后，把 MVP 阶段脑子里的架构决策写进 CLAUDE.md——那些当时没时间写下来的决定，现在该落地了。
+
+安全与合规：不再是可选项
+MVP 阶段，安全漏洞是理论风险——你的用户是 beta 测试者，没有敏感数据在生产环境里。
+Launch 阶段，你的产品上有真实用户、真实数据，可能还有企业合同在谈。合规要求也是一样——处理客户数据、处理支付、卖到受监管行业，这些都不再是未来的事。
+书中的态度很直接：在规模到来之前，而不是之后，做一次系统性的安全和合规审查。 把所有发现当作必须修复的项目，不是建议。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "从创始人驱动到系统化运营：建立不依赖你的机器",
+      "item": "https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-12-founder-to-system/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "从创始人驱动到系统化运营：建立不依赖你的机器",
+  "name": "从创始人驱动到系统化运营：建立不依赖你的机器",
+  "description": " 亨利·福特说：\u0026ldquo;我问人们想要什么，他们说要一匹更快的马。\u0026ldquo;但福特真正的天才不是发明了汽车——他发明了生产汽车的系统。没有装配线，T 型车只是另一辆昂贵的实验品。Launch 阶段的核心任务，是把创始人从\u0026quot;T 型车\u0026quot;变成\u0026quot;装配线\u0026rdquo;。\n创始人成为瓶颈的那一刻 The Founder\u0026rsquo;s Playbook 描述了一个每个创始人都会经历但很少提前意识到的时刻：你不再是公司的加速器，你成了公司的限速器。\n信号很具体：本该一小时的决策，你现在要一周才能排上；支持请求在堆积，因为只有你知道答案；运营任务只在你记得做的时候才发生；产品路线图卡在你这里，因为所有重要决定都要过你。\n在 Idea 和 MVP 阶段，创始人在每个循环里是一种资产——你需要全局的认知和紧密的反馈循环。但到了 Launch，支持量在增长，产品在变复杂，运营在膨胀。那种\u0026quot;我亲自盯着\u0026quot;的习惯，开始反噬。\n这不是一次突然发生的转变。它是一个渐进的过程，像温水煮青蛙。你某一天突然发现，公司不在\u0026quot;因为你而快\u0026rdquo;，而在\u0026quot;因为你而慢\u0026quot;。\n全面审计：你在忙什么 The Founder\u0026rsquo;s Playbook 的解法是：全面审计你亲自在处理的每件事。\n从最小的任务到最高风险的决策，全部列出来。然后分三类：\n可以系统化的。 CRM 更新、周报生成、用户外联排期、bug 分类——这些是 AI 工作流自动化的理想候选。它们有明确的触发条件、决策规则和输出格式。\n需要人但不一定是你。 某些支持请求、代码审查、内容审核——这些需要人类的判断，但不一定需要创始人的判断。可以委托给团队成员或 AI 辅助的初级处理。\n真的需要创始人。 产品叙事决策、董事会关系、战略合作、创始人对创始人的对话——这些需要你独有的上下文和关系。\n分类完之后，用 Claude Cowork 来设计自动化工作流的逻辑：什么触发、什么规则、输出是什么、完成后去哪里。\n技术债的系统性清理 Launch 阶段的另一个紧迫任务是处理 MVP 阶段积累的技术债。\nMVP 阶段，一些技术债是合理的——你用速度换取了代码质量。但在 Launch 阶段，那些债开始产生利息。生产流量在增长、新功能在叠加、代码库在膨胀——那些\u0026quot;以后再说\u0026quot;的捷径，现在成了结构性负债。\nThe Founder\u0026rsquo;s Playbook 建议三步走：先用 Claude Code 做一次完整的架构审计，找出脆弱的地方、维护成本高的捷径、测试覆盖不足的区域。然后把审计结果交给 Claude 做优先级排序——什么需要在下次发布前修，什么可以等一轮 sprint，什么是当前阶段可以接受的持续债。最后，把 MVP 阶段脑子里的架构决策写进 CLAUDE.md——那些当时没时间写下来的决定，现在该落地了。\n安全与合规：不再是可选项 MVP 阶段，安全漏洞是理论风险——你的用户是 beta 测试者，没有敏感数据在生产环境里。\nLaunch 阶段，你的产品上有真实用户、真实数据，可能还有企业合同在谈。合规要求也是一样——处理客户数据、处理支付、卖到受监管行业，这些都不再是未来的事。\n书中的态度很直接：在规模到来之前，而不是之后，做一次系统性的安全和合规审查。 把所有发现当作必须修复的项目，不是建议。\n",
+  "keywords": [
+    "AI", "管理"
+  ],
+  "articleBody": " 亨利·福特说：“我问人们想要什么，他们说要一匹更快的马。“但福特真正的天才不是发明了汽车——他发明了生产汽车的系统。没有装配线，T 型车只是另一辆昂贵的实验品。Launch 阶段的核心任务，是把创始人从\"T 型车\"变成\"装配线”。\n创始人成为瓶颈的那一刻 The Founder’s Playbook 描述了一个每个创始人都会经历但很少提前意识到的时刻：你不再是公司的加速器，你成了公司的限速器。\n信号很具体：本该一小时的决策，你现在要一周才能排上；支持请求在堆积，因为只有你知道答案；运营任务只在你记得做的时候才发生；产品路线图卡在你这里，因为所有重要决定都要过你。\n在 Idea 和 MVP 阶段，创始人在每个循环里是一种资产——你需要全局的认知和紧密的反馈循环。但到了 Launch，支持量在增长，产品在变复杂，运营在膨胀。那种\"我亲自盯着\"的习惯，开始反噬。\n这不是一次突然发生的转变。它是一个渐进的过程，像温水煮青蛙。你某一天突然发现，公司不在\"因为你而快”，而在\"因为你而慢\"。\n全面审计：你在忙什么 The Founder’s Playbook 的解法是：全面审计你亲自在处理的每件事。\n从最小的任务到最高风险的决策，全部列出来。然后分三类：\n可以系统化的。 CRM 更新、周报生成、用户外联排期、bug 分类——这些是 AI 工作流自动化的理想候选。它们有明确的触发条件、决策规则和输出格式。\n需要人但不一定是你。 某些支持请求、代码审查、内容审核——这些需要人类的判断，但不一定需要创始人的判断。可以委托给团队成员或 AI 辅助的初级处理。\n真的需要创始人。 产品叙事决策、董事会关系、战略合作、创始人对创始人的对话——这些需要你独有的上下文和关系。\n分类完之后，用 Claude Cowork 来设计自动化工作流的逻辑：什么触发、什么规则、输出是什么、完成后去哪里。\n技术债的系统性清理 Launch 阶段的另一个紧迫任务是处理 MVP 阶段积累的技术债。\nMVP 阶段，一些技术债是合理的——你用速度换取了代码质量。但在 Launch 阶段，那些债开始产生利息。生产流量在增长、新功能在叠加、代码库在膨胀——那些\"以后再说\"的捷径，现在成了结构性负债。\nThe Founder’s Playbook 建议三步走：先用 Claude Code 做一次完整的架构审计，找出脆弱的地方、维护成本高的捷径、测试覆盖不足的区域。然后把审计结果交给 Claude 做优先级排序——什么需要在下次发布前修，什么可以等一轮 sprint，什么是当前阶段可以接受的持续债。最后，把 MVP 阶段脑子里的架构决策写进 CLAUDE.md——那些当时没时间写下来的决定，现在该落地了。\n安全与合规：不再是可选项 MVP 阶段，安全漏洞是理论风险——你的用户是 beta 测试者，没有敏感数据在生产环境里。\nLaunch 阶段，你的产品上有真实用户、真实数据，可能还有企业合同在谈。合规要求也是一样——处理客户数据、处理支付、卖到受监管行业，这些都不再是未来的事。\n书中的态度很直接：在规模到来之前，而不是之后，做一次系统性的安全和合规审查。 把所有发现当作必须修复的项目，不是建议。\n用 Claude Code 跑一次代码级安全审查，把结果交给 Claude 做优先级排序，然后逐个修复。同时把合规工作流嵌入开发周期——不是一次性项目，而是持续维护的流程。\n轻量产品管理系统 Launch 阶段需要一套轻量、可重复的流程，能在不需要创始人触发的情况下运行。\nThe Founder’s Playbook 建议用 Claude 来设计这套系统：sprint 节奏怎么定、spec 在 Claude Code 碰一个功能之前需要包含什么、bug 报告怎么分流和路由、周报覆盖什么内容以及怎么分发。\n设计完之后，用 Claude Cowork 来运行操作层：排 sprint 仪式、路由 bug 报告、从数据源编译周报、维护让用户信号流入产品决策的反馈循环。\n三个工具的协同 Launch Stage 的一个特点是：Chat、Claude Cowork、Claude Code 三个工具进入全面协同。\nClaude Code 做产品和技术工作——审计代码库、修复技术债、构建合规控制。Claude Cowork 围绕产品构建公司运营——自动化工作流、管理支持工单、运行 GTM 操作层。Claude 帮助把产品和组织知识操作化——设计流程、起草文档、做战略分析。\n每个工具的产出成为另一个的输入。一个小团队能跑出比自身规模大 n 倍的公司，靠的就是这种协同。\n我的反思 从创始人驱动到系统化运营，这个转变之所以难，是因为它不只是结构上的——它是心理上的。\n很多创始人（尤其是技术创始人）的价值感和\"我在做事情\"绑定在一起。写代码、回邮件、做决策——这些具体的行动给了我在创造价值的幻觉。系统化意味着你不再\"做事情\"，你\"设计做事情的系统\"。你的产出不再是代码或邮件，而是规则和流程。\n这让我想到一个关于管理者的经典定义：管理者通过别人来完成工作。\n在 AI 原生公司里，这句话应该改成：“创始人通过系统和 AI 来完成工作。” 你的工作不是做事，而是设计做事的系统。\n福特没有发明汽车——在他之前已经有几十个人发明了汽车。福特发明的是生产汽车的系统。同样，AI 原生创始人的核心竞争力不是\"能做出产品\"，而是\"能设计一个持续产出产品的系统\"。\n下一篇，我们进入技术深水区：技术债与架构决策。\n系列阅读快速跳转 日期 篇目 核心问题 06-03 从福特流水线到 AI 原生：范式转移 什么是 AI Native？为什么是现在？ 06-05 找到你的问题域：从\"能做\"到\"该做\" 如何在无限可能中找到值得解决的问题 06-06 用 AI 做压力测试：让魔鬼代言人替你思考 如何用 AI 反驳自己，避免确认偏误 06-07 构建第一个 AI 原生产品：从 CLAUDE.md 开始 写代码之前先写文档的逆向思维 06-10 MVP 的四个暗礁：速度与陷阱的博弈 AI 加速下最容易踩的四个坑 06-11 产品市场契合的谎言与真相 如何识别假信号，找到真契合 06-12 从创始人驱动到系统化运营 建立不依赖创始人的运营机器 06-22 技术债与架构决策：为 Scale 打下地基 如何在快与稳之间找到平衡 06-23 构建护城河：数据、知识与锁定 AI 时代的三种防御体系 06-25 Same Job, New Rules：创始人的不变与变 什么变了，什么没变 引用 ",
+  "wordCount" : "185",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-06-12T10:00:00+08:00",
+  "dateModified": "2026-06-12T10:00:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "ZHANG.z\""
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-12-founder-to-system/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhang's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      从创始人驱动到系统化运营：建立不依赖你的机器
+    </h1>
+    <div class="post-meta">   ZHANG.z&#34; | <span title='2026-06-12 10:00:00 +0800 HKT'>June 12, 2026</span> | <span>11 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/ai-native-startup/2026-06-12-founder-to-system.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%88%9b%e5%a7%8b%e4%ba%ba%e6%88%90%e4%b8%ba%e7%93%b6%e9%a2%88%e7%9a%84%e9%82%a3%e4%b8%80%e5%88%bb" aria-label="创始人成为瓶颈的那一刻">创始人成为瓶颈的那一刻</a></li>
+                <li>
+                    <a href="#%e5%85%a8%e9%9d%a2%e5%ae%a1%e8%ae%a1%e4%bd%a0%e5%9c%a8%e5%bf%99%e4%bb%80%e4%b9%88" aria-label="全面审计：你在忙什么">全面审计：你在忙什么</a></li>
+                <li>
+                    <a href="#%e6%8a%80%e6%9c%af%e5%80%ba%e7%9a%84%e7%b3%bb%e7%bb%9f%e6%80%a7%e6%b8%85%e7%90%86" aria-label="技术债的系统性清理">技术债的系统性清理</a></li>
+                <li>
+                    <a href="#%e5%ae%89%e5%85%a8%e4%b8%8e%e5%90%88%e8%a7%84%e4%b8%8d%e5%86%8d%e6%98%af%e5%8f%af%e9%80%89%e9%a1%b9" aria-label="安全与合规：不再是可选项">安全与合规：不再是可选项</a></li>
+                <li>
+                    <a href="#%e8%bd%bb%e9%87%8f%e4%ba%a7%e5%93%81%e7%ae%a1%e7%90%86%e7%b3%bb%e7%bb%9f" aria-label="轻量产品管理系统">轻量产品管理系统</a></li>
+                <li>
+                    <a href="#%e4%b8%89%e4%b8%aa%e5%b7%a5%e5%85%b7%e7%9a%84%e5%8d%8f%e5%90%8c" aria-label="三个工具的协同">三个工具的协同</a></li>
+                <li>
+                    <a href="#%e6%88%91%e7%9a%84%e5%8f%8d%e6%80%9d" aria-label="我的反思">我的反思</a></li>
+                <li>
+                    <a href="#%e7%b3%bb%e5%88%97%e9%98%85%e8%af%bb%e5%bf%ab%e9%80%9f%e8%b7%b3%e8%bd%ac" aria-label="系列阅读快速跳转">系列阅读快速跳转</a><ul>
+                        
+                <li>
+                    <a href="#%e5%bc%95%e7%94%a8" aria-label="引用">引用</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>亨利·福特说：&ldquo;我问人们想要什么，他们说要一匹更快的马。&ldquo;但福特真正的天才不是发明了汽车——他发明了生产汽车的<strong>系统</strong>。没有装配线，T 型车只是另一辆昂贵的实验品。Launch 阶段的核心任务，是把创始人从&quot;T 型车&quot;变成&quot;装配线&rdquo;。</p>
+</blockquote>
+<hr>
+<h2 id="创始人成为瓶颈的那一刻">创始人成为瓶颈的那一刻<a hidden class="anchor" aria-hidden="true" href="#创始人成为瓶颈的那一刻">#</a></h2>
+<p><em>The Founder&rsquo;s Playbook</em> 描述了一个每个创始人都会经历但很少提前意识到的时刻：<strong>你不再是公司的加速器，你成了公司的限速器。</strong></p>
+<p>信号很具体：本该一小时的决策，你现在要一周才能排上；支持请求在堆积，因为只有你知道答案；运营任务只在你记得做的时候才发生；产品路线图卡在你这里，因为所有重要决定都要过你。</p>
+<p>在 Idea 和 MVP 阶段，创始人在每个循环里是一种资产——你需要全局的认知和紧密的反馈循环。但到了 Launch，支持量在增长，产品在变复杂，运营在膨胀。那种&quot;我亲自盯着&quot;的习惯，开始反噬。</p>
+<p>这不是一次突然发生的转变。它是一个渐进的过程，像温水煮青蛙。你某一天突然发现，公司不在&quot;因为你而快&rdquo;，而在&quot;因为你而慢&quot;。</p>
+<hr>
+<h2 id="全面审计你在忙什么">全面审计：你在忙什么<a hidden class="anchor" aria-hidden="true" href="#全面审计你在忙什么">#</a></h2>
+<p><em>The Founder&rsquo;s Playbook</em> 的解法是：<strong>全面审计你亲自在处理的每件事。</strong></p>
+<p>从最小的任务到最高风险的决策，全部列出来。然后分三类：</p>
+<p><strong>可以系统化的。</strong> CRM 更新、周报生成、用户外联排期、bug 分类——这些是 AI 工作流自动化的理想候选。它们有明确的触发条件、决策规则和输出格式。</p>
+<p><strong>需要人但不一定是你。</strong> 某些支持请求、代码审查、内容审核——这些需要人类的判断，但不一定需要<strong>创始人</strong>的判断。可以委托给团队成员或 AI 辅助的初级处理。</p>
+<p><strong>真的需要创始人。</strong> 产品叙事决策、董事会关系、战略合作、创始人对创始人的对话——这些需要你独有的上下文和关系。</p>
+<p>分类完之后，用 Claude Cowork 来设计自动化工作流的逻辑：什么触发、什么规则、输出是什么、完成后去哪里。</p>
+<hr>
+<h2 id="技术债的系统性清理">技术债的系统性清理<a hidden class="anchor" aria-hidden="true" href="#技术债的系统性清理">#</a></h2>
+<p>Launch 阶段的另一个紧迫任务是处理 MVP 阶段积累的技术债。</p>
+<p>MVP 阶段，一些技术债是合理的——你用速度换取了代码质量。但在 Launch 阶段，那些债开始产生利息。生产流量在增长、新功能在叠加、代码库在膨胀——那些&quot;以后再说&quot;的捷径，现在成了结构性负债。</p>
+<p><em>The Founder&rsquo;s Playbook</em> 建议三步走：先用 Claude Code 做一次完整的架构审计，找出脆弱的地方、维护成本高的捷径、测试覆盖不足的区域。然后把审计结果交给 Claude 做优先级排序——什么需要在下次发布前修，什么可以等一轮 sprint，什么是当前阶段可以接受的持续债。最后，把 MVP 阶段脑子里的架构决策写进 CLAUDE.md——那些当时没时间写下来的决定，现在该落地了。</p>
+<hr>
+<h2 id="安全与合规不再是可选项">安全与合规：不再是可选项<a hidden class="anchor" aria-hidden="true" href="#安全与合规不再是可选项">#</a></h2>
+<p>MVP 阶段，安全漏洞是理论风险——你的用户是 beta 测试者，没有敏感数据在生产环境里。</p>
+<p>Launch 阶段，你的产品上有真实用户、真实数据，可能还有企业合同在谈。合规要求也是一样——处理客户数据、处理支付、卖到受监管行业，这些都不再是未来的事。</p>
+<p>书中的态度很直接：<strong>在规模到来之前，而不是之后，做一次系统性的安全和合规审查。</strong> 把所有发现当作必须修复的项目，不是建议。</p>
+<p>用 Claude Code 跑一次代码级安全审查，把结果交给 Claude 做优先级排序，然后逐个修复。同时把合规工作流嵌入开发周期——不是一次性项目，而是持续维护的流程。</p>
+<hr>
+<h2 id="轻量产品管理系统">轻量产品管理系统<a hidden class="anchor" aria-hidden="true" href="#轻量产品管理系统">#</a></h2>
+<p>Launch 阶段需要一套轻量、可重复的流程，能在不需要创始人触发的情况下运行。</p>
+<p><em>The Founder&rsquo;s Playbook</em> 建议用 Claude 来设计这套系统：sprint 节奏怎么定、spec 在 Claude Code 碰一个功能之前需要包含什么、bug 报告怎么分流和路由、周报覆盖什么内容以及怎么分发。</p>
+<p>设计完之后，用 Claude Cowork 来运行操作层：排 sprint 仪式、路由 bug 报告、从数据源编译周报、维护让用户信号流入产品决策的反馈循环。</p>
+<hr>
+<h2 id="三个工具的协同">三个工具的协同<a hidden class="anchor" aria-hidden="true" href="#三个工具的协同">#</a></h2>
+<p>Launch Stage 的一个特点是：Chat、Claude Cowork、Claude Code 三个工具进入全面协同。</p>
+<p>Claude Code 做产品和技术工作——审计代码库、修复技术债、构建合规控制。Claude Cowork 围绕产品构建公司运营——自动化工作流、管理支持工单、运行 GTM 操作层。Claude 帮助把产品和组织知识操作化——设计流程、起草文档、做战略分析。</p>
+<p>每个工具的产出成为另一个的输入。<strong>一个小团队能跑出比自身规模大 n 倍的公司，靠的就是这种协同。</strong></p>
+<hr>
+<h2 id="我的反思">我的反思<a hidden class="anchor" aria-hidden="true" href="#我的反思">#</a></h2>
+<p>从创始人驱动到系统化运营，这个转变之所以难，是因为它不只是结构上的——它是心理上的。</p>
+<p>很多创始人（尤其是技术创始人）的价值感和&quot;我在做事情&quot;绑定在一起。写代码、回邮件、做决策——这些具体的行动给了我在创造价值的幻觉。系统化意味着你不再&quot;做事情&quot;，你&quot;设计做事情的系统&quot;。你的产出不再是代码或邮件，而是<strong>规则和流程</strong>。</p>
+<p>这让我想到一个关于管理者的经典定义：<strong>管理者通过别人来完成工作。</strong></p>
+<p>在 AI 原生公司里，这句话应该改成：&ldquo;创始人通过系统和 AI 来完成工作。&rdquo; 你的工作不是做事，而是设计做事的系统。</p>
+<p>福特没有发明汽车——在他之前已经有几十个人发明了汽车。福特发明的是<strong>生产汽车的系统</strong>。同样，AI 原生创始人的核心竞争力不是&quot;能做出产品&quot;，而是&quot;能设计一个持续产出产品的系统&quot;。</p>
+<p>下一篇，我们进入技术深水区：<strong>技术债与架构决策。</strong></p>
+<hr>
+<h2 id="系列阅读快速跳转">系列阅读快速跳转<a hidden class="anchor" aria-hidden="true" href="#系列阅读快速跳转">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>日期</th>
+          <th>篇目</th>
+          <th>核心问题</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>06-03</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-03-ai-native-paradigm-shift/">从福特流水线到 AI 原生：范式转移</a></td>
+          <td>什么是 AI Native？为什么是现在？</td>
+      </tr>
+      <tr>
+          <td>06-05</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-05-find-your-problem-space/">找到你的问题域：从&quot;能做&quot;到&quot;该做&quot;</a></td>
+          <td>如何在无限可能中找到值得解决的问题</td>
+      </tr>
+      <tr>
+          <td>06-06</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-06-ai-devil-advocate/">用 AI 做压力测试：让魔鬼代言人替你思考</a></td>
+          <td>如何用 AI 反驳自己，避免确认偏误</td>
+      </tr>
+      <tr>
+          <td>06-07</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-07-build-first-ai-product/">构建第一个 AI 原生产品：从 CLAUDE.md 开始</a></td>
+          <td>写代码之前先写文档的逆向思维</td>
+      </tr>
+      <tr>
+          <td>06-10</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-10-mvp-four-reefs/">MVP 的四个暗礁：速度与陷阱的博弈</a></td>
+          <td>AI 加速下最容易踩的四个坑</td>
+      </tr>
+      <tr>
+          <td>06-11</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-11-pmf-lies-truth/">产品市场契合的谎言与真相</a></td>
+          <td>如何识别假信号，找到真契合</td>
+      </tr>
+      <tr>
+          <td>06-12</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-12-founder-to-system/">从创始人驱动到系统化运营</a></td>
+          <td>建立不依赖创始人的运营机器</td>
+      </tr>
+      <tr>
+          <td>06-22</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-22-tech-debt-architecture/">技术债与架构决策：为 Scale 打下地基</a></td>
+          <td>如何在快与稳之间找到平衡</td>
+      </tr>
+      <tr>
+          <td>06-23</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-23-build-moat/">构建护城河：数据、知识与锁定</a></td>
+          <td>AI 时代的三种防御体系</td>
+      </tr>
+      <tr>
+          <td>06-25</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-25-same-job-new-rules/">Same Job, New Rules：创始人的不变与变</a></td>
+          <td>什么变了，什么没变</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="引用">引用<a hidden class="anchor" aria-hidden="true" href="#引用">#</a></h3>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E7%AE%A1%E7%90%86/">管理</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-22-tech-debt-architecture/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>技术债与架构决策：为 Scale 打下地基</span>
+  </a>
+  <a class="next" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-11-pmf-lies-truth/">
+    <span class="title">Next »</span>
+    <br>
+    <span>产品市场契合的谎言与真相：如何识别假信号</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

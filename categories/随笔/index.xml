@@ -11,73 +11,334 @@
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 29 Jun 2026 14:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2026 10:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Idea Stage：构建之前，先证明你值得构建</title>
-      <link>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-idea-stage-validation/</link>
-      <pubDate>Mon, 29 Jun 2026 14:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-idea-stage-validation/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;Idea Stage：在 AI 让构建变得容易的时代，验证才是最大的风险&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/06/idea-stage-validation-cover.png&#34;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;42% 的创业公司失败是因为做了没人要的东西。在 AI 让&amp;quot;做出一个产品&amp;quot;变得前所未有的简单的今天，这个数字只会更高。&lt;/p&gt;
+      <title>Same Job, New Rules：创始人的不变与变</title>
+      <link>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-25-same-job-new-rules/</link>
+      <pubDate>Thu, 25 Jun 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-25-same-job-new-rules/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;赫拉克利特说：&amp;ldquo;人不能两次踏入同一条河流。&amp;ldquo;创业这条河也不例外——河水在变，河岸在变，但过河这件事本身，从未改变。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 把创业生命周期的第一阶段叫做 Idea Stage，核心任务只有一个：&lt;strong&gt;在写第一行代码之前，用证据证明这个问题值得解决。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;这听起来像正确的废话。但书中指出了一个 AI 时代才有的、反直觉的危险：&lt;strong&gt;当构建变得毫不费力，跳过验证的诱惑变得前所未有地大。&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;三个致命挑战&#34;&gt;三个致命挑战&lt;/h2&gt;
-&lt;p&gt;书中列出了 Idea Stage 的三个核心挑战，每一个都在 AI 时代被放大了。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;把构建误当作验证。&lt;/strong&gt; 这是最危险的。过去，做一个原型需要几个月的开发时间和预算，这个过程本身就是一种验证——你得想清楚才动手。现在，agentic coding 把&amp;quot;有想法&amp;quot;到&amp;quot;有产品&amp;quot;的距离压缩到几乎为零。一个创始人可以今天早上有想法，下午就有一个看起来像那么回事的原型。&lt;/p&gt;
-&lt;p&gt;问题在于，&lt;strong&gt;一个能跑的原型很容易被误认为是&amp;quot;解决了真问题&amp;quot;的证据。&lt;/strong&gt; 但它不是。原型只是对话的道具，真正的证据来自和潜在用户的真实对话。书里说得直接：很多创始人错误地认为 AI 短路了验证流程，把&amp;quot;有想法→直接构建→把原型当证据&amp;quot;当成了合理路径。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;过早扩展。&lt;/strong&gt; 当构建毫不费力时，你很容易在业务需求还没跟上的时候就把执行规模拉满。Agentic coding 工具会带着同样的热情为一个有根本性缺陷的前提生成代码——它不会质疑你的前提，只会高效地实现它。&lt;strong&gt;系统中的智能是你自己的。&lt;/strong&gt; 这个阶段的首要准则是：让判断力跑在构建前面。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;丧失客观性。&lt;/strong&gt; 确认偏误一直是创业者的职业病，现在 AI 给它装上了引擎。让 AI 验证你的创业想法，它会找到支持证据；让它做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的&amp;quot;尽职调查&amp;quot;。&lt;/p&gt;
+&lt;h2 id=&#34;什么变了&#34;&gt;什么变了&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 的最后一章叫&amp;quot;Same Job, New Rules&amp;rdquo;，开篇第一句话就点题：&lt;strong&gt;在 AI 时代，创始人的工作没有变——找到真实的问题，构建解决方案，把它变成一个重要的公司。变的是到达那里的路径。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;过去九篇文章，我们逐层拆解了这条新路径的每个阶段。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Idea Stage 变了。&lt;/strong&gt; 过去，验证一个问题需要几个月的调研和几十场访谈。现在，AI 帮你做竞争分析、设计访谈框架、自动化外联——验证周期从几个月压缩到几周。但&amp;quot;验证&amp;quot;本身的必要性没有变，反而因为构建成本的降低而变得更加重要。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MVP Stage 变了。&lt;/strong&gt; 过去，做一个原型需要一个团队几个月的工作。现在，agentic coding 让一个人一个下午就能做出一个看起来像那么回事的产品。但&amp;quot;产品市场契合&amp;quot;的标准没有变——用户是否真的在乎，不会因为你的产品做得更快而自动成立。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Launch Stage 变了。&lt;/strong&gt; 过去，从产品到公司需要招一个运营团队。现在，AI 工作流自动化让一个小团队能跑出大团队的运营效率。但&amp;quot;系统化运营&amp;quot;的目标没有变——你需要不依赖创始人的系统。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Scale Stage 变了。&lt;/strong&gt; 过去，构建护城河需要几年时间和大量资源。现在，AI 让领域知识的编码和用户数据的复利变得更快。但&amp;quot;护城河&amp;quot;的本质没有变——时间积累的东西，仍然需要时间来积累。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;验证的正确顺序&#34;&gt;验证的正确顺序&lt;/h2&gt;
-&lt;p&gt;书中给出了一组需要按顺序回答的问题：&lt;/p&gt;
-&lt;p&gt;这个问题真实、具体、频繁到值得围绕它做公司吗？谁有这个问题，他们构成一个市场吗？有没有人在解决它，解决得怎么样？一个解决方案实际需要做什么，你的想法能做到吗？&lt;/p&gt;
-&lt;p&gt;这些问题的答案最终指向一个终极判断：&lt;strong&gt;这件事值得做吗？&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;关键在于&amp;quot;具体&amp;quot;。&amp;ldquo;人们做报销很痛苦&amp;quot;是一个观察，不是假设。&amp;ldquo;中型公司的财务经理每周花四个多小时核对报销单，因为现有工具和他们的会计软件不互通&amp;quot;才是可验证的假设。前者让你感觉抓住了需求，后者让你能去验证。&lt;/p&gt;
+&lt;h2 id=&#34;什么没变&#34;&gt;什么没变&lt;/h2&gt;
+&lt;p&gt;这是更重要的问题。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;判断力没有变。&lt;/strong&gt; AI 能帮你做研究、写代码、起草文档、分析数据。但它不能告诉你&amp;quot;这个问题值不值得做&amp;rdquo;、&amp;ldquo;这个方向对不对&amp;rdquo;、&amp;ldquo;这个时机该不该出手&amp;rdquo;。这些判断需要你独有的上下文——你的行业经验、你的直觉、你对用户的理解。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;领域知识没有变。&lt;/strong&gt; AI 是通用智能，它不知道你所在行业的那些&amp;quot;只可意会不可言传&amp;quot;的东西。340B 药品项目的计费逻辑、建筑行业的合规要求、法律行业的风险偏好——这些需要真实经验的东西，AI 只能辅助，不能替代。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;用户信任没有变。&lt;/strong&gt; 用户选择你的产品，不是因为你的 AI 有多强，而是因为他们相信你能解决他们的问题。信任来自真实的对话、可靠的交付、和长期的承诺。这些 AI 帮不了你——只能靠你自己。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;创业的本质没有变。&lt;/strong&gt; 找到真实的问题，构建解决方案，把它变成一个重要的公司。这句话在 2020 年、2026 年、和 2030 年都成立。工具在变，但创业的核心——&lt;strong&gt;为真实的人解决真实的问题&lt;/strong&gt;——从未改变。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;用-ai-来压力测试而非确认&#34;&gt;用 AI 来压力测试，而非确认&lt;/h2&gt;
-&lt;p&gt;书中最实用的建议之一，是把 AI 当作&lt;strong&gt;结构化的魔鬼代言人&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;不是让 AI 告诉你&amp;quot;你的想法很好&amp;rdquo;——那太容易了。而是让它&lt;strong&gt;反驳你的想法&lt;/strong&gt;，寻找否定你假设的反证。哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？&lt;/p&gt;
-&lt;p&gt;这个用法贯穿整本书，在 Idea Stage 尤其关键。&lt;strong&gt;带着被反证压力测试过的假设去做用户访谈，你才可能听到真话，而不是在寻找确认。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;具体怎么做？先和 Claude 一起把问题陈述打磨到可测试。然后让它攻击你的假设——找反例、找失败竞品、找结构性障碍。接着带着这些反论去做客户发现：定义目标用户画像、设计访谈框架、自动化外联和排期。每五场访谈后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;退出条件&#34;&gt;退出条件&lt;/h2&gt;
-&lt;p&gt;Idea Stage 的退出条件是找到&lt;strong&gt;问题-解决方案匹配&lt;/strong&gt;：在开始构建之前，你有定性证据（主要来自真实的人类对话）证明你在为真实的人解决真实的问题。&lt;/p&gt;</description>
+&lt;h2 id=&#34;路径压缩本质不变&#34;&gt;路径压缩，本质不变&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 用一句话总结了 AI 对创业的影响：&lt;strong&gt;AI 把每个阶段的时间轴压缩了——验证从几个月变成几周，原型从团队工作变成个人工作，运营从小团队变成 AI 加一个人。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;但压缩的是时间，不是工作本身。你仍然需要验证、需要构建、需要发布、需要规模化。你仍然需要判断力、领域知识、用户信任。你仍然需要在每个阶段做出正确的选择——只是现在，你有更好的工具来执行这些选择。&lt;/p&gt;
+&lt;p&gt;这让我想到一个关于摄影的类比。数码相机和 Photoshop 让&amp;quot;拍一张好照片&amp;quot;变得前所未有的容易——你不再需要暗房、不需要对曝光的精确控制、不需要等待胶片冲洗。但&amp;quot;什么值得拍&amp;quot;和&amp;quot;怎么构图&amp;quot;的判断力，仍然是摄影师的核心能力。工具变了，审美没变。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>AI 原生创业：创始人不再写代码，那做什么？</title>
-      <link>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-ai-native-founder-role/</link>
-      <pubDate>Mon, 29 Jun 2026 10:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-ai-native-founder-role/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;AI 原生创业：创始人角色从执行者到指挥家的转变&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zhangky.com/images/posts/2026/06/ai-native-founder-role-cover.png&#34;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;当 AI 能写代码、做研究、起草融资材料，创始人的价值究竟在哪里？&lt;/p&gt;
+      <title>构建护城河：数据、知识与锁定——AI 时代的三种防御体系</title>
+      <link>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-23-build-moat/</link>
+      <pubDate>Tue, 23 Jun 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-23-build-moat/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;中世纪欧洲的城堡有三种防御：护城河（让敌人难以接近）、城墙（让敌人难以突破）、和吊桥（让盟友自由进出）。AI 时代的护城河也有三种——数据飞轮、领域知识、和用户工作流锁定。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;今年读到 Anthropic 团队出品的 &lt;em&gt;The Founder&amp;rsquo;s Playbook: Building an AI-Native Startup&lt;/em&gt;，一个判断击中了我：&lt;strong&gt;2026 年，一个好想法能带创始人走得比以往任何时候都远。&lt;/strong&gt; 这不是修辞——agentic coding 把过去需要一个工程师团队才能完成的工作，压缩成创始人自己就能交付的产出。&lt;/p&gt;
-&lt;p&gt;但真正让我停下来想的，不是&amp;quot;AI 让创业变容易了&amp;quot;这个烂大街的结论，而是书中一个更尖锐的观察：&lt;strong&gt;创始人这个角色正在被重新定义。&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;从能做到值得做&#34;&gt;从&amp;quot;能做&amp;quot;到&amp;quot;值得做&amp;quot;&lt;/h2&gt;
-&lt;p&gt;过去，创始人被自己的能力边界定义。技术创始人写代码，非技术创始人跑商务、谈合作。这堵墙在 2026 年正在溶解。&lt;/p&gt;
-&lt;p&gt;一个没有工程背景的创始人，现在可以用自然语言描述需求，让 AI 生成、测试、调试、重构生产级代码。一个技术出身但不懂商业的创始人，可以让 AI 生成市场策略、财务模型、融资路演。&lt;strong&gt;AI 抹平了&amp;quot;能构建&amp;quot;和&amp;quot;有想法值得构建&amp;quot;之间的鸿沟。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;这意味着什么？创始人的工作不再是亲自执行，而是&lt;strong&gt;编排 agent&lt;/strong&gt;——那些能读文件、跑命令、执行代码、甚至浏览网页的专业化 AI 助手。创始人的注意力向上游走：生成想法，然后指挥系统（AI agent、工具、以及可能存在的精小团队）把想法落地。&lt;/p&gt;
+&lt;h2 id=&#34;ai-让复制变容易让积累变稀缺&#34;&gt;AI 让复制变容易，让积累变稀缺&lt;/h2&gt;
+&lt;p&gt;2025 年，一个有趣的现象引起了投资圈的注意：一批 AI 原生公司的估值开始分化。有些公司功能看起来差不多，但估值差了一个数量级。区别在哪？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;护城河。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在 AI 让&amp;quot;复制一个产品&amp;quot;变得越来越容易的时代，功能不再是壁垒。一个有充足资源的竞品可以用几周时间复制你的功能。那什么才是真正不可复制的？&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 给出了三个答案。每一个都建立在时间积累之上——而时间，是 AI 无法加速的。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;三个能力象限&#34;&gt;三个能力象限&lt;/h2&gt;
-&lt;p&gt;书中把 AI 对早期创业公司的帮助归为三个领域，值得逐一拆解。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;对话式智能与研究。&lt;/strong&gt; 创始人在第一年需要知道的事情——怎么发工资、怎么规划产品迭代、怎么写投资人备忘录——几乎全是他们创业前不懂的。过去答案是&amp;quot;找个懂的人&amp;quot;，现在 AI 成了随叫随到的跨领域专家。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Agentic Coding。&lt;/strong&gt; 过去做软件需要技术联合创始人、外包团队，或者足够长的 runway 去招工程师。现在，agentic coding 工具让每个有想法的创始人用自然语言描述要什么，然后 AI 以完整工程团队的规模和速度去生成代码。从&amp;quot;我有一个想法&amp;quot;到&amp;quot;我有一个产品&amp;quot;的时间被大幅压缩。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;工作流自动化。&lt;/strong&gt; 排期、更新 CRM、拉周报、维护文档、发布内容、追踪合规——这些运营琐事在精小团队里全压在创始人身上。AI 工作流自动化把这些 recurring task 配置成自动执行，让创始人把注意力放回高阶决策。&lt;/p&gt;
+&lt;h2 id=&#34;第一条护城河数据飞轮&#34;&gt;第一条护城河：数据飞轮&lt;/h2&gt;
+&lt;p&gt;用户和产品互动时产生行为信号——哪些输出被接受，哪些被拒绝。这些信号随时间积累，变成你的产品路线图。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 把这叫做&amp;quot;复利价值&amp;quot;：每一次改进让产品更有用，更多使用产生更多反馈，更多反馈驱动更多改进。这就是数据飞轮。&lt;/p&gt;
+&lt;p&gt;这种数据有三个关键属性。&lt;strong&gt;时间锁定的&lt;/strong&gt;——你买不到数千个用户在你的产品里优化工作流留下的行为指纹。&lt;strong&gt;上下文特定的&lt;/strong&gt;——这些数据是在你的产品、你的用户群体、你的使用场景中产生的，换个环境就不一样了。&lt;strong&gt;不可能被复制的&lt;/strong&gt;——即使竞品知道你有这个飞轮，他们也无法在短时间内重建。&lt;/p&gt;
+&lt;p&gt;书中给出了一个具体的练习：把你的产品互动数据（收集了什么、收集了多久、用户如何随时间互动）交给 Claude，让它识别三个最高信号的行为模式，然后设计一个反馈循环，把每个模式变成系统性的模型改进。最后，让它帮你起草一页&amp;quot;护城河叙事&amp;quot;——你的数据飞轮怎么转、转了多久、为什么一个有充足资源的竞品今天开始做，两年内也复制不了。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;最被低估的变革&#34;&gt;最被低估的变革&lt;/h2&gt;
-&lt;p&gt;但书中让我印象最深的，不是这些效率提升，而是一个更根本的判断：&lt;strong&gt;AI 作为核心基础设施，最革命性的成果是释放了非技术背景、但有领域专业知识的创始人。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;当创业人群不再局限于有工程背景的人，你会看到一批有完全不同生活经历的创始人，去解决那些传统技术创始人路线从未优先考虑、甚至从未注意到的问题。&lt;/p&gt;
-&lt;p&gt;这不只是&amp;quot;人人都能创业&amp;quot;的鸡汤。它意味着创业公司的&lt;strong&gt;问题域&lt;/strong&gt;在扩张。过去，创业者倾向于找&amp;quot;技术能解决的问题&amp;quot;；现在，他们可以找&amp;quot;真正重要的问题&amp;quot;，不管自己有没有技术背景。&lt;/p&gt;
+&lt;h2 id=&#34;第二条护城河领域知识外化&#34;&gt;第二条护城河：领域知识外化&lt;/h2&gt;
+&lt;p&gt;很多 AI 原生公司的创始人做的是高度具体的应用——他们在某个行业里亲身经历过的问题。Agentic AI 让这些没有工程背景的创始人也能用领域知识构建产品。&lt;/p&gt;
+&lt;p&gt;关键在于：&lt;strong&gt;把你的领域知识放进一个结构化的、AI 能访问的上下文里。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;通过长期对话、项目和记忆，把你的行业知识——行规、监管陷阱、边缘 case、为什么显而易见的答案行不通——放进 Claude 的上下文。然后把这些编码成 Skills，让 Claude 每次都以同样的方式执行。&lt;/p&gt;
+&lt;p&gt;书中举了一个精彩的例子：一个通用 AI 医疗计费工具会在 340B 药品项目上出错，但你的产品专门处理了这些逻辑。为什么？因为你有领域知识，而且你把它编码进了你的系统。&lt;/p&gt;
+&lt;p&gt;几个月后，这就变成了一种&lt;strong&gt;专有的知识基底&lt;/strong&gt;，通用 AI 做不到。一个没有你这种领域经验的竞品，即使有同样的 AI 工具，也会在你的细分领域里反复踩坑。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;你的测试套件就是你的护城河的地图。&lt;/strong&gt; 每一个你处理过的边缘 case，都是竞品还没踩到的坑。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;编排而非执行&#34;&gt;编排，而非执行&lt;/h2&gt;
-&lt;p&gt;回到最初的问题：创始人不再写代码，那做什么？&lt;/p&gt;
-&lt;p&gt;答案是&lt;strong&gt;编排&lt;/strong&gt;。知道在什么时候、用哪个 AI 工具、解决什么问题、达到什么效果。比如，Idea Stage 用 Chat 做压力测试，MVP Stage 用 Claude Code 写代码，Launch Stage 用 Claude Cowork 自动化运营——每个阶段的主力工具不同，编排的节奏也不同。这不是自动发生的，创始人必须知道如何（以及何时）应用这些工具。这本书的剩余部分，就是在探索创始人在 AI 原生创业路径上每个阶段会遇到的目标和挑战。&lt;/p&gt;</description>
+&lt;h2 id=&#34;第三条护城河用户工作流锁定&#34;&gt;第三条护城河：用户工作流锁定&lt;/h2&gt;
+&lt;p&gt;数据飞轮让产品更难复制，但工作流锁定让产品更难离开。&lt;/p&gt;
+&lt;p&gt;用户在你的产品上构建了自动化，培训了团队，连接了数据源。他们开发的 prompt、优化的工作流、标准化的输出——都是围绕你的产品塑造的。这时候，换产品就不再是产品决策，而是一个全规模的运营项目。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 给出了一个实操方法：让 Claude 按集成深度映射你的客户群。对每个客户群体，识别他们在你的产品上构建了哪些工作流、依赖哪些集成。这显示了你的产品在哪里&amp;quot;粘&amp;quot;得牢，哪里还需要加深。&lt;/p&gt;
+&lt;p&gt;集成的数量和质量是关键。你提供的集成越多，客户就有越多表面面积来构建依赖你的工作流。Claude Code 帮你快速构建原生集成——数据管道、项目管理工具、用户依赖的其他系统。更深一层的锁定：构建 API、webhook 和 SDK，让客户不只是&amp;quot;用&amp;quot;你的产品，而是&amp;quot;在之上构建&amp;quot;——这是最深形式的锁定。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>技术债与架构决策：为 Scale 打下地基</title>
+      <link>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-22-tech-debt-architecture/</link>
+      <pubDate>Mon, 22 Jun 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-22-tech-debt-architecture/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;古罗马人在建造道路时，会先挖一条深沟，铺上多层砂石和碎石，最后才铺上平整的石板。他们知道：路能走多远，取决于地基有多深。今天，你的代码库就是那条路——而 CLAUDE.md 就是你的地基剖面图。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;两种技术债&#34;&gt;两种技术债&lt;/h2&gt;
+&lt;p&gt;不是所有技术债都一样。理解这一点，是 Scale 阶段的第一课。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;有意技术债。&lt;/strong&gt; 你在充分知情的情况下，选择用代码质量换取速度。你知道这笔债的存在、它的规模、以及什么时候该还。这种债是&lt;strong&gt;投资&lt;/strong&gt;——你借了时间，计划在某个 sprint 里连本带息还清。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;无意技术债。&lt;/strong&gt; 你不知道它的存在，或者你知道但不知道它有多大。它来自&amp;quot;先这样吧&amp;quot;的临时方案、来自&amp;quot;以后再重构&amp;quot;的承诺、来自那些&amp;quot;能跑就不要动&amp;quot;的模块。这种债是&lt;strong&gt;高利贷&lt;/strong&gt;——利息在暗处累积，直到某天你发现已经还不起了。&lt;/p&gt;
+&lt;p&gt;在 AI 原型的场景里，&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 指出了一个特有的风险：&lt;strong&gt;Agentic 技术债是一种&amp;quot;超级无意债&amp;quot;。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;为什么？因为 agentic coding 工具移除了所有曾经控制什么进入生产的自然瓶颈。过去，代码要经过设计审查、代码审查、测试——每一步都是制衡。现在，一个提示词就能让代码进入生产。速度是保证了，但&lt;strong&gt;质量控制的责任完全落到了创始人身上。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;架构审计看见你的地基&#34;&gt;架构审计：看见你的地基&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 建议在 Scale 阶段做一次完整的架构审计。&lt;/p&gt;
+&lt;p&gt;具体操作：让 Claude Code 审计你的代码库，产出一份结构脆弱性清单——哪里是脆的捷径、哪里测试覆盖不足、哪里模块边界模糊。然后让 Claude 对这份清单做优先级排序：什么会拖累下次发布，什么可以并行处理，什么是当前阶段可以接受的。&lt;/p&gt;
+&lt;p&gt;这个审计的价值不只是&amp;quot;修 bug&amp;quot;。它强迫你&lt;strong&gt;看见&lt;/strong&gt;你的代码库——不是作为一个个文件，而是一个系统。大多数创始人在 Scale 阶段第一次真正&amp;quot;看见&amp;quot;自己的代码库，就像第一次站在高楼上俯瞰自己住了多年的城市。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;从能跑到能扛&#34;&gt;从&amp;quot;能跑&amp;quot;到&amp;quot;能扛&amp;quot;&lt;/h2&gt;
+&lt;p&gt;Scale 阶段的技术工作不只是修代码——它是&lt;strong&gt;围绕代码构建基础设施&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;企业买家在签多年合同之前，要看的不是你的产品功能，而是你的组织能不能成为一个可靠的基础设施合作伙伴。他们要看产品文档、支持 playbook、SLA 承诺。签了之后，他们会要求你兑现。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 给出了一个三层方案：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;用 Claude 起草和维护文档。&lt;/strong&gt; 产品文档、支持 playbook、SLA——这些是企业采购团队期望看到的。AI 帮你起草和更新，但内容需要你的领域知识来校准。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;用 Claude Code 加固代码库。&lt;/strong&gt; 审计和加固代码库，针对企业合同要求的特定可靠性和安全标准。构建日志、监控、事件响应工具、可观测性层——让 SLA 真正可执行。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;用 Claude Cowork 运行企业支持运营层。&lt;/strong&gt; 工单路由、升级工作流、文档更新（随产品变化自动触发）、续约追踪、企业客户成功依赖的报告节奏。&lt;/p&gt;
+&lt;p&gt;三个工具协同，让一个小团队能展示出比自身规模大得多的组织成熟度。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>从创始人驱动到系统化运营：建立不依赖你的机器</title>
+      <link>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-12-founder-to-system/</link>
+      <pubDate>Fri, 12 Jun 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-12-founder-to-system/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;亨利·福特说：&amp;ldquo;我问人们想要什么，他们说要一匹更快的马。&amp;ldquo;但福特真正的天才不是发明了汽车——他发明了生产汽车的&lt;strong&gt;系统&lt;/strong&gt;。没有装配线，T 型车只是另一辆昂贵的实验品。Launch 阶段的核心任务，是把创始人从&amp;quot;T 型车&amp;quot;变成&amp;quot;装配线&amp;rdquo;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;创始人成为瓶颈的那一刻&#34;&gt;创始人成为瓶颈的那一刻&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 描述了一个每个创始人都会经历但很少提前意识到的时刻：&lt;strong&gt;你不再是公司的加速器，你成了公司的限速器。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;信号很具体：本该一小时的决策，你现在要一周才能排上；支持请求在堆积，因为只有你知道答案；运营任务只在你记得做的时候才发生；产品路线图卡在你这里，因为所有重要决定都要过你。&lt;/p&gt;
+&lt;p&gt;在 Idea 和 MVP 阶段，创始人在每个循环里是一种资产——你需要全局的认知和紧密的反馈循环。但到了 Launch，支持量在增长，产品在变复杂，运营在膨胀。那种&amp;quot;我亲自盯着&amp;quot;的习惯，开始反噬。&lt;/p&gt;
+&lt;p&gt;这不是一次突然发生的转变。它是一个渐进的过程，像温水煮青蛙。你某一天突然发现，公司不在&amp;quot;因为你而快&amp;rdquo;，而在&amp;quot;因为你而慢&amp;quot;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;全面审计你在忙什么&#34;&gt;全面审计：你在忙什么&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 的解法是：&lt;strong&gt;全面审计你亲自在处理的每件事。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;从最小的任务到最高风险的决策，全部列出来。然后分三类：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;可以系统化的。&lt;/strong&gt; CRM 更新、周报生成、用户外联排期、bug 分类——这些是 AI 工作流自动化的理想候选。它们有明确的触发条件、决策规则和输出格式。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;需要人但不一定是你。&lt;/strong&gt; 某些支持请求、代码审查、内容审核——这些需要人类的判断，但不一定需要&lt;strong&gt;创始人&lt;/strong&gt;的判断。可以委托给团队成员或 AI 辅助的初级处理。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;真的需要创始人。&lt;/strong&gt; 产品叙事决策、董事会关系、战略合作、创始人对创始人的对话——这些需要你独有的上下文和关系。&lt;/p&gt;
+&lt;p&gt;分类完之后，用 Claude Cowork 来设计自动化工作流的逻辑：什么触发、什么规则、输出是什么、完成后去哪里。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;技术债的系统性清理&#34;&gt;技术债的系统性清理&lt;/h2&gt;
+&lt;p&gt;Launch 阶段的另一个紧迫任务是处理 MVP 阶段积累的技术债。&lt;/p&gt;
+&lt;p&gt;MVP 阶段，一些技术债是合理的——你用速度换取了代码质量。但在 Launch 阶段，那些债开始产生利息。生产流量在增长、新功能在叠加、代码库在膨胀——那些&amp;quot;以后再说&amp;quot;的捷径，现在成了结构性负债。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 建议三步走：先用 Claude Code 做一次完整的架构审计，找出脆弱的地方、维护成本高的捷径、测试覆盖不足的区域。然后把审计结果交给 Claude 做优先级排序——什么需要在下次发布前修，什么可以等一轮 sprint，什么是当前阶段可以接受的持续债。最后，把 MVP 阶段脑子里的架构决策写进 CLAUDE.md——那些当时没时间写下来的决定，现在该落地了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;安全与合规不再是可选项&#34;&gt;安全与合规：不再是可选项&lt;/h2&gt;
+&lt;p&gt;MVP 阶段，安全漏洞是理论风险——你的用户是 beta 测试者，没有敏感数据在生产环境里。&lt;/p&gt;
+&lt;p&gt;Launch 阶段，你的产品上有真实用户、真实数据，可能还有企业合同在谈。合规要求也是一样——处理客户数据、处理支付、卖到受监管行业，这些都不再是未来的事。&lt;/p&gt;
+&lt;p&gt;书中的态度很直接：&lt;strong&gt;在规模到来之前，而不是之后，做一次系统性的安全和合规审查。&lt;/strong&gt; 把所有发现当作必须修复的项目，不是建议。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>产品市场契合的谎言与真相：如何识别假信号</title>
+      <link>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-11-pmf-lies-truth/</link>
+      <pubDate>Thu, 11 Jun 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-11-pmf-lies-truth/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;1947 年，飞行员肯尼斯·阿诺德在雷尼尔山附近目击九个碟状物体，&amp;ldquo;飞碟&amp;quot;一词从此诞生。但大多数 UFO 报告最终都被证实是气象气球、金星、或光学错觉。数据不会说谎，但对数据的解读会。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;创始人最容易对自己撒的谎&#34;&gt;创始人最容易对自己撒的谎&lt;/h2&gt;
+&lt;p&gt;产品市场契合（Product-Market Fit，PMF）是创业中最被滥用的概念之一。每个创始人都在找它，但很多人找到的只是它的影子。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 对 PMF 的定义很克制：&lt;strong&gt;一个特定、可识别的用户群体，发现你的产品有价值到足以回来用（留存）、付费（收入）、或告诉别人（推荐）。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;三个条件满足其一即可。但问题在于，每一个都可以被&amp;quot;伪造&amp;rdquo;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三种假阳性&#34;&gt;三种假阳性&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;注册不等于激活。&lt;/strong&gt; 用户来了，注册了，但从未真正用过产品的核心功能。你的注册曲线在涨，但活跃用户曲线是平的。这在有强外联驱动的产品中尤其常见——创始人的人脉网络能带来注册，但带不来留存。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;收入不等于留存。&lt;/strong&gt; 用户付了一个月的费，但第二个月就走了。这可能是因为你的产品解决了一个一次性需求（比如报税），也可能是因为用户只是&amp;quot;试试看&amp;quot;。一次性收入和持续收入之间的差距，就是&amp;quot;假 PMF&amp;quot;和&amp;quot;真 PMF&amp;quot;之间的距离。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;热情不等于习惯。&lt;/strong&gt; 用户在访谈中说&amp;quot;这个产品太棒了&amp;quot;，但第三周就不来了。人们说出来的喜好和实际行为之间，往往有一条巨大的鸿沟。斯坦福大学行为设计实验室的研究反复证实：&lt;strong&gt;自我报告的行为预测力，在大多数场景下接近随机。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;从推到拉&#34;&gt;从&amp;quot;推&amp;quot;到&amp;quot;拉&amp;quot;&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 给出了一个更本质的判断标准：&lt;strong&gt;你的产品是在&amp;quot;推&amp;quot;还是在&amp;quot;拉&amp;quot;？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;产品市场契合之前，留存需要持续干预。你要频繁外联、给激励、创始人亲自盯——所有的留存都是你&amp;quot;推&amp;quot;出来的。这就像推一辆没发动的汽车，你一松手它就停。&lt;/p&gt;
+&lt;p&gt;产品市场契合之后，产品开始自己做这些事。用户自己回来、自己探索新功能、自己告诉朋友。这时候你松手，车还在走——因为它有自己的发动机了。&lt;/p&gt;
+&lt;p&gt;这个转变很难量化，但你能&lt;strong&gt;感觉到&lt;/strong&gt;。当你发现自己不再需要每天发邮件求用户使用，当用户开始主动给你发功能请求，当你的自然增长（而非付费增长）开始占比上升——这些信号加在一起，就是 PMF 的证据。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;衡量框架在用户来之前建好&#34;&gt;衡量框架：在用户来之前建好&lt;/h2&gt;
+&lt;p&gt;上一篇文章提到过这个原则，但值得展开。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 建议：在第一个用户进来之前，就定义好你的衡量框架。具体来说：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;设定留存基准。&lt;/strong&gt; Day 7 留存多少算合格？Day 30 呢？这些数字因产品类型而异——社交工具和 SaaS 工具的基准完全不同。但你需要一个数字，否则你无法判断&amp;quot;好不好&amp;quot;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;定义激活标准。&lt;/strong&gt; 什么算&amp;quot;真正用了&amp;quot;？注册不算。完成第一次核心工作流才算。对于一个 AI 写作工具，可能是&amp;quot;生成了第一篇文章并导出&amp;quot;；对于一个 CRM，可能是&amp;quot;导入了联系人并创建了第一个 pipeline&amp;quot;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;预设&amp;quot;假阳性&amp;quot;模式。&lt;/strong&gt; 注册了但没激活、付费了但没留存、初始热情但没有重复使用——当这些模式出现时，你的衡量框架应该能自动标记它们。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;用-ai-做对抗性分析&#34;&gt;用 AI 做对抗性分析&lt;/h2&gt;
+&lt;p&gt;当数据来了，&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 建议让 AI 对你的 traction 做 adversarial 分析——&lt;strong&gt;扮演最严厉的怀疑论者&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这些注册数字里有多少是创始人的朋友？&amp;rdquo;
+&amp;ldquo;这个留存率在同行业里算什么水平？&amp;rdquo;
+&amp;ldquo;如果去掉前两周的外联推动，自然留存是多少？&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MVP 的四个暗礁：速度与陷阱的博弈</title>
+      <link>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-10-mvp-four-reefs/</link>
+      <pubDate>Wed, 10 Jun 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-10-mvp-four-reefs/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;希腊神话中，奥德修斯在塞壬女妖的海域航行时，让船员用蜡封住耳朵，把自己绑在桅杆上。他听到了歌声，但无法偏航。MVP 阶段，你需要同样的自律——听到&amp;quot;快&amp;quot;的歌声，但不被它带偏。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;速度是一把双刃剑&#34;&gt;速度是一把双刃剑&lt;/h2&gt;
+&lt;p&gt;上一篇文章我们讲了如何从 CLAUDE.md 开始构建产品。现在假设你已经有了架构文档、范围文档，代码开始跑起来了。&lt;/p&gt;
+&lt;p&gt;然后速度来了。&lt;/p&gt;
+&lt;p&gt;Agentic coding 工具让&amp;quot;构建&amp;quot;变得前所未有的快。一个功能从想法到上线，过去要一个 sprint，现在要一个下午。这种速度让人上瘾——你开始觉得&amp;quot;再做几个功能&amp;quot;、&amp;ldquo;再处理几个边缘 case&amp;rdquo;、&amp;ldquo;产品再完善一点再发&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 把 MVP 阶段的核心矛盾归结为一句话：&lt;strong&gt;AI 保证了速度，但速度本身成了最大的风险。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;具体来说，有四个暗礁。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第一个暗礁agentic-技术债&#34;&gt;第一个暗礁：Agentic 技术债&lt;/h2&gt;
+&lt;p&gt;普通技术债是可以管理的——你欠了，但知道要还，可以在某个 sprint 里集中清理。&lt;/p&gt;
+&lt;p&gt;Agentic 技术债不一样。它会&lt;strong&gt;累积&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;原因在于：没有写下来的架构约束，每个 AI 会话都从头推导基础决策。这个会话决定用 REST API，那个会话决定用 GraphQL；这个会话把用户认证放在前端，那个会话把它放在后端。每个决策单独看都合理，但它们合在一起——代码能跑，但背后没有一个连贯的心智模型。&lt;/p&gt;
+&lt;p&gt;这就像让十个厨师各自做一道菜，但没人告诉他们这是同一桌宴席。每道菜单独吃都没问题，但放在一起，口味冲突、温度不一致、上菜顺序混乱。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 的建议是：在 MVP 阶段就保持 CLAUDE.md 的更新。每个会话结束，花五分钟记录这个会话做了什么决策、引入了什么假设。这不是文档洁癖，是防止你的代码库在第六个月变成一团只有 AI 能读懂的意大利面。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第二个暗礁假产品市场契合&#34;&gt;第二个暗礁：假产品市场契合&lt;/h2&gt;
+&lt;p&gt;这是最危险的暗礁，因为它看起来像陆地。&lt;/p&gt;
+&lt;p&gt;发布产品的那一刻，是创始人最脆弱的时刻。几周的验证、几个月的构建，终于有了一个能跑的东西。你的朋友来试用，投资人介绍的潜在买家来试用，一条 Hacker News 头条带来一波流量——早期数字看起来不错。&lt;/p&gt;
+&lt;p&gt;但早期 traction 不等于产品市场契合。&lt;/p&gt;
+&lt;p&gt;Launch 能量来自短暂的、外部的助推力。真正的产品市场契合是一个&lt;strong&gt;模式&lt;/strong&gt;——它必须在多个迭代周期中持续成立，才能被确认。&lt;/p&gt;
+&lt;p&gt;书中提到了 Sean Ellis 测试：问你的活跃用户&amp;quot;如果你不能再用这个产品了，你会感觉怎么样？&amp;ldquo;如果超过 40% 回答&amp;quot;非常失望&amp;rdquo;，这是一个有意义的信号。&lt;/p&gt;
+&lt;p&gt;但更根本的检验是&lt;strong&gt;从&amp;quot;推&amp;quot;到&amp;quot;拉&amp;quot;的转变&lt;/strong&gt;。产品市场契合之前，留存需要持续干预——频繁的外联、激励、创始人亲自盯。产品市场契合之后，产品开始自己做这些事。当你发现自己在&amp;quot;推&amp;quot;的力气开始变轻，那才是真正变化的信号。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第三个暗礁零摩擦范围蔓延&#34;&gt;第三个暗礁：零摩擦范围蔓延&lt;/h2&gt;
+&lt;p&gt;每个功能只要一个下午。每个边缘 case 只要几分钟。每一项单独看都理所当然。&lt;/p&gt;
+&lt;p&gt;这就是 AI 时代范围蔓延的新形态。传统的制衡——工程师时间的真实成本——不存在了。加一个功能不再需要一个 sprint 的讨论，只需要你的一句话。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>构建第一个 AI 原生产品：从 CLAUDE.md 开始</title>
+      <link>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-07-build-first-ai-product/</link>
+      <pubDate>Sun, 07 Jun 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-07-build-first-ai-product/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;文艺复兴时期的大师在动笔之前，先画几百张草图。达·芬奇的笔记本里全是未完成的想法——不是因为他不擅长完成，而是因为他深知：思考的结构决定了作品的结构。今天，CLAUDE.md 就是你的草图。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;先写文档再写代码&#34;&gt;先写文档，再写代码&lt;/h2&gt;
+&lt;p&gt;这个建议反直觉到几乎冒犯。&lt;/p&gt;
+&lt;p&gt;你是创始人，你有一个经过验证的问题，你迫不及待要动手做产品。&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 却让你在写任何一行代码之前，先坐下来，和 Claude 一起定义并记录架构决策：遵循什么模式、避免什么依赖、接受什么权衡、为什么。&lt;/p&gt;
+&lt;p&gt;这不是官僚主义，这是&lt;strong&gt;防止 AI 把你的代码库变成巴别塔&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;想想巴别塔的隐喻。如果每个 AI 会话都是一个工人，每个工人都说自己的语言、按自己的方式砌砖，最终的结果不是塔，而是废墟。CLAUDE.md 就是你的通用语——它告诉每一个进入这个项目的 AI：这个系统为什么这样设计、哪些边界不能碰、哪些权衡是刻意的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;为什么这件事在-ai-时代如此关键&#34;&gt;为什么这件事在 AI 时代如此关键&lt;/h2&gt;
+&lt;p&gt;传统团队里，架构知识通过代码审查、站会、文档、以及最重要的——人与人之间的隐性传递来维护。一个新工程师加入团队，通过和老工程师配对编程、一起吃午饭、在 Slack 上问&amp;quot;为什么&amp;quot;来学习系统的设计逻辑。&lt;/p&gt;
+&lt;p&gt;在 AI 原生团队里，你的&amp;quot;新工程师&amp;quot;是每一个新的 Claude Code 会话。它没有上下文——除非你给它。没有 CLAUDE.md，每次会话都从零开始推断结构假设。它能生成能跑的代码，但生成的代码没有&lt;strong&gt;连贯的心智模型&lt;/strong&gt;支撑。&lt;/p&gt;
+&lt;p&gt;这就像让十个建筑师各自设计一栋楼的一层，但没人见过总平面图。每一层单独看都没问题，但它们合在一起会怎样？门可能开在承重墙上，水管可能穿过电线管道。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 把这种现象叫做&amp;quot;结构性不连贯&amp;quot;（structural incoherence）。代码能跑，能过测试，但背后没有一个统一的设计意图。&lt;strong&gt;问题不在任何一段代码，而在于所有代码从未被设计成能协同工作。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;claudemd-里应该写什么&#34;&gt;CLAUDE.md 里应该写什么&lt;/h2&gt;
+&lt;p&gt;不是完整的规格书。你不需要在这个阶段写一份 IEEE 830 标准的需求文档。&lt;/p&gt;
+&lt;p&gt;你需要写的是&lt;strong&gt;决策和理由&lt;/strong&gt;。为什么选 PostgreSQL 而不是 MongoDB？为什么接受这个技术债？为什么这个模块的边界划在这里而不是那里？&lt;/p&gt;
+&lt;p&gt;举个例子，你可能会写：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;我们选择 Next.js 而不是纯 React，因为我们预计未来三个月需要 SSR 来支持 SEO。这是一个刻意的选择，即使它增加了部署复杂度。如果三个月后 SEO 不再是优先级，可以重新评估。&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这段话告诉 AI 的不只是&amp;quot;用什么&amp;quot;，还有&amp;quot;为什么用&amp;quot;和&amp;quot;什么情况下可以改&amp;quot;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;范围文档ai-时代的疫苗&#34;&gt;范围文档：AI 时代的疫苗&lt;/h2&gt;
+&lt;p&gt;和架构文档同等重要的是&lt;strong&gt;范围文档&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;在 AI 时代，范围蔓延（scope creep）是一种全新的危险。过去，加一个功能需要一个 sprint 的工程师时间——这个成本本身就是一种制衡。现在，加一个功能只要一个下午。每一项单独看都理所当然：当然产品应该处理这个边缘 case，当然用户会想要那个工作流。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>用 AI 做压力测试：让魔鬼代言人替你思考</title>
+      <link>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-06-ai-devil-advocate/</link>
+      <pubDate>Sat, 06 Jun 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-06-ai-devil-advocate/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;苏格拉底说：&amp;ldquo;未经审视的人生不值得过。&amp;ldquo;在 AI 时代，未经反驳的创业想法不值得做——而 AI 给了你一个永不疲倦的反驳者。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;确认偏误的新武器&#34;&gt;确认偏误的新武器&lt;/h2&gt;
+&lt;p&gt;1960 年，英国心理学家彼得·沃森做了一个著名的&amp;quot;2-4-6 实验&amp;rdquo;。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜&amp;quot;连续偶数&amp;rdquo;，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是&amp;quot;任意三个递增数字&amp;quot;——但很少有人主动去举反例来反驳自己。&lt;/p&gt;
+&lt;p&gt;这就是确认偏误：我们本能地寻找支持自己信念的证据，而忽略或贬低反面证据。在创业中，这是致命的。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 指出了一个 AI 时代特有的危险：&lt;strong&gt;确认偏误现在有了一个研究引擎。&lt;/strong&gt; 让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的&amp;quot;尽职调查&amp;quot;。&lt;/p&gt;
+&lt;p&gt;更危险的是，这个过程会让你&lt;strong&gt;感觉自己在做尽职调查&lt;/strong&gt;。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个&amp;quot;验证过&amp;quot;的用户痛点——看起来严谨无比，但前提可能是错的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;结构化魔鬼代言人&#34;&gt;结构化魔鬼代言人&lt;/h2&gt;
+&lt;p&gt;解法是同一个工具，指向相反的方向。&lt;/p&gt;
+&lt;p&gt;天主教会在 1587 年设立了一个正式职位叫&amp;quot;魔鬼代言人&amp;quot;（Devil&amp;rsquo;s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 建议你把 AI 当作你的结构化魔鬼代言人。具体操作分三步。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一步：让 AI 攻击你的问题陈述。&lt;/strong&gt; 不是让它说&amp;quot;这个问题很好&amp;quot;，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二步：让 AI 替竞品辩护。&lt;/strong&gt; 让它分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的牢固。这一步的价值在于，它会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个&amp;quot;竞品&amp;quot;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第三步：让 AI 质疑你的解决方案。&lt;/strong&gt; 你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;压力测试之后&#34;&gt;压力测试之后&lt;/h2&gt;
+&lt;p&gt;做完这三步，你大概会经历两种反应之一。&lt;/p&gt;
+&lt;p&gt;第一种：你的想法经受住了攻击，你知道了它最脆弱的在哪里——这让你在接下来的用户访谈中有了明确的测试方向。&lt;/p&gt;
+&lt;p&gt;第二种：你的想法被撕开了，你发现核心假设站不住——&lt;strong&gt;这是好消息。&lt;/strong&gt; 不是&amp;quot;你失败了&amp;quot;，而是&amp;quot;你在动手之前就知道这条路走不通了&amp;quot;。&lt;/p&gt;
+&lt;p&gt;这让我想到查理·芒格的一句话：&amp;ldquo;我只想知道我会死在哪里，这样我就永远不去那个地方。&amp;rdquo; AI 让你有能力在创业之前，先快速&amp;quot;死&amp;quot;上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;用户访谈的框架&#34;&gt;用户访谈的框架&lt;/h2&gt;
+&lt;p&gt;压力测试之后，才轮到用户访谈。书中建议用 AI 来设计和优化访谈框架——但有一个关键原则：&lt;strong&gt;问题要先自己写，再让 AI 审。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组&amp;quot;正确但平庸&amp;quot;的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>找到你的问题域：从&#34;能做&#34;到&#34;该做&#34;的跨越</title>
+      <link>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-05-find-your-problem-space/</link>
+      <pubDate>Fri, 05 Jun 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-05-find-your-problem-space/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;孙子曰：&amp;ldquo;夫未战而庙算胜者，得算多也。&amp;ldquo;在 AI 让&amp;quot;建造&amp;quot;几乎免费的今天，&amp;ldquo;算&amp;quot;什么、&amp;ldquo;算&amp;quot;哪里，反而成了最难的一道题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;无限可能零值判断&#34;&gt;无限可能，零值判断&lt;/h2&gt;
+&lt;p&gt;2024 年秋天，我在旧金山参加了一场创业聚会。一个穿 Patagonia 背心的年轻人告诉我，他周末用 Claude Code 做了三个产品原型——一个 AI 法律助手、一个自动化记账工具、一个社交媒体内容生成器。&amp;ldquo;三个都能做，&amp;ldquo;他说，&amp;ldquo;但我不知道该做哪个。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这不是个例。当 agentic coding 抹平了技术门槛，创始人面临的选择困境反而加剧了。过去，你能做什么受限于你会什么；现在，你能做什么几乎没有限制，但&amp;quot;该做什么&amp;quot;的判断难度陡然上升。&lt;/p&gt;
+&lt;p&gt;这就像一个厨师走进一个无限食材的厨房——真正的限制不再是食材，而是对&amp;quot;什么菜值得做&amp;quot;的品味。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;问题的三个层次&#34;&gt;问题的三个层次&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 把 Idea Stage 的验证工作归结为四个按顺序回答的问题：这个问题真实、具体、频繁到值得围绕它做公司吗？谁有这个问题？有没有人在解决它？你的方案能做到吗？&lt;/p&gt;
+&lt;p&gt;这些问题看似朴素，但每一个都暗藏陷阱。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;真实&amp;quot;不等于&amp;quot;你感觉到了&amp;rdquo;。&lt;/strong&gt; 一个经典的创业认知偏差是：我是用户，所以我的问题就是大家的问题。这叫&amp;quot;自我抽样偏差&amp;rdquo;——你当然有这个问题，因为你就是你。但市场不是你的镜像。&lt;/p&gt;
+&lt;p&gt;书中给出的例子很精妙：&amp;ldquo;人们做报销很痛苦&amp;quot;是一个观察，不是假设。&amp;ldquo;中型公司的财务经理每周花四个多小时核对报销单，因为现有工具和他们的会计软件不互通&amp;quot;才是可验证的假设。前者让你感觉抓住了需求，后者让你能去验证。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;具体&amp;quot;是杀死模糊的刀。&lt;/strong&gt; 德鲁克在《管理的实践》里说过类似的话：企业只需要做两件事——营销和创新。但如果你问创始人&amp;quot;你在解决什么问题&amp;rdquo;，得到的答案往往是&amp;quot;让工作更高效&amp;quot;或者&amp;quot;用 AI 改变行业&amp;rdquo;。这不是问题陈述，这是愿景口号。真正的问题陈述要具体到你能指着一个人说：&amp;ldquo;他，每天下午三点，正在经历这个问题。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;频繁&amp;quot;决定了你是在做公司还是在做项目。&lt;/strong&gt; 一个一年发生一次的问题，用户不会为它付费——他们会自己忍着。一个每天发生四次的问题，用户愿意为任何能解决它的东西付费。频率决定了你的收入模型。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;用-ai-做竞争地形图&#34;&gt;用 AI 做竞争地形图&lt;/h2&gt;
+&lt;p&gt;找到问题域不只是向内看——你还得向外看。书中建议用 AI 做竞争地形分析，而且要用一种特殊的方式：&lt;strong&gt;让 AI 替你的竞争对手说话。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;不是让 AI 列出竞品的功能对比表——那种表格谁都会做。而是让 AI 构建一个论证：为什么这个竞品会成功，而你会失败。让它分析竞品的方案为什么更好、用户为什么选他们、你的差异化优势为什么没有你以为的那么牢固。&lt;/p&gt;
+&lt;p&gt;这招来自军事战略中的&amp;quot;红队演练&amp;rdquo;（Red Teaming）。冷战时期，美国国防部专门组建团队扮演苏联指挥官，用苏军的思维来审视美军计划。效果显著——很多在美军内部&amp;quot;显而易见&amp;quot;的行动计划，被红队从敌方视角拆解得千疮百孔。&lt;/p&gt;
+&lt;p&gt;用在创业上，就是让你的 AI 扮演最了解你竞品的分析师。它会告诉你那些你因为太爱自己的idea而选择性忽略的东西。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;客户发现的实操&#34;&gt;客户发现的实操&lt;/h2&gt;
+&lt;p&gt;找到问题域的最后一步是和人说话——不是&amp;quot;你觉得这个想法怎么样&amp;rdquo;，而是&amp;quot;告诉我你上次遇到这个问题时发生了什么&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;这里有一个创业研究中反复验证的发现：&lt;strong&gt;人们不擅长预测自己未来的行为，但很擅长描述自己过去的行为。&lt;/strong&gt; 问&amp;quot;你会不会用这个东西&amp;quot;得到的是愿望清单；问&amp;quot;你上次遇到这个问题时怎么处理的&amp;quot;得到的是行为数据。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook&lt;/em&gt; 建议用 Claude Cowork 来自动化客户发现的操作层：构建目标用户画像、生成外联邮件、管理排期、追踪访谈进度。但有一个原则——&lt;strong&gt;收集和初步分析可以自动化，但对话本身必须是人。&lt;/strong&gt; 一个用户说&amp;quot;这个很好但我希望它也能……&amp;quot;，这句话背后的含义——是核心需求还是一厢情愿？是个人偏好还是群体特征？——只有人能判断。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;退出条件&#34;&gt;退出条件&lt;/h2&gt;
+&lt;p&gt;Idea Stage 的退出条件是找到&amp;quot;问题-解决方案匹配&amp;rdquo;：你有定性证据证明你在为真实的人解决真实的问题。三个检验——你能说清楚谁、多频繁、多严重、现在在怎么办吗？你的方案针对的是被验证过的问题吗？目标用户群构成一个真实的市场吗？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>从福特流水线到 AI 原生：打造一家 AI Native 公司的范式转移</title>
+      <link>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-03-ai-native-paradigm-shift/</link>
+      <pubDate>Wed, 03 Jun 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-03-ai-native-paradigm-shift/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;1913 年，福特高地公园工厂引入移动装配线，汽车底盘的装配时间从 12 小时 28 分压缩到 1 小时 33 分。这不是效率的改良，而是生产范式的重构。今天，AI 正在对创业做同样的事。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一场安静的范式转移&#34;&gt;一场安静的范式转移&lt;/h2&gt;
+&lt;p&gt;1913 年之前，汽车是工匠在固定工位上逐件组装的。每个底盘架在同一个位置，工人围着它转。福特做了一件听起来很简单的事：让底盘动起来，让工人站着不动。装配线不是新工具，它是新范式——它重新定义了&amp;quot;造车&amp;quot;这件事本身。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Founder&amp;rsquo;s Playbook: Building an AI-Native Startup&lt;/em&gt; 描述的就是这样一个时刻。2026 年的 AI 不是在&amp;quot;改良&amp;quot;创业流程，而是在重构&amp;quot;创办一家公司&amp;quot;这个行为的底层逻辑。&lt;/p&gt;
+&lt;p&gt;过去几年，我们见证了几个关键节点的到来。2022 年底 ChatGPT 发布，AI 从实验室走进客厅。2024 年 agentic coding 工具成熟，一个人可以在一个下午做出过去一个团队几个月才能交付的产品。2025 年，YC 批次的创业公司中，单人创始的比例显著上升——不是因为他们更孤独，而是因为 AI 让一个人能跑出一个团队的节奏。&lt;/p&gt;
+&lt;p&gt;这不是&amp;quot;效率提升&amp;quot;。效率提升是在同一个范式里做得更好。范式转移是——你不再需要优化旧范式，因为你换了一个。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;什么是-ai-native&#34;&gt;什么是 AI Native？&lt;/h2&gt;
+&lt;p&gt;先说它不是什么。AI Native 不等于&amp;quot;用了 AI 的公司&amp;quot;。就像&amp;quot;移动互联网原生&amp;quot;不等于&amp;quot;做了个 App 的公司&amp;quot;——诺基亚有 App，但它不是移动原生。&lt;/p&gt;
+&lt;p&gt;AI Native 是一种组织范式：&lt;strong&gt;AI 不是工具层，而是基础设施层。&lt;/strong&gt; 就像电力对工业革命的意义——你可以买发电机，但真正的变革来自整个工厂围绕电力重新设计。&lt;/p&gt;
+&lt;p&gt;在 AI Native 公司里，创始人的工作不是写代码、做研究、起草融资材料——这些 AI 都能做。创始人的工作是&lt;strong&gt;编排&lt;/strong&gt;：决定用什么工具、在什么阶段、解决什么问题、达到什么效果。这就像福特工厂里的生产工程师，他不拧螺丝，但他设计螺丝被拧的顺序。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;为什么是现在&#34;&gt;为什么是现在&lt;/h2&gt;
+&lt;p&gt;三个条件同时成熟了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Agentic Coding 让&amp;quot;构建&amp;quot;民主化。&lt;/strong&gt; 过去，做一个软件产品需要技术联合创始人、外包团队，或者足够长的 runway 去招人。现在，一个没有工程背景的创始人可以用自然语言描述需求，让 AI 生成、测试、调试、重构生产级代码。从&amp;quot;有想法&amp;quot;到&amp;quot;有产品&amp;quot;的距离被压缩到几乎为零。&lt;/p&gt;</description>
     </item>
     <item>
       <title>高段领导力从哪里来</title>
