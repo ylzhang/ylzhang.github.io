@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Idea Stage：构建之前，先证明你值得构建 | Zhang&#39;s Blog</title>
+<meta name="keywords" content="AI, 管理">
+<meta name="description" content="
+
+42% 的创业公司失败是因为做了没人要的东西。在 AI 让&quot;做出一个产品&quot;变得前所未有的简单的今天，这个数字只会更高。
+
+The Founder&rsquo;s Playbook 把创业生命周期的第一阶段叫做 Idea Stage，核心任务只有一个：在写第一行代码之前，用证据证明这个问题值得解决。
+这听起来像正确的废话。但书中指出了一个 AI 时代才有的、反直觉的危险：当构建变得毫不费力，跳过验证的诱惑变得前所未有地大。
+
+三个致命挑战
+书中列出了 Idea Stage 的三个核心挑战，每一个都在 AI 时代被放大了。
+把构建误当作验证。 这是最危险的。过去，做一个原型需要几个月的开发时间和预算，这个过程本身就是一种验证——你得想清楚才动手。现在，agentic coding 把&quot;有想法&quot;到&quot;有产品&quot;的距离压缩到几乎为零。一个创始人可以今天早上有想法，下午就有一个看起来像那么回事的原型。
+问题在于，一个能跑的原型很容易被误认为是&quot;解决了真问题&quot;的证据。 但它不是。原型只是对话的道具，真正的证据来自和潜在用户的真实对话。书里说得直接：很多创始人错误地认为 AI 短路了验证流程，把&quot;有想法→直接构建→把原型当证据&quot;当成了合理路径。
+过早扩展。 当构建毫不费力时，你很容易在业务需求还没跟上的时候就把执行规模拉满。Agentic coding 工具会带着同样的热情为一个有根本性缺陷的前提生成代码——它不会质疑你的前提，只会高效地实现它。系统中的智能是你自己的。 这个阶段的首要准则是：让判断力跑在构建前面。
+丧失客观性。 确认偏误一直是创业者的职业病，现在 AI 给它装上了引擎。让 AI 验证你的创业想法，它会找到支持证据；让它做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的&quot;尽职调查&quot;。
+
+验证的正确顺序
+书中给出了一组需要按顺序回答的问题：
+这个问题真实、具体、频繁到值得围绕它做公司吗？谁有这个问题，他们构成一个市场吗？有没有人在解决它，解决得怎么样？一个解决方案实际需要做什么，你的想法能做到吗？
+这些问题的答案最终指向一个终极判断：这件事值得做吗？
+关键在于&quot;具体&quot;。&ldquo;人们做报销很痛苦&quot;是一个观察，不是假设。&ldquo;中型公司的财务经理每周花四个多小时核对报销单，因为现有工具和他们的会计软件不互通&quot;才是可验证的假设。前者让你感觉抓住了需求，后者让你能去验证。
+
+用 AI 来压力测试，而非确认
+书中最实用的建议之一，是把 AI 当作结构化的魔鬼代言人。
+不是让 AI 告诉你&quot;你的想法很好&rdquo;——那太容易了。而是让它反驳你的想法，寻找否定你假设的反证。哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？
+这个用法贯穿整本书，在 Idea Stage 尤其关键。带着被反证压力测试过的假设去做用户访谈，你才可能听到真话，而不是在寻找确认。
+具体怎么做？先和 Claude 一起把问题陈述打磨到可测试。然后让它攻击你的假设——找反例、找失败竞品、找结构性障碍。接着带着这些反论去做客户发现：定义目标用户画像、设计访谈框架、自动化外联和排期。每五场访谈后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。
+
+退出条件
+Idea Stage 的退出条件是找到问题-解决方案匹配：在开始构建之前，你有定性证据（主要来自真实的人类对话）证明你在为真实的人解决真实的问题。">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-idea-stage-validation/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-idea-stage-validation/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-idea-stage-validation/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="Idea Stage：构建之前，先证明你值得构建">
+  <meta property="og:description" content="
+42% 的创业公司失败是因为做了没人要的东西。在 AI 让&#34;做出一个产品&#34;变得前所未有的简单的今天，这个数字只会更高。
+The Founder’s Playbook 把创业生命周期的第一阶段叫做 Idea Stage，核心任务只有一个：在写第一行代码之前，用证据证明这个问题值得解决。
+这听起来像正确的废话。但书中指出了一个 AI 时代才有的、反直觉的危险：当构建变得毫不费力，跳过验证的诱惑变得前所未有地大。
+三个致命挑战 书中列出了 Idea Stage 的三个核心挑战，每一个都在 AI 时代被放大了。
+把构建误当作验证。 这是最危险的。过去，做一个原型需要几个月的开发时间和预算，这个过程本身就是一种验证——你得想清楚才动手。现在，agentic coding 把&#34;有想法&#34;到&#34;有产品&#34;的距离压缩到几乎为零。一个创始人可以今天早上有想法，下午就有一个看起来像那么回事的原型。
+问题在于，一个能跑的原型很容易被误认为是&#34;解决了真问题&#34;的证据。 但它不是。原型只是对话的道具，真正的证据来自和潜在用户的真实对话。书里说得直接：很多创始人错误地认为 AI 短路了验证流程，把&#34;有想法→直接构建→把原型当证据&#34;当成了合理路径。
+过早扩展。 当构建毫不费力时，你很容易在业务需求还没跟上的时候就把执行规模拉满。Agentic coding 工具会带着同样的热情为一个有根本性缺陷的前提生成代码——它不会质疑你的前提，只会高效地实现它。系统中的智能是你自己的。 这个阶段的首要准则是：让判断力跑在构建前面。
+丧失客观性。 确认偏误一直是创业者的职业病，现在 AI 给它装上了引擎。让 AI 验证你的创业想法，它会找到支持证据；让它做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的&#34;尽职调查&#34;。
+验证的正确顺序 书中给出了一组需要按顺序回答的问题：
+这个问题真实、具体、频繁到值得围绕它做公司吗？谁有这个问题，他们构成一个市场吗？有没有人在解决它，解决得怎么样？一个解决方案实际需要做什么，你的想法能做到吗？
+这些问题的答案最终指向一个终极判断：这件事值得做吗？
+关键在于&#34;具体&#34;。“人们做报销很痛苦&#34;是一个观察，不是假设。“中型公司的财务经理每周花四个多小时核对报销单，因为现有工具和他们的会计软件不互通&#34;才是可验证的假设。前者让你感觉抓住了需求，后者让你能去验证。
+用 AI 来压力测试，而非确认 书中最实用的建议之一，是把 AI 当作结构化的魔鬼代言人。
+不是让 AI 告诉你&#34;你的想法很好”——那太容易了。而是让它反驳你的想法，寻找否定你假设的反证。哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？
+这个用法贯穿整本书，在 Idea Stage 尤其关键。带着被反证压力测试过的假设去做用户访谈，你才可能听到真话，而不是在寻找确认。
+具体怎么做？先和 Claude 一起把问题陈述打磨到可测试。然后让它攻击你的假设——找反例、找失败竞品、找结构性障碍。接着带着这些反论去做客户发现：定义目标用户画像、设计访谈框架、自动化外联和排期。每五场访谈后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。
+退出条件 Idea Stage 的退出条件是找到问题-解决方案匹配：在开始构建之前，你有定性证据（主要来自真实的人类对话）证明你在为真实的人解决真实的问题。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-06-29T14:00:00+08:00">
+    <meta property="article:modified_time" content="2026-06-29T14:00:00+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="管理">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-ai-native-founder-role/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="Idea Stage：构建之前，先证明你值得构建">
+<meta name="twitter:description" content="
+
+42% 的创业公司失败是因为做了没人要的东西。在 AI 让&quot;做出一个产品&quot;变得前所未有的简单的今天，这个数字只会更高。
+
+The Founder&rsquo;s Playbook 把创业生命周期的第一阶段叫做 Idea Stage，核心任务只有一个：在写第一行代码之前，用证据证明这个问题值得解决。
+这听起来像正确的废话。但书中指出了一个 AI 时代才有的、反直觉的危险：当构建变得毫不费力，跳过验证的诱惑变得前所未有地大。
+
+三个致命挑战
+书中列出了 Idea Stage 的三个核心挑战，每一个都在 AI 时代被放大了。
+把构建误当作验证。 这是最危险的。过去，做一个原型需要几个月的开发时间和预算，这个过程本身就是一种验证——你得想清楚才动手。现在，agentic coding 把&quot;有想法&quot;到&quot;有产品&quot;的距离压缩到几乎为零。一个创始人可以今天早上有想法，下午就有一个看起来像那么回事的原型。
+问题在于，一个能跑的原型很容易被误认为是&quot;解决了真问题&quot;的证据。 但它不是。原型只是对话的道具，真正的证据来自和潜在用户的真实对话。书里说得直接：很多创始人错误地认为 AI 短路了验证流程，把&quot;有想法→直接构建→把原型当证据&quot;当成了合理路径。
+过早扩展。 当构建毫不费力时，你很容易在业务需求还没跟上的时候就把执行规模拉满。Agentic coding 工具会带着同样的热情为一个有根本性缺陷的前提生成代码——它不会质疑你的前提，只会高效地实现它。系统中的智能是你自己的。 这个阶段的首要准则是：让判断力跑在构建前面。
+丧失客观性。 确认偏误一直是创业者的职业病，现在 AI 给它装上了引擎。让 AI 验证你的创业想法，它会找到支持证据；让它做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的&quot;尽职调查&quot;。
+
+验证的正确顺序
+书中给出了一组需要按顺序回答的问题：
+这个问题真实、具体、频繁到值得围绕它做公司吗？谁有这个问题，他们构成一个市场吗？有没有人在解决它，解决得怎么样？一个解决方案实际需要做什么，你的想法能做到吗？
+这些问题的答案最终指向一个终极判断：这件事值得做吗？
+关键在于&quot;具体&quot;。&ldquo;人们做报销很痛苦&quot;是一个观察，不是假设。&ldquo;中型公司的财务经理每周花四个多小时核对报销单，因为现有工具和他们的会计软件不互通&quot;才是可验证的假设。前者让你感觉抓住了需求，后者让你能去验证。
+
+用 AI 来压力测试，而非确认
+书中最实用的建议之一，是把 AI 当作结构化的魔鬼代言人。
+不是让 AI 告诉你&quot;你的想法很好&rdquo;——那太容易了。而是让它反驳你的想法，寻找否定你假设的反证。哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？
+这个用法贯穿整本书，在 Idea Stage 尤其关键。带着被反证压力测试过的假设去做用户访谈，你才可能听到真话，而不是在寻找确认。
+具体怎么做？先和 Claude 一起把问题陈述打磨到可测试。然后让它攻击你的假设——找反例、找失败竞品、找结构性障碍。接着带着这些反论去做客户发现：定义目标用户画像、设计访谈框架、自动化外联和排期。每五场访谈后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。
+
+退出条件
+Idea Stage 的退出条件是找到问题-解决方案匹配：在开始构建之前，你有定性证据（主要来自真实的人类对话）证明你在为真实的人解决真实的问题。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Idea Stage：构建之前，先证明你值得构建",
+      "item": "https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-idea-stage-validation/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Idea Stage：构建之前，先证明你值得构建",
+  "name": "Idea Stage：构建之前，先证明你值得构建",
+  "description": "\n42% 的创业公司失败是因为做了没人要的东西。在 AI 让\u0026quot;做出一个产品\u0026quot;变得前所未有的简单的今天，这个数字只会更高。\nThe Founder\u0026rsquo;s Playbook 把创业生命周期的第一阶段叫做 Idea Stage，核心任务只有一个：在写第一行代码之前，用证据证明这个问题值得解决。\n这听起来像正确的废话。但书中指出了一个 AI 时代才有的、反直觉的危险：当构建变得毫不费力，跳过验证的诱惑变得前所未有地大。\n三个致命挑战 书中列出了 Idea Stage 的三个核心挑战，每一个都在 AI 时代被放大了。\n把构建误当作验证。 这是最危险的。过去，做一个原型需要几个月的开发时间和预算，这个过程本身就是一种验证——你得想清楚才动手。现在，agentic coding 把\u0026quot;有想法\u0026quot;到\u0026quot;有产品\u0026quot;的距离压缩到几乎为零。一个创始人可以今天早上有想法，下午就有一个看起来像那么回事的原型。\n问题在于，一个能跑的原型很容易被误认为是\u0026quot;解决了真问题\u0026quot;的证据。 但它不是。原型只是对话的道具，真正的证据来自和潜在用户的真实对话。书里说得直接：很多创始人错误地认为 AI 短路了验证流程，把\u0026quot;有想法→直接构建→把原型当证据\u0026quot;当成了合理路径。\n过早扩展。 当构建毫不费力时，你很容易在业务需求还没跟上的时候就把执行规模拉满。Agentic coding 工具会带着同样的热情为一个有根本性缺陷的前提生成代码——它不会质疑你的前提，只会高效地实现它。系统中的智能是你自己的。 这个阶段的首要准则是：让判断力跑在构建前面。\n丧失客观性。 确认偏误一直是创业者的职业病，现在 AI 给它装上了引擎。让 AI 验证你的创业想法，它会找到支持证据；让它做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的\u0026quot;尽职调查\u0026quot;。\n验证的正确顺序 书中给出了一组需要按顺序回答的问题：\n这个问题真实、具体、频繁到值得围绕它做公司吗？谁有这个问题，他们构成一个市场吗？有没有人在解决它，解决得怎么样？一个解决方案实际需要做什么，你的想法能做到吗？\n这些问题的答案最终指向一个终极判断：这件事值得做吗？\n关键在于\u0026quot;具体\u0026quot;。\u0026ldquo;人们做报销很痛苦\u0026quot;是一个观察，不是假设。\u0026ldquo;中型公司的财务经理每周花四个多小时核对报销单，因为现有工具和他们的会计软件不互通\u0026quot;才是可验证的假设。前者让你感觉抓住了需求，后者让你能去验证。\n用 AI 来压力测试，而非确认 书中最实用的建议之一，是把 AI 当作结构化的魔鬼代言人。\n不是让 AI 告诉你\u0026quot;你的想法很好\u0026rdquo;——那太容易了。而是让它反驳你的想法，寻找否定你假设的反证。哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？\n这个用法贯穿整本书，在 Idea Stage 尤其关键。带着被反证压力测试过的假设去做用户访谈，你才可能听到真话，而不是在寻找确认。\n具体怎么做？先和 Claude 一起把问题陈述打磨到可测试。然后让它攻击你的假设——找反例、找失败竞品、找结构性障碍。接着带着这些反论去做客户发现：定义目标用户画像、设计访谈框架、自动化外联和排期。每五场访谈后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。\n退出条件 Idea Stage 的退出条件是找到问题-解决方案匹配：在开始构建之前，你有定性证据（主要来自真实的人类对话）证明你在为真实的人解决真实的问题。\n",
+  "keywords": [
+    "AI", "管理"
+  ],
+  "articleBody": "\n42% 的创业公司失败是因为做了没人要的东西。在 AI 让\"做出一个产品\"变得前所未有的简单的今天，这个数字只会更高。\nThe Founder’s Playbook 把创业生命周期的第一阶段叫做 Idea Stage，核心任务只有一个：在写第一行代码之前，用证据证明这个问题值得解决。\n这听起来像正确的废话。但书中指出了一个 AI 时代才有的、反直觉的危险：当构建变得毫不费力，跳过验证的诱惑变得前所未有地大。\n三个致命挑战 书中列出了 Idea Stage 的三个核心挑战，每一个都在 AI 时代被放大了。\n把构建误当作验证。 这是最危险的。过去，做一个原型需要几个月的开发时间和预算，这个过程本身就是一种验证——你得想清楚才动手。现在，agentic coding 把\"有想法\"到\"有产品\"的距离压缩到几乎为零。一个创始人可以今天早上有想法，下午就有一个看起来像那么回事的原型。\n问题在于，一个能跑的原型很容易被误认为是\"解决了真问题\"的证据。 但它不是。原型只是对话的道具，真正的证据来自和潜在用户的真实对话。书里说得直接：很多创始人错误地认为 AI 短路了验证流程，把\"有想法→直接构建→把原型当证据\"当成了合理路径。\n过早扩展。 当构建毫不费力时，你很容易在业务需求还没跟上的时候就把执行规模拉满。Agentic coding 工具会带着同样的热情为一个有根本性缺陷的前提生成代码——它不会质疑你的前提，只会高效地实现它。系统中的智能是你自己的。 这个阶段的首要准则是：让判断力跑在构建前面。\n丧失客观性。 确认偏误一直是创业者的职业病，现在 AI 给它装上了引擎。让 AI 验证你的创业想法，它会找到支持证据；让它做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的\"尽职调查\"。\n验证的正确顺序 书中给出了一组需要按顺序回答的问题：\n这个问题真实、具体、频繁到值得围绕它做公司吗？谁有这个问题，他们构成一个市场吗？有没有人在解决它，解决得怎么样？一个解决方案实际需要做什么，你的想法能做到吗？\n这些问题的答案最终指向一个终极判断：这件事值得做吗？\n关键在于\"具体\"。“人们做报销很痛苦\"是一个观察，不是假设。“中型公司的财务经理每周花四个多小时核对报销单，因为现有工具和他们的会计软件不互通\"才是可验证的假设。前者让你感觉抓住了需求，后者让你能去验证。\n用 AI 来压力测试，而非确认 书中最实用的建议之一，是把 AI 当作结构化的魔鬼代言人。\n不是让 AI 告诉你\"你的想法很好”——那太容易了。而是让它反驳你的想法，寻找否定你假设的反证。哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？\n这个用法贯穿整本书，在 Idea Stage 尤其关键。带着被反证压力测试过的假设去做用户访谈，你才可能听到真话，而不是在寻找确认。\n具体怎么做？先和 Claude 一起把问题陈述打磨到可测试。然后让它攻击你的假设——找反例、找失败竞品、找结构性障碍。接着带着这些反论去做客户发现：定义目标用户画像、设计访谈框架、自动化外联和排期。每五场访谈后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。\n退出条件 Idea Stage 的退出条件是找到问题-解决方案匹配：在开始构建之前，你有定性证据（主要来自真实的人类对话）证明你在为真实的人解决真实的问题。\n具体来说，三个问题都要能回答\"是”：问题真实且具体吗（你能说清楚谁、多频繁、多严重、现在在怎么办）？你的解决方案针对的是真正被验证过的问题吗？目标用户群构成一个真实的市场吗？\n我的反思 作为一个长期关注 AI 的技术博主，我见过太多\"AI 让我三天做了一个 App\"的故事。但三天做出一个 App 和三天验证了一个需求，是完全不同的事。\n这本书让我重新意识到：AI 降低了构建的门槛，但没有降低判断的难度。 事实上，当构建变得容易，判断的重要性反而上升了——因为你的机会成本变了。过去，做一个错误的产品要几个月，代价够大，你会停下来想。现在，做一个错误的产品只要一个下午，停下来想的理由反而少了。\nIdea Stage 的核心教训不是\"不要急\"，而是用同样的工具去反驳自己。AI 既能帮你验证想法，也能帮你摧毁一个坏想法。区别只在于你问它什么问题。\n下一篇，我们进入 MVP Stage——当你验证了问题确实存在，如何在不被 AI 的速度带飞的情况下，构建出真正的产品。\n系列阅读快速跳转 日期 篇目 核心问题 06-29 AI 原生创业：创始人不再写代码，那做什么？ AI 重新定义创始人角色，从执行者到编排者 06-29 Idea Stage：构建之前，先证明你值得构建 AI 让构建门槛消失，验证反而成为最大风险 06-30 MVP Stage：速度与判断力的博弈 如何在 AI 加速下避免\"假产品市场契合\" 06-30 Launch Stage：从创始人驱动到系统化增长 把早期 traction 变成可重复的增长引擎 06-30 Scale Stage：构建 AI 时代的护城河 用领域知识、数据积累和用户锁定建立防御 引用 ",
+  "wordCount" : "123",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-06-29T14:00:00+08:00",
+  "dateModified": "2026-06-29T14:00:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "ZHANG.z\""
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-idea-stage-validation/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhang's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Idea Stage：构建之前，先证明你值得构建
+    </h1>
+    <div class="post-meta">   ZHANG.z&#34; | <span title='2026-06-29 14:00:00 +0800 HKT'>June 29, 2026</span> | <span>9 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/ai-native-startup/2026-06-29-idea-stage-validation.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%89%e4%b8%aa%e8%87%b4%e5%91%bd%e6%8c%91%e6%88%98" aria-label="三个致命挑战">三个致命挑战</a></li>
+                <li>
+                    <a href="#%e9%aa%8c%e8%af%81%e7%9a%84%e6%ad%a3%e7%a1%ae%e9%a1%ba%e5%ba%8f" aria-label="验证的正确顺序">验证的正确顺序</a></li>
+                <li>
+                    <a href="#%e7%94%a8-ai-%e6%9d%a5%e5%8e%8b%e5%8a%9b%e6%b5%8b%e8%af%95%e8%80%8c%e9%9d%9e%e7%a1%ae%e8%ae%a4" aria-label="用 AI 来压力测试，而非确认">用 AI 来压力测试，而非确认</a></li>
+                <li>
+                    <a href="#%e9%80%80%e5%87%ba%e6%9d%a1%e4%bb%b6" aria-label="退出条件">退出条件</a></li>
+                <li>
+                    <a href="#%e6%88%91%e7%9a%84%e5%8f%8d%e6%80%9d" aria-label="我的反思">我的反思</a></li>
+                <li>
+                    <a href="#%e7%b3%bb%e5%88%97%e9%98%85%e8%af%bb%e5%bf%ab%e9%80%9f%e8%b7%b3%e8%bd%ac" aria-label="系列阅读快速跳转">系列阅读快速跳转</a><ul>
+                        
+                <li>
+                    <a href="#%e5%bc%95%e7%94%a8" aria-label="引用">引用</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><img alt="Idea Stage：在 AI 让构建变得容易的时代，验证才是最大的风险" loading="lazy" src="/images/posts/2026/06/idea-stage-validation-cover.png"></p>
+<blockquote>
+<p>42% 的创业公司失败是因为做了没人要的东西。在 AI 让&quot;做出一个产品&quot;变得前所未有的简单的今天，这个数字只会更高。</p>
+</blockquote>
+<p><em>The Founder&rsquo;s Playbook</em> 把创业生命周期的第一阶段叫做 Idea Stage，核心任务只有一个：<strong>在写第一行代码之前，用证据证明这个问题值得解决。</strong></p>
+<p>这听起来像正确的废话。但书中指出了一个 AI 时代才有的、反直觉的危险：<strong>当构建变得毫不费力，跳过验证的诱惑变得前所未有地大。</strong></p>
+<hr>
+<h2 id="三个致命挑战">三个致命挑战<a hidden class="anchor" aria-hidden="true" href="#三个致命挑战">#</a></h2>
+<p>书中列出了 Idea Stage 的三个核心挑战，每一个都在 AI 时代被放大了。</p>
+<p><strong>把构建误当作验证。</strong> 这是最危险的。过去，做一个原型需要几个月的开发时间和预算，这个过程本身就是一种验证——你得想清楚才动手。现在，agentic coding 把&quot;有想法&quot;到&quot;有产品&quot;的距离压缩到几乎为零。一个创始人可以今天早上有想法，下午就有一个看起来像那么回事的原型。</p>
+<p>问题在于，<strong>一个能跑的原型很容易被误认为是&quot;解决了真问题&quot;的证据。</strong> 但它不是。原型只是对话的道具，真正的证据来自和潜在用户的真实对话。书里说得直接：很多创始人错误地认为 AI 短路了验证流程，把&quot;有想法→直接构建→把原型当证据&quot;当成了合理路径。</p>
+<p><strong>过早扩展。</strong> 当构建毫不费力时，你很容易在业务需求还没跟上的时候就把执行规模拉满。Agentic coding 工具会带着同样的热情为一个有根本性缺陷的前提生成代码——它不会质疑你的前提，只会高效地实现它。<strong>系统中的智能是你自己的。</strong> 这个阶段的首要准则是：让判断力跑在构建前面。</p>
+<p><strong>丧失客观性。</strong> 确认偏误一直是创业者的职业病，现在 AI 给它装上了引擎。让 AI 验证你的创业想法，它会找到支持证据；让它做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的&quot;尽职调查&quot;。</p>
+<hr>
+<h2 id="验证的正确顺序">验证的正确顺序<a hidden class="anchor" aria-hidden="true" href="#验证的正确顺序">#</a></h2>
+<p>书中给出了一组需要按顺序回答的问题：</p>
+<p>这个问题真实、具体、频繁到值得围绕它做公司吗？谁有这个问题，他们构成一个市场吗？有没有人在解决它，解决得怎么样？一个解决方案实际需要做什么，你的想法能做到吗？</p>
+<p>这些问题的答案最终指向一个终极判断：<strong>这件事值得做吗？</strong></p>
+<p>关键在于&quot;具体&quot;。&ldquo;人们做报销很痛苦&quot;是一个观察，不是假设。&ldquo;中型公司的财务经理每周花四个多小时核对报销单，因为现有工具和他们的会计软件不互通&quot;才是可验证的假设。前者让你感觉抓住了需求，后者让你能去验证。</p>
+<hr>
+<h2 id="用-ai-来压力测试而非确认">用 AI 来压力测试，而非确认<a hidden class="anchor" aria-hidden="true" href="#用-ai-来压力测试而非确认">#</a></h2>
+<p>书中最实用的建议之一，是把 AI 当作<strong>结构化的魔鬼代言人</strong>。</p>
+<p>不是让 AI 告诉你&quot;你的想法很好&rdquo;——那太容易了。而是让它<strong>反驳你的想法</strong>，寻找否定你假设的反证。哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？</p>
+<p>这个用法贯穿整本书，在 Idea Stage 尤其关键。<strong>带着被反证压力测试过的假设去做用户访谈，你才可能听到真话，而不是在寻找确认。</strong></p>
+<p>具体怎么做？先和 Claude 一起把问题陈述打磨到可测试。然后让它攻击你的假设——找反例、找失败竞品、找结构性障碍。接着带着这些反论去做客户发现：定义目标用户画像、设计访谈框架、自动化外联和排期。每五场访谈后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。</p>
+<hr>
+<h2 id="退出条件">退出条件<a hidden class="anchor" aria-hidden="true" href="#退出条件">#</a></h2>
+<p>Idea Stage 的退出条件是找到<strong>问题-解决方案匹配</strong>：在开始构建之前，你有定性证据（主要来自真实的人类对话）证明你在为真实的人解决真实的问题。</p>
+<p>具体来说，三个问题都要能回答&quot;是&rdquo;：问题真实且具体吗（你能说清楚谁、多频繁、多严重、现在在怎么办）？你的解决方案针对的是真正被验证过的问题吗？目标用户群构成一个真实的市场吗？</p>
+<hr>
+<h2 id="我的反思">我的反思<a hidden class="anchor" aria-hidden="true" href="#我的反思">#</a></h2>
+<p>作为一个长期关注 AI 的技术博主，我见过太多&quot;AI 让我三天做了一个 App&quot;的故事。但三天做出一个 App 和三天验证了一个需求，是完全不同的事。</p>
+<p>这本书让我重新意识到：<strong>AI 降低了构建的门槛，但没有降低判断的难度。</strong> 事实上，当构建变得容易，判断的重要性反而上升了——因为你的机会成本变了。过去，做一个错误的产品要几个月，代价够大，你会停下来想。现在，做一个错误的产品只要一个下午，停下来想的理由反而少了。</p>
+<p>Idea Stage 的核心教训不是&quot;不要急&quot;，而是<strong>用同样的工具去反驳自己</strong>。AI 既能帮你验证想法，也能帮你摧毁一个坏想法。区别只在于你问它什么问题。</p>
+<p>下一篇，我们进入 MVP Stage——当你验证了问题确实存在，如何在不被 AI 的速度带飞的情况下，构建出真正的产品。</p>
+<hr>
+<h2 id="系列阅读快速跳转">系列阅读快速跳转<a hidden class="anchor" aria-hidden="true" href="#系列阅读快速跳转">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>日期</th>
+          <th>篇目</th>
+          <th>核心问题</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>06-29</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-29-ai-native-founder-role/">AI 原生创业：创始人不再写代码，那做什么？</a></td>
+          <td>AI 重新定义创始人角色，从执行者到编排者</td>
+      </tr>
+      <tr>
+          <td>06-29</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-29-idea-stage-validation/">Idea Stage：构建之前，先证明你值得构建</a></td>
+          <td>AI 让构建门槛消失，验证反而成为最大风险</td>
+      </tr>
+      <tr>
+          <td>06-30</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-30-mvp-stage-speed-judgment/">MVP Stage：速度与判断力的博弈</a></td>
+          <td>如何在 AI 加速下避免&quot;假产品市场契合&quot;</td>
+      </tr>
+      <tr>
+          <td>06-30</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-30-launch-stage-systematic-growth/">Launch Stage：从创始人驱动到系统化增长</a></td>
+          <td>把早期 traction 变成可重复的增长引擎</td>
+      </tr>
+      <tr>
+          <td>06-30</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-30-scale-stage-moat/">Scale Stage：构建 AI 时代的护城河</a></td>
+          <td>用领域知识、数据积累和用户锁定建立防御</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="引用">引用<a hidden class="anchor" aria-hidden="true" href="#引用">#</a></h3>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E7%AE%A1%E7%90%86/">管理</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-ai-native-founder-role/">
+    <span class="title">Next »</span>
+    <br>
+    <span>AI 原生创业：创始人不再写代码，那做什么？</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

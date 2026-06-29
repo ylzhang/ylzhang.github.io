@@ -186,6 +186,49 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【论文/课程01】CS231n：卷积神经网络与视觉识别课程
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> “视觉不仅是智能的一部分，更是智能的基石。解开视觉智能的奥秘，就是解开智能的奥秘。&#34;——这是李飞飞教授在CS231n课程开篇时说的话。
+2012年，当AlexNet在ImageNet挑战赛上以压倒性优势夺冠时，整个计算机视觉领域被彻底颠覆。在此之前，传统方法在ImageNet上的错误率接近30%，而AlexNet将Top-5错误率降到了15.3%——这不是渐进式改进，而是范式革命。
+斯坦福大学的CS231n课程（Convolutional Neural Networks for Visual Recognition，卷积神经网络与视觉识别）正是这场革命的系统化总结。作为Ilya Sutskever推荐的30u30权威清单中的第一项，CS231n不仅是深度学习入门的必修课，更是理解现代AI视觉理解能力的基石。
+在深度学习成为主流之前，计算机视觉面临三个核心问题：特征工程瓶颈（依赖手工设计的特征如SIFT、HOG）、层次化表示缺失（无法像人类视觉系统那样从边缘到物体地理解图像）、端到端学习不可行（特征提取和分类分离，无法联合优化）。CNN通过端到端学习，自动从数据中提取特征，彻底改变了视觉识别的游戏规则。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读CS231n，包含完整的数学推导、算法流程和复杂度分析，面向专业读者提供系统化的技术总结。
+本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
+传统计算机视觉的局限 问题一：特征工程的手工设计瓶颈 传统计算机视觉方法依赖手工设计的特征描述符（如SIFT、HOG、LBP），将图像转换为固定维度的特征向量，然后使用传统机器学习算法（如SVM、随机森林）进行分类。这种方法的根本问题在于：特征设计需要大量领域专家知识，不同任务需要不同的特征描述符；手工特征在训练集上表现良好，但在新场景、新数据上往往失效；难以捕捉图像中的复杂模式和高层语义信息；每增加一个新任务，都需要重新设计特征。
+在2010-2011年的ImageNet挑战赛中，最佳方法使用SIFT特征和Fisher Vector编码，Top-5错误率接近30%，而人类错误率约为3%。当数据规模从数千张增长到数百万张时，传统方法的性能提升微乎其微，说明手工特征无法充分利用大规模数据的潜力。这正是李飞飞教授和她的学生在2000年代初期意识到的问题：数据的重要性被严重低估了。
+问题二：空间不变性和层次化表示的缺失 图像中的物体可能出现在任意位置、任意尺度、任意角度。人类视觉系统具有天然的层次化结构：从边缘、纹理等底层特征，到形状、部件等中层特征，再到物体类别等高层语义。传统方法通常只能捕捉单一层次的特征，难以构建层次化表示。需要滑动窗口、数据增强、多尺度特征金字塔等方法，计算成本高昂，且难以端到端优化。
+传统方法可以捕捉底层特征（边缘、角点、纹理），但难以捕捉中层特征（形状、部件、局部模式），几乎无法捕捉高层语义（物体类别、场景理解）。这种单一层次的表示限制了传统方法在复杂视觉任务上的表现。
+问题三：端到端学习不可行 在传统流程中，特征提取器（如SIFT）是固定的，不随任务变化；分类器（如SVM）在固定特征上训练；两者无法联合优化。这种分离带来的问题是：特征提取器可能提取了对当前任务不重要的特征，而重要的特征可能被忽略；同一套特征难以适应不同任务（如分类、检测、分割）；无法通过反向传播优化整个系统。
+深度学习（CNN）通过端到端学习解决了这个问题：从原始图像像素到分类结果，中间所有层都可以通过反向传播联合优化，特征自动适应任务需求。这种端到端的学习方式彻底改变了视觉识别的范式。
+卷积神经网络的核心机制 卷积操作：局部感受野与参数共享 卷积操作是CNN的基础构建块，通过局部感受野（Local Receptive Field）捕捉图像的局部模式。给定输入特征图 $I$ 和卷积核 $K$，卷积操作在图像上滑动，在每个位置计算局部区域的加权和。
+传统全连接网络面临两个根本性问题：参数爆炸（对于224×224×3的图像，全连接层需要千万级参数）和空间结构丢失（将2D图像展平为1D向量，丢失了像素间的空间关系）。卷积通过局部连接（每个输出神经元只连接局部区域）和参数共享（同一卷积核在整个特征图上共享）解决了这两个问题。
+卷积操作的数学定义为：
+$$ (I * K)[i, j, f] = \sum_{c=0}^{C-1} \sum_{m=0}^{k-1} \sum_{n=0}^{k-1} I[i \cdot s &#43; m - p, j \cdot s &#43; n - p, c] \cdot K[m, n, c, f] &#43; b[f] $$
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-01-01 10:47:54 +0800 HKT'>January 1, 2026</span> | <span>41 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【论文/课程01】CS231n：卷积神经网络与视觉识别课程" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-01-cs231n/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">论文阅读开篇：Ilya 30u30 阅读计划
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>本页为 论文解读系列 的目录与阅读计划：列出阅读原因、组合方式、完整列表与发布状态。每篇解读文末不再重复长表，仅提供指向本页的链接；每次发布新论文解读时，会同步更新本页目录与文末的「最后更新时间」。
+为什么做这个阅读计划 清单来源：Ilya Sutskever（OpenAI 联合创始人）推荐的约 30 篇经典论文/博客/课程（实际约 27 篇），覆盖从基础理论到前沿应用的深度学习核心知识。 阅读原因：系统理解现代 AI 技术演进路径，避免碎片化；按主题分类便于组合阅读（如先 CNN 再注意力再规模化）。 组合建议：可按分类顺序（基础理论 → RNN → CNN → 注意力 → 优化/规模 → 推理与生成 → 语音）阅读，也可按发布时间或兴趣跳读；每篇解读文内会标明所属分类。 论文分类索引与发布状态 以下表格为完整列表：博客解读 一列为「已发布」则带链接，为「待完成」则暂无解读。原文链接均可直接访问。
+1. 基础理论与信息论 论文 原文链接 博客解读 A Tutorial Introduction to the Minimum Description Length Principle arXiv 【论文解读02】最小描述长度原理教程 Keeping Neural Networks Simple by Minimizing the Description Length of the Weights Paper 【论文解读03】通过最小化权重描述长度简化神经网络 The First Law of Complexodynamics arXiv 【论文解读04】复杂动力学第一定律 Kolmogorov Complexity and Algorithmic Randomness Book 【论文解读26】柯尔莫哥洛夫复杂度与算法随机性 Machine Super Intelligence Paper 【论文解读27】机器超级智能 Quantifying the Rise and Fall of Complexity in Closed Systems: the Coffee Automaton arXiv 【论文解读25】咖啡自动机：封闭系统中复杂性的兴衰 2. 循环神经网络（RNN/LSTM） 论文 原文链接 博客解读 The Unreasonable Effectiveness of Recurrent Neural Networks Blog 【论文解读05】循环神经网络的不可思议的有效性 Understanding LSTM Networks Blog 【论文解读06】理解LSTM网络 Recurrent Neural Network Regularization arXiv 【论文解读07】RNN正则化 Neural Turing Machines arXiv 【论文解读16】神经图灵机 Relational Recurrent Neural Networks arXiv 【论文解读15】关系循环神经网络 3. 卷积神经网络（CNN） 论文 原文链接 博客解读 Stanford’s CS231n Convolutional Neural Networks for Visual Recognition Course 【论文/课程01】CS231n：卷积神经网络与视觉识别课程 ImageNet Classification with Deep Convolutional Neural Networks (AlexNet) Paper 【论文解读09】AlexNet：深度学习革命的起点 Deep Residual Learning for Image Recognition (ResNet) arXiv 【论文解读10】ResNet：深度残差学习 Identity Mappings in Deep Residual Networks arXiv 【论文解读11】ResNet改进：恒等映射 Multi-Scale Context Aggregation by Dilated Convolutions arXiv 【论文解读12】膨胀卷积：多尺度上下文聚合 4. 注意力机制与序列模型 论文 原文链接 博客解读 Neural Machine Translation by Jointly Learning to Align and Translate arXiv 待完成 Attention is All You Need (Transformer) arXiv 待完成 The Annotated Transformer Blog 待完成 Order Matters: Sequence to Sequence for Sets arXiv 【论文解读14】顺序的重要性：集合的序列到序列 Pointer Networks arXiv 【论文解读13】指针网络 5. 模型优化与规模化 论文 原文链接 博客解读 GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism arXiv 【论文解读23】GPipe：大规模模型训练 Scaling Laws for Neural Language Models arXiv 待完成 6. 推理与生成模型 论文 原文链接 博客解读 A Simple Neural Network Module for Relational Reasoning arXiv 【论文解读20】关系推理的简单神经网络模块 Variational Lossy Autoencoder arXiv 【论文解读19】变分有损自编码器 Neural Message Passing for Quantum Chemistry arXiv 【论文解读21】神经消息传递与量子化学 7. 语音与复杂系统 论文 原文链接 博客解读 Deep Speech 2: End-to-End Speech Recognition in English and Mandarin arXiv 【论文解读22】Deep Speech 2：端到端语音识别 系列说明 清单实际数量：27 篇（含论文、博客、课程），「Top 30」为约数表述。 内容类型：部分为博客/课程（如 CS231n、LSTM 解读），是理解核心概念的优质入门资源。 链接说明：arXiv 链接可直连论文原文，博客/课程链接为官方或权威解读页面。 最后更新时间：2026-02-10（与最新一篇解读发布同步；每次发布新论文解读时更新本日期。）
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-01-01 00:17:01 +0800 HKT'>January 1, 2026</span> | <span>7 min</span> | <span>Shanghai, China</span></footer>
+  <a class="entry-link" aria-label="post link to 论文阅读开篇：Ilya 30u30 阅读计划" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-01-paper-reading-index/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术
     </h2>
   </header>
@@ -265,50 +308,6 @@ AI的未来，应该是既快速发展又安全可控，既创新突破又造福
   </div>
   <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-12-22 16:25:32 +0800 HKT'>December 22, 2025</span> | <span>4 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to AI的未来：美国踩刹车，中国踩油门，谁先到终点？" href="https://blog.zhangky.com/posts/2025/2025-12-ai-future/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【ChatGPT时刻09】GPT-3：少样本学习的突破与涌现能力
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Tom Brown等人于2020年发表的划时代论文《Language Models are Few-Shot Learners》，该论文提出了GPT-3模型，以1750亿参数的前所未有规模，首次展示了大语言模型的上下文学习（In-context Learning）和涌现能力（Emergent Abilities）。GPT-3证明了一个惊人的事实：足够大的语言模型无需更新参数，仅通过在输入中提供少量示例，就能执行从未见过的任务——这一发现彻底改变了AI的发展轨迹，直接催生了ChatGPT的诞生。
-从零样本到少样本的飞跃 问题一：零样本学习的局限 GPT-2展示了零样本学习的可能性，但性能仍然有限：
-任务 零样本GPT-2 微调SOTA 差距 CoQA 55 F1 82 F1 -27 翻译（法英） 11.5 BLEU 45.6 BLEU -34 摘要 21.6 ROUGE 44.2 ROUGE -23 零样本学习虽然证明了概念，但实用性不足。
-问题二：微调的代价 传统微调方法虽然有效，但存在显著问题：
-数据需求：每个任务需要数千到数十万标注样本 过拟合风险：在小数据集上容易过拟合 分布偏移：微调数据与测试数据分布不一致 计算成本：大模型微调需要大量计算资源 灵活性差：每个任务需要单独模型 问题三：人类学习的启示 人类可以从极少量示例中学习新任务：
-“看一个例子：‘狗’的复数是’dogs’。那’猫’的复数是什么？”
-人类不需要数千个训练样本，仅需要任务描述和少量示例就能泛化。GPT-3的目标是：让机器具备类似的学习能力。
-GPT-3的核心创新 前所未有的规模 GPT-3将规模推向极致：
-参数 GPT-2 GPT-3 Small GPT-3 Medium GPT-3 Large GPT-3 XL GPT-3 175B 层数 48 12 24 24 32 96 隐藏维度 1600 768 1024 1536 2048 12288 注意力头数 25 12 16 16 24 96 参数量 1.5B 125M 350M 760M 1.3B 175B 最大的GPT-3模型参数量达到1750亿，是GPT-2的100倍以上。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-12-15 21:48:02 +0800 HKT'>December 15, 2025</span> | <span>14 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【ChatGPT时刻09】GPT-3：少样本学习的突破与涌现能力" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-15-chatgpt-09-gpt3/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【ChatGPT时刻08】Scaling Laws：规模与性能的幂律关系
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Jared Kaplan、Sam McCandlish、Tom Henighan、Tom B. Brown、Benjamin Chess、Rewon Child、Scott Gray、Alec Radford、Jeffrey Wu和Dario Amodei于2020年发表的里程碑论文《Scaling Laws for Neural Language Models》，该论文发现了神经语言模型的缩放定律（Scaling Laws），揭示了模型规模、数据规模、计算量与模型性能之间的幂律关系。这一发现不仅为大模型的发展提供了理论指导，更为理解&#34;规模即智能&#34;提供了科学依据，是当今大模型时代的理论基础。
-“规模是性能的关键。&#34;——这是缩放定律论文的核心发现。通过系统性的实验，论文发现模型性能（损失）与模型规模、数据规模、计算量之间存在清晰的幂律关系。这意味着，只要增加模型规模、数据规模或计算量，模型性能就会可预测地提升。这一发现为大模型的发展指明了方向。
-缩放定律的核心发现是幂律关系：模型损失 $L$ 与模型参数 $N$、数据规模 $D$、计算量 $C$ 之间存在幂律关系：
-$$ L(N, D) = \left(\frac{N_c}{N}\right)^{\alpha_N} &#43; \left(\frac{D_c}{D}\right)^{\alpha_D} &#43; L_\infty $$
-其中 $\alpha_N$、$\alpha_D$ 是幂律指数，$L_\infty$ 是无限规模下的极限损失。
-这一发现的意义深远：它证明了&#34;规模即智能&#34;的科学性，为大模型的发展提供了可预测的路径。理解缩放定律，就是理解大模型时代的底层规律。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读缩放定律，包含完整的数学推导、实验分析和理论探讨，并在文末提供阅读研究论文的时间线计划。
-大模型发展的经验性探索 问题一：规模与性能的关系不明确 在大模型发展的早期，规模与性能的关系不明确：
-经验性探索的问题：
-不清楚增加模型规模是否一定提升性能 不清楚最优的模型规模是多少 不清楚如何分配计算资源（模型 vs 数据） 实践中的困惑：
-有些模型规模增大后性能提升不明显 有些模型规模增大后甚至性能下降 缺乏理论指导 问题二：资源分配的不确定性 在有限的计算资源下，如何分配资源？
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-11-28 21:13:58 +0800 HKT'>November 28, 2025</span> | <span>13 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【ChatGPT时刻08】Scaling Laws：规模与性能的幂律关系" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-11-28-chatgpt-08-scaling-laws/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

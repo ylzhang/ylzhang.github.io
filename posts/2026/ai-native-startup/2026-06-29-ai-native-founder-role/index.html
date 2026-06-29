@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AI 原生创业：创始人不再写代码，那做什么？ | Zhang&#39;s Blog</title>
+<meta name="keywords" content="AI, 管理">
+<meta name="description" content="
+
+当 AI 能写代码、做研究、起草融资材料，创始人的价值究竟在哪里？
+
+今年读到 Anthropic 团队出品的 The Founder&rsquo;s Playbook: Building an AI-Native Startup，一个判断击中了我：2026 年，一个好想法能带创始人走得比以往任何时候都远。 这不是修辞——agentic coding 把过去需要一个工程师团队才能完成的工作，压缩成创始人自己就能交付的产出。
+但真正让我停下来想的，不是&quot;AI 让创业变容易了&quot;这个烂大街的结论，而是书中一个更尖锐的观察：创始人这个角色正在被重新定义。
+
+从&quot;能做&quot;到&quot;值得做&quot;
+过去，创始人被自己的能力边界定义。技术创始人写代码，非技术创始人跑商务、谈合作。这堵墙在 2026 年正在溶解。
+一个没有工程背景的创始人，现在可以用自然语言描述需求，让 AI 生成、测试、调试、重构生产级代码。一个技术出身但不懂商业的创始人，可以让 AI 生成市场策略、财务模型、融资路演。AI 抹平了&quot;能构建&quot;和&quot;有想法值得构建&quot;之间的鸿沟。
+这意味着什么？创始人的工作不再是亲自执行，而是编排 agent——那些能读文件、跑命令、执行代码、甚至浏览网页的专业化 AI 助手。创始人的注意力向上游走：生成想法，然后指挥系统（AI agent、工具、以及可能存在的精小团队）把想法落地。
+
+三个能力象限
+书中把 AI 对早期创业公司的帮助归为三个领域，值得逐一拆解。
+对话式智能与研究。 创始人在第一年需要知道的事情——怎么发工资、怎么规划产品迭代、怎么写投资人备忘录——几乎全是他们创业前不懂的。过去答案是&quot;找个懂的人&quot;，现在 AI 成了随叫随到的跨领域专家。
+Agentic Coding。 过去做软件需要技术联合创始人、外包团队，或者足够长的 runway 去招工程师。现在，agentic coding 工具让每个有想法的创始人用自然语言描述要什么，然后 AI 以完整工程团队的规模和速度去生成代码。从&quot;我有一个想法&quot;到&quot;我有一个产品&quot;的时间被大幅压缩。
+工作流自动化。 排期、更新 CRM、拉周报、维护文档、发布内容、追踪合规——这些运营琐事在精小团队里全压在创始人身上。AI 工作流自动化把这些 recurring task 配置成自动执行，让创始人把注意力放回高阶决策。
+
+最被低估的变革
+但书中让我印象最深的，不是这些效率提升，而是一个更根本的判断：AI 作为核心基础设施，最革命性的成果是释放了非技术背景、但有领域专业知识的创始人。
+当创业人群不再局限于有工程背景的人，你会看到一批有完全不同生活经历的创始人，去解决那些传统技术创始人路线从未优先考虑、甚至从未注意到的问题。
+这不只是&quot;人人都能创业&quot;的鸡汤。它意味着创业公司的问题域在扩张。过去，创业者倾向于找&quot;技术能解决的问题&quot;；现在，他们可以找&quot;真正重要的问题&quot;，不管自己有没有技术背景。
+
+编排，而非执行
+回到最初的问题：创始人不再写代码，那做什么？
+答案是编排。知道在什么时候、用哪个 AI 工具、解决什么问题、达到什么效果。比如，Idea Stage 用 Chat 做压力测试，MVP Stage 用 Claude Code 写代码，Launch Stage 用 Claude Cowork 自动化运营——每个阶段的主力工具不同，编排的节奏也不同。这不是自动发生的，创始人必须知道如何（以及何时）应用这些工具。这本书的剩余部分，就是在探索创始人在 AI 原生创业路径上每个阶段会遇到的目标和挑战。">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-ai-native-founder-role/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-ai-native-founder-role/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-ai-native-founder-role/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="AI 原生创业：创始人不再写代码，那做什么？">
+  <meta property="og:description" content="
+当 AI 能写代码、做研究、起草融资材料，创始人的价值究竟在哪里？
+今年读到 Anthropic 团队出品的 The Founder’s Playbook: Building an AI-Native Startup，一个判断击中了我：2026 年，一个好想法能带创始人走得比以往任何时候都远。 这不是修辞——agentic coding 把过去需要一个工程师团队才能完成的工作，压缩成创始人自己就能交付的产出。
+但真正让我停下来想的，不是&#34;AI 让创业变容易了&#34;这个烂大街的结论，而是书中一个更尖锐的观察：创始人这个角色正在被重新定义。
+从&#34;能做&#34;到&#34;值得做&#34; 过去，创始人被自己的能力边界定义。技术创始人写代码，非技术创始人跑商务、谈合作。这堵墙在 2026 年正在溶解。
+一个没有工程背景的创始人，现在可以用自然语言描述需求，让 AI 生成、测试、调试、重构生产级代码。一个技术出身但不懂商业的创始人，可以让 AI 生成市场策略、财务模型、融资路演。AI 抹平了&#34;能构建&#34;和&#34;有想法值得构建&#34;之间的鸿沟。
+这意味着什么？创始人的工作不再是亲自执行，而是编排 agent——那些能读文件、跑命令、执行代码、甚至浏览网页的专业化 AI 助手。创始人的注意力向上游走：生成想法，然后指挥系统（AI agent、工具、以及可能存在的精小团队）把想法落地。
+三个能力象限 书中把 AI 对早期创业公司的帮助归为三个领域，值得逐一拆解。
+对话式智能与研究。 创始人在第一年需要知道的事情——怎么发工资、怎么规划产品迭代、怎么写投资人备忘录——几乎全是他们创业前不懂的。过去答案是&#34;找个懂的人&#34;，现在 AI 成了随叫随到的跨领域专家。
+Agentic Coding。 过去做软件需要技术联合创始人、外包团队，或者足够长的 runway 去招工程师。现在，agentic coding 工具让每个有想法的创始人用自然语言描述要什么，然后 AI 以完整工程团队的规模和速度去生成代码。从&#34;我有一个想法&#34;到&#34;我有一个产品&#34;的时间被大幅压缩。
+工作流自动化。 排期、更新 CRM、拉周报、维护文档、发布内容、追踪合规——这些运营琐事在精小团队里全压在创始人身上。AI 工作流自动化把这些 recurring task 配置成自动执行，让创始人把注意力放回高阶决策。
+最被低估的变革 但书中让我印象最深的，不是这些效率提升，而是一个更根本的判断：AI 作为核心基础设施，最革命性的成果是释放了非技术背景、但有领域专业知识的创始人。
+当创业人群不再局限于有工程背景的人，你会看到一批有完全不同生活经历的创始人，去解决那些传统技术创始人路线从未优先考虑、甚至从未注意到的问题。
+这不只是&#34;人人都能创业&#34;的鸡汤。它意味着创业公司的问题域在扩张。过去，创业者倾向于找&#34;技术能解决的问题&#34;；现在，他们可以找&#34;真正重要的问题&#34;，不管自己有没有技术背景。
+编排，而非执行 回到最初的问题：创始人不再写代码，那做什么？
+答案是编排。知道在什么时候、用哪个 AI 工具、解决什么问题、达到什么效果。比如，Idea Stage 用 Chat 做压力测试，MVP Stage 用 Claude Code 写代码，Launch Stage 用 Claude Cowork 自动化运营——每个阶段的主力工具不同，编排的节奏也不同。这不是自动发生的，创始人必须知道如何（以及何时）应用这些工具。这本书的剩余部分，就是在探索创始人在 AI 原生创业路径上每个阶段会遇到的目标和挑战。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-06-29T10:00:00+08:00">
+    <meta property="article:modified_time" content="2026-06-29T10:00:00+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="管理">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-idea-stage-validation/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="AI 原生创业：创始人不再写代码，那做什么？">
+<meta name="twitter:description" content="
+
+当 AI 能写代码、做研究、起草融资材料，创始人的价值究竟在哪里？
+
+今年读到 Anthropic 团队出品的 The Founder&rsquo;s Playbook: Building an AI-Native Startup，一个判断击中了我：2026 年，一个好想法能带创始人走得比以往任何时候都远。 这不是修辞——agentic coding 把过去需要一个工程师团队才能完成的工作，压缩成创始人自己就能交付的产出。
+但真正让我停下来想的，不是&quot;AI 让创业变容易了&quot;这个烂大街的结论，而是书中一个更尖锐的观察：创始人这个角色正在被重新定义。
+
+从&quot;能做&quot;到&quot;值得做&quot;
+过去，创始人被自己的能力边界定义。技术创始人写代码，非技术创始人跑商务、谈合作。这堵墙在 2026 年正在溶解。
+一个没有工程背景的创始人，现在可以用自然语言描述需求，让 AI 生成、测试、调试、重构生产级代码。一个技术出身但不懂商业的创始人，可以让 AI 生成市场策略、财务模型、融资路演。AI 抹平了&quot;能构建&quot;和&quot;有想法值得构建&quot;之间的鸿沟。
+这意味着什么？创始人的工作不再是亲自执行，而是编排 agent——那些能读文件、跑命令、执行代码、甚至浏览网页的专业化 AI 助手。创始人的注意力向上游走：生成想法，然后指挥系统（AI agent、工具、以及可能存在的精小团队）把想法落地。
+
+三个能力象限
+书中把 AI 对早期创业公司的帮助归为三个领域，值得逐一拆解。
+对话式智能与研究。 创始人在第一年需要知道的事情——怎么发工资、怎么规划产品迭代、怎么写投资人备忘录——几乎全是他们创业前不懂的。过去答案是&quot;找个懂的人&quot;，现在 AI 成了随叫随到的跨领域专家。
+Agentic Coding。 过去做软件需要技术联合创始人、外包团队，或者足够长的 runway 去招工程师。现在，agentic coding 工具让每个有想法的创始人用自然语言描述要什么，然后 AI 以完整工程团队的规模和速度去生成代码。从&quot;我有一个想法&quot;到&quot;我有一个产品&quot;的时间被大幅压缩。
+工作流自动化。 排期、更新 CRM、拉周报、维护文档、发布内容、追踪合规——这些运营琐事在精小团队里全压在创始人身上。AI 工作流自动化把这些 recurring task 配置成自动执行，让创始人把注意力放回高阶决策。
+
+最被低估的变革
+但书中让我印象最深的，不是这些效率提升，而是一个更根本的判断：AI 作为核心基础设施，最革命性的成果是释放了非技术背景、但有领域专业知识的创始人。
+当创业人群不再局限于有工程背景的人，你会看到一批有完全不同生活经历的创始人，去解决那些传统技术创始人路线从未优先考虑、甚至从未注意到的问题。
+这不只是&quot;人人都能创业&quot;的鸡汤。它意味着创业公司的问题域在扩张。过去，创业者倾向于找&quot;技术能解决的问题&quot;；现在，他们可以找&quot;真正重要的问题&quot;，不管自己有没有技术背景。
+
+编排，而非执行
+回到最初的问题：创始人不再写代码，那做什么？
+答案是编排。知道在什么时候、用哪个 AI 工具、解决什么问题、达到什么效果。比如，Idea Stage 用 Chat 做压力测试，MVP Stage 用 Claude Code 写代码，Launch Stage 用 Claude Cowork 自动化运营——每个阶段的主力工具不同，编排的节奏也不同。这不是自动发生的，创始人必须知道如何（以及何时）应用这些工具。这本书的剩余部分，就是在探索创始人在 AI 原生创业路径上每个阶段会遇到的目标和挑战。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "AI 原生创业：创始人不再写代码，那做什么？",
+      "item": "https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-ai-native-founder-role/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI 原生创业：创始人不再写代码，那做什么？",
+  "name": "AI 原生创业：创始人不再写代码，那做什么？",
+  "description": "\n当 AI 能写代码、做研究、起草融资材料，创始人的价值究竟在哪里？\n今年读到 Anthropic 团队出品的 The Founder\u0026rsquo;s Playbook: Building an AI-Native Startup，一个判断击中了我：2026 年，一个好想法能带创始人走得比以往任何时候都远。 这不是修辞——agentic coding 把过去需要一个工程师团队才能完成的工作，压缩成创始人自己就能交付的产出。\n但真正让我停下来想的，不是\u0026quot;AI 让创业变容易了\u0026quot;这个烂大街的结论，而是书中一个更尖锐的观察：创始人这个角色正在被重新定义。\n从\u0026quot;能做\u0026quot;到\u0026quot;值得做\u0026quot; 过去，创始人被自己的能力边界定义。技术创始人写代码，非技术创始人跑商务、谈合作。这堵墙在 2026 年正在溶解。\n一个没有工程背景的创始人，现在可以用自然语言描述需求，让 AI 生成、测试、调试、重构生产级代码。一个技术出身但不懂商业的创始人，可以让 AI 生成市场策略、财务模型、融资路演。AI 抹平了\u0026quot;能构建\u0026quot;和\u0026quot;有想法值得构建\u0026quot;之间的鸿沟。\n这意味着什么？创始人的工作不再是亲自执行，而是编排 agent——那些能读文件、跑命令、执行代码、甚至浏览网页的专业化 AI 助手。创始人的注意力向上游走：生成想法，然后指挥系统（AI agent、工具、以及可能存在的精小团队）把想法落地。\n三个能力象限 书中把 AI 对早期创业公司的帮助归为三个领域，值得逐一拆解。\n对话式智能与研究。 创始人在第一年需要知道的事情——怎么发工资、怎么规划产品迭代、怎么写投资人备忘录——几乎全是他们创业前不懂的。过去答案是\u0026quot;找个懂的人\u0026quot;，现在 AI 成了随叫随到的跨领域专家。\nAgentic Coding。 过去做软件需要技术联合创始人、外包团队，或者足够长的 runway 去招工程师。现在，agentic coding 工具让每个有想法的创始人用自然语言描述要什么，然后 AI 以完整工程团队的规模和速度去生成代码。从\u0026quot;我有一个想法\u0026quot;到\u0026quot;我有一个产品\u0026quot;的时间被大幅压缩。\n工作流自动化。 排期、更新 CRM、拉周报、维护文档、发布内容、追踪合规——这些运营琐事在精小团队里全压在创始人身上。AI 工作流自动化把这些 recurring task 配置成自动执行，让创始人把注意力放回高阶决策。\n最被低估的变革 但书中让我印象最深的，不是这些效率提升，而是一个更根本的判断：AI 作为核心基础设施，最革命性的成果是释放了非技术背景、但有领域专业知识的创始人。\n当创业人群不再局限于有工程背景的人，你会看到一批有完全不同生活经历的创始人，去解决那些传统技术创始人路线从未优先考虑、甚至从未注意到的问题。\n这不只是\u0026quot;人人都能创业\u0026quot;的鸡汤。它意味着创业公司的问题域在扩张。过去，创业者倾向于找\u0026quot;技术能解决的问题\u0026quot;；现在，他们可以找\u0026quot;真正重要的问题\u0026quot;，不管自己有没有技术背景。\n编排，而非执行 回到最初的问题：创始人不再写代码，那做什么？\n答案是编排。知道在什么时候、用哪个 AI 工具、解决什么问题、达到什么效果。比如，Idea Stage 用 Chat 做压力测试，MVP Stage 用 Claude Code 写代码，Launch Stage 用 Claude Cowork 自动化运营——每个阶段的主力工具不同，编排的节奏也不同。这不是自动发生的，创始人必须知道如何（以及何时）应用这些工具。这本书的剩余部分，就是在探索创始人在 AI 原生创业路径上每个阶段会遇到的目标和挑战。\n",
+  "keywords": [
+    "AI", "管理"
+  ],
+  "articleBody": "\n当 AI 能写代码、做研究、起草融资材料，创始人的价值究竟在哪里？\n今年读到 Anthropic 团队出品的 The Founder’s Playbook: Building an AI-Native Startup，一个判断击中了我：2026 年，一个好想法能带创始人走得比以往任何时候都远。 这不是修辞——agentic coding 把过去需要一个工程师团队才能完成的工作，压缩成创始人自己就能交付的产出。\n但真正让我停下来想的，不是\"AI 让创业变容易了\"这个烂大街的结论，而是书中一个更尖锐的观察：创始人这个角色正在被重新定义。\n从\"能做\"到\"值得做\" 过去，创始人被自己的能力边界定义。技术创始人写代码，非技术创始人跑商务、谈合作。这堵墙在 2026 年正在溶解。\n一个没有工程背景的创始人，现在可以用自然语言描述需求，让 AI 生成、测试、调试、重构生产级代码。一个技术出身但不懂商业的创始人，可以让 AI 生成市场策略、财务模型、融资路演。AI 抹平了\"能构建\"和\"有想法值得构建\"之间的鸿沟。\n这意味着什么？创始人的工作不再是亲自执行，而是编排 agent——那些能读文件、跑命令、执行代码、甚至浏览网页的专业化 AI 助手。创始人的注意力向上游走：生成想法，然后指挥系统（AI agent、工具、以及可能存在的精小团队）把想法落地。\n三个能力象限 书中把 AI 对早期创业公司的帮助归为三个领域，值得逐一拆解。\n对话式智能与研究。 创始人在第一年需要知道的事情——怎么发工资、怎么规划产品迭代、怎么写投资人备忘录——几乎全是他们创业前不懂的。过去答案是\"找个懂的人\"，现在 AI 成了随叫随到的跨领域专家。\nAgentic Coding。 过去做软件需要技术联合创始人、外包团队，或者足够长的 runway 去招工程师。现在，agentic coding 工具让每个有想法的创始人用自然语言描述要什么，然后 AI 以完整工程团队的规模和速度去生成代码。从\"我有一个想法\"到\"我有一个产品\"的时间被大幅压缩。\n工作流自动化。 排期、更新 CRM、拉周报、维护文档、发布内容、追踪合规——这些运营琐事在精小团队里全压在创始人身上。AI 工作流自动化把这些 recurring task 配置成自动执行，让创始人把注意力放回高阶决策。\n最被低估的变革 但书中让我印象最深的，不是这些效率提升，而是一个更根本的判断：AI 作为核心基础设施，最革命性的成果是释放了非技术背景、但有领域专业知识的创始人。\n当创业人群不再局限于有工程背景的人，你会看到一批有完全不同生活经历的创始人，去解决那些传统技术创始人路线从未优先考虑、甚至从未注意到的问题。\n这不只是\"人人都能创业\"的鸡汤。它意味着创业公司的问题域在扩张。过去，创业者倾向于找\"技术能解决的问题\"；现在，他们可以找\"真正重要的问题\"，不管自己有没有技术背景。\n编排，而非执行 回到最初的问题：创始人不再写代码，那做什么？\n答案是编排。知道在什么时候、用哪个 AI 工具、解决什么问题、达到什么效果。比如，Idea Stage 用 Chat 做压力测试，MVP Stage 用 Claude Code 写代码，Launch Stage 用 Claude Cowork 自动化运营——每个阶段的主力工具不同，编排的节奏也不同。这不是自动发生的，创始人必须知道如何（以及何时）应用这些工具。这本书的剩余部分，就是在探索创始人在 AI 原生创业路径上每个阶段会遇到的目标和挑战。\n作为技术博主，我的反思是：我们过去几年一直在讨论\"AI 会不会取代程序员\"，但这本书把问题翻了过来——AI 不是取代程序员，而是让\"会编程\"不再是创业的准入门槛。 真正稀缺的，是判断力：选什么问题、用什么方案、在哪个节点转向。\n下一篇，我们进入创业生命周期的第一个阶段：Idea Stage。在 AI 让\"构建\"变得如此容易的时代，“验证\"反而成了最危险的环节。\n系列阅读快速跳转 日期 篇目 核心问题 06-29 AI 原生创业：创始人不再写代码，那做什么？ AI 重新定义创始人角色，从执行者到编排者 06-29 Idea Stage：构建之前，先证明你值得构建 AI 让构建门槛消失，验证反而成为最大风险 06-30 MVP Stage：速度与判断力的博弈 如何在 AI 加速下避免\"假产品市场契合” 06-30 Launch Stage：从创始人驱动到系统化增长 把早期 traction 变成可重复的增长引擎 06-30 Scale Stage：构建 AI 时代的护城河 用领域知识、数据积累和用户锁定建立防御 引用 ",
+  "wordCount" : "125",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-06-29T10:00:00+08:00",
+  "dateModified": "2026-06-29T10:00:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "ZHANG.z\""
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-ai-native-founder-role/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhang's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      AI 原生创业：创始人不再写代码，那做什么？
+    </h1>
+    <div class="post-meta">   ZHANG.z&#34; | <span title='2026-06-29 10:00:00 +0800 HKT'>June 29, 2026</span> | <span>8 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/ai-native-startup/2026-06-29-ai-native-founder-role.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%bb%8e%e8%83%bd%e5%81%9a%e5%88%b0%e5%80%bc%e5%be%97%e5%81%9a" aria-label="从&quot;能做&quot;到&quot;值得做&quot;">从&quot;能做&quot;到&quot;值得做&quot;</a></li>
+                <li>
+                    <a href="#%e4%b8%89%e4%b8%aa%e8%83%bd%e5%8a%9b%e8%b1%a1%e9%99%90" aria-label="三个能力象限">三个能力象限</a></li>
+                <li>
+                    <a href="#%e6%9c%80%e8%a2%ab%e4%bd%8e%e4%bc%b0%e7%9a%84%e5%8f%98%e9%9d%a9" aria-label="最被低估的变革">最被低估的变革</a></li>
+                <li>
+                    <a href="#%e7%bc%96%e6%8e%92%e8%80%8c%e9%9d%9e%e6%89%a7%e8%a1%8c" aria-label="编排，而非执行">编排，而非执行</a></li>
+                <li>
+                    <a href="#%e7%b3%bb%e5%88%97%e9%98%85%e8%af%bb%e5%bf%ab%e9%80%9f%e8%b7%b3%e8%bd%ac" aria-label="系列阅读快速跳转">系列阅读快速跳转</a><ul>
+                        
+                <li>
+                    <a href="#%e5%bc%95%e7%94%a8" aria-label="引用">引用</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><img alt="AI 原生创业：创始人角色从执行者到指挥家的转变" loading="lazy" src="/images/posts/2026/06/ai-native-founder-role-cover.png"></p>
+<blockquote>
+<p>当 AI 能写代码、做研究、起草融资材料，创始人的价值究竟在哪里？</p>
+</blockquote>
+<p>今年读到 Anthropic 团队出品的 <em>The Founder&rsquo;s Playbook: Building an AI-Native Startup</em>，一个判断击中了我：<strong>2026 年，一个好想法能带创始人走得比以往任何时候都远。</strong> 这不是修辞——agentic coding 把过去需要一个工程师团队才能完成的工作，压缩成创始人自己就能交付的产出。</p>
+<p>但真正让我停下来想的，不是&quot;AI 让创业变容易了&quot;这个烂大街的结论，而是书中一个更尖锐的观察：<strong>创始人这个角色正在被重新定义。</strong></p>
+<hr>
+<h2 id="从能做到值得做">从&quot;能做&quot;到&quot;值得做&quot;<a hidden class="anchor" aria-hidden="true" href="#从能做到值得做">#</a></h2>
+<p>过去，创始人被自己的能力边界定义。技术创始人写代码，非技术创始人跑商务、谈合作。这堵墙在 2026 年正在溶解。</p>
+<p>一个没有工程背景的创始人，现在可以用自然语言描述需求，让 AI 生成、测试、调试、重构生产级代码。一个技术出身但不懂商业的创始人，可以让 AI 生成市场策略、财务模型、融资路演。<strong>AI 抹平了&quot;能构建&quot;和&quot;有想法值得构建&quot;之间的鸿沟。</strong></p>
+<p>这意味着什么？创始人的工作不再是亲自执行，而是<strong>编排 agent</strong>——那些能读文件、跑命令、执行代码、甚至浏览网页的专业化 AI 助手。创始人的注意力向上游走：生成想法，然后指挥系统（AI agent、工具、以及可能存在的精小团队）把想法落地。</p>
+<hr>
+<h2 id="三个能力象限">三个能力象限<a hidden class="anchor" aria-hidden="true" href="#三个能力象限">#</a></h2>
+<p>书中把 AI 对早期创业公司的帮助归为三个领域，值得逐一拆解。</p>
+<p><strong>对话式智能与研究。</strong> 创始人在第一年需要知道的事情——怎么发工资、怎么规划产品迭代、怎么写投资人备忘录——几乎全是他们创业前不懂的。过去答案是&quot;找个懂的人&quot;，现在 AI 成了随叫随到的跨领域专家。</p>
+<p><strong>Agentic Coding。</strong> 过去做软件需要技术联合创始人、外包团队，或者足够长的 runway 去招工程师。现在，agentic coding 工具让每个有想法的创始人用自然语言描述要什么，然后 AI 以完整工程团队的规模和速度去生成代码。从&quot;我有一个想法&quot;到&quot;我有一个产品&quot;的时间被大幅压缩。</p>
+<p><strong>工作流自动化。</strong> 排期、更新 CRM、拉周报、维护文档、发布内容、追踪合规——这些运营琐事在精小团队里全压在创始人身上。AI 工作流自动化把这些 recurring task 配置成自动执行，让创始人把注意力放回高阶决策。</p>
+<hr>
+<h2 id="最被低估的变革">最被低估的变革<a hidden class="anchor" aria-hidden="true" href="#最被低估的变革">#</a></h2>
+<p>但书中让我印象最深的，不是这些效率提升，而是一个更根本的判断：<strong>AI 作为核心基础设施，最革命性的成果是释放了非技术背景、但有领域专业知识的创始人。</strong></p>
+<p>当创业人群不再局限于有工程背景的人，你会看到一批有完全不同生活经历的创始人，去解决那些传统技术创始人路线从未优先考虑、甚至从未注意到的问题。</p>
+<p>这不只是&quot;人人都能创业&quot;的鸡汤。它意味着创业公司的<strong>问题域</strong>在扩张。过去，创业者倾向于找&quot;技术能解决的问题&quot;；现在，他们可以找&quot;真正重要的问题&quot;，不管自己有没有技术背景。</p>
+<hr>
+<h2 id="编排而非执行">编排，而非执行<a hidden class="anchor" aria-hidden="true" href="#编排而非执行">#</a></h2>
+<p>回到最初的问题：创始人不再写代码，那做什么？</p>
+<p>答案是<strong>编排</strong>。知道在什么时候、用哪个 AI 工具、解决什么问题、达到什么效果。比如，Idea Stage 用 Chat 做压力测试，MVP Stage 用 Claude Code 写代码，Launch Stage 用 Claude Cowork 自动化运营——每个阶段的主力工具不同，编排的节奏也不同。这不是自动发生的，创始人必须知道如何（以及何时）应用这些工具。这本书的剩余部分，就是在探索创始人在 AI 原生创业路径上每个阶段会遇到的目标和挑战。</p>
+<p>作为技术博主，我的反思是：我们过去几年一直在讨论&quot;AI 会不会取代程序员&quot;，但这本书把问题翻了过来——<strong>AI 不是取代程序员，而是让&quot;会编程&quot;不再是创业的准入门槛。</strong> 真正稀缺的，是判断力：选什么问题、用什么方案、在哪个节点转向。</p>
+<p>下一篇，我们进入创业生命周期的第一个阶段：Idea Stage。在 AI 让&quot;构建&quot;变得如此容易的时代，&ldquo;验证&quot;反而成了最危险的环节。</p>
+<hr>
+<h2 id="系列阅读快速跳转">系列阅读快速跳转<a hidden class="anchor" aria-hidden="true" href="#系列阅读快速跳转">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>日期</th>
+          <th>篇目</th>
+          <th>核心问题</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>06-29</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-29-ai-native-founder-role/">AI 原生创业：创始人不再写代码，那做什么？</a></td>
+          <td>AI 重新定义创始人角色，从执行者到编排者</td>
+      </tr>
+      <tr>
+          <td>06-29</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-29-idea-stage-validation/">Idea Stage：构建之前，先证明你值得构建</a></td>
+          <td>AI 让构建门槛消失，验证反而成为最大风险</td>
+      </tr>
+      <tr>
+          <td>06-30</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-30-mvp-stage-speed-judgment/">MVP Stage：速度与判断力的博弈</a></td>
+          <td>如何在 AI 加速下避免&quot;假产品市场契合&rdquo;</td>
+      </tr>
+      <tr>
+          <td>06-30</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-30-launch-stage-systematic-growth/">Launch Stage：从创始人驱动到系统化增长</a></td>
+          <td>把早期 traction 变成可重复的增长引擎</td>
+      </tr>
+      <tr>
+          <td>06-30</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-30-scale-stage-moat/">Scale Stage：构建 AI 时代的护城河</a></td>
+          <td>用领域知识、数据积累和用户锁定建立防御</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="引用">引用<a hidden class="anchor" aria-hidden="true" href="#引用">#</a></h3>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E7%AE%A1%E7%90%86/">管理</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-29-idea-stage-validation/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Idea Stage：构建之前，先证明你值得构建</span>
+  </a>
+  <a class="next" href="https://blog.zhangky.com/posts/2026/06/2026-06-01-what-is-ai-native/">
+    <span class="title">Next »</span>
+    <br>
+    <span>什么才算是AI Native：从卖工具到卖结果的创业范式转移</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
