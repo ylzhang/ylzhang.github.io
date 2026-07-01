@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>思考 | Zhang&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/tags/%E6%80%9D%E8%80%83/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/tags/%E6%80%9D%E8%80%83/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/tags/%E6%80%9D%E8%80%83/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<meta property="og:url" content="https://blog.zhangky.com/tags/%E6%80%9D%E8%80%83/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="思考">
+  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="思考">
+<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/tags/">Tags</a></div>
+  <h1>
+    思考
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AI人物志-工程师Yann LeCun
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。
+当理论家还在争论神经网络是否可行时，一个法国工程师已经让机器看清楚了世界。
+1989年，新泽西州霍姆德尔镇的一栋灰色办公楼里，一位留着长发、穿着皮夹克的法国年轻人正在向一群西装革履的银行家演示他的&#34;疯狂想法&#34;。他面前是一台笨重的计算机，屏幕上跳动着一串串手写数字。当机器准确识别出那些潦草的字迹时，银行家们交换着困惑的眼神——他们不知道，自己刚刚见证了人工智能历史上最重要的突破之一。
+这位年轻人叫Yann LeCun。他带来的不是理论论文，而是一个能工作的系统。“我不在乎它为什么工作，“他后来回忆当时的想法，“我只在乎它确实工作了。”
+这是工程师的思维，也是LeCun一生的注脚。
+巴黎的地下实验室：一个工程师的觉醒 1960年，LeCun出生在法国巴黎郊区的一个普通家庭。与Hinton的&#34;天才家族&#34;不同，LeCun的童年没有什么传奇色彩。他喜欢拆东西——收音机、电视机、任何他能拿到手的电子设备。“我不是想修好它们，“他说，“我只是想知道它们是怎么工作的。”
+这种好奇心把他带向了工程学。1980年代，LeCun在巴黎的ESIEE工程学院学习电气工程。那是一个AI的寒冬，神经网络被视为死路，但LeCun在一个偶然的机会接触到了一本关于认知科学的书，书中提到了一种模仿人脑视觉皮层结构的算法——卷积神经网络。
+“我当时就想，这东西太美了，“LeCun回忆，“它不是抽象的数学，它是可以实现的。”
+与Hinton不同，LeCun没有被神经网络的&#34;不可解释性&#34;困扰。作为一个工程师，他关心的是效果，而不是原理。如果一种方法能让机器学会识别图像，那它就是好方法——至于为什么，可以以后慢慢研究。
+这种实用主义态度让LeCun在1985年做出了一个大胆的决定：他要去见Geoffrey Hinton。
+多伦多的那个夏天：两个偏执狂的相遇 1985年的夏天，LeCun带着自己写的代码来到多伦多大学。他敲开了Hinton办公室的门，两个改变AI历史的人第一次面对面。
+“他看起来像个嬉皮士，“Hinton后来回忆，“长发、皮夹克，说话带着浓重的法国口音。但他眼睛里有火。”
+LeCun向Hinton展示了他对卷积神经网络的改进。当时的神经网络研究主要集中在全连接网络，但LeCun意识到，对于图像识别这种任务，全连接是低效的——图像中的相邻像素有天然的关联性，应该被一起处理，而不是分别处理。
+Hinton被震动了。“他解决了我在论文里提到但没有解决的问题，“Hinton说，“这个年轻人不只是理解了我的理论，他超越了它。”
+那个夏天，LeCun和Hinton一起工作，完善反向传播算法，探索多层网络的训练方法。但两人的分歧也很快显现：Hinton痴迷于理解大脑，LeCun只关心让系统工作；Hinton愿意花十年打磨一个理论，LeCun想要六个月看到成果。
+“我们是两种完全不同的动物，“LeCun后来形容这段关系，“他是哲学家，我是工程师。但奇怪的是，这种差异让我们互补。”
+AT&amp;T贝尔实验室：从实验室到现实世界 1988年，LeCun加入了传奇的AT&amp;T贝尔实验室。那是全球最先进的科研机构，诞生了晶体管、激光、Unix操作系统。对LeCun来说，这里是天堂——有无限的计算资源，有聪明的同事，最重要的是，有真实的问题需要解决。
+LeCun接手的第一个大项目是手写数字识别。美国邮政系统每天处理数百万封信件，需要自动识别信封上的邮编。这是一个完美的测试场：数据充足，问题明确，而且——如果成功——有巨大的商业价值。
+LeCun花了两年时间构建了一个名为LeNet的系统。它有多层卷积结构，有池化层降低计算量，有反向传播训练参数。当LeNet在1990年投入使用时，它能以99%的准确率识别手写数字，处理速度超过每秒100张。
+“那是我人生中最骄傲的时刻，“LeCun回忆，“不是因为我发表了论文，而是因为我的系统真的在帮助人们送信。”
+LeNet的成功证明了深度学习的实用价值，但它并没有改变学术界的看法。1990年代，支持向量机（SVM）成为机器学习的主流，神经网络再次被视为&#34;过时的技术”。LeCun在会议上发表论文，听众寥寥；他申请研究经费，评审人质疑&#34;这东西真的有用吗”。
+“那时候很孤独，“LeCun说，“但我有LeNet。只要它还在工作，我就知道我们是对的。”
+被驱逐的十年：在工业界坚守 1996年，AT&amp;T拆分，贝尔实验室的辉煌时代结束。LeCun被迫离开，加入了一家初创公司NEC研究院。后来他又去了纽约大学，在学术界和工业界之间来回切换。
+这十年被称为LeCun的&#34;被驱逐期”。深度学习在学术界几乎消失，LeCun是少数几个还在坚持的人。但他没有Hinton那样的耐心——Hinton可以在多伦多安静地等待春天，LeCun需要行动。
+他开始做一件在当时看来&#34;不务正业&#34;的事：把深度学习带到工业界。
+2003年，LeCun创办了一个名为&#34;深度学习研究&#34;的研讨会，邀请工业界的工程师参加。他向他们展示卷积神经网络如何用于人脸识别、自动驾驶、医学影像。“我不跟他们说理论，“LeCun解释，“我给他们看demo。”
+这种策略奏效了。2010年代初，随着GPU计算能力的提升和数据量的爆炸，工业界开始意识到深度学习的潜力。Facebook、Google、百度纷纷成立AI实验室，而LeCun成了最抢手的人才。
+2013年，Mark Zuckerberg亲自邀请LeCun加入Facebook，领导新成立的AI研究院（FAIR）。LeCun提出了一个条件：研究院必须开源所有研究成果。“如果深度学习要改变世界，它必须是开放的，“他说。
+Zuckerberg同意了。FAIR成为工业界AI研究的标杆，而LeCun终于有了一个可以大展拳脚的平台。
+与Transformer的对抗：一个工程师的固执 2017年，Google发表了Transformer架构，彻底改变了自然语言处理领域。Transformer抛弃了卷积和循环结构，完全基于&#34;注意力机制”，在翻译、文本生成等任务上取得了惊人效果。
+深度学习社区沸腾了。人们开始说&#34;CNN已死&#34;“RNN已死”，所有人都转向Transformer。但LeCun没有。
+“Transformer是伟大的工程成就，“LeCun承认，“但它不是智能的全部。它缺乏对世界的基本理解。”
+LeCun的批评基于一个工程师的直觉：Transformer处理的是符号序列，但人类智能建立在世界模型之上。我们看、听、触摸，构建对物理世界的内在表征，然后用这个模型来预测、规划、行动。Transformer没有这种模型，它只是在统计符号之间的关联。
+“你可以用Transformer生成一段关于’猫在垫子上’的文字，“LeCun说，“但它不知道什么是猫，什么是垫子，什么是’在’。它只是在重复训练数据中的模式。”
+这种看法让LeCun在2010年代末显得格格不入。当所有人都在追逐大语言模型时，他在研究自监督学习——让机器通过观察世界来学习，而不是通过人类标注的数据。
+“这是Hinton路线和我路线的分歧，“LeCun解释，“Hinton相信，只要有足够大的模型和足够多的数据，智能就会涌现。我相信，我们需要先教会机器理解世界，然后智能才会出现。”
+World Model：最后的赌注 2022年，LeCun发表了一篇长达60页的论文，阐述他对AI未来的愿景：World Model（世界模型）。
+这不是一个新概念。人类大脑一直在做这件事——我们观察世界，构建内在模型，然后用这个模型预测未来。当你扔出一个球，你的大脑会自动预测它的轨迹；当你看到一扇门，你的大脑会预测推开它会发生什么。
+LeCun认为，真正的AI需要这种能力。不是识别图像、生成文本，而是理解物理世界，预测行动后果。
+“大语言模型是’系统二’——逻辑推理、语言处理，“LeCun说，“但人类智能的大部分是’系统一’——直觉、感知、运动控制。我们需要先解决系统一，才能真正理解系统二。”
+这个愿景让LeCun在Meta（Facebook改名后的公司）投入了大量资源。他领导团队开发JEPA（联合嵌入预测架构），试图让AI通过观看视频来学习物理规律。不是通过标注，而是通过预测——预测下一帧画面会是什么样子，预测物体的运动轨迹，预测行动的后果。
+“这是工程问题，“LeCun说，“不是理论问题。我们需要构建一个系统，让它自己学会理解世界。”
+当下的沉思：工程师的乐观与警惕 站在2026年，LeCun的World Model仍然是一个未完成的愿景。大语言模型已经统治了AI领域，Transformer架构无处不在，而LeCun的坚持看起来像是固执。
+但LeCun并不沮丧。“工程师的职业生涯就是不断被证明是错的，然后找到新的方法，“他说，“我在1990年代被证明是错的，2010年代又被证明是对的。现在可能又是错的，但那没关系——重要的是找到下一个对的方法。”
+与Hinton的悲观不同，LeCun对AI的未来保持乐观。他不认为AI会毁灭人类，至少不会很快。“我们离真正的智能还差得远，“他说，“大语言模型只是工具，它们没有目标，没有欲望，没有自我。”
+但LeCun也有担忧。他担心的是AI的集中化——当只有少数几家公司拥有训练大模型的资源时，AI的力量会被滥用。他担心的是幻觉——大语言模型生成虚假信息的能力。他担心的是就业——当AI可以完成越来越多的工作时，社会如何适应。
+“这些问题需要工程师来解决，“LeCun说，“不是哲学家，不是政治家，是工程师。我们需要构建更好的系统，更安全的系统，更公平的系统。这是我们的责任。”
+说到底：一个工程师的方法论 回顾LeCun的一生，他的方法论清晰可见：先让它工作，再理解它为什么工作。
+这与科学研究的经典路径相反。经典路径是先建立理论，然后用实验验证。但LeCun走的是另一条路——他先构建系统，观察它如何表现，然后从中提炼理论。
+“CNN就是这样诞生的，“LeCun说，“我先让它工作，然后才理解为什么卷积结构有效。World Model也会是这样——我们先构建它，然后理解世界模型的本质。”
+这种方法论让LeCun成为深度学习三巨头中最&#34;接地气&#34;的一个。Hinton是先知，Bengio是学者，LeCun是工程师。他不追求完美的理论，他追求能工作的系统。他不等待世界的认可，他改变世界。
+一位曾与LeCun共事的工程师对我们说：“LeCun教会我最重要的一课是：不要等理论完善才开始。如果你有一个想法，就构建它，测试它，迭代它。理论会在实践中自然涌现。”
+全局来看，LeCun的一生诠释了工程精神的价值。在AI的寒冬中，他用LeNet证明了深度学习的实用价值；在Transformer的热潮中，他用World Model坚守对&#34;理解&#34;的追求。他可能不是最耀眼的明星，但他是最可靠的基石——当理论家还在争论时，工程师已经让机器看清楚了世界。
+而这个世界，正在因为他的工作而改变。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-04-02 18:09:00 +0800 HKT'>April 2, 2026</span> | <span>20 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to AI人物志-工程师Yann LeCun" href="https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AI人物志-木匠Geoffrey Hinton
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> AI人物志系列：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。
+当全世界都说神经网络是死胡同时，一个木匠决定再凿一下那块木头。
+2018年3月，多伦多大学的一间办公室里，70岁的Geoffrey Hinton收到了图灵奖获奖通知。那是计算机科学界的最高荣誉，相当于这一领域的诺贝尔奖。但Hinton的第一反应不是庆祝，而是困惑——“为什么是现在？”
+答案要追溯到40年前。那时神经网络被视为&#34;伪科学&#34;，研究它的人被嘲笑为&#34;炼金术士&#34;。而Hinton，这个曾在大学做过两年木匠的英国人，几乎是孤身一人扛起了这面旗帜。一位长期观察AI发展的研究者对我们说：“如果没有Hinton的坚持，深度学习可能还要晚来20年。”
+剑桥的退学信：一个关于&#34;直觉&#34;的决定 1947年，Hinton出生在一个充满&#34;天才&#34;气息的英国家庭。他的父亲是昆虫学家，母亲是教师，家族里还有数学家、经济学家、作家。但Hinton的童年并不快乐——他患有阅读障碍，在精英教育体系中显得格格不入。
+1960年代，年轻的Hinton进入剑桥大学学习物理和化学，但很快发现这不是他想要的。“我对人脑如何工作更感兴趣，“他后来回忆。于是他从剑桥退学，转而去爱丁堡大学学习心理学。
+这个决定在当时看起来毫无道理。心理学在1960年代还是一门&#34;文科”，充斥着哲学思辨，缺乏严格的科学方法。但Hinton在这里接触到了一样东西，改变了他的一生——人工神经网络。
+那是1960年代末，神经网络的概念刚刚诞生不久。科学家们试图用数学模型模拟人脑神经元的工作方式，但很快就遇到了瓶颈。1969年，AI领域的权威Marvin Minsky和Seymour Papert出版了一本名为《感知机》的书，用数学证明证明单层神经网络存在根本缺陷。这本书像一盆冷水，浇灭了整个领域的热情。
+神经网络进入了第一次&#34;寒冬”。大多数研究者转向其他方向，但Hinton没有。他看到了别人没看到的东西。
+木匠的两年：在木头中寻找答案 1970年代末，Hinton做了一件让同行们更加不解的事——他去当木匠了。
+整整两年，他在伦敦的工坊里制作橱柜、书架、门窗。这不是逃避，而是一种独特的思考方式。“做木工和做研究很像，“他后来解释，“你面对一块木头，需要理解它的纹理、它的特性，然后决定如何下刀。神经网络也是一样——你需要理解它的结构，然后找到训练它的方法。”
+这段经历给了Hinton两样东西：耐心和手感。
+在那个年代，训练一个神经网络需要手动调整成千上万个参数，没有自动化工具，没有GPU加速。Hinton像打磨木头一样，一点点摸索神经网络的&#34;纹理”。他后来发明的&#34;反向传播算法”，某种程度上就是这种&#34;手感&#34;的结晶——一种让神经网络自己调整参数的方法。
+1986年，Hinton与David Rumelhart、Ronald Williams合作发表了关于反向传播的论文。这篇论文后来被视为深度学习的奠基之作，但当时并没有引起太大轰动。神经网络仍然处于&#34;寒冬&#34;，大多数AI研究者仍然坚信符号主义才是未来。
+至暗时刻：在多伦多独自坚守 1980年代末，Hinton接受了多伦多大学的教职，离开英国前往加拿大。这个选择在当时看来是一种&#34;流放&#34;——远离AI研究的核心圈子，远离资金和资源。
+但Hinton需要这种孤独。在多伦多，他可以不受干扰地继续自己的研究，哪怕这意味着发表论文困难、申请经费被拒、学生招不到。
+一位曾在1980年代末拜访过Hinton实验室的研究者向我们回忆：“那是一间很普通的办公室，墙上贴着几张神经网络的示意图。Hinton当时正在调试一个模型，已经跑了好几天。他说，‘我相信这东西会工作的，只是需要更多时间。’”
+更多时间。这是Hinton最不缺的东西。
+1990年代到2000年代，神经网络经历了第二次&#34;寒冬&#34;。支持向量机（SVM）等机器学习方法成为主流，神经网络被视为&#34;过时的技术&#34;。Hinton的学生们毕业后很难找到工作，很多人被迫转行。
+但Hinton仍然坚持。他不断调整神经网络的结构，尝试不同的训练方法，发表了一篇又一篇被主流忽视的论文。他像一个在荒原上种树的园丁，知道这些树可能需要几十年才能长大。
+2006年的那个晚上：深度学习的黎明 转折点出现在2006年。
+那一年，Hinton发表了一篇关于&#34;深度信念网络&#34;（Deep Belief Networks）的论文。这篇论文提出了一种有效训练深层神经网络的方法，让多层神经网络的训练变得可行。
+论文发表后的那个晚上，Hinton独自走在多伦多的街头。他后来回忆，那是一个寒冷的冬夜，但他感到一种奇怪的温暖。“我知道，有些东西改变了，“他说，“但我不知道它会改变得这么快。”
+改变确实来得很快。2012年，Hinton的两个学生Alex Krizhevsky和Ilya Sutskever参加ImageNet图像识别竞赛，使用Hinton设计的深度卷积神经网络AlexNet，以压倒性优势击败所有对手。错误率比第二名低了整整10个百分点——在图像识别领域，这几乎是代差。
+一夜之间，深度学习从&#34;边缘技术&#34;变成了&#34;主流范式”。Google、Facebook、微软等科技巨头开始疯狂收购深度学习团队和人才。Hinton的实验室成了朝圣之地，他的学生们成了最抢手的人才。
+但Hinton本人并没有因此变得高调。他仍然每天步行去实验室，仍然亲手调试模型，仍然在白板上画满公式。一位Hinton的学生告诉我们：“他对待深度学习的态度，就像对待一块需要精心打磨的木头。技术会过时，但手艺不会。”
+“人的大脑就是这么工作的”：一个木匠的哲学 2016年，AlphaGo击败李世石，深度学习彻底出圈。媒体开始称Hinton为&#34;AI教父&#34;“深度学习之父”，但他本人对这些称号感到不适。
+“我不是在创造什么新东西，“他在一次采访中说，“我只是在模仿自然。人的大脑就是这么工作的——神经元连接，学习，涌现智能。没理由人工神经网络不这么工作。”
+这句话道出了Hinton的底层逻辑：仿生不是选择，而是必然。
+在他看来，智能的本质不是符号操作，不是逻辑推理，而是学习。人类之所以能够涌现出智能，就是因为大脑具有学习能力。只要给神经网络正确的架构，它就能学会任何东西——从识别猫狗到下棋，从翻译语言到生成图像。
+这种哲学与符号主义AI形成了鲜明对比。符号主义者相信，智能可以通过明确的规则和符号来实现；而Hinton相信，智能必须从数据中&#34;学习&#34;出来，就像婴儿学习认识世界一样。
+这场争论持续了半个世纪，最终Hinton赢了。但胜利并没有让他变得傲慢。2018年获得图灵奖后，他把奖金捐给了培养年轻研究者的基金。“我只是比其他人多坚持了一会儿，“他说。
+2023年的告别：一个关于责任的转身 2023年5月，Hinton做了一件让全世界震惊的事——他从Google离职，并公开警告AI的风险。
+“我后悔，“他在接受《纽约时报》采访时说，“我后悔我的一生工作可能带来的后果。”
+这不是一个科学家的矫情。Hinton真正担心的是，深度学习的发展速度已经超出了人类的控制能力。大语言模型展现出惊人的能力，但人类并不完全理解这些能力是如何产生的。更可怕的是，这些系统正在以指数级速度变得更强大。
+“我原以为AI超越人类还需要30到50年，“他说，“现在我意识到，可能只需要5到10年。”
+从Google离职后，Hinton开始花更多时间思考AI的安全问题。他不再每天去实验室，而是参加各种研讨会、接受媒体采访、与政策制定者对话。他想让更多人意识到，我们正站在一个历史的转折点上。
+一位在2024年与Hinton有过长谈的研究者向我们转述：“他说，他这一生都在教机器如何学习，现在他发现，人类自己还没有学会如何与这些机器共处。这是他最后想解决的问题。”
+弯路与开悟：一个木匠如何找到那条路 回顾Hinton的一生，他并非没有走过弯路。
+1970年代末，当他放下神经网络研究去当木匠时，那是一次逃避，也是一次迷失。他在伦敦的工坊里日复一日地刨木头、打榫卯，试图用身体的疲惫来麻痹精神的困惑。神经网络似乎真的走进了死胡同——Minsky的批评是对的，单层感知机确实有根本缺陷。
+但正是在那些与木头相处的日子里，Hinton开始理解一个道理：有时候，你需要先退一步，才能看清前面的路。
+木工教会了他观察纹理——每一块木头都有自己的纹理，顺着纹理下刀，事半功倍；逆着纹理硬来，只会崩裂。神经网络也是如此。当时的研究者们都在试图用数学证明来证明神经网络的可行性，但Hinton意识到，也许问题不在于证明，而在于结构。
+人脑不是单层感知机，人脑是深层的、多层的、有反馈的。如果单层不行，为什么不试试多层？
+这个念头像一道闪电，在1978年的某个下午击中了Hinton。他后来回忆，那天他正在打磨一个橱柜的门板，突然停下了手中的刨子。“如果神经网络也像木头一样有层次呢？“他问自己，“如果我们不是试图让单层网络学会一切，而是让每一层学会一点点，然后层层传递呢？”
+这就是后来被称为&#34;深度学习&#34;的核心理念——不是让一个复杂的系统做一件复杂的事，而是让许多简单的系统层层协作，最终完成复杂的事。
+但光有想法还不够。1980年代的Hinton仍然面临一个根本问题：如何训练多层网络？如何调整那些隐藏层的参数？
+他尝试过各种方法。有一段时间，他甚至考虑过放弃神经网络，转向遗传算法——让网络自己进化，而不是被训练。那是一段更加黑暗的日子，Hinton后来称之为&#34;我的遗传算法时期”。“那时候我真的迷失了，“他说，“我以为进化能解决一切问题，但我忽略了进化的代价——它需要数百万年的时间，而我只有一辈子。”
+真正的开悟发生在1985年。
+那一年，Hinton在卡内基梅隆大学做访问学者。一天晚上，他在酒吧里遇到了David Rumelhart，一位认知心理学家。两人聊起了神经网络的训练问题，Rumelhart提到了一个想法：如果误差可以从输出层反向传播回输入层呢？
+Hinton听后沉默了整整一分钟。然后他抓起一张餐巾纸，开始在上面画公式。
+“那天晚上，我知道我们找到了，“Hinton后来回忆，“不是因为我算出了什么，而是因为那个想法感觉对了。就像你刨木头时，突然感觉到刨子顺着一个完美的角度滑过——你知道，就是这里。”
+这就是反向传播算法的诞生。它不是什么天才的灵光一现，而是两个疲惫的研究者在酒吧里的一次碰撞，是无数次失败后的偶然相遇，是一个木匠在木头中找到的直觉。
+当下的沉思：当AI真的学会了学习 站在2026年回望，Hinton的弯路和开悟给了我们一个启示：真正的突破往往来自于对&#34;不可能&#34;的坚持，以及对&#34;可能&#34;的重新定义。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-04-01 21:00:00 +0800 HKT'>April 1, 2026</span> | <span>25 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to AI人物志-木匠Geoffrey Hinton" href="https://blog.zhangky.com/posts/2026/april/2026-04-01-geoffrey-hinton-the-carpenter/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">高段领导力从哪里来
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 领导力不是职位特权，而是一种「让别人心甘情愿做你想做的事」的元能力。它不分层级，不论场景，是每个人终其一生都可以修炼的功课。
+今天参加了一场领导力培训。开场前有个细节让我印象深刻：讲师没有问&#34;在座多少人是管理者&#34;，而是问&#34;有多少人希望自己更有影响力&#34;。全场举手。
+那一刻我突然意识到，我们对领导力的理解，可能从一开始就窄化了。
+领导力的祛魅：从职位到元能力 传统观念里，领导力似乎专属于那些带团队、管项目的人。但培训中的第一个观点就颠覆了这个认知：
+领导力是每个人都拥有的影响力——你影响家人周末去哪里吃饭，影响朋友接受你的建议，影响同事支持你的方案。这些时刻，你都在运用领导力。
+这让我想到一个更本质的定义：领导力的核心，是「让别人做你想做的事」。
+注意，不是&#34;替别人做事&#34;，不是&#34;命令别人做事&#34;，而是让别人心甘情愿地，朝着你想去的方向行动。这里面藏着两层深意：一是你要清楚自己想要什么（方向感），二是你要理解别人为何愿意跟随你（影响力）。
+高段位的领导者，从来不是最忙的那个人。他们善于授权——把Ownership真正交给团队，让每个人都觉得&#34;这是我的事&#34;。低段位的管理者，往往陷在事务里亲力亲为，团队却动力涣散。
+管理与领导：性恶论与性善论的分野 培训中最精彩的部分，是把管理和领导放在了哲学的高度对比。
+管理基于性恶论——它假设人需要规则约束，需要流程规范，需要考核驱动。管理的逻辑是&#34;怕你做错&#34;，所以设定边界、监控过程、追求确定性。管理问的是：如何正确地做事？
+领导基于性善论——它相信人有向善的潜力，有自发的创造力，有追求卓越的本能。领导的逻辑是&#34;信你能成&#34;，所以描绘愿景、创造机会、拥抱不确定性。领导问的是：如何做正确的事？
+这两者的关系不是对立，而是分形。
+面对不成熟的团队（新人居多、能力不足、方向不清），你需要管理——建立规则、明确流程、降低试错成本。这时候团队是&#34;团伙&#34;状态：成员相似度高、目标短期功利、依赖外部驱动。
+面对成熟的团队（能力匹配、目标共识、自我驱动），你需要领导——激发潜能、授权决策、容忍试错。这时候团队才是&#34;团队&#34;状态：成员能力互补、目标长远积极、内在动机驱动。
+最危险的领导者，是用管理成熟团队的方式带新人（放任自流），或用带新人的方式管成熟团队（过度控制）。
+领导与领导力：职位与能力的错位 培训中有个扎心的案例：某大厂总监，管着两百人的团队，却发现关键时刻没人真正听他的。他拥有最大的「职权」，却缺乏最基本的「影响力」。
+这揭示了一个残酷真相：领导职位是组织赋予的，领导力却是他人授予的。
+有职位的人，天然拥有通过职权影响他人的权力——你可以分配任务、决定薪酬、影响晋升。但这种影响力是交易型的：下属听你的，是因为你手里有他想要的东西。
+真正的领导力是感召型的：别人听你的，是因为信任你的判断、认同你的价值观、愿意和你一起赌一个不确定的未来。
+职权领导力在顺境时好用，逆境时失灵。非职权领导力——基于专业、品格、愿景的影响力——才是穿越周期的硬通货。
+这也解释了为什么有些创业者在资源匮乏时能凝聚团队：他们没有职权筹码，只能靠Ownership的让渡和愿景的感召来凝聚人。这种&#34;赤手空拳&#34;练出来的领导力，往往比大公司高管的&#34;职权惯性&#34;更扎实。
+领导力的习得：从知到行的鸿沟 培训最后抛出一个问题：领导力可以教会吗？
+答案是：可以学习，无法教授。
+课堂上可以讲清楚概念、模型、工具，但真正的领导力只能在真实的博弈中长出来。当你被逼到墙角不得不决策，当你要为他人的错误兜底，当你必须在信息不足时选择方向——这些时刻，领导力才开始生长。
+现代领导力理论强调结果论：不管你用什么风格，能否持续为组织创造卓越业绩，是检验领导力的唯一标准。
+但这不意味着领导力是少数人的天赋。恰恰相反，每一次你主动承担责任，每一次你把&#34;这是我的问题&#34;说出口，每一次你在不确定中选择相信团队，你都在修炼领导力。
+培训结束时，我想起一句话：领导力的终极考验，不是你能爬多高，而是当你跌落时，还有多少人愿意托住你。
+职位可以任命，权力可以继承，但那种让人心甘情愿跟随的力量——那种即使你不发号施令，团队也会向着共同方向奔跑的感召力——只能靠自己一次次站在悬崖边，一次次选择不后退，一次次把&#34;我们一起扛&#34;说出口，才能慢慢长出来。
+这或许是领导力最公平的地方：它不问出身，不论起点，只问你是否愿意为他人承担不确定性。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-03-14 10:00:00 +0800 HKT'>March 14, 2026</span> | <span>9 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 高段领导力从哪里来" href="https://blog.zhangky.com/posts/2026/03/2026-03-14-leadership-source-reflection/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">千问核心离职风波：林俊旸下一步是创业吗？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>3 月 6 日，林俊旸正式确认离职。距离那条「bye my beloved qwen」的推文过去 48 小时，这场震动中国 AI 圈的人事风波进入下半场——不是八卦内幕的下半场，而是更实质的问题：一个 32 岁、带出了全球顶级开源模型、被 Google DeepMind 公开喊话抢人的技术领袖，下一步该往哪走？
+我的判断很直接：创业是他唯一合理的选择。
+不是情感上的「创业浪漫」，而是结构性推演后的结论。大厂、学术机构、加入其他独角兽——这三条路都有明显的逻辑断裂，只有创业能承接他过去三年积累的所有资产，并给他真正的自由度。
+林俊旸今年 32 岁，阿里最年轻的 P10，Qwen 技术负责人。在他带领下，Qwen 从一个内部项目成长为全球下载量突破 7 亿次、衍生模型超过 18 万个的开源模型家族1。斯坦福《2025 年人工智能指数报告》把 Qwen 排在全球第三2，Google DeepMind executive Omar Sanseviero 在他离职后直接在 X 上向 Qwen 团队喊话：「if any of you want a new home to build great models and contribute to the open models ecosystem, please reach out!」3
+这是全球顶级 AI 实验室在用行动投票：这些人在开源生态里的价值，远超任何一家公司的内部职级体系能衡量的。
+但价值归价值，选择归选择。林俊旸面前的选项其实不多——或者说，他面前的选择太多，反而让决策变得更难。
+据说离职消息传出后，投资圈瞬间沸腾。
+不止一家头部机构的合伙人通过各种渠道打探他的联系方式——有人发朋友圈暗示「有预算、等团队」，有人通过千问团队的熟人递话，有人直接私信阿里内部的朋友「能不能帮我引荐林俊旸」。不到 48 小时，他的微信被加爆，未读消息里挤满了红杉、高瓴、五源、启明等一线基金的合伙人。
+开出的条件一个比一个诱人：有人直接开价数千万美元估值，不占大股，「你说了算」；有人承诺「只管做技术，商业化我们来」，配套完整的 GTM 团队。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-03-07 21:29:02 +0800 HKT'>March 7, 2026</span> | <span>21 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 千问核心离职风波：林俊旸下一步是创业吗？" href="https://blog.zhangky.com/posts/2026/03/2026-03-07-linjunyang-next-move-startup/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">千问核心离职风波：开源社区需要什么人
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>
+Qwen 的技术报告单篇引用超过 6000 次1，Hugging Face 下载量突破 7 亿次2，衍生模型超过 18 万个2。斯坦福《2025 年人工智能指数报告》把它排在全球第三3。然后，带着这一切走到今天的人，在凌晨 0:11 发了一条推文就走了4。
+这两天 AI 圈讨论最多的不是模型，而是人。但我注意到一个有意思的现象：中文互联网上讨论的焦点是&#34;阿里怎么了&#34;“管理出了什么问题&#34;“谁来接班”，而英文社区——从 Hugging Face 到 GitHub 到 X 的评论区——讨论的焦点是一个更本质的问题：开源社区到底需要什么样的人？失去这样的人意味着什么？
+这两种反应之间的落差，可能比林俊旸的离职本身更值得想一想。
+全球顶级机构在用行动投票 艾伦人工智能研究院的研究员 Nathan Lambert 在 X 上写了一句话：“如果 Qwen 倒塌，在开放研究生态中留下的巨大空缺将很难填补。那些小模型是不可替代的。”5
+Hyperbolic Labs 的 CTO Yuchen Jin 说：“一个时代的结束。“MiniMax、Unsloth、Ollama 都在林俊旸的推文下留言感谢。Hugging Face 亚太区负责人 Tiezhen Wang 说这是 Qwen 的&#34;巨大损失”。智谱 AI 创始人唐杰评论说：“酷，开始新的旅程吧。”
+而截至发稿，事情已经从哀悼升级为抢人。Google DeepMind 的 Omar Sanseviero 直接在 X 上向 Qwen 团队公开喊话6：
+Qwen friends: if any of you want a new home to build great models and contribute to the open models ecosystem, please reach out!
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-03-06 01:00:00 +0800 HKT'>March 6, 2026</span> | <span>26 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 千问核心离职风波：开源社区需要什么人" href="https://blog.zhangky.com/posts/2026/03/2026-03-06-qwen-open-source-needs-him/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://blog.zhangky.com/tags/%E6%80%9D%E8%80%83/">
+      «&nbsp;Prev&nbsp;1/7
+    </a>
+    <a class="next" href="https://blog.zhangky.com/tags/%E6%80%9D%E8%80%83/page/3/">Next&nbsp;3/7&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

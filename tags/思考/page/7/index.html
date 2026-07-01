@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>思考 | Zhang&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/tags/%E6%80%9D%E8%80%83/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/tags/%E6%80%9D%E8%80%83/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/tags/%E6%80%9D%E8%80%83/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<meta property="og:url" content="https://blog.zhangky.com/tags/%E6%80%9D%E8%80%83/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="思考">
+  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="思考">
+<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/tags/">Tags</a></div>
+  <h1>
+    思考
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">杰克韦尔奇&#34;数一数二&#34;原则的现代企业实践
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>“数一数二”原则的现代应用 杰克韦尔奇提出的“数一数二”原则——企业应聚焦于能在市场中占据第一或第二位置的业务——在今天仍有深刻的现实意义。
+案例分析：某科技公司的业务重组 某中型科技公司曾同时运营6条业务线，但多数处于行业中游。借鉴韦尔奇的原则，公司进行了业务重组：
+保留并强化2条市场份额前三的核心业务 出售3条缺乏竞争优势的非核心业务 终止1条长期亏损的实验性业务 重组后，公司净利润提升35%，核心业务的市场份额进一步扩大。
+现代解读 在VUCA（易变、不确定、复杂、模糊）时代，“数一数二”原则有了新的内涵：
+从规模到价值：不仅追求市场份额，更注重创造独特价值 从单一到多元：在核心领域保持领先，同时在相关领域适度探索 从静态到动态：定期评估业务竞争力，保持战略灵活性 反思与平衡 韦尔奇的原则并非绝对，企业需平衡：
+短期盈利与长期创新：避免过度聚焦核心业务而忽视未来机会 规模优势与组织灵活性：大并不总是好，敏捷性同样重要 市场地位与社会责任：领先地位需与可持续发展相结合 杰克韦尔奇的管理思想穿越时空，提醒现代企业：聚焦核心竞争力永远是成功的基础。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-07-10 16:05:25 +0800 HKT'>July 10, 2025</span> | <span>2 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 杰克韦尔奇&#34;数一数二&#34;原则的现代企业实践" href="https://blog.zhangky.com/posts/2025/2025-05-jack_welch_modern_application/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">【AI数学】30分钟拆解AI核心公式-复习笔记
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>上一篇我们搞定了符号，这一篇直接拆解AI论文中出现频率最高的6个公式。每个公式都是：问题→公式→拆解→代码。
+前置要求：读完上一篇符号速查手册。
+一、Softmax与交叉熵损失 问题：如何把模型输出变成概率？ 神经网络输出的是一堆数字（logits），可能是负数、可能很大。我们需要把它们变成概率分布（非负、和为1）。
+公式 $$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_{j=1}^{K} e^{x_j}}$$
+拆解 $e^{x_i}$：指数函数，把任意数变成正数 $\sum_{j=1}^{K} e^{x_j}$：所有指数的和，用于归一化 除法：确保结果和为1 为什么用指数？ 因为指数函数会放大差异——大的更大，小的更小，让模型更&#34;自信&#34;。
+代码实现 import numpy as np def softmax(x): &#34;&#34;&#34; 输入: x, shape (K,) 或 (batch, K) 输出: 概率分布，shape同输入 &#34;&#34;&#34; # 减去最大值防止数值溢出（数学上等价） exp_x = np.exp(x - np.max(x, axis=-1, keepdims=True)) return exp_x / np.sum(exp_x, axis=-1, keepdims=True) # 示例 logits = np.array([2.0, 1.0, 0.1]) probs = softmax(logits) print(probs) # [0.659, 0.242, 0.099] print(probs.sum()) # 1.0 交叉熵损失 有了概率，如何衡量预测和真实标签的差距？
+$$L = -\sum_{i=1}^{K} y_i \log(\hat{y}_i)$$
+其中 $y_i$ 是真实标签（one-hot），$\hat{y}_i$ 是预测概率。
+简化形式（单标签分类）： $$L = -\log(\hat{y}_{correct})$$
+就是正确类别的概率取负对数。概率越高，损失越小。
+def cross_entropy_loss(probs, label): &#34;&#34;&#34; probs: softmax输出的概率, shape (K,) label: 正确类别的索引, int &#34;&#34;&#34; return -np.log(probs[label] &#43; 1e-10) # 加小数防止log(0) # 示例 probs = np.array([0.7, 0.2, 0.1]) loss = cross_entropy_loss(probs, label=0) # 正确类别是0 print(loss) # 0.357（概率0.7对应的损失） 二、注意力机制（Attention） 问题：如何让模型&#34;关注&#34;输入的不同部分？ 翻译&#34;我爱北京&#34;时，生成&#34;Beijing&#34;应该主要关注&#34;北京&#34;这个词，而不是平均关注所有词。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-01-16 10:27:39 +0800 HKT'>January 16, 2025</span> | <span>27 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【AI数学】30分钟拆解AI核心公式-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-02-core-formulas/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
+前置要求：高中数学水平，会基础Python。
+一、求和与连乘 1.1 求和符号 $\sum$ 读法：Sigma（西格玛），读作&#34;sum&#34;
+含义：把一堆数加起来
+公式示例： $$\sum_{i=1}^{n} x_i = x_1 &#43; x_2 &#43; \cdots &#43; x_n$$
+论文中常见形式：
+损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和） Python实现：
+import numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi &gt; 0) 1.2 连乘符号 $\prod$ 读法：Pi（派），读作&#34;product&#34;
+含义：把一堆数乘起来
+公式示例： $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$
+论文中常见形式：
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2025-01-15 10:55:01 +0800 HKT'>January 15, 2025</span> | <span>25 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">从GE的&#34;活力曲线&#34;看杰克韦尔奇的管理智慧
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>杰克韦尔奇的“活力曲线”故事 通用电气（GE）在杰克韦尔奇时代推行的“活力曲线”（20-70-10）管理法，至今仍是企业管理的经典案例。
+核心实践 韦尔奇将员工按绩效分为三类：
+20%的顶尖员工：给予丰厚奖励和晋升机会 70%的中坚员工：提供培训和发展空间 10%的末位员工：给予改进机会或淘汰 背后逻辑 这一方法的核心是**“区别对待”**——承认员工贡献差异，通过差异化激励保持组织活力。韦尔奇认为：
+平均主义会扼杀优秀员工的积极性 及时淘汰不适应的员工是对组织和员工的负责任 清晰的绩效标准能提升整体团队效率 反思与启示 “活力曲线”并非完美无缺，过度量化可能忽视团队协作和创新价值。但它提醒管理者：
+绩效评估需要透明和客观 组织需要保持“新陈代谢”的能力 激励机制应与战略目标紧密结合 在快速变化的商业环境中，韦尔奇的管理智慧仍有借鉴意义——保持组织活力比追求短期稳定更重要。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-11-22 14:18:42 +0800 HKT'>November 22, 2024</span> | <span>1 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 从GE的&#34;活力曲线&#34;看杰克韦尔奇的管理智慧" href="https://blog.zhangky.com/posts/2024/2024-11-22-ge_jack_welch_lessons/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://blog.zhangky.com/tags/%E6%80%9D%E8%80%83/page/6/">
+      «&nbsp;Prev&nbsp;6/7
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
