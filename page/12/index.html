@@ -1,8 +1,206 @@
-<!doctype html><html lang=en dir=auto data-theme=auto><head><meta name=generator content="Hugo 0.163.3"><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Zhang's Blog</title><meta name=description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.zhangky.com/index.xml title=rss><link rel=alternate type=application/json href=https://blog.zhangky.com/index.json title=json><link rel=alternate hreflang=en href=https://blog.zhangky.com/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://blog.zhangky.com/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="Zhang's Blog"><meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta property="og:locale" content="zh-cn"><meta property="og:type" content="website"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="Zhang's Blog"><meta name=twitter:description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Zhang's Blog","url":"https://blog.zhangky.com/","description":"Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.","logo":"https://blog.zhangky.com/images/logo.svg","sameAs":["https://github.com/ylzhang/ylzhang.github.io","https://x.com/ZHANG_on_mars"]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-</button>
-<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span class=active>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>2026年，周金涛的预言兑现了吗？</h2></header><div class=entry-content><p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head>
+	<meta name="generator" content="Hugo 0.160.1"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Zhang&#39;s Blog</title>
+
+<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/index.xml" title="rss">
+<link rel="alternate" type="application/json" href="https://blog.zhangky.com/index.json" title="json">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<meta property="og:url" content="https://blog.zhangky.com/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="Zhang&#39;s Blog">
+  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="Zhang&#39;s Blog">
+<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Zhang's Blog",
+  "url": "https://blog.zhangky.com/",
+  "description": "Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.",
+  "logo": "https://blog.zhangky.com/images/logo.svg",
+  "sameAs": [
+      "https://github.com/ylzhang/ylzhang.github.io", "https://x.com/ZHANG_on_mars"
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span class="active">Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">2026年，周金涛的预言兑现了吗？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
 三条预言、十年数据、逐条对照——先看准不准，再谈为什么。
 2026 年春节前几天，我把自己关在书房里重读《涛动周期论》。翻到「人生发财靠康波」那一章时，顺手查了查 2016 年他生前那场著名的演讲——网上还能找到逐字稿和摘要。
 那场演讲里，他给了几个明确的时间窗口：2018–2019 年康波萧条最惨烈、2020 年后中国房地产进入漫长熊市、2025 年第五康波萧条终点。十年过去了，我们正好站在他说的「萧条终点」的另一侧。
@@ -14,7 +212,20 @@
 美国那边，经济数据不算崩，但增速从高位回落。美联储在 2017–2018 年还在加息缩表，到 2019 年，美债收益率曲线多次出现倒挂，市场开始认真讨论衰退3。IMF 在 2018–2019 年多次下修全球增长预期，全球制造业 PMI 走弱。
 所以从「康波萧条期里冲击比较集中的一段」这个角度理解，这两年确实对得上：贸易战、资产大跌、增长放缓、衰退预期升温，都发生了。但「最惨烈」三个字有争议。若拿 1929 年大萧条或 2008 年全球金融危机当尺子，2018–2019 的绝对烈度到不了那个级别。
 也有人会说，2020 年疫情冲击、2022 年美联储暴力加息和全球资产回撤，在「惨」的体感上不逊于 2018–2019。所以我会记成部分命中：方向对了，冲击集中的两年没跑偏，但「最惨烈」是否就是这两年，可以争。周金涛自己在书里也讲过，预测的价值在方向不在精确到某月——差两年是误差，差十年才是错误。
-...</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-02-15 10:00:00 +0800 +0800'>February 15, 2026</span> | <span>22 min</span> | <span>shanghai</span></footer><a class=entry-link aria-label="post link to 2026年，周金涛的预言兑现了吗？" href=https://blog.zhangky.com/posts/2026/read-jintao/2026-02-15-zhou-jintao-prophesy-2026/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师</h2></header><div class=entry-content><p>AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-02-15 10:00:00 +0800 HKT'>February 15, 2026</span> | <span>22 min</span> | <span>shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 2026年，周金涛的预言兑现了吗？" href="https://blog.zhangky.com/posts/2026/read-jintao/2026-02-15-zhou-jintao-prophesy-2026/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>
+AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。
 最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。
 幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。
 洗车悖论与 9.11 比 9.9 大：幻觉长什么样 「20 米洗车该步行还是开车」和另一道流传很广的题是同一类陷阱：「9.11 和 9.9 哪个大？」很多模型会答 9.11 更大——因为它把数字当成了软件版本号或日期（9 月 11 日），而不是在比较两个数的大小。两件事共同暴露的是：AI 会顺着训练数据里高概率出现的「搭配」往下说，而不是先想清楚这道题在问什么、需要什么前提。
@@ -24,20 +235,44 @@
 「9.11 比 9.9 大」也是同一套逻辑的产物。在模型眼里，数字往往被拆成「词元」（Token）来处理，比如 9.11 可能被拆成「9」「.」「11」。在技术文档、版本说明里，「11」出现在「9」之后太常见了，所以它会答「9.11 更大」——模式识别压过了数学逻辑。一句话总结：AI 擅长的是「像什么」的联想，而不是「是什么」的严格推理。 这种差别，就是幻觉和逻辑失效的根源；不是它不想答对，而是它当前的运作方式本来就不是「先理解再作答」。
 缺的不是知识量，而是「世界感」 人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。
 有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。
-...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-02-11 10:00:00 +0800 +0800'>February 11, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师" href=https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【论文解读11】深度残差网络中的恒等映射：ResNet改进</h2></header><div class=entry-content><p>本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的改进论文《Identity Mappings in Deep Residual Networks》，该论文深入分析了ResNet中恒等映射的作用机制，提出了预激活（Pre-activation）的残差块设计，进一步优化了ResNet的训练稳定性和性能。这一改进不仅完善了ResNet的理论基础，更为理解残差连接的本质提供了深刻的洞察。
-“恒等映射是残差网络成功的关键。"——这是He等人在ResNet改进论文中提出的核心观点。在原始ResNet中，残差块的设计虽然有效，但恒等映射的实现方式（激活函数的位置）对性能有重要影响。通过系统性的实验和理论分析，论文发现预激活（在卷积之前应用BatchNorm和ReLU）比后激活（在卷积之后应用）效果更好。
-论文的核心创新是预激活残差块：将BatchNorm和ReLU移到卷积之前，使恒等映射的路径更加"干净”，梯度流动更加顺畅。这种设计不仅提高了训练稳定性，还进一步提升了模型性能，在ImageNet上取得了更好的结果。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-11 10:00:00 +0800 HKT'>February 11, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师" href="https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">【论文解读11】深度残差网络中的恒等映射：ResNet改进
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的改进论文《Identity Mappings in Deep Residual Networks》，该论文深入分析了ResNet中恒等映射的作用机制，提出了预激活（Pre-activation）的残差块设计，进一步优化了ResNet的训练稳定性和性能。这一改进不仅完善了ResNet的理论基础，更为理解残差连接的本质提供了深刻的洞察。
+“恒等映射是残差网络成功的关键。&#34;——这是He等人在ResNet改进论文中提出的核心观点。在原始ResNet中，残差块的设计虽然有效，但恒等映射的实现方式（激活函数的位置）对性能有重要影响。通过系统性的实验和理论分析，论文发现预激活（在卷积之前应用BatchNorm和ReLU）比后激活（在卷积之后应用）效果更好。
+论文的核心创新是预激活残差块：将BatchNorm和ReLU移到卷积之前，使恒等映射的路径更加&#34;干净”，梯度流动更加顺畅。这种设计不仅提高了训练稳定性，还进一步提升了模型性能，在ImageNet上取得了更好的结果。
 在当今大模型时代，这一改进的思想仍然重要：理解恒等映射的本质，优化信息流动路径，这些原则仍然是深度网络设计的核心。理解ResNet改进，就是理解如何进一步优化残差连接。
 本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet改进，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。
 本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
 原始ResNet的恒等映射问题 问题一：激活函数位置的影响 在原始ResNet中，残差块的设计为：
-$$ y = \mathcal{F}(x, {W_i}) + x $$
+$$ y = \mathcal{F}(x, {W_i}) &#43; x $$
 其中 $\mathcal{F}$ 通常包含：Conv → BN → ReLU → Conv → BN，然后输出与 $x$ 相加，最后再应用ReLU。
 后激活设计：激活函数在残差函数之后，恒等映射 $x$ 直接参与加法，然后应用激活函数。
-问题分析：当 $x$ 经过ReLU激活时，如果 $x$ 的某些元素为负，会被置为0，破坏了恒等映射的性质。这导致恒等映射路径不够"干净"，梯度流动可能受阻。
+问题分析：当 $x$ 经过ReLU激活时，如果 $x$ 的某些元素为负，会被置为0，破坏了恒等映射的性质。这导致恒等映射路径不够&#34;干净&#34;，梯度流动可能受阻。
 问题二：梯度流动的阻塞 在原始设计中，梯度需要通过激活函数的导数传播：
-$$ \frac{\partial y}{\partial x} = \frac{\partial \text{ReLU}(\mathcal{F}(x) + x)}{\partial x} = \text{ReLU}’(\mathcal{F}(x) + x) \left(1 + \frac{\partial \mathcal{F}}{\partial x}\right) $$
-...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-02-10 20:42:22 +0800 +0800'>February 10, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【论文解读11】深度残差网络中的恒等映射：ResNet改进" href=https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>从巴菲特的并购与数字观，看CEO该盯住什么</h2></header><div class=entry-content><p>「大都会公司的运营利润率为 29%，ABC 公司是 11%。如果墨菲能将 ABC 公司的运营利润率提高 1/3 到 15%，那么公司每年将多增收益 1.25 亿美元，合并后的新公司盈利将是 3.25 亿美元。」
+$$ \frac{\partial y}{\partial x} = \frac{\partial \text{ReLU}(\mathcal{F}(x) &#43; x)}{\partial x} = \text{ReLU}’(\mathcal{F}(x) &#43; x) \left(1 &#43; \frac{\partial \mathcal{F}}{\partial x}\right) $$
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-10 20:42:22 +0800 HKT'>February 10, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【论文解读11】深度残差网络中的恒等映射：ResNet改进" href="https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">从巴菲特的并购与数字观，看CEO该盯住什么
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 「大都会公司的运营利润率为 29%，ABC 公司是 11%。如果墨菲能将 ABC 公司的运营利润率提高 1/3 到 15%，那么公司每年将多增收益 1.25 亿美元，合并后的新公司盈利将是 3.25 亿美元。」
 出处说明：这句话并非巴菲特在致股东信或股东大会上的原话，而是罗伯特·G·哈格斯特朗（Robert G. Hagstrom）在《巴菲特之道》（The Warren Buffett Way，第一版 1994 年）一书中，对巴菲特 1985 年参与大都会通信公司（Capital Cities）收购美国广播公司（ABC）一案的并购逻辑所做的量化转述。1985 年 3 月该交易完成，巴菲特出资约 5.175 亿美元成为合并后新公司重要股东，其信心核心来自大都会 CEO 汤姆·墨菲的管理能力；巴菲特在 1986 年致股东信中明确将这笔投资概括为「购买优秀管理层管理的优秀业务」。哈格斯特朗用上述数字提炼的，正是「管理改善能显著提升低利润率业务的盈利能力」这一逻辑，与巴菲特公开表达的投资哲学一致。
 这句话用极简数字把「运营利润率对比 → 效率改善空间 → 利润增量 → 合并价值」这条链讲完。并购的核心价值，往往不是买下现有盈利，而是买下「低效资产被好管理修复后的利润增量」。本文从这一量化表述出发，做一层财务拆解、一层指标辨析、一层并购逻辑，最后落到CEO 和决策者真正该盯住的指标与前提。不谈轶事、不攀交情，只谈可复现的因果与数字。
 一、先把数字拆开：那一句里藏着的营收基数 该案例的量化表述只给了四件事：ABC 原利润率 11%、提高 1/3 后约 15%、每年多赚 1.25 亿美元、合并后总利润 3.25 亿。没有直接给出 ABC 的营收。但营收恰恰是「为什么动一点利润率就能多出这么多利润」的关键。
@@ -48,9 +283,21 @@ $$
 代入 $\Delta \text{Profit} = 1.25$ 亿（美元）：
 $$ R = \frac{1.25}{0.04} = 31.25 \text{ 亿美元}
 $$ 也就是说，ABC 是一家营收约 31 亿、但运营利润率只有 11% 的公司。小幅度利润率提升 × 大营收基数 = 大额绝对利润增量。这是并购价值的一个数学来源：同样的 4 个百分点，若 (R) 只有 3 亿，增量只有 0.12 亿；若 (R) 是 31 亿，增量才是 1.25 亿。CEO 和投资者若只盯「利润率提高了多少」，而忽略「利润是在多大的营收基数上算出来的」，就会低估或高估一次提效或一次并购的真实影响。
-...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-02-09 23:45:03 +0800 +0800'>February 9, 2026</span> | <span>21 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 从巴菲特的并购与数字观，看CEO该盯住什么" href=https://blog.zhangky.com/posts/2026/02/2026-02-09-buffett-operating-efficiency-ceo/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【论文解读10】深度残差学习：ResNet解决网络退化问题</h2></header><div class=entry-content><p>本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的里程碑论文《Deep Residual Learning for Image Recognition》，该论文提出的ResNet通过残差连接（Residual Connection）解决了深度网络的退化问题，将网络深度推到了前所未有的152层，在ImageNet上取得了3.57%的Top-5错误率，首次超越人类水平。ResNet不仅彻底改变了深度网络的设计范式，更为后续Transformer、生成模型等架构的残差连接奠定了理论基础。
-“更深的网络应该至少不会比浅层网络更差。"——这是ResNet论文的要害所在。在ResNet之前，深度网络面临一个悖论：理论上更深的网络应该能够学习更复杂的特征，但实际中更深的网络在训练集上的错误率反而更高。这不是过拟合，而是优化困难——网络无法有效学习恒等映射。
-ResNet通过残差连接解决了这一根本问题。残差块定义为 $y = F(x) + x$，其中 $F(x)$ 是残差函数，$x$ 是恒等映射。如果最优映射是恒等映射 $H(x) = x$，传统网络需要学习 $H(x) = x$，而残差网络只需学习 $F(x) = 0$，后者显然更容易。这种设计使得网络可以非常深，性能可以持续提升。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-09 23:45:03 +0800 HKT'>February 9, 2026</span> | <span>21 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 从巴菲特的并购与数字观，看CEO该盯住什么" href="https://blog.zhangky.com/posts/2026/02/2026-02-09-buffett-operating-efficiency-ceo/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">【论文解读10】深度残差学习：ResNet解决网络退化问题
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的里程碑论文《Deep Residual Learning for Image Recognition》，该论文提出的ResNet通过残差连接（Residual Connection）解决了深度网络的退化问题，将网络深度推到了前所未有的152层，在ImageNet上取得了3.57%的Top-5错误率，首次超越人类水平。ResNet不仅彻底改变了深度网络的设计范式，更为后续Transformer、生成模型等架构的残差连接奠定了理论基础。
+“更深的网络应该至少不会比浅层网络更差。&#34;——这是ResNet论文的要害所在。在ResNet之前，深度网络面临一个悖论：理论上更深的网络应该能够学习更复杂的特征，但实际中更深的网络在训练集上的错误率反而更高。这不是过拟合，而是优化困难——网络无法有效学习恒等映射。
+ResNet通过残差连接解决了这一根本问题。残差块定义为 $y = F(x) &#43; x$，其中 $F(x)$ 是残差函数，$x$ 是恒等映射。如果最优映射是恒等映射 $H(x) = x$，传统网络需要学习 $H(x) = x$，而残差网络只需学习 $F(x) = 0$，后者显然更容易。这种设计使得网络可以非常深，性能可以持续提升。
 在当今大模型时代，残差连接已经成为深度网络的标准组件：Transformer的残差连接、生成模型的跳跃连接（U-Net、StyleGAN）、大模型的深度扩展（GPT-3、PaLM等模型都依赖残差连接训练深层网络）。理解ResNet，就是理解深度网络设计的核心思想。
 本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。
 深度网络的退化问题 问题一：网络深度与性能的悖论 理论上，更深的网络应该能够学习更复杂的特征表示，性能应该更好。但实际中，随着网络加深，出现了两个严重问题：
@@ -58,8 +305,163 @@ ResNet通过残差连接解决了这一根本问题。残差块定义为 $y = F(
 退化问题（Degradation Problem）：这是ResNet论文发现的新问题。实验显示，56层网络的训练误差比20层网络更高。这不是过拟合（因为训练误差也更高），而是优化困难——网络无法有效学习。
 数学分析：假设最优映射是 $H(x) = x$（恒等映射），传统网络需要学习 $H(x) = x$，这需要所有层的权重矩阵都是单位矩阵，这在深层网络中很难实现。
 问题二：恒等映射的学习困难 恒等映射 $H(x) = x$ 是最简单的映射，但在深层网络中学习恒等映射却非常困难。
-...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-02-07 10:16:29 +0800 +0800'>February 7, 2026</span> | <span>18 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【论文解读10】深度残差学习：ResNet解决网络退化问题" href=https://blog.zhangky.com/posts/2026/paper-read/2026-02-07-paper-10-resnet/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/page/11/>«&nbsp;Prev&nbsp;11/28
-</a><a class=next href=https://blog.zhangky.com/page/13/>Next&nbsp;13/28&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-07 10:16:29 +0800 HKT'>February 7, 2026</span> | <span>18 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【论文解读10】深度残差学习：ResNet解决网络退化问题" href="https://blog.zhangky.com/posts/2026/paper-read/2026-02-07-paper-10-resnet/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://blog.zhangky.com/page/11/">
+      «&nbsp;Prev&nbsp;11/28
+    </a>
+    <a class="next" href="https://blog.zhangky.com/page/13/">Next&nbsp;13/28&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
