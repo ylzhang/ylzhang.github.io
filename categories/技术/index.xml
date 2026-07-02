@@ -22,7 +22,7 @@
 &lt;p&gt;大模型时代喊的&amp;quot;开源&amp;quot;，99% 不是你以为的那种开源。&lt;/p&gt;
 &lt;p&gt;当我们说 Linux 开源、Redis 开源的时候，意思很明确：把软件的&amp;quot;设计图纸&amp;quot;——源代码——全部公开，任何人都可以照着图纸把软件重新造一遍。这是&lt;strong&gt;软件的开源&lt;/strong&gt;，公开图纸就等于公开一切。&lt;/p&gt;
 &lt;p&gt;但大模型的开源是一件根本不同的事。大模型的能力不在图纸里，而在一堆&amp;quot;经验&amp;quot;里——几千亿个数字，是用海量数据和巨额算力&amp;quot;喂&amp;quot;出来的，不是人一行一行写出来的。你可以公开这些数字，但别人拿到了也不知道你是怎么喂出来的。这是&lt;strong&gt;AI 的开源&lt;/strong&gt;，它和软件开源之间的鸿沟，比大多数人意识到的要深得多。&lt;/p&gt;
-&lt;p&gt;深到什么程度？全球最权威的开源组织 OSI（开源促进会）在 2024 年 10 月专门发布了《开源 AI 定义 1.0》&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，试图从头定义&amp;quot;AI 的开源到底应该是什么&amp;quot;——光是需要重新定义这件事本身，就说明传统软件开源的框架已经装不下大模型了。2026 年全国两会期间，中科院院士、阿里云创始人王坚更是直接呼吁：别再说&amp;quot;开源大模型&amp;quot;了，应该叫&amp;quot;开放权重模型&amp;quot;——因为你开放出去的不是一段代码，而是背后烧掉的电费和算力&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;深到什么程度？全球最权威的开源组织 OSI（开源促进会）在 2024 年 10 月专门发布了《开源 AI 定义 1.0》&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，试图从头定义&amp;quot;AI 的开源到底应该是什么&amp;quot;——光是需要改写这件事本身，就说明传统软件开源的框架已经装不下大模型了。2026 年全国两会期间，中科院院士、阿里云创始人王坚更是直接呼吁：别再说&amp;quot;开源大模型&amp;quot;了，应该叫&amp;quot;开放权重模型&amp;quot;——因为你开放出去的不是一段代码，而是背后烧掉的电费和算力&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 &lt;p&gt;这篇文章想做一件事：把大模型&amp;quot;开源&amp;quot;这个词拆开，一层一层看清楚里面到底装了什么。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;大模型的源代码不是代码&#34;&gt;大模型的&amp;quot;源代码&amp;quot;不是代码&lt;/h2&gt;
@@ -102,7 +102,7 @@
 &lt;p&gt;芯片性能可以追上——AMD的MI300X在某些场景已经接近H100，中国的昇腾910B在推理场景甚至超过H100。但生态壁垒一旦形成，几乎无法突破。全球95%的AI训练任务都跑在CUDA上，这意味着：即使你的芯片性能更强，开发者也不会用，因为迁移成本太高。&lt;/p&gt;
 &lt;p&gt;NVIDIA已经从一家芯片公司，变成了AI时代的Windows。Windows当年靠操作系统垄断PC市场，NVIDIA靠CUDA生态垄断AI市场。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;关键洞察：这不是芯片战争，是生态战争。性能可以追赶，生态难以复制。&lt;/p&gt;
+&lt;p&gt;要害在这里：这不是芯片战争，是生态战争。性能可以追赶，生态难以复制。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;从深层看：中国芯片的差异化突围&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;想起上周去华为上海研究所拜访的场景。负责昇腾910B的李工带我参观实验室，指着一台堆满芯片的服务器说：&amp;ldquo;我们不跟NVIDIA在训练芯片正面死磕，昇腾910B专门优化推理场景。在智慧城市视频分析上，我们的性能已经超过了H100。&amp;rdquo;&lt;/p&gt;
@@ -110,7 +110,7 @@
 &lt;p&gt;去年在深圳参加AI峰会，看到一家创业公司用昇腾芯片做工业机器人实时控制，延迟比NVIDIA的方案低40%。美国的技术封锁反而成了中国芯片产业的催化剂——以前大家都觉得买NVIDIA的芯片就行，现在不得不自己搞研发。&lt;/p&gt;
 &lt;p&gt;翻出三年前的笔记，当时我判断&amp;quot;中国芯片10年内赶不上美国&amp;rdquo;。现在看来，我错了——不是赶不上，而是走了一条完全不同的路。NVIDIA在通用计算领域狂飙，中国芯片则在垂直场景深耕。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;关键洞察：芯片战争的终局，不是谁的性能更强，而是谁能更好地服务用户。NVIDIA赢了通用性能，中国芯片可能赢了垂直场景。&lt;/p&gt;
+&lt;p&gt;要害在这里：芯片战争的终局，不是谁的性能更强，而是谁能更好地服务用户。NVIDIA赢了通用性能，中国芯片可能赢了垂直场景。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;从未来看：生态与场景的终极博弈&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;晚上刷朋友圈，看到Mike发了张NVIDIA总部的照片，配文：&amp;ldquo;H200发布，我们赢了。&amp;ldquo;我给他点了个赞，心里却在想：这场芯片战争，才刚刚开始。&lt;/p&gt;

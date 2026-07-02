@@ -24,7 +24,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;这种落差并非偶然。&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;当前的AI编程工具，本质上仍然是基于概率的模式匹配系统。&lt;strong&gt;它们在处理常见编程模式、标准库调用、以及有明确边界的任务时表现出色，因为这些场景在训练数据中有充足的样本。但一旦涉及到需要&lt;/strong&gt;深度领域知识&lt;/strong&gt;、&lt;strong&gt;复杂架构设计&lt;/strong&gt;、或者&lt;strong&gt;跨系统集成&lt;/strong&gt;的任务，AI就会暴露出理解力的局限。更重要的是，&lt;strong&gt;编程从来不只是写代码&lt;/strong&gt;——它还包括理解业务逻辑、权衡技术方案、与团队协作、以及在约束条件下做出工程决策。这些&lt;strong&gt;软技能&lt;/strong&gt;，恰恰是当前的AI最难以替代的部分。那些在龙虾大会上被反复强调的&amp;quot;生产力提升&amp;quot;，很大程度上只是将编码阶段的部分工作自动化，而软件开发的全生命周期中，编码往往只占不到三分之一的工作量。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;当前的AI编程工具，本质上仍然是基于概率的模式匹配系统。&lt;strong&gt;它们在处理常见编程模式、标准库调用、以及有明确边界的任务时表现出色，因为这些场景在训练数据中有充足的样本。但一旦涉及到需要&lt;/strong&gt;深度领域知识&lt;/strong&gt;、&lt;strong&gt;复杂架构设计&lt;/strong&gt;、或者&lt;strong&gt;跨系统集成&lt;/strong&gt;的任务，AI就会暴露出理解力的局限。更要紧的是，&lt;strong&gt;编程从来不只是写代码&lt;/strong&gt;——它还包括理解业务逻辑、权衡技术方案、与团队协作、以及在约束条件下做出工程决策。这些&lt;strong&gt;软技能&lt;/strong&gt;，恰恰是当前的AI最难以替代的部分。那些在龙虾大会上被反复强调的&amp;quot;生产力提升&amp;quot;，很大程度上只是将编码阶段的部分工作自动化，而软件开发的全生命周期中，编码往往只占不到三分之一的工作量。&lt;/p&gt;
 &lt;p&gt;云服务厂商和模型公司的热情参与，让这场运动变得更加复杂。对他们来说，OpenClaw提供了一个绝佳的切入点：通过简化部署流程、提供托管服务，他们可以将开发者锁定在自己的生态系统中。一键部署听起来很美好，但它也意味着用户将基础设施的控制权交给了平台；Token计费模式看似灵活，但当应用规模扩大时，成本可能会变得难以预测。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;这些商业模式的设计，更多地反映了供应商的利益，而非用户的真实需求。&lt;/strong&gt;&lt;/p&gt;

@@ -160,7 +160,7 @@ Harness不是静态的配套系统，而是&amp;quot;驯化&amp;quot;通用智�
 &lt;p&gt;&lt;strong&gt;核心观点&lt;/strong&gt;：李彦宏提出的 DAA（日活智能体数）指标，标志着 AI 时代的入口迁移已经开始。智能体不是独立软件，而是 AI 操作系统——比拼的不是裸模型，而是模型+Harness+ 工具链的整套系统。智能体的使命，就是成为这个操作系统的统一调度者，让不同领域的智能体能够互联互通、协同工作，最终成为 AI 时代的中心化入口。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;一daa衡量-ai-时代繁荣度的新指标&#34;&gt;一、DAA：衡量 AI 时代繁荣度的新指标&lt;/h2&gt;
-&lt;p&gt;李彦宏在 Create AI 大会上提出的 DAA 指标，值得深入思考：&lt;/p&gt;
+&lt;p&gt;李彦宏在 Create AI 大会上提出的 DAA 指标，值得再往深处看：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;过去互联网时代，大家习惯用 DAU 衡量有多少人在使用产品。但到了 AI 时代，真正重要的事情开始变成，有多少智能体正在替人类干活。&amp;rdquo;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -308,7 +308,7 @@ Harness不是静态的配套系统，而是&amp;quot;驯化&amp;quot;通用智�
 &lt;p&gt;这不是逃避，是蓄能。&lt;/p&gt;
 &lt;h2 id=&#34;三条主线一个时代&#34;&gt;三条主线，一个时代&lt;/h2&gt;
 &lt;p&gt;2026年的今天回看，这三条赛道都在加速兑现。&lt;/p&gt;
-&lt;p&gt;AI领域已经诞生了无数独角兽，大模型能力仍在指数级提升。加密货币正在从投机资产走向真实用例，分布式系统重新定义了金融和信任机制。合成生物学开始改造制药、农业和材料科学。&lt;/p&gt;
+&lt;p&gt;AI领域已经诞生了无数独角兽，大模型能力仍在指数级提升。加密货币正在从投机资产走向真实用例，分布式系统改写了金融和信任机制。合成生物学开始改造制药、农业和材料科学。&lt;/p&gt;
 &lt;p&gt;年轻人最大的优势不是经验，是时间和选择权。把这个优势压在正确的主线上，回报是指数级的。&lt;/p&gt;
 &lt;h2 id=&#34;写给即将毕业的你&#34;&gt;写给即将毕业的你&lt;/h2&gt;
 &lt;p&gt;你可能觉得三年太久，创业更刺激。&lt;/p&gt;
@@ -765,7 +765,7 @@ Harness不是静态的配套系统，而是&amp;quot;驯化&amp;quot;通用智�
 &lt;p&gt;对需要压缩的消息，系统使用轻量级模型生成摘要。&lt;/p&gt;
 &lt;p&gt;摘要提示词设计精确：要求简洁总结对话，保留关键决策、重要文件变更、当前任务状态、开放问题或阻塞点。输出格式规范：Decisions（决策列表）、Changes（变更列表）、Status（简要状态）、Blockers（阻塞点或none）。&lt;/p&gt;
 &lt;p&gt;使用Haiku（轻量级模型）快速响应，成本比主力模型低约80%，速度提升约5倍。消息格式化进一步减少token：工具结果简化为&amp;rdquo;[Tool: name] 摘要&amp;rdquo;，助手消息简化为&amp;quot;[Assistant] 摘要&amp;quot;，用户消息简化为&amp;quot;[User] 摘要&amp;quot;。&lt;/p&gt;
-&lt;p&gt;这种设计的关键洞察是：摘要不需要完美，只需要保留足够的信息让模型理解上下文。过度精确的摘要可能消耗更多计算资源，得不偿失。&lt;/p&gt;
+&lt;p&gt;这种设计的要害在于：摘要不需要完美，只需要保留足够的信息让模型理解上下文。过度精确的摘要可能消耗更多计算资源，得不偿失。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;增量式上下文更新避免重复加载&#34;&gt;增量式上下文更新：避免重复加载&lt;/h2&gt;
 &lt;p&gt;文件状态缓存避免重复读取同一文件。&lt;/p&gt;
@@ -980,7 +980,7 @@ Harness不是静态的配套系统，而是&amp;quot;驯化&amp;quot;通用智�
 &lt;p&gt;**Layer 2: 规则匹配（O(n)）**匹配alwaysAllowRules、alwaysDenyRules、alwaysAskRules。约25%的请求在此层处理，平均延迟&amp;lt;5ms。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Layer 3: 模式特定逻辑&lt;/strong&gt;根据当前模式执行特定逻辑：plan模式直接询问，auto模式进入分类器，acceptEdits模式检查编辑类型。约10%的请求在此层处理。&lt;/p&gt;
 &lt;p&gt;**Layer 4: AI分类器（~100ms）**进行语义分析、风险评分、置信度评估。仅约5%的请求需要到达此层，但处理了绝大多数复杂边界情况。&lt;/p&gt;
-&lt;p&gt;这种分层设计的关键洞察是：大部分权限决策是简单明确的，只有少量边界情况需要智能判断。将简单决策快速通过，把计算资源集中在真正需要的地方，是工程优化的经典策略。&lt;/p&gt;
+&lt;p&gt;这种分层设计的要害在于：大部分权限决策是简单明确的，只有少量边界情况需要智能判断。将简单决策快速通过，把计算资源集中在真正需要的地方，是工程优化的经典策略。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;ai分类器设计多因素风险评估&#34;&gt;AI分类器设计：多因素风险评估&lt;/h2&gt;
 &lt;p&gt;当规则无法明确判断时，AI分类器介入决策。&lt;/p&gt;
@@ -1167,9 +1167,9 @@ Harness不是静态的配套系统，而是&amp;quot;驯化&amp;quot;通用智�
 &lt;p&gt;&lt;strong&gt;本文是第1篇&lt;/strong&gt;：探讨AI编程工具中智能与控制的永恒张力，以及Claude Code的四大设计原则和五层架构模型。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;设计AI编程助手的核心矛盾，在于它必须足够聪明以理解复杂任务，又必须足够可控以确保安全可靠。&lt;/p&gt;
-&lt;p&gt;这是工业级Agent设计的永恒命题。Claude Code作为Anthropic官方推出的AI编程工具，其架构背后体现了一套完整的方法论：如何在赋予AI自主决策能力的同时，建立多层安全边界。据我们了解，这套设计历经数年迭代，核心团队从早期原型到生产级产品的过程中，始终在智能与控制之间寻找动态平衡点。本文基于Claude Code源码，拆解其架构哲学中的四大设计原则与五层架构模型。&lt;/p&gt;
+&lt;p&gt;这是工业级Agent设计的永恒命题。Claude Code作为Anthropic官方推出的AI编程工具，其架构背后体现了一套完整的做法：如何在赋予AI自主决策能力的同时，建立多层安全边界。据我们了解，这套设计历经数年迭代，核心团队从早期原型到生产级产品的过程中，始终在智能与控制之间寻找动态平衡点。本文基于Claude Code源码，拆解其架构哲学中的四大设计原则与五层架构模型。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;智能与控制的二元张力为什么传统软件设计方法论失效&#34;&gt;智能与控制的二元张力：为什么传统软件设计方法论失效&lt;/h2&gt;
+&lt;h2 id=&#34;智能与控制的二元张力为什么传统软件设计做法失效&#34;&gt;智能与控制的二元张力：为什么传统软件设计做法失效&lt;/h2&gt;
 &lt;p&gt;传统软件工程的确定性假设，在AI系统面前遇到了根本性挑战。&lt;/p&gt;
 &lt;p&gt;传统软件的输出是完全可预测的，行为由代码精确控制，错误可以精确定位和调试。但AI系统的输出具有概率性，行为有创造性也可能出错，错误难以复现和调试。这意味着我们不能用传统软件的思路来设计AI工具——需要新的架构范式。&lt;/p&gt;
 &lt;p&gt;一位资深系统架构师指出：&amp;ldquo;AI编程工具的设计本质上是智能与控制的权衡艺术。&amp;ldquo;这种权衡体现在四个维度：自主决策vs人类监督、快速执行vs安全审查、全局优化vs局部可控、自动化vs可解释性。&lt;/p&gt;
@@ -1177,7 +1177,7 @@ Harness不是静态的配套系统，而是&amp;quot;驯化&amp;quot;通用智�
 &lt;hr&gt;
 &lt;h2 id=&#34;四大设计原则分层可逆渐进透明&#34;&gt;四大设计原则：分层、可逆、渐进、透明&lt;/h2&gt;
 &lt;p&gt;Claude Code的架构设计围绕四大核心原则展开。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;分层授权&lt;/strong&gt;原则的核心洞察是：不是所有操作都需要同等级的监督。系统采用四层过滤决策机制：第一层是O(1)的只读属性快速检查，第二层是O(n)的显式规则匹配，第三层是模式特定逻辑，第四层是约100ms延迟的AI分类器判断。这种分层设计确保了高频安全操作的快速通过，同时将计算资源集中在真正需要智能判断的场景。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;分层授权&lt;/strong&gt;原则的要害在于：不是所有操作都需要同等级的监督。系统采用四层过滤决策机制：第一层是O(1)的只读属性快速检查，第二层是O(n)的显式规则匹配，第三层是模式特定逻辑，第四层是约100ms延迟的AI分类器判断。这种分层设计确保了高频安全操作的快速通过，同时将计算资源集中在真正需要智能判断的场景。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;可逆性优先&lt;/strong&gt;原则体现在三个策略上。文件操作先生成diff而非直接覆盖，Git集成确保所有变更进入版本控制，Worktree隔离为Agent创建独立工作区支持完整commit/merge/abort流程。一位Claude Code核心开发者解释：&amp;ldquo;我们默认假设事情会出问题，所以每个操作都要能被撤销。&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;渐进式放权&lt;/strong&gt;原则设计了一条信任建立曲线：从初始阶段的plan模式（学习用户风格），到熟悉阶段的default模式（建立操作模式），再到深度信任阶段的acceptEdits/auto模式（预测用户需求）。数据显示，用户平均使用两周后，权限模式的自主权会提升约40%。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;透明可见&lt;/strong&gt;原则要求系统在决策透明（权限决策包含原因和风险因素）、执行透明（流式展示思考过程和工具调用）、结果透明（详细展示变更内容）三个维度上保持开放。&lt;/p&gt;
@@ -1276,7 +1276,7 @@ Harness不是静态的配套系统，而是&amp;quot;驯化&amp;quot;通用智�
 &lt;p&gt;一位接近 Cursor 的工程师透露，他们的目标不是替代程序员写代码，而是构建「能够自主进化的代码仓库」——让软件工程从「人驱动」转向「AI 驱动」。&lt;/p&gt;
 &lt;h2 id=&#34;从写代码到做工程agent-的能力跃迁&#34;&gt;从「写代码」到「做工程」：Agent 的能力跃迁&lt;/h2&gt;
 &lt;p&gt;过去两年，AI 编程工具的竞争集中在「生成速度」和「代码质量」上。GitHub Copilot 能在几秒内补全代码，Claude Code 能在 6 小时内自主调试复杂系统，但这些仍属于「短跑」——任务明确、时间可控、上下文有限。&lt;/p&gt;
-&lt;p&gt;Cursor 的长运行能力则将「长跑」推向了「week-scale」（周级）。据行业观察，Composer 的 Agent 模式能够支持长时间复杂任务执行，提供会话记忆、上下文压缩、分支聊天、代理调试面板等能力&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。更重要的是，这些 Agent 并非简单执行预设任务，而是能够自主规划、分工协作、迭代优化。&lt;/p&gt;
+&lt;p&gt;Cursor 的长运行能力则将「长跑」推向了「week-scale」（周级）。据行业观察，Composer 的 Agent 模式能够支持长时间复杂任务执行，提供会话记忆、上下文压缩、分支聊天、代理调试面板等能力&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。更要紧的是，这些 Agent 并非简单执行预设任务，而是能够自主规划、分工协作、迭代优化。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;这种能力的本质是什么？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;一位长期研究 AI 编程的研究者指出，关键不在于「写代码」本身，而在于「维持工程状态的连续性」。人类工程师的价值不仅在于写代码，更在于对系统架构的理解、对历史决策的记忆、对错误模式的识别。Agent 要想替代这部分工作，必须拥有「长期记忆」和「渐进式学习」能力。&lt;/p&gt;
 &lt;p&gt;Cursor 的解决方案是「Hierarchical Agents」（分层 Agent）架构：Planner（规划者）负责拆解任务、Worker（执行者）负责具体实现、Judge（评判者）负责质量把关。三层之间通过压缩后的上下文传递信息，既避免了信息过载，又保持了决策连贯性。&lt;/p&gt;
@@ -1324,7 +1324,7 @@ $$&lt;/p&gt;</description>
      GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
      ============================================ --&gt;
 &lt;p&gt;本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的里程碑论文《Deep Residual Learning for Image Recognition》，该论文提出的ResNet通过残差连接（Residual Connection）解决了深度网络的退化问题，将网络深度推到了前所未有的152层，在ImageNet上取得了3.57%的Top-5错误率，首次超越人类水平。ResNet不仅彻底改变了深度网络的设计范式，更为后续Transformer、生成模型等架构的残差连接奠定了理论基础。&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;更深的网络应该至少不会比浅层网络更差。&amp;quot;——这是ResNet论文的核心洞察。在ResNet之前，深度网络面临一个悖论：理论上更深的网络应该能够学习更复杂的特征，但实际中更深的网络在训练集上的错误率反而更高。这不是过拟合，而是优化困难——网络无法有效学习恒等映射。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;更深的网络应该至少不会比浅层网络更差。&amp;quot;——这是ResNet论文的要害所在。在ResNet之前，深度网络面临一个悖论：理论上更深的网络应该能够学习更复杂的特征，但实际中更深的网络在训练集上的错误率反而更高。这不是过拟合，而是优化困难——网络无法有效学习恒等映射。&lt;/p&gt;
 &lt;p&gt;ResNet通过&lt;strong&gt;残差连接&lt;/strong&gt;解决了这一根本问题。残差块定义为 $y = F(x) + x$，其中 $F(x)$ 是残差函数，$x$ 是恒等映射。如果最优映射是恒等映射 $H(x) = x$，传统网络需要学习 $H(x) = x$，而残差网络只需学习 $F(x) = 0$，后者显然更容易。这种设计使得网络可以非常深，性能可以持续提升。&lt;/p&gt;
 &lt;p&gt;在当今大模型时代，残差连接已经成为深度网络的标准组件：Transformer的残差连接、生成模型的跳跃连接（U-Net、StyleGAN）、大模型的深度扩展（GPT-3、PaLM等模型都依赖残差连接训练深层网络）。理解ResNet，就是理解深度网络设计的核心思想。&lt;/p&gt;
 &lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
@@ -2070,7 +2070,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 P(\text{output} | \text{input}, \text{task})
 $$&lt;/p&gt;
-&lt;p&gt;关键洞察是：&lt;strong&gt;任务描述本身可以作为输入的一部分&lt;/strong&gt;。例如：&lt;/p&gt;
+&lt;p&gt;要害在于：&lt;strong&gt;任务描述本身可以作为输入的一部分&lt;/strong&gt;。例如：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;翻译任务：&lt;code&gt;translate to french, [english text], [french text]&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;摘要任务：&lt;code&gt;TL;DR: [article], [summary]&lt;/code&gt;&lt;/li&gt;
@@ -2141,7 +2141,7 @@ $$&lt;/p&gt;
      GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
      ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
      ============================================ --&gt;
-&lt;p&gt;本文解读的是Alec Radford等人于2018年发表的里程碑论文《Improving Language Understanding by Generative Pre-Training》，该论文提出了GPT（Generative Pre-Training）模型，首次将大规模无监督预训练与有监督微调相结合，在多个NLP基准上取得了突破性成绩。GPT-1是ChatGPT的直系祖先——它确立了&amp;quot;预训练+微调&amp;quot;的范式，证明了通用语言表示可以从海量无标注文本中学习，为后续GPT-2、GPT-3乃至ChatGPT奠定了架构和方法论基础。&lt;/p&gt;
+&lt;p&gt;本文解读的是Alec Radford等人于2018年发表的里程碑论文《Improving Language Understanding by Generative Pre-Training》，该论文提出了GPT（Generative Pre-Training）模型，首次将大规模无监督预训练与有监督微调相结合，在多个NLP基准上取得了突破性成绩。GPT-1是ChatGPT的直系祖先——它确立了&amp;quot;预训练+微调&amp;quot;的范式，证明了通用语言表示可以从海量无标注文本中学习，为后续GPT-2、GPT-3乃至ChatGPT奠定了架构和方法基础。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;nlp的迁移学习困境&#34;&gt;NLP的迁移学习困境&lt;/h2&gt;
 &lt;h3 id=&#34;问题一标注数据的稀缺性&#34;&gt;问题一：标注数据的稀缺性&lt;/h3&gt;

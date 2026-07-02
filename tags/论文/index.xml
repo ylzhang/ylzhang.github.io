@@ -53,7 +53,7 @@ $$&lt;/p&gt;</description>
      GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
      ============================================ --&gt;
 &lt;p&gt;本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的里程碑论文《Deep Residual Learning for Image Recognition》，该论文提出的ResNet通过残差连接（Residual Connection）解决了深度网络的退化问题，将网络深度推到了前所未有的152层，在ImageNet上取得了3.57%的Top-5错误率，首次超越人类水平。ResNet不仅彻底改变了深度网络的设计范式，更为后续Transformer、生成模型等架构的残差连接奠定了理论基础。&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;更深的网络应该至少不会比浅层网络更差。&amp;quot;——这是ResNet论文的核心洞察。在ResNet之前，深度网络面临一个悖论：理论上更深的网络应该能够学习更复杂的特征，但实际中更深的网络在训练集上的错误率反而更高。这不是过拟合，而是优化困难——网络无法有效学习恒等映射。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;更深的网络应该至少不会比浅层网络更差。&amp;quot;——这是ResNet论文的要害所在。在ResNet之前，深度网络面临一个悖论：理论上更深的网络应该能够学习更复杂的特征，但实际中更深的网络在训练集上的错误率反而更高。这不是过拟合，而是优化困难——网络无法有效学习恒等映射。&lt;/p&gt;
 &lt;p&gt;ResNet通过&lt;strong&gt;残差连接&lt;/strong&gt;解决了这一根本问题。残差块定义为 $y = F(x) + x$，其中 $F(x)$ 是残差函数，$x$ 是恒等映射。如果最优映射是恒等映射 $H(x) = x$，传统网络需要学习 $H(x) = x$，而残差网络只需学习 $F(x) = 0$，后者显然更容易。这种设计使得网络可以非常深，性能可以持续提升。&lt;/p&gt;
 &lt;p&gt;在当今大模型时代，残差连接已经成为深度网络的标准组件：Transformer的残差连接、生成模型的跳跃连接（U-Net、StyleGAN）、大模型的深度扩展（GPT-3、PaLM等模型都依赖残差连接训练深层网络）。理解ResNet，就是理解深度网络设计的核心思想。&lt;/p&gt;
 &lt;p&gt;本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。&lt;/p&gt;
@@ -799,7 +799,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 P(\text{output} | \text{input}, \text{task})
 $$&lt;/p&gt;
-&lt;p&gt;关键洞察是：&lt;strong&gt;任务描述本身可以作为输入的一部分&lt;/strong&gt;。例如：&lt;/p&gt;
+&lt;p&gt;要害在于：&lt;strong&gt;任务描述本身可以作为输入的一部分&lt;/strong&gt;。例如：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;翻译任务：&lt;code&gt;translate to french, [english text], [french text]&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;摘要任务：&lt;code&gt;TL;DR: [article], [summary]&lt;/code&gt;&lt;/li&gt;
@@ -870,7 +870,7 @@ $$&lt;/p&gt;
      GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
      ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
      ============================================ --&gt;
-&lt;p&gt;本文解读的是Alec Radford等人于2018年发表的里程碑论文《Improving Language Understanding by Generative Pre-Training》，该论文提出了GPT（Generative Pre-Training）模型，首次将大规模无监督预训练与有监督微调相结合，在多个NLP基准上取得了突破性成绩。GPT-1是ChatGPT的直系祖先——它确立了&amp;quot;预训练+微调&amp;quot;的范式，证明了通用语言表示可以从海量无标注文本中学习，为后续GPT-2、GPT-3乃至ChatGPT奠定了架构和方法论基础。&lt;/p&gt;
+&lt;p&gt;本文解读的是Alec Radford等人于2018年发表的里程碑论文《Improving Language Understanding by Generative Pre-Training》，该论文提出了GPT（Generative Pre-Training）模型，首次将大规模无监督预训练与有监督微调相结合，在多个NLP基准上取得了突破性成绩。GPT-1是ChatGPT的直系祖先——它确立了&amp;quot;预训练+微调&amp;quot;的范式，证明了通用语言表示可以从海量无标注文本中学习，为后续GPT-2、GPT-3乃至ChatGPT奠定了架构和方法基础。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;nlp的迁移学习困境&#34;&gt;NLP的迁移学习困境&lt;/h2&gt;
 &lt;h3 id=&#34;问题一标注数据的稀缺性&#34;&gt;问题一：标注数据的稀缺性&lt;/h3&gt;
