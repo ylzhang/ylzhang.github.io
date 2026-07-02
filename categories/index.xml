@@ -11,8 +11,22 @@
     </image>
     <generator>Hugo -- 0.163.3</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 26 May 2026 08:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2026 10:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>随笔</title>
+      <link>https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/</link>
+      <pubDate>Thu, 25 Jun 2026 10:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Technology</title>
+      <link>https://blog.zhangky.com/categories/technology/</link>
+      <pubDate>Mon, 01 Jun 2026 08:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/categories/technology/</guid>
+      <description></description>
+    </item>
     <item>
       <title>技术研究</title>
       <link>https://blog.zhangky.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</link>
@@ -21,24 +35,10 @@
       <description></description>
     </item>
     <item>
-      <title>Technology</title>
-      <link>https://blog.zhangky.com/categories/technology/</link>
-      <pubDate>Mon, 25 May 2026 08:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/categories/technology/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Insight</title>
       <link>https://blog.zhangky.com/categories/insight/</link>
       <pubDate>Fri, 08 May 2026 06:00:00 +0800</pubDate>
       <guid>https://blog.zhangky.com/categories/insight/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>随笔</title>
-      <link>https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/</link>
-      <pubDate>Sat, 14 Mar 2026 10:00:00 +0800</pubDate>
-      <guid>https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/</guid>
       <description></description>
     </item>
     <item>
