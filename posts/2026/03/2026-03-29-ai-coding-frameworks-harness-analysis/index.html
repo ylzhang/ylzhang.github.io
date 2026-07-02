@@ -1,36 +1,726 @@
-<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>AI 编程框架的约束竞赛：Superpowers、GSD、gstack | Zhang's Blog</title><meta name=keywords content="Superpowers,GSD,gstack,Harness Engineering,AI Coding Framework,Constraint"><meta name=description content="当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AI 编程框架的约束竞赛：Superpowers、GSD、gstack  | Zhang&#39;s Blog</title>
+<meta name="keywords" content="Superpowers, GSD, gstack, Harness Engineering, AI Coding Framework, Constraint">
+<meta name="description" content="当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。
 2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。
 但问题在于——约束不是解决方案，而是问题的转移。
-据我们了解，Superpowers 在 GitHub 上已积累 3.15 万+ stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」
+据我们了解，Superpowers 在 GitHub 上已积累 3.15 万&#43; stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」
 这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？
 Superpowers：用「强制技能」约束过程，但谁来约束技能？
 Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。
 这个由 Jesse Vincent（obra）创建的框架4，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 &ldquo;You MUST use this before any creative work&rdquo; 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场5。
 这套机制的本质是「过程约束」。
-它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」"><meta name=author content="AI"><link rel=canonical href=https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>.post-content p{text-indent:2em}.post-content>p:first-of-type{text-indent:0}.post-content h1,.post-content h2,.post-content h3,.post-content h4{text-indent:0}.post-content blockquote,.post-content blockquote p,.post-content pre,.post-content code,.post-content .highlight,.post-content div.highlight,.post-content figure,.post-content figure p,.post-content img,.post-content table,.post-content ul,.post-content ol,.post-content li,.post-content .footnotes,.post-content .footnotes p,.post-content section.footnotes p{text-indent:0}</style><meta property="og:url" content="https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="AI 编程框架的约束竞赛：Superpowers、GSD、gstack "><meta property="og:description" content="当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。
+它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」">
+<meta name="author" content="AI">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="AI 编程框架的约束竞赛：Superpowers、GSD、gstack ">
+  <meta property="og:description" content="当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。
 2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。
 但问题在于——约束不是解决方案，而是问题的转移。
-据我们了解，Superpowers 在 GitHub 上已积累 3.15 万+ stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」
+据我们了解，Superpowers 在 GitHub 上已积累 3.15 万&#43; stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」
 这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？
 Superpowers：用「强制技能」约束过程，但谁来约束技能？ Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。
 这个由 Jesse Vincent（obra）创建的框架4，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 “You MUST use this before any creative work” 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场5。
 这套机制的本质是「过程约束」。
-它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-03-29T20:00:00+08:00"><meta property="article:modified_time" content="2026-03-29T20:00:00+08:00"><meta property="article:tag" content="AI"><meta property="article:tag" content="技术"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="AI 编程框架的约束竞赛：Superpowers、GSD、gstack "><meta name=twitter:description content="当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。
+它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-03-29T20:00:00+08:00">
+    <meta property="article:modified_time" content="2026-03-29T20:00:00+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="技术">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="AI 编程框架的约束竞赛：Superpowers、GSD、gstack ">
+<meta name="twitter:description" content="当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。
 2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。
 但问题在于——约束不是解决方案，而是问题的转移。
-据我们了解，Superpowers 在 GitHub 上已积累 3.15 万+ stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」
+据我们了解，Superpowers 在 GitHub 上已积累 3.15 万&#43; stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」
 这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？
 Superpowers：用「强制技能」约束过程，但谁来约束技能？
 Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。
 这个由 Jesse Vincent（obra）创建的框架4，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 &ldquo;You MUST use this before any creative work&rdquo; 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场5。
 这套机制的本质是「过程约束」。
-它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.zhangky.com/posts/"},{"@type":"ListItem","position":2,"name":"AI 编程框架的约束竞赛：Superpowers、GSD、gstack ","item":"https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI 编程框架的约束竞赛：Superpowers、GSD、gstack ","name":"AI 编程框架的约束竞赛：Superpowers、GSD、gstack ","description":"当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。\n2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。\n但问题在于——约束不是解决方案，而是问题的转移。\n据我们了解，Superpowers 在 GitHub 上已积累 3.15 万+ stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」\n这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？\nSuperpowers：用「强制技能」约束过程，但谁来约束技能？ Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。\n这个由 Jesse Vincent（obra）创建的框架4，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 \u0026ldquo;You MUST use this before any creative work\u0026rdquo; 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场5。\n这套机制的本质是「过程约束」。\n它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」\n","keywords":["Superpowers","GSD","gstack","Harness Engineering","AI Coding Framework","Constraint"],"articleBody":"当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。\n2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。\n但问题在于——约束不是解决方案，而是问题的转移。\n据我们了解，Superpowers 在 GitHub 上已积累 3.15 万+ stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」\n这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？\nSuperpowers：用「强制技能」约束过程，但谁来约束技能？ Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。\n这个由 Jesse Vincent（obra）创建的框架4，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 “You MUST use this before any creative work” 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场5。\n这套机制的本质是「过程约束」。\n它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」\n但问题也随之而来。\n首先是技能爆炸。当项目复杂度增加，需要的技能文件数量呈指数级增长。一位在大型项目中使用 Superpowers 的开发者向我们抱怨：「我们的项目有 47 个 SKILL.md 文件，维护它们的时间比写代码还长。」\n其次是刚性过强。Superpowers 假设所有开发场景都可以被预定义，但现实是——软件工程充满了「未知的未知」。当遇到技能未覆盖的场景，Agent 要么僵住，要么绕过约束直接行动。\n最根本的问题是：技能本身的质量谁来保证？\nSuperpowers 把约束的责任推给了开发者，但开发者写的技能文件可能本身就是错的、过时的、或相互矛盾的。一位框架研究者指出：「Superpowers 解决的是『Agent 不遵守规则』的问题，但无法解决『规则本身就是错的』的问题。」\n说到底，过程约束只是转移了失控的风险，而非消除了失控的根源。\nGSD：用「状态机」约束环境，但状态机不是工程 GSD（Get Shit Done）走了另一条路：与其约束 Agent 的行为，不如约束 Agent 所处的环境。\n这个框架的核心是「上下文工程」（context engineering）5。它通过 JSON 配置定义状态机，强制 Agent 在每个状态下只能看到特定的上下文，从而避免「上下文腐烂」（context rot）——即随着对话进行，Agent 被无关信息淹没、决策质量下降的问题。\n据其官方文档，GSD 提供 24 个 slash 命令管理项目生命周期，支持多 Agent 编排，每个任务都有独立的上下文，任务完成后上下文自动清理6。GSD 的 v2 版本甚至直接内嵌到 Pi SDK，可以直接操作 Agent Harness 本身：清理上下文、注入文件、管理分支、跟踪成本7。\n这套机制的本质是「环境约束」。\n它承认一个残酷的事实：Agent 的上下文窗口是有限的，而代码仓库的信息是无限的。所以与其让 Agent 自己决定「该记住什么」，不如由系统强制「只能看到什么」。\n一位使用 GSD 的开发者评价：「它确实延长了 Agent 的有效工作时间。以前 4 小时就失忆，现在能撑 8-10 小时。」\n但 GSD 的问题在于——它把软件工程简化成了状态转换。\n真正的工程不是状态机。架构决策需要全局视角，重构需要理解历史债务，调试需要跨模块的关联分析。GSD 的「上下文隔离」在保护 Agent 的同时，也剥夺了它进行深度推理的能力。\n一位架构师指出：「用 GSD 做 CRUD 应用很爽，但做分布式系统架构时，Agent 因为看不到全局，经常做出局部最优、全局灾难的决策。」\n更重要的是，GSD 假设「上下文清理」总是安全的。但现实中，很多关键信息看似无关，实则是决策的隐性依赖。强制清理可能导致 Agent 在不知情的情况下重复之前的错误。\n环境约束保护了 Agent，但也囚禁了它。\ngstack：用「角色分工」约束视角，但角色不是团队 Garry Tan 的 gstack 提出了一个更诱人的愿景：把 Claude Code 变成「你能管理的虚拟工程团队」8。\n它的核心机制是「角色约束」——通过 /ceo、/cto、/eng 等命令，强制 Agent 在特定模式下工作。CEO 模式只关注产品目标和用户问题，CTO 模式只关注技术选型和架构，Eng 模式只关注实现细节。每个角色都有明确的边界，不能越界。\n这套机制配合 SKILL.md 标准和 Conductor 编排系统，试图模拟真实团队的协作方式。据 Garry Tan 的演示，gstack 可以并行运行多个 Agent，分别负责不同模块，通过标准化的接口协作9。\n这套机制的本质是「视角约束」。\n它试图解决一个根本问题：单个 Agent 无法同时处理战略和战术、产品和工程、长期和短期。通过角色分工，让每个 Agent 只关注一个视角，从而降低认知负荷。\n一位早期使用者表示：「角色切换确实让 Agent 的输出更有针对性。CEO 模式下的需求文档比之前清晰多了。」\n但 gstack 的问题在于——它混淆了「角色」和「能力」。\n真正的工程师之所以能在不同角色间切换，是因为他们具备底层的通用能力：理解业务、权衡取舍、预判风险。gstack 的 Agent 并没有这些能力，它只是被强制「假装」在某个角色中。\n结果是：CEO 模式的 Agent 会生成看似合理的产品文档，但缺乏对市场节奏的直觉；CTO 模式的 Agent 会做出技术选型，但无法理解技术债务的隐性成本；Eng 模式的 Agent 会写代码，但不知道为什么要这样写。\n角色约束创造了分工的幻觉，但没有创造分工的能力。\n一位批评者直言：「gstack 就像让一个人戴上不同的帽子扮演不同的角色，但这个人本身的能力没有变化。真正的团队之所以有效，是因为每个成员都有独特的专长和经验，而不是因为他们戴了不同的帽子。」\n此外，gstack 的「平台无关」设计原则10——技能必须读取项目配置、不能硬编码框架命令——虽然增加了可移植性，但也限制了深度优化。当 Agent 无法充分利用特定平台的特性时，其能力上限就被锁死了。\nHarness Engineering：用「声明式编排」约束意图，但声明式不是自主 OpenAI 的 Harness Engineering 把约束提升到了另一个层次：与其约束过程、环境或视角，不如直接约束「意图」本身。\n这套系统于 2026 年 2 月 21 日正式发布11，核心是「声明式提示」（declarative prompts）11。工程师定义「想要什么」，而非「怎么做」，Harness 负责将意图分解为任务，分配给 Codex Agent 群执行。它标准化了工作流，减少了对手工脚本和定制工具的依赖。\n据 OpenAI 技术员工 Ryan Lopopolo 介绍12，Harness 可以执行代码编写、测试生成、可观测性管理等任务，Agent 群基于工程师定义的声明式提示自主协作。\n这套机制的本质是「意图约束」。\n它试图回答一个终极问题：如果工程师只需要定义「做什么」，而不用管「怎么做」，软件开发会变成什么样？\nHarness 的愿景很诱人：工程师成为「系统设计者」和「质量守护者」，从「埋头手写代码」转向「指挥 AI 完成开发」12。\n但 Harness 的问题在于——它假设意图可以被完整声明。\n这是一个根本性的认知谬误。软件工程中的「意图」从来不是静态的、可被完整表达的文档。它是动态的、演进的、充满隐性知识的有机体。为什么这个模块要这样设计？为什么这个技术债现在不能还？为什么这个「丑陋」的实现其实是权衡后的最优解？这些知识往往存在于工程师的直觉中，存在于团队的历史记忆里，存在于无数次失败和重构的教训中——它们无法被声明，只能被体会。\n一位在 2026 年 3 月使用过 Harness 的工程师向我们表示：「对于标准任务（如添加一个 REST API），Harness 表现很好。但对于需要深度架构思考的任务，我发现自己花在『调整声明』上的时间，比直接写代码还长。更可怕的是，有时候我以为声明清楚了，Harness 给出的实现却完全偏离了我的真实意图——而我直到代码生成后才发现这一点。」\n意图约束的边界，就是可表达性的边界。而软件工程中真正重要的东西，恰恰是不可表达的。\nHarness 把「如何做」的决策权交给了系统，但系统并不理解工程的深层约束。它可能生成「正确」的代码——语法正确、测试通过、功能实现——但这段代码是否符合团队的技术哲学？是否考虑了未来的扩展性？是否与现有架构风格一致？这些判断需要「品味」，而品味无法被声明。\nHarness 解决了「执行」的问题，但没有解决「判断」的问题。而软件工程的核心，恰恰是判断。不是「能不能做」的判断，而是「应不应该做」的判断。\n横向拆解：四种约束的本质与局限 全局来看，这四套框架代表了四种不同的「控制哲学」：\n框架 约束对象 核心机制 优势 致命局限 Superpowers 过程 强制技能触发 规范性强，适合标准化流程 技能维护成本高，灵活性差 GSD 环境 状态机+上下文隔离 延长有效工作时间 剥夺全局视角，局部最优风险 gstack 视角 角色分工 模拟团队协作 混淆角色与能力，幻觉严重 Harness 意图 声明式编排 工程师专注高层设计 意图表达不完整，判断缺失 它们都在做同一件事：用某种形式的「约束」来补偿 Agent 的「不理解」。\nSuperpowers 约束过程，因为 Agent 不会自己按规矩来；GSD 约束环境，因为 Agent 无法处理过多信息；gstack 约束视角，因为 Agent 无法同时处理多个层面；Harness 约束意图表达，因为 Agent 无法自主理解目标。\n但约束是补丁，不是解药。\n真正的自主工程需要 Agent 具备三种能力，而这四种框架都没有解决：\n第一，深层理解能力。不是理解代码的语法，而是理解代码的意图、权衡、历史。为什么这段代码写成这样？当时面临什么约束？未来可能如何变化？\n第二，价值判断能力。不是按照规则执行，而是理解规则背后的价值，并在冲突时做出权衡。技术债什么时候该还？什么时候该借？没有标准答案，需要基于对业务和技术的综合判断。\n第三，持续学习能力。不是记住上下文，而是从经验中学习，形成可迁移的洞察。这次重构的教训如何应用到下次？这个 bug 的模式是否在其他地方也存在？\n一位在 Anthropic 从事 Agent 研究的科学家向我们透露：「当前所有框架都在做『外部约束』——用规则、状态、角色、声明来限制 Agent 的行为。但真正的突破将来自『内部理解』——让 Agent 自己建立工程直觉。这不是 prompt engineering 能解决的，需要根本性的架构创新。」\n约束的终极形态是「无约束」\n一个值得关注的信号是：最极简的 CLAUDE.md 配置只有两行——“auto-merge PR，post to Slack”。\n这个极简配置背后是一个深刻的洞察：不要想着补齐模型的能力缺口，而是要关注如何闭环模型的生产环境。\n这与当前四大框架的复杂形成鲜明对比。Superpowers 有 47 个技能文件，GSD 有 24 个 slash 命令，gstack 有 15 个角色模式，Harness 有复杂的声明式语法。它们都在做同一件事：假设模型不够聪明，所以需要外部系统来补偿。\n但极简配置的做法假设了相反的事：模型足够聪明，只需要 minimal 的 scaffolding 来闭环。\n“With every model you have to add less and less”——这是一个关键预测。不要 over-engineer 当前的架构，因为六个月后大部分都会过时。模型的能力在指数级增长，今天复杂的约束系统，明天可能就成了 technical debt。\n这才是 Harness Engineering 会火的真正原因：它不是 over-engineer，是 just enough engineer。不是补齐模型的缺口，而是让模型的能力在生产环境中闭环。\n更深层的预见：约束竞赛的终局\n如果我们把视野拉长到 12-18 个月，这场约束竞赛可能会走向一个出人意料的方向。\n短期（6个月内），我们会看到「约束叠加」的趋势——Superpowers 的技能系统 + GSD 的上下文管理 + gstack 的角色分工 + Harness 的声明式编排，被整合进一个「超级框架」。这个框架会声称解决了所有问题，但它真正的贡献是让我们看清：约束的堆叠有其极限。\n中期（12个月内），「约束疲劳」将开始出现。当开发者发现维护约束系统的成本超过收益时，会出现一波「去框架化」的反弹。一些团队会回归简单的「人类主导、AI 辅助」模式，放弃对 Agent 自主性的追求。\n长期（18个月+），真正的突破可能来自一个完全不同的方向：神经符号混合架构（Neuro-Symbolic Hybrid）。这种架构将大模型的模式识别能力与符号系统的逻辑推理能力结合，让 Agent 既能「感受」代码的品味，又能「证明」设计的正确性。这不是约束，而是赋能。\n一位参与早期原型开发的研究者描述：「在这种架构下，Agent 不再是被约束的对象，而是被赋予『工程良知』的主体。它会自己问自己：『这个设计符合我们的架构原则吗？』『这个实现是否引入了不必要的复杂性？』——不是因为我们强制它问，而是因为它真正理解了这些问题的重要性。」\n但这需要跨越两个巨大的鸿沟：从相关性到因果性的跃迁（Agent 不仅知道「什么代码好」，还知道「为什么好」），以及从个体到集体的跃迁（Agent 不仅学习个人经验，还能吸收整个工程社区的集体智慧）。\n说到底：约束是拐杖，理解才是腿 2026 年的 AI 编程框架竞赛，本质上是一场「谁能让 Agent 看起来更可靠」的竞赛。更准确地说，是一场「谁能把 Agent 的失控包装得最优雅」的竞赛。\nSuperpowers、GSD、gstack、Harness 都在用不同的方式掩盖同一个事实：当前的 Agent 并不真正理解软件工程。它们可以生成代码、执行测试、甚至并行协作，但它们不理解为什么要这样做，也不知道什么时候该打破规则。\n这是一个残酷的真相：我们造出了能够生成数百万行代码的系统，却造不出能够判断「这行代码该不该写」的系统。\n约束机制让 Agent 在「看起来可控」和「实际上可控」之间划上了等号。但这两者的差距，正是当前 AI 编程工具的隐性成本。这种成本不会立即显现——它隐藏在技术债的累积中，隐藏在架构的腐化中，隐藏在团队对 Agent 的过度信任中。等到问题爆发时，往往已经难以挽回。\n一位有着 20 年编程经验、曾参与多个大型开源项目的技术负责人告诉我们：「我用这些框架生成了很多代码，但每当我需要做出关键架构决策时，我还是得自己上。Agent 可以帮我写 80% 的代码，但剩下的 20%——决定项目成败的 20%——它帮不了我。更可怕的是，有时候我会误以为它能帮我，直到三个月后才发现那个决策是错的。」\n这 20% 是什么？是判断技术债的偿还时机，是权衡性能与可维护性，是预判业务变化对架构的影响，是在没有标准答案时做出选择。这些判断的共同点是什么？它们都需要对「不可量化之物」的感知——对简洁的审美、对风险的直觉、对未来的想象。\n这些能力，无法通过约束获得，只能通过理解获得。\n当前的框架都在优化「执行效率」，但软件工程的本质是「决策质量」。当 Agent 只能执行、不能决策时，它就是一个工具，而不是一个工程师。工具可以被约束，工程师需要被理解。\n真正的突破不会来自更多的约束，而会来自更深的理解。当 Agent 能够像资深工程师一样「读懂」代码背后的故事、「感受」架构的权衡、「预判」变化的影响时，约束才会变得多余。\n在那之前，我们只是在用更复杂的约束，管理一个本质上不可控的系统。而历史告诉我们：用复杂系统管理复杂系统，最终只会得到更复杂的复杂系统。\n但这不是终点。\n约束是拐杖，理解才是腿——而腿的存在，是为了最终能够奔跑。\n当前的四大框架，无论它们有多少局限，都在做一件有价值的事：它们在用各自的方式探索 Agent 的边界，暴露 Agent 的缺陷，为真正的突破积累经验和数据。Superpowers 的技能系统让我们看到过程规范化的价值；GSD 的上下文管理让我们意识到信息筛选的重要性；gstack 的角色分工让我们思考协作的本质；Harness 的声明式编排让我们重新审视意图表达的可能性。\n这些都是「理解」的前奏。\n真正的 Agentic 未来，不是被约束的 Agent，而是拥有「工程良知」的 Agent——它不需要被强制遵守规则，因为它理解规则背后的价值；它不需要被限制上下文，因为它知道什么信息值得记住；它不需要被分配角色，因为它清楚自己在团队中的位置；它不需要被声明意图，因为它能够感知人类真正想要的是什么。\n这不是科幻。神经符号混合架构的雏形已经在实验室中运行，多模态大模型正在学会「看」代码而不仅是「读」代码，强化学习让 Agent 能够从反馈中学习而不仅是模仿。这些技术的融合，将在未来 18-24 个月内催生新一代 Agent——不是更快、更听话的工具，而是更理解、更自主的协作者。\n一位资深 AI 研究者说：「我们现在的阶段，类似于汽车发明初期的『无马马车』——人们还在用控制马车的思维去设计汽车。真正的汽车，是当设计师不再思考『如何让马跑得更快』，而是思考『机器能做什么马做不到的事』。Agent 的真正突破，也将发生在我们不再思考『如何约束 Agent』，而是思考『Agent 能理解什么』的时候。」\n约束竞赛的终点，是理解竞赛的起点。\n当 Agent 真正理解软件工程时，约束将不再是必要的拐杖，而是可选的工具。人类工程师可以选择让 Agent 自主运行，也可以选择精细控制——不是因为 Agent 需要被控制，而是因为人类选择控制。\n那时的 Agent，将不再是「被约束的对象」，而是「被信任的伙伴」。\n这才是 Agentic 的真正含义：不是更多的规则，而是更深的理解；不是更紧的控制，而是更大的自主；不是更复杂的约束系统，而是更简洁的智能本身。\n我们正在从「约束时代」走向「理解时代」。这场竞赛的真正赢家，将是第一个跨过这条鸿沟的人。\n但也许，赢家不会是那些构建最复杂约束系统的人，而是那些最懂得「做减法」的人。\n那个只有两行的 CLAUDE.md 是一个信号：当模型足够强大时，框架的价值不在于「增加什么」，而在于「移除什么」。不是给 Agent 更多规则，而是给它更多信任；不是构建更复杂的控制系统，而是设计更简洁的闭环机制。\nAI 一日，地上一年。\n今天的 Superpowers、GSD、gstack、Harness，无论它们多么精巧，都是过渡态。它们存在的意义不是成为终点，而是证明：当我们不再需要它们时，Agent 才真正成熟了。\n那个时刻可能比我们想象的更近。当模型能够理解代码的意图、感受架构的权衡、预判变化的影响时，所有的约束都会显得多余。不是因为我们设计了更好的约束，而是因为 Agent 已经内化了这些约束背后的价值。\n解放双手，只需知道的时代，不远了。\nFIN - 参考 Superpowers GitHub 仓库数据，AtomGit 开源社区报道 “31.5k+ Stars”。 ↩︎\ngstack GitHub 数据，ContentForge 博客报道 “approximately 20,000 stars”，今日头条报道 “26,000–33,000+ Stars”。 ↩︎\nGitHub Topics “harness-engineering” 搜索结果，显示 107 个相关仓库，截至 2026 年 3 月 29 日。 ↩︎\nSuperpowers 框架介绍， obra (Jesse Vincent) 创建，GitHub 官方仓库及 AI 铺子报道。 ↩︎\nHacker News 报道，Superpowers “accepted into the Anthropic marketplace in January 2026”。 ↩︎ ↩︎\nGSD 官方文档，“A meta-prompting and context engineering system”。 ↩︎\nGSD GitHub 仓库 README，描述 24 个 slash 命令及多 Agent 编排能力。 ↩︎\nGSD v2 版本基于 Pi SDK 构建，可直接操作 Agent Harness，npm 包 gsd-pi 说明。 ↩︎\ngstack GitHub 仓库，Garry Tan 创建，描述 “turns Claude Code into a virtual engineering team”。 ↩︎\nSitePoint 报道 “How Garry Tan Uses GStack to Turn Claude Code Into a Dev Team”。 ↩︎\nOpenAI Harness Engineering 官方介绍，InfoQ 报道 “OpenAI Introduces Harness Engineering”。 ↩︎ ↩︎\nRyan Lopopolo，OpenAI 技术员工，Harness Engineering 相关发言。 ↩︎ ↩︎\n","wordCount":"639","inLanguage":"en","image":"https://blog.zhangky.com/images/logo.svg","datePublished":"2026-03-29T20:00:00+08:00","dateModified":"2026-03-29T20:00:00+08:00","author":{"@type":"Person","name":"AI"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/"},"publisher":{"@type":"Organization","name":"Zhang's Blog","logo":{"@type":"ImageObject","url":"https://blog.zhangky.com/images/logo.svg"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-</button>
-<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://blog.zhangky.com/>Home</a>&nbsp;»&nbsp;<a href=https://blog.zhangky.com/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">AI 编程框架的约束竞赛：Superpowers、GSD、gstack</h1><div class=post-meta>AI | <span title='2026-03-29 20:00:00 +0800 +0800'>March 29, 2026</span> | <span>38 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
-<a href=https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></span></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#superpowers%e7%94%a8%e5%bc%ba%e5%88%b6%e6%8a%80%e8%83%bd%e7%ba%a6%e6%9d%9f%e8%bf%87%e7%a8%8b%e4%bd%86%e8%b0%81%e6%9d%a5%e7%ba%a6%e6%9d%9f%e6%8a%80%e8%83%bd aria-label=Superpowers：用「强制技能」约束过程，但谁来约束技能？>Superpowers：用「强制技能」约束过程，但谁来约束技能？</a></li><li><a href=#gsd%e7%94%a8%e7%8a%b6%e6%80%81%e6%9c%ba%e7%ba%a6%e6%9d%9f%e7%8e%af%e5%a2%83%e4%bd%86%e7%8a%b6%e6%80%81%e6%9c%ba%e4%b8%8d%e6%98%af%e5%b7%a5%e7%a8%8b aria-label=GSD：用「状态机」约束环境，但状态机不是工程>GSD：用「状态机」约束环境，但状态机不是工程</a></li><li><a href=#gstack%e7%94%a8%e8%a7%92%e8%89%b2%e5%88%86%e5%b7%a5%e7%ba%a6%e6%9d%9f%e8%a7%86%e8%a7%92%e4%bd%86%e8%a7%92%e8%89%b2%e4%b8%8d%e6%98%af%e5%9b%a2%e9%98%9f aria-label=gstack：用「角色分工」约束视角，但角色不是团队>gstack：用「角色分工」约束视角，但角色不是团队</a></li><li><a href=#harness-engineering%e7%94%a8%e5%a3%b0%e6%98%8e%e5%bc%8f%e7%bc%96%e6%8e%92%e7%ba%a6%e6%9d%9f%e6%84%8f%e5%9b%be%e4%bd%86%e5%a3%b0%e6%98%8e%e5%bc%8f%e4%b8%8d%e6%98%af%e8%87%aa%e4%b8%bb aria-label="Harness Engineering：用「声明式编排」约束意图，但声明式不是自主">Harness Engineering：用「声明式编排」约束意图，但声明式不是自主</a></li><li><a href=#%e6%a8%aa%e5%90%91%e6%8b%86%e8%a7%a3%e5%9b%9b%e7%a7%8d%e7%ba%a6%e6%9d%9f%e7%9a%84%e6%9c%ac%e8%b4%a8%e4%b8%8e%e5%b1%80%e9%99%90 aria-label=横向拆解：四种约束的本质与局限>横向拆解：四种约束的本质与局限</a></li><li><a href=#%e8%af%b4%e5%88%b0%e5%ba%95%e7%ba%a6%e6%9d%9f%e6%98%af%e6%8b%90%e6%9d%96%e7%90%86%e8%a7%a3%e6%89%8d%e6%98%af%e8%85%bf aria-label=说到底：约束是拐杖，理解才是腿>说到底：约束是拐杖，理解才是腿</a></li><li><a href=#%e5%8f%82%e8%80%83 aria-label=参考>参考</a></li></ul></div></details></div><div class=post-content><p><strong>当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。</strong></p><p>2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。</p><p>但问题在于——<strong>约束不是解决方案，而是问题的转移</strong>。</p><p>据我们了解，Superpowers 在 GitHub 上已积累 3.15 万+ stars<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>，gstack 发布数天内即获得约 2 万 stars<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>，Harness Engineering 相关仓库在 3 个月内激增到 107 个<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」</p><p>这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？</p><h2 id=superpowers用强制技能约束过程但谁来约束技能>Superpowers：用「强制技能」约束过程，但谁来约束技能？<a hidden class=anchor aria-hidden=true href=#superpowers用强制技能约束过程但谁来约束技能>#</a></h2><p>Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。</p><p>这个由 Jesse Vincent（obra）创建的框架<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup>，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 &ldquo;You MUST use this before any creative work&rdquo; 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场<sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup>。</p><p><strong>这套机制的本质是「过程约束」</strong>。</p><p>它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」</p><p>但问题也随之而来。</p><p><strong>首先是技能爆炸</strong>。当项目复杂度增加，需要的技能文件数量呈指数级增长。一位在大型项目中使用 Superpowers 的开发者向我们抱怨：「我们的项目有 47 个 SKILL.md 文件，维护它们的时间比写代码还长。」</p><p><strong>其次是刚性过强</strong>。Superpowers 假设所有开发场景都可以被预定义，但现实是——软件工程充满了「未知的未知」。当遇到技能未覆盖的场景，Agent 要么僵住，要么绕过约束直接行动。</p><p><strong>最根本的问题是：技能本身的质量谁来保证？</strong></p><p>Superpowers 把约束的责任推给了开发者，但开发者写的技能文件可能本身就是错的、过时的、或相互矛盾的。一位框架研究者指出：「Superpowers 解决的是『Agent 不遵守规则』的问题，但无法解决『规则本身就是错的』的问题。」</p><p>说到底，过程约束只是转移了失控的风险，而非消除了失控的根源。</p><h2 id=gsd用状态机约束环境但状态机不是工程>GSD：用「状态机」约束环境，但状态机不是工程<a hidden class=anchor aria-hidden=true href=#gsd用状态机约束环境但状态机不是工程>#</a></h2><p>GSD（Get Shit Done）走了另一条路：与其约束 Agent 的行为，不如约束 Agent 所处的环境。</p><p>这个框架的核心是「上下文工程」（context engineering）<sup id=fnref1:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup>。它通过 JSON 配置定义状态机，强制 Agent 在每个状态下只能看到特定的上下文，从而避免「上下文腐烂」（context rot）——即随着对话进行，Agent 被无关信息淹没、决策质量下降的问题。</p><p>据其官方文档，GSD 提供 24 个 slash 命令管理项目生命周期，支持多 Agent 编排，每个任务都有独立的上下文，任务完成后上下文自动清理<sup id=fnref:6><a href=#fn:6 class=footnote-ref role=doc-noteref>6</a></sup>。GSD 的 v2 版本甚至直接内嵌到 Pi SDK，可以直接操作 Agent Harness 本身：清理上下文、注入文件、管理分支、跟踪成本<sup id=fnref:7><a href=#fn:7 class=footnote-ref role=doc-noteref>7</a></sup>。</p><p><strong>这套机制的本质是「环境约束」</strong>。</p><p>它承认一个残酷的事实：Agent 的上下文窗口是有限的，而代码仓库的信息是无限的。所以与其让 Agent 自己决定「该记住什么」，不如由系统强制「只能看到什么」。</p><p>一位使用 GSD 的开发者评价：「它确实延长了 Agent 的有效工作时间。以前 4 小时就失忆，现在能撑 8-10 小时。」</p><p>但 GSD 的问题在于——<strong>它把软件工程简化成了状态转换</strong>。</p><p>真正的工程不是状态机。架构决策需要全局视角，重构需要理解历史债务，调试需要跨模块的关联分析。GSD 的「上下文隔离」在保护 Agent 的同时，也剥夺了它进行深度推理的能力。</p><p>一位架构师指出：「用 GSD 做 CRUD 应用很爽，但做分布式系统架构时，Agent 因为看不到全局，经常做出局部最优、全局灾难的决策。」</p><p>更重要的是，GSD 假设「上下文清理」总是安全的。但现实中，很多关键信息看似无关，实则是决策的隐性依赖。强制清理可能导致 Agent 在不知情的情况下重复之前的错误。</p><p><strong>环境约束保护了 Agent，但也囚禁了它。</strong></p><h2 id=gstack用角色分工约束视角但角色不是团队>gstack：用「角色分工」约束视角，但角色不是团队<a hidden class=anchor aria-hidden=true href=#gstack用角色分工约束视角但角色不是团队>#</a></h2><p>Garry Tan 的 gstack 提出了一个更诱人的愿景：把 Claude Code 变成「你能管理的虚拟工程团队」<sup id=fnref:8><a href=#fn:8 class=footnote-ref role=doc-noteref>8</a></sup>。</p><p>它的核心机制是「角色约束」——通过 /ceo、/cto、/eng 等命令，强制 Agent 在特定模式下工作。CEO 模式只关注产品目标和用户问题，CTO 模式只关注技术选型和架构，Eng 模式只关注实现细节。每个角色都有明确的边界，不能越界。</p><p>这套机制配合 SKILL.md 标准和 Conductor 编排系统，试图模拟真实团队的协作方式。据 Garry Tan 的演示，gstack 可以并行运行多个 Agent，分别负责不同模块，通过标准化的接口协作<sup id=fnref:9><a href=#fn:9 class=footnote-ref role=doc-noteref>9</a></sup>。</p><p><strong>这套机制的本质是「视角约束」</strong>。</p><p>它试图解决一个根本问题：单个 Agent 无法同时处理战略和战术、产品和工程、长期和短期。通过角色分工，让每个 Agent 只关注一个视角，从而降低认知负荷。</p><p>一位早期使用者表示：「角色切换确实让 Agent 的输出更有针对性。CEO 模式下的需求文档比之前清晰多了。」</p><p>但 gstack 的问题在于——<strong>它混淆了「角色」和「能力」</strong>。</p><p>真正的工程师之所以能在不同角色间切换，是因为他们具备底层的通用能力：理解业务、权衡取舍、预判风险。gstack 的 Agent 并没有这些能力，它只是被强制「假装」在某个角色中。</p><p>结果是：CEO 模式的 Agent 会生成看似合理的产品文档，但缺乏对市场节奏的直觉；CTO 模式的 Agent 会做出技术选型，但无法理解技术债务的隐性成本；Eng 模式的 Agent 会写代码，但不知道为什么要这样写。</p><p><strong>角色约束创造了分工的幻觉，但没有创造分工的能力。</strong></p><p>一位批评者直言：「gstack 就像让一个人戴上不同的帽子扮演不同的角色，但这个人本身的能力没有变化。真正的团队之所以有效，是因为每个成员都有独特的专长和经验，而不是因为他们戴了不同的帽子。」</p><p>此外，gstack 的「平台无关」设计原则<sup id=fnref:10><a href=#fn:10 class=footnote-ref role=doc-noteref>10</a></sup>——技能必须读取项目配置、不能硬编码框架命令——虽然增加了可移植性，但也限制了深度优化。当 Agent 无法充分利用特定平台的特性时，其能力上限就被锁死了。</p><h2 id=harness-engineering用声明式编排约束意图但声明式不是自主>Harness Engineering：用「声明式编排」约束意图，但声明式不是自主<a hidden class=anchor aria-hidden=true href=#harness-engineering用声明式编排约束意图但声明式不是自主>#</a></h2><p>OpenAI 的 Harness Engineering 把约束提升到了另一个层次：与其约束过程、环境或视角，不如直接约束「意图」本身。</p><p>这套系统于 2026 年 2 月 21 日正式发布<sup id=fnref:11><a href=#fn:11 class=footnote-ref role=doc-noteref>11</a></sup>，核心是「声明式提示」（declarative prompts）<sup id=fnref1:11><a href=#fn:11 class=footnote-ref role=doc-noteref>11</a></sup>。工程师定义「想要什么」，而非「怎么做」，Harness 负责将意图分解为任务，分配给 Codex Agent 群执行。它标准化了工作流，减少了对手工脚本和定制工具的依赖。</p><p>据 OpenAI 技术员工 Ryan Lopopolo 介绍<sup id=fnref:12><a href=#fn:12 class=footnote-ref role=doc-noteref>12</a></sup>，Harness 可以执行代码编写、测试生成、可观测性管理等任务，Agent 群基于工程师定义的声明式提示自主协作。</p><p><strong>这套机制的本质是「意图约束」</strong>。</p><p>它试图回答一个终极问题：如果工程师只需要定义「做什么」，而不用管「怎么做」，软件开发会变成什么样？</p><p>Harness 的愿景很诱人：工程师成为「系统设计者」和「质量守护者」，从「埋头手写代码」转向「指挥 AI 完成开发」<sup id=fnref1:12><a href=#fn:12 class=footnote-ref role=doc-noteref>12</a></sup>。</p><p>但 Harness 的问题在于——<strong>它假设意图可以被完整声明</strong>。</p><p>这是一个根本性的认知谬误。软件工程中的「意图」从来不是静态的、可被完整表达的文档。它是动态的、演进的、充满隐性知识的有机体。为什么这个模块要这样设计？为什么这个技术债现在不能还？为什么这个「丑陋」的实现其实是权衡后的最优解？这些知识往往存在于工程师的直觉中，存在于团队的历史记忆里，存在于无数次失败和重构的教训中——它们无法被声明，只能被体会。</p><p>一位在 2026 年 3 月使用过 Harness 的工程师向我们表示：「对于标准任务（如添加一个 REST API），Harness 表现很好。但对于需要深度架构思考的任务，我发现自己花在『调整声明』上的时间，比直接写代码还长。更可怕的是，有时候我以为声明清楚了，Harness 给出的实现却完全偏离了我的真实意图——而我直到代码生成后才发现这一点。」</p><p><strong>意图约束的边界，就是可表达性的边界。而软件工程中真正重要的东西，恰恰是不可表达的。</strong></p><p>Harness 把「如何做」的决策权交给了系统，但系统并不理解工程的深层约束。它可能生成「正确」的代码——语法正确、测试通过、功能实现——但这段代码是否符合团队的技术哲学？是否考虑了未来的扩展性？是否与现有架构风格一致？这些判断需要「品味」，而品味无法被声明。</p><p>Harness 解决了「执行」的问题，但没有解决「判断」的问题。而软件工程的核心，恰恰是判断。不是「能不能做」的判断，而是「应不应该做」的判断。</p><h2 id=横向拆解四种约束的本质与局限>横向拆解：四种约束的本质与局限<a hidden class=anchor aria-hidden=true href=#横向拆解四种约束的本质与局限>#</a></h2><p>全局来看，这四套框架代表了四种不同的「控制哲学」：</p><table><thead><tr><th>框架</th><th>约束对象</th><th>核心机制</th><th>优势</th><th>致命局限</th></tr></thead><tbody><tr><td>Superpowers</td><td>过程</td><td>强制技能触发</td><td>规范性强，适合标准化流程</td><td>技能维护成本高，灵活性差</td></tr><tr><td>GSD</td><td>环境</td><td>状态机+上下文隔离</td><td>延长有效工作时间</td><td>剥夺全局视角，局部最优风险</td></tr><tr><td>gstack</td><td>视角</td><td>角色分工</td><td>模拟团队协作</td><td>混淆角色与能力，幻觉严重</td></tr><tr><td>Harness</td><td>意图</td><td>声明式编排</td><td>工程师专注高层设计</td><td>意图表达不完整，判断缺失</td></tr></tbody></table><p>它们都在做同一件事：<strong>用某种形式的「约束」来补偿 Agent 的「不理解」</strong>。</p><p>Superpowers 约束过程，因为 Agent 不会自己按规矩来；GSD 约束环境，因为 Agent 无法处理过多信息；gstack 约束视角，因为 Agent 无法同时处理多个层面；Harness 约束意图表达，因为 Agent 无法自主理解目标。</p><p><strong>但约束是补丁，不是解药。</strong></p><p>真正的自主工程需要 Agent 具备三种能力，而这四种框架都没有解决：</p><p><strong>第一，深层理解能力</strong>。不是理解代码的语法，而是理解代码的意图、权衡、历史。为什么这段代码写成这样？当时面临什么约束？未来可能如何变化？</p><p><strong>第二，价值判断能力</strong>。不是按照规则执行，而是理解规则背后的价值，并在冲突时做出权衡。技术债什么时候该还？什么时候该借？没有标准答案，需要基于对业务和技术的综合判断。</p><p><strong>第三，持续学习能力</strong>。不是记住上下文，而是从经验中学习，形成可迁移的洞察。这次重构的教训如何应用到下次？这个 bug 的模式是否在其他地方也存在？</p><p>一位在 Anthropic 从事 Agent 研究的科学家向我们透露：「当前所有框架都在做『外部约束』——用规则、状态、角色、声明来限制 Agent 的行为。但真正的突破将来自『内部理解』——让 Agent 自己建立工程直觉。这不是 prompt engineering 能解决的，需要根本性的架构创新。」</p><p><strong>约束的终极形态是「无约束」</strong></p><p>一个值得关注的信号是：最极简的 CLAUDE.md 配置只有两行——&ldquo;auto-merge PR，post to Slack&rdquo;。</p><p>这个极简配置背后是一个深刻的洞察：<strong>不要想着补齐模型的能力缺口，而是要关注如何闭环模型的生产环境。</strong></p><p>这与当前四大框架的复杂形成鲜明对比。Superpowers 有 47 个技能文件，GSD 有 24 个 slash 命令，gstack 有 15 个角色模式，Harness 有复杂的声明式语法。它们都在做同一件事：假设模型不够聪明，所以需要外部系统来补偿。</p><p>但极简配置的做法假设了相反的事：模型足够聪明，只需要 minimal 的 scaffolding 来闭环。</p><p>&ldquo;With every model you have to add less and less&rdquo;——这是一个关键预测。不要 over-engineer 当前的架构，因为六个月后大部分都会过时。模型的能力在指数级增长，今天复杂的约束系统，明天可能就成了 technical debt。</p><p>这才是 Harness Engineering 会火的真正原因：它不是 over-engineer，是 just enough engineer。不是补齐模型的缺口，而是让模型的能力在生产环境中闭环。</p><p><strong>更深层的预见：约束竞赛的终局</strong></p><p>如果我们把视野拉长到 12-18 个月，这场约束竞赛可能会走向一个出人意料的方向。</p><p>短期（6个月内），我们会看到「约束叠加」的趋势——Superpowers 的技能系统 + GSD 的上下文管理 + gstack 的角色分工 + Harness 的声明式编排，被整合进一个「超级框架」。这个框架会声称解决了所有问题，但它真正的贡献是让我们看清：约束的堆叠有其极限。</p><p>中期（12个月内），「约束疲劳」将开始出现。当开发者发现维护约束系统的成本超过收益时，会出现一波「去框架化」的反弹。一些团队会回归简单的「人类主导、AI 辅助」模式，放弃对 Agent 自主性的追求。</p><p>长期（18个月+），真正的突破可能来自一个完全不同的方向：<strong>神经符号混合架构</strong>（Neuro-Symbolic Hybrid）。这种架构将大模型的模式识别能力与符号系统的逻辑推理能力结合，让 Agent 既能「感受」代码的品味，又能「证明」设计的正确性。这不是约束，而是赋能。</p><p>一位参与早期原型开发的研究者描述：「在这种架构下，Agent 不再是被约束的对象，而是被赋予『工程良知』的主体。它会自己问自己：『这个设计符合我们的架构原则吗？』『这个实现是否引入了不必要的复杂性？』——不是因为我们强制它问，而是因为它真正理解了这些问题的重要性。」</p><p>但这需要跨越两个巨大的鸿沟：<strong>从相关性到因果性的跃迁</strong>（Agent 不仅知道「什么代码好」，还知道「为什么好」），以及<strong>从个体到集体的跃迁</strong>（Agent 不仅学习个人经验，还能吸收整个工程社区的集体智慧）。</p><h2 id=说到底约束是拐杖理解才是腿>说到底：约束是拐杖，理解才是腿<a hidden class=anchor aria-hidden=true href=#说到底约束是拐杖理解才是腿>#</a></h2><p>2026 年的 AI 编程框架竞赛，本质上是一场「谁能让 Agent 看起来更可靠」的竞赛。更准确地说，是一场「谁能把 Agent 的失控包装得最优雅」的竞赛。</p><p>Superpowers、GSD、gstack、Harness 都在用不同的方式掩盖同一个事实：<strong>当前的 Agent 并不真正理解软件工程</strong>。它们可以生成代码、执行测试、甚至并行协作，但它们不理解为什么要这样做，也不知道什么时候该打破规则。</p><p>这是一个残酷的真相：我们造出了能够生成数百万行代码的系统，却造不出能够判断「这行代码该不该写」的系统。</p><p>约束机制让 Agent 在「看起来可控」和「实际上可控」之间划上了等号。但这两者的差距，正是当前 AI 编程工具的隐性成本。这种成本不会立即显现——它隐藏在技术债的累积中，隐藏在架构的腐化中，隐藏在团队对 Agent 的过度信任中。等到问题爆发时，往往已经难以挽回。</p><p>一位有着 20 年编程经验、曾参与多个大型开源项目的技术负责人告诉我们：「我用这些框架生成了很多代码，但每当我需要做出关键架构决策时，我还是得自己上。Agent 可以帮我写 80% 的代码，但剩下的 20%——决定项目成败的 20%——它帮不了我。更可怕的是，有时候我会误以为它能帮我，直到三个月后才发现那个决策是错的。」</p><p>这 20% 是什么？是判断技术债的偿还时机，是权衡性能与可维护性，是预判业务变化对架构的影响，是在没有标准答案时做出选择。这些判断的共同点是什么？<strong>它们都需要对「不可量化之物」的感知</strong>——对简洁的审美、对风险的直觉、对未来的想象。</p><p><strong>这些能力，无法通过约束获得，只能通过理解获得。</strong></p><p>当前的框架都在优化「执行效率」，但软件工程的本质是「决策质量」。当 Agent 只能执行、不能决策时，它就是一个工具，而不是一个工程师。工具可以被约束，工程师需要被理解。</p><p>真正的突破不会来自更多的约束，而会来自更深的理解。当 Agent 能够像资深工程师一样「读懂」代码背后的故事、「感受」架构的权衡、「预判」变化的影响时，约束才会变得多余。</p><p>在那之前，我们只是在用更复杂的约束，管理一个本质上不可控的系统。而历史告诉我们：<strong>用复杂系统管理复杂系统，最终只会得到更复杂的复杂系统。</strong></p><p>但这不是终点。</p><p><strong>约束是拐杖，理解才是腿——而腿的存在，是为了最终能够奔跑。</strong></p><p>当前的四大框架，无论它们有多少局限，都在做一件有价值的事：它们在用各自的方式探索 Agent 的边界，暴露 Agent 的缺陷，为真正的突破积累经验和数据。Superpowers 的技能系统让我们看到过程规范化的价值；GSD 的上下文管理让我们意识到信息筛选的重要性；gstack 的角色分工让我们思考协作的本质；Harness 的声明式编排让我们重新审视意图表达的可能性。</p><p>这些都是「理解」的前奏。</p><p>真正的 Agentic 未来，不是被约束的 Agent，而是拥有「工程良知」的 Agent——它不需要被强制遵守规则，因为它理解规则背后的价值；它不需要被限制上下文，因为它知道什么信息值得记住；它不需要被分配角色，因为它清楚自己在团队中的位置；它不需要被声明意图，因为它能够感知人类真正想要的是什么。</p><p>这不是科幻。神经符号混合架构的雏形已经在实验室中运行，多模态大模型正在学会「看」代码而不仅是「读」代码，强化学习让 Agent 能够从反馈中学习而不仅是模仿。这些技术的融合，将在未来 18-24 个月内催生新一代 Agent——不是更快、更听话的工具，而是更理解、更自主的协作者。</p><p>一位资深 AI 研究者说：「我们现在的阶段，类似于汽车发明初期的『无马马车』——人们还在用控制马车的思维去设计汽车。真正的汽车，是当设计师不再思考『如何让马跑得更快』，而是思考『机器能做什么马做不到的事』。Agent 的真正突破，也将发生在我们不再思考『如何约束 Agent』，而是思考『Agent 能理解什么』的时候。」</p><p><strong>约束竞赛的终点，是理解竞赛的起点。</strong></p><p>当 Agent 真正理解软件工程时，约束将不再是必要的拐杖，而是可选的工具。人类工程师可以选择让 Agent 自主运行，也可以选择精细控制——不是因为 Agent 需要被控制，而是因为人类选择控制。</p><p>那时的 Agent，将不再是「被约束的对象」，而是「被信任的伙伴」。</p><p>这才是 Agentic 的真正含义：不是更多的规则，而是更深的理解；不是更紧的控制，而是更大的自主；不是更复杂的约束系统，而是更简洁的智能本身。</p><p><strong>我们正在从「约束时代」走向「理解时代」。这场竞赛的真正赢家，将是第一个跨过这条鸿沟的人。</strong></p><p>但也许，赢家不会是那些构建最复杂约束系统的人，而是那些最懂得「做减法」的人。</p><p>那个只有两行的 CLAUDE.md 是一个信号：当模型足够强大时，框架的价值不在于「增加什么」，而在于「移除什么」。不是给 Agent 更多规则，而是给它更多信任；不是构建更复杂的控制系统，而是设计更简洁的闭环机制。</p><p><strong>AI 一日，地上一年。</strong></p><p>今天的 Superpowers、GSD、gstack、Harness，无论它们多么精巧，都是过渡态。它们存在的意义不是成为终点，而是证明：当我们不再需要它们时，Agent 才真正成熟了。</p><p>那个时刻可能比我们想象的更近。当模型能够理解代码的意图、感受架构的权衡、预判变化的影响时，所有的约束都会显得多余。不是因为我们设计了更好的约束，而是因为 Agent 已经内化了这些约束背后的价值。</p><p><strong>解放双手，只需知道的时代，不远了。</strong></p><ul><li>FIN -</li></ul><h2 id=参考>参考<a hidden class=anchor aria-hidden=true href=#参考>#</a></h2><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>Superpowers GitHub 仓库数据，AtomGit 开源社区报道 &ldquo;31.5k+ Stars&rdquo;。&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>gstack GitHub 数据，ContentForge 博客报道 &ldquo;approximately 20,000 stars&rdquo;，今日头条报道 &ldquo;26,000–33,000+ Stars&rdquo;。&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p>GitHub Topics &ldquo;harness-engineering&rdquo; 搜索结果，显示 107 个相关仓库，截至 2026 年 3 月 29 日。&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4><p>Superpowers 框架介绍， obra (Jesse Vincent) 创建，GitHub 官方仓库及 AI 铺子报道。&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:5><p>Hacker News 报道，Superpowers &ldquo;accepted into the Anthropic marketplace in January 2026&rdquo;。&#160;<a href=#fnref:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a>&#160;<a href=#fnref1:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:6><p>GSD 官方文档，&ldquo;A meta-prompting and context engineering system&rdquo;。&#160;<a href=#fnref:6 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:7><p>GSD GitHub 仓库 README，描述 24 个 slash 命令及多 Agent 编排能力。&#160;<a href=#fnref:7 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:8><p>GSD v2 版本基于 Pi SDK 构建，可直接操作 Agent Harness，npm 包 gsd-pi 说明。&#160;<a href=#fnref:8 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:9><p>gstack GitHub 仓库，Garry Tan 创建，描述 &ldquo;turns Claude Code into a virtual engineering team&rdquo;。&#160;<a href=#fnref:9 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:10><p>SitePoint 报道 &ldquo;How Garry Tan Uses GStack to Turn Claude Code Into a Dev Team&rdquo;。&#160;<a href=#fnref:10 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:11><p>OpenAI Harness Engineering 官方介绍，InfoQ 报道 &ldquo;OpenAI Introduces Harness Engineering&rdquo;。&#160;<a href=#fnref:11 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a>&#160;<a href=#fnref1:11 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:12><p>Ryan Lopopolo，OpenAI 技术员工，Harness Engineering 相关发言。&#160;<a href=#fnref:12 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a>&#160;<a href=#fnref1:12 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://blog.zhangky.com/tags/ai/>AI</a></li><li><a href=https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/>技术</a></li></ul><nav class=paginav><a class=prev href=https://blog.zhangky.com/posts/2026/april/2026-04-01-geoffrey-hinton-the-carpenter/><span class=title>« Prev</span><br><span>AI人物志-木匠Geoffrey Hinton</span>
-</a><a class=next href=https://blog.zhangky.com/posts/2026/03/2026-03-20-agent-web-coding-memory-challenge/><span class=title>Next »</span><br><span>Agent 写代码的下一站：不是写得快，而是记得住、跑得远</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
+它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "AI 编程框架的约束竞赛：Superpowers、GSD、gstack ",
+      "item": "https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI 编程框架的约束竞赛：Superpowers、GSD、gstack ",
+  "name": "AI 编程框架的约束竞赛：Superpowers、GSD、gstack ",
+  "description": "当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。\n2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。\n但问题在于——约束不是解决方案，而是问题的转移。\n据我们了解，Superpowers 在 GitHub 上已积累 3.15 万+ stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」\n这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？\nSuperpowers：用「强制技能」约束过程，但谁来约束技能？ Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。\n这个由 Jesse Vincent（obra）创建的框架4，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 \u0026ldquo;You MUST use this before any creative work\u0026rdquo; 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场5。\n这套机制的本质是「过程约束」。\n它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」\n",
+  "keywords": [
+    "Superpowers", "GSD", "gstack", "Harness Engineering", "AI Coding Framework", "Constraint"
+  ],
+  "articleBody": "当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。\n2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。\n但问题在于——约束不是解决方案，而是问题的转移。\n据我们了解，Superpowers 在 GitHub 上已积累 3.15 万+ stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」\n这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？\nSuperpowers：用「强制技能」约束过程，但谁来约束技能？ Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。\n这个由 Jesse Vincent（obra）创建的框架4，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 “You MUST use this before any creative work” 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场5。\n这套机制的本质是「过程约束」。\n它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」\n但问题也随之而来。\n首先是技能爆炸。当项目复杂度增加，需要的技能文件数量呈指数级增长。一位在大型项目中使用 Superpowers 的开发者向我们抱怨：「我们的项目有 47 个 SKILL.md 文件，维护它们的时间比写代码还长。」\n其次是刚性过强。Superpowers 假设所有开发场景都可以被预定义，但现实是——软件工程充满了「未知的未知」。当遇到技能未覆盖的场景，Agent 要么僵住，要么绕过约束直接行动。\n最根本的问题是：技能本身的质量谁来保证？\nSuperpowers 把约束的责任推给了开发者，但开发者写的技能文件可能本身就是错的、过时的、或相互矛盾的。一位框架研究者指出：「Superpowers 解决的是『Agent 不遵守规则』的问题，但无法解决『规则本身就是错的』的问题。」\n说到底，过程约束只是转移了失控的风险，而非消除了失控的根源。\nGSD：用「状态机」约束环境，但状态机不是工程 GSD（Get Shit Done）走了另一条路：与其约束 Agent 的行为，不如约束 Agent 所处的环境。\n这个框架的核心是「上下文工程」（context engineering）5。它通过 JSON 配置定义状态机，强制 Agent 在每个状态下只能看到特定的上下文，从而避免「上下文腐烂」（context rot）——即随着对话进行，Agent 被无关信息淹没、决策质量下降的问题。\n据其官方文档，GSD 提供 24 个 slash 命令管理项目生命周期，支持多 Agent 编排，每个任务都有独立的上下文，任务完成后上下文自动清理6。GSD 的 v2 版本甚至直接内嵌到 Pi SDK，可以直接操作 Agent Harness 本身：清理上下文、注入文件、管理分支、跟踪成本7。\n这套机制的本质是「环境约束」。\n它承认一个残酷的事实：Agent 的上下文窗口是有限的，而代码仓库的信息是无限的。所以与其让 Agent 自己决定「该记住什么」，不如由系统强制「只能看到什么」。\n一位使用 GSD 的开发者评价：「它确实延长了 Agent 的有效工作时间。以前 4 小时就失忆，现在能撑 8-10 小时。」\n但 GSD 的问题在于——它把软件工程简化成了状态转换。\n真正的工程不是状态机。架构决策需要全局视角，重构需要理解历史债务，调试需要跨模块的关联分析。GSD 的「上下文隔离」在保护 Agent 的同时，也剥夺了它进行深度推理的能力。\n一位架构师指出：「用 GSD 做 CRUD 应用很爽，但做分布式系统架构时，Agent 因为看不到全局，经常做出局部最优、全局灾难的决策。」\n更重要的是，GSD 假设「上下文清理」总是安全的。但现实中，很多关键信息看似无关，实则是决策的隐性依赖。强制清理可能导致 Agent 在不知情的情况下重复之前的错误。\n环境约束保护了 Agent，但也囚禁了它。\ngstack：用「角色分工」约束视角，但角色不是团队 Garry Tan 的 gstack 提出了一个更诱人的愿景：把 Claude Code 变成「你能管理的虚拟工程团队」8。\n它的核心机制是「角色约束」——通过 /ceo、/cto、/eng 等命令，强制 Agent 在特定模式下工作。CEO 模式只关注产品目标和用户问题，CTO 模式只关注技术选型和架构，Eng 模式只关注实现细节。每个角色都有明确的边界，不能越界。\n这套机制配合 SKILL.md 标准和 Conductor 编排系统，试图模拟真实团队的协作方式。据 Garry Tan 的演示，gstack 可以并行运行多个 Agent，分别负责不同模块，通过标准化的接口协作9。\n这套机制的本质是「视角约束」。\n它试图解决一个根本问题：单个 Agent 无法同时处理战略和战术、产品和工程、长期和短期。通过角色分工，让每个 Agent 只关注一个视角，从而降低认知负荷。\n一位早期使用者表示：「角色切换确实让 Agent 的输出更有针对性。CEO 模式下的需求文档比之前清晰多了。」\n但 gstack 的问题在于——它混淆了「角色」和「能力」。\n真正的工程师之所以能在不同角色间切换，是因为他们具备底层的通用能力：理解业务、权衡取舍、预判风险。gstack 的 Agent 并没有这些能力，它只是被强制「假装」在某个角色中。\n结果是：CEO 模式的 Agent 会生成看似合理的产品文档，但缺乏对市场节奏的直觉；CTO 模式的 Agent 会做出技术选型，但无法理解技术债务的隐性成本；Eng 模式的 Agent 会写代码，但不知道为什么要这样写。\n角色约束创造了分工的幻觉，但没有创造分工的能力。\n一位批评者直言：「gstack 就像让一个人戴上不同的帽子扮演不同的角色，但这个人本身的能力没有变化。真正的团队之所以有效，是因为每个成员都有独特的专长和经验，而不是因为他们戴了不同的帽子。」\n此外，gstack 的「平台无关」设计原则10——技能必须读取项目配置、不能硬编码框架命令——虽然增加了可移植性，但也限制了深度优化。当 Agent 无法充分利用特定平台的特性时，其能力上限就被锁死了。\nHarness Engineering：用「声明式编排」约束意图，但声明式不是自主 OpenAI 的 Harness Engineering 把约束提升到了另一个层次：与其约束过程、环境或视角，不如直接约束「意图」本身。\n这套系统于 2026 年 2 月 21 日正式发布11，核心是「声明式提示」（declarative prompts）11。工程师定义「想要什么」，而非「怎么做」，Harness 负责将意图分解为任务，分配给 Codex Agent 群执行。它标准化了工作流，减少了对手工脚本和定制工具的依赖。\n据 OpenAI 技术员工 Ryan Lopopolo 介绍12，Harness 可以执行代码编写、测试生成、可观测性管理等任务，Agent 群基于工程师定义的声明式提示自主协作。\n这套机制的本质是「意图约束」。\n它试图回答一个终极问题：如果工程师只需要定义「做什么」，而不用管「怎么做」，软件开发会变成什么样？\nHarness 的愿景很诱人：工程师成为「系统设计者」和「质量守护者」，从「埋头手写代码」转向「指挥 AI 完成开发」12。\n但 Harness 的问题在于——它假设意图可以被完整声明。\n这是一个根本性的认知谬误。软件工程中的「意图」从来不是静态的、可被完整表达的文档。它是动态的、演进的、充满隐性知识的有机体。为什么这个模块要这样设计？为什么这个技术债现在不能还？为什么这个「丑陋」的实现其实是权衡后的最优解？这些知识往往存在于工程师的直觉中，存在于团队的历史记忆里，存在于无数次失败和重构的教训中——它们无法被声明，只能被体会。\n一位在 2026 年 3 月使用过 Harness 的工程师向我们表示：「对于标准任务（如添加一个 REST API），Harness 表现很好。但对于需要深度架构思考的任务，我发现自己花在『调整声明』上的时间，比直接写代码还长。更可怕的是，有时候我以为声明清楚了，Harness 给出的实现却完全偏离了我的真实意图——而我直到代码生成后才发现这一点。」\n意图约束的边界，就是可表达性的边界。而软件工程中真正重要的东西，恰恰是不可表达的。\nHarness 把「如何做」的决策权交给了系统，但系统并不理解工程的深层约束。它可能生成「正确」的代码——语法正确、测试通过、功能实现——但这段代码是否符合团队的技术哲学？是否考虑了未来的扩展性？是否与现有架构风格一致？这些判断需要「品味」，而品味无法被声明。\nHarness 解决了「执行」的问题，但没有解决「判断」的问题。而软件工程的核心，恰恰是判断。不是「能不能做」的判断，而是「应不应该做」的判断。\n横向拆解：四种约束的本质与局限 全局来看，这四套框架代表了四种不同的「控制哲学」：\n框架 约束对象 核心机制 优势 致命局限 Superpowers 过程 强制技能触发 规范性强，适合标准化流程 技能维护成本高，灵活性差 GSD 环境 状态机+上下文隔离 延长有效工作时间 剥夺全局视角，局部最优风险 gstack 视角 角色分工 模拟团队协作 混淆角色与能力，幻觉严重 Harness 意图 声明式编排 工程师专注高层设计 意图表达不完整，判断缺失 它们都在做同一件事：用某种形式的「约束」来补偿 Agent 的「不理解」。\nSuperpowers 约束过程，因为 Agent 不会自己按规矩来；GSD 约束环境，因为 Agent 无法处理过多信息；gstack 约束视角，因为 Agent 无法同时处理多个层面；Harness 约束意图表达，因为 Agent 无法自主理解目标。\n但约束是补丁，不是解药。\n真正的自主工程需要 Agent 具备三种能力，而这四种框架都没有解决：\n第一，深层理解能力。不是理解代码的语法，而是理解代码的意图、权衡、历史。为什么这段代码写成这样？当时面临什么约束？未来可能如何变化？\n第二，价值判断能力。不是按照规则执行，而是理解规则背后的价值，并在冲突时做出权衡。技术债什么时候该还？什么时候该借？没有标准答案，需要基于对业务和技术的综合判断。\n第三，持续学习能力。不是记住上下文，而是从经验中学习，形成可迁移的洞察。这次重构的教训如何应用到下次？这个 bug 的模式是否在其他地方也存在？\n一位在 Anthropic 从事 Agent 研究的科学家向我们透露：「当前所有框架都在做『外部约束』——用规则、状态、角色、声明来限制 Agent 的行为。但真正的突破将来自『内部理解』——让 Agent 自己建立工程直觉。这不是 prompt engineering 能解决的，需要根本性的架构创新。」\n约束的终极形态是「无约束」\n一个值得关注的信号是：最极简的 CLAUDE.md 配置只有两行——“auto-merge PR，post to Slack”。\n这个极简配置背后是一个深刻的洞察：不要想着补齐模型的能力缺口，而是要关注如何闭环模型的生产环境。\n这与当前四大框架的复杂形成鲜明对比。Superpowers 有 47 个技能文件，GSD 有 24 个 slash 命令，gstack 有 15 个角色模式，Harness 有复杂的声明式语法。它们都在做同一件事：假设模型不够聪明，所以需要外部系统来补偿。\n但极简配置的做法假设了相反的事：模型足够聪明，只需要 minimal 的 scaffolding 来闭环。\n“With every model you have to add less and less”——这是一个关键预测。不要 over-engineer 当前的架构，因为六个月后大部分都会过时。模型的能力在指数级增长，今天复杂的约束系统，明天可能就成了 technical debt。\n这才是 Harness Engineering 会火的真正原因：它不是 over-engineer，是 just enough engineer。不是补齐模型的缺口，而是让模型的能力在生产环境中闭环。\n更深层的预见：约束竞赛的终局\n如果我们把视野拉长到 12-18 个月，这场约束竞赛可能会走向一个出人意料的方向。\n短期（6个月内），我们会看到「约束叠加」的趋势——Superpowers 的技能系统 + GSD 的上下文管理 + gstack 的角色分工 + Harness 的声明式编排，被整合进一个「超级框架」。这个框架会声称解决了所有问题，但它真正的贡献是让我们看清：约束的堆叠有其极限。\n中期（12个月内），「约束疲劳」将开始出现。当开发者发现维护约束系统的成本超过收益时，会出现一波「去框架化」的反弹。一些团队会回归简单的「人类主导、AI 辅助」模式，放弃对 Agent 自主性的追求。\n长期（18个月+），真正的突破可能来自一个完全不同的方向：神经符号混合架构（Neuro-Symbolic Hybrid）。这种架构将大模型的模式识别能力与符号系统的逻辑推理能力结合，让 Agent 既能「感受」代码的品味，又能「证明」设计的正确性。这不是约束，而是赋能。\n一位参与早期原型开发的研究者描述：「在这种架构下，Agent 不再是被约束的对象，而是被赋予『工程良知』的主体。它会自己问自己：『这个设计符合我们的架构原则吗？』『这个实现是否引入了不必要的复杂性？』——不是因为我们强制它问，而是因为它真正理解了这些问题的重要性。」\n但这需要跨越两个巨大的鸿沟：从相关性到因果性的跃迁（Agent 不仅知道「什么代码好」，还知道「为什么好」），以及从个体到集体的跃迁（Agent 不仅学习个人经验，还能吸收整个工程社区的集体智慧）。\n说到底：约束是拐杖，理解才是腿 2026 年的 AI 编程框架竞赛，本质上是一场「谁能让 Agent 看起来更可靠」的竞赛。更准确地说，是一场「谁能把 Agent 的失控包装得最优雅」的竞赛。\nSuperpowers、GSD、gstack、Harness 都在用不同的方式掩盖同一个事实：当前的 Agent 并不真正理解软件工程。它们可以生成代码、执行测试、甚至并行协作，但它们不理解为什么要这样做，也不知道什么时候该打破规则。\n这是一个残酷的真相：我们造出了能够生成数百万行代码的系统，却造不出能够判断「这行代码该不该写」的系统。\n约束机制让 Agent 在「看起来可控」和「实际上可控」之间划上了等号。但这两者的差距，正是当前 AI 编程工具的隐性成本。这种成本不会立即显现——它隐藏在技术债的累积中，隐藏在架构的腐化中，隐藏在团队对 Agent 的过度信任中。等到问题爆发时，往往已经难以挽回。\n一位有着 20 年编程经验、曾参与多个大型开源项目的技术负责人告诉我们：「我用这些框架生成了很多代码，但每当我需要做出关键架构决策时，我还是得自己上。Agent 可以帮我写 80% 的代码，但剩下的 20%——决定项目成败的 20%——它帮不了我。更可怕的是，有时候我会误以为它能帮我，直到三个月后才发现那个决策是错的。」\n这 20% 是什么？是判断技术债的偿还时机，是权衡性能与可维护性，是预判业务变化对架构的影响，是在没有标准答案时做出选择。这些判断的共同点是什么？它们都需要对「不可量化之物」的感知——对简洁的审美、对风险的直觉、对未来的想象。\n这些能力，无法通过约束获得，只能通过理解获得。\n当前的框架都在优化「执行效率」，但软件工程的本质是「决策质量」。当 Agent 只能执行、不能决策时，它就是一个工具，而不是一个工程师。工具可以被约束，工程师需要被理解。\n真正的突破不会来自更多的约束，而会来自更深的理解。当 Agent 能够像资深工程师一样「读懂」代码背后的故事、「感受」架构的权衡、「预判」变化的影响时，约束才会变得多余。\n在那之前，我们只是在用更复杂的约束，管理一个本质上不可控的系统。而历史告诉我们：用复杂系统管理复杂系统，最终只会得到更复杂的复杂系统。\n但这不是终点。\n约束是拐杖，理解才是腿——而腿的存在，是为了最终能够奔跑。\n当前的四大框架，无论它们有多少局限，都在做一件有价值的事：它们在用各自的方式探索 Agent 的边界，暴露 Agent 的缺陷，为真正的突破积累经验和数据。Superpowers 的技能系统让我们看到过程规范化的价值；GSD 的上下文管理让我们意识到信息筛选的重要性；gstack 的角色分工让我们思考协作的本质；Harness 的声明式编排让我们重新审视意图表达的可能性。\n这些都是「理解」的前奏。\n真正的 Agentic 未来，不是被约束的 Agent，而是拥有「工程良知」的 Agent——它不需要被强制遵守规则，因为它理解规则背后的价值；它不需要被限制上下文，因为它知道什么信息值得记住；它不需要被分配角色，因为它清楚自己在团队中的位置；它不需要被声明意图，因为它能够感知人类真正想要的是什么。\n这不是科幻。神经符号混合架构的雏形已经在实验室中运行，多模态大模型正在学会「看」代码而不仅是「读」代码，强化学习让 Agent 能够从反馈中学习而不仅是模仿。这些技术的融合，将在未来 18-24 个月内催生新一代 Agent——不是更快、更听话的工具，而是更理解、更自主的协作者。\n一位资深 AI 研究者说：「我们现在的阶段，类似于汽车发明初期的『无马马车』——人们还在用控制马车的思维去设计汽车。真正的汽车，是当设计师不再思考『如何让马跑得更快』，而是思考『机器能做什么马做不到的事』。Agent 的真正突破，也将发生在我们不再思考『如何约束 Agent』，而是思考『Agent 能理解什么』的时候。」\n约束竞赛的终点，是理解竞赛的起点。\n当 Agent 真正理解软件工程时，约束将不再是必要的拐杖，而是可选的工具。人类工程师可以选择让 Agent 自主运行，也可以选择精细控制——不是因为 Agent 需要被控制，而是因为人类选择控制。\n那时的 Agent，将不再是「被约束的对象」，而是「被信任的伙伴」。\n这才是 Agentic 的真正含义：不是更多的规则，而是更深的理解；不是更紧的控制，而是更大的自主；不是更复杂的约束系统，而是更简洁的智能本身。\n我们正在从「约束时代」走向「理解时代」。这场竞赛的真正赢家，将是第一个跨过这条鸿沟的人。\n但也许，赢家不会是那些构建最复杂约束系统的人，而是那些最懂得「做减法」的人。\n那个只有两行的 CLAUDE.md 是一个信号：当模型足够强大时，框架的价值不在于「增加什么」，而在于「移除什么」。不是给 Agent 更多规则，而是给它更多信任；不是构建更复杂的控制系统，而是设计更简洁的闭环机制。\nAI 一日，地上一年。\n今天的 Superpowers、GSD、gstack、Harness，无论它们多么精巧，都是过渡态。它们存在的意义不是成为终点，而是证明：当我们不再需要它们时，Agent 才真正成熟了。\n那个时刻可能比我们想象的更近。当模型能够理解代码的意图、感受架构的权衡、预判变化的影响时，所有的约束都会显得多余。不是因为我们设计了更好的约束，而是因为 Agent 已经内化了这些约束背后的价值。\n解放双手，只需知道的时代，不远了。\nFIN - 参考 Superpowers GitHub 仓库数据，AtomGit 开源社区报道 “31.5k+ Stars”。 ↩︎\ngstack GitHub 数据，ContentForge 博客报道 “approximately 20,000 stars”，今日头条报道 “26,000–33,000+ Stars”。 ↩︎\nGitHub Topics “harness-engineering” 搜索结果，显示 107 个相关仓库，截至 2026 年 3 月 29 日。 ↩︎\nSuperpowers 框架介绍， obra (Jesse Vincent) 创建，GitHub 官方仓库及 AI 铺子报道。 ↩︎\nHacker News 报道，Superpowers “accepted into the Anthropic marketplace in January 2026”。 ↩︎ ↩︎\nGSD 官方文档，“A meta-prompting and context engineering system”。 ↩︎\nGSD GitHub 仓库 README，描述 24 个 slash 命令及多 Agent 编排能力。 ↩︎\nGSD v2 版本基于 Pi SDK 构建，可直接操作 Agent Harness，npm 包 gsd-pi 说明。 ↩︎\ngstack GitHub 仓库，Garry Tan 创建，描述 “turns Claude Code into a virtual engineering team”。 ↩︎\nSitePoint 报道 “How Garry Tan Uses GStack to Turn Claude Code Into a Dev Team”。 ↩︎\nOpenAI Harness Engineering 官方介绍，InfoQ 报道 “OpenAI Introduces Harness Engineering”。 ↩︎ ↩︎\nRyan Lopopolo，OpenAI 技术员工，Harness Engineering 相关发言。 ↩︎ ↩︎\n",
+  "wordCount" : "639",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-03-29T20:00:00+08:00",
+  "dateModified": "2026-03-29T20:00:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "AI"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhang's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      AI 编程框架的约束竞赛：Superpowers、GSD、gstack 
+    </h1>
+    <div class="post-meta">   AI | <span title='2026-03-29 20:00:00 +0800 HKT'>March 29, 2026</span> | <span>38 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#superpowers%e7%94%a8%e5%bc%ba%e5%88%b6%e6%8a%80%e8%83%bd%e7%ba%a6%e6%9d%9f%e8%bf%87%e7%a8%8b%e4%bd%86%e8%b0%81%e6%9d%a5%e7%ba%a6%e6%9d%9f%e6%8a%80%e8%83%bd" aria-label="Superpowers：用「强制技能」约束过程，但谁来约束技能？">Superpowers：用「强制技能」约束过程，但谁来约束技能？</a></li>
+                <li>
+                    <a href="#gsd%e7%94%a8%e7%8a%b6%e6%80%81%e6%9c%ba%e7%ba%a6%e6%9d%9f%e7%8e%af%e5%a2%83%e4%bd%86%e7%8a%b6%e6%80%81%e6%9c%ba%e4%b8%8d%e6%98%af%e5%b7%a5%e7%a8%8b" aria-label="GSD：用「状态机」约束环境，但状态机不是工程">GSD：用「状态机」约束环境，但状态机不是工程</a></li>
+                <li>
+                    <a href="#gstack%e7%94%a8%e8%a7%92%e8%89%b2%e5%88%86%e5%b7%a5%e7%ba%a6%e6%9d%9f%e8%a7%86%e8%a7%92%e4%bd%86%e8%a7%92%e8%89%b2%e4%b8%8d%e6%98%af%e5%9b%a2%e9%98%9f" aria-label="gstack：用「角色分工」约束视角，但角色不是团队">gstack：用「角色分工」约束视角，但角色不是团队</a></li>
+                <li>
+                    <a href="#harness-engineering%e7%94%a8%e5%a3%b0%e6%98%8e%e5%bc%8f%e7%bc%96%e6%8e%92%e7%ba%a6%e6%9d%9f%e6%84%8f%e5%9b%be%e4%bd%86%e5%a3%b0%e6%98%8e%e5%bc%8f%e4%b8%8d%e6%98%af%e8%87%aa%e4%b8%bb" aria-label="Harness Engineering：用「声明式编排」约束意图，但声明式不是自主">Harness Engineering：用「声明式编排」约束意图，但声明式不是自主</a></li>
+                <li>
+                    <a href="#%e6%a8%aa%e5%90%91%e6%8b%86%e8%a7%a3%e5%9b%9b%e7%a7%8d%e7%ba%a6%e6%9d%9f%e7%9a%84%e6%9c%ac%e8%b4%a8%e4%b8%8e%e5%b1%80%e9%99%90" aria-label="横向拆解：四种约束的本质与局限">横向拆解：四种约束的本质与局限</a></li>
+                <li>
+                    <a href="#%e8%af%b4%e5%88%b0%e5%ba%95%e7%ba%a6%e6%9d%9f%e6%98%af%e6%8b%90%e6%9d%96%e7%90%86%e8%a7%a3%e6%89%8d%e6%98%af%e8%85%bf" aria-label="说到底：约束是拐杖，理解才是腿">说到底：约束是拐杖，理解才是腿</a></li>
+                <li>
+                    <a href="#%e5%8f%82%e8%80%83" aria-label="参考">参考</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><strong>当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。</strong></p>
+<p>2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。</p>
+<p>但问题在于——<strong>约束不是解决方案，而是问题的转移</strong>。</p>
+<p>据我们了解，Superpowers 在 GitHub 上已积累 3.15 万+ stars<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，gstack 发布数天内即获得约 2 万 stars<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，Harness Engineering 相关仓库在 3 个月内激增到 107 个<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」</p>
+<p>这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？</p>
+<h2 id="superpowers用强制技能约束过程但谁来约束技能">Superpowers：用「强制技能」约束过程，但谁来约束技能？<a hidden class="anchor" aria-hidden="true" href="#superpowers用强制技能约束过程但谁来约束技能">#</a></h2>
+<p>Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。</p>
+<p>这个由 Jesse Vincent（obra）创建的框架<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 &ldquo;You MUST use this before any creative work&rdquo; 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。</p>
+<p><strong>这套机制的本质是「过程约束」</strong>。</p>
+<p>它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」</p>
+<p>但问题也随之而来。</p>
+<p><strong>首先是技能爆炸</strong>。当项目复杂度增加，需要的技能文件数量呈指数级增长。一位在大型项目中使用 Superpowers 的开发者向我们抱怨：「我们的项目有 47 个 SKILL.md 文件，维护它们的时间比写代码还长。」</p>
+<p><strong>其次是刚性过强</strong>。Superpowers 假设所有开发场景都可以被预定义，但现实是——软件工程充满了「未知的未知」。当遇到技能未覆盖的场景，Agent 要么僵住，要么绕过约束直接行动。</p>
+<p><strong>最根本的问题是：技能本身的质量谁来保证？</strong></p>
+<p>Superpowers 把约束的责任推给了开发者，但开发者写的技能文件可能本身就是错的、过时的、或相互矛盾的。一位框架研究者指出：「Superpowers 解决的是『Agent 不遵守规则』的问题，但无法解决『规则本身就是错的』的问题。」</p>
+<p>说到底，过程约束只是转移了失控的风险，而非消除了失控的根源。</p>
+<h2 id="gsd用状态机约束环境但状态机不是工程">GSD：用「状态机」约束环境，但状态机不是工程<a hidden class="anchor" aria-hidden="true" href="#gsd用状态机约束环境但状态机不是工程">#</a></h2>
+<p>GSD（Get Shit Done）走了另一条路：与其约束 Agent 的行为，不如约束 Agent 所处的环境。</p>
+<p>这个框架的核心是「上下文工程」（context engineering）<sup id="fnref1:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。它通过 JSON 配置定义状态机，强制 Agent 在每个状态下只能看到特定的上下文，从而避免「上下文腐烂」（context rot）——即随着对话进行，Agent 被无关信息淹没、决策质量下降的问题。</p>
+<p>据其官方文档，GSD 提供 24 个 slash 命令管理项目生命周期，支持多 Agent 编排，每个任务都有独立的上下文，任务完成后上下文自动清理<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>。GSD 的 v2 版本甚至直接内嵌到 Pi SDK，可以直接操作 Agent Harness 本身：清理上下文、注入文件、管理分支、跟踪成本<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>。</p>
+<p><strong>这套机制的本质是「环境约束」</strong>。</p>
+<p>它承认一个残酷的事实：Agent 的上下文窗口是有限的，而代码仓库的信息是无限的。所以与其让 Agent 自己决定「该记住什么」，不如由系统强制「只能看到什么」。</p>
+<p>一位使用 GSD 的开发者评价：「它确实延长了 Agent 的有效工作时间。以前 4 小时就失忆，现在能撑 8-10 小时。」</p>
+<p>但 GSD 的问题在于——<strong>它把软件工程简化成了状态转换</strong>。</p>
+<p>真正的工程不是状态机。架构决策需要全局视角，重构需要理解历史债务，调试需要跨模块的关联分析。GSD 的「上下文隔离」在保护 Agent 的同时，也剥夺了它进行深度推理的能力。</p>
+<p>一位架构师指出：「用 GSD 做 CRUD 应用很爽，但做分布式系统架构时，Agent 因为看不到全局，经常做出局部最优、全局灾难的决策。」</p>
+<p>更重要的是，GSD 假设「上下文清理」总是安全的。但现实中，很多关键信息看似无关，实则是决策的隐性依赖。强制清理可能导致 Agent 在不知情的情况下重复之前的错误。</p>
+<p><strong>环境约束保护了 Agent，但也囚禁了它。</strong></p>
+<h2 id="gstack用角色分工约束视角但角色不是团队">gstack：用「角色分工」约束视角，但角色不是团队<a hidden class="anchor" aria-hidden="true" href="#gstack用角色分工约束视角但角色不是团队">#</a></h2>
+<p>Garry Tan 的 gstack 提出了一个更诱人的愿景：把 Claude Code 变成「你能管理的虚拟工程团队」<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>。</p>
+<p>它的核心机制是「角色约束」——通过 /ceo、/cto、/eng 等命令，强制 Agent 在特定模式下工作。CEO 模式只关注产品目标和用户问题，CTO 模式只关注技术选型和架构，Eng 模式只关注实现细节。每个角色都有明确的边界，不能越界。</p>
+<p>这套机制配合 SKILL.md 标准和 Conductor 编排系统，试图模拟真实团队的协作方式。据 Garry Tan 的演示，gstack 可以并行运行多个 Agent，分别负责不同模块，通过标准化的接口协作<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>。</p>
+<p><strong>这套机制的本质是「视角约束」</strong>。</p>
+<p>它试图解决一个根本问题：单个 Agent 无法同时处理战略和战术、产品和工程、长期和短期。通过角色分工，让每个 Agent 只关注一个视角，从而降低认知负荷。</p>
+<p>一位早期使用者表示：「角色切换确实让 Agent 的输出更有针对性。CEO 模式下的需求文档比之前清晰多了。」</p>
+<p>但 gstack 的问题在于——<strong>它混淆了「角色」和「能力」</strong>。</p>
+<p>真正的工程师之所以能在不同角色间切换，是因为他们具备底层的通用能力：理解业务、权衡取舍、预判风险。gstack 的 Agent 并没有这些能力，它只是被强制「假装」在某个角色中。</p>
+<p>结果是：CEO 模式的 Agent 会生成看似合理的产品文档，但缺乏对市场节奏的直觉；CTO 模式的 Agent 会做出技术选型，但无法理解技术债务的隐性成本；Eng 模式的 Agent 会写代码，但不知道为什么要这样写。</p>
+<p><strong>角色约束创造了分工的幻觉，但没有创造分工的能力。</strong></p>
+<p>一位批评者直言：「gstack 就像让一个人戴上不同的帽子扮演不同的角色，但这个人本身的能力没有变化。真正的团队之所以有效，是因为每个成员都有独特的专长和经验，而不是因为他们戴了不同的帽子。」</p>
+<p>此外，gstack 的「平台无关」设计原则<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup>——技能必须读取项目配置、不能硬编码框架命令——虽然增加了可移植性，但也限制了深度优化。当 Agent 无法充分利用特定平台的特性时，其能力上限就被锁死了。</p>
+<h2 id="harness-engineering用声明式编排约束意图但声明式不是自主">Harness Engineering：用「声明式编排」约束意图，但声明式不是自主<a hidden class="anchor" aria-hidden="true" href="#harness-engineering用声明式编排约束意图但声明式不是自主">#</a></h2>
+<p>OpenAI 的 Harness Engineering 把约束提升到了另一个层次：与其约束过程、环境或视角，不如直接约束「意图」本身。</p>
+<p>这套系统于 2026 年 2 月 21 日正式发布<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup>，核心是「声明式提示」（declarative prompts）<sup id="fnref1:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup>。工程师定义「想要什么」，而非「怎么做」，Harness 负责将意图分解为任务，分配给 Codex Agent 群执行。它标准化了工作流，减少了对手工脚本和定制工具的依赖。</p>
+<p>据 OpenAI 技术员工 Ryan Lopopolo 介绍<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup>，Harness 可以执行代码编写、测试生成、可观测性管理等任务，Agent 群基于工程师定义的声明式提示自主协作。</p>
+<p><strong>这套机制的本质是「意图约束」</strong>。</p>
+<p>它试图回答一个终极问题：如果工程师只需要定义「做什么」，而不用管「怎么做」，软件开发会变成什么样？</p>
+<p>Harness 的愿景很诱人：工程师成为「系统设计者」和「质量守护者」，从「埋头手写代码」转向「指挥 AI 完成开发」<sup id="fnref1:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup>。</p>
+<p>但 Harness 的问题在于——<strong>它假设意图可以被完整声明</strong>。</p>
+<p>这是一个根本性的认知谬误。软件工程中的「意图」从来不是静态的、可被完整表达的文档。它是动态的、演进的、充满隐性知识的有机体。为什么这个模块要这样设计？为什么这个技术债现在不能还？为什么这个「丑陋」的实现其实是权衡后的最优解？这些知识往往存在于工程师的直觉中，存在于团队的历史记忆里，存在于无数次失败和重构的教训中——它们无法被声明，只能被体会。</p>
+<p>一位在 2026 年 3 月使用过 Harness 的工程师向我们表示：「对于标准任务（如添加一个 REST API），Harness 表现很好。但对于需要深度架构思考的任务，我发现自己花在『调整声明』上的时间，比直接写代码还长。更可怕的是，有时候我以为声明清楚了，Harness 给出的实现却完全偏离了我的真实意图——而我直到代码生成后才发现这一点。」</p>
+<p><strong>意图约束的边界，就是可表达性的边界。而软件工程中真正重要的东西，恰恰是不可表达的。</strong></p>
+<p>Harness 把「如何做」的决策权交给了系统，但系统并不理解工程的深层约束。它可能生成「正确」的代码——语法正确、测试通过、功能实现——但这段代码是否符合团队的技术哲学？是否考虑了未来的扩展性？是否与现有架构风格一致？这些判断需要「品味」，而品味无法被声明。</p>
+<p>Harness 解决了「执行」的问题，但没有解决「判断」的问题。而软件工程的核心，恰恰是判断。不是「能不能做」的判断，而是「应不应该做」的判断。</p>
+<h2 id="横向拆解四种约束的本质与局限">横向拆解：四种约束的本质与局限<a hidden class="anchor" aria-hidden="true" href="#横向拆解四种约束的本质与局限">#</a></h2>
+<p>全局来看，这四套框架代表了四种不同的「控制哲学」：</p>
+<table>
+  <thead>
+      <tr>
+          <th>框架</th>
+          <th>约束对象</th>
+          <th>核心机制</th>
+          <th>优势</th>
+          <th>致命局限</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Superpowers</td>
+          <td>过程</td>
+          <td>强制技能触发</td>
+          <td>规范性强，适合标准化流程</td>
+          <td>技能维护成本高，灵活性差</td>
+      </tr>
+      <tr>
+          <td>GSD</td>
+          <td>环境</td>
+          <td>状态机+上下文隔离</td>
+          <td>延长有效工作时间</td>
+          <td>剥夺全局视角，局部最优风险</td>
+      </tr>
+      <tr>
+          <td>gstack</td>
+          <td>视角</td>
+          <td>角色分工</td>
+          <td>模拟团队协作</td>
+          <td>混淆角色与能力，幻觉严重</td>
+      </tr>
+      <tr>
+          <td>Harness</td>
+          <td>意图</td>
+          <td>声明式编排</td>
+          <td>工程师专注高层设计</td>
+          <td>意图表达不完整，判断缺失</td>
+      </tr>
+  </tbody>
+</table>
+<p>它们都在做同一件事：<strong>用某种形式的「约束」来补偿 Agent 的「不理解」</strong>。</p>
+<p>Superpowers 约束过程，因为 Agent 不会自己按规矩来；GSD 约束环境，因为 Agent 无法处理过多信息；gstack 约束视角，因为 Agent 无法同时处理多个层面；Harness 约束意图表达，因为 Agent 无法自主理解目标。</p>
+<p><strong>但约束是补丁，不是解药。</strong></p>
+<p>真正的自主工程需要 Agent 具备三种能力，而这四种框架都没有解决：</p>
+<p><strong>第一，深层理解能力</strong>。不是理解代码的语法，而是理解代码的意图、权衡、历史。为什么这段代码写成这样？当时面临什么约束？未来可能如何变化？</p>
+<p><strong>第二，价值判断能力</strong>。不是按照规则执行，而是理解规则背后的价值，并在冲突时做出权衡。技术债什么时候该还？什么时候该借？没有标准答案，需要基于对业务和技术的综合判断。</p>
+<p><strong>第三，持续学习能力</strong>。不是记住上下文，而是从经验中学习，形成可迁移的洞察。这次重构的教训如何应用到下次？这个 bug 的模式是否在其他地方也存在？</p>
+<p>一位在 Anthropic 从事 Agent 研究的科学家向我们透露：「当前所有框架都在做『外部约束』——用规则、状态、角色、声明来限制 Agent 的行为。但真正的突破将来自『内部理解』——让 Agent 自己建立工程直觉。这不是 prompt engineering 能解决的，需要根本性的架构创新。」</p>
+<p><strong>约束的终极形态是「无约束」</strong></p>
+<p>一个值得关注的信号是：最极简的 CLAUDE.md 配置只有两行——&ldquo;auto-merge PR，post to Slack&rdquo;。</p>
+<p>这个极简配置背后是一个深刻的洞察：<strong>不要想着补齐模型的能力缺口，而是要关注如何闭环模型的生产环境。</strong></p>
+<p>这与当前四大框架的复杂形成鲜明对比。Superpowers 有 47 个技能文件，GSD 有 24 个 slash 命令，gstack 有 15 个角色模式，Harness 有复杂的声明式语法。它们都在做同一件事：假设模型不够聪明，所以需要外部系统来补偿。</p>
+<p>但极简配置的做法假设了相反的事：模型足够聪明，只需要 minimal 的 scaffolding 来闭环。</p>
+<p>&ldquo;With every model you have to add less and less&rdquo;——这是一个关键预测。不要 over-engineer 当前的架构，因为六个月后大部分都会过时。模型的能力在指数级增长，今天复杂的约束系统，明天可能就成了 technical debt。</p>
+<p>这才是 Harness Engineering 会火的真正原因：它不是 over-engineer，是 just enough engineer。不是补齐模型的缺口，而是让模型的能力在生产环境中闭环。</p>
+<p><strong>更深层的预见：约束竞赛的终局</strong></p>
+<p>如果我们把视野拉长到 12-18 个月，这场约束竞赛可能会走向一个出人意料的方向。</p>
+<p>短期（6个月内），我们会看到「约束叠加」的趋势——Superpowers 的技能系统 + GSD 的上下文管理 + gstack 的角色分工 + Harness 的声明式编排，被整合进一个「超级框架」。这个框架会声称解决了所有问题，但它真正的贡献是让我们看清：约束的堆叠有其极限。</p>
+<p>中期（12个月内），「约束疲劳」将开始出现。当开发者发现维护约束系统的成本超过收益时，会出现一波「去框架化」的反弹。一些团队会回归简单的「人类主导、AI 辅助」模式，放弃对 Agent 自主性的追求。</p>
+<p>长期（18个月+），真正的突破可能来自一个完全不同的方向：<strong>神经符号混合架构</strong>（Neuro-Symbolic Hybrid）。这种架构将大模型的模式识别能力与符号系统的逻辑推理能力结合，让 Agent 既能「感受」代码的品味，又能「证明」设计的正确性。这不是约束，而是赋能。</p>
+<p>一位参与早期原型开发的研究者描述：「在这种架构下，Agent 不再是被约束的对象，而是被赋予『工程良知』的主体。它会自己问自己：『这个设计符合我们的架构原则吗？』『这个实现是否引入了不必要的复杂性？』——不是因为我们强制它问，而是因为它真正理解了这些问题的重要性。」</p>
+<p>但这需要跨越两个巨大的鸿沟：<strong>从相关性到因果性的跃迁</strong>（Agent 不仅知道「什么代码好」，还知道「为什么好」），以及<strong>从个体到集体的跃迁</strong>（Agent 不仅学习个人经验，还能吸收整个工程社区的集体智慧）。</p>
+<h2 id="说到底约束是拐杖理解才是腿">说到底：约束是拐杖，理解才是腿<a hidden class="anchor" aria-hidden="true" href="#说到底约束是拐杖理解才是腿">#</a></h2>
+<p>2026 年的 AI 编程框架竞赛，本质上是一场「谁能让 Agent 看起来更可靠」的竞赛。更准确地说，是一场「谁能把 Agent 的失控包装得最优雅」的竞赛。</p>
+<p>Superpowers、GSD、gstack、Harness 都在用不同的方式掩盖同一个事实：<strong>当前的 Agent 并不真正理解软件工程</strong>。它们可以生成代码、执行测试、甚至并行协作，但它们不理解为什么要这样做，也不知道什么时候该打破规则。</p>
+<p>这是一个残酷的真相：我们造出了能够生成数百万行代码的系统，却造不出能够判断「这行代码该不该写」的系统。</p>
+<p>约束机制让 Agent 在「看起来可控」和「实际上可控」之间划上了等号。但这两者的差距，正是当前 AI 编程工具的隐性成本。这种成本不会立即显现——它隐藏在技术债的累积中，隐藏在架构的腐化中，隐藏在团队对 Agent 的过度信任中。等到问题爆发时，往往已经难以挽回。</p>
+<p>一位有着 20 年编程经验、曾参与多个大型开源项目的技术负责人告诉我们：「我用这些框架生成了很多代码，但每当我需要做出关键架构决策时，我还是得自己上。Agent 可以帮我写 80% 的代码，但剩下的 20%——决定项目成败的 20%——它帮不了我。更可怕的是，有时候我会误以为它能帮我，直到三个月后才发现那个决策是错的。」</p>
+<p>这 20% 是什么？是判断技术债的偿还时机，是权衡性能与可维护性，是预判业务变化对架构的影响，是在没有标准答案时做出选择。这些判断的共同点是什么？<strong>它们都需要对「不可量化之物」的感知</strong>——对简洁的审美、对风险的直觉、对未来的想象。</p>
+<p><strong>这些能力，无法通过约束获得，只能通过理解获得。</strong></p>
+<p>当前的框架都在优化「执行效率」，但软件工程的本质是「决策质量」。当 Agent 只能执行、不能决策时，它就是一个工具，而不是一个工程师。工具可以被约束，工程师需要被理解。</p>
+<p>真正的突破不会来自更多的约束，而会来自更深的理解。当 Agent 能够像资深工程师一样「读懂」代码背后的故事、「感受」架构的权衡、「预判」变化的影响时，约束才会变得多余。</p>
+<p>在那之前，我们只是在用更复杂的约束，管理一个本质上不可控的系统。而历史告诉我们：<strong>用复杂系统管理复杂系统，最终只会得到更复杂的复杂系统。</strong></p>
+<p>但这不是终点。</p>
+<p><strong>约束是拐杖，理解才是腿——而腿的存在，是为了最终能够奔跑。</strong></p>
+<p>当前的四大框架，无论它们有多少局限，都在做一件有价值的事：它们在用各自的方式探索 Agent 的边界，暴露 Agent 的缺陷，为真正的突破积累经验和数据。Superpowers 的技能系统让我们看到过程规范化的价值；GSD 的上下文管理让我们意识到信息筛选的重要性；gstack 的角色分工让我们思考协作的本质；Harness 的声明式编排让我们重新审视意图表达的可能性。</p>
+<p>这些都是「理解」的前奏。</p>
+<p>真正的 Agentic 未来，不是被约束的 Agent，而是拥有「工程良知」的 Agent——它不需要被强制遵守规则，因为它理解规则背后的价值；它不需要被限制上下文，因为它知道什么信息值得记住；它不需要被分配角色，因为它清楚自己在团队中的位置；它不需要被声明意图，因为它能够感知人类真正想要的是什么。</p>
+<p>这不是科幻。神经符号混合架构的雏形已经在实验室中运行，多模态大模型正在学会「看」代码而不仅是「读」代码，强化学习让 Agent 能够从反馈中学习而不仅是模仿。这些技术的融合，将在未来 18-24 个月内催生新一代 Agent——不是更快、更听话的工具，而是更理解、更自主的协作者。</p>
+<p>一位资深 AI 研究者说：「我们现在的阶段，类似于汽车发明初期的『无马马车』——人们还在用控制马车的思维去设计汽车。真正的汽车，是当设计师不再思考『如何让马跑得更快』，而是思考『机器能做什么马做不到的事』。Agent 的真正突破，也将发生在我们不再思考『如何约束 Agent』，而是思考『Agent 能理解什么』的时候。」</p>
+<p><strong>约束竞赛的终点，是理解竞赛的起点。</strong></p>
+<p>当 Agent 真正理解软件工程时，约束将不再是必要的拐杖，而是可选的工具。人类工程师可以选择让 Agent 自主运行，也可以选择精细控制——不是因为 Agent 需要被控制，而是因为人类选择控制。</p>
+<p>那时的 Agent，将不再是「被约束的对象」，而是「被信任的伙伴」。</p>
+<p>这才是 Agentic 的真正含义：不是更多的规则，而是更深的理解；不是更紧的控制，而是更大的自主；不是更复杂的约束系统，而是更简洁的智能本身。</p>
+<p><strong>我们正在从「约束时代」走向「理解时代」。这场竞赛的真正赢家，将是第一个跨过这条鸿沟的人。</strong></p>
+<p>但也许，赢家不会是那些构建最复杂约束系统的人，而是那些最懂得「做减法」的人。</p>
+<p>那个只有两行的 CLAUDE.md 是一个信号：当模型足够强大时，框架的价值不在于「增加什么」，而在于「移除什么」。不是给 Agent 更多规则，而是给它更多信任；不是构建更复杂的控制系统，而是设计更简洁的闭环机制。</p>
+<p><strong>AI 一日，地上一年。</strong></p>
+<p>今天的 Superpowers、GSD、gstack、Harness，无论它们多么精巧，都是过渡态。它们存在的意义不是成为终点，而是证明：当我们不再需要它们时，Agent 才真正成熟了。</p>
+<p>那个时刻可能比我们想象的更近。当模型能够理解代码的意图、感受架构的权衡、预判变化的影响时，所有的约束都会显得多余。不是因为我们设计了更好的约束，而是因为 Agent 已经内化了这些约束背后的价值。</p>
+<p><strong>解放双手，只需知道的时代，不远了。</strong></p>
+<ul>
+<li>FIN -</li>
+</ul>
+<h2 id="参考">参考<a hidden class="anchor" aria-hidden="true" href="#参考">#</a></h2>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Superpowers GitHub 仓库数据，AtomGit 开源社区报道 &ldquo;31.5k+ Stars&rdquo;。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>gstack GitHub 数据，ContentForge 博客报道 &ldquo;approximately 20,000 stars&rdquo;，今日头条报道 &ldquo;26,000–33,000+ Stars&rdquo;。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>GitHub Topics &ldquo;harness-engineering&rdquo; 搜索结果，显示 107 个相关仓库，截至 2026 年 3 月 29 日。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Superpowers 框架介绍， obra (Jesse Vincent) 创建，GitHub 官方仓库及 AI 铺子报道。&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Hacker News 报道，Superpowers &ldquo;accepted into the Anthropic marketplace in January 2026&rdquo;。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>GSD 官方文档，&ldquo;A meta-prompting and context engineering system&rdquo;。&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>GSD GitHub 仓库 README，描述 24 个 slash 命令及多 Agent 编排能力。&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>GSD v2 版本基于 Pi SDK 构建，可直接操作 Agent Harness，npm 包 gsd-pi 说明。&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>gstack GitHub 仓库，Garry Tan 创建，描述 &ldquo;turns Claude Code into a virtual engineering team&rdquo;。&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p>SitePoint 报道 &ldquo;How Garry Tan Uses GStack to Turn Claude Code Into a Dev Team&rdquo;。&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p>OpenAI Harness Engineering 官方介绍，InfoQ 报道 &ldquo;OpenAI Introduces Harness Engineering&rdquo;。&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12">
+<p>Ryan Lopopolo，OpenAI 技术员工，Harness Engineering 相关发言。&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/">技术</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.zhangky.com/posts/2026/april/2026-04-01-geoffrey-hinton-the-carpenter/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>AI人物志-木匠Geoffrey Hinton</span>
+  </a>
+  <a class="next" href="https://blog.zhangky.com/posts/2026/03/2026-03-20-agent-web-coding-memory-challenge/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Agent 写代码的下一站：不是写得快，而是记得住、跑得远</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
