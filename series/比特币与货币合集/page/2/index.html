@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>比特币与货币合集 | Zhang&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/series/%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%8E%E8%B4%A7%E5%B8%81%E5%90%88%E9%9B%86/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/series/%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%8E%E8%B4%A7%E5%B8%81%E5%90%88%E9%9B%86/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/series/%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%8E%E8%B4%A7%E5%B8%81%E5%90%88%E9%9B%86/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<meta property="og:url" content="https://blog.zhangky.com/series/%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%8E%E8%B4%A7%E5%B8%81%E5%90%88%E9%9B%86/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="比特币与货币合集">
+  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="比特币与货币合集">
+<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/series/">Series</a></div>
+  <h1>
+    比特币与货币合集
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">比特币白皮书读书笔记
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>摘要 一种完全的点对点电子货币应当允许在线支付从一方直接发送到另一方，而不需要通过一个金融机构。数字签名提供了部分解决方案，但如果仍需一个可信任的第三方来防止双重支付，那就失去了电子货币的主要优点。我们提出一种使用点对点网络解决双重支付问题的方案。该网络通过将交易哈希进一条持续增长的基于哈希的工作量证明链来给交易打上时间戳，形成一条除非重做工作量证明否则不能更改的记录。最长的链不仅是被见证事件序列的证据，而且也是它本身是由最大CPU算力池产生的证据。只要多数的CPU算力被不打算联合攻击网络的节点控制，这些节点就将生成最长的链并超过攻击者。这种网络本身只需极简的架构。信息将被尽力广播，节点可以随时离开和重新加入网络，只需接受最长的工作量证明链作为它们离开时发生事件的证据。
+批注（是什么/为什么/如何） 是什么：核心是提出无第三方介入的点对点电子货币方案——以哈希加密、工作量证明（PoW）构建不可篡改的交易时间戳链，以“最长链”作为交易有效性核心依据，实现去信任的价值转移。
+为什么：
+传统电子支付依赖金融机构（信任第三方），存在交易不可撤销、仲裁成本高、小额交易不划算等固有缺陷；
+单纯数字签名仅能验证所有权，无法解决“双重支付”（同一笔货币重复使用）痛点，保留第三方则丧失电子货币去中心化核心优势；
+需构建“去信任”机制，让交易有效性依赖全网算力共识，而非单一机构。
+如何： 交易通过哈希算法融入区块链，每个区块包含前一区块哈希，形成时间戳链条；
+工作量证明要求区块哈希满足特定条件（如以多个0比特开头），确保修改区块需重做海量计算；
+以“最长链”为共识结果，诚实节点控制多数算力时，攻击者无法追平最长链；
+网络架构极简：信息全网广播，节点自由进出，回归时以最长链同步历史交易。
+1. 简介 互联网贸易已经变得几乎完全依赖金融机构作为可信任的第三方来处理电子支付。尽管对于大部分交易这种系统运行得足够好，但仍需忍受基于信任模型这个固有缺点。由于金融机构不可避免的需要仲裁纠纷，完全不可撤销的交易实际是做不到的。仲裁成本增加了交易成本，限制了最小实际交易额度从而杜绝了日常小额交易的可能性，而且由于不支持不可撤销支付，对不可撤销服务进行支付将需要更大的成本。由于存在交易被撤销的可能性，对于信任的需求将更广泛。商家必须警惕他们的客户，麻烦他们提供更多他本不需要的信息。一定比例的欺诈被认为是不可避免的。虽可通过当面使用实物货币来避免这些成本及支付的不确定性，但不存在一个无可信任方而能在通信通道上进行支付的机制。
+我们需要的是一个基于密码学原理而不是信任的电子支付系统，该系统允许任何有交易意愿的双方能直接交易而不需要一个可信任的第三方。交易在计算上的不可撤销将保护卖家不被欺诈，用来保护买家的程序化合约机制也应该较容易实现。在这篇论文中，我们提出一种使用点对点分布式时间戳服务器为基于时间的交易序列生成计算上的证据来解决双重支付问题的方案。只要诚实节点集体控制的CPU算力大于任何一个合作攻击节点群的CPU算力，这个系统就是安全的。
+批注（是什么/为什么/如何） 是什么：先批判传统电子支付“信任第三方”模型的缺陷，再明确核心诉求——构建基于密码学的去信任、点对点电子支付系统，核心安全前提是“诚实节点算力占优”。
+为什么：
+传统模型的本质问题是“信任依赖”：金融机构作为中介需仲裁纠纷，导致交易不可撤销、成本高、小额交易不成立、欺诈风险不可避免；
+实物货币可当面规避信任问题，但无法适配线上场景，线上缺乏无中介支付机制；
+市场需要“计算上不可篡改”的交易模式：用密码学替代信任，既保护卖家（防欺诈），也为买家保护（可编程合约）预留空间。
+如何： 核心思路：通过点对点网络构建分布式时间戳服务器，为交易序列生成不可篡改的计算证据，解决双重支付；
+安全逻辑：不追求绝对无攻击，而是通过“算力门槛”提高攻击成本——诚实节点算力总和超过攻击节点群，系统即安全。
+2. 交易 我们将一枚电子货币定义为一条数字签名链。每个拥有者都通过将上一次交易和下一个拥有者的公钥的哈希值的数字签名添加到此货币末尾的方式将这枚货币转移给下一个拥有者。收款人可以通过验证数字签名来证实其为该链的所有者。
+这里的问题是收款人不能证实某个拥有者没有对此货币进行双重支付。通常的做法是引入一个可信任的中央机构或铸币厂来检查每笔交易是否存在双重支付。每笔交易之后，都需要将这枚货币退回铸币厂以换取发行一枚新的货币，只有由铸币厂直接发行的货币才能被确认没有被双重支付。这个方案的问题在于整个货币系统的命运都依赖于运营铸币厂的公司，每笔交易都需要经过它们，就像银行一样。
+我们需要一种能让收款人知道上一个货币拥有者没有对任何更早的交易签名的方法。对我们来说，最早的那次交易是唯一有效的，所以我们不需要关心本次交易后面的双重支付尝试。唯一能确认一笔交易不存在的方法是知晓所有之前的交易。在铸币厂模型中，铸币厂知晓所有交易并能确定哪笔交易最先到达。在不引入一个可信任方的前提下要达到这个目的，所有交易就必须公开发布[1]，而且需要一个能让所有参与者对交易收到顺序的单一历史达成共识的系统。收款人在每笔交易时，都需要多数节点认同此交易是最先收到的证据。
+批注（是什么/为什么/如何） 是什么：明确比特币核心定义（数字签名链），点出传统电子货币“双重支付”痛点及中央铸币厂方案的缺陷，提出“交易公开&#43;全网共识交易顺序”的去信任解决方案。
+为什么：
+数字签名链能解决“所有权验证”，但无法解决“双重支付”——收款人无法知晓该货币是否已被原所有者用于更早交易；
+中央铸币厂方案虽能防双重支付，但存在“单点依赖”风险：货币系统命运绑定铸币厂，效率低且易被控制；
+去信任场景下，“交易顺序”是核心：只有确定某笔交易是“最早有效交易”，才能杜绝双重支付，需全网对交易历史达成共识。
+如何： 货币本质：每枚比特币是“上一交易&#43;下一所有者公钥哈希&#43;当前所有者签名”构成的链式结构，签名由私钥生成，确保所有权转移合法性；
+双重支付解决方案：
+交易全网公开：所有节点获取全部交易历史，避免信息不对称；
+共识机制：设计系统让所有参与者对交易接收顺序达成统一历史记录，收款人通过“多数节点认同”确认交易“最早有效”。
+3. 时间戳服务器 我们提出的方案从时间戳服务器开始。时间戳服务器计算包含多个需要被打时间戳的数据项的区块的哈希值并广泛地发布这个哈希值，就像在报纸或新闻组帖子里[2-5]。时间戳能证明要得到这个哈希值，显然这些数据当时一定是存在的。每个时间戳的哈希值都纳入了上一个时间戳，形成一条链，后面的时间戳进一步增强前一个时间戳。
+批注（是什么/为什么/如何） 是什么：时间戳服务器是比特币交易历史不可篡改的基础组件——将多个交易打包成区块，计算区块哈希并全网发布，区块哈希包含前一区块哈希，形成链式结构，以哈希加密实现“交易存在性”和“历史连续性”证明。
+为什么：
+需解决“交易时间顺序可验证”问题：证明某笔交易在特定时间点已存在，为共识交易顺序提供依据；
+哈希加密特性适配需求：哈希值是数据的唯一“数字指纹”，数据修改则哈希值巨变；前一区块哈希纳入当前区块，使历史形成“牵一发而动全身”的链条，确保不可篡改。
+如何： 打包交易：将多个待验证交易整合为一个“区块”；
+生成哈希：计算区块哈希（如SHA-256），哈希值包含区块内交易数据和上一区块哈希；
+全网发布：将区块哈希广泛广播，所有节点均可获取；
+链式增强：新区块哈希基于前一区块，形成持续增长的链，越靠后的区块越能强化前面区块的时间戳有效性。
+4. 工作量证明 为了实现一个基于点对点的时间戳服务器，我们需要使用一个类似Adam Back提出的哈希货币[6]的工作量证明系统，而不是报纸或新闻组帖子那样。工作量证明采取搜索一个数，使得被哈希时（如使用SHA-256）得到的哈希值以数个0比特开始。平均所需工作量将随所需0比特呈指数级增长而验证却只需执行一次哈希。
+对于我们的时间戳网络。我们通过在区块中加入一个随机数，直到使得区块的哈希值满足所需0比特的数被找到的方式实现工作量证明。一旦消耗了CPU算力使区块满足了工作量证明，那么除非重做这个工作否则就无法更改区块。由于后面的区块是链接在这个区块后面的，改变这个区块将需要重做所有后面的区块的工作量证明。
+工作量证明同时解决了在多数决定中确定投票方式的问题。如果多数是按IP地址投票来决定，那么它将可能被能分配大量IP地址的人破坏。工作量证明本质上是按CPU投票。最长的链代表了多数决定，因为有最大的计算工作量证明的算力投入到这条链上。如果多数的CPU算力被诚实节点控制，诚实的链就会增长得最快并超过其他的竞争链。要修改过去的某区块，攻击者必须重做这个区块以及其后的所有区块的工作量证明，从而赶上并超过诚实节点的工作。我们后面会证明随着后续的区块被添加一个更慢的攻击者赶上诚实节点的概率将呈指数级递减。
+为了抵消硬件运算速度的增加及平衡不同时期运行节点的利益，工作量证明的难度将由移动平均数法来确定每小时生成区块的平均数。如果区块生成得过快，那么生成的难度就会增加。
+批注（是什么/为什么/如何） 是什么：工作量证明（PoW）是比特币网络的“算力共识机制”——通过要求节点消耗CPU算力寻找满足特定哈希条件的随机数，实现区块生成的“成本门槛”，以“最长链”为全网共识，解决投票公平性和历史不可篡改性问题，难度动态调整以稳定区块生成速度。
+为什么：
+点对点网络需公平投票机制：按IP投票易被多IP伪造攻击，需“难以伪造且成本可控”的投票方式；
+时间戳链需“防篡改成本”：仅靠哈希链式结构不够，需增加修改历史的难度；
+硬件算力提升会导致区块生成过快，需动态调整难度以平衡节点利益。
+如何： 工作量证明实现： 规则：区块需包含随机数（Nonce），节点不断尝试随机数，直到区块哈希以指定数量0比特开头；
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-12-23 16:00:59 +0800 HKT'>December 23, 2024</span> | <span>37 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 比特币白皮书读书笔记" href="https://blog.zhangky.com/posts/2024/2024-12-23-bitcoin_paper_cn/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">比特币挖矿基础原理
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>比特币挖矿的核心逻辑 比特币挖矿是维护网络安全与生成新币的关键机制。其本质是通过计算解决密码学难题，竞争区块记账权的过程。
+工作原理 交易收集：矿工收集网络中的未确认交易，形成交易池 区块构建：选择交易打包成候选区块，包含前一区块哈希 工作量证明：通过哈希计算寻找满足条件的随机数（Nonce） 区块广播：找到有效Nonce后，向全网广播新区块 共识确认：其他节点验证后接受新区块，矿工获得奖励 安全机制 比特币网络的安全性依赖于算力分布。当多数算力由诚实节点控制时，攻击者无法篡改交易历史，因为需要重新计算所有后续区块的工作量证明。
+激励模型 矿工的收益来自两部分：新发行的比特币和交易手续费。随着挖矿难度调整，网络保持约10分钟出一个区块的节奏，确保货币发行的可预测性。
+</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2024-08-15 10:35:58 +0800 HKT'>August 15, 2024</span> | <span>1 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 比特币挖矿基础原理" href="https://blog.zhangky.com/posts/2024/2024-08-15-bitcoin_mining_basics/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">比特币白皮书读书笔记：这篇论文如何改变了我对货币的理解
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>钩子与背景：为什么我会读这篇&#34;老&#34;论文？ 2015年的今天，比特币已经从2009年的极客玩具变成了市值超过30亿美元的&#34;数字资产&#34;。但大多数人对它的理解，还停留在&#34;投机工具&#34;或者&#34;非法交易手段&#34;上。
+两周前，我在中关村的一个技术沙龙上，遇到了一位比特币早期开发者。他说了一句话让我印象深刻：“如果你想真正理解比特币，别去看价格曲线，去读中本聪的白皮书。那是区块链世界的《独立宣言》。”
+于是，我花了整整一个周末，逐字逐句读完了这篇名为《比特币：一种点对点的电子现金系统》的论文。
+一句话结论：这篇11页的论文，解决了人类金融史上最古老的问题之一——如何在没有中央权威的情况下，确保交易的安全性和不可篡改性。
+探索与试错：传统电子支付的困境 在比特币出现之前，所有的电子支付系统都依赖于中央权威（银行、PayPal等）。这些系统存在三个核心问题：
+信任成本高昂：每笔交易都需要经过中间机构验证，手续费和延迟不可避免 单点故障风险：中央服务器被攻击或崩溃，整个系统就会瘫痪 隐私泄露：所有交易记录都被中央机构掌握，用户没有真正的隐私 我曾经参与过一个第三方支付系统的开发，深刻体会到这些痛点。2013年春节期间，我们的系统因为交易量激增而崩溃，用户无法提现，客服电话被打爆。那一周，我和团队每天只睡3小时，才把系统恢复正常。
+当时我们尝试过各种优化方案，但始终无法解决中央化架构的根本性问题。直到读到比特币白皮书，我才意识到，原来还有另一种可能。
+核心方案：比特币的工作原理深潜 比特币白皮书提出了一种全新的解决方案，核心包括四个关键技术：
+1. 点对点网络 比特币网络是一个去中心化的点对点网络，没有中央服务器，所有节点都是平等的。
+# 简化的比特币网络节点连接示意图 节点A ↔ 节点B ↔ 节点C ↔ 节点D ↔ 节点E ↔ 节点F 当Alice向Bob发送比特币时，交易信息会广播到整个网络，每个节点都会验证这笔交易的合法性。
+2. 时间戳服务器 为了防止双重支付（同一笔比特币被花两次），比特币使用了时间戳服务器。每个交易都会被盖上时间戳，并记录在一个不断增长的区块中。
+# 区块结构简化示意图 区块 = { &#34;时间戳&#34;: &#34;2015-03-15T14:30:00&#34;, &#34;前区块哈希&#34;: &#34;a1b2c3d4...&#34;, &#34;交易列表&#34;: [ {&#34;发送方&#34;: &#34;Alice&#34;, &#34;接收方&#34;: &#34;Bob&#34;, &#34;金额&#34;: &#34;1 BTC&#34;}, {&#34;发送方&#34;: &#34;Bob&#34;, &#34;接收方&#34;: &#34;Charlie&#34;, &#34;金额&#34;: &#34;0.5 BTC&#34;} ], &#34;Merkle根&#34;: &#34;e5f6g7h8...&#34;, &#34;随机数&#34;: &#34;123456789&#34; } 3. 工作量证明（PoW） 为了确保区块的安全性，比特币使用了工作量证明机制。矿工需要通过计算复杂的哈希函数，找到一个符合条件的随机数，才能将区块添加到区块链上。
+工作量证明的核心思想： 要篡改一个区块，你需要重新计算该区块及其所有后续区块的工作量证明，这在计算上几乎是不可能的。
+4. 区块链 所有验证过的区块按时间顺序链接在一起，形成一个不可篡改的区块链。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2015-03-15 14:49:00 +0800 HKT'>March 15, 2015</span> | <span>9 min</span> | <span>北京</span></footer>
+  <a class="entry-link" aria-label="post link to 比特币白皮书读书笔记：这篇论文如何改变了我对货币的理解" href="https://blog.zhangky.com/posts/2015/bitcoin-whitepaper-notes/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://blog.zhangky.com/series/%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%8E%E8%B4%A7%E5%B8%81%E5%90%88%E9%9B%86/">
+      «&nbsp;Prev&nbsp;1/2
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

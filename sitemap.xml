@@ -5,7 +5,7 @@
     <loc>https://blog.zhangky.com/tags/ai/</loc>
     <lastmod>2026-06-25T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangky.com/series/ai-%E5%8E%9F%E7%94%9F%E5%88%9B%E4%B8%9A%E6%89%8B%E5%86%8C%E6%8B%86%E8%A7%A3-the-founders-playbook/</loc>
+    <loc>https://blog.zhangky.com/series/ai-native-%E5%90%88%E9%9B%86/</loc>
     <lastmod>2026-06-25T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/categories/</loc>
@@ -65,6 +65,9 @@
     <loc>https://blog.zhangky.com/posts/2026/06/2026-06-01-what-is-ai-native/</loc>
     <lastmod>2026-06-01T08:00:00+08:00</lastmod>
   </url><url>
+    <loc>https://blog.zhangky.com/series/ai-%E4%BA%A7%E4%B8%9A%E8%A7%82%E5%AF%9F%E5%90%88%E9%9B%86/</loc>
+    <lastmod>2026-05-27T08:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://blog.zhangky.com/categories/finance/</loc>
     <lastmod>2026-05-27T08:00:00+08:00</lastmod>
   </url><url>
@@ -86,6 +89,9 @@
     <loc>https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/</loc>
     <lastmod>2026-05-14T07:18:00+08:00</lastmod>
   </url><url>
+    <loc>https://blog.zhangky.com/series/ai-%E7%BC%96%E7%A8%8B%E4%B8%8E-agent-%E5%90%88%E9%9B%86/</loc>
+    <lastmod>2026-05-13T08:11:23+08:00</lastmod>
+  </url><url>
     <loc>https://blog.zhangky.com/posts/2026/05/2026-05-13-ai-programming-future/</loc>
     <lastmod>2026-05-13T08:11:23+08:00</lastmod>
   </url><url>
@@ -95,11 +101,17 @@
     <loc>https://blog.zhangky.com/categories/insight/</loc>
     <lastmod>2026-05-08T06:00:00+08:00</lastmod>
   </url><url>
+    <loc>https://blog.zhangky.com/series/%E5%95%86%E4%B8%9A%E4%B8%8E%E7%AE%A1%E7%90%86%E5%90%88%E9%9B%86/</loc>
+    <lastmod>2026-05-08T06:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://blog.zhangky.com/posts/2026/04/2026-04-19-harness-future-ai-agent/</loc>
     <lastmod>2026-04-19T22:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/04/2026-04-17-harness-what-is-it/</loc>
     <lastmod>2026-04-17T22:05:00+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/series/ai-%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0%E5%90%88%E9%9B%86/</loc>
+    <lastmod>2026-04-07T20:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/april/2026-04-07-fei-fei-li-the-humanist/</loc>
     <lastmod>2026-04-07T20:00:00+08:00</lastmod>
@@ -117,9 +129,6 @@
     <lastmod>2026-04-04T20:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-08-advanced/</loc>
-    <lastmod>2026-04-04T19:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zhangky.com/series/claude-agent%E7%90%86%E5%BF%B5%E4%B8%93%E6%A0%8F/</loc>
     <lastmod>2026-04-04T19:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-07-building/</loc>
@@ -173,13 +182,10 @@
     <loc>https://blog.zhangky.com/categories/ai/</loc>
     <lastmod>2026-03-08T14:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangky.com/series/ai%E4%BA%A7%E4%B8%9A%E8%A7%82%E5%AF%9F/</loc>
-    <lastmod>2026-03-08T14:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://blog.zhangky.com/posts/2026/03/2026-03-08-openclaw-fever-behind-the-hype/</loc>
     <lastmod>2026-03-08T14:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangky.com/series/qwen%E5%9B%A2%E9%98%9F%E9%A3%8E%E6%B3%A2/</loc>
+    <loc>https://blog.zhangky.com/series/qwen-%E5%9B%A2%E9%98%9F%E9%A3%8E%E6%B3%A2%E5%90%88%E9%9B%86/</loc>
     <lastmod>2026-03-07T21:29:02+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/03/2026-03-07-linjunyang-next-move-startup/</loc>
@@ -206,7 +212,7 @@
     <loc>https://blog.zhangky.com/posts/2026/03/2026-03-01-decapitation-war-distributed-organization/</loc>
     <lastmod>2026-03-01T23:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zhangky.com/series/%E5%91%A8%E6%9C%9F%E5%90%AF%E7%A4%BA%E5%BD%95%E8%A7%A3%E7%A0%81%E5%91%A8%E9%87%91%E6%B6%9B/</loc>
+    <loc>https://blog.zhangky.com/series/%E5%91%A8%E6%9C%9F%E5%90%AF%E7%A4%BA%E5%BD%95%E5%90%88%E9%9B%86/</loc>
     <lastmod>2026-02-25T21:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/read-jintao/2026-02-25-zhou-jintao-wisdom-across-cycles/</loc>
@@ -254,6 +260,9 @@
     <loc>https://blog.zhangky.com/categories/%E8%AE%BA%E6%96%87%E5%88%86%E6%9E%90/</loc>
     <lastmod>2026-02-10T20:42:22+08:00</lastmod>
   </url><url>
+    <loc>https://blog.zhangky.com/series/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%E5%90%88%E9%9B%86/</loc>
+    <lastmod>2026-02-10T20:42:22+08:00</lastmod>
+  </url><url>
     <loc>https://blog.zhangky.com/posts/2026/02/2026-02-09-buffett-operating-efficiency-ceo/</loc>
     <lastmod>2026-02-09T23:45:03+08:00</lastmod>
   </url><url>
@@ -261,6 +270,9 @@
     <lastmod>2026-02-07T10:16:29+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/categories/%E6%95%B0%E5%AD%97%E8%B4%A7%E5%B8%81/</loc>
+    <lastmod>2026-02-04T20:14:51+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/series/%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%8E%E8%B4%A7%E5%B8%81%E5%90%88%E9%9B%86/</loc>
     <lastmod>2026-02-04T20:14:51+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2026/02/2026-02-04-currency-gold-bitcoin-population-power/</loc>
@@ -341,6 +353,9 @@
     <loc>https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/</loc>
     <lastmod>2025-12-31T21:53:04+08:00</lastmod>
   </url><url>
+    <loc>https://blog.zhangky.com/series/chatgpt-%E6%8A%80%E6%9C%AF%E6%BA%90%E6%B5%81%E5%90%88%E9%9B%86/</loc>
+    <lastmod>2025-12-31T21:53:04+08:00</lastmod>
+  </url><url>
     <loc>https://blog.zhangky.com/posts/2025/2025-12-longcat-video-avatar/</loc>
     <lastmod>2025-12-22T20:48:30+08:00</lastmod>
   </url><url>
@@ -351,6 +366,9 @@
     <lastmod>2025-12-15T21:48:02+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2025/2025-12-12-thiel-crypto-empire/</loc>
+    <lastmod>2025-12-12T10:51:30+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/series/%E5%8A%A0%E5%AF%86%E4%BA%BA%E7%89%A9%E5%90%88%E9%9B%86/</loc>
     <lastmod>2025-12-12T10:51:30+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2025/2025-12-05-armstrong-compliant-infrastructure/</loc>
@@ -444,6 +462,9 @@
     <lastmod>2025-02-20T14:54:08+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2025/math-learn/2025-math-02-core-formulas/</loc>
+    <lastmod>2025-01-16T10:27:39+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.zhangky.com/series/ai-%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E5%90%88%E9%9B%86/</loc>
     <lastmod>2025-01-16T10:27:39+08:00</lastmod>
   </url><url>
     <loc>https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/</loc>

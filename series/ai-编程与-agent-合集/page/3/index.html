@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AI 编程与 Agent 合集 | Zhang&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+<meta name="author" content="ZHANG.z&#34;">
+<link rel="canonical" href="https://blog.zhangky.com/series/ai-%E7%BC%96%E7%A8%8B%E4%B8%8E-agent-%E5%90%88%E9%9B%86/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/series/ai-%E7%BC%96%E7%A8%8B%E4%B8%8E-agent-%E5%90%88%E9%9B%86/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/series/ai-%E7%BC%96%E7%A8%8B%E4%B8%8E-agent-%E5%90%88%E9%9B%86/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<meta property="og:url" content="https://blog.zhangky.com/series/ai-%E7%BC%96%E7%A8%8B%E4%B8%8E-agent-%E5%90%88%E9%9B%86/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="AI 编程与 Agent 合集">
+  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="website">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="AI 编程与 Agent 合集">
+<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
+
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/series/">Series</a></div>
+  <h1>
+    AI 编程与 Agent 合集
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">01-架构哲学：智能与控制的永恒张力
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Claude Agent理念专栏是一系列深入解析Claude Code工业级Agent设计理念的技术文章，共8篇，从架构哲学到具体实现，拆解智能编程助手的核心设计原理。
+本文是第1篇：探讨AI编程工具中智能与控制的永恒张力，以及Claude Code的四大设计原则和五层架构模型。
+设计AI编程助手的核心矛盾，在于它必须足够聪明以理解复杂任务，又必须足够可控以确保安全可靠。
+这是工业级Agent设计的永恒命题。Claude Code作为Anthropic官方推出的AI编程工具，其架构背后体现了一套完整的做法：如何在赋予AI自主决策能力的同时，建立多层安全边界。据我们了解，这套设计历经数年迭代，核心团队从早期原型到生产级产品的过程中，始终在智能与控制之间寻找动态平衡点。本文基于Claude Code源码，拆解其架构哲学中的四大设计原则与五层架构模型。
+智能与控制的二元张力：为什么传统软件设计做法失效 传统软件工程的确定性假设，在AI系统面前遇到了根本性挑战。
+传统软件的输出是完全可预测的，行为由代码精确控制，错误可以精确定位和调试。但AI系统的输出具有概率性，行为有创造性也可能出错，错误难以复现和调试。这意味着我们不能用传统软件的思路来设计AI工具——需要新的架构范式。
+一位资深系统架构师指出：“AI编程工具的设计本质上是智能与控制的权衡艺术。“这种权衡体现在四个维度：自主决策vs人类监督、快速执行vs安全审查、全局优化vs局部可控、自动化vs可解释性。
+Claude Code的解决方案是分层授权。系统定义了六种权限模式，从最保守的plan模式（每个工具调用都需要确认）到完全自主的bypassPermissions模式。这种设计让用户可以根据任务性质和信任程度，动态调整AI的自主空间。据Anthropic内部披露，超过60%的用户在日常开发中使用default模式，而在生产环境部署时则切换到plan模式。
+四大设计原则：分层、可逆、渐进、透明 Claude Code的架构设计围绕四大核心原则展开。
+分层授权原则的要害在于：不是所有操作都需要同等级的监督。系统采用四层过滤决策机制：第一层是O(1)的只读属性快速检查，第二层是O(n)的显式规则匹配，第三层是模式特定逻辑，第四层是约100ms延迟的AI分类器判断。这种分层设计确保了高频安全操作的快速通过，同时将计算资源集中在真正需要智能判断的场景。
+可逆性优先原则体现在三个策略上。文件操作先生成diff而非直接覆盖，Git集成确保所有变更进入版本控制，Worktree隔离为Agent创建独立工作区支持完整commit/merge/abort流程。一位Claude Code核心开发者解释：“我们默认假设事情会出问题，所以每个操作都要能被撤销。”
+渐进式放权原则设计了一条信任建立曲线：从初始阶段的plan模式（学习用户风格），到熟悉阶段的default模式（建立操作模式），再到深度信任阶段的acceptEdits/auto模式（预测用户需求）。数据显示，用户平均使用两周后，权限模式的自主权会提升约40%。
+透明可见原则要求系统在决策透明（权限决策包含原因和风险因素）、执行透明（流式展示思考过程和工具调用）、结果透明（详细展示变更内容）三个维度上保持开放。
+上下文经济学：Token不是免费空气 在Claude Code的设计哲学中，上下文是稀缺资源，不是免费空气。每个token都有成本。
+System Prompt的缓存设计体现了这一理念。静态部分（身份标识、系统规格、任务哲学、风险行为定义等）被设计为缓存友好的&#34;宪法”，位于动态边界之前。动态部分（会话指导、记忆、环境信息等）是会话特定的&#34;当期政策”。这种设计的缓存友好原则包括：静态在前动态在后、按需加载而非预加载、主动清理而非被动溢出。
+据我们了解，这种缓存优化使API调用成本降低了约35%。在上下文压缩方面，系统采用智能策略：保留必须的消息（系统提示、最近消息）、对中间消息生成摘要、选择性保留重要消息（错误信息、决策记录、TODO项、包含FileEdit的消息）。
+五层架构模型：从执行到智能的垂直分层 Claude Code的架构可以抽象为五个层次。
+最底层是执行层，负责文件系统、进程管理、网络请求等基础操作。上一层是工具层，封装文件操作、命令执行、搜索查询等原子能力。再往上是权限层，处理访问控制、安全策略、审计日志。第四层是协调层，负责Agent编排、任务调度、状态同步。最顶层是智能层，承载LLM推理、任务分解、意图理解。
+这种分层架构的关键设计权衡包括：同步vs异步（执行时间小于10秒用同步，大于10秒用异步）、Eager vs Lazy（核心工具eager加载，MCP工具lazy加载）、内存vs计算（文件内容缓存，工具结果不缓存，权限决策短期缓存）。
+全局来看，Claude Code的架构哲学揭示了一个深层规律：好的AI系统架构不是消除智能与控制的张力，而是通过分层和抽象管理这种复杂性。透明性是获得信任的前提，渐进式放权建立用户信任，而上下文管理则是可持续运营的经济基础。当越来越多的开发者开始构建AI编程工具时，这些原则提供了可落地的设计参考。
+系列阅读快速跳转 日期 篇目 核心问题 04-04 01-架构哲学：智能与控制的永恒张力 如何平衡AI自主性与用户控制？ 04-04 02-Agent架构设计：受控的自主之道 Agent与传统函数的本质区别是什么？ 04-04 03-权限系统：六层信任梯度 如何设计分层的权限决策引擎？ 04-04 04-工具系统：AI与世界的强类型接口 工具如何成为自描述、可组合的智能接口？ 04-04 05-上下文管理：有限注意力的艺术 如何在有限上下文窗口中分配注意力？ 04-04 06-编程体验：流式交互的本质优化 什么是极致的AI编程交互体验？ 04-04 07-动手构建：从零打造智能编程助手 如何构建生产级的AI编程助手？ 04-04 08-进阶揭秘：遥测、安全与隐藏能力 Claude Code如何处理隐私、安全与隐藏功能？ 引用 本文基于Claude Code开源架构文档与源码分析，核心设计理念参考Anthropic官方技术文档与工程实践。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-04-04 06:00:00 +0800 HKT'>April 4, 2026</span> | <span>11 min</span> | <span>zhejiang, China</span></footer>
+  <a class="entry-link" aria-label="post link to 01-架构哲学：智能与控制的永恒张力" href="https://blog.zhangky.com/posts/2026/kelaode/2026-04-04-kelaode-01-philosophy/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AI 编程框架的约束竞赛：Superpowers、GSD、gstack 
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>当所有人都声称自己解决了 AI 编程的「失控」问题时，真正的失控才刚刚开始。
+2026 年 3 月，AI 编程框架的竞争进入了一个诡异的阶段。Superpowers 用「技能强制」约束过程，GSD 用「状态机」约束环境，gstack 用「角色分工」约束视角，OpenAI 的 Harness Engineering 则用「声明式编排」约束意图。它们都在做同一件事：给失控的 Agent 套上缰绳。
+但问题在于——约束不是解决方案，而是问题的转移。
+据我们了解，Superpowers 在 GitHub 上已积累 3.15 万&#43; stars1，gstack 发布数天内即获得约 2 万 stars2，Harness Engineering 相关仓库在 3 个月内激增到 107 个3。然而，一位同时深度使用过这四套系统的资深工程师告诉我们：「它们都在解决同一个症状（Agent 失控），却没人敢碰真正的病因（Agent 不理解）。」
+这场「约束竞赛」的本质是什么？各家方法的边界在哪里？以及，为什么它们都离「真正的自主工程」还有距离？
+Superpowers：用「强制技能」约束过程，但谁来约束技能？ Superpowers 的思路很直接：既然 Agent 会乱来，那就让它「必须」按规矩来。
+这个由 Jesse Vincent（obra）创建的框架4，核心机制是「技能强制触发」——在 SKILL.md 文件中写入类似 “You MUST use this before any creative work” 的指令，Agent 在检测到对应意图时，必须优先触发技能，而非直接编码。截至 2026 年 1 月，它已被 Anthropic 官方接入 Claude Code 插件市场5。
+这套机制的本质是「过程约束」。
+它强制 Agent 遵循 RED-GREEN-REFACTOR 的 TDD 循环，强制在编码前完成设计文档，强制通过子 Agent 进行代码审查。一位使用 Superpowers 的 Tech Lead 表示：「它确实减少了『拍脑袋编码』的情况，我们的代码规范遵守率从 60% 提升到了 90%。」
+...</p>
+  </div>
+  <footer class="entry-footer">   AI | <span title='2026-03-29 20:00:00 +0800 HKT'>March 29, 2026</span> | <span>38 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to AI 编程框架的约束竞赛：Superpowers、GSD、gstack " href="https://blog.zhangky.com/posts/2026/03/2026-03-29-ai-coding-frameworks-harness-analysis/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Agent 写代码的下一站：不是写得快，而是记得住、跑得远
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>当 AI Agent 能够连续运行数天、自主管理复杂工程任务时，Web Coding 的竞争规则已经变了。
+2026 年开年，AI 编程工具的讨论焦点正在从「能写多少代码」转向「能持续跑多久」。以 Cursor Composer 为代表的新一代工具，正在探索「multi-day autonomy」（多日自主性）——让 Agent 在没有人工干预的情况下连续运行数天，处理从代码生成到架构设计的全流程任务。这不是简单的「自动化」，而是一场关于 Agent 「记忆力」和「决策力」的工程实验。
+据我们了解，Cursor 团队在 2026 年 3 月发布的 Composer 2 版本1，将上下文窗口扩展至 20 万 Token，并引入了「会话记忆」「上下文压缩」等能力，试图解决长期运行中的致命问题：上下文爆炸和错误累积。传统 AI 编程在几小时后就会因为上下文过长而「失忆」，而新一代技术通过智能压缩和总结机制，让 Agent 的「有效记忆」远远超出物理窗口限制。
+一位接近 Cursor 的工程师透露，他们的目标不是替代程序员写代码，而是构建「能够自主进化的代码仓库」——让软件工程从「人驱动」转向「AI 驱动」。
+从「写代码」到「做工程」：Agent 的能力跃迁 过去两年，AI 编程工具的竞争集中在「生成速度」和「代码质量」上。GitHub Copilot 能在几秒内补全代码，Claude Code 能在 6 小时内自主调试复杂系统，但这些仍属于「短跑」——任务明确、时间可控、上下文有限。
+Cursor 的长运行能力则将「长跑」推向了「week-scale」（周级）。据行业观察，Composer 的 Agent 模式能够支持长时间复杂任务执行，提供会话记忆、上下文压缩、分支聊天、代理调试面板等能力2。更要紧的是，这些 Agent 并非简单执行预设任务，而是能够自主规划、分工协作、迭代优化。
+这种能力的本质是什么？
+一位长期研究 AI 编程的研究者指出，关键不在于「写代码」本身，而在于「维持工程状态的连续性」。人类工程师的价值不仅在于写代码，更在于对系统架构的理解、对历史决策的记忆、对错误模式的识别。Agent 要想替代这部分工作，必须拥有「长期记忆」和「渐进式学习」能力。
+Cursor 的解决方案是「Hierarchical Agents」（分层 Agent）架构：Planner（规划者）负责拆解任务、Worker（执行者）负责具体实现、Judge（评判者）负责质量把关。三层之间通过压缩后的上下文传递信息，既避免了信息过载，又保持了决策连贯性。
+记忆，是 Agent 工程化的最大瓶颈 当前 AI 编程工具面临的核心挑战，不是「能不能写」，而是「记不记得住」。
+据我们了解，大多数 AI 编程 Agent 在持续运行 4-6 小时后就会出现明显的「失忆」症状：忘记之前的架构决策、重复已修复的错误、对代码库的整体理解逐渐模糊。这是因为大模型的上下文窗口有限，而代码仓库的信息密度极高，几小时的对话就会填满「内存」。
+...</p>
+  </div>
+  <footer class="entry-footer">   AI | <span title='2026-03-20 20:00:00 +0800 HKT'>March 20, 2026</span> | <span>13 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to Agent 写代码的下一站：不是写得快，而是记得住、跑得远" href="https://blog.zhangky.com/posts/2026/03/2026-03-20-agent-web-coding-memory-challenge/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Coding Agents 正在重塑工程、产品与设计的分工逻辑
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 原文：Harrison Chase, How Coding Agents Are Reshaping Engineering, Product and Design, LangChain Blog, 2026 年 3 月。以下为编译，保留原文结构与论点，部分段落做了压缩和意译。
+软件公司里的 EPD——工程（Engineering）、产品（Product）、设计（Design）——存在的目的只有一个：造出能用的软件。角色分得再细，最终交付物也只是代码。
+认清这一点很重要，因为 Coding Agents 突然让写代码变得极其廉价。那么，EPD 的角色会怎么变？
+PRDs 已死 在 Coding Agent 出现之前，PRD（产品需求文档）是软件开发的起点。标准流程是一条清晰的瀑布：
+有人（通常是 PM）冒出一个想法 PM 写 PRD 设计师根据 PRD 画 Mock 工程师把 Mock 变成代码 这不是铁律——创业公司里这些步骤经常混在一起，最好的 Builder 能一个人跨好几个环节。但之所以还有这条「标准流程」，是因为写软件和画 Mock 都需要大量时间。于是产生了专业分工，也产生了跨分工沟通的需求。PRD 就是这个沟通的起点，一切从这里瀑布到设计，再瀑布到工程。
+Coding Agents 改变了这一切。它们可以把一个想法直接变成能跑的软件。所以当我（和其他人）说「PRDs 已死」，真正的意思是：这种以写 PRD 为起点的传统软件开发方式已死。
+瓶颈从实现转向审查 任何人现在都能写代码，也就意味着任何人都能做东西。但这不代表做出来的东西架构良好，不代表解决了正确的问题，也不代表好用。
+工程、产品和设计应该成为这些维度的审查者和仲裁者。生成的代码并不总是「好的」，EPD 的角色变成了审查并确保它是「好的」。「好的」意味着：
+工程视角：架构是否可扩展、高性能、健壮？ 产品视角：是否真正解决了用户痛点？ 设计视角：界面是否易用、直观？ 由于生成初版代码的成本极低，原型数量大幅增加。这些原型成为焦点，EPD 围着它们审查。
+问题在于——生成代码太容易了。以前写代码需要时间，审查者桌上同时摆的项目有限。现在任何人都能写代码，在做的项目数量在膨胀。我们在三个职能中看到的瓶颈都是同一个：审查——拿着原型，确保它们是「好的」。
+PRDs 万岁 以写 PRD 为起点的旧流程死了，但描述产品需求的文档依然必不可少。
+假设有人冒出一个想法，快速生成了一个原型。这个原型怎么进生产？它需要 EPD 其他成员审查。审查时，一份书面文档总是有帮助的，甚至是必需的——别人看代码时，怎么知道某段代码是手误还是有意为之？这取决于意图，而意图需要被传达。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-03-12 18:30:00 +0800 HKT'>March 12, 2026</span> | <span>17 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to Coding Agents 正在重塑工程、产品与设计的分工逻辑" href="https://blog.zhangky.com/posts/2026/03/2026-03-12-coding-agents-reshaping-epd/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AI 编程的终态肯定不是 Tab：直接要二进制
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>
+你大概已经习惯用 Tab 补全下一行代码了——但 AI 编程的终态，多半不是一直这样「补下去」。真正的方向，是有一天你不再写那一行行代码，而是用自然语言直接向 AI 要一个优化好的二进制；而这件事的引爆点，很可能就在 2026 年。
+今年 2 月初，埃隆·马斯克在 xAI 活动上的一段视频被剪成片段，在 X 上疯传。他在台上说：今年年底前，你可能连代码都不用写了，AI 会直接生成二进制，而且比任何编译器都做得更优；Grok 的代码能力，两三个月内就会到业界顶尖。原话不长，四十来秒，底下已经吵成一片：有人喊「编程奇点」来了，也有人反问——AI 直接吐机器码，你怎么调试、怎么审？吵的其实是同一件事：AI 正在从「帮你写源代码」的助手，变成「从意图到可执行文件」的管道。不再是你写、它补全，而是你提需求、它直接给出能跑的二进制。 传统开发里，编译和优化往往吃掉 20%～30% 的周期；一旦这一步被 AI 吞掉，从自然语言到可运行结果，中间那层「人类写码再编译」就会越来越薄。Anthropic 年初那份报告里已经提到，有团队在用 AI 跑通从测试、调试到部署的整条线；OpenAI 也披露过用 GPT-5.3-Codex 搭出零人类代码的完整应用。下面顺着这条线，看看技术已经铺到哪儿了、卡在哪儿，以及 2026 年底前我们大概会看到什么。
+马斯克在说什么：从「写代码」到「要二进制」 马斯克那几句，说白了就是把「编程」从「写高阶语言、再交给编译器」往前推了一步：变成用自然语言描述你要什么，AI 直接给你可执行文件。之所以一石激起千层浪，是因为这不再只是「更好的补全」，而是换了一套玩法。有人在 X 上回了一句：「机器码调试？那才是地狱周。」——可解释性和可控性，正是大家最慌的地方。但大厂已经在往这条路上走了：OpenAI 的 Codex 线已经能端到端生成小型应用，GPT-5.3-Codex 甚至搭出过零人类代码的完整 app；Anthropic 的 Claude Code 据公开信息有约九成自身代码是 Claude 写的；DeepMind 的 Gemini 也在做「自然语言 → 可运行产物」的代理。编译在过去几十年里一直是人和机器之间的那道桥，也吃掉不少开发时间；一旦 AI 把整条编译管道都内化了，写软件就会越来越像「声明意图」，而不是一行行敲代码。
+技术路径已经铺开：代理工作流与神经编译 「跳过编译」要解决的无非一件事：自然语言那么模糊，二进制又那么精确，中间怎么接上。眼下能看到两条路。一条是多步 AI 流水线：意图先被解析成语义图，再有一层做优化（类似传统编译器的多 pass，只是换成 AI 驱动），最后有一层专门产出机器码，针对 ARM 或 x86。Anthropic 的 Claude Code 就是这一挂的——不只生成代码，还自己调试、自己测；他们披露过，从「建一个实时聊天服务器」到可运行二进制，在 LangGraph 的代理链上大概 3～5 轮迭代就够，比手动编译快出一个数量级。另一条更激进，叫神经编译：让模型直接学「自然语言或高层语义 → 机器码」的映射。DeepMind 的 AlphaEvolve、Gemini Deep Think 用进化算法加自然语言验证器迭代候选解，在数学证明上已经做到九成多准确率；这套思路要是搬到代码和二进制优化上，就可以绕过 LLVM 之类传统工具链去做分支预测、缓存亲和性。MIT 的 EnCompass 则用回溯让代理多试几次 LLM 输出、挑出最佳路径，把「生成—验证」回路做实。再加上 OpenAI 和 Cerebras 在芯片上的合作，生成速度提了一截，代理在秒级内吐出「近即时」二进制已经可以想象；LangGraph 从单代理撑到上万并发，也就半年左右。这条代理链要接上真实世界，还得有统一的「工具契约」——协议层也在动：MCP（Model Context Protocol）把模型和工具、数据源对接标准化，Chrome for Developers 则已开放 WebMCP 的 early preview，让网站和前端能以结构化工具的形式暴露给 AI 代理（通过 navigator.modelContext 等），代理不用再靠截图或爬 DOM，而是按约定调用，可审计、可管控。直接二进制生成，已经从论文和原型，摸到了工程验证的门槛。
+...</p>
+  </div>
+  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-15 19:00:00 +0800 HKT'>February 15, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to AI 编程的终态肯定不是 Tab：直接要二进制" href="https://blog.zhangky.com/posts/2026/02/2026-02-15-ai-coding-skip-compile/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://blog.zhangky.com/series/ai-%E7%BC%96%E7%A8%8B%E4%B8%8E-agent-%E5%90%88%E9%9B%86/page/2/">
+      «&nbsp;Prev&nbsp;2/3
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

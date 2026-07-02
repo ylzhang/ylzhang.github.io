@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AI 人物传记合集 on Zhang&#39;s Blog</title>
+    <link>https://blog.zhangky.com/series/ai-%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0%E5%90%88%E9%9B%86/</link>
+    <description>Recent content in AI 人物传记合集 on Zhang&#39;s Blog</description>
+    <image>
+      <title>Zhang&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.160.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 07 Apr 2026 20:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/series/ai-%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0%E5%90%88%E9%9B%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI人物志-人文主义者李飞飞</title>
+      <link>https://blog.zhangky.com/posts/2026/april/2026-04-07-fei-fei-li-the-humanist/</link>
+      <pubDate>Tue, 07 Apr 2026 20:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/april/2026-04-07-fei-fei-li-the-humanist/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;AI人物志系列&lt;/strong&gt;：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;她教会了机器看见世界，却担心这个世界正在失去对人的看见。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2015年，硅谷的一个会议室里，一位穿着简单、气质干练的华裔女性正在向一群投资人展示她的新项目。屏幕上不是算法公式，而是一张张照片——一个中国女孩站在新泽西的街头，眼神中带着迷茫和倔强。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这是16岁的我，&amp;ldquo;李飞飞说，&amp;ldquo;不会说英语，家里破产，在餐馆打工洗盘子。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;投资人们交换着困惑的眼神。他们来听AI项目，不是来听移民故事。但李飞飞继续说：&amp;ldquo;我今天站在这里，不是因为算法，而是因为有人相信了我——我的高中老师、我的邻居、整个社区。AI可以改变世界，但我们必须确保它是在帮助人，而不是取代人。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这是李飞飞的风格。她是ImageNet的创造者，是计算机视觉领域的领军人物，是斯坦福AI实验室的主任。但她谈论AI时，总是从人开始。&lt;/p&gt;
+&lt;h2 id=&#34;从北京到新泽西一个关于看见的故事&#34;&gt;从北京到新泽西：一个关于看见的故事&lt;/h2&gt;
+&lt;p&gt;1976年，李飞飞出生在北京的一个知识分子家庭。她的父亲是工程师，母亲是教师。在那个年代，这样的家庭意味着稳定，但也意味着限制。&lt;/p&gt;
+&lt;p&gt;1992年，16岁的李飞飞随父母移民美国。他们带着全部积蓄——不到一千美元——来到新泽西州的一个小镇。父亲做相机修理，母亲在超市当收银员，李飞飞在餐馆洗盘子。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那是我人生中最艰难的时期，&amp;ldquo;李飞飞后来回忆，&amp;ldquo;我不会说英语，不懂美国文化，感觉自己像个隐形人。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;但李飞飞没有放弃。她每天只睡四个小时，白天上学，晚上打工，周末去图书馆自学英语。她的高中老师发现了这个特殊的学生——一个洗盘子的小女孩，却对物理和数学有着惊人的天赋。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我的老师帮我申请奖学金，帮我写推荐信，&amp;ldquo;李飞飞说，&amp;ldquo;他们让我相信，我可以做任何事。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;1995年，李飞飞以全额奖学金进入普林斯顿大学，主修物理。但她很快发现，自己对抽象的理论不感兴趣。她想要解决真实的问题——关于人的问题。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;物理告诉我世界如何运作，&amp;ldquo;李飞飞说，&amp;ldquo;但我想知道，我们如何理解这个世界。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个疑问把她带向了神经科学，然后又带向了计算机视觉。&lt;/p&gt;
+&lt;h2 id=&#34;加州理工的困惑机器为什么看不见&#34;&gt;加州理工的困惑：机器为什么看不见？&lt;/h2&gt;
+&lt;p&gt;2000年代初，李飞飞在加州理工学院读博士，研究计算机视觉。&lt;/p&gt;
+&lt;p&gt;当时的计算机视觉领域正处于困境。研究者们开发了各种算法来识别图像——边缘检测、特征提取、模式匹配——但这些算法只能在特定场景下工作，换个角度、换个光照，就失效了。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我们像是在教机器背诵答案，&amp;ldquo;李飞飞回忆，&amp;ldquo;而不是教它真正理解图像。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;问题的核心是&lt;strong&gt;数据&lt;/strong&gt;。当时的图像识别算法依赖于人工设计的特征，但这些特征太有限了。人类可以识别猫，不管它是坐着、躺着、在黑暗中还是在阳光下。但机器做不到，因为它没有见过足够多的例子。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;人类通过视觉经验学习，&amp;ldquo;李飞飞想，&amp;ldquo;为什么机器不能？&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个简单的想法，催生了ImageNet。&lt;/p&gt;
+&lt;h2 id=&#34;imagenet一场关于数据的革命&#34;&gt;ImageNet：一场关于数据的革命&lt;/h2&gt;
+&lt;p&gt;2006年，李飞飞在伊利诺伊大学厄巴纳-香槟分校担任助理教授。她决定做一件疯狂的事：构建一个超大规模的图像数据库。&lt;/p&gt;
+&lt;p&gt;当时的标准数据集只有几千张图片。李飞飞想要的是一百万张、一千万张、甚至更多。她相信，只有足够大的数据，才能让机器学习到真正的视觉理解。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;所有人都说我疯了，&amp;ldquo;李飞飞回忆，&amp;ldquo;他们说，标注这么多图片是不可能的，成本太高，时间太长。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;但李飞飞找到了一个创新的方法——&lt;strong&gt;众包&lt;/strong&gt;。她通过互联网平台，把图片标注任务分发给全世界的网民。每张图片由多人标注，通过投票机制确保准确性。&lt;/p&gt;
+&lt;p&gt;这个项目花了两年时间和数百万美元。2009年，ImageNet终于发布——包含超过1400万张图片，涵盖2万多个类别。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那是计算机视觉的转折点，&amp;ldquo;一位参与ImageNet的研究者说，&amp;ldquo;它证明了数据的力量。不是更好的算法，是更多的数据。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;但ImageNet的真正影响在两年后才真正显现。&lt;/p&gt;
+&lt;h2 id=&#34;2012年的夏天深度学习的黎明&#34;&gt;2012年的夏天：深度学习的黎明&lt;/h2&gt;
+&lt;p&gt;2012年，Hinton的学生Alex Krizhevsky使用深度卷积神经网络（AlexNet）参加ImageNet竞赛，以压倒性优势获胜。错误率比第二名低了10个百分点——在图像识别领域，这是代差。&lt;/p&gt;
+&lt;p&gt;深度学习革命开始了。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;ImageNet让深度学习成为可能，&amp;ldquo;Hinton后来承认，&amp;ldquo;没有ImageNet，我们无法训练这么大的模型。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;李飞飞成为了这场革命的无名英雄。但她没有沉浸在成功的喜悦中，而是开始思考一个更深层次的问题：&lt;strong&gt;这场革命会把我们带向哪里？&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;斯坦福的反思ai的伦理困境&#34;&gt;斯坦福的反思：AI的伦理困境&lt;/h2&gt;
+&lt;p&gt;2013年，李飞飞加入斯坦福大学，担任AI实验室主任。在这个位置上，她看到了AI发展的另一面。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;偏见&lt;/strong&gt;。ImageNet的数据主要来自西方互联网，导致训练出的模型对非西方文化存在偏见。一个识别&amp;quot;新娘&amp;quot;的模型，主要输出的是西方婚纱；一个识别&amp;quot;家庭&amp;quot;的模型，主要输出的是白人家庭。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;隐私&lt;/strong&gt;。人脸识别技术的进步，让监控变得前所未有的容易。政府和企业可以追踪任何人的行踪，而普通人对此毫无察觉。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;就业&lt;/strong&gt;。自动化正在取代越来越多的工作，从工厂工人到白领职员。AI创造的新工作，需要更高的技能，而失业者往往无法胜任。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我们创造了强大的技术，&amp;ldquo;李飞飞说，&amp;ldquo;但我们没有准备好如何使用它。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种担忧让李飞飞开始关注AI的伦理问题。她在斯坦福成立了&amp;quot;以人为本的AI（Human-Centered AI）&amp;ldquo;研究院，致力于研究AI的社会影响，推动负责任的AI发展。&lt;/p&gt;
+&lt;h2 id=&#34;ai4all让ai属于所有人&#34;&gt;AI4ALL：让AI属于所有人&lt;/h2&gt;
+&lt;p&gt;2015年，李飞飞联合创办了AI4ALL（原名AI4ALL），一个非营利组织，旨在增加AI领域的多样性。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;AI正在塑造我们的世界，&amp;ldquo;李飞飞说，&amp;ldquo;但创造AI的人，不能只是硅谷的白人男性。我们需要女性的声音，需要少数族裔的声音，需要来自不同背景的声音。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;AI4ALL为高中生——特别是女性和少数族裔——提供AI教育项目。它不仅仅教授编程和算法，更要紧的是培养学生的批判性思维，让他们思考AI的社会影响。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;技术本身是中性的，&amp;ldquo;李飞飞说，&amp;ldquo;但技术的使用是有价值取向的。我们需要更多人来参与这个价值的塑造。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个项目已经培养了数千名学生，其中许多人后来进入了顶尖大学，成为AI领域的研究者。&lt;/p&gt;
+&lt;h2 id=&#34;当下的沉思人文主义者的警告&#34;&gt;当下的沉思：人文主义者的警告&lt;/h2&gt;
+&lt;p&gt;站在2026年，李飞飞对AI的发展既有期待，也有担忧。&lt;/p&gt;
+&lt;p&gt;她看到了AI在医疗、教育、环保等领域的巨大潜力。AI可以帮助医生诊断疾病，帮助老师个性化教学，帮助科学家预测气候变化。这些都是她梦寐以求的应用。&lt;/p&gt;
+&lt;p&gt;但她也看到了危险。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AI的集中化&lt;/strong&gt;。训练大模型需要巨大的计算资源和数据，只有少数几家科技巨头能够做到。这种集中化可能导致权力的垄断，让AI成为少数人的工具。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AI的滥用&lt;/strong&gt;。深度伪造、自动化武器、大规模监控——这些技术正在威胁个人隐私和社会稳定。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AI的异化&lt;/strong&gt;。当AI越来越强大，人类可能变得依赖它，失去独立思考和判断的能力。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我担心我们正在创造一个我们不理解的世界，&amp;ldquo;李飞飞说，&amp;ldquo;一个由算法决定一切的世界，而人类只是旁观者。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;她的解决方案是&lt;strong&gt;人文主义&lt;/strong&gt;——把人的价值放在AI发展的中心。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;AI应该是增强人类，而不是取代人类，&amp;ldquo;李飞飞说，&amp;ldquo;它应该帮助我们成为更好的自己，而不是让我们变得多余。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;说到底一个看见者的使命&#34;&gt;说到底：一个看见者的使命&lt;/h2&gt;
+&lt;p&gt;回顾李飞飞的一生，她的核心使命始终是&lt;strong&gt;看见&lt;/strong&gt;——让机器看见世界，让世界看见被忽视的人。&lt;/p&gt;
+&lt;p&gt;ImageNet让机器学会了视觉理解，这是技术上的看见。AI4ALL让少数族裔和女性进入AI领域，这是社会上的看见。以人为本的AI倡议让伦理问题进入主流讨论，这是价值上的看见。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我16岁时感觉自己像个隐形人，&amp;ldquo;李飞飞说，&amp;ldquo;那种不被看见的感觉，我永远不会忘记。这就是为什么我相信，技术应该用来帮助那些被忽视的人。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种信念让李飞飞成为AI界的独特声音。当其他人谈论准确率、算力、市场份额时，她谈论人、社区、价值。她提醒这个技术驱动的行业，不要忘记技术的最终目的是服务人。&lt;/p&gt;
+&lt;p&gt;一位李飞飞的同事告诉我们：&amp;ldquo;飞飞让我明白，做AI不只是写代码。你是在塑造未来，而这个未来会影响数十亿人的生活。这种责任感，是飞飞带给我们的最重要的东西。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;全局来看&lt;/strong&gt;，李飞飞的一生诠释了技术与人文的结合。她是顶尖的科学家，创造了ImageNet这样的技术里程碑；她也是人文主义者，始终关注技术的社会影响。在AI发展最狂热的时期，她保持清醒，提醒人们不要忘记人的价值。&lt;/p&gt;
+&lt;p&gt;她教会了机器看见世界，但她更希望这个世界能够看见每一个人——尤其是那些像16岁的她一样，感到隐形的人。&lt;/p&gt;
+&lt;p&gt;而这，就是一个看见者的最高使命。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;FIN -&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>AI人物志-强化学习之父Richard Sutton</title>
+      <link>https://blog.zhangky.com/posts/2026/april/2026-04-06-richard-sutton-the-reinforcer/</link>
+      <pubDate>Mon, 06 Apr 2026 20:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/april/2026-04-06-richard-sutton-the-reinforcer/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;AI人物志系列&lt;/strong&gt;：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;当全世界都在谈论AlphaGo的奇迹时，很少有人知道，那个让机器学会&amp;quot;思考未来&amp;quot;的人，已经在加拿大的寒风中等待了四十年。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2016年3月，韩国首尔四季酒店。AlphaGo与李世石的围棋对决进入白热化。当AlphaGo下出那手震惊世界的&amp;quot;神之一手&amp;quot;时，全球数亿观众为之疯狂。但在遥远的加拿大埃德蒙顿，一位留着胡子、穿着格子衬衫的老人只是微微一笑，然后继续在他的白板上写着公式。&lt;/p&gt;
+&lt;p&gt;他叫Richard Sutton。他是强化学习之父，是AlphaGo背后的理论奠基人。但此刻，他没有在看直播——他已经知道结果。四十年的等待，终于等到了这一天。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;AlphaGo证明了强化学习可以工作，&amp;ldquo;Sutton后来平静地说，&amp;ldquo;但我更关心的是，它还能做什么。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;马萨诸塞州的童年一个关于选择的谜题&#34;&gt;马萨诸塞州的童年：一个关于选择的谜题&lt;/h2&gt;
+&lt;p&gt;1957年，Sutton出生在美国马萨诸塞州的一个普通家庭。他的父亲是一位工程师，母亲是一位教师。从小，Sutton就展现出对数学和逻辑的痴迷。&lt;/p&gt;
+&lt;p&gt;但真正改变他的是一本旧书。&lt;/p&gt;
+&lt;p&gt;那是1960年代末，Sutton在图书馆的角落里发现了一本关于心理学的书。书中描述了一个实验：老鼠在迷宫中学习找到食物。Sutton被这个简单的场景迷住了——&lt;strong&gt;没有老师，没有标签，只有尝试、错误、和奖励。老鼠通过不断尝试，学会了最优路径。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这就是学习的本质，&amp;ldquo;年轻的Sutton想，&amp;ldquo;不是被教导，而是通过互动。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个念头像一颗种子，埋进了Sutton的心里。他不知道，这颗种子将在四十年后长成参天大树。&lt;/p&gt;
+&lt;h2 id=&#34;斯坦福的困惑监督学习的局限&#34;&gt;斯坦福的困惑：监督学习的局限&lt;/h2&gt;
+&lt;p&gt;1970年代末，Sutton进入斯坦福大学学习计算机科学。那是AI的第一次寒冬，但Sutton对主流的方向感到困惑。&lt;/p&gt;
+&lt;p&gt;当时的主流是&lt;strong&gt;监督学习&lt;/strong&gt;——给机器大量标注数据，让它学会从输入到输出的映射。但Sutton觉得这种方法有问题：人类不是这样学习的。婴儿学走路，不是通过看一万个&amp;quot;正确走路&amp;quot;的示例；棋手学棋，不是通过记忆所有可能的局面。&lt;/p&gt;
+&lt;p&gt;人类学习是通过&lt;strong&gt;试错&lt;/strong&gt;，通过&lt;strong&gt;与环境的互动&lt;/strong&gt;，通过&lt;strong&gt;奖励和惩罚&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;监督学习假设有一个&amp;rsquo;正确答案&amp;rsquo;，&amp;ldquo;Sutton后来解释，&amp;ldquo;但现实中，很多问题的答案取决于你未来的行动。下棋时，这一步的好坏取决于你后面怎么下；投资时，这个决策的好坏取决于市场未来的变化。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Sutton想要一种不同的学习范式——&lt;strong&gt;强化学习（Reinforcement Learning）&lt;/strong&gt;。在这种范式中，智能体通过行动影响环境，环境反馈奖励或惩罚，智能体的目标是最大化长期累积奖励。&lt;/p&gt;
+&lt;p&gt;这不是简单的输入-输出映射，这是一个&lt;strong&gt;序列决策问题&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;时序差分在未知中寻找答案&#34;&gt;时序差分：在未知中寻找答案&lt;/h2&gt;
+&lt;p&gt;1984年，Sutton在麻省大学阿默斯特分校读博士时，做出了他一生中最重要的贡献——&lt;strong&gt;时序差分学习（Temporal Difference Learning）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;核心问题很简单：如何估计一个状态的价值？在棋局中，当前局面的价值取决于从当前局面出发，最终能赢还是输。但我们不知道最终结果，我们只能一步步走下去。&lt;/p&gt;
+&lt;p&gt;Sutton的洞见是：&lt;strong&gt;我们可以用当前的估计来更新当前的估计&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;具体来说，当我们从状态A走到状态B时，我们可以用状态B的当前价值估计来更新状态A的价值估计。如果状态B看起来很好，那么状态A也应该变得更好；如果状态B看起来很糟，那么状态A也应该变得更糟。&lt;/p&gt;
+&lt;p&gt;这种&amp;quot;自举（bootstrapping）&amp;ldquo;的方法看起来像是循环论证——用估计来更新估计，能收敛吗？&lt;/p&gt;
+&lt;p&gt;Sutton用数学证明了，在某些条件下，它能收敛。而且，它比传统的蒙特卡洛方法（等到游戏结束才更新）更快、更高效。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;时序差分是人类学习的方式，&amp;ldquo;Sutton说，&amp;ldquo;当我们做一件事时，我们不需要等到最终结果才知道好坏。我们可以根据中间反馈实时调整。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这篇1988年发表的论文，成为强化学习领域的奠基之作。但当时的AI社区对此反应冷淡。&lt;/p&gt;
+&lt;h2 id=&#34;漫长的冬天在边缘坚守&#34;&gt;漫长的冬天：在边缘坚守&lt;/h2&gt;
+&lt;p&gt;1980年代到2000年代，强化学习处于AI的边缘。&lt;/p&gt;
+&lt;p&gt;监督学习有ImageNet，有深度学习，有耀眼的成果。但强化学习呢？它只能在简单的玩具问题上演示，比如让机器人在网格世界里找路，或者让杆子在车上保持平衡。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那时候很难，&amp;ldquo;Sutton回忆，&amp;ldquo;申请经费被拒，发表论文困难，学生招不到。人们问，&amp;lsquo;这东西能做什么？&amp;lsquo;我回答不了。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;但Sutton没有放弃。他相信，强化学习的问题不是理论问题，是&lt;strong&gt;规模问题&lt;/strong&gt;。当时的计算机不够快，模拟环境不够复杂，算法无法展现真正的能力。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我们需要等待，&amp;ldquo;Sutton说，&amp;ldquo;等待计算能力的提升，等待合适的应用场景。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个等待持续了将近三十年。&lt;/p&gt;
+&lt;p&gt;在这期间，Sutton培养了一批学生，其中最著名的包括David Silver——后来AlphaGo的核心开发者。Sutton把强化学习的火种传递给了下一代，即使他自己看不到火焰燃起的那一天。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我告诉他们，这不是一个热门的领域，&amp;ldquo;Sutton说，&amp;ldquo;但如果你相信它，就坚持下去。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;2013年的突破atari游戏上的奇迹&#34;&gt;2013年的突破：Atari游戏上的奇迹&lt;/h2&gt;
+&lt;p&gt;2013年，DeepMind发表了一篇论文，震惊了整个AI社区。&lt;/p&gt;
+&lt;p&gt;他们用一个简单的强化学习算法（DQN，深度Q网络），在没有任何先验知识的情况下，学会了玩Atari电子游戏。不是一两个游戏，是几十个游戏。而且，在某些游戏上，AI的表现超越了人类专家。&lt;/p&gt;
+&lt;p&gt;Sutton看到这篇论文时，知道等待结束了。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;DeepMind证明了，强化学习可以扩展到复杂问题，&amp;ldquo;Sutton说，&amp;ldquo;不是通过更聪明的算法，而是通过深度学习来近似价值函数。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这是Sutton理论的完美验证。时序差分学习需要估计状态的价值，但对于复杂问题（比如游戏画面），状态空间太大，无法用表格存储。深度学习提供了近似价值函数的方法——用神经网络来估计&amp;quot;这个画面有多好&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;DeepMind的创始人Demis Hassabis后来承认，他们的工作建立在Sutton的理论基础之上。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Sutton是强化学习的奠基人，&amp;ldquo;Hassabis说，&amp;ldquo;没有他的工作，就没有AlphaGo。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;alphago等待四十年的答案&#34;&gt;AlphaGo：等待四十年的答案&lt;/h2&gt;
+&lt;p&gt;2016年，AlphaGo击败李世石，成为AI历史上的里程碑。&lt;/p&gt;
+&lt;p&gt;AlphaGo的核心是&lt;strong&gt;蒙特卡洛树搜索（MCTS）&lt;strong&gt;结合&lt;/strong&gt;深度神经网络&lt;/strong&gt;。但很少有人知道，MCTS的理论基础正是Sutton在1980年代发展的强化学习方法。&lt;/p&gt;
+&lt;p&gt;具体来说，AlphaGo使用了Sutton的**策略梯度（Policy Gradient）**方法。它不是简单地估计状态价值，而是直接优化策略——教网络&amp;quot;在这种情况下应该怎么下&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;AlphaGo是强化学习的胜利，&amp;ldquo;Sutton说，&amp;ldquo;但它也是开始，不是结束。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Sutton指出，AlphaGo的成功有几个关键因素：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;完美的模拟环境&lt;/strong&gt;：围棋规则明确，可以完美模拟。现实世界没有这么干净。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;大量的自对弈数据&lt;/strong&gt;：AlphaGo通过自己跟自己下棋，生成了数百万局数据。现实世界的数据是昂贵的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;明确的奖励信号&lt;/strong&gt;：赢或输，一目了然。现实世界的奖励是延迟的、模糊的。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;ldquo;围棋是强化学习的理想测试场，&amp;ldquo;Sutton说，&amp;ldquo;但真正的挑战在现实世界。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;当下的沉思强化学习的下一个前沿&#34;&gt;当下的沉思：强化学习的下一个前沿&lt;/h2&gt;
+&lt;p&gt;站在2026年，Sutton正在思考强化学习的下一个前沿。&lt;/p&gt;
+&lt;p&gt;他认为，当前的强化学习还有几个根本问题需要解决：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;样本效率&lt;/strong&gt;：AlphaGo需要数百万局游戏才能学会下棋，人类只需要几百局。如何让学习更高效？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;泛化能力&lt;/strong&gt;：AlphaGo只会下围棋，不会下象棋。如何让学到的知识迁移到其他任务？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;真实世界&lt;/strong&gt;：围棋有完美的模拟器，但现实世界没有。如何让强化学习在真实环境中工作？&lt;/p&gt;
+&lt;p&gt;Sutton的答案是：&lt;strong&gt;预测&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;智能的本质是预测，&amp;ldquo;Sutton说，&amp;ldquo;预测接下来会发生什么，预测行动的后果，预测什么策略会带来好的结果。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;他提出了**预测学习（Predictive Learning）**的概念——不是学习特定的任务，而是学习预测世界。这种预测能力是通用的，可以迁移到任何任务。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI人物志-天选之人刘嘉</title>
+      <link>https://blog.zhangky.com/posts/2026/april/2026-04-05-liu-jia-the-chosen-one/</link>
+      <pubDate>Sun, 05 Apr 2026 20:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/april/2026-04-05-liu-jia-the-chosen-one/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;AI人物志系列&lt;/strong&gt;：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;当AI的信仰丢失20年后，一个研究大脑的人重新找到了回家的路。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2016年3月，江苏卫视《最强大脑》的录制现场，一位戴着眼镜、气质儒雅的教授正盯着监视器，眉头紧锁。屏幕上，人工智能系统正在与人类选手进行人脸识别对决。当AI以压倒性优势获胜时，现场爆发出欢呼声，但这位教授却感到一阵眩晕。&lt;/p&gt;
+&lt;p&gt;他叫刘嘉，当时是北师大心理学院院长，一个研究人脑20多年的脑科学家。那一刻，他意识到一件事：&lt;strong&gt;丢失20年的信仰，回来了。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我当时以为AI还是一如既往的弱智，&amp;ldquo;他后来回忆，&amp;ldquo;结果它已经在最强大脑的赛场上击败了人类。那种感觉，就像你一直以为走丢的孩子已经死了，突然有一天，他站在你面前，而且比你想象的更强大。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;北大的第一堂神经网络课一个被遗忘的名字&#34;&gt;北大的第一堂神经网络课：一个被遗忘的名字&lt;/h2&gt;
+&lt;p&gt;刘嘉的AI故事，要从1994年说起。&lt;/p&gt;
+&lt;p&gt;那一年，刘嘉还是北京大学心理学系的学生。他对数理充满热情，但心理学的课程让他失望——&amp;ldquo;太文科了，不讲逻辑，太哲学思辨&amp;rdquo;。他一度想转去学计算机，直到他偶然选了一门课。&lt;/p&gt;
+&lt;p&gt;那门课叫&amp;quot;人工神经网络&amp;rdquo;，授课老师是一位刚从日本做完博士后回国的年轻教师。刘嘉至今记得那间教室的位置，记得黑板上画着的神经元连接图，记得那种&amp;quot;终于找到组织了&amp;quot;的激动。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那是我国内可能第一门人工神经网络的课程，&amp;ldquo;刘嘉回忆，&amp;ldquo;老师的样子我都记得，但名字全忘了。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个被遗忘的名字，改变了刘嘉的一生。人工神经网络完美契合了他的背景——既有心理世界的复杂性，又有理科的严谨逻辑。他决定把神经网络作为一辈子的事业。&lt;/p&gt;
+&lt;p&gt;但命运弄人。就在刘嘉准备投身AI时，他遇到了Marvin Minsky。&lt;/p&gt;
+&lt;h2 id=&#34;mit的低谷信仰被亲手埋葬&#34;&gt;MIT的低谷：信仰被亲手埋葬&lt;/h2&gt;
+&lt;p&gt;1995年，刘嘉来到MIT读研究生。他满怀憧憬，想要跟随AI界的教父Marvin Minsky学习神经网络。但他不知道的是，Minsky对神经网络&amp;quot;深仇大恨&amp;rdquo;，而当时的AI正处于最后一次寒冬。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我去见Minsky的时候，他非常depressed，&amp;ldquo;刘嘉回忆，&amp;ldquo;我问他做AI应该选哪个方向，他说他自己也不知道promising的方向在哪里。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Minsky建议刘嘉去学脑科学——&amp;ldquo;脑科学太好了，有太多frontier可以探索&amp;rdquo;。刘嘉听从了这个建议，留在了脑与认知科学系。但他没有意识到，这个选择意味着与AI的20年分离。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我当时并没有底层的逻辑或信念，&amp;ldquo;刘嘉后来反思，&amp;ldquo;只是觉得神经网络很酷，但一旦大家说这东西不行，特别是像Minsky这种权威说AI不行，我就没细想，然后放弃掉了。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;那是AI的最后一次寒冬，90%以上的人都放弃了。刘嘉也是其中之一。&lt;/p&gt;
+&lt;h2 id=&#34;20年的弯路从脑科学到最强大脑&#34;&gt;20年的弯路：从脑科学到《最强大脑》&lt;/h2&gt;
+&lt;p&gt;接下来的20年，刘嘉把AI&amp;quot;彻底给忘记了&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;他专注于脑科学研究，从MIT博士毕业，回国任教，先在中科院，后去北师大。他研究视觉认知、神经机制、大脑的可塑性，发表了大量论文，成为脑科学领域的权威。2015年，他甚至成为北师大心理学院院长，行政职务一片坦途。&lt;/p&gt;
+&lt;p&gt;但刘嘉心里始终有一个空缺。那个1994年在北大课堂上点燃的热情，那个关于人工神经网络的梦，被深埋在心底，几乎被遗忘。&lt;/p&gt;
+&lt;p&gt;直到2016年，《最强大脑》的人机大战。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;当时我们想做一个酷炫的节目，想到了人机大战，&amp;ldquo;刘嘉回忆，&amp;ldquo;其实我对AI的进展、对深度学习了解基本上为0，当时以为AI还是一如既往的弱智。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;结果让他震惊。AI在人脸识别上超越了人类最顶尖的高手。而那一年，正是AlphaGo击败李世石的年份。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这两件事情结合起来，让我重新回到了20年前，&amp;ldquo;刘嘉说，&amp;ldquo;丢失20年的信仰，回来了。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;信仰的重建从hinton的传记中找到根脉&#34;&gt;信仰的重建：从Hinton的传记中找到根脉&lt;/h2&gt;
+&lt;p&gt;2016年之后，刘嘉开始疯狂地补课。他读深度学习的论文，学习神经网络的新进展，试图理解这20年发生了什么。&lt;/p&gt;
+&lt;p&gt;但他很快发现，技术细节不是最重要的。重要的是理解&lt;strong&gt;为什么&lt;/strong&gt;——为什么深度学习突然行了？为什么神经网络在20年后复活了？&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我看了半天也没看明白啥，&amp;ldquo;刘嘉承认，&amp;ldquo;后来我想应该从Hinton的传记史里面入手。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;他研究了Geoffrey Hinton的历史，看了Yann LeCun和Yoshua Bengio的背景。但Hinton的经历最触动他——那个在AI寒冬中孤独坚守40年的人，那个即使被全世界嘲笑也不放弃的人。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Hinton有一句话对我触动特别大，&amp;ldquo;刘嘉说，&amp;ldquo;别人问他为什么要坚持做人工神经网络，他说：&amp;lsquo;人的大脑就是这么工作的，没理由人工神经网络不这么工作。&amp;rsquo;&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这句话点出了根脉：&lt;strong&gt;人工神经网络不是仿生，而是对智能本质的回归。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;刘嘉突然明白了。他20年的脑科学研究不是弯路，而是必要的准备。正因为研究了大脑，他才能真正理解为什么深度学习有效——因为大脑就是这么工作的，神经元连接、学习、涌现智能。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我找到了我的根脉，&amp;ldquo;刘嘉说，&amp;ldquo;当年就应该选人工神经网络来做。至于Hopfield网络还是其他，都不重要。只要底层架构对了，其他都是技术问题。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;辞掉院长不想错过这个时代&#34;&gt;辞掉院长：不想错过这个时代&lt;/h2&gt;
+&lt;p&gt;找到根脉后，刘嘉做了一个让所有人震惊的决定：辞去北师大心理学院院长的职务。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我当时不到45岁，级别做得比较高，从行政的路来讲是一片坦途，&amp;ldquo;刘嘉解释，&amp;ldquo;但我想，不能在那上面浪费时间。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;学校不允许他辞职。刘嘉花了一年时间，每两天给大书记发一次短信，&amp;ldquo;你赶紧批准吧&amp;rdquo;。最终，他成功了，成为一个普通的教授，把所有行政职务全部辞掉。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;现在是最伟大的时代，&amp;ldquo;刘嘉说，&amp;ldquo;为什么说要把所有的行政职务全部给辞掉？道理非常简单——不想错过这个时代。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;2019年，刘嘉加入清华，成为脑与智能实验室的负责人。清华的AI很强，但脑科学比较弱；刘嘉的脑科学很强，但AI比较弱。这是一个完美的互补。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我和清华之前完全没有任何交集，&amp;ldquo;刘嘉说，&amp;ldquo;但我觉得那是一个很好的地方。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;降临派的天选之人脑科学ai的融合&#34;&gt;降临派的天选之人：脑科学+AI的融合&lt;/h2&gt;
+&lt;p&gt;刘嘉把自己称为&amp;quot;降临派&amp;rdquo;——相信AI终将超越人类，而人类应该迎接这个未来。&lt;/p&gt;
+&lt;p&gt;但与其他降临派不同，刘嘉的信仰有坚实的科学基础。他认为，光靠Transformer堆数量是不够的，神经元的质量需要脑科学的借鉴。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我们可以堆数量，但是光靠堆数量是不行的，还要去提升质量，&amp;ldquo;刘嘉说，&amp;ldquo;这时候需要脑科学的借鉴。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;他指出了当前AI的三大缺陷：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;缺乏复杂度&lt;/strong&gt;：Transformer没有动力学，没有偏微分方程，而生物神经网络是四维的（三维结构+时间）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;缺乏长程反馈&lt;/strong&gt;：人脑40%是长程feedback连接，而Transformer接近零。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;缺乏并行加工&lt;/strong&gt;：Transformer只能串行predict next token，而人类有快速的并行加工系统。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这三个东西是目前人脑和人工神经网络最大的区别，&amp;ldquo;刘嘉说，&amp;ldquo;而这三个东西，导致我们现在做脑机接口和机器人最大的瓶颈。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;刘嘉认为，AI要进入下一个阶段，必须有一场基于脑科学的启蒙运动——就像当年脑科学启蒙了感知机、卷积神经网络一样。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我觉得下面还需要一个脑科学，在第一系统上面对AI有一个启蒙，&amp;ldquo;刘嘉说，&amp;ldquo;这个启蒙一旦完成了，AI才会变成一个真正的AI，或者真正的物种。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;当下的沉思与ai共生是最难的课题&#34;&gt;当下的沉思：与AI共生是最难的课题&lt;/h2&gt;
+&lt;p&gt;站在2026年，刘嘉正在拼命思考一个课题：&lt;strong&gt;怎么和AI对话，怎么和AI共生。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;很难很难，&amp;ldquo;他承认，&amp;ldquo;很多人觉得能够用AI就叫AI原生，那就是瞎扯。AI原生是一种思维范式的、一种根本性的改变。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;刘嘉把与AI的关系比作&amp;quot;谈恋爱&amp;rdquo;——不是工具的使用，而是伙伴的合作。AI不是word、不是PPT，它有能动性，有创造力，有&amp;quot;小性格&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;她就像一个小女生一样，你今天对她还好好的，你说句话她还挺开心，你明天说同样的话她就给你使脸色，&amp;ldquo;刘嘉形容，&amp;ldquo;那一定是我philosophy哪儿没做对。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种困惑是普遍的。AI时代，&amp;ldquo;小术易求，大道难得&amp;rdquo;——各种工具、技巧层出不穷，但从底层理解AI的philosophy，反而成为这个时代最困惑的问题。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;全世界所有的人，现在都没有这个philosophy，&amp;ldquo;刘嘉说，&amp;ldquo;大家都是在摸索的过程中。但有些人走到前面，他有更深刻的理解。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;刘嘉希望成为那个&amp;quot;走到前面&amp;quot;的人。他用20年研究人脑，用20年远离AI，然后在2016年重新找到信仰。这种经历让他有独特的视角——既懂脑科学，又懂AI；既懂人的智能，又懂人工智能。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;如果从一个降临派的角度来说，我的那个歧路可能是必要的安排，&amp;ldquo;刘嘉说，&amp;ldquo;从头到尾没有放弃过信仰，但是需要去学习别的东西，从而可以帮助AI更好的发展。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;说到底一个天选之人的使命&#34;&gt;说到底：一个天选之人的使命&lt;/h2&gt;
+&lt;p&gt;刘嘉的故事，是一个关于&lt;strong&gt;信仰与弯路&lt;/strong&gt;的故事。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI人物志-教父Marvin Minsky</title>
+      <link>https://blog.zhangky.com/posts/2026/april/2026-04-04-marvin-minsky-the-godfather/</link>
+      <pubDate>Sat, 04 Apr 2026 20:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/april/2026-04-04-marvin-minsky-the-godfather/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;AI人物志系列&lt;/strong&gt;：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;他是人工智能的命名者，却亲手扼杀了它的第一个春天。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1956年夏天，达特茅斯学院的一间会议室里，四位年轻人正在讨论一个疯狂的想法：让机器像人一样思考。他们中有数学家、信息论专家、神经科学家，还有一个刚刚从哈佛毕业的年轻人——Marvin Minsky。&lt;/p&gt;
+&lt;p&gt;会议持续了八周，没有产生任何实质性的成果。但Minsky提出了一个词，改变了历史：&lt;strong&gt;人工智能（Artificial Intelligence）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我当时只是想找一个词来描述我们要做的事，&amp;ldquo;Minsky后来回忆，&amp;ldquo;没想到它会变成这么大的一个领域。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;他更没想到的是，二十年后，他会成为这个领域的&amp;quot;杀手&amp;rdquo;。&lt;/p&gt;
+&lt;h2 id=&#34;哈佛的天才一个关于心智的谜题&#34;&gt;哈佛的天才：一个关于心智的谜题&lt;/h2&gt;
+&lt;p&gt;1927年，Minsky出生在纽约的一个犹太家庭。他的父亲是一位眼科医生，母亲是一位艺术家。从小，Minsky就展现出惊人的天赋——他读遍了家里的所有书籍，从医学到艺术，从哲学到数学。&lt;/p&gt;
+&lt;p&gt;但真正改变他的是一台玩具。&lt;/p&gt;
+&lt;p&gt;那是1940年代，Minsky的父亲给他买了一台显微镜。年轻的Minsky开始观察一切——昆虫的翅膀、植物的细胞、自己的皮肤。但他最着迷的不是这些实物，而是&lt;strong&gt;观察本身&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我看着显微镜，突然意识到一个问题，&amp;ldquo;Minsky后来写道，&amp;ldquo;我在用我的眼睛观察细胞，但我的眼睛也是由细胞组成的。那么，是什么在观察？&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个关于&lt;strong&gt;自我&lt;/strong&gt;的谜题，成为Minsky一生的追求。他想知道心智是如何工作的，意识是如何产生的，智能是如何涌现的。&lt;/p&gt;
+&lt;p&gt;1946年，Minsky进入哈佛大学。他主修数学，但他的兴趣遍布所有学科。他听神经科学的课，参加哲学的讨论，在心理学实验室做实验。他想要找到一个统一的框架，来解释所有关于心智的问题。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我当时相信，智能是可以被形式化的，&amp;ldquo;Minsky回忆，&amp;ldquo;如果我们能描述心智的规则，我们就能在机器上实现它。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这是符号主义AI的核心理念，也是Minsky一生的信仰。&lt;/p&gt;
+&lt;h2 id=&#34;达特茅斯一个夏天的野心&#34;&gt;达特茅斯：一个夏天的野心&lt;/h2&gt;
+&lt;p&gt;1956年的达特茅斯会议，是AI历史上的里程碑。但很少有人知道，这次会议几乎是一场灾难。&lt;/p&gt;
+&lt;p&gt;会议的组织者是John McCarthy，一位年轻的数学家。他邀请了Minsky、Claude Shannon（信息论创始人）、Nathaniel Rochester（IBM首席设计师）等人，希望讨论&amp;quot;如何让机器模拟人类智能的各个方面&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;但会议开始后，大家发现根本不知道该讨论什么。每个人对&amp;quot;智能&amp;quot;的理解都不同，每个方向看起来都充满可能。争论持续了八周，没有达成任何共识。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那是一次失败的会议，&amp;ldquo;一位参与者后来承认，&amp;ldquo;但Minsky拯救了它。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Minsky做了什么？他提出了一个&lt;strong&gt;框架&lt;/strong&gt;。他说，智能可以被分解为几个核心问题：推理、知识表示、学习、语言理解。每个问题都可以被独立研究，最终组合成一个完整的智能系统。&lt;/p&gt;
+&lt;p&gt;这个框架让混乱的讨论有了方向。它也成为符号主义AI的路线图，影响了接下来二十年的研究。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Minsky的天才在于抽象，&amp;ldquo;一位AI历史学家评价，&amp;ldquo;他能把复杂的问题简化成可管理的部分。这种能力在科学史上是罕见的。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;mit-ai-lab符号主义的黄金时代&#34;&gt;MIT AI Lab：符号主义的黄金时代&lt;/h2&gt;
+&lt;p&gt;1959年，Minsky和McCarthy共同创立了MIT人工智能实验室。这是世界上第一个专门研究AI的机构，也是符号主义AI的大本营。&lt;/p&gt;
+&lt;p&gt;在接下来的二十年里，MIT AI Lab诞生了无数传奇。Minsky的学生们开发了最早的专家系统、自然语言处理程序、机器人视觉系统。他们相信，只要积累足够多的规则，机器就能拥有通用的智能。&lt;/p&gt;
+&lt;p&gt;Minsky本人也做出了重要贡献。他开发了&lt;strong&gt;框架理论（Frame Theory）&lt;/strong&gt;，一种知识表示的方法；他设计了&lt;strong&gt;Snarc&lt;/strong&gt;，最早的神经网络模拟器之一；他写了《心智社会（The Society of Mind）》，一本试图解释意识如何产生的哲学著作。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那是一段令人兴奋的时光，&amp;ldquo;一位Minsky的学生回忆，&amp;ldquo;我们相信自己在创造历史。Minsky告诉我们，智能的奥秘就在我们眼前，只要再努力一点，就能揭开它。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;但Minsky的自信背后，隐藏着一种傲慢。他相信符号主义是正确的道路，其他方向都是歧途。特别是神经网络——那种模仿大脑结构的&amp;quot;连接主义&amp;quot;方法，在Minsky看来是&amp;quot;不科学的&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;神经网络只是统计学，&amp;ldquo;Minsky在一次演讲中说，&amp;ldquo;它没有告诉我们任何关于智能本质的东西。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种偏见，最终导致了AI历史上最大的悲剧之一。&lt;/p&gt;
+&lt;h2 id=&#34;感知机一把双刃剑&#34;&gt;《感知机》：一把双刃剑&lt;/h2&gt;
+&lt;p&gt;1969年，Minsky和Seymour Papert出版了《感知机（Perceptrons）》一书。这本书用严格的数学证明，指出了单层神经网络的致命缺陷：它们无法解决简单的异或（XOR）问题。&lt;/p&gt;
+&lt;p&gt;从技术角度，这本书是正确的。单层感知机确实有局限性，需要多层结构才能解决复杂问题。但Minsky和Papert的表述方式——强调神经网络的&amp;quot;不可能性&amp;rdquo;，而不是讨论如何改进——给整个领域泼了一盆冷水。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那本书杀死了神经网络研究，&amp;ldquo;一位经历过那个时代的科学家说，&amp;ldquo;Minsky是当时AI界的权威，他的话有决定性的影响。当他说神经网络是死胡同时，没有人敢继续研究它。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;神经网络进入了第一次&amp;quot;寒冬&amp;rdquo;。研究经费被削减，学术职位消失，年轻的研究者被迫转行。Hinton后来回忆，他在1970年代几乎找不到任何关于神经网络的论文，因为&amp;quot;那个领域已经不存在了&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;Minsky知道这本书的影响，但他从未为此道歉。&amp;ldquo;我只是在陈述事实，&amp;ldquo;他坚持，&amp;ldquo;如果神经网络研究者不能解决这些问题，那他们就不应该继续。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种冷酷让许多人感到愤怒。但Minsky不在乎。他相信真理比人情更重要，即使这个真理可能伤害了别人。&lt;/p&gt;
+&lt;h2 id=&#34;1980年代一个教父的困惑&#34;&gt;1980年代：一个教父的困惑&lt;/h2&gt;
+&lt;p&gt;1980年代，专家系统的成功让AI迎来了第二次春天。Minsky似乎被证明是对的——符号主义确实可以产生实用的系统。&lt;/p&gt;
+&lt;p&gt;但Minsky本人并不满意。&lt;/p&gt;
+&lt;p&gt;专家系统只能在特定领域工作，它们没有通用智能，不能学习新知识，不能理解常识。Minsky想要的不是这种&amp;quot;窄AI&amp;rdquo;，他想要的是真正的智能——像人类一样灵活、创造性、有自我意识的智能。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我们在建造工具，不是在理解心智，&amp;ldquo;Minsky在一次会议上抱怨，&amp;ldquo;这不是我想要的AI。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种困惑让Minsky在1980年代陷入了一种奇怪的境地。他仍然是AI界的权威，但他的研究方向与主流脱节。他继续研究知识表示、意识理论、心智哲学，但这些工作越来越抽象，越来越远离实际应用。&lt;/p&gt;
+&lt;p&gt;一位Minsky的同事回忆：&amp;ldquo;那是一段孤独的时期。Minsky还在MIT，但他不再是那个引领潮流的人。他在思考一些太超前的问题，而业界只关心眼前的应用。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;更讽刺的是，神经网络在1980年代复活了。反向传播算法的出现让多层神经网络变得可行，Hinton、LeCun、Bengio等人开始取得突破。Minsky曾经的&amp;quot;受害者&amp;quot;们，正在证明他错了。&lt;/p&gt;
+&lt;p&gt;Minsky的反应是沉默。他不再公开批评神经网络，但他也不承认自己的错误。他继续走自己的路，研究符号主义，研究心智哲学，等待符号主义的复兴。&lt;/p&gt;
+&lt;p&gt;那个复兴从未到来。&lt;/p&gt;
+&lt;h2 id=&#34;2000年代一个老人的守望&#34;&gt;2000年代：一个老人的守望&lt;/h2&gt;
+&lt;p&gt;进入21世纪，Minsky已经七十多岁。他仍然活跃在学术界，但他的影响力已经大不如前。&lt;/p&gt;
+&lt;p&gt;深度学习在2010年代的爆发，彻底终结了符号主义的时代。神经网络在图像识别、语音识别、自然语言处理等领域全面超越符号方法。Minsky曾经嘲笑的&amp;quot;统计学&amp;rdquo;，正在成为AI的主流。&lt;/p&gt;
+&lt;p&gt;Minsky对此的反应很复杂。一方面，他承认神经网络的成就；另一方面，他坚持认为这些系统没有真正理解任何东西。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;它们只是在模式匹配，&amp;ldquo;他在2010年的一次采访中说，&amp;ldquo;它们没有概念，没有推理，没有自我。这不是智能，这是高级的计算。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种批评有一定的道理。大语言模型确实缺乏常识推理、因果理解和真正的创造力。但Minsky的问题在于，他也没有提供替代方案。符号主义在理论上优雅，但在实践中失败。神经网络在实践中成功，但在理论上不透明。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Minsky被困在自己的框架里，&amp;ldquo;一位AI研究者评价，&amp;ldquo;他太相信符号主义了，以至于无法看到其他可能性。这是一个悲剧——一个如此聪明的人，却被自己的偏见限制。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;2016年，Minsky去世，享年88岁。他没有看到AlphaGo击败李世石，没有看到GPT的爆发，没有看到AI成为全社会的焦点。从某种意义上，这是幸运的——他不必面对符号主义的彻底失败。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI人物志-理论家Yoshua Bengio</title>
+      <link>https://blog.zhangky.com/posts/2026/april/2026-04-03-yoshua-bengio-the-theorist/</link>
+      <pubDate>Fri, 03 Apr 2026 20:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/april/2026-04-03-yoshua-bengio-the-theorist/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;AI人物志系列&lt;/strong&gt;：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;当工程师们在调试代码、哲学家们在争论本质时，一个理论家在寻找数学上的必然。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2018年12月，蒙特利尔的一间会议室里，三位老人正在等待一个改变他们一生的电话。Geoffrey Hinton在多伦多，Yann LeCun在纽约，而Yoshua Bengio就在这里——他的家乡，他工作了三十年的城市。&lt;/p&gt;
+&lt;p&gt;电话响了。图灵奖。三人共享。&lt;/p&gt;
+&lt;p&gt;Hinton的反应是困惑，LeCun的反应是兴奋，而Bengio的反应是——沉思。&amp;ldquo;这证明了一件事，&amp;ldquo;他后来对一位同事说，&amp;ldquo;坚持正确的理论，时间会站在你这边。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这是Bengio的风格。他不追求轰动，不追求速度，他追求&lt;strong&gt;理解&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;蒙特利尔的冬天一个数学家的选择&#34;&gt;蒙特利尔的冬天：一个数学家的选择&lt;/h2&gt;
+&lt;p&gt;1964年，Bengio出生在巴黎，但他的童年在蒙特利尔度过。那是加拿大最寒冷的城市，冬天漫长而黑暗。年轻的Bengio喜欢在室内读书——数学书、物理书、任何他能找到的科学书籍。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我从小就知道我想做研究，&amp;ldquo;Bengio回忆，&amp;ldquo;不是应用，是纯粹的研究。我想理解事物为什么是这样。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种追求把他带向了机器学习。1980年代末，当Bengio在麦吉尔大学读博士时，神经网络正处于第一次寒冬。但Bengio看到了别人忽略的东西：不是神经网络本身，而是&lt;strong&gt;学习的过程&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Hinton关注的是结构，LeCun关注的是应用，&amp;ldquo;一位曾与Bengio共事的研究者分析，&amp;ldquo;而Bengio关注的是——学习到底在发生什么？&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这是一个理论问题，也是一个根本问题。如果神经网络能学习，那它学到了什么？它如何表示知识？这种表示与人类智能的表示有何不同？&lt;/p&gt;
+&lt;p&gt;Bengio花了十年时间回答这些问题。&lt;/p&gt;
+&lt;h2 id=&#34;表示学习在黑暗中寻找光&#34;&gt;表示学习：在黑暗中寻找光&lt;/h2&gt;
+&lt;p&gt;1990年代，Bengio在AT&amp;amp;T贝尔实验室与LeCun共事。那是深度学习最黑暗的时期，但Bengio没有放弃。他开始研究一个当时几乎无人关注的领域：&lt;strong&gt;表示学习（Representation Learning）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;核心问题很简单：当神经网络学习时，它在内部构建了什么样的表示？这些表示为什么有效？&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;大多数人只关心网络的输出，&amp;ldquo;Bengio解释，&amp;ldquo;但我关心的是中间层。当网络识别一张猫的图片时，它的第一层在学习边缘，第二层在学习纹理，第三层在学习形状——这种层次化的表示，就是智能的本质。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Bengio在2000年代初发表了一系列论文，奠定了表示学习的理论基础。他证明了，好的表示应该具有某些数学性质：平滑性、稀疏性、可分解性。这些性质让神经网络能够泛化，能够从有限的例子中学到通用的规律。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Bengio的贡献是建立了一座桥梁，&amp;ldquo;一位深度学习研究者评价，&amp;ldquo;一边是工程实践，一边是数学理论。他让我们理解为什么深度学习有效，而不只是知道它有效。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;但这座桥梁在当时几乎无人通行。2000年代，支持向量机统治着机器学习领域，神经网络仍然被视为&amp;quot;黑箱&amp;rdquo;。Bengio的论文引用寥寥，他的学生毕业后找不到工作。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那是我最困难的时期，&amp;ldquo;Bengio承认，&amp;ldquo;但我知道我在做正确的事。理论不会过时，只有应用会。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;注意力机制一个理论的意外应用&#34;&gt;注意力机制：一个理论的意外应用&lt;/h2&gt;
+&lt;p&gt;2014年，Bengio做出了一个让他自己都感到意外的贡献——&lt;strong&gt;注意力机制（Attention Mechanism）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;当时，Bengio正在研究神经机器翻译。传统的序列到序列模型有一个瓶颈：输入序列的所有信息必须被压缩成一个固定长度的向量。对于长句子，这会导致信息丢失。&lt;/p&gt;
+&lt;p&gt;Bengio提出了一个简单而优雅的解决方案：让模型&lt;strong&gt;选择性地关注&lt;/strong&gt;输入序列的不同部分。当翻译一个词时，模型可以&amp;quot;看&amp;quot;回原文的相关部分，而不是依赖一个压缩的表示。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这不是工程技巧，&amp;ldquo;Bengio强调，&amp;ldquo;这是关于&lt;strong&gt;选择性&lt;/strong&gt;的理论。人类智能的核心就是选择性——我们无法处理所有信息，我们必须选择重要的部分。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;注意力机制彻底改变了自然语言处理。2017年，Google的Transformer架构完全基于注意力机制，开启了大规模语言模型的时代。今天，从GPT到Claude，所有的大语言模型都建立在Bengio的理论基础之上。&lt;/p&gt;
+&lt;p&gt;但Bengio对注意力机制的流行感到复杂。&amp;ldquo;它被滥用了，&amp;ldquo;他说，&amp;ldquo;人们把它当作万能药，但注意力只是智能的一部分。我们还需要因果推理，还需要世界模型，还需要很多其他东西。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种谨慎是Bengio的标志。当业界为大语言模型欢呼时，他保持冷静；当投资人为AI疯狂时，他提出警告。他不是反对进步，他反对的是&lt;strong&gt;盲目的进步&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;因果推断下一个前沿&#34;&gt;因果推断：下一个前沿&lt;/h2&gt;
+&lt;p&gt;2019年，Bengio做出了一个让同行惊讶的决定：他把研究重心转向了&lt;strong&gt;因果推断（Causal Inference）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这是一个与深度学习完全不同的领域。因果推断研究的是如何从数据中发现因果关系，而不仅仅是相关性。 Judea Pearl——因果推断的先驱——曾批评深度学习只是&amp;quot;曲线拟合&amp;rdquo;，没有真正理解世界。&lt;/p&gt;
+&lt;p&gt;Bengio同意这个批评。&amp;ldquo;深度学习让我们能够预测，&amp;ldquo;他说，&amp;ldquo;但它不能让我们理解&lt;strong&gt;为什么&lt;/strong&gt;。如果我们想要真正的智能，我们需要因果推理。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个转向在深度学习社区引起了争议。有人质疑Bengio是不是&amp;quot;背叛&amp;quot;了深度学习，有人担心他正在远离主流。但Bengio不为所动。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;科学不是时尚，&amp;ldquo;他回应，&amp;ldquo;我们不能因为某个方向流行就追随它，因为某个方向不流行就放弃它。因果推断是智能的基础，无论它是否流行，我都必须研究它。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;过去五年，Bengio在因果推断和深度学习的交叉领域做出了开创性工作。他提出了&amp;quot;因果表示学习&amp;quot;的概念，试图让神经网络不仅学习统计规律，还学习因果结构。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这是下一个十年最重要的方向，&amp;ldquo;Bengio预测，&amp;ldquo;当AI系统能够进行因果推理时，它们将不再是工具，而是真正的智能体。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;在hinton和lecun之间第三条路&#34;&gt;在Hinton和LeCun之间：第三条路&lt;/h2&gt;
+&lt;p&gt;回顾Bengio的职业生涯，他的位置很独特——在Hinton和LeCun之间，在理论和应用之间，在坚持和开放之间。&lt;/p&gt;
+&lt;p&gt;Hinton是先知，他相信神经网络的潜力，愿意为之孤独地等待。LeCun是工程师，他相信实践的力量，愿意为之不断地构建。而Bengio是理论家，他相信理解的价值，愿意为之耐心地探索。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我们三个人代表了深度学习的三个维度，&amp;ldquo;Bengio曾这样描述，&amp;ldquo;Hinton是深度，LeCun是广度，我是连接。我试图理解深度和广度背后的原理。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种连接让Bengio成为深度学习社区的关键人物。他创办了ICLR（国际学习表示会议），这是深度学习领域最重要的学术会议之一。他培养了大量学生，其中许多人成为了业界的领军人物。他坚持开源和开放科学，让深度学习的研究成果能够被全世界共享。&lt;/p&gt;
+&lt;p&gt;但Bengio最珍视的角色是&lt;strong&gt;教育者&lt;/strong&gt;。他在蒙特利尔大学任教三十年，每年都给本科生上课。&amp;ldquo;理论必须被传承，&amp;ldquo;他说，&amp;ldquo;如果只有我一个人理解，那我的研究就没有意义。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;当下的沉思理论的黄昏还是黎明&#34;&gt;当下的沉思：理论的黄昏还是黎明？&lt;/h2&gt;
+&lt;p&gt;站在2026年，Bengio面临着与Hinton和LeCun不同的挑战。&lt;/p&gt;
+&lt;p&gt;大语言模型的成功让许多人质疑理论的价值。&amp;ldquo;为什么我们需要理论？&amp;ldquo;一些工程师问，&amp;ldquo;只要堆更多的数据、更大的模型，性能就会提升。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Bengio不同意这种观点。&amp;ldquo;这是短视的，&amp;ldquo;他说，&amp;ldquo;没有理论指导，我们只是在盲目地试错。我们需要理解为什么大模型有效，它们的局限在哪里，如何改进它们。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;他指出了当前AI的几个根本问题：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;泛化问题&lt;/strong&gt;：大语言模型在训练数据上表现很好，但在分布外的数据上常常失败。为什么？因为我们不理解它们真正学到了什么。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;因果问题&lt;/strong&gt;：大语言模型能够生成流畅的文本，但它们不理解因果关系。它们知道&amp;quot;火导致烟&amp;rdquo;，但它们不知道为什么。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;效率问题&lt;/strong&gt;：训练大模型需要巨大的计算资源。如果我们理解学习的本质，也许可以用更少的资源达到同样的效果。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这些问题需要理论来解决，&amp;ldquo;Bengio坚持，&amp;ldquo;不是更多的数据，不是更大的模型，是更深的理解。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;但Bengio也承认，当前的理论研究面临困境。大模型太复杂了，超出了传统数学工具的适用范围。我们需要新的理论框架，新的数学工具，新的思维方式。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这是理论的黄昏，也是理论的黎明，&amp;ldquo;Bengio说，&amp;ldquo;旧的理论不够用了，但新的理论正在诞生。这是最令人兴奋的时刻。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;说到底一个理论家的坚守&#34;&gt;说到底：一个理论家的坚守&lt;/h2&gt;
+&lt;p&gt;Bengio的故事，是一个关于&lt;strong&gt;耐心&lt;/strong&gt;的故事。&lt;/p&gt;
+&lt;p&gt;当工程师们急于构建系统时，他选择先理解原理。当业界追逐热点时，他选择坚持基础。当大模型的成功让理论显得无用时，他选择相信理论的价值。&lt;/p&gt;
+&lt;p&gt;这种耐心不是固执，而是一种更深层的信念：知识的积累是渐进的，真正的理解需要时间。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我年轻时想要快速成功，&amp;ldquo;Bengio回忆，&amp;ldquo;我羡慕那些发表论文、获得关注的人。但随着年龄增长，我意识到，真正重要的不是速度，是深度。一篇深刻的论文比十篇肤浅的论文更有价值。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种哲学影响了Bengio的整个职业生涯。他不追求论文数量，他追求论文质量。他不追逐研究热点，他追求根本问题。他不关心个人名声，他关心知识的传承。&lt;/p&gt;
+&lt;p&gt;一位Bengio的学生告诉我们：&amp;ldquo;他教会我最重要的一课是——做研究不是为了发表，是为了理解。如果你真正理解了一个问题，发表是自然的结果。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;全局来看&lt;/strong&gt;，Bengio的一生诠释了理论的价值。在深度学习的三次浪潮中，他始终站在幕后，不追求聚光灯，但提供了不可或缺的支撑。他的表示学习让深度学习有了理论基础，他的注意力机制让自然语言处理有了突破，他的因果推断研究正在为AI的下一个阶段铺路。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI人物志-工程师Yann LeCun</title>
+      <link>https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/</link>
+      <pubDate>Thu, 02 Apr 2026 18:09:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/april/2026-04-02-yann-lecun-the-engineer/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;AI人物志系列&lt;/strong&gt;：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;当理论家还在争论神经网络是否可行时，一个法国工程师已经让机器看清楚了世界。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1989年，新泽西州霍姆德尔镇的一栋灰色办公楼里，一位留着长发、穿着皮夹克的法国年轻人正在向一群西装革履的银行家演示他的&amp;quot;疯狂想法&amp;quot;。他面前是一台笨重的计算机，屏幕上跳动着一串串手写数字。当机器准确识别出那些潦草的字迹时，银行家们交换着困惑的眼神——他们不知道，自己刚刚见证了人工智能历史上最重要的突破之一。&lt;/p&gt;
+&lt;p&gt;这位年轻人叫Yann LeCun。他带来的不是理论论文，而是一个能工作的系统。&amp;ldquo;我不在乎它为什么工作，&amp;ldquo;他后来回忆当时的想法，&amp;ldquo;我只在乎它确实工作了。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这是工程师的思维，也是LeCun一生的注脚。&lt;/p&gt;
+&lt;h2 id=&#34;巴黎的地下实验室一个工程师的觉醒&#34;&gt;巴黎的地下实验室：一个工程师的觉醒&lt;/h2&gt;
+&lt;p&gt;1960年，LeCun出生在法国巴黎郊区的一个普通家庭。与Hinton的&amp;quot;天才家族&amp;quot;不同，LeCun的童年没有什么传奇色彩。他喜欢拆东西——收音机、电视机、任何他能拿到手的电子设备。&amp;ldquo;我不是想修好它们，&amp;ldquo;他说，&amp;ldquo;我只是想知道它们是怎么工作的。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种好奇心把他带向了工程学。1980年代，LeCun在巴黎的ESIEE工程学院学习电气工程。那是一个AI的寒冬，神经网络被视为死路，但LeCun在一个偶然的机会接触到了一本关于认知科学的书，书中提到了一种模仿人脑视觉皮层结构的算法——&lt;strong&gt;卷积神经网络&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我当时就想，这东西太美了，&amp;ldquo;LeCun回忆，&amp;ldquo;它不是抽象的数学，它是可以实现的。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;与Hinton不同，LeCun没有被神经网络的&amp;quot;不可解释性&amp;quot;困扰。作为一个工程师，他关心的是&lt;strong&gt;效果&lt;/strong&gt;，而不是&lt;strong&gt;原理&lt;/strong&gt;。如果一种方法能让机器学会识别图像，那它就是好方法——至于为什么，可以以后慢慢研究。&lt;/p&gt;
+&lt;p&gt;这种实用主义态度让LeCun在1985年做出了一个大胆的决定：他要去见Geoffrey Hinton。&lt;/p&gt;
+&lt;h2 id=&#34;多伦多的那个夏天两个偏执狂的相遇&#34;&gt;多伦多的那个夏天：两个偏执狂的相遇&lt;/h2&gt;
+&lt;p&gt;1985年的夏天，LeCun带着自己写的代码来到多伦多大学。他敲开了Hinton办公室的门，两个改变AI历史的人第一次面对面。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;他看起来像个嬉皮士，&amp;ldquo;Hinton后来回忆，&amp;ldquo;长发、皮夹克，说话带着浓重的法国口音。但他眼睛里有火。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;LeCun向Hinton展示了他对卷积神经网络的改进。当时的神经网络研究主要集中在全连接网络，但LeCun意识到，对于图像识别这种任务，全连接是低效的——图像中的相邻像素有天然的关联性，应该被一起处理，而不是分别处理。&lt;/p&gt;
+&lt;p&gt;Hinton被震动了。&amp;ldquo;他解决了我在论文里提到但没有解决的问题，&amp;ldquo;Hinton说，&amp;ldquo;这个年轻人不只是理解了我的理论，他超越了它。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;那个夏天，LeCun和Hinton一起工作，完善反向传播算法，探索多层网络的训练方法。但两人的分歧也很快显现：Hinton痴迷于理解大脑，LeCun只关心让系统工作；Hinton愿意花十年打磨一个理论，LeCun想要六个月看到成果。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我们是两种完全不同的动物，&amp;ldquo;LeCun后来形容这段关系，&amp;ldquo;他是哲学家，我是工程师。但奇怪的是，这种差异让我们互补。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;att贝尔实验室从实验室到现实世界&#34;&gt;AT&amp;amp;T贝尔实验室：从实验室到现实世界&lt;/h2&gt;
+&lt;p&gt;1988年，LeCun加入了传奇的AT&amp;amp;T贝尔实验室。那是全球最先进的科研机构，诞生了晶体管、激光、Unix操作系统。对LeCun来说，这里是天堂——有无限的计算资源，有聪明的同事，最重要的是，有&lt;strong&gt;真实的问题&lt;/strong&gt;需要解决。&lt;/p&gt;
+&lt;p&gt;LeCun接手的第一个大项目是&lt;strong&gt;手写数字识别&lt;/strong&gt;。美国邮政系统每天处理数百万封信件，需要自动识别信封上的邮编。这是一个完美的测试场：数据充足，问题明确，而且——如果成功——有巨大的商业价值。&lt;/p&gt;
+&lt;p&gt;LeCun花了两年时间构建了一个名为&lt;strong&gt;LeNet&lt;/strong&gt;的系统。它有多层卷积结构，有池化层降低计算量，有反向传播训练参数。当LeNet在1990年投入使用时，它能以99%的准确率识别手写数字，处理速度超过每秒100张。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那是我人生中最骄傲的时刻，&amp;ldquo;LeCun回忆，&amp;ldquo;不是因为我发表了论文，而是因为我的系统真的在帮助人们送信。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;LeNet的成功证明了深度学习的实用价值，但它并没有改变学术界的看法。1990年代，支持向量机（SVM）成为机器学习的主流，神经网络再次被视为&amp;quot;过时的技术&amp;rdquo;。LeCun在会议上发表论文，听众寥寥；他申请研究经费，评审人质疑&amp;quot;这东西真的有用吗&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那时候很孤独，&amp;ldquo;LeCun说，&amp;ldquo;但我有LeNet。只要它还在工作，我就知道我们是对的。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;被驱逐的十年在工业界坚守&#34;&gt;被驱逐的十年：在工业界坚守&lt;/h2&gt;
+&lt;p&gt;1996年，AT&amp;amp;T拆分，贝尔实验室的辉煌时代结束。LeCun被迫离开，加入了一家初创公司NEC研究院。后来他又去了纽约大学，在学术界和工业界之间来回切换。&lt;/p&gt;
+&lt;p&gt;这十年被称为LeCun的&amp;quot;被驱逐期&amp;rdquo;。深度学习在学术界几乎消失，LeCun是少数几个还在坚持的人。但他没有Hinton那样的耐心——Hinton可以在多伦多安静地等待春天，LeCun需要行动。&lt;/p&gt;
+&lt;p&gt;他开始做一件在当时看来&amp;quot;不务正业&amp;quot;的事：&lt;strong&gt;把深度学习带到工业界&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;2003年，LeCun创办了一个名为&amp;quot;深度学习研究&amp;quot;的研讨会，邀请工业界的工程师参加。他向他们展示卷积神经网络如何用于人脸识别、自动驾驶、医学影像。&amp;ldquo;我不跟他们说理论，&amp;ldquo;LeCun解释，&amp;ldquo;我给他们看demo。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种策略奏效了。2010年代初，随着GPU计算能力的提升和数据量的爆炸，工业界开始意识到深度学习的潜力。Facebook、Google、百度纷纷成立AI实验室，而LeCun成了最抢手的人才。&lt;/p&gt;
+&lt;p&gt;2013年，Mark Zuckerberg亲自邀请LeCun加入Facebook，领导新成立的AI研究院（FAIR）。LeCun提出了一个条件：研究院必须开源所有研究成果。&amp;ldquo;如果深度学习要改变世界，它必须是开放的，&amp;ldquo;他说。&lt;/p&gt;
+&lt;p&gt;Zuckerberg同意了。FAIR成为工业界AI研究的标杆，而LeCun终于有了一个可以大展拳脚的平台。&lt;/p&gt;
+&lt;h2 id=&#34;与transformer的对抗一个工程师的固执&#34;&gt;与Transformer的对抗：一个工程师的固执&lt;/h2&gt;
+&lt;p&gt;2017年，Google发表了Transformer架构，彻底改变了自然语言处理领域。Transformer抛弃了卷积和循环结构，完全基于&amp;quot;注意力机制&amp;rdquo;，在翻译、文本生成等任务上取得了惊人效果。&lt;/p&gt;
+&lt;p&gt;深度学习社区沸腾了。人们开始说&amp;quot;CNN已死&amp;quot;&amp;ldquo;RNN已死&amp;rdquo;，所有人都转向Transformer。但LeCun没有。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Transformer是伟大的工程成就，&amp;ldquo;LeCun承认，&amp;ldquo;但它不是智能的全部。它缺乏对世界的基本理解。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;LeCun的批评基于一个工程师的直觉：Transformer处理的是&lt;strong&gt;符号序列&lt;/strong&gt;，但人类智能建立在&lt;strong&gt;世界模型&lt;/strong&gt;之上。我们看、听、触摸，构建对物理世界的内在表征，然后用这个模型来预测、规划、行动。Transformer没有这种模型，它只是在统计符号之间的关联。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;你可以用Transformer生成一段关于&amp;rsquo;猫在垫子上&amp;rsquo;的文字，&amp;ldquo;LeCun说，&amp;ldquo;但它不知道什么是猫，什么是垫子，什么是&amp;rsquo;在&amp;rsquo;。它只是在重复训练数据中的模式。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种看法让LeCun在2010年代末显得格格不入。当所有人都在追逐大语言模型时，他在研究&lt;strong&gt;自监督学习&lt;/strong&gt;——让机器通过观察世界来学习，而不是通过人类标注的数据。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这是Hinton路线和我路线的分歧，&amp;ldquo;LeCun解释，&amp;ldquo;Hinton相信，只要有足够大的模型和足够多的数据，智能就会涌现。我相信，我们需要先教会机器理解世界，然后智能才会出现。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;world-model最后的赌注&#34;&gt;World Model：最后的赌注&lt;/h2&gt;
+&lt;p&gt;2022年，LeCun发表了一篇长达60页的论文，阐述他对AI未来的愿景：&lt;strong&gt;World Model（世界模型）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这不是一个新概念。人类大脑一直在做这件事——我们观察世界，构建内在模型，然后用这个模型预测未来。当你扔出一个球，你的大脑会自动预测它的轨迹；当你看到一扇门，你的大脑会预测推开它会发生什么。&lt;/p&gt;
+&lt;p&gt;LeCun认为，真正的AI需要这种能力。不是识别图像、生成文本，而是&lt;strong&gt;理解物理世界，预测行动后果&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;大语言模型是&amp;rsquo;系统二&amp;rsquo;——逻辑推理、语言处理，&amp;ldquo;LeCun说，&amp;ldquo;但人类智能的大部分是&amp;rsquo;系统一&amp;rsquo;——直觉、感知、运动控制。我们需要先解决系统一，才能真正理解系统二。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这个愿景让LeCun在Meta（Facebook改名后的公司）投入了大量资源。他领导团队开发JEPA（联合嵌入预测架构），试图让AI通过观看视频来学习物理规律。不是通过标注，而是通过&lt;strong&gt;预测&lt;/strong&gt;——预测下一帧画面会是什么样子，预测物体的运动轨迹，预测行动的后果。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这是工程问题，&amp;ldquo;LeCun说，&amp;ldquo;不是理论问题。我们需要构建一个系统，让它自己学会理解世界。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;当下的沉思工程师的乐观与警惕&#34;&gt;当下的沉思：工程师的乐观与警惕&lt;/h2&gt;
+&lt;p&gt;站在2026年，LeCun的World Model仍然是一个未完成的愿景。大语言模型已经统治了AI领域，Transformer架构无处不在，而LeCun的坚持看起来像是固执。&lt;/p&gt;
+&lt;p&gt;但LeCun并不沮丧。&amp;ldquo;工程师的职业生涯就是不断被证明是错的，然后找到新的方法，&amp;ldquo;他说，&amp;ldquo;我在1990年代被证明是错的，2010年代又被证明是对的。现在可能又是错的，但那没关系——重要的是找到下一个对的方法。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;与Hinton的悲观不同，LeCun对AI的未来保持乐观。他不认为AI会毁灭人类，至少不会很快。&amp;ldquo;我们离真正的智能还差得远，&amp;ldquo;他说，&amp;ldquo;大语言模型只是工具，它们没有目标，没有欲望，没有自我。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;但LeCun也有担忧。他担心的是AI的&lt;strong&gt;集中化&lt;/strong&gt;——当只有少数几家公司拥有训练大模型的资源时，AI的力量会被滥用。他担心的是&lt;strong&gt;幻觉&lt;/strong&gt;——大语言模型生成虚假信息的能力。他担心的是&lt;strong&gt;就业&lt;/strong&gt;——当AI可以完成越来越多的工作时，社会如何适应。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;这些问题需要工程师来解决，&amp;ldquo;LeCun说，&amp;ldquo;不是哲学家，不是政治家，是工程师。我们需要构建更好的系统，更安全的系统，更公平的系统。这是我们的责任。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;说到底一个工程师的做法&#34;&gt;说到底：一个工程师的做法&lt;/h2&gt;
+&lt;p&gt;回顾LeCun的一生，他的做法清晰可见：&lt;strong&gt;先让它工作，再理解它为什么工作&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这与科学研究的经典路径相反。经典路径是先建立理论，然后用实验验证。但LeCun走的是另一条路——他先构建系统，观察它如何表现，然后从中提炼理论。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;CNN就是这样诞生的，&amp;ldquo;LeCun说，&amp;ldquo;我先让它工作，然后才理解为什么卷积结构有效。World Model也会是这样——我们先构建它，然后理解世界模型的本质。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这种做法让LeCun成为深度学习三巨头中最&amp;quot;接地气&amp;quot;的一个。Hinton是先知，Bengio是学者，LeCun是工程师。他不追求完美的理论，他追求能工作的系统。他不等待世界的认可，他改变世界。&lt;/p&gt;
+&lt;p&gt;一位曾与LeCun共事的工程师对我们说：&amp;ldquo;LeCun教会我最重要的一课是：不要等理论完善才开始。如果你有一个想法，就构建它，测试它，迭代它。理论会在实践中自然涌现。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;全局来看&lt;/strong&gt;，LeCun的一生诠释了工程精神的价值。在AI的寒冬中，他用LeNet证明了深度学习的实用价值；在Transformer的热潮中，他用World Model坚守对&amp;quot;理解&amp;quot;的追求。他可能不是最耀眼的明星，但他是最可靠的基石——当理论家还在争论时，工程师已经让机器看清楚了世界。&lt;/p&gt;
+&lt;p&gt;而这个世界，正在因为他的工作而改变。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI人物志-木匠Geoffrey Hinton</title>
+      <link>https://blog.zhangky.com/posts/2026/april/2026-04-01-geoffrey-hinton-the-carpenter/</link>
+      <pubDate>Wed, 01 Apr 2026 21:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/april/2026-04-01-geoffrey-hinton-the-carpenter/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;AI人物志系列&lt;/strong&gt;：理解智能的本质，需要理解创造它的人。本系列记录那些在寒冬中坚守、在狂热中清醒的灵魂，他们的弯路与开悟，构成了AI的真正历史。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;当全世界都说神经网络是死胡同时，一个木匠决定再凿一下那块木头。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2018年3月，多伦多大学的一间办公室里，70岁的Geoffrey Hinton收到了图灵奖获奖通知。那是计算机科学界的最高荣誉，相当于这一领域的诺贝尔奖。但Hinton的第一反应不是庆祝，而是困惑——&amp;ldquo;为什么是现在？&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;答案要追溯到40年前。那时神经网络被视为&amp;quot;伪科学&amp;quot;，研究它的人被嘲笑为&amp;quot;炼金术士&amp;quot;。而Hinton，这个曾在大学做过两年木匠的英国人，几乎是孤身一人扛起了这面旗帜。一位长期观察AI发展的研究者对我们说：&amp;ldquo;如果没有Hinton的坚持，深度学习可能还要晚来20年。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;剑桥的退学信一个关于直觉的决定&#34;&gt;剑桥的退学信：一个关于&amp;quot;直觉&amp;quot;的决定&lt;/h2&gt;
+&lt;p&gt;1947年，Hinton出生在一个充满&amp;quot;天才&amp;quot;气息的英国家庭。他的父亲是昆虫学家，母亲是教师，家族里还有数学家、经济学家、作家。但Hinton的童年并不快乐——他患有阅读障碍，在精英教育体系中显得格格不入。&lt;/p&gt;
+&lt;p&gt;1960年代，年轻的Hinton进入剑桥大学学习物理和化学，但很快发现这不是他想要的。&amp;ldquo;我对人脑如何工作更感兴趣，&amp;ldquo;他后来回忆。于是他从剑桥退学，转而去爱丁堡大学学习心理学。&lt;/p&gt;
+&lt;p&gt;这个决定在当时看起来毫无道理。心理学在1960年代还是一门&amp;quot;文科&amp;rdquo;，充斥着哲学思辨，缺乏严格的科学方法。但Hinton在这里接触到了一样东西，改变了他的一生——&lt;strong&gt;人工神经网络&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;那是1960年代末，神经网络的概念刚刚诞生不久。科学家们试图用数学模型模拟人脑神经元的工作方式，但很快就遇到了瓶颈。1969年，AI领域的权威Marvin Minsky和Seymour Papert出版了一本名为《感知机》的书，用数学证明证明单层神经网络存在根本缺陷。这本书像一盆冷水，浇灭了整个领域的热情。&lt;/p&gt;
+&lt;p&gt;神经网络进入了第一次&amp;quot;寒冬&amp;rdquo;。大多数研究者转向其他方向，但Hinton没有。他看到了别人没看到的东西。&lt;/p&gt;
+&lt;h2 id=&#34;木匠的两年在木头中寻找答案&#34;&gt;木匠的两年：在木头中寻找答案&lt;/h2&gt;
+&lt;p&gt;1970年代末，Hinton做了一件让同行们更加不解的事——他去当木匠了。&lt;/p&gt;
+&lt;p&gt;整整两年，他在伦敦的工坊里制作橱柜、书架、门窗。这不是逃避，而是一种独特的思考方式。&amp;ldquo;做木工和做研究很像，&amp;ldquo;他后来解释，&amp;ldquo;你面对一块木头，需要理解它的纹理、它的特性，然后决定如何下刀。神经网络也是一样——你需要理解它的结构，然后找到训练它的方法。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这段经历给了Hinton两样东西：&lt;strong&gt;耐心&lt;/strong&gt;和&lt;strong&gt;手感&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;在那个年代，训练一个神经网络需要手动调整成千上万个参数，没有自动化工具，没有GPU加速。Hinton像打磨木头一样，一点点摸索神经网络的&amp;quot;纹理&amp;rdquo;。他后来发明的&amp;quot;反向传播算法&amp;rdquo;，某种程度上就是这种&amp;quot;手感&amp;quot;的结晶——一种让神经网络自己调整参数的方法。&lt;/p&gt;
+&lt;p&gt;1986年，Hinton与David Rumelhart、Ronald Williams合作发表了关于反向传播的论文。这篇论文后来被视为深度学习的奠基之作，但当时并没有引起太大轰动。神经网络仍然处于&amp;quot;寒冬&amp;quot;，大多数AI研究者仍然坚信符号主义才是未来。&lt;/p&gt;
+&lt;h2 id=&#34;至暗时刻在多伦多独自坚守&#34;&gt;至暗时刻：在多伦多独自坚守&lt;/h2&gt;
+&lt;p&gt;1980年代末，Hinton接受了多伦多大学的教职，离开英国前往加拿大。这个选择在当时看来是一种&amp;quot;流放&amp;quot;——远离AI研究的核心圈子，远离资金和资源。&lt;/p&gt;
+&lt;p&gt;但Hinton需要这种孤独。在多伦多，他可以不受干扰地继续自己的研究，哪怕这意味着发表论文困难、申请经费被拒、学生招不到。&lt;/p&gt;
+&lt;p&gt;一位曾在1980年代末拜访过Hinton实验室的研究者向我们回忆：&amp;ldquo;那是一间很普通的办公室，墙上贴着几张神经网络的示意图。Hinton当时正在调试一个模型，已经跑了好几天。他说，&amp;lsquo;我相信这东西会工作的，只是需要更多时间。&amp;rsquo;&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;更多时间。这是Hinton最不缺的东西。&lt;/p&gt;
+&lt;p&gt;1990年代到2000年代，神经网络经历了第二次&amp;quot;寒冬&amp;quot;。支持向量机（SVM）等机器学习方法成为主流，神经网络被视为&amp;quot;过时的技术&amp;quot;。Hinton的学生们毕业后很难找到工作，很多人被迫转行。&lt;/p&gt;
+&lt;p&gt;但Hinton仍然坚持。他不断调整神经网络的结构，尝试不同的训练方法，发表了一篇又一篇被主流忽视的论文。他像一个在荒原上种树的园丁，知道这些树可能需要几十年才能长大。&lt;/p&gt;
+&lt;h2 id=&#34;2006年的那个晚上深度学习的黎明&#34;&gt;2006年的那个晚上：深度学习的黎明&lt;/h2&gt;
+&lt;p&gt;转折点出现在2006年。&lt;/p&gt;
+&lt;p&gt;那一年，Hinton发表了一篇关于&amp;quot;深度信念网络&amp;quot;（Deep Belief Networks）的论文。这篇论文提出了一种有效训练深层神经网络的方法，让多层神经网络的训练变得可行。&lt;/p&gt;
+&lt;p&gt;论文发表后的那个晚上，Hinton独自走在多伦多的街头。他后来回忆，那是一个寒冷的冬夜，但他感到一种奇怪的温暖。&amp;ldquo;我知道，有些东西改变了，&amp;ldquo;他说，&amp;ldquo;但我不知道它会改变得这么快。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;改变确实来得很快。2012年，Hinton的两个学生Alex Krizhevsky和Ilya Sutskever参加ImageNet图像识别竞赛，使用Hinton设计的深度卷积神经网络AlexNet，以压倒性优势击败所有对手。错误率比第二名低了整整10个百分点——在图像识别领域，这几乎是代差。&lt;/p&gt;
+&lt;p&gt;一夜之间，深度学习从&amp;quot;边缘技术&amp;quot;变成了&amp;quot;主流范式&amp;rdquo;。Google、Facebook、微软等科技巨头开始疯狂收购深度学习团队和人才。Hinton的实验室成了朝圣之地，他的学生们成了最抢手的人才。&lt;/p&gt;
+&lt;p&gt;但Hinton本人并没有因此变得高调。他仍然每天步行去实验室，仍然亲手调试模型，仍然在白板上画满公式。一位Hinton的学生告诉我们：&amp;ldquo;他对待深度学习的态度，就像对待一块需要精心打磨的木头。技术会过时，但手艺不会。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;人的大脑就是这么工作的一个木匠的哲学&#34;&gt;&amp;ldquo;人的大脑就是这么工作的&amp;rdquo;：一个木匠的哲学&lt;/h2&gt;
+&lt;p&gt;2016年，AlphaGo击败李世石，深度学习彻底出圈。媒体开始称Hinton为&amp;quot;AI教父&amp;quot;&amp;ldquo;深度学习之父&amp;rdquo;，但他本人对这些称号感到不适。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我不是在创造什么新东西，&amp;ldquo;他在一次采访中说，&amp;ldquo;我只是在模仿自然。人的大脑就是这么工作的——神经元连接，学习，涌现智能。没理由人工神经网络不这么工作。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这句话道出了Hinton的内在脉络：&lt;strong&gt;仿生不是选择，而是必然&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;在他看来，智能的本质不是符号操作，不是逻辑推理，而是学习。人类之所以能够涌现出智能，就是因为大脑具有学习能力。只要给神经网络正确的架构，它就能学会任何东西——从识别猫狗到下棋，从翻译语言到生成图像。&lt;/p&gt;
+&lt;p&gt;这种哲学与符号主义AI形成了鲜明对比。符号主义者相信，智能可以通过明确的规则和符号来实现；而Hinton相信，智能必须从数据中&amp;quot;学习&amp;quot;出来，就像婴儿学习认识世界一样。&lt;/p&gt;
+&lt;p&gt;这场争论持续了半个世纪，最终Hinton赢了。但胜利并没有让他变得傲慢。2018年获得图灵奖后，他把奖金捐给了培养年轻研究者的基金。&amp;ldquo;我只是比其他人多坚持了一会儿，&amp;ldquo;他说。&lt;/p&gt;
+&lt;h2 id=&#34;2023年的告别一个关于责任的转身&#34;&gt;2023年的告别：一个关于责任的转身&lt;/h2&gt;
+&lt;p&gt;2023年5月，Hinton做了一件让全世界震惊的事——他从Google离职，并公开警告AI的风险。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我后悔，&amp;ldquo;他在接受《纽约时报》采访时说，&amp;ldquo;我后悔我的一生工作可能带来的后果。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这不是一个科学家的矫情。Hinton真正担心的是，深度学习的发展速度已经超出了人类的控制能力。大语言模型展现出惊人的能力，但人类并不完全理解这些能力是如何产生的。更可怕的是，这些系统正在以指数级速度变得更强大。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;我原以为AI超越人类还需要30到50年，&amp;ldquo;他说，&amp;ldquo;现在我意识到，可能只需要5到10年。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;从Google离职后，Hinton开始花更多时间思考AI的安全问题。他不再每天去实验室，而是参加各种研讨会、接受媒体采访、与政策制定者对话。他想让更多人意识到，我们正站在一个历史的转折点上。&lt;/p&gt;
+&lt;p&gt;一位在2024年与Hinton有过长谈的研究者向我们转述：&amp;ldquo;他说，他这一生都在教机器如何学习，现在他发现，人类自己还没有学会如何与这些机器共处。这是他最后想解决的问题。&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;弯路与开悟一个木匠如何找到那条路&#34;&gt;弯路与开悟：一个木匠如何找到那条路&lt;/h2&gt;
+&lt;p&gt;回顾Hinton的一生，他并非没有走过弯路。&lt;/p&gt;
+&lt;p&gt;1970年代末，当他放下神经网络研究去当木匠时，那是一次逃避，也是一次迷失。他在伦敦的工坊里日复一日地刨木头、打榫卯，试图用身体的疲惫来麻痹精神的困惑。神经网络似乎真的走进了死胡同——Minsky的批评是对的，单层感知机确实有根本缺陷。&lt;/p&gt;
+&lt;p&gt;但正是在那些与木头相处的日子里，Hinton开始理解一个道理：&lt;strong&gt;有时候，你需要先退一步，才能看清前面的路&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;木工教会了他观察纹理——每一块木头都有自己的纹理，顺着纹理下刀，事半功倍；逆着纹理硬来，只会崩裂。神经网络也是如此。当时的研究者们都在试图用数学证明来证明神经网络的可行性，但Hinton意识到，也许问题不在于证明，而在于&lt;strong&gt;结构&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;人脑不是单层感知机，人脑是深层的、多层的、有反馈的。如果单层不行，为什么不试试多层？&lt;/p&gt;
+&lt;p&gt;这个念头像一道闪电，在1978年的某个下午击中了Hinton。他后来回忆，那天他正在打磨一个橱柜的门板，突然停下了手中的刨子。&amp;ldquo;如果神经网络也像木头一样有层次呢？&amp;ldquo;他问自己，&amp;ldquo;如果我们不是试图让单层网络学会一切，而是让每一层学会一点点，然后层层传递呢？&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这就是后来被称为&amp;quot;深度学习&amp;quot;的核心理念——&lt;strong&gt;不是让一个复杂的系统做一件复杂的事，而是让许多简单的系统层层协作，最终完成复杂的事&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;但光有想法还不够。1980年代的Hinton仍然面临一个根本问题：如何训练多层网络？如何调整那些隐藏层的参数？&lt;/p&gt;
+&lt;p&gt;他尝试过各种方法。有一段时间，他甚至考虑过放弃神经网络，转向遗传算法——让网络自己进化，而不是被训练。那是一段更加黑暗的日子，Hinton后来称之为&amp;quot;我的遗传算法时期&amp;rdquo;。&amp;ldquo;那时候我真的迷失了，&amp;ldquo;他说，&amp;ldquo;我以为进化能解决一切问题，但我忽略了进化的代价——它需要数百万年的时间，而我只有一辈子。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;真正的开悟发生在1985年。&lt;/p&gt;
+&lt;p&gt;那一年，Hinton在卡内基梅隆大学做访问学者。一天晚上，他在酒吧里遇到了David Rumelhart，一位认知心理学家。两人聊起了神经网络的训练问题，Rumelhart提到了一个想法：如果误差可以从输出层反向传播回输入层呢？&lt;/p&gt;
+&lt;p&gt;Hinton听后沉默了整整一分钟。然后他抓起一张餐巾纸，开始在上面画公式。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;那天晚上，我知道我们找到了，&amp;ldquo;Hinton后来回忆，&amp;ldquo;不是因为我算出了什么，而是因为那个想法感觉对了。就像你刨木头时，突然感觉到刨子顺着一个完美的角度滑过——你知道，就是这里。&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;这就是反向传播算法的诞生。它不是什么天才的灵光一现，而是两个疲惫的研究者在酒吧里的一次碰撞，是无数次失败后的偶然相遇，是一个木匠在木头中找到的直觉。&lt;/p&gt;
+&lt;h2 id=&#34;当下的沉思当ai真的学会了学习&#34;&gt;当下的沉思：当AI真的学会了学习&lt;/h2&gt;
+&lt;p&gt;站在2026年回望，Hinton的弯路和开悟给了我们一个启示：&lt;strong&gt;真正的突破往往来自于对&amp;quot;不可能&amp;quot;的坚持，以及对&amp;quot;可能&amp;quot;的改写&lt;/strong&gt;。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
