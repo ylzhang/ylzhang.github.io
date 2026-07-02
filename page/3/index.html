@@ -1,275 +1,59 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head>
-	<meta name="generator" content="Hugo 0.160.1"><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Zhang&#39;s Blog</title>
-
-<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-<meta name="author" content="ZHANG.z&#34;">
-<link rel="canonical" href="https://blog.zhangky.com/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/index.xml" title="rss">
-<link rel="alternate" type="application/json" href="https://blog.zhangky.com/index.json" title="json">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<meta property="og:url" content="https://blog.zhangky.com/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="Zhang&#39;s Blog">
-  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="website">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="Zhang&#39;s Blog">
-<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Zhang's Blog",
-  "url": "https://blog.zhangky.com/",
-  "description": "Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.",
-  "logo": "https://blog.zhangky.com/images/logo.svg",
-  "sameAs": [
-      "https://github.com/ylzhang/ylzhang.github.io", "https://x.com/ZHANG_on_mars"
-  ]
-}
-</script>
-</head>
-<body class="list" id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
-                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 11a9 9 0 0 1 9 9" />
-    <path d="M4 4a16 16 0 0 1 16 16" />
-    <circle cx="5" cy="19" r="1" />
-</svg>
-                </a>
-                
-
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://blog.zhangky.com/" title="Posts">
-                    <span class="active">Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/series/" title="Series">
-                    <span>Series</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/faq" title="FAQ">
-                    <span>FAQ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <style>
-        .nav.scrolled {
-            background: var(--theme);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .nav.scrolled #menu {
-            display: none;
-        }
-        .nav.scrolled .logo {
-            margin: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > nav.offsetHeight) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-</header>
-<main class="main"> 
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">什么才算是AI Native：从卖工具到卖结果的新叙事
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>什么才算是AI Native：从卖工具到卖结果的新叙事 AI原生服务公司正在重写创业剧本：不是卖工具，而是直接交付结果。
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta name=generator content="Hugo 0.163.3"><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Zhang's Blog</title><meta name=description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.zhangky.com/index.xml title=rss><link rel=alternate type=application/json href=https://blog.zhangky.com/index.json title=json><link rel=alternate hreflang=en href=https://blog.zhangky.com/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://blog.zhangky.com/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="Zhang's Blog"><meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta property="og:locale" content="zh-cn"><meta property="og:type" content="website"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="Zhang's Blog"><meta name=twitter:description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Zhang's Blog","url":"https://blog.zhangky.com/","description":"Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.","logo":"https://blog.zhangky.com/images/logo.svg","sameAs":["https://github.com/ylzhang/ylzhang.github.io","https://x.com/ZHANG_on_mars"]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span class=active>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/series/ title=Series><span>Series</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>什么才算是AI Native：从卖工具到卖结果的新叙事</h2></header><div class=entry-content><p>什么才算是AI Native：从卖工具到卖结果的新叙事 AI原生服务公司正在重写创业剧本：不是卖工具，而是直接交付结果。
 YC Startup School最近一期节目中，主讲人Charlie Warren提出了一个颠覆性的观点：十年内，会出现一部分AI巨头公司，主业并不是做开发，而是被AI重新组织起来的服务公司。A16Z的投资团队也在多个场合强调，AI时代的创业机会不止于产品，更在于服务交付的重构。
 这种转变正在发生。保险、税务、法务、审计、医疗文书、财务外包、合规服务、企业申报——这些传统、笨重、不互联网的行业，正在成为AI创业的新战场。根据麦肯锡研究，到2030年，AI有望自动化全球服务行业约30%的工作任务，市场规模预计超过万亿美元。
-从SaaS到AI Native Service，一场从&#34;卖工具&#34;到&#34;卖结果&#34;的转向正在悄然发生。
+从SaaS到AI Native Service，一场从"卖工具"到"卖结果"的转向正在悄然发生。
 从工具到结果：两种完全不同的商业逻辑 传统软件公司卖的是工具。客户买CRM是为了管理销售线索，买财务软件是为了处理账目，买合同工具是为了起草和审核文档。软件本身并不保证结果，它只是让客户内部的人更高效。
-AI原生服务公司卖的则是结果。客户不再购买&#34;合同审查工具&#34;，而是购买&#34;合同审查完成&#34;；不再购买&#34;报税软件&#34;，而是购买&#34;税务申报完成&#34;；不再购买&#34;合规助手&#34;，而是购买&#34;合规文件交付&#34;。
+AI原生服务公司卖的则是结果。客户不再购买"合同审查工具"，而是购买"合同审查完成"；不再购买"报税软件"，而是购买"税务申报完成"；不再购买"合规助手"，而是购买"合规文件交付"。
 核心区别在于责任边界：卖工具，客户需要学习工具、设计流程、承担执行结果；卖结果，服务公司要把业务的流程、质量控制、异常处理和最终交付都承担下来。这要求AI原生服务公司，既要具备传统服务外包BPO的运营能力，又要构建领先的AI驱动运营系统。
 选市场：找到AI能真正创造价值的领域 不是所有服务行业都适合AI原生服务这条路。YC节目中指出，值得做的市场有几个关键特征。
 第一，客户预算充足且持续。理想的入口是那些客户已经长期付费、但体验很差的服务：贵、慢、不透明、沟通成本高、结果不稳定。税务、保险、法务、审计、医疗、财务外包就特别典型。
 第二，任务可拆解，能量化，有标准。AI擅长处理大量的、可以被验收、相对结构化、流程比较明确的工作，比如读取海量文件、提取关键信息、汇总撰写初稿、核对成百上千条规则。如果一个服务完全依赖专家经验判断，很难在早期直接自动化，但可以拆成一连串小任务，让AI先吃掉大部分工作量。
 第三，客户关心结果，而不关心你的人力成本。客户只在意事情有没有办成、风险有没有降低、要求有没有达到、速度有没有提升。只要结果可信、交付稳定、责任清楚，新的供给方式就有机会替代旧方式。
-Sam Altman测试：你的价值是否依赖模型本身？ 很多AI产品本质只是给大模型包了一层界面。YC节目中提到的&#34;Sam Altman测试&#34;提供了一个判断标准：6-12个月后，GPT模型能力继续大幅提升，你的公司会因此更强，还是会被OpenAI的新功能覆盖掉？
-如果你的服务价值只是&#34;调用模型生成一段内容&#34;，那会很危险，因为客户迟早自己就可以用模型完成同样的事情。但如果你的价值是精通复杂的行业流程、与客户建立深度信任、拥有独特的数据沉淀、质量控制能力出色、责任边界清晰、交付能力有保障，那么模型越强，你反而越有价值。
+Sam Altman测试：你的价值是否依赖模型本身？ 很多AI产品本质只是给大模型包了一层界面。YC节目中提到的"Sam Altman测试"提供了一个判断标准：6-12个月后，GPT模型能力继续大幅提升，你的公司会因此更强，还是会被OpenAI的新功能覆盖掉？
+如果你的服务价值只是"调用模型生成一段内容"，那会很危险，因为客户迟早自己就可以用模型完成同样的事情。但如果你的价值是精通复杂的行业流程、与客户建立深度信任、拥有独特的数据沉淀、质量控制能力出色、责任边界清晰、交付能力有保障，那么模型越强，你反而越有价值。
 更强的模型会降低交付成本、提高处理速度、扩大服务范围、改善毛利结构。因此，顶尖的AI原生服务公司，必须建立在模型进步之上。
 稳定交付是最大的壁垒，也是最大的难点 AI原生服务公司最大的挑战，是能不能稳定交付结果给到客户。服务行业卖的是信任，客户要的是确定性。
 YC节目里有一句话：“variance kills these businesses faster than anything else”——不稳定性会比任何东西更快杀死这类公司。
 想象一下：同样的问题，这次答对下次答错；同样的客户，这次体验好下次体验差；同样的流程，这个案例顺利，另一个案例失控。只要这种波动存在，客户对你的信任就会迅速被消耗掉。
-一个真实案例：美国AI法律服务公司DoNotPay最初以&#34;AI律师&#34;的噱头吸引了大量关注，但因为AI回答的不稳定性，导致客户投诉激增，最终不得不转型为更注重人工复核的混合模式。
-因此，AI原生服务公司的核心能力不是炫耀&#34;全自动&#34;，而是知道哪些环节要自动、哪些环节要人工、什么时候要多重审核、什么时候拒绝回答并升级给专家处理。人与AI协作不是为了让商业故事更好听，而是为了把风险控制在客户可接受的范围内。
+一个真实案例：美国AI法律服务公司DoNotPay最初以"AI律师"的噱头吸引了大量关注，但因为AI回答的不稳定性，导致客户投诉激增，最终不得不转型为更注重人工复核的混合模式。
+因此，AI原生服务公司的核心能力不是炫耀"全自动"，而是知道哪些环节要自动、哪些环节要人工、什么时候要多重审核、什么时候拒绝回答并升级给专家处理。人与AI协作不是为了让商业故事更好听，而是为了把风险控制在客户可接受的范围内。
 不要被早期客户拖成定制外包 AI原生服务公司还有一个常见陷阱：早期客户需求很多，什么都想接，结果变成了定制外包。
 为了获得收入，每个客户都有特殊要求，每个项目都要临时救火，每一单都要重新设计流程。公司收入会增长，团队也会扩张，但底层没有形成可复制的交付系统。
 真正的优势在于：扎根某类服务场景，借助AI把过去没法标准化的环节做到标准化、把过去没法流程化的功能做到流程化、把过去复杂的工序做到简洁化，永远让下一单比上一单更容易交付。
 对AI原生服务公司最重要的营收指标，不是全部收入，而是其中能复用的收入。
 定价：不要让自己陷入低价困境 AI会让交付成本下降，但这并不意味着公司应该靠低价竞争。传统服务里，律师、顾问、会计按小时收费，但AI原生服务公司如果继续按小时收费，就浪费了自己的优势。
-你卖给客户的不是时间，而是结果。如果你能够帮客户节省十万块，收一万块的服务费合情合理。但如果你主打的是&#34;我们比传统顾问便宜50%&#34;，客户反而会继续压价。
-AI降低交付成本，价值定价保留利润空间。两者结合，才可能形成高毛利业务。否则，公司名义上是&#34;AI原生服务&#34;，实际上只是&#34;AI低价外包&#34;。
+你卖给客户的不是时间，而是结果。如果你能够帮客户节省十万块，收一万块的服务费合情合理。但如果你主打的是"我们比传统顾问便宜50%"，客户反而会继续压价。
+AI降低交付成本，价值定价保留利润空间。两者结合，才可能形成高毛利业务。否则，公司名义上是"AI原生服务"，实际上只是"AI低价外包"。
 AI杠杆最终要体现在财务上 AI原生服务公司需要从一开始就把财务账算清楚。收入怎么来？交付成本是什么？毛利有多高？AI Token成本会不会失控？人工审核、异常处理、客户支持、数据处理分别占多少成本？每新增一个客户，需要增加多少人？
 关键财务指标：优秀的AI原生服务公司，应该随着规模扩大，毛利越来越好。早期可以有较多人工参与，但随着流程稳定、数据积累、模型能力提升，人应该逐渐从执行者变成监督者。
 衡量标准：收入增长曲线要比人力增长曲线更陡。如果收入增长100%只需要增加30%的人力，说明AI杠杆在起作用。反之，如果收入和人力同步增长，那只是一家用了AI工具的传统服务公司。
 行业数据：据A16Z报告，成功的AI服务公司毛利率通常在60%以上，而传统BPO公司毛利率普遍在20-30%之间。
-对国内创业者的启发 中国SaaS长期难做，最大的敌人是企业客户都在&#34;自研&#34;软件产品。但是，企业过去就有许多业务是天然在持续付费和外包的：获客、财税、合规、申报等各种&#34;办事&#34;的服务。
+对国内创业者的启发 中国SaaS长期难做，最大的敌人是企业客户都在"自研"软件产品。但是，企业过去就有许多业务是天然在持续付费和外包的：获客、财税、合规、申报等各种"办事"的服务。
 这反而让AI原生服务公司有机会。国内有大量服务行业仍然低效、分散、不透明，但客户需求真实存在，比如财税、法务、外审、知识产权、跨境合规、企业资质申报、保险理赔、医疗文书、留学申请、审计内控、供应链单证等。
 谁能把复杂服务拆成AI可执行的，谁能控制交付质量的方差，谁能建立客户信任，谁能围绕结果定价，谁就可能在传统服务业里做出新一代AI公司。
-说到底，AI的机会不仅是&#34;卖给客户&#34;，也有可能是&#34;交付结果&#34;。过去的软件公司把工具卖给客户，让客户自己完成工作。AI原生服务公司则把客户需要的结果直接交付出来。
+说到底，AI的机会不仅是"卖给客户"，也有可能是"交付结果"。过去的软件公司把工具卖给客户，让客户自己完成工作。AI原生服务公司则把客户需要的结果直接交付出来。
 这要求创业者不只是懂AI，更要懂行业、懂流程、懂运营、懂质量控制、懂客户信任。这里的壁垒不仅在于用好AI，还得把传统服务做成一套稳定、可复制、可规模化的系统。
 只要模型在继续变强，成本就能继续下降；只要通用AI覆盖率继续提高，你就能解决客户更多的新问题。下一代AI大机会，改变也许就在那些最传统、最繁琐、最贵、最慢、最不稳定的服务业深处。
 AI原生服务公司的本质，就是把这些旧服务重新做一遍——不是卖产品，而是卖结果。
-- FIN -
-</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-06-01 08:00:00 +0800 HKT'>June 1, 2026</span> | <span>15 min</span> | <span>zhejiang, China</span></footer>
-  <a class="entry-link" aria-label="post link to 什么才算是AI Native：从卖工具到卖结果的新叙事" href="https://blog.zhangky.com/posts/2026/06/2026-06-01-what-is-ai-native/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">当AI泡沫遇见持续买入：一个数据分析师的自我怀疑与坚持
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>当AI泡沫遇见持续买入：一个数据分析师的自我怀疑与坚持 引言：连《持续买入》的作者都动摇了 2026年5月，全球股市涨得让很多人开始怀疑人生。
+- FIN -</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-06-01 08:00:00 +0800 +0800'>June 1, 2026</span> | <span>15 min</span> | <span>zhejiang, China</span></footer><a class=entry-link aria-label="post link to 什么才算是AI Native：从卖工具到卖结果的新叙事" href=https://blog.zhangky.com/posts/2026/06/2026-06-01-what-is-ai-native/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>当AI泡沫遇见持续买入：一个数据分析师的自我怀疑与坚持</h2></header><div class=entry-content><p>当AI泡沫遇见持续买入：一个数据分析师的自我怀疑与坚持 引言：连《持续买入》的作者都动摇了 2026年5月，全球股市涨得让很多人开始怀疑人生。
 标普500连创新高，日韩台股同步起飞。Nvidia一家公司的市值超过中美之外任何一个国家的GDP。巴菲特手持将近4000亿美金历史最高仓位现金，连他都在等。
 满仓AI的人怕这是顶，一路加仓的人怕自己是高位接盘的傻子，攒着现金等机会的人越等越觉得错过了。
 而《持续买入》（Just Keep Buying）的作者Nick Maggiulli，在节目中说了一句让很多人震惊的话：
 “一年前，我变得有点悲观了。这可是破天荒头一次。我把股票仓位从100%减到了80%。”
 连写《持续买入》的人都动摇了，这个市场到底怎么了？持续买入还管用吗？
-带着这些问题，我重新审视了Nick在这期播客中的观点。比起&#34;持续买入&#34;的投资建议，我更感兴趣的是——一个数据分析师如何在自我怀疑中坚持原则。
+带着这些问题，我重新审视了Nick在这期播客中的观点。比起"持续买入"的投资建议，我更感兴趣的是——一个数据分析师如何在自我怀疑中坚持原则。
 这才是这个故事最有意思的地方。
 一、AI：泡沫还是换轨？答案是两者都是 Nick在节目中给出了一个相当诚实的回答：
 “可能两者都有点。如果你回顾任何重大技术变革的历史，总会有大量玩家蜂拥而至，也会有大量资金涌入。过度投资总是难免的。但与此同时，对于很多领域来说，它确实是一场换轨。”
 这个回答没有给出明确结论，但恰恰说明了为什么现在的市场让人困惑。如果答案显而易见——要么是2000年的互联网泡沫，要么是真正的历史性变革——我们就不需要讨论了。
 市销率的警讯 Nick看跌的理由很有意思：他用市销率（P/S）比较了Nvidia和1999年的Microsoft，发现两者几乎一模一样。
-他喜欢市销率而不是市盈率，因为&#34;盈利可以通过各种财务技巧来操纵，销售额则是实打实的。你不能伪造销售额，那直接就是诈骗了&#34;。
+他喜欢市销率而不是市盈率，因为"盈利可以通过各种财务技巧来操纵，销售额则是实打实的。你不能伪造销售额，那直接就是诈骗了"。
 2021年的SPAC热潮、市盈率的高企，让他产生了强烈的既视感。
-但增长确实来了 然而，Nick也承认自己错了。他原本认为Anthropic一年内把ARR从30亿做到450亿是&#34;天方夜谭&#34;，结果他们轻轻松松就做到了。
+但增长确实来了 然而，Nick也承认自己错了。他原本认为Anthropic一年内把ARR从30亿做到450亿是"天方夜谭"，结果他们轻轻松松就做到了。
 “也许我当时太悲观了，因为我觉得这种增长预期简直是天方夜谭，结果它们真的实现了。”
 这种认知冲突——既觉得像泡沫，又看到真实增长——正是当下每个投资者面临的困境。
 二、《持续买入》的核心信条：三个支柱 Nick的核心投资建议只有一句话：
@@ -279,8 +63,8 @@ AI原生服务公司的本质，就是把这些旧服务重新做一遍——不
 多样化：不把鸡蛋放在一个篮子里。股票、债券、房地产——这些都是创收资产。黄金、比特币不算，因为它们不产生收入。
 创收资产：能够产生某种收入的资产。黄金可以持有，但不应该成为投资组合的绝大部分。
 Nick的实践：他从未停止买入，但会根据市场情况调整买什么——少买点美股，多买点国际股或债券。“关键是，我始终在买入”。
-三、数据不会骗人：为什么择时是个伪命题 Nick最重要的论点是：数据压倒性地支持&#34;持续买入&#34;。
-SPIVA数据：90%的主动基金跑输指数 这是一个让所有&#34;选股高手&#34;尴尬的事实。在长期，大多数专业投资者无法跑赢市场。
+三、数据不会骗人：为什么择时是个伪命题 Nick最重要的论点是：数据压倒性地支持"持续买入"。
+SPIVA数据：90%的主动基金跑输指数 这是一个让所有"选股高手"尴尬的事实。在长期，大多数专业投资者无法跑赢市场。
 Nick的逻辑很直接：如果你不想付出任何努力就想战胜市场，这是不可能的。但如果你愿意花时间提升职业收入，那才是真正的财富来源。
 “你在某一天，股市大涨或大跌，你赚的或亏的，可能比你当初在非常好的工作大半年里赚的还要多。”
 随着投资组合越来越大，市场波动的影响超过工资收入。专注于职业，利用市场建立财富——这才是正道。
@@ -290,81 +74,45 @@ Nick的逻辑很直接：如果你不想付出任何努力就想战胜市场，�
 结果呢？市场随后大涨，他完美错过了最肥的一段。
 “我写《持续买入》这本书，结果连我自己都在那一刻违背了原则。”
 这个故事告诉我们：情绪是投资最大的敌人。哪怕你懂所有道理，在极端市场面前，人性的弱点依然会让你犯错。
-大萧条不是常态 很多人担心&#34;大萧条重演&#34;，但Nick指出这种可能性被高估了：
+大萧条不是常态 很多人担心"大萧条重演"，但Nick指出这种可能性被高估了：
 如果你在1929年高点买入标普500，持有到1950年代就回本了 持有20年，实际回报接近4% 100年的股票实际回报约为4% 时间会熨平波动。如果你有20-30年的投资期限，市场最终会给你惊喜。
 五、要不要止盈？ 这是很多人现在最纠结的问题：市场这么高了，要不要卖出一部分？
 Nick的反问很犀利：
 “你卖出的目的是什么？”
-如果你卖掉是为了买房、支付婚礼费用等现实需求，止盈完全合理。但为了&#34;分散投资&#34;或&#34;套现&#34;而卖？“如果你不知道自己为什么要这么做，你就不应该做。”
+如果你卖掉是为了买房、支付婚礼费用等现实需求，止盈完全合理。但为了"分散投资"或"套现"而卖？“如果你不知道自己为什么要这么做，你就不应该做。”
 另外，别忘了应税事件。卖出是要交税的，所以在做决定前要把这个因素考虑进去。
 六、分散化比你想象的更难 Nick的仓位大致是80/20——80%股票、20%债券。股票部分一半美国、一半国际。
-S&amp;P 500集中度问题：Nick提醒，很多人觉得持有Nvidia、Microsoft、Apple就是&#34;分散投资&#34;，但实际上他们在科技股上非常集中。S&amp;P 500本身已经集中于科技股，个股持仓只会更糟。
-如果你担心集中度问题，可以考虑等权重配置，而不是盲目认为&#34;我买S&amp;P 500就是分散投资&#34;。
+S&amp;P 500集中度问题：Nick提醒，很多人觉得持有Nvidia、Microsoft、Apple就是"分散投资"，但实际上他们在科技股上非常集中。S&amp;P 500本身已经集中于科技股，个股持仓只会更糟。
+如果你担心集中度问题，可以考虑等权重配置，而不是盲目认为"我买S&amp;P 500就是分散投资"。
 Nick的特殊调整：正准备买房，现金储备增加——这是合理的，因为他有具体的资金需求。一旦买房完成，他会恢复80/20。
 留下的提醒：分散化不是买几只股票就算完事，而是要理解你真正持有什么。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-05-27 08:00:00 +0800 HKT'>May 27, 2026</span> | <span>15 min</span> | <span>zhejiang, China</span></footer>
-  <a class="entry-link" aria-label="post link to 当AI泡沫遇见持续买入：一个数据分析师的自我怀疑与坚持" href="https://blog.zhangky.com/posts/2026/05/2026-05-27-just-keep-buying/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">TOKEN API中转站深度研究：连接红利下的技术逻辑与商业博弈
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>API中转站的本质是Token经济在AI时代的特殊表现形式——通过破解信息壁垒和准入壁垒，将原本稀缺的计算资源转化为可套利的数字商品。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-05-27 08:00:00 +0800 +0800'>May 27, 2026</span> | <span>15 min</span> | <span>zhejiang, China</span></footer><a class=entry-link aria-label="post link to 当AI泡沫遇见持续买入：一个数据分析师的自我怀疑与坚持" href=https://blog.zhangky.com/posts/2026/05/2026-05-27-just-keep-buying/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>TOKEN API中转站深度研究：连接红利下的技术逻辑与商业博弈</h2></header><div class=entry-content><p>API中转站的本质是Token经济在AI时代的特殊表现形式——通过破解信息壁垒和准入壁垒，将原本稀缺的计算资源转化为可套利的数字商品。
 当OpenAI、Anthropic等厂商构建起技术壁垒时，中转站生态正在以轻量技术实现撬动巨大的连接红利。根据CISPA亥姆霍兹信息安全中心2026年3月发布的《真金白银，假冒模型》研究报告，17家被测中转站中有近50%存在模型替换行为，这揭示了行业的核心矛盾：技术门槛低、监管套利空间大、数据安全风险高。本文从Token的本质、技术实现、商业模式、风险评估四个维度展开深度研究，并新增分销商模式与边缘计算整合模式的分析。
-Token的本质：AI时代的数字货币 Token是AI模型的&#34;燃料&#34;，是衡量AI服务价值的基本单位。Token的本质在于它将复杂的计算资源（GPU算力、模型参数、训练数据）转化为可计量、可交易的数字商品。一个GPT-4的Token约对应0.75个英文单词或1.5个中文字符，背后是数千亿参数模型的推理计算。Token经济的核心逻辑是：算力成本 → Token定价 → 服务变现，中转站正是在这个链条中找到了套利空间。
+Token的本质：AI时代的数字货币 Token是AI模型的"燃料"，是衡量AI服务价值的基本单位。Token的本质在于它将复杂的计算资源（GPU算力、模型参数、训练数据）转化为可计量、可交易的数字商品。一个GPT-4的Token约对应0.75个英文单词或1.5个中文字符，背后是数千亿参数模型的推理计算。Token经济的核心逻辑是：算力成本 → Token定价 → 服务变现，中转站正是在这个链条中找到了套利空间。
 Token与AI模型的逻辑纽带：
-环节 技术本质 经济意义 中转站角色 Token生成 模型推理计算 价值创造 无（厂商完成） Token定价 成本&#43;利润 价值分配 重新定价套利 Token流通 API调用消费 价值交换 渠道垄断 Token结算 按Token计费 价值实现 截留价差 技术实现：轻量架构下的接口统一 中转站的技术实现远比想象中简单，核心是一个API网关层的封装。你可以把它想象成一个&#34;翻译官&#34;——接收用户的请求，翻译成目标模型能理解的语言，拿到结果后再翻译回来。核心技术栈包括：反向代理（Nginx/Envoy）、API路由与鉴权（自定义或使用Kong/Gateway）、请求转换层（将非OpenAI格式转换为标准格式）、负载均衡与限流。以new-api为例，其核心代码不超过5000行，主要实现三个功能：格式转换、密钥管理、请求转发。这个轻量架构正是中转站能低成本运作的关键——技术门槛低意味着任何人都能进入，这也为灰色和黑色模式的滋生提供了土壤。
+环节 技术本质 经济意义 中转站角色 Token生成 模型推理计算 价值创造 无（厂商完成） Token定价 成本+利润 价值分配 重新定价套利 Token流通 API调用消费 价值交换 渠道垄断 Token结算 按Token计费 价值实现 截留价差 技术实现：轻量架构下的接口统一 中转站的技术实现远比想象中简单，核心是一个API网关层的封装。你可以把它想象成一个"翻译官"——接收用户的请求，翻译成目标模型能理解的语言，拿到结果后再翻译回来。核心技术栈包括：反向代理（Nginx/Envoy）、API路由与鉴权（自定义或使用Kong/Gateway）、请求转换层（将非OpenAI格式转换为标准格式）、负载均衡与限流。以new-api为例，其核心代码不超过5000行，主要实现三个功能：格式转换、密钥管理、请求转发。这个轻量架构正是中转站能低成本运作的关键——技术门槛低意味着任何人都能进入，这也为灰色和黑色模式的滋生提供了土壤。
 技术方案对比：
 技术方案 实现复杂度 性能表现 扩展性 代表项目 成本估算 纯反向代理 低 高 低 简单中转脚本 &lt;1万元 API网关封装 中 中高 中 new-api 5-10万元 企业级架构 高 高 高 OpenRouter 50-100万元 关键技术细节：
 格式转换：将Claude的XML格式、Gemini的JSON格式统一转换为OpenAI格式 密钥管理：用户密钥与上游密钥解耦，支持多租户管理 流量控制：防止单个用户耗尽额度，实现公平分配 商业模式：五级光谱下的套利逻辑 商业模式可清晰分为五个层级，从合规到违法形成完整光谱。
-白色模式：正规平台费 以OpenRouter为代表：5.5%充值手续费、300&#43;模型接入、月处理70万亿Token，透明合规但利润微薄。国内的CloseAI宣称服务阿里、腾讯等大客户，通过正规企业合作协议获取批量折扣。
+白色模式：正规平台费 以OpenRouter为代表：5.5%充值手续费、300+模型接入、月处理70万亿Token，透明合规但利润微薄。国内的CloseAI宣称服务阿里、腾讯等大客户，通过正规企业合作协议获取批量折扣。
 分销商模式：返利与折扣整合 这是一种更高级的商业模式。中转站作为中间商，与多家模型厂商（OpenAI、Anthropic、Google等）谈判大客户价格，获取批量折扣和季度返利。然后通过高于供应商成本但低于官方零售价的价格，以分销商模式卖给小型商家或个人用户。小商家可以在多模型中自由对比和切换使用。价值创造：通过规模效应降低成本，为中小客户提供多模型选择的便利。安全风险：数据仍需经过中转站，存在泄露风险；依赖上游厂商政策变化。
-灰色模式：暴利操作 Web2API逆向：就像把ChatGPT Plus的网页界面&#34;扒&#34;下来，做成API接口对外售卖。一个20美元/月的Plus账号，能拆成API卖给几十个人用。Sub2API拼车更有意思，它专门做订阅账号共享，一个账号同时给5-20人用。20美元的订阅费，5个人分摊每人只要4美元，中转站转手卖8美元，净赚100%。这种模式本质是把个人订阅权限当成&#34;批发商品&#34;来卖，成本几乎为零。
+灰色模式：暴利操作 Web2API逆向：就像把ChatGPT Plus的网页界面"扒"下来，做成API接口对外售卖。一个20美元/月的Plus账号，能拆成API卖给几十个人用。Sub2API拼车更有意思，它专门做订阅账号共享，一个账号同时给5-20人用。20美元的订阅费，5个人分摊每人只要4美元，中转站转手卖8美元，净赚100%。这种模式本质是把个人订阅权限当成"批发商品"来卖，成本几乎为零。
 边缘计算整合模式：算力资源最大化 这是最高级的模式。中转站将边缘计算的算力资源整合，将不同时段的折扣（如夜间低峰期折扣）整合，实现算力资源和API资源的最大化利用。例如：
-...</p>
-  </div>
-  <footer class="entry-footer">   ylzhang | <span title='2026-05-26 08:00:00 +0800 HKT'>May 26, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to TOKEN API中转站深度研究：连接红利下的技术逻辑与商业博弈" href="https://blog.zhangky.com/posts/2026/05/2026-05-26-token-api-relay-station-deep-dive/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">AI-First组织革命：从&#34;信任人&#34;到&#34;信任AI&#34;
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Harness时代：一场从&#34;信任人&#34;到&#34;信任AI&#34;的组织革命 引言：当AI从工具变成主导者 2026年的春天，硅谷传来一个令技术圈震动的数据：一家25人的公司，99%的代码由AI完成，每天平均3到8次生产部署，过去需要六周的产品开发流程，如今一天就能跑完。这不是科幻，而是CreaoAI在《Why Your “AI-First” Strategy Is Probably Wrong》中展示的真实案例。
-这篇博文之所以在X上获得百万级阅读，不是因为它描述了一个美好的愿景，而是因为它撕开了&#34;AI-First&#34;转型中最那道最难跨越的伤疤——信任。不是对AI能力的信任，而是对AI作为生产力主导者的信任，是对整个组织从&#34;人驱动AI&#34;转向&#34;AI驱动人&#34;这一根本性变革的信任。
+...</p></div><footer class=entry-footer>ylzhang | <span title='2026-05-26 08:00:00 +0800 +0800'>May 26, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to TOKEN API中转站深度研究：连接红利下的技术逻辑与商业博弈" href=https://blog.zhangky.com/posts/2026/05/2026-05-26-token-api-relay-station-deep-dive/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>AI-First组织革命：从"信任人"到"信任AI"</h2></header><div class=entry-content><p>Harness时代：一场从"信任人"到"信任AI"的组织革命 引言：当AI从工具变成主导者 2026年的春天，硅谷传来一个令技术圈震动的数据：一家25人的公司，99%的代码由AI完成，每天平均3到8次生产部署，过去需要六周的产品开发流程，如今一天就能跑完。这不是科幻，而是CreaoAI在《Why Your “AI-First” Strategy Is Probably Wrong》中展示的真实案例。
+这篇博文之所以在X上获得百万级阅读，不是因为它描述了一个美好的愿景，而是因为它撕开了"AI-First"转型中最那道最难跨越的伤疤——信任。不是对AI能力的信任，而是对AI作为生产力主导者的信任，是对整个组织从"人驱动AI"转向"AI驱动人"这一根本性变革的信任。
 CreaoAI成立于2025年11月，25名员工中只有10名工程师。创始人Peter Pang在2026年1月做出了一个大胆的决定：从零开始重构整个产品架构和工程工作流。两周后，新系统上线。如果产品能够自我构建，它就能work。
-一、Harness Engineering：工程团队的首要任务不再是写代码 从概念到实践：OpenAI的定义 2026年2月，OpenAI发表了一篇文章，阐述了&#34;Harness Engineering&#34;的概念：Creao其实早就在践行这一理念，只是没有给它命名。
+一、Harness Engineering：工程团队的首要任务不再是写代码 从概念到实践：OpenAI的定义 2026年2月，OpenAI发表了一篇文章，阐述了"Harness Engineering"的概念：Creao其实早就在践行这一理念，只是没有给它命名。
 Peter Pang对Harness Engineering的核心定义：
 “工程团队的首要任务不再是写代码，而是使Agent能够做有用的工作。当某件事失败时，修复方案永远不是’再努力试试’。修复方案永远是：缺了什么能力？我们如何让这个能力对Agent可见且可执行？”
-这个定义揭示了Harness的本质：从&#34;人修复问题&#34;到&#34;系统获得能力&#34;。传统思维是&#34;人出了错，人来修&#34;；Harness思维是&#34;系统缺能力，系统补能力&#34;。
+这个定义揭示了Harness的本质：从"人修复问题"到"系统获得能力"。传统思维是"人出了错，人来修"；Harness思维是"系统缺能力，系统补能力"。
 从Prompt Engineering到Harness：认知的三次跃迁 回溯大模型应用的历史，我们经历了三个认知阶段：
 第一阶段：Prompt Engineering（提示词工程） 这个阶段人们相信，只要写好提示词，AI就能乖乖听话。但prompt的边界太明显——它太依赖人的表达能力和对AI的理解，同样的需求，换一个表述，结果可能天差地别。
-第二阶段：Context Engineering（上下文工程） RAG（检索增强生成）技术风靡一时，核心逻辑是&#34;喂给AI足够多、足够准确的上下文&#34;。但上下文是静态的，而AI处理的任务是动态的；上下文是过去的经验，而任务总是面向未知的场景。
-第三阶段：Harness Engineering（挽具工程） Harness不是静态的配套系统，而是&#34;驯化&#34;通用智能的动态过程。它解决的是如何让一个AI系统从&#34;能干活&#34;进化到&#34;会自我优化&#34;的问题。
+第二阶段：Context Engineering（上下文工程） RAG（检索增强生成）技术风靡一时，核心逻辑是"喂给AI足够多、足够准确的上下文"。但上下文是静态的，而AI处理的任务是动态的；上下文是过去的经验，而任务总是面向未知的场景。
+第三阶段：Harness Engineering（挽具工程） Harness不是静态的配套系统，而是"驯化"通用智能的动态过程。它解决的是如何让一个AI系统从"能干活"进化到"会自我优化"的问题。
 而Harness要做的是，让整个系统成为一个人机共生的生态系统：AI不仅执行任务，还能根据执行结果调整策略；系统不仅能工作，还能识别自身的缺陷并自我修复。
 “Prompts are disposable”：一个反直觉的真相 Peter在原文中提到了一个反直觉的观点：
 “A production system needs to be stable, reliable, and secure. You need a system that can guarantee those properties when AI writes the code. You build the system. The prompts are disposable.”
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-05-25 08:00:00 +0800 HKT'>May 25, 2026</span> | <span>31 min</span> | <span>zhejiang, China</span></footer>
-  <a class="entry-link" aria-label="post link to AI-First组织革命：从&#34;信任人&#34;到&#34;信任AI&#34;" href="https://blog.zhangky.com/posts/2026/05/2026-05-25-harness-ai-first-organization/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">智能体：AI 时代的操作系统级入口
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 核心观点：李彦宏提出的 DAA（日活智能体数）指标，标志着 AI 时代的入口迁移已经开始。智能体不是独立软件，而是 AI 操作系统——比拼的不是裸模型，而是模型&#43;Harness&#43; 工具链的整套系统。智能体的使命，就是成为这个操作系统的统一调度者，让不同领域的智能体能够互联互通、协同工作，最终成为 AI 时代的中心化入口。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-05-25 08:00:00 +0800 +0800'>May 25, 2026</span> | <span>31 min</span> | <span>zhejiang, China</span></footer><a class=entry-link aria-label='post link to AI-First组织革命：从"信任人"到"信任AI"' href=https://blog.zhangky.com/posts/2026/05/2026-05-25-harness-ai-first-organization/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>智能体：AI 时代的操作系统级入口</h2></header><div class=entry-content><p>核心观点：李彦宏提出的 DAA（日活智能体数）指标，标志着 AI 时代的入口迁移已经开始。智能体不是独立软件，而是 AI 操作系统——比拼的不是裸模型，而是模型+Harness+ 工具链的整套系统。智能体的使命，就是成为这个操作系统的统一调度者，让不同领域的智能体能够互联互通、协同工作，最终成为 AI 时代的中心化入口。
 一、DAA：衡量 AI 时代繁荣度的新指标 李彦宏在 Create AI 大会上提出的 DAA 指标，值得再往深处看：
 “过去互联网时代，大家习惯用 DAU 衡量有多少人在使用产品。但到了 AI 时代，真正重要的事情开始变成，有多少智能体正在替人类干活。”
 DAA 本质上衡量的是：智能体生态到底繁不繁荣，AI 有没有真正开始介入真实世界。
@@ -374,163 +122,8 @@ DAA 本质上衡量的是：智能体生态到底繁不繁荣，AI 有没有真�
 这种体验会深入用户心智。一旦形成习惯，谁拿到这个入口，谁就是王者。
 三、智能体是操作系统，不是独立软件 这是百度最深刻的洞察之一：
 “智能体不只是 AI 模型之上的新产品，它更像是 AI 操作系统。”
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-05-14 07:18:00 +0800 HKT'>May 14, 2026</span> | <span>14 min</span> | <span>zhejiang, China</span></footer>
-  <a class="entry-link" aria-label="post link to 智能体：AI 时代的操作系统级入口" href="https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="https://blog.zhangky.com/page/2/">
-      «&nbsp;Prev&nbsp;2/28
-    </a>
-    <a class="next" href="https://blog.zhangky.com/page/4/">Next&nbsp;4/28&nbsp;»
-    </a>
-  </nav>
-</footer>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<style>
-   
-  .mermaid {
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 95%;
-    overflow-x: auto;
-  }
-  
-   
-  .mermaid > svg {
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-  
-   
-  .mermaid flowchart {
-    width: 100%;
-  }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>
-  
-  window.mermaidConfig = {
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis',
-      width: '100%',
-      height: 'auto'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
-  };
-  
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    var codeBlocks = document.querySelectorAll('code.language-mermaid');
-    
-    
-    codeBlocks.forEach(function(codeBlock) {
-      var preBlock = codeBlock.parentNode;
-      var mermaidCode = codeBlock.textContent;
-      
-      
-      var mermaidContainer = document.createElement('div');
-      mermaidContainer.className = 'mermaid';
-      mermaidContainer.textContent = mermaidCode;
-      
-      
-      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
-    });
-    
-    
-    mermaid.initialize(window.mermaidConfig);
-  });
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-05-14 07:18:00 +0800 +0800'>May 14, 2026</span> | <span>14 min</span> | <span>zhejiang, China</span></footer><a class=entry-link aria-label="post link to 智能体：AI 时代的操作系统级入口" href=https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/page/2/>«&nbsp;Prev&nbsp;2/28
+</a><a class=next href=https://blog.zhangky.com/page/4/>Next&nbsp;4/28&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
