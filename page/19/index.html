@@ -1,489 +1,78 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head>
-	<meta name="generator" content="Hugo 0.160.1"><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Zhang&#39;s Blog</title>
-
-<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-<meta name="author" content="ZHANG.z&#34;">
-<link rel="canonical" href="https://blog.zhangky.com/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/index.xml" title="rss">
-<link rel="alternate" type="application/json" href="https://blog.zhangky.com/index.json" title="json">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<meta property="og:url" content="https://blog.zhangky.com/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="Zhang&#39;s Blog">
-  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="website">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="Zhang&#39;s Blog">
-<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Zhang's Blog",
-  "url": "https://blog.zhangky.com/",
-  "description": "Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.",
-  "logo": "https://blog.zhangky.com/images/logo.svg",
-  "sameAs": [
-      "https://github.com/ylzhang/ylzhang.github.io", "https://x.com/ZHANG_on_mars"
-  ]
-}
-</script>
-</head>
-<body class="list" id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
-                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 11a9 9 0 0 1 9 9" />
-    <path d="M4 4a16 16 0 0 1 16 16" />
-    <circle cx="5" cy="19" r="1" />
-</svg>
-                </a>
-                
-
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://blog.zhangky.com/" title="Posts">
-                    <span class="active">Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/faq" title="FAQ">
-                    <span>FAQ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <style>
-        .nav.scrolled {
-            background: var(--theme);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .nav.scrolled #menu {
-            display: none;
-        }
-        .nav.scrolled .logo {
-            margin: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > nav.offsetHeight) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-</header>
-<main class="main"> 
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【ChatGPT时刻08】Scaling Laws：规模与性能的幂律关系
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Jared Kaplan、Sam McCandlish、Tom Henighan、Tom B. Brown、Benjamin Chess、Rewon Child、Scott Gray、Alec Radford、Jeffrey Wu和Dario Amodei于2020年发表的里程碑论文《Scaling Laws for Neural Language Models》，该论文发现了神经语言模型的缩放定律（Scaling Laws），揭示了模型规模、数据规模、计算量与模型性能之间的幂律关系。这一发现不仅为大模型的发展提供了理论指导，更为理解&#34;规模即智能&#34;提供了科学依据，是当今大模型时代的理论基础。
-“规模是性能的关键。&#34;——这是缩放定律论文的核心发现。通过系统性的实验，论文发现模型性能（损失）与模型规模、数据规模、计算量之间存在清晰的幂律关系。这意味着，只要增加模型规模、数据规模或计算量，模型性能就会可预测地提升。这一发现为大模型的发展指明了方向。
-缩放定律的核心发现是幂律关系：模型损失 $L$ 与模型参数 $N$、数据规模 $D$、计算量 $C$ 之间存在幂律关系：
-$$ L(N, D) = \left(\frac{N_c}{N}\right)^{\alpha_N} &#43; \left(\frac{D_c}{D}\right)^{\alpha_D} &#43; L_\infty $$
-其中 $\alpha_N$、$\alpha_D$ 是幂律指数，$L_\infty$ 是无限规模下的极限损失。
-这一发现的意义深远：它证明了&#34;规模即智能&#34;的科学性，为大模型的发展提供了可预测的路径。理解缩放定律，就是理解大模型时代的底层规律。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读缩放定律，包含完整的数学推导、实验分析和理论探讨，并在文末提供阅读研究论文的时间线计划。
-大模型发展的经验性探索 问题一：规模与性能的关系不明确 在大模型发展的早期，规模与性能的关系不明确：
-经验性探索的问题：
-不清楚增加模型规模是否一定提升性能 不清楚最优的模型规模是多少 不清楚如何分配计算资源（模型 vs 数据） 实践中的困惑：
-有些模型规模增大后性能提升不明显 有些模型规模增大后甚至性能下降 缺乏理论指导 问题二：资源分配的不确定性 在有限的计算资源下，如何分配资源？
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-11-28 21:13:58 +0800 HKT'>November 28, 2025</span> | <span>13 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【ChatGPT时刻08】Scaling Laws：规模与性能的幂律关系" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-11-28-chatgpt-08-scaling-laws/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">孙宇晨：加密世界的&#34;规则玩家&#34;
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>【2025加密市场10大风云人物】
-他是加密世界里最会&#34;学规则、用规则&#34;的玩家——孙宇晨，从被质疑的&#34;币圈营销家&#34;到登上《福布斯》封面，他的进阶之路，本质上是对游戏规则的深度理解与精准运用。
-说起孙宇晨，大家都在聊他的营销手段和各种争议，但2025年的他，用实际行动证明了：在这个规则尚未完全成型的领域，最懂规则的人才能笑到最后。
-从边缘到核心：规则突破的艺术 2025年3月，孙宇晨登上《福布斯》封面，被誉为&#34;帮助特朗普家族实现4亿美元收益的加密亿万富翁&#34;。这转变的背后，是他把规则边界摸得门清——从早期的代币营销，到后来的合规布局，孙宇晨总能在规则允许的范围内把自身利益最大化，完成了从行业边缘到核心玩家的跳跃。
-多元布局：规则生态的构建 2025年，孙宇晨的各种布局让人们看到了他玩转不同规则体系的本事：为TUSD提供4.56亿美元资金避免脱锚，提交质押版TRX ETF申请，通过特朗普家族关联投行完成TRON反向合并上市，甚至斥资2800万美元成为最年轻华人商业宇航员。这些看似分散的动作，实则构建了一个覆盖金融、监管、媒体、甚至太空领域的规则生态网络。
-认知反转：规则叙事的重构 2025年最引人注目的变化，是围绕孙宇晨的公众认知发生了深刻转变。他过往的课程和言论被重新解读，从&#34;标新立异&#34;变成了&#34;前瞻性洞察&#34;。这种认知反转，本质上是孙宇晨对&#34;规则叙事&#34;的成功重构——他不仅学会了游戏规则，更学会了如何让规则为自己的叙事服务，将质疑声转化为对&#34;海洋文明思维&#34;的认同。
-在加密世界，真正的赢家不是破坏规则的人，而是最懂规则的人——他们既能在现有框架内游刃有余，又能在规则变迁时抢占先机。孙宇晨的故事，就是加密版的&#34;规则炼金术&#34;。
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta name=generator content="Hugo 0.163.3"><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Zhang's Blog</title><meta name=description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.zhangky.com/index.xml title=rss><link rel=alternate type=application/json href=https://blog.zhangky.com/index.json title=json><link rel=alternate hreflang=en href=https://blog.zhangky.com/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://blog.zhangky.com/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="Zhang's Blog"><meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta property="og:locale" content="zh-cn"><meta property="og:type" content="website"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="Zhang's Blog"><meta name=twitter:description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Zhang's Blog","url":"https://blog.zhangky.com/","description":"Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.","logo":"https://blog.zhangky.com/images/logo.svg","sameAs":["https://github.com/ylzhang/ylzhang.github.io","https://x.com/ZHANG_on_mars"]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span class=active>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Michael Saylor：企业财库革命的真正先驱</h2></header><div class=entry-content><p>【2025加密市场10大风云人物】
+他是改写企业财库规则的"数字资产先锋"——Michael Saylor，从传统软件企业家到加密资产布道者，他用比特币为企业价值储存开辟了全新路径。
+说起Saylor和Strategy的比特币持仓，大家都盯着价格涨跌和市值数字，但2025年的他，用实际行动证明了：他彻底改写了企业财库的价值储存规则，这才是最值得关注的突破。
+2020年8月，Strategy砸下2.5亿美元买了21,454枚比特币——这哪是普通投资？直接把比特币从投机工具变成了企业财务的标配，顺带让全球企业财库管理换了个玩法。
+DAT模型：企业财库的新玩法 Saylor捣鼓出的"数字资产财库（DAT）模型"，给企业界重新定义了价值储存——哪是简单调调资产配置？直接把传统企业财库那套全打翻了。他硬把比特币说成"抗通胀的数字黄金"，给企业指了条不用吊死在法定货币上的新路子。
+叙事重塑：从投机到长期资产 Saylor最绝的是，把比特币在企业圈的形象彻底扭转了。他见人就念叨：“我们不是炒币，是为了保护股东价值搞长期资产配置”。这套说辞居然真的让传统金融圈放下了对加密资产的偏见，把比特币当成了企业财库的"常规选项"。
+行业浪潮：上市公司跟风持币 Strategy的示范效应，掀起了上市公司持币潮。据BitcoinTreasuries数据，现在已有192家上市公司持有约109万枚比特币，占全球流通量的5.45%。哪怕最近市场调整导致Strategy股价下跌，Saylor仍咬死长期策略——除非比特币跌破1万美元，否则绝不卖。
+“企业财库的未来，或许不在银行账户里，而在区块链上。”
+Saylor的贡献哪是让一家公司囤点比特币这么简单？他直接给企业价值储存开了个新玩法。2025年加密市场能这么快被主流接受，他的DAT模型功不可没——就像在传统企业和加密资产之间搭了座桥，把加密货币硬生生推进了主流金融体系。
 「10个人-2025年的加密市场重要人物志」系列
 本系列聚焦2025年加密市场的关键人物，通过他们的布局与决策，解读加密行业从边缘到主流的转变逻辑。
-特朗普：政治权威成为加密价值的新锚点 Michael Saylor：企业财库革命的真正先驱 Tom Lee：华尔街与加密世界的关键桥梁 赵长鹏：币安Alpha 2.0的权力转型 Vitalik Buterin：去中心化理想与机构化现实的平衡者 金正恩：国家级加密财政的极端实践 马斯克：加密市场&#34;强人时代&#34;的符号 孙宇晨：加密世界的&#34;规则玩家&#34; Brian Armstrong：加密世界的&#34;合规基础设施建筑师&#34; Peter Thiel：去中心化世界的&#34;中心化帝国建造者&#34; </p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-11-28 10:14:16 +0800 HKT'>November 28, 2025</span> | <span>4 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 孙宇晨：加密世界的&#34;规则玩家&#34;" href="https://blog.zhangky.com/posts/2025/2025-11-28-sun-justin-rule-master/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">商旅APP：伪装成C端产品的B端经济学困局
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>凌晨两点的吐槽：被商旅APP支配的恐惧 上周出差广州，凌晨两点赶最后一班航班回北京。在机场休息室里，我抱着电脑对着公司指定的「XX商旅」APP发呆——同样是预订返程机票，在「携程」上30秒搞定的操作，在这款APP里我已经耗了15分钟：
-第一步填部门信息（明明系统里已经有我的档案） 第二步选审批单号（上个月的审批单还能选，我得翻5页找最新的） 第三步确认差旅标准（弹出3个提示框，必须逐一点「我知道了」） 第四步选座（只有3个靠窗位可选，携程上明明还剩12个） 第五步支付（提示「请选择支付方式」，但只有「企业月结」一个选项） 终于提交成功时，我突然意识到：这款每天被上万员工使用的APP，根本不是什么C端产品——它只是披着C端外衣的B端工具，而这背后的逻辑扭曲，才是体验灾难的根源。
-「伪C端」的本质：买单的人不使用，使用的人不买单 上周和HR部门的同事吃饭，聊起这款商旅APP。她无奈地说：「我们去年招标时对比了5家服务商，最后选这家是因为他们的差旅管控系统最完善——能限制员工只能订经济舱，能自动识别超标酒店，能导出财务需要的所有报表。」
-我瞬间明白了：
-商旅APP的使用者是员工，但付费决策权在企业
-这种「权责分离」的模式直接决定了产品的设计优先级：
-企业关心「成本」：协议价低多少？能不能防止员工乱花钱？报表全不全？ 商旅公司关心「订单」：企业想要什么功能，我就做什么功能，反正员工没得选 员工关心「体验」：这是最不重要的——因为我们既不买单，也没选择 某第三方评测机构2024年的报告很有意思：
-员工投诉TOP3：操作繁琐、价格偏高、选择少 企业采购TOP3：成本节约率、合规率、数据导出功能 完全不在一个频道上。
-产品人的愤怒：技术不是问题，态度才是 作为产品经理，我专门拆解过这款APP的前端代码——
-不是技术做不到，而是根本没用心做。
-比如：
-登录页用的是5年前的表单组件，没有记住密码功能 搜索航班用的是分页加载，每页20条，翻页要重新请求 酒店详情页没有图片懒加载，打开需要8秒 个人信息页不能自动填充，每次都要重新输入 这些问题，随便找个初级前端工程师都能一周内解决。但商旅公司为什么不做？
-因为优化员工体验不能直接带来订单。企业采购时不会问「你们APP的加载速度是多少」，只会问「你们能帮我们省多少钱」。
-这种「甲方满意就行」的B端思维，和C端产品「用户至上」的逻辑，差了10个微信支付。
-经济学的困局：三方博弈的无解循环 深入想一层，这其实是一场「三角博弈」：
-🔵 企业：我要成本可控 企业引入商旅APP的核心需求是「降低管理成本」。
-以前员工出差，申请、审批、预订、报销全是线下流程，HR要核对，财务要审计，一年下来光人工成本就要几十万。现在用APP，所有流程线上化，数据自动统计，确实省了不少事。
-🟡 商旅公司：我要利润最大化 商旅公司的商业模式很简单：靠企业订单量赚钱。
-在竞争激烈的市场里，谁能满足企业的管控需求，谁就能拿到订单。优化前端体验需要额外投入研发资源，而且不能直接转化为竞争力——反正员工只能用指定平台，体验差点也不会流失客户。
-🔴 员工：我要好用就行 员工作为最终用户，却是最没话语权的一方。
-我们既不能选择用哪个APP，也不能直接反馈给商旅公司。唯一能做的，就是在茶水间吐槽两句，然后继续忍受糟糕的体验。
-这三个利益方的目标根本无法调和：企业要「管得严」，商旅公司要「赚得多」，员工要「用得顺」——就像三个方向的力，把产品拉扯得面目全非。
-B端产品的终极命题：到底为谁服务？ 上周参加产品经理沙龙，有位做企业服务的朋友说：「B端产品就是为付费客户服务的，员工体验不重要。」
-我当场反驳：「那你有没有算过，员工每天花在糟糕APP上的时间，其实是企业的隐性成本？」
-比如：
-每个员工每月用商旅APP10次，每次多花5分钟 公司1000名员工，每月就是50000分钟 = 833小时 按平均时薪100元算，每月隐性成本就是83300元 而且，糟糕的体验还会导致员工抵触情绪——我认识的好几个朋友，为了避开繁琐流程，宁愿自己先垫钱在个人平台预订，然后找发票报销。这反而违背了企业引入商旅APP的初衷：管控风险。
-破局之道：从「管控工具」到「效率伙伴」 其实已经有企业在尝试改变了。
-我有个客户是一家互联网公司，他们要求商旅服务商做了这些改进：
-自动填充信息：基于员工档案自动填写部门、职位、差旅标准 智能推荐：根据员工历史偏好推荐酒店和航班 隐性管控：管控逻辑在后台运行，前端只在超标时提示 一键报销：预订完成后自动生成报销单 结果如何？
-员工满意度提升了60% 预订流程耗时减少了70% 企业差旅成本反而下降了5%（因为员工不再绕开系统） 这才是真正的双赢：企业拿到了想要的管控，员工获得了良好的体验，商旅公司也留住了客户。
-最后的思考 昨天我又用了一次那款商旅APP——还是一样的繁琐，一样的慢。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-11-25 10:40:03 +0800 HKT'>November 25, 2025</span> | <span>10 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 商旅APP：伪装成C端产品的B端经济学困局" href="https://blog.zhangky.com/posts/2025/2025-11-business-travel-app/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">马斯克：加密市场&#34;强人时代&#34;的符号
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>【2025加密市场10大风云人物】
-他是加密市场&#34;强人时代&#34;的标志性人物——马斯克，从特斯拉的比特币持仓到社交媒体的市场影响力，他用个人意志重新定义了权力在加密世界的运作方式。
-说起马斯克，大家都在聊他的万亿美元薪酬计划和太空探索雄心，但2025年的他，用实际行动证明了：他正成为加密市场权力集中化趋势的最大象征，这才是最值得关注的事实。
-双重比特币策略：权力的选择性使用 2025年8月，SpaceX持有的比特币价值突破10亿美元，而特斯拉却在不利时机抛售了75%的比特币持仓。这种看似矛盾的策略背后，是马斯克对加密资产的实用主义态度——将比特币作为长期储备与短期战术工具的精准切换。这种个人决策能直接影响机构持仓策略，凸显了少数人对加密市场的巨大影响力。
-社交媒体操控：个人意志的市场放大 作为狗狗币的长期支持者，马斯克的社交媒体动态始终是加密市场的晴雨表。2025年，他仅通过转载&#34;绿章鱼&#34;概念推文，就引发Solana链上Meme币的暴力拉升。这种&#34;一句话定涨跌&#34;的能力，让去中心化的理想面临现实的尴尬：代码的去中心化，敌不过个人影响力的集中化。
-万亿美元薪酬：权力集中的终极体现 特斯拉股东以75%票数通过的万亿美元薪酬计划，将马斯克的个人利益与公司命运完全绑定。这一事件的深层意义在于，它为加密世界的&#34;核心创始人&#43;代币叙事&#34;模式提供了现实参照：当一个人的意志能左右万亿美元级企业的战略与估值，那么去中心化协议中创始人的过度影响力也就不足为奇了。
-当个人权威能轻易拨动加密市场的神经，去中心化理想正在遭遇最严峻的现实拷问——我们是否在用技术的去中心化，换取了人格的中心化？
-2025年的马斯克，早已不再只是科技创业者，而是成为加密市场权力结构变化的缩影。他用实际行动证明：在这个由代码和叙事共同构建的世界里，个人影响力往往比技术设计更能决定权力的流向。
-这种「强人时代」的到来，既是加密市场走向主流的必然产物，也是对去中心化初心的深刻挑战。当越来越多的「马斯克式」人物出现，我们不得不思考：加密世界的未来，究竟是走向更公平的分散权力，还是演变成另一场个人崇拜的游戏？
+特朗普：政治权威成为加密价值的新锚点 Michael Saylor：企业财库革命的真正先驱 Tom Lee：华尔街与加密世界的关键桥梁 赵长鹏：币安Alpha 2.0的权力转型 Vitalik Buterin：去中心化理想与机构化现实的平衡者 金正恩：国家级加密财政的极端实践 马斯克：加密市场"强人时代"的符号 孙宇晨：加密世界的"规则玩家" Brian Armstrong：加密世界的"合规基础设施建筑师" Peter Thiel：去中心化世界的"中心化帝国建造者"</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-10-17 10:38:36 +0800 +0800'>October 17, 2025</span> | <span>4 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to Michael Saylor：企业财库革命的真正先驱" href=https://blog.zhangky.com/posts/2025/2025-10-17-saylor-crypto-treasury/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>特朗普：政治权威成为加密价值的新锚点</h2></header><div class=entry-content><p>【2025加密市场10大风云人物】
+他是用政治权威重新定义加密价值的"权力玩家"——特朗普，从总统身份到加密代币，他将政治资本直接兑换为数字资产价值，开创了加密市场的全新玩法。
+说起特朗普的加密布局，大家都盯着"总统代币"的价格疯涨和他的个人财富，但2025年的他，用实际行动证明了：政治权威正成为加密资产价值的新锚点，这才是最值得关注的转变。
+2025年1月，特朗普就职前三天在Solana链上推出"Trump"代币，借总统身份的隐性背书，价格一度冲至75美元，净赚3.5亿美元。这可不是普通的名人代币炒作，而是把政治权力直接换成加密价值的标志性事件。
+总统代币：政治资本的加密变现 特朗普的"总统代币"不是临时起意的资本游戏，而是精心设计的政治-金融联动工具。它把总统影响力直接绑在数字资产上，开创了"政治IP+加密资产"的全新变现玩法——核心不是技术有多新，而是权力背书带来的价值转移。
+行政命令：加密行业的制度重构 特朗普政府连番发布行政命令：禁止CBDC、设立"美国战略比特币储备"、签署《GENIUS Act》，一步步重构加密行业的规则。这些政策既让比特币在国家金融体系有了正式地位，也给稳定币搭好了监管框架，意味着加密货币正式融入全球金融体系了。
+家族金融帝国：权力的延伸渗透 特朗普家族通过World Liberty Financial运营WLFI治理代币和USD1稳定币，进一步将政治权力延伸至金融领域。据《金融时报》统计，公司靠卖代币和稳定币业务赚了32亿美元以上，特朗普家族持有38%股权——政治权力正通过家族企业深度渗透加密金融领域。
+当政治权威主动拥抱加密，它将成为比技术更强大的价值锚点。
+特朗普的加密布局让我们看到了行业的深层变化：从追求去中心化的技术理想，转向和传统权力结构深度融合。政治权威正成为影响加密资产价值的关键变量，这或许是2025年加密行业最具冲击力的变革。
 「10个人-2025年的加密市场重要人物志」系列
 本系列聚焦2025年加密市场的关键人物，通过他们的布局与决策，解读加密行业从边缘到主流的转变逻辑。
-特朗普：政治权威成为加密价值的新锚点 Michael Saylor：企业财库革命的真正先驱 Tom Lee：华尔街与加密世界的关键桥梁 赵长鹏：币安Alpha 2.0的权力转型 Vitalik Buterin：去中心化理想与机构化现实的平衡者 金正恩：国家级加密财政的极端实践 马斯克：加密市场&#34;强人时代&#34;的符号 孙宇晨：加密世界的&#34;规则玩家&#34; Brian Armstrong：加密世界的&#34;合规基础设施建筑师&#34; Peter Thiel：去中心化世界的&#34;中心化帝国建造者&#34; </p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-11-21 10:50:38 +0800 HKT'>November 21, 2025</span> | <span>5 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 马斯克：加密市场&#34;强人时代&#34;的符号" href="https://blog.zhangky.com/posts/2025/2025-11-21-musk-power-centralization/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">AI金融：美国在创新，中国在整合，谁赢了？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>最近在上海体验了数字人民币AI理财，收益率提升了15%，而在硅谷体验PayPal的AI欺诈检测，准确率超过70%。表面看，这是&#34;创新 vs 整合&#34;的路线分歧，但我意识到真正的本质是：美国在&#34;优化金融工具&#34;，中国在&#34;重构金融生态&#34;。当美国用AI让支付更安全时，中国用AI&#43;数字人民币让支付、理财、营销融为一体。这不是技术差距，这是系统思维的差距。
-从表面看：创新与整合的路线分歧
-美国PayPal的AI欺诈检测和Square的AI贷款审批已经非常成熟。他们更关注个性化服务和技术突破，比如用AI预测股票走势，准确率超过70%。这是典型的&#34;创新驱动&#34;路线：先突破技术，再找场景。
-中国则从蚂蚁集团的AI理财到微信支付的AI风控，建立了完整的数字金融生态。他们注重大规模应用和场景整合，比如数字人民币&#43;AI实现无感支付和精准营销。这是典型的&#34;整合优先&#34;路线：先整合场景，再优化技术。
-关键洞察：美国在&#34;优化工具&#34;，中国在&#34;重构生态&#34;。这不是路线分歧，是系统思维的差距。
-深入分析：金融体系的本质差异
-这种差异背后是金融体系的不同逻辑。
-美国金融体系更开放，鼓励创新。他们允许fintech公司独立发展，通过竞争推动技术进步。但这也导致各个工具之间缺乏整合，用户需要在多个平台间切换。
-中国金融体系更稳健，注重风险控制。他们通过数字人民币统一底层基础设施，然后用AI在上面构建完整生态。用户在一个生态内就能完成支付、理财、营销等所有操作。
-最近在上海体验了数字人民币AI理财服务，它能根据我的消费习惯自动调整投资组合，收益率提升了15%。这种体验在美国很难实现，因为他们的金融工具是分散的。
-关键洞察：金融体系的差异决定了AI应用的路径。美国优化工具，中国重构生态。
-未来趋势：融合发展的未来
-2025年，我判断AI金融会进入融合发展阶段。美国的创新会加速金融科技普及，中国的整合经验会为全球提供参考。AI金融的未来，应该是既创新又稳健，既个性化又安全。
-技术的价值在于服务用户，AI让金融变得更智能、更便捷。
-但智能不等于智慧，便捷不等于安全。
-AI不会淘汰金融，但会淘汰那些不愿意用AI重构金融的机构。属于&#34;整合式创新&#34;的时代，才刚刚开幕。
-2025年，我期待看到美国的整合，也期待看到中国的创新。
-</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-11-18 15:30:51 +0800 HKT'>November 18, 2025</span> | <span>4 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to AI金融：美国在创新，中国在整合，谁赢了？" href="https://blog.zhangky.com/posts/2025/2025-11-ai-finance/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="https://blog.zhangky.com/page/18/">
-      «&nbsp;Prev&nbsp;18/28
-    </a>
-    <a class="next" href="https://blog.zhangky.com/page/20/">Next&nbsp;20/28&nbsp;»
-    </a>
-  </nav>
-</footer>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<style>
-   
-  .mermaid {
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 95%;
-    overflow-x: auto;
-  }
-  
-   
-  .mermaid > svg {
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-  
-   
-  .mermaid flowchart {
-    width: 100%;
-  }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>
-  
-  window.mermaidConfig = {
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis',
-      width: '100%',
-      height: 'auto'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
-  };
-  
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    var codeBlocks = document.querySelectorAll('code.language-mermaid');
-    
-    
-    codeBlocks.forEach(function(codeBlock) {
-      var preBlock = codeBlock.parentNode;
-      var mermaidCode = codeBlock.textContent;
-      
-      
-      var mermaidContainer = document.createElement('div');
-      mermaidContainer.className = 'mermaid';
-      mermaidContainer.textContent = mermaidCode;
-      
-      
-      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
-    });
-    
-    
-    mermaid.initialize(window.mermaidConfig);
-  });
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+特朗普：政治权威成为加密价值的新锚点 Michael Saylor：企业财库革命的真正先驱 Tom Lee：华尔街与加密世界的关键桥梁 赵长鹏：币安Alpha 2.0的权力转型 Vitalik Buterin：去中心化理想与机构化现实的平衡者 金正恩：国家级加密财政的极端实践 马斯克：加密市场"强人时代"的符号 孙宇晨：加密世界的"规则玩家" Brian Armstrong：加密世界的"合规基础设施建筑师" Peter Thiel：去中心化世界的"中心化帝国建造者"</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-10-10 10:21:07 +0800 +0800'>October 10, 2025</span> | <span>5 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 特朗普：政治权威成为加密价值的新锚点" href=https://blog.zhangky.com/posts/2025/2025-10-10-trump-crypto-politics/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现</h2></header><div class=entry-content><p>本文解读的是Alexander Rush等人创建的《The Annotated Transformer》，这是一篇教育性的技术博客文章，通过逐行代码注释的方式，详细解析了Transformer架构的PyTorch实现。虽然这不是一篇传统意义上的研究论文，但它为理解Transformer提供了最直观、最实用的方式，是学习Transformer实现的最佳资源之一。
+“代码是最好的文档。"——这是带注释Transformer的核心思想。Transformer论文虽然提出了架构，但实现细节往往隐藏在代码中。带注释Transformer通过详细的代码注释和解释，使读者能够深入理解Transformer的每一个组件、每一行代码的作用，是连接理论和实践的重要桥梁。
+带注释Transformer的核心价值是教育性和实用性：它不仅解释了Transformer的数学原理，还展示了如何用代码实现这些原理。通过逐行注释，读者可以：
+理解实现细节：了解每个组件的具体实现 学习最佳实践：学习PyTorch的实现技巧 快速上手：可以直接使用代码进行实验 在当今大模型时代，理解Transformer的实现细节至关重要：GPT、BERT、T5等模型都基于Transformer架构。理解带注释Transformer，就是理解现代AI模型的实现基础。
+本文将从架构概览、核心组件、实现细节、最佳实践四个维度深度解读带注释Transformer，包含完整的代码分析和实现技巧，并在文末提供阅读研究论文的时间线计划。
+Transformer实现的学习挑战 问题一：理论与实现的差距 Transformer论文提供了架构设计，但实现细节往往不明确：
+理论与实现的差距：
+论文描述的是架构，代码需要处理细节 论文使用数学符号，代码使用具体数据结构 论文关注算法，代码需要处理工程问题 学习挑战：
+如何将数学公式转化为代码？ 如何处理边界情况和数值稳定性？ 如何优化实现效率？ 问题二：代码理解的困难 Transformer的实现代码往往复杂，难以理解：
+代码理解的困难：
+代码量大，难以快速理解 缺少注释，难以理解设计意图 实现技巧不明确，难以学习最佳实践 问题三：教育资源的缺乏 在Transformer刚提出时，详细的教育资源较少：
+教育资源的缺乏：
+缺少详细的实现教程 缺少代码级别的解释 缺少最佳实践的总结 带注释Transformer的核心组件 组件一：多头自注意力 数学定义： $$ \text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O $$
+其中 $\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$。
+代码实现：
+class MultiHeadedAttention(nn.Module): def __init__(self, h, d_model, dropout=0.1): super().__init__() assert d_model % h == 0 self.d_k = d_model // h self.h = h self.linears = nn.ModuleList([nn.Linear(d_model, d_model) for _ in range(4)]) self.attn = None self.dropout = nn.Dropout(p=dropout) def forward(self, query, key, value, mask=None): nbatches = query.size(0) # 1) 线性投影并分割为h个头 query, key, value = [ lin(x).view(nbatches, -1, self.h, self.d_k).transpose(1, 2) for lin, x in zip(self.linears, (query, key, value)) ] # 2) 应用注意力 x, self.attn = attention(query, key, value, mask=mask, dropout=self.dropout) # 3) 拼接多头并应用最终线性层 x = x.transpose(1, 2).contiguous().view(nbatches, -1, self.h * self.d_k) return self.linears[-1](x) 关键实现细节：
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-10-08 21:21:38 +0800 +0800'>October 8, 2025</span> | <span>15 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现" href=https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【ChatGPT时刻04】Transformer：Attention Is All You Need</h2></header><div class=entry-content><p>本文解读的是Ashish Vaswani、Noam Shazeer、Niki Parmar、Jakob Uszkoreit、Llion Jones、Aidan N. Gomez、Łukasz Kaiser和Illia Polosukhin于2017年发表的里程碑论文《Attention Is All You Need》，该论文提出了Transformer架构，完全基于注意力机制，摒弃了循环和卷积结构，在机器翻译任务上取得了最先进的性能，同时训练速度更快、可并行性更强。这一突破不仅彻底改变了序列建模的范式，更为后续GPT、BERT等大语言模型奠定了架构基础，开启了现代AI的新时代。
+“注意力即一切。"——这是Transformer论文的核心宣言。在Transformer之前，序列建模主要依赖RNN和CNN。RNN虽然能够处理序列，但难以并行化；CNN虽然可以并行化，但难以捕捉长距离依赖。Transformer通过完全基于注意力机制的架构，同时解决了这两个问题，实现了并行化和长距离依赖的完美结合。
+Transformer的核心创新是自注意力机制（Self-Attention）：每个位置都可以直接关注序列中的所有位置，无需通过循环或卷积逐步传播信息。这种设计使得Transformer能够：
+并行计算：所有位置可以同时计算，训练速度大幅提升 长距离依赖：直接建模任意距离的依赖关系 可解释性：注意力权重提供了模型决策的可解释性 在当今大语言模型时代，Transformer已经成为AI的基础架构：GPT、BERT、T5、PaLM等所有大模型都基于Transformer。理解Transformer，就是理解现代AI的基石。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读Transformer，包含完整的数学推导、架构分析和实验评估，并在文末提供阅读研究论文的时间线计划。
+序列建模的传统局限 问题一：RNN的序列化计算瓶颈 传统RNN需要按顺序处理序列，无法并行化：
+序列化计算的局限：
+每个时间步依赖前一时间步的输出 计算必须串行进行，无法并行 训练时间长，难以处理大规模数据 数学表述：对于序列 $x_1, x_2, \ldots, x_n$，RNN的计算为： $$ h_t = f(h_{t-1}, x_t) $$ 其中 $h_t$ 的计算必须等待 $h_{t-1}$ 完成，无法并行。
+问题二：CNN的感受野限制 CNN虽然可以并行化，但感受野受限：
+感受野的局限：
+需要多层卷积才能扩大感受野 感受野的增长是线性的，需要 $O(n)$ 层才能覆盖长度为 $n$ 的序列 难以捕捉长距离依赖 数学分析：对于 $k \times k$ 卷积核，经过 $L$ 层后，感受野为 $L(k-1) + 1$。要覆盖长度为 $n$ 的序列，需要 $L \geq \frac{n-1}{k-1}$ 层。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2025-09-21 21:40:41 +0800 +0800'>September 21, 2025</span> | <span>14 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【ChatGPT时刻04】Transformer：Attention Is All You Need" href=https://blog.zhangky.com/posts/2025/chatgpt/2025-09-21-chatgpt-04-transformer/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>AI制造：特斯拉在造未来，比亚迪在改造过去</h2></header><div class=entry-content><p>上个月参观了特斯拉德州超级工厂和比亚迪工厂，完全两种不同的AI制造图景。
+在特斯拉工厂，我站在观景台上，看着生产线上的机器人高效协作：机械臂精准抓取零件，AGV小车自动运输，整个流程像科幻电影。工厂负责人说：“我们重新定义了制造。“我盯着屏幕上的数据：生产效率比传统工厂提升了300%。
+在比亚迪工厂，我看到的是另一番景象：AI与传统设备深度融合，每台老机器都装了智能传感器。工厂负责人指着一台20年前的老设备说：“我们用AI改造了它，让它也能智能生产。“我走到设备前，看到传感器实时监测设备状态，AI系统自动调整生产参数。
+两种完全不同的AI制造图景，让我思考：AI制造的本质到底是什么？
+直观感受：技术引领 vs 产业升级的路径分歧
+表面上看，这是"技术引领 vs 产业升级"的制造路线分歧。
+美国工业4.0注重"技术引领”，通过AI和自动化实现生产效率极限提升。特斯拉的机器人在生产线上高效协作，整个流程像科幻电影。这是典型的"重新定义"路径：用新技术创造新制造。
+中国制造2025强调"产业升级”，用AI改造传统制造业。比亚迪的工厂是AI与传统设备深度融合，每台老机器都装了智能传感器。这是典型的"改造升级"路径：用新技术改造旧制造。
+美国工程师说"要重新定义制造”，比亚迪工厂负责人则说"要让每一个传统工厂都智能起来”。两种思路，两种未来。
+关键洞察：这不是制造路线分歧，是产业基础的差异。一个瞄准"重新定义"，一个瞄准"改造升级"。
+深入分析：价值取向的本质差异
+美国的模式能带来革命性突破，但成本高昂，只有特斯拉这样的巨头玩得起。特斯拉工厂的投资超过50亿美元，这对于大多数制造企业来说都是天文数字。这是典型的"技术领先"逻辑：用巨额投资换取技术突破。
+中国的模式能快速提升整体制造业水平，但可能缺乏原创性。比亚迪用AI改造传统设备，成本相对较低，能让更多企业受益。但可能缺乏像特斯拉那样的革命性突破。这是典型的"产业升级"逻辑：用较低成本实现整体提升。
+这背后是不同的国情：美国要保持技术领先，中国要实现产业升级。但问题是：在资源有限的情况下，应该优先哪个？
+关键洞察：价值取向的本质差异，决定了不同的制造路径。技术领先是长期投资，产业升级是短期回报。
+未来趋势：全球制造业的AI化浪潮
+2025年，我判断会看到全球制造业的AI化浪潮：美国会加强与传统产业的结合，降低技术门槛（比如推出更便宜的AI制造解决方案）；中国会加大原创技术投入，提升核心竞争力（比如开发自己的AI制造平台）。
+毕竟，制造业是国家竞争力的基础，AI则是制造业的未来。没有AI的制造，就没有竞争力；没有制造的AI，就没有价值。
+AI在制造业的价值，从来不是取代工人，而是让制造更智能、更高效。
+真正的AI制造革命，不是用机器人取代人，而是让机器和人一起创造更大的价值。特斯拉在造未来，比亚迪在改造过去——但最终，我们需要的是既有未来，又有过去的制造。
+2025年，我期待看到特斯拉的改造化，也期待看到比亚迪的原创化。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2025-09-15 13:46:12 +0800 +0800'>September 15, 2025</span> | <span>6 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to AI制造：特斯拉在造未来，比亚迪在改造过去" href=https://blog.zhangky.com/posts/2025/2025-09-ai-manufacturing/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/page/18/>«&nbsp;Prev&nbsp;18/26
+</a><a class=next href=https://blog.zhangky.com/page/20/>Next&nbsp;20/26&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>

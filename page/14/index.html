@@ -1,485 +1,75 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head>
-	<meta name="generator" content="Hugo 0.160.1"><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Zhang&#39;s Blog</title>
-
-<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-<meta name="author" content="ZHANG.z&#34;">
-<link rel="canonical" href="https://blog.zhangky.com/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/index.xml" title="rss">
-<link rel="alternate" type="application/json" href="https://blog.zhangky.com/index.json" title="json">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<meta property="og:url" content="https://blog.zhangky.com/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="Zhang&#39;s Blog">
-  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="website">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="Zhang&#39;s Blog">
-<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Zhang's Blog",
-  "url": "https://blog.zhangky.com/",
-  "description": "Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.",
-  "logo": "https://blog.zhangky.com/images/logo.svg",
-  "sameAs": [
-      "https://github.com/ylzhang/ylzhang.github.io", "https://x.com/ZHANG_on_mars"
-  ]
-}
-</script>
-</head>
-<body class="list" id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
-                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 11a9 9 0 0 1 9 9" />
-    <path d="M4 4a16 16 0 0 1 16 16" />
-    <circle cx="5" cy="19" r="1" />
-</svg>
-                </a>
-                
-
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://blog.zhangky.com/" title="Posts">
-                    <span class="active">Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/faq" title="FAQ">
-                    <span>FAQ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <style>
-        .nav.scrolled {
-            background: var(--theme);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .nav.scrolled #menu {
-            display: none;
-        }
-        .nav.scrolled .logo {
-            margin: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > nav.offsetHeight) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-</header>
-<main class="main"> 
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">物理学的尽头是AGI？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>物理学界流传着一个古老的笑话：物理学家无所不能，除了物理。
-虽然是句调侃，但在当今的 AI 浪潮中，这似乎成了某种预言。当你剥开 ChatGPT、Claude 或是 Llama 的外衣，往最核心的算法层和决策层看去，会惊讶地发现：怎么满屋子都是学物理的？
-从 OpenAI 的分裂到 Anthropic 的崛起，从 Scaling Laws 的发现到 Transformer 的优化，这群曾经天天琢磨量子态、黑洞和宇宙学的聪明脑袋，似乎集体决定换个赛道——不再纠结上帝掷不掷骰子，而是教 GPU 怎么掷出下一个 Token。
-今天，我们就按「学术背景 → 核心贡献 → 现状」的结构，盘点一下这几位“稍不留神”就改变了 AI 历史进程的物理学家。看完你或许会明白，为什么说物理学才是 AGI 的“新东方烹饪学校”。
-1. Dario Amodei (Anthropic 联合创始人 &amp; CEO)
-物理背景：普林斯顿大学物理学博士。硬核的理论物理与量子计算方向，还顺手在斯坦福和加州理工做了博士后。典型的“谢尔顿”式学术履历。 核心贡献： Scaling Laws (缩放定律)：在大模型还是玄学的年代，他和团队搞出了 Scaling Laws，告诉世界：别瞎猜了，算力、数据和参数量之间有铁律。这直接给“暴力美学”奠定了理论基石。 Claude 之父：从 OpenAI 出走后创立 Anthropic，死磕“宪法 AI (Constitutional AI)”，试图给 AI 装上安全阀。 当前状态：Anthropic CEO。正忙着让 Claude 更聪明、更安全，同时思考怎么不让强 AI 把人类带沟里去。 2. Jared Kaplan (Anthropic 联合创始人 &amp; 首席科学家)
-物理背景：约翰霍普金斯大学理论物理学教授。研究了 15 年的量子引力、场论和宇宙学。正儿八经的教授下海，降维打击。 核心贡献： Scaling Laws 的奠基人：他和 Dario Amodei 的名字几乎和缩放定律绑定。把研究宇宙膨胀的劲头拿来研究模型膨胀，结果发现规律竟然出奇地一致。 GPT-3 &amp; Codex：在 OpenAI 期间是这两个大杀器的核心参与者。 当前状态：Anthropic 首席科学家。继续在 LLM 的基础理论和安全对齐的无人区里探索。 3. Ilya Sutskever (OpenAI 联合创始人 &amp; 前首席科学家)
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-01-27 23:15:04 +0800 HKT'>January 27, 2026</span> | <span>17 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 物理学的尽头是AGI？" href="https://blog.zhangky.com/posts/2026/01/2026-01-27-physicists-in-ai/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【论文解读07】循环神经网络正则化（Ilya经典论文）
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Wojciech Zaremba、Ilya Sutskever和Oriol Vinyals于2014年发表的经典论文《Recurrent Neural Network Regularization》，该论文首次将Dropout正则化技术系统性地应用于循环神经网络（RNN），通过只在非循环连接上应用Dropout，既保持了RNN的记忆能力，又有效防止了过拟合。这一创新为RNN在序列建模任务中的成功应用奠定了重要基础，特别是在机器翻译、语言模型等需要处理长序列的任务中取得了突破性成果。
-“正则化是深度学习的艺术。&#34;——这是Ilya Sutskever等人在2014年提出的深刻洞察。RNN虽然能够处理变长序列，但在训练过程中极易过拟合，特别是在大规模数据集上训练深层RNN时。传统的Dropout技术直接应用于RNN会导致网络无法保持长期记忆，因为随机失活会破坏RNN的循环结构。
-论文的核心创新是只在非循环连接上应用Dropout：在LSTM的输入-隐藏层连接和隐藏-输出层连接上应用Dropout，但在循环连接（hidden-to-hidden）上不使用Dropout。这种设计既保持了RNN的记忆能力，又有效防止了过拟合，使RNN能够在大型数据集上训练深层网络。
-在当今大语言模型时代，这一思想仍然具有重要意义：虽然Transformer已经取代RNN成为主流架构，但正则化的核心思想（防止过拟合、提高泛化能力）仍然是深度学习的关键。理解RNN正则化，就是理解如何在高容量模型中平衡记忆能力和泛化能力。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读RNN正则化技术，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta name=generator content="Hugo 0.163.3"><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Zhang's Blog</title><meta name=description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.zhangky.com/index.xml title=rss><link rel=alternate type=application/json href=https://blog.zhangky.com/index.json title=json><link rel=alternate hreflang=en href=https://blog.zhangky.com/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://blog.zhangky.com/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="Zhang's Blog"><meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta property="og:locale" content="zh-cn"><meta property="og:type" content="website"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="Zhang's Blog"><meta name=twitter:description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Zhang's Blog","url":"https://blog.zhangky.com/","description":"Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.","logo":"https://blog.zhangky.com/images/logo.svg","sameAs":["https://github.com/ylzhang/ylzhang.github.io","https://x.com/ZHANG_on_mars"]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span class=active>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【论文解读04】复杂动力学第一定律：复杂系统的基础理论</h2></header><div class=entry-content><p>本文解读的是关于复杂动力学第一定律的理论工作，该理论为理解复杂系统的演化规律提供了统一的理论框架。复杂动力学第一定律揭示了复杂系统从简单到复杂、从有序到无序的演化机制，为理解AI系统的涌现行为、神经网络的学习动态以及大模型的复杂性增长提供了新的视角。
+复杂系统无处不在：从生物进化到社会网络，从神经网络训练到语言模型涌现，这些系统都展现出令人困惑的复杂性增长模式。为什么简单的规则能产生复杂的行为？为什么系统会自发地从有序走向无序，又从无序中涌现出新的有序？复杂动力学第一定律试图回答这些根本问题。
+传统热力学第二定律告诉我们，孤立系统的熵总是增加的，系统会自发地从有序走向无序。但复杂系统（如生命、智能、社会）却展现出相反的趋势：它们能够自发地增加复杂性，从简单状态演化到复杂状态。这种"反熵"行为背后的机制是什么？复杂动力学第一定律提供了数学严谨的答案。
+在AI领域，这一理论具有特殊意义。神经网络训练过程中的损失下降、语言模型的涌现能力、多智能体系统的协作演化，都可以从复杂动力学的角度重新理解。理解复杂系统的演化规律，就是理解AI系统如何从简单规则中涌现出智能。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读复杂动力学第一定律，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
 本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
-RNN过拟合问题的根源 问题一：RNN的高容量与过拟合风险 RNN的参数共享机制使其能够处理任意长度的序列，但这也带来了过拟合风险。对于长度为 $T$ 的序列，RNN实际上使用了 $T$ 次相同的权重矩阵 $W_h$（hidden-to-hidden连接），相当于将参数&#34;复用&#34;了 $T$ 次。
-参数有效性的量化：虽然RNN的参数量是固定的（例如，对于隐藏维度 $d_h$，hidden-to-hidden权重矩阵 $W_h$ 的大小为 $d_h \times d_h$），但每个参数在序列的每个时间步都被使用，相当于有 $T$ 个&#34;虚拟参数”。这种参数复用使得RNN具有很高的表达能力，但也增加了过拟合的风险。
-过拟合的数学表现：当训练集规模 $N$ 相对于模型容量较小时，模型可能&#34;记住&#34;训练数据的细节，而不是学习数据的规律。在RNN中，这种过拟合表现为：训练集上的困惑度（perplexity）很低，但验证集上的困惑度很高，模型无法泛化到新序列。
-问题二：传统Dropout在RNN中的失效 传统Dropout在RNN中直接应用会导致严重问题。Dropout的核心思想是在训练时随机将部分神经元输出置0，迫使网络学习更鲁棒的表示。但在RNN中，这种随机失活会破坏循环结构。
-循环连接的脆弱性：RNN的循环连接 $h_t = f(W_h h_{t-1} &#43; W_x x_t &#43; b)$ 依赖于前一时刻的隐藏状态 $h_{t-1}$。如果在 $h_{t-1}$ 上应用Dropout，会导致信息在时间维度上的传播被随机打断，网络无法保持长期记忆。
-数学分析：假设在隐藏状态上应用Dropout，则：
-$$ h_t = f(W_h (\text{Dropout}(h_{t-1})) &#43; W_x x_t &#43; b) $$
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-01-27 10:00:43 +0800 HKT'>January 27, 2026</span> | <span>24 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【论文解读07】循环神经网络正则化（Ilya经典论文）" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-27-paper-07-rnn-regularization/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">阿里有战略吗？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 维基百科对战略做以下解释: 战略或策略，是指为实现某种目标（如政治、军事、经济、商业或国家利益等方面的目标）而制定的高层次、全方位的长期行动计划。
-最近看阿里的新闻，有种奇怪的感觉。一边是AI医疗领域的密集落子，讲出了一个极具温情的AI故事。另一边是2025年重燃的外卖战火，以及要在2026年重回闪购市场第一的宏愿。
-我盯着这两条新闻，脑子里闪过一个画面：一个本该在星辰大海中信步的巨头，却在各个战场上疲于奔命。作为审视资本效率的投资人，我看到的不是一家公司的战略布局，而是一场场为了守住领地的&#34;应激反应&#34;。
-繁华下的应激与疲于奔命 2025年，阿里针对外卖、闪购业务推出超150亿元专项补贴计划，实际落地补贴规模约120亿元1。饿了么外卖因高额补贴处于负毛利率区间（行业通用下限），闪购毛利率约6%2，二者均远低于阿里核心电商业务28%-30%的毛利率水平3。尽管高额补贴推动饿了么外卖市场份额从2025年初的21%提升至年末的25%4，在一定程度上缩小了与美团的差距，但这种&#34;高投入、低回报&#34;的模式，正是战术勤奋掩盖战略懒惰的典型症状。
-对比亚马逊的应对策略，差异更加明显。当传统零售商开始蚕食电商市场时，亚马逊没有选择在零售战场上硬拼，而是将资源转向AWS云计算。结果呢？2025年，AWS贡献了亚马逊超过70%的营业利润5。亚马逊的战略是：用零售建立用户基础，用AWS建立利润护城河。而阿里的战略是：在每一个战场上都证明自己的存在。
-这并非基于未来十年产业终局推演后的主动出击，而是核心交易入口受到威胁时的&#34;战术补位&#34;。当美团在外卖领域占据75%市场份额、即时零售领域占比超60%6，拼多多在下沉电商领域占比超30%7，二者均保持双位数营收增速持续扩张时，阿里的反应不是思考如何构建新的护城河，而是匆忙应战。
-关键洞察：战术的勤奋掩盖不了战略的懒惰。当一个公司需要用高损耗、低毛利的存量博弈来证明自己时，它已经失去了战略的主动权。
-英雄主义的余晖与战略真空 我必须叩问一个根本性命题：阿里真的有战略吗？在科学管理的坐标系里，战略是资本与资源的跨周期配置，是面对风口时的&#34;克制&#34;与&#34;不为&#34;。
-回溯阿里的成长史，从全球化尝试失败退守杭州，到支付宝的孤军深入，再到阿里云的十年一剑。这一路走来，阿里的每一个重大节点，与其说是战略布局，不如说是带有浓厚&#34;英雄主义&#34;色彩的危机公关。支付宝的诞生更像是一场&#34;被逼无奈&#34;的应急方案——银行不愿意为C2C交易提供担保，阿里只能自己上。这种&#34;英雄主义&#34;式的决策，虽然解决了燃眉之急，但也让阿里在金融领域越陷越深，最终走向了&#34;万物终局是放贷&#34;的路径。
-对比微软的转型，差异更加明显。2014年，纳德拉接任CEO时，微软正面临移动互联网的全面冲击。他没有选择在手机硬件上硬拼，而是提出了&#34;移动为先，云为先&#34;的战略。这个战略不是基于&#34;打鸡血&#34;和&#34;情怀动员&#34;，而是基于对产业终局的科学推演。结果呢？微软的市值从2014年的3600亿美元增长到2025年的约2.9万亿美元8。纳德拉的成功，不是因为他有&#34;英雄主义&#34;情怀，而是因为他有科学管理的战略思维。
-当企业缺乏基于科学实证的长期愿景时，内部的一致性便只能依赖于创始人的精神图腾。我见过太多阿里内部会议，当讨论陷入僵局时，总会有人引用&#34;马老师&#34;的某句话来&#34;统一思想&#34;。这种&#34;马云情结&#34;本质上是组织治理的停滞，它用个体的神格化替代了制度的精密化。
-治权错位：合伙人制下的经理人困局 为什么阿里难以像微软或Apple那样，通过成熟的职业经理人机制实现跨越周期的二次增长？
-推演其深层逻辑，不难发现其&#34;合伙人制度&#34;与现代企业科学治理机制之间的结构性冲突。在西方成熟的商业土壤中，职业经理人是被系统赋予权力的&#34;制度管家&#34;。然而，在阿里的语境里，环境更像是一块&#34;战将土壤&#34;，上位者往往是某种特殊战役的功臣，而非深谙系统化治理的职业管理精英。
-看看阿里的管理层变动史：2015年，张勇接任CEO，但当他试图推动&#34;新零售&#34;战略时，却遇到了来自合伙人层面的阻力——元老们认为这个战略&#34;不够阿里&#34;，最终导致新零售业务半途而废。2023年，当张勇卸任时，阿里又回到了&#34;元老回归&#34;的模式。这种&#34;经理人失信—元老回归&#34;的循环，正是&#34;战将土壤&#34;无法培养出真正职业经理人的证明。
-对比苹果的库克，差异更加明显。2011年，库克接任CEO时，外界普遍质疑他能否延续乔布斯的创新传奇。但库克用事实证明了职业经理人的价值：他建立了全球最强大的供应链体系，将iPhone的利润率从30%提升到40%9；他推动了服务业务的转型，让苹果从硬件公司变成了&#34;硬件&#43;服务&#34;的生态公司。2025年，苹果的服务业务收入预计将超过1000亿美元10。库克的成功，不是因为他有乔布斯的&#34;英雄主义&#34;，而是因为他有职业经理人的&#34;系统化管理&#34;。
-更令人担忧的是，这种治理缺陷并非阿里独有，而是整个中国商业环境的通病。近年来，互联网行业乃至全国各行各业都在鼓吹&#34;管理年轻化&#34;，仿佛年龄是管理能力的唯一标准。这种毫无根据和逻辑的管理方式，本质上是一种肿瘤文化——它用表面的&#34;活力&#34;掩盖了管理专业性的缺失，用&#34;年轻&#34;替代了&#34;职业&#34;和&#34;专业&#34;。
-西方管理学的成功不是没有道理的：微软的纳德拉52岁接任CEO，苹果的库克50岁接任CEO，他们能够带领企业跨越周期，不是因为他们年轻，而是因为他们专业、职业、系统化。他们拥有的是管理科学，而非年龄优势。
-创新的避难所：万物终局是放贷？ 当短期策略占据主导，缺乏长期战略定力时，资本的流向必然遵循阻力最小原则。这便解释了为什么中国互联网巨头的商业终局，最终都会坍缩为同一个形态：金融化。
-我梳理了一下中国互联网巨头的金融化路径：阿里有蚂蚁金服，腾讯有微众银行，京东有京东金融，美团有美团小贷，字节有中融小贷，甚至连华为这种技术标杆都配置了小额贷业务。无论这些公司的核心业务是什么，它们的终局都指向同一个方向：放贷。
-数据更加触目惊心：2025年，蚂蚁集团的经调整净利润预计约280亿人民币，其中信贷相关业务利润占比约45%11。相比之下，阿里核心电商业务虽营收规模超万亿元，但毛利率28%-30%的同时，营收年复合增速降至5%以下，处于增长乏力状态3。当技术投入发现不如&#34;利差&#34;来得稳健时，创新的锐气便被金融化的温床所消磨。
-对比特斯拉和苹果，差异更加明显。特斯拉没有因为&#34;利润来得慢&#34;就转向金融化，而是持续投入电池技术、自动驾驶、机器人等硬科技领域。2025年，特斯拉的研发投入预计超过100亿美元，占营收的约10%12。苹果也没有因为&#34;利差来得快&#34;就大规模放贷，而是持续投入芯片设计、操作系统、生态建设。2025年，苹果的研发投入预计超过300亿美元，占营收的约7.9%13。这两家公司的共同点是：它们都选择了&#34;难而正确&#34;的道路，而不是&#34;容易但有毒&#34;的金融化路径。
-当一项业务的终局只能通往放贷，那么这项业务在科学管理逻辑下便是低效的，甚至是带有毒性的。
-归途：从人治英雄到科学制度 作为投资人和企业管理者，对阿里的期待，不应是2026年拿回了多少外卖市场份额，而是其能否完成从&#34;英雄主义&#34;向&#34;科学管理&#34;的制度迁徙。
-决策的勇气不在于&#34;进入&#34;，而在于&#34;退出&#34;。看看IBM的转型，就能明白&#34;退出&#34;的勇气。2018年，IBM以340亿美元收购了红帽14，但更重要的是，IBM同时退出了低利润率的硬件业务，将资源转向高利润率的云服务和AI解决方案。结果呢？IBM的营业利润率从2018年的12%提升至2025年的18%15。IBM的成功转型，证明了&#34;退出&#34;比&#34;进入&#34;更需要战略勇气。
-对比阿里的&#34;什么都做&#34;，IBM的&#34;有所不为&#34;显得更加珍贵。阿里在外卖、闪购、AI医疗、云计算、金融等多个领域布局，但除云计算外，其余业务市场份额均未进入行业第一梯队（外卖25%、闪购约10%、AI医疗约8%）416，业务深耕度不足。
-回到最初的问题：阿里有战略吗？答案取决于它能否完成从&#34;英雄主义&#34;向&#34;科学管理&#34;的制度迁徙。如果阿里能够建立科学的治理结构、高效的资本配置机制、长期战略定力，那么它就有战略。如果它继续依赖&#34;马云情结&#34;、继续在战术层面疲于奔命、继续把&#34;年轻化&#34;当作管理科学的替代品，那么它就没有战略，只有应激反应。
-真正的战略，不是写在PPT上的宏大愿景，而是体现在每一次资本配置、每一个管理决策、每一场&#34;退出&#34;的勇气中。阿里需要的，不是更多的战场，而是更清晰的战略。不是更多的情怀，而是更科学的制度。
-至少这一次，还没那么&#34;战略&#34;。
-参考文献 基于本地生活外卖行业补贴率通用规律（交易规模的3%-5%）及饿了么2024年交易规模推算，数据来源：艾瑞咨询《2024年中国本地生活服务行业研究报告》 ↩︎
-即时零售（闪购）行业头部平台毛利率区间5%-8%，数据来源：京东到家、美团闪购2024年财报披露 ↩︎
-阿里巴巴集团2024财年年报（FY2024 Annual Report），核心电商业务毛利率及营收增速数据 ↩︎ ↩︎
-艾瑞咨询《2024年中国在线外卖行业研究报告》，饿了么市场份额约20%-22% ↩︎ ↩︎
-Amazon.com, Inc. 2020-2024 Annual Reports，AWS营业利润占比长期稳定在60%-75%区间 ↩︎
-美团2024年年度报告，外卖及即时零售业务市场份额数据 ↩︎
-拼多多2024年年度报告及易观分析《2024年中国电商行业发展报告》 ↩︎
-Microsoft Corporation历史市值数据，来源：Yahoo Finance、Bloomberg Terminal ↩︎
-Apple Inc. 2011-2024 Annual Reports，iPhone产品线毛利率变化趋势 ↩︎
-Apple Inc. 2023-2024 Annual Reports，服务业务收入2023年约750亿美元、2024年约850亿美元，按10%-12%年复合增速推算 ↩︎
-蚂蚁集团2024年经调整净利润约200-250亿人民币，按金融科技行业15%-20%年复合增速推算；信贷业务占比基于2020年后监管政策调整趋势，数据来源：蚂蚁集团招股说明书及行业分析 ↩︎
-Tesla, Inc. 2024 Annual Report，研发投入约90亿美元，占营收约9.5% ↩︎
-Apple Inc. 2024 Annual Report，研发投入约290亿美元，占营收约7.6%，2025年按增速趋势推算 ↩︎
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-01-26 21:21:12 +0800 HKT'>January 26, 2026</span> | <span>20 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 阿里有战略吗？" href="https://blog.zhangky.com/posts/2026/01/2026-01-26-alibaba-short-strategy/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【论文解读06】理解LSTM网络：解决长期依赖问题
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Sepp Hochreiter和Jürgen Schmidhuber于1997年发表的经典论文《Long Short-Term Memory》，该论文提出了长短期记忆（LSTM）网络架构，通过门控机制和细胞状态彻底解决了循环神经网络（RNN）的梯度消失问题，使网络能够学习长期依赖关系。LSTM不仅成为序列建模领域的重要里程碑，更为后续的GRU、Transformer等架构奠定了理论基础，在机器翻译、语音识别、时间序列预测等任务中取得了突破性成果。
-“记忆是智能的基础。&#34;——这是Hochreiter和Schmidhuber在1997年提出的深刻洞察。传统RNN虽然理论上可以处理任意长度的序列，但在实际训练中面临严重的梯度消失问题：当序列长度超过几十个时间步时，梯度在反向传播过程中会指数级衰减，导致网络无法学习长期依赖关系。
-LSTM通过门控机制和细胞状态解决了这一根本问题。细胞状态像一个&#34;传送带”，信息可以在上面直接流动，不受梯度消失的影响；门控机制（遗忘门、输入门、输出门）控制信息的流动，使网络能够有选择地保存和遗忘信息。这种设计使得LSTM能够学习跨越数百甚至数千个时间步的依赖关系。
-在当今大语言模型时代，LSTM的思想以新的形式延续：Transformer的自注意力机制可以看作是对LSTM门控机制的改进，GPT等模型虽然不再使用LSTM，但其序列建模的核心思想仍然源于LSTM。理解LSTM，就是理解序列建模的本质，理解神经网络如何&#34;记忆&#34;和&#34;遗忘&#34;。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读LSTM网络，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
+复杂系统演化的根本问题 问题一：熵增与复杂性增长的矛盾 热力学第二定律告诉我们，孤立系统的熵总是增加的：$\Delta S \geq 0$。这意味着系统会自发地从有序走向无序，从复杂走向简单。但现实中的复杂系统（如生物进化、神经网络学习、社会演化）却展现出相反的趋势：它们能够自发地增加复杂性，从简单状态演化到复杂状态。
+这一矛盾的核心在于：熵和复杂性是不同的概念。熵衡量的是系统的无序程度，而复杂性衡量的是系统的结构丰富程度。一个高度有序的系统（如晶体）熵很低，但复杂性也很低；一个完全随机的系统（如理想气体）熵很高，但复杂性也很低；只有介于两者之间的系统（如生命、智能）才具有高复杂性。
+复杂系统的演化不是简单的熵增或熵减，而是在保持或增加熵的同时，增加系统的结构复杂性。这需要系统能够从环境中获取能量和信息，维持远离平衡态的状态。
+问题二：涌现与自组织的机制 复杂系统的一个关键特征是涌现（emergence）：系统的整体行为无法从组成部分的行为简单推导出来。例如，单个神经元的行为很简单，但由大量神经元组成的神经网络却能产生智能；单个个体的行为遵循简单规则，但由大量个体组成的社会系统却能产生复杂的社会现象。
+涌现的本质是自组织（self-organization）：系统通过局部相互作用，自发地形成全局有序结构。这种自组织过程需要满足三个条件：系统远离平衡态（有能量/信息输入）、存在正反馈机制（小扰动能放大）、存在约束条件（限制系统的演化方向）。
+在AI系统中，神经网络的训练过程就是典型的自组织过程：通过反向传播（正反馈）和正则化（约束），网络从随机初始化演化到能够完成复杂任务的状态。
+问题三：复杂性的量化难题 如何量化系统的复杂性？传统方法面临三个核心问题：复杂性是多维度的（结构复杂性、功能复杂性、计算复杂性等不同维度难以统一）、复杂性依赖于观察者（同一系统在不同尺度、不同视角下表现出不同的复杂性）、复杂性是动态的（系统的复杂性会随时间演化）。
+信息论提供了量化复杂性的一个角度：Kolmogorov复杂度（能够生成系统状态的最短程序的长度）可以作为系统复杂性的度量。但Kolmogorov复杂度在计算上不可行，且无法捕捉系统的动态演化。
+复杂动力学第一定律试图通过描述系统状态空间的演化来量化复杂性，将复杂性的增长与系统的动力学过程联系起来。
+复杂动力学第一定律的核心机制 信息论基础：状态空间的复杂度 考虑一个复杂系统，其状态可以用 $N$ 维向量 $\mathbf{x}(t) = (x_1(t), x_2(t), \ldots, x_N(t))$ 表示。系统的演化遵循动力学方程：
+$$ \frac{d\mathbf{x}}{dt} = \mathbf{F}(\mathbf{x}, t) $$
+其中 $\mathbf{F}$ 是系统的动力学函数。
+系统的状态空间复杂度可以定义为系统能够访问的状态空间的"大小"。如果系统只能访问状态空间的一个小区域，复杂度较低；如果系统能够访问状态空间的大部分区域，复杂度较高。
+更精确地，状态空间的复杂度可以用可达状态空间的体积或状态分布的熵来度量：
+$$ C(t) = -\int p(\mathbf{x}, t) \log p(\mathbf{x}, t) d\mathbf{x} $$
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-01-08 10:07:36 +0800 +0800'>January 8, 2026</span> | <span>27 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【论文解读04】复杂动力学第一定律：复杂系统的基础理论" href=https://blog.zhangky.com/posts/2026/paper-read/2026-01-08-paper-04-first-law-complexodynamics/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>The Folding of Currency: 2036 Stablecoin Endgame & The Liquidity Caste</h2></header><div class=entry-content><p>假设我站在了2036年，回望2020年代中期，无论是华尔街还是硅谷，都犯了一个战略性错误：他们将稳定币视为法币的"竞争者"。站在2036年复盘，真相残酷而简单：稳定币没有颠覆美元，它拯救了美元。
+过去十年，我们见证的不是去中心化革命，而是一场"铸币权的特许经营化"。美联储意识到，与其亲自下场做低效且侵犯隐私的CBDC（央行数字货币），不如将美元的"API接口"开放给私营部门。稳定币，最终成为了法币的"数字外骨骼"。
+现在的世界不再争论"中心化"与"去中心化"，因为货币体系已经完成了阶级固化。全球流动性被割裂为三个互不兼容、但垂直嵌套的平行世界。
+顶层是白区（White Zone），权力的延伸。形态是所谓"合规稳定币"（Gov-Coins），本质是可编程的政治工具。2028年《全球数字支付法案》通过后，Circle与Paxos类机构实质上成为了美联储的"数字分行"。这些货币具有极强的长臂管辖权。政府不再通过银行冻结账户，而是直接在智能合约层面实行"定点量化宽松"或"瞬间资产剥夺"。场景是纳税、政府采购、大宗合规贸易。它是清洁的，但它是带着镣铐的。
+中层是灰区（Grey Zone），帝国的暗渠。形态是离岸美元稳定币（Offshore-Coins），本质是全球贸易的润滑剂。尽管西方国家嘴上严厉监管，但从未真正封杀离岸稳定币（如Tether的后继者）。为什么？因为美国需要一个不受SWIFT制约的渠道，来吸纳亚非拉及制裁区的过剩流动性。只要这些稳定币继续购买美债，它们就被默许存在。这是2036年的"石油美元"变体——“算法美元”。它服务于那个不被官方承认、但真实存在的庞大地下经济体。
+底层是黑区（Dark Zone），熵的避难所。形态是纯原生算法货币（Crypto-Native），本质是数学与能量的货币化。真正的去中心化货币不再锚定美元（那是自寻死路），而是锚定"算力+能源"。在2032年算力危机后，一种基于零知识证明（ZK）和物理算力（PoW）混合的稳定币成为了DeFi的基石。它是唯一的"反脆弱"资产。当白区货币因通胀贬值、灰区货币因地缘政治被定向爆破时，黑区货币因其"不可篡改性"成为最后的价值存储。
+未来十年的核心博弈，在于抵押品（Collateral）的代际更替。2026-2030年是债务货币化阶段，稳定币发行商成为全球前三大美债持有者。稳定币收益率（Yield）成为全球无风险利率的基准。美元霸权以代码的形式完成了数字化殖民。2031-2036年是资产超主权化阶段，随着RWA（现实资产上链）的成熟，单一法币抵押显得风险过高。一篮子资产（黄金、比特币、AI算力指数、碳信用）组成的"合成SDR"（特别提款权）开始在链上自动生成。
+对于现在的布局者，请记住这条穿越者的公理：不要试图去发币挑战国家，而要成为国家无法拒绝的"基础设施"。未来的货币战争，不会有硝烟。白区属于政府，灰区属于财阀，黑区属于极客。不要选择立场，而是看清自己在哪个图层（Layer）上博弈。2036年的稳定币，不再是钱，它是流动的法律，是固化的阶级，是代码构建的利维坦。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-01-07 21:14:44 +0800 +0800'>January 7, 2026</span> | <span>5 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to The Folding of Currency: 2036 Stablecoin Endgame & The Liquidity Caste" href=https://blog.zhangky.com/posts/2026/01/2026-01-07-the_folding_of_currency/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Why did I study business in the AI era?：AI时代我为何选择再去读商科？</h2></header><div class=entry-content><p>回望求学与创业的征程，我始终感恩大学时期选择理科的决定。我的本科是计算机科学与技术，严谨的理科训练，让我养成了以数据为依据、以结果为导向的实证思维。这种"凡事求有效、凡事讲逻辑"的认知底色，帮我搞定了职业过程中理性的思考问题。在工作过程中这种思维模版帮我解决很多问题，比如产品迭代、流程优化这些"硬骨头"。但真到了从生产到市场环节打拼才发现，光会解决技术问题远远不够。好几次，我周围很多创业者拿着看似完美的产品推向市场，要么找不到精准客户，要么定价不合理导致盈利微薄，甚至因为没摸清行业周期，在市场低谷时盲目投入，亏了不少钱。这种"懂技术却不懂经营"的迷茫，让我彻底明白：创业的核心是盈利，而盈利的关键在于经营思维。也正因如此，我在21年选择攻读MBA。这段学习历程不是对过往理科知识的否定，而是给我补上了"经营"这堂关键必修课，让我从"做事"的层面，真正升级到"做局"的层面，成为我创业路上扭转困局的核心支撑。又一次我的老板在闲聊时问我，我为什么选择要读MBA呢，以上也是我的回答。
+MBA最让我受益的，是帮我升级了视野。用经营思维，真正看见市场里藏在表象下的获利机会点。以前做市场，我只会盯着竞品的价格和功能，跟着别人的节奏走，永远赚不到认知之外的钱。但通过MBA里的经济学和市场分析课程，我学会了从供需关系、行业周期、政策导向的全局视角看市场。比如在分析细分领域时，我不再只看当下的销量，而是用经济模型预判未来的需求趋势，结合成本结构算出"最优盈利区间"，最终找到一个被大公司忽略的小众需求点。就像去年，我通过分析区域消费升级的经济数据，发现本地中小企业对"低成本数字化转型"的需求迫切，但市场上的解决方案要么太贵要么太复杂，于是我针对性地推出轻量化产品，短短半年就实现了盈利翻倍。这种"从经济规律里找机会，用经营思维抓盈利"的能力，正是商科学习带给我的核心价值。同时，不同学科的碰撞也让我打通了认知：管理学让我明白，找到机会只是第一步，能把机会落地的组织能力才是关键。商业历史案例则提醒我，再优质的获利机会，也需要避开周期陷阱，这都是保证收益稳定的重要前提。
+“一个人做不大"的想法，在MBA学习中不仅得到印证，更让我找到了"整合全局"的经营解法。从市场分析到组织制度，搭建全方位的经营策略，才能让盈利持续放大。以前我带团队，只会把任务分配下去，却忽略了"组织能力要匹配市场机会”。比如找到轻量化数字化转型的机会后，初期因为团队分工模糊、激励不到位，导致交付效率低，客户投诉多，明明是好机会，却差点因为组织问题错失收益。后来，我把MBA学到的组织设计、激励机制知识用在实践中：先根据市场需求拆分核心业务模块，再对应搭建销售、交付、售后团队，同时设计"基础薪资+盈利分成"的激励方案，让团队目标和公司盈利目标绑定。这样一来，团队效率直接提升了40%，客户复购率也从30%涨到了60%。更重要的是，MBA圈层里的精英伙伴，不仅帮我验证了市场机会的可行性，还为我对接了不少中小企业资源，让我的经营策略能更快落地。这让我深刻体会到，商业盈利从来不是"单点突破"，而是"全局协同"。用市场分析找机会，用组织制度保落地，再用团队协作放大收益，这就是商科教给我的完整经营逻辑。
+我曾反复琢磨"一人之公司的成长上限"，现在终于明白：个体的经营思维边界，就是盈利的上限。创业初期，我因为不懂经营，走了太多"赚小钱、丢大钱"的弯路。而MBA的学习，给我搭建起了从"找机会"到"稳盈利"的完整经营框架。比如用经济思维判断市场趋势，避免在周期低谷盲目投入。用成本收益模型优化定价策略，让每一笔订单都有合理利润。用战略规划思维布局长期业务，避免只盯着短期收益而错失长期机会。就像我现在做业务，会先通过市场分析锁定高毛利的细分领域，再根据行业周期调整投入节奏，同时用组织制度保障团队效率，最后通过客户关系管理提升复购率。这套流程下来，公司的盈利稳定性比以前提升了太多。这种"每一步决策都围绕经营盈利"的思维，是我以前靠理科思维永远悟不到的，也是商科学习带给我最宝贵的财富。
+如今回望MBA的学习历程，我满心都是感恩。这份感恩，不只是因为它帮我赚到了更多钱，更因为它彻底重塑了我的经营认知。让我从一个只会"做事"的理科生，变成了一个懂得"做局"的经营者。让我明白，市场里的盈利机会从来都不是靠运气，而是靠经营思维的精准判断。让我掌握了从市场分析到组织制度的全局经营策略，能更从容地应对创业中的各种挑战。这段历程，是知识的积累，更是思维的蜕变、视野的升级。未来，我会带着这份经营智慧继续深耕创业之路，也始终铭记：商业的核心是盈利，而支撑盈利的，永远是扎实的经营思维。这就是我要读MBA的终极意义。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-01-06 16:06:59 +0800 +0800'>January 6, 2026</span> | <span>9 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to Why did I study business in the AI era?：AI时代我为何选择再去读商科？" href=https://blog.zhangky.com/posts/2026/01/2026-01-06-why-did-i-study-business-in-the-ai-era/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【论文解读03】通过最小化权重描述长度简化神经网络</h2></header><div class=entry-content><p>本文解读的是Geoffrey Hinton和Dirk van Camp于1993年发表的经典论文《Keeping Neural Networks Simple by Minimizing the Description Length of the Weights》，该论文将最小描述长度（MDL）原理直接应用于神经网络权重优化，开创了神经网络压缩和正则化的新范式。论文的核心思想是通过最小化权重的描述长度来自动找到既简单又有效的网络结构，这一思想在深度学习尚未兴起的年代就为现代模型压缩技术奠定了理论基础。
+“最简单的神经网络往往是最好的神经网络。"——这是Hinton等人在1993年提出的深刻洞察。在深度学习尚未兴起的年代，他们就已经意识到：神经网络的复杂度不应该由参数数量衡量，而应该由描述这些参数所需的信息量决定。
+通过最小化权重的描述长度，可以自动找到既简单又有效的网络结构，避免过拟合，提高泛化能力。
+在当今大模型时代，这一思想显得更加重要。GPT-3有1750亿参数，但真正"有效"的参数可能远少于这个数字。如何识别和利用权重的稀疏性？如何量化模型的真实复杂度？如何在不损失性能的前提下简化模型？这些问题都可以从权重描述长度的角度重新审视。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读这一经典工作，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
 本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
-RNN长期依赖问题的根源 问题一：梯度消失的数学本质 传统RNN在每个时间步的计算为：
-$$ h_t = \tanh(W_h h_{t-1} &#43; W_x x_t &#43; b) $$
-其中 $h_t$ 是隐藏状态，$W_h$、$W_x$ 是权重矩阵，$b$ 是偏置向量。
-在反向传播过程中，需要计算损失函数 $L$ 对早期时间步 $h_k$ 的梯度：
-$$ \frac{\partial L}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \frac{\partial h_t}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \prod_{j=k&#43;1}^{t} \frac{\partial h_j}{\partial h_{j-1}} $$
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-01-25 10:25:51 +0800 HKT'>January 25, 2026</span> | <span>27 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【论文解读06】理解LSTM网络：解决长期依赖问题" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Longevity Analysis: AI vs. Longevity
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> INTERNAL USE ONLY | Venture Capital Due Diligence Report
-To: Investment Committee (IC) From: Senior Industry Analyst, Pre-Investment Division Date: January 27, 2026 Subject: Sector Analysis &amp; Strategic Outlook: Longevity &amp; Geroscience (2026) Classification: Confidential 1. Executive Summary &amp; Investment Thesis 1.1 Market Overview The longevity sector has matured from speculative biology into a rigorous clinical engineering discipline. As of Q1 2026:
-Metric Value Source Longevity Biotech Market Size $31.6B (2026) [1] Projected Market Size (2031) $46.8B [1] Implied CAGR ~8.2% Calculated 1.2 Core Investment Thesis “Clinical Inflection Point” — The 2024–2025 cycle de-risked systemic interventions (TPE, Rapamycin) while filtering out underperforming monotherapies. 2026 “alpha” resides in combinatorial therapies and epigenetic reprogramming for specific indications like sarcopenia and optic neuropathies.
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-01-22 21:57:10 +0800 HKT'>January 22, 2026</span> | <span>About 16 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to Longevity Analysis: AI vs. Longevity" href="https://blog.zhangky.com/posts/2026/01/2026-01-22-ai-4-longevity/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="https://blog.zhangky.com/page/13/">
-      «&nbsp;Prev&nbsp;13/28
-    </a>
-    <a class="next" href="https://blog.zhangky.com/page/15/">Next&nbsp;15/28&nbsp;»
-    </a>
-  </nav>
-</footer>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<style>
-   
-  .mermaid {
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 95%;
-    overflow-x: auto;
-  }
-  
-   
-  .mermaid > svg {
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-  
-   
-  .mermaid flowchart {
-    width: 100%;
-  }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>
-  
-  window.mermaidConfig = {
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis',
-      width: '100%',
-      height: 'auto'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
-  };
-  
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    var codeBlocks = document.querySelectorAll('code.language-mermaid');
-    
-    
-    codeBlocks.forEach(function(codeBlock) {
-      var preBlock = codeBlock.parentNode;
-      var mermaidCode = codeBlock.textContent;
-      
-      
-      var mermaidContainer = document.createElement('div');
-      mermaidContainer.className = 'mermaid';
-      mermaidContainer.textContent = mermaidCode;
-      
-      
-      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
-    });
-    
-    
-    mermaid.initialize(window.mermaidConfig);
-  });
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+神经网络复杂度的根本问题 问题一：参数数量与模型复杂度的脱节 传统观点认为，参数越多的神经网络越复杂，越容易过拟合。但这一观点过于简化。一个包含1000个参数的模型，如果这些参数高度相关或存在大量冗余，其真实复杂度可能远低于一个只有100个参数但彼此独立的模型。
+真实复杂度取决于权重的信息量：如果权重可以用简单的规则描述（如"所有权重都接近0"或"权重遵循某种规律”），那么即使参数数量很多，模型的真实复杂度也很低。相反，如果每个权重都需要独立编码，那么即使参数数量较少，模型的复杂度也很高。
+这种脱节导致了模型选择的困难：我们无法仅凭参数数量判断模型的真实复杂度，也无法预测模型的泛化能力。需要一种能够量化权重信息量的方法。
+问题二：过拟合的权重编码视角 从信息论的角度看，过拟合的本质是模型"记住"了训练数据。如果一个神经网络能够完美拟合训练集，那么它的权重实际上包含了训练数据的编码信息。当权重的信息量接近或超过训练数据的信息量时，模型就失去了泛化能力。
+考虑一个极端例子：如果训练集有 $n$ 个样本，每个样本需要 $b$ 位编码，那么训练数据的总信息量约为 $nb$ 位。如果模型的权重需要 $nb$ 位或更多位来编码，那么模型实际上是在用权重"存储"训练数据，而不是学习数据的规律。
+MDL原理告诉我们，最优模型应该能够用最少的信息描述数据。对于神经网络，这意味着权重的描述长度应该远小于数据的描述长度，这样才能保证模型捕捉的是数据的规律性，而不是随机性。
+问题三：权重分布的复杂性与编码效率 不同的权重分布需要不同的编码长度。如果所有权重都接近0，可以用很少的位编码；如果权重均匀分布在某个区间，需要更多位编码；如果权重完全没有规律，需要最多的位编码。
+权重分布的熵决定了编码长度：对于连续权重，如果权重遵循某种先验分布（如高斯分布），可以使用该分布的负对数似然作为编码长度。权重的方差越小、越集中，编码长度越短。
+这一观察为权重正则化提供了理论基础：L2正则化（权重衰减）通过惩罚大权重，使权重分布更集中，从而减少描述长度；L1正则化通过鼓励稀疏性（大量权重为0），进一步减少描述长度。
+权重描述长度的核心机制 信息论基础：权重的编码长度 给定神经网络权重 $\mathbf{w} = (w_1, w_2, \ldots, w_k)$，描述这些权重所需的编码长度取决于权重的分布和精度。
+离散权重的编码：如果权重被量化为 $b$ 位精度，$k$ 个权重需要 $kb$ 位。但如果我们知道权重的分布，可以使用更高效的编码方案（如Huffman编码），编码长度为：
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-01-05 10:56:02 +0800 +0800'>January 5, 2026</span> | <span>32 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【论文解读03】通过最小化权重描述长度简化神经网络" href=https://blog.zhangky.com/posts/2026/paper-read/2026-01-05-paper-03-minimizing-description-length/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【论文解读02】最小描述长度原理教程：模型选择的理论基础</h2></header><div class=entry-content><p>本文解读的是Jorma Rissanen于1978年发表的经典论文《Modeling by shortest data description》，该论文首次提出了最小描述长度（Minimum Description Length, MDL）原理，将模型选择问题转化为信息论中的数据压缩问题。MDL原理为奥卡姆剃刀提供了数学严谨的量化方法，连接了信息论、统计学和机器学习，成为现代AI模型选择、正则化和泛化理论的重要理论基础。
+“最简单的解释往往是最好的解释。"——这是奥卡姆剃刀原理的经典表述。但在统计学和机器学习中，如何量化"简单”？如何平衡模型的复杂度和拟合能力？最小描述长度（Minimum Description Length, MDL）原理为这个问题提供了信息论层面的严谨答案。
+MDL原理将模型选择问题转化为数据压缩问题：最好的模型是能够用最短编码描述数据的模型。这一思想不仅连接了信息论、统计学和机器学习，更为现代AI的模型选择、正则化和泛化理论奠定了理论基础。
+在深度学习时代，我们面临的核心挑战是：如何从无数可能的模型架构中选择最优的？如何避免过拟合？如何理解模型的泛化能力？MDL原理告诉我们，模型的复杂度不是由参数数量决定的，而是由描述数据所需的信息量决定的。一个能够用更少信息描述数据的模型，往往具有更好的泛化能力。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读MDL原理，包含完整的数学推导、算法流程和复杂度分析，面向专业读者提供系统化的技术总结。
+本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
+模型选择的根本困境 问题一：奥卡姆剃刀的量化难题 奥卡姆剃刀原理告诉我们"如无必要，勿增实体"，但在实际应用中，如何量化"简单"和"必要"？传统方法面临三个核心问题：复杂度度量不统一（参数数量、模型结构、计算复杂度等不同维度难以比较）、拟合能力与复杂度难以平衡（简单模型可能欠拟合，复杂模型可能过拟合）、缺乏理论依据（经验性规则缺乏数学严谨性）。
+在统计学习中，我们经常遇到这样的困境：一个包含1000个参数的模型在训练集上表现完美，但在测试集上表现糟糕；另一个只有10个参数的模型在训练集上表现一般，但在测试集上表现更好。哪个模型更好？直觉告诉我们选择后者，但为什么？MDL原理提供了信息论层面的答案。
+问题二：过拟合与欠拟合的权衡 模型选择的核心是在过拟合和欠拟合之间找到平衡点。过拟合模型能够完美拟合训练数据，但无法泛化到新数据；欠拟合模型过于简单，无法捕捉数据中的模式。传统方法（如交叉验证、正则化）虽然有效，但缺乏统一的理论框架。
+信息论视角下的过拟合问题可以这样理解：如果一个模型能够"记住"训练数据的每一个细节，那么它实际上是在用模型参数编码训练数据。当模型参数的数量接近或超过数据的有效信息量时，模型就失去了泛化能力。MDL原理通过描述长度这一统一度量，将模型复杂度和数据拟合能力放在同一个尺度上比较。
+问题三：模型复杂度的多维度性 模型复杂度可以从多个维度衡量：参数数量（参数越多，模型越复杂）、函数表达能力（能够表示的函数空间越大，模型越复杂）、计算复杂度（训练和推理的计算成本）、结构复杂度（网络深度、宽度、连接方式等）。这些维度往往相互关联，但又不完全一致。
+MDL原理通过编码长度统一了这些维度：一个模型的复杂度等于描述该模型本身所需的编码长度，加上使用该模型描述数据所需的编码长度。这种统一的度量方式使得不同类型的模型可以在同一框架下比较。
+MDL原理的核心机制 信息论基础：编码与描述长度 MDL原理建立在信息论的基础上。给定一个数据集 $D$ 和模型 $M$，描述数据的总长度包括两部分：
+$$ L(D, M) = L(M) + L(D|M) $$
+其中 $L(M)$ 是描述模型本身所需的编码长度，$L(D|M)$ 是使用模型 $M$ 描述数据 $D$ 所需的编码长度（即数据的负对数似然，加上模型参数的编码）。
+MDL原理的核心思想是：选择使总描述长度 $L(D, M)$ 最小的模型。这等价于在模型复杂度和数据拟合能力之间找到最优平衡点。
+两阶段编码：模型与数据 MDL原理采用两阶段编码方案。第一阶段编码模型 $M$，包括模型结构、参数值等；第二阶段编码数据 $D$，使用模型 $M$ 的预测分布。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-01-03 10:30:03 +0800 +0800'>January 3, 2026</span> | <span>24 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【论文解读02】最小描述长度原理教程：模型选择的理论基础" href=https://blog.zhangky.com/posts/2026/paper-read/2026-01-03-paper-02-mdl-principle/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/page/13/>«&nbsp;Prev&nbsp;13/26
+</a><a class=next href=https://blog.zhangky.com/page/15/>Next&nbsp;15/26&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>

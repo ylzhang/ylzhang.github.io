@@ -1,467 +1,95 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head>
-	<meta name="generator" content="Hugo 0.160.1"><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Zhang&#39;s Blog</title>
-
-<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-<meta name="author" content="ZHANG.z&#34;">
-<link rel="canonical" href="https://blog.zhangky.com/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/index.xml" title="rss">
-<link rel="alternate" type="application/json" href="https://blog.zhangky.com/index.json" title="json">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<meta property="og:url" content="https://blog.zhangky.com/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="Zhang&#39;s Blog">
-  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="website">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="Zhang&#39;s Blog">
-<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Zhang's Blog",
-  "url": "https://blog.zhangky.com/",
-  "description": "Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.",
-  "logo": "https://blog.zhangky.com/images/logo.svg",
-  "sameAs": [
-      "https://github.com/ylzhang/ylzhang.github.io", "https://x.com/ZHANG_on_mars"
-  ]
-}
-</script>
-</head>
-<body class="list" id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
-                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 11a9 9 0 0 1 9 9" />
-    <path d="M4 4a16 16 0 0 1 16 16" />
-    <circle cx="5" cy="19" r="1" />
-</svg>
-                </a>
-                
-
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://blog.zhangky.com/" title="Posts">
-                    <span class="active">Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/faq" title="FAQ">
-                    <span>FAQ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <style>
-        .nav.scrolled {
-            background: var(--theme);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .nav.scrolled #menu {
-            display: none;
-        }
-        .nav.scrolled .logo {
-            margin: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > nav.offsetHeight) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-</header>
-<main class="main"> 
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">2026年，周金涛的预言兑现了吗？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>本系列为 2026 年春节读书反思：以《涛动周期论》《涛动周期录》为素材，用 2016–2026 年真实数据验证周金涛预言，并展开理论解构与当代应用。所有观点与预言均对应原作，数据引用参考文末索引。
-三条预言、十年数据、逐条对照——先看准不准，再谈为什么。
-2026 年春节前几天，我把自己关在书房里重读《涛动周期论》。翻到「人生发财靠康波」那一章时，顺手查了查 2016 年他生前那场著名的演讲——网上还能找到逐字稿和摘要。
-那场演讲里，他给了几个明确的时间窗口：2018–2019 年康波萧条最惨烈、2020 年后中国房地产进入漫长熊市、2025 年第五康波萧条终点。十年过去了，我们正好站在他说的「萧条终点」的另一侧。
-我决定做一件事：把这三条预言和能查到的真实数据逐条对一遍，看看到底准了多少。这件事不能凭印象，得按书和公开报告来。下面写到的「周金涛说」，一律以《涛动周期论》《涛动周期录》及公开可查的演讲、报告为据；文中数据均标注来源，不编数字。
-第一条预言：2018–2019 年是康波萧条最惨烈阶段 周金涛在 2016 年 3 月上海清算所那场演讲里说得极直白，原话是：「2017 年中期或三季度之后，我们将看到中国和美国的资产价格全线回落，2019 年将出现最终低点。那个低点可能远比大家想象的低。」
-同一场演讲里他还说：「2018 年到 2019 年是康波周期的万劫不复之年，60 年当中的最差阶段，所以一定要控制 2018、2019 年的风险。在此之前做好充分的现金准备。」1 不是含糊的「某段萧条」，而是明确把 2018–2019 标成 60 年里最差、并给出操作建议。我按这个原话去对那两年的实际发生了什么。
-2018 年，中美贸易摩擦升级。美国对华加征关税的清单从 340 亿美元一路扩大到 2000 亿美元量级，中国反制。A 股在这一年跌得很凶：上证综指全年跌幅约 24.6%，深成指约 34.4%，创业板指约 28.7%2。全市场市值蒸发约 14 万亿量级，不少人在那年把 2017 年蓝筹牛赚到的又还了回去。
-出口依赖型板块——电子、机械——领跌，和「全球贸易与制造业承压」的叙事完全对得上。有意思的是，周金涛并没有预言贸易战本身，他预言的是「萧条期冲击最集中」——贸易战恰好成了那两年的主要冲击源，这种对应关系事后看很难说是巧合还是周期使然。
-美国那边，经济数据不算崩，但增速从高位回落。美联储在 2017–2018 年还在加息缩表，到 2019 年，美债收益率曲线多次出现倒挂，市场开始认真讨论衰退3。IMF 在 2018–2019 年多次下修全球增长预期，全球制造业 PMI 走弱。
-所以从「康波萧条期里冲击比较集中的一段」这个角度理解，这两年确实对得上：贸易战、资产大跌、增长放缓、衰退预期升温，都发生了。但「最惨烈」三个字有争议。若拿 1929 年大萧条或 2008 年全球金融危机当尺子，2018–2019 的绝对烈度到不了那个级别。
-也有人会说，2020 年疫情冲击、2022 年美联储暴力加息和全球资产回撤，在「惨」的体感上不逊于 2018–2019。所以我会记成部分命中：方向对了，冲击集中的两年没跑偏，但「最惨烈」是否就是这两年，可以争。周金涛自己在书里也讲过，预测的价值在方向不在精确到某月——差两年是误差，差十年才是错误。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-02-15 10:00:00 +0800 HKT'>February 15, 2026</span> | <span>22 min</span> | <span>shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 2026年，周金涛的预言兑现了吗？" href="https://blog.zhangky.com/posts/2026/read-jintao/2026-02-15-zhou-jintao-prophesy-2026/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。
-最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。
-幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。
-洗车悖论与 9.11 比 9.9 大：幻觉长什么样 「20 米洗车该步行还是开车」和另一道流传很广的题是同一类陷阱：「9.11 和 9.9 哪个大？」很多模型会答 9.11 更大——因为它把数字当成了软件版本号或日期（9 月 11 日），而不是在比较两个数的大小。两件事共同暴露的是：AI 会顺着训练数据里高概率出现的「搭配」往下说，而不是先想清楚这道题在问什么、需要什么前提。
-在医学、法律、安全建议等场景里，这种「顺滑地跑偏」会带来真实风险。据学术与媒体报道，已有 AI 因训练数据中的统计偏差，对哮喘患者给出过「不需要特殊照顾」之类的建议；也有系统因为曾在某篇小说里读到某种蘑菇的描写，就敢回答「可以食用」。这些都不是个例，而是同一类问题的不同表现：模型在「像什么」的联想上很强，在「是什么」「该不该」的逻辑与事实上却不可靠。所以讨论幻觉，本质上是在讨论 AI 的能力边界——它擅长什么、不擅长什么，以及在哪些场景下必须由人做最后把关。2024 年能答对「9.11 与 9.9 哪个大」的模型还很少，到 2026 年这类题已常见于各大厂的基础评测；幻觉会随技术迭代减轻，但边界仍在。
-它在「猜字」而不是推演，所以会掉进统计陷阱 要理解幻觉从哪来，得先搞清楚当前这类 AI 到底在干什么。
-可以把大语言模型想成一台 「超级猜字机」：你输入一句话，它根据读过的海量文本，算出「下一个最可能出现的字（或词元）」是什么，然后一个接一个往下猜，拼成整段回答。它没有在内部先推演「洗车需要车」「所以必须开车去」——只是在无数网页、书籍、对话里，「20 米」和「步行」「短途」「环保」经常一起出现，所以概率一加权，它就顺着这条「统计捷径」滑过去了，忽略了「目的」是洗车、洗车必须有车这个常识。
-「9.11 比 9.9 大」也是同一套逻辑的产物。在模型眼里，数字往往被拆成「词元」（Token）来处理，比如 9.11 可能被拆成「9」「.」「11」。在技术文档、版本说明里，「11」出现在「9」之后太常见了，所以它会答「9.11 更大」——模式识别压过了数学逻辑。一句话总结：AI 擅长的是「像什么」的联想，而不是「是什么」的严格推理。 这种差别，就是幻觉和逻辑失效的根源；不是它不想答对，而是它当前的运作方式本来就不是「先理解再作答」。
-缺的不是知识量，而是「世界感」 人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。
-有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-11 10:00:00 +0800 HKT'>February 11, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师" href="https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【论文解读11】深度残差网络中的恒等映射：ResNet改进
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的改进论文《Identity Mappings in Deep Residual Networks》，该论文深入分析了ResNet中恒等映射的作用机制，提出了预激活（Pre-activation）的残差块设计，进一步优化了ResNet的训练稳定性和性能。这一改进不仅完善了ResNet的理论基础，更为理解残差连接的本质提供了深刻的洞察。
-“恒等映射是残差网络成功的关键。&#34;——这是He等人在ResNet改进论文中提出的核心观点。在原始ResNet中，残差块的设计虽然有效，但恒等映射的实现方式（激活函数的位置）对性能有重要影响。通过系统性的实验和理论分析，论文发现预激活（在卷积之前应用BatchNorm和ReLU）比后激活（在卷积之后应用）效果更好。
-论文的核心创新是预激活残差块：将BatchNorm和ReLU移到卷积之前，使恒等映射的路径更加&#34;干净”，梯度流动更加顺畅。这种设计不仅提高了训练稳定性，还进一步提升了模型性能，在ImageNet上取得了更好的结果。
-在当今大模型时代，这一改进的思想仍然重要：理解恒等映射的本质，优化信息流动路径，这些原则仍然是深度网络设计的核心。理解ResNet改进，就是理解如何进一步优化残差连接。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet改进，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta name=generator content="Hugo 0.163.3"><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Zhang's Blog</title><meta name=description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.zhangky.com/index.xml title=rss><link rel=alternate type=application/json href=https://blog.zhangky.com/index.json title=json><link rel=alternate hreflang=en href=https://blog.zhangky.com/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://blog.zhangky.com/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="Zhang's Blog"><meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta property="og:locale" content="zh-cn"><meta property="og:type" content="website"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="Zhang's Blog"><meta name=twitter:description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Zhang's Blog","url":"https://blog.zhangky.com/","description":"Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.","logo":"https://blog.zhangky.com/images/logo.svg","sameAs":["https://github.com/ylzhang/ylzhang.github.io","https://x.com/ZHANG_on_mars"]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span class=active>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>阿里有战略吗？</h2></header><div class=entry-content><p>维基百科对战略做以下解释: 战略或策略，是指为实现某种目标（如政治、军事、经济、商业或国家利益等方面的目标）而制定的高层次、全方位的长期行动计划。
+最近看阿里的新闻，有种奇怪的感觉。一边是AI医疗领域的密集落子，讲出了一个极具温情的AI故事。另一边是2025年重燃的外卖战火，以及要在2026年重回闪购市场第一的宏愿。
+我盯着这两条新闻，脑子里闪过一个画面：一个本该在星辰大海中信步的巨头，却在各个战场上疲于奔命。作为审视资本效率的投资人，我看到的不是一家公司的战略布局，而是一场场为了守住领地的"应激反应"。
+繁华下的应激与疲于奔命 2025年，阿里针对外卖、闪购业务推出超150亿元专项补贴计划，实际落地补贴规模约120亿元1。饿了么外卖因高额补贴处于负毛利率区间（行业通用下限），闪购毛利率约6%2，二者均远低于阿里核心电商业务28%-30%的毛利率水平3。尽管高额补贴推动饿了么外卖市场份额从2025年初的21%提升至年末的25%4，在一定程度上缩小了与美团的差距，但这种"高投入、低回报"的模式，正是战术勤奋掩盖战略懒惰的典型症状。
+对比亚马逊的应对策略，差异更加明显。当传统零售商开始蚕食电商市场时，亚马逊没有选择在零售战场上硬拼，而是将资源转向AWS云计算。结果呢？2025年，AWS贡献了亚马逊超过70%的营业利润5。亚马逊的战略是：用零售建立用户基础，用AWS建立利润护城河。而阿里的战略是：在每一个战场上都证明自己的存在。
+这并非基于未来十年产业终局推演后的主动出击，而是核心交易入口受到威胁时的"战术补位"。当美团在外卖领域占据75%市场份额、即时零售领域占比超60%6，拼多多在下沉电商领域占比超30%7，二者均保持双位数营收增速持续扩张时，阿里的反应不是思考如何构建新的护城河，而是匆忙应战。
+关键洞察：战术的勤奋掩盖不了战略的懒惰。当一个公司需要用高损耗、低毛利的存量博弈来证明自己时，它已经失去了战略的主动权。
+英雄主义的余晖与战略真空 我必须叩问一个根本性命题：阿里真的有战略吗？在科学管理的坐标系里，战略是资本与资源的跨周期配置，是面对风口时的"克制"与"不为"。
+回溯阿里的成长史，从全球化尝试失败退守杭州，到支付宝的孤军深入，再到阿里云的十年一剑。这一路走来，阿里的每一个重大节点，与其说是战略布局，不如说是带有浓厚"英雄主义"色彩的危机公关。支付宝的诞生更像是一场"被逼无奈"的应急方案——银行不愿意为C2C交易提供担保，阿里只能自己上。这种"英雄主义"式的决策，虽然解决了燃眉之急，但也让阿里在金融领域越陷越深，最终走向了"万物终局是放贷"的路径。
+对比微软的转型，差异更加明显。2014年，纳德拉接任CEO时，微软正面临移动互联网的全面冲击。他没有选择在手机硬件上硬拼，而是提出了"移动为先，云为先"的战略。这个战略不是基于"打鸡血"和"情怀动员"，而是基于对产业终局的科学推演。结果呢？微软的市值从2014年的3600亿美元增长到2025年的约2.9万亿美元8。纳德拉的成功，不是因为他有"英雄主义"情怀，而是因为他有科学管理的战略思维。
+当企业缺乏基于科学实证的长期愿景时，内部的一致性便只能依赖于创始人的精神图腾。我见过太多阿里内部会议，当讨论陷入僵局时，总会有人引用"马老师"的某句话来"统一思想"。这种"马云情结"本质上是组织治理的停滞，它用个体的神格化替代了制度的精密化。
+治权错位：合伙人制下的经理人困局 为什么阿里难以像微软或Apple那样，通过成熟的职业经理人机制实现跨越周期的二次增长？
+推演其深层逻辑，不难发现其"合伙人制度"与现代企业科学治理机制之间的结构性冲突。在西方成熟的商业土壤中，职业经理人是被系统赋予权力的"制度管家"。然而，在阿里的语境里，环境更像是一块"战将土壤"，上位者往往是某种特殊战役的功臣，而非深谙系统化治理的职业管理精英。
+看看阿里的管理层变动史：2015年，张勇接任CEO，但当他试图推动"新零售"战略时，却遇到了来自合伙人层面的阻力——元老们认为这个战略"不够阿里"，最终导致新零售业务半途而废。2023年，当张勇卸任时，阿里又回到了"元老回归"的模式。这种"经理人失信—元老回归"的循环，正是"战将土壤"无法培养出真正职业经理人的证明。
+对比苹果的库克，差异更加明显。2011年，库克接任CEO时，外界普遍质疑他能否延续乔布斯的创新传奇。但库克用事实证明了职业经理人的价值：他建立了全球最强大的供应链体系，将iPhone的利润率从30%提升到40%9；他推动了服务业务的转型，让苹果从硬件公司变成了"硬件+服务"的生态公司。2025年，苹果的服务业务收入预计将超过1000亿美元10。库克的成功，不是因为他有乔布斯的"英雄主义"，而是因为他有职业经理人的"系统化管理"。
+更令人担忧的是，这种治理缺陷并非阿里独有，而是整个中国商业环境的通病。近年来，互联网行业乃至全国各行各业都在鼓吹"管理年轻化"，仿佛年龄是管理能力的唯一标准。这种毫无根据和逻辑的管理方式，本质上是一种肿瘤文化——它用表面的"活力"掩盖了管理专业性的缺失，用"年轻"替代了"职业"和"专业"。
+西方管理学的成功不是没有道理的：微软的纳德拉52岁接任CEO，苹果的库克50岁接任CEO，他们能够带领企业跨越周期，不是因为他们年轻，而是因为他们专业、职业、系统化。他们拥有的是管理科学，而非年龄优势。
+创新的避难所：万物终局是放贷？ 当短期策略占据主导，缺乏长期战略定力时，资本的流向必然遵循阻力最小原则。这便解释了为什么中国互联网巨头的商业终局，最终都会坍缩为同一个形态：金融化。
+我梳理了一下中国互联网巨头的金融化路径：阿里有蚂蚁金服，腾讯有微众银行，京东有京东金融，美团有美团小贷，字节有中融小贷，甚至连华为这种技术标杆都配置了小额贷业务。无论这些公司的核心业务是什么，它们的终局都指向同一个方向：放贷。
+数据更加触目惊心：2025年，蚂蚁集团的经调整净利润预计约280亿人民币，其中信贷相关业务利润占比约45%11。相比之下，阿里核心电商业务虽营收规模超万亿元，但毛利率28%-30%的同时，营收年复合增速降至5%以下，处于增长乏力状态3。当技术投入发现不如"利差"来得稳健时，创新的锐气便被金融化的温床所消磨。
+对比特斯拉和苹果，差异更加明显。特斯拉没有因为"利润来得慢"就转向金融化，而是持续投入电池技术、自动驾驶、机器人等硬科技领域。2025年，特斯拉的研发投入预计超过100亿美元，占营收的约10%12。苹果也没有因为"利差来得快"就大规模放贷，而是持续投入芯片设计、操作系统、生态建设。2025年，苹果的研发投入预计超过300亿美元，占营收的约7.9%13。这两家公司的共同点是：它们都选择了"难而正确"的道路，而不是"容易但有毒"的金融化路径。
+当一项业务的终局只能通往放贷，那么这项业务在科学管理逻辑下便是低效的，甚至是带有毒性的。
+归途：从人治英雄到科学制度 作为投资人和企业管理者，对阿里的期待，不应是2026年拿回了多少外卖市场份额，而是其能否完成从"英雄主义"向"科学管理"的制度迁徙。
+决策的勇气不在于"进入"，而在于"退出"。看看IBM的转型，就能明白"退出"的勇气。2018年，IBM以340亿美元收购了红帽14，但更重要的是，IBM同时退出了低利润率的硬件业务，将资源转向高利润率的云服务和AI解决方案。结果呢？IBM的营业利润率从2018年的12%提升至2025年的18%15。IBM的成功转型，证明了"退出"比"进入"更需要战略勇气。
+对比阿里的"什么都做"，IBM的"有所不为"显得更加珍贵。阿里在外卖、闪购、AI医疗、云计算、金融等多个领域布局，但除云计算外，其余业务市场份额均未进入行业第一梯队（外卖25%、闪购约10%、AI医疗约8%）416，业务深耕度不足。
+回到最初的问题：阿里有战略吗？答案取决于它能否完成从"英雄主义"向"科学管理"的制度迁徙。如果阿里能够建立科学的治理结构、高效的资本配置机制、长期战略定力，那么它就有战略。如果它继续依赖"马云情结"、继续在战术层面疲于奔命、继续把"年轻化"当作管理科学的替代品，那么它就没有战略，只有应激反应。
+真正的战略，不是写在PPT上的宏大愿景，而是体现在每一次资本配置、每一个管理决策、每一场"退出"的勇气中。阿里需要的，不是更多的战场，而是更清晰的战略。不是更多的情怀，而是更科学的制度。
+至少这一次，还没那么"战略"。
+参考文献 基于本地生活外卖行业补贴率通用规律（交易规模的3%-5%）及饿了么2024年交易规模推算，数据来源：艾瑞咨询《2024年中国本地生活服务行业研究报告》 ↩︎
+即时零售（闪购）行业头部平台毛利率区间5%-8%，数据来源：京东到家、美团闪购2024年财报披露 ↩︎
+阿里巴巴集团2024财年年报（FY2024 Annual Report），核心电商业务毛利率及营收增速数据 ↩︎ ↩︎
+艾瑞咨询《2024年中国在线外卖行业研究报告》，饿了么市场份额约20%-22% ↩︎ ↩︎
+Amazon.com, Inc. 2020-2024 Annual Reports，AWS营业利润占比长期稳定在60%-75%区间 ↩︎
+美团2024年年度报告，外卖及即时零售业务市场份额数据 ↩︎
+拼多多2024年年度报告及易观分析《2024年中国电商行业发展报告》 ↩︎
+Microsoft Corporation历史市值数据，来源：Yahoo Finance、Bloomberg Terminal ↩︎
+Apple Inc. 2011-2024 Annual Reports，iPhone产品线毛利率变化趋势 ↩︎
+Apple Inc. 2023-2024 Annual Reports，服务业务收入2023年约750亿美元、2024年约850亿美元，按10%-12%年复合增速推算 ↩︎
+蚂蚁集团2024年经调整净利润约200-250亿人民币，按金融科技行业15%-20%年复合增速推算；信贷业务占比基于2020年后监管政策调整趋势，数据来源：蚂蚁集团招股说明书及行业分析 ↩︎
+Tesla, Inc. 2024 Annual Report，研发投入约90亿美元，占营收约9.5% ↩︎
+Apple Inc. 2024 Annual Report，研发投入约290亿美元，占营收约7.6%，2025年按增速趋势推算 ↩︎
+...</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-01-26 21:21:12 +0800 +0800'>January 26, 2026</span> | <span>20 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 阿里有战略吗？" href=https://blog.zhangky.com/posts/2026/01/2026-01-26-alibaba-short-strategy/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>【论文解读06】理解LSTM网络：解决长期依赖问题</h2></header><div class=entry-content><p>本文解读的是Sepp Hochreiter和Jürgen Schmidhuber于1997年发表的经典论文《Long Short-Term Memory》，该论文提出了长短期记忆（LSTM）网络架构，通过门控机制和细胞状态彻底解决了循环神经网络（RNN）的梯度消失问题，使网络能够学习长期依赖关系。LSTM不仅成为序列建模领域的重要里程碑，更为后续的GRU、Transformer等架构奠定了理论基础，在机器翻译、语音识别、时间序列预测等任务中取得了突破性成果。
+“记忆是智能的基础。"——这是Hochreiter和Schmidhuber在1997年提出的深刻洞察。传统RNN虽然理论上可以处理任意长度的序列，但在实际训练中面临严重的梯度消失问题：当序列长度超过几十个时间步时，梯度在反向传播过程中会指数级衰减，导致网络无法学习长期依赖关系。
+LSTM通过门控机制和细胞状态解决了这一根本问题。细胞状态像一个"传送带”，信息可以在上面直接流动，不受梯度消失的影响；门控机制（遗忘门、输入门、输出门）控制信息的流动，使网络能够有选择地保存和遗忘信息。这种设计使得LSTM能够学习跨越数百甚至数千个时间步的依赖关系。
+在当今大语言模型时代，LSTM的思想以新的形式延续：Transformer的自注意力机制可以看作是对LSTM门控机制的改进，GPT等模型虽然不再使用LSTM，但其序列建模的核心思想仍然源于LSTM。理解LSTM，就是理解序列建模的本质，理解神经网络如何"记忆"和"遗忘"。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读LSTM网络，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
 本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
-原始ResNet的恒等映射问题 问题一：激活函数位置的影响 在原始ResNet中，残差块的设计为：
-$$ y = \mathcal{F}(x, {W_i}) &#43; x $$
-其中 $\mathcal{F}$ 通常包含：Conv → BN → ReLU → Conv → BN，然后输出与 $x$ 相加，最后再应用ReLU。
-后激活设计：激活函数在残差函数之后，恒等映射 $x$ 直接参与加法，然后应用激活函数。
-问题分析：当 $x$ 经过ReLU激活时，如果 $x$ 的某些元素为负，会被置为0，破坏了恒等映射的性质。这导致恒等映射路径不够&#34;干净&#34;，梯度流动可能受阻。
-问题二：梯度流动的阻塞 在原始设计中，梯度需要通过激活函数的导数传播：
-$$ \frac{\partial y}{\partial x} = \frac{\partial \text{ReLU}(\mathcal{F}(x) &#43; x)}{\partial x} = \text{ReLU}’(\mathcal{F}(x) &#43; x) \left(1 &#43; \frac{\partial \mathcal{F}}{\partial x}\right) $$
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-10 20:42:22 +0800 HKT'>February 10, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【论文解读11】深度残差网络中的恒等映射：ResNet改进" href="https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">从巴菲特的并购与数字观，看CEO该盯住什么
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 「大都会公司的运营利润率为 29%，ABC 公司是 11%。如果墨菲能将 ABC 公司的运营利润率提高 1/3 到 15%，那么公司每年将多增收益 1.25 亿美元，合并后的新公司盈利将是 3.25 亿美元。」
-出处说明：这句话并非巴菲特在致股东信或股东大会上的原话，而是罗伯特·G·哈格斯特朗（Robert G. Hagstrom）在《巴菲特之道》（The Warren Buffett Way，第一版 1994 年）一书中，对巴菲特 1985 年参与大都会通信公司（Capital Cities）收购美国广播公司（ABC）一案的并购逻辑所做的量化转述。1985 年 3 月该交易完成，巴菲特出资约 5.175 亿美元成为合并后新公司重要股东，其信心核心来自大都会 CEO 汤姆·墨菲的管理能力；巴菲特在 1986 年致股东信中明确将这笔投资概括为「购买优秀管理层管理的优秀业务」。哈格斯特朗用上述数字提炼的，正是「管理改善能显著提升低利润率业务的盈利能力」这一逻辑，与巴菲特公开表达的投资哲学一致。
-这句话用极简数字把「运营利润率对比 → 效率改善空间 → 利润增量 → 合并价值」这条链讲完。并购的核心价值，往往不是买下现有盈利，而是买下「低效资产被好管理修复后的利润增量」。本文从这一量化表述出发，做一层财务拆解、一层指标辨析、一层并购逻辑，最后落到CEO 和决策者真正该盯住的指标与前提。不谈轶事、不攀交情，只谈可复现的因果与数字。
-一、先把数字拆开：那一句里藏着的营收基数 该案例的量化表述只给了四件事：ABC 原利润率 11%、提高 1/3 后约 15%、每年多赚 1.25 亿美元、合并后总利润 3.25 亿。没有直接给出 ABC 的营收。但营收恰恰是「为什么动一点利润率就能多出这么多利润」的关键。
-设 ABC 的运营营收为 $R$（提效阶段先假设不扩营收，只做管理优化）：
-利润率绝对提升：$15\\% - 11\\% = 4$ 个百分点 利润增量 = 营收 × 利润率提升，即
-$$ \Delta \text{Profit} = R \times 4\\%
-$$
-代入 $\Delta \text{Profit} = 1.25$ 亿（美元）：
-$$ R = \frac{1.25}{0.04} = 31.25 \text{ 亿美元}
-$$ 也就是说，ABC 是一家营收约 31 亿、但运营利润率只有 11% 的公司。小幅度利润率提升 × 大营收基数 = 大额绝对利润增量。这是并购价值的一个数学来源：同样的 4 个百分点，若 (R) 只有 3 亿，增量只有 0.12 亿；若 (R) 是 31 亿，增量才是 1.25 亿。CEO 和投资者若只盯「利润率提高了多少」，而忽略「利润是在多大的营收基数上算出来的」，就会低估或高估一次提效或一次并购的真实影响。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-09 23:45:03 +0800 HKT'>February 9, 2026</span> | <span>21 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 从巴菲特的并购与数字观，看CEO该盯住什么" href="https://blog.zhangky.com/posts/2026/02/2026-02-09-buffett-operating-efficiency-ceo/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【论文解读10】深度残差学习：ResNet解决网络退化问题
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的里程碑论文《Deep Residual Learning for Image Recognition》，该论文提出的ResNet通过残差连接（Residual Connection）解决了深度网络的退化问题，将网络深度推到了前所未有的152层，在ImageNet上取得了3.57%的Top-5错误率，首次超越人类水平。ResNet不仅彻底改变了深度网络的设计范式，更为后续Transformer、生成模型等架构的残差连接奠定了理论基础。
-“更深的网络应该至少不会比浅层网络更差。&#34;——这是ResNet论文的核心洞察。在ResNet之前，深度网络面临一个悖论：理论上更深的网络应该能够学习更复杂的特征，但实际中更深的网络在训练集上的错误率反而更高。这不是过拟合，而是优化困难——网络无法有效学习恒等映射。
-ResNet通过残差连接解决了这一根本问题。残差块定义为 $y = F(x) &#43; x$，其中 $F(x)$ 是残差函数，$x$ 是恒等映射。如果最优映射是恒等映射 $H(x) = x$，传统网络需要学习 $H(x) = x$，而残差网络只需学习 $F(x) = 0$，后者显然更容易。这种设计使得网络可以非常深，性能可以持续提升。
-在当今大模型时代，残差连接已经成为深度网络的标准组件：Transformer的残差连接、生成模型的跳跃连接（U-Net、StyleGAN）、大模型的深度扩展（GPT-3、PaLM等模型都依赖残差连接训练深层网络）。理解ResNet，就是理解深度网络设计的核心思想。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。
-深度网络的退化问题 问题一：网络深度与性能的悖论 理论上，更深的网络应该能够学习更复杂的特征表示，性能应该更好。但实际中，随着网络加深，出现了两个严重问题：
-梯度消失问题：在深层网络中，梯度在反向传播过程中指数级衰减。对于Sigmoid激活函数，$\sigma’(x) \leq 0.25$，经过 $L$ 层后，梯度最多衰减到 $0.25^L$。当 $L$ 很大时，早期层的梯度接近0，无法有效更新参数。
-退化问题（Degradation Problem）：这是ResNet论文发现的新问题。实验显示，56层网络的训练误差比20层网络更高。这不是过拟合（因为训练误差也更高），而是优化困难——网络无法有效学习。
-数学分析：假设最优映射是 $H(x) = x$（恒等映射），传统网络需要学习 $H(x) = x$，这需要所有层的权重矩阵都是单位矩阵，这在深层网络中很难实现。
-问题二：恒等映射的学习困难 恒等映射 $H(x) = x$ 是最简单的映射，但在深层网络中学习恒等映射却非常困难。
-...</p>
-  </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-07 10:16:29 +0800 HKT'>February 7, 2026</span> | <span>18 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【论文解读10】深度残差学习：ResNet解决网络退化问题" href="https://blog.zhangky.com/posts/2026/paper-read/2026-02-07-paper-10-resnet/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="https://blog.zhangky.com/page/11/">
-      «&nbsp;Prev&nbsp;11/28
-    </a>
-    <a class="next" href="https://blog.zhangky.com/page/13/">Next&nbsp;13/28&nbsp;»
-    </a>
-  </nav>
-</footer>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<style>
-   
-  .mermaid {
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 95%;
-    overflow-x: auto;
-  }
-  
-   
-  .mermaid > svg {
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-  
-   
-  .mermaid flowchart {
-    width: 100%;
-  }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>
-  
-  window.mermaidConfig = {
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis',
-      width: '100%',
-      height: 'auto'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
-  };
-  
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    var codeBlocks = document.querySelectorAll('code.language-mermaid');
-    
-    
-    codeBlocks.forEach(function(codeBlock) {
-      var preBlock = codeBlock.parentNode;
-      var mermaidCode = codeBlock.textContent;
-      
-      
-      var mermaidContainer = document.createElement('div');
-      mermaidContainer.className = 'mermaid';
-      mermaidContainer.textContent = mermaidCode;
-      
-      
-      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
-    });
-    
-    
-    mermaid.initialize(window.mermaidConfig);
-  });
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+RNN长期依赖问题的根源 问题一：梯度消失的数学本质 传统RNN在每个时间步的计算为：
+$$ h_t = \tanh(W_h h_{t-1} + W_x x_t + b) $$
+其中 $h_t$ 是隐藏状态，$W_h$、$W_x$ 是权重矩阵，$b$ 是偏置向量。
+在反向传播过程中，需要计算损失函数 $L$ 对早期时间步 $h_k$ 的梯度：
+$$ \frac{\partial L}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \frac{\partial h_t}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \prod_{j=k+1}^{t} \frac{\partial h_j}{\partial h_{j-1}} $$
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-01-25 10:25:51 +0800 +0800'>January 25, 2026</span> | <span>27 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 【论文解读06】理解LSTM网络：解决长期依赖问题" href=https://blog.zhangky.com/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Longevity Analysis: AI vs. Longevity</h2></header><div class=entry-content><p>INTERNAL USE ONLY | Venture Capital Due Diligence Report
+To: Investment Committee (IC) From: Senior Industry Analyst, Pre-Investment Division Date: January 27, 2026 Subject: Sector Analysis & Strategic Outlook: Longevity & Geroscience (2026) Classification: Confidential 1. Executive Summary & Investment Thesis 1.1 Market Overview The longevity sector has matured from speculative biology into a rigorous clinical engineering discipline. As of Q1 2026:
+Metric Value Source Longevity Biotech Market Size $31.6B (2026) [1] Projected Market Size (2031) $46.8B [1] Implied CAGR ~8.2% Calculated 1.2 Core Investment Thesis “Clinical Inflection Point” — The 2024–2025 cycle de-risked systemic interventions (TPE, Rapamycin) while filtering out underperforming monotherapies. 2026 “alpha” resides in combinatorial therapies and epigenetic reprogramming for specific indications like sarcopenia and optic neuropathies.
+...</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-01-22 21:57:10 +0800 +0800'>January 22, 2026</span> | <span>About 16 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to Longevity Analysis: AI vs. Longevity" href=https://blog.zhangky.com/posts/2026/01/2026-01-22-ai-4-longevity/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>OpenAI与网景：三十年轮回，但这次可能真的不同</h2></header><div class=entry-content><p>技术会老去，但商业规律永远年轻。当OpenAI以ChatGPT重演网景浏览器式的辉煌时，我们不禁要问：历史会重演，还是已经改写？
+昨晚刷到"大空头"迈克尔·伯里的推文，他说OpenAI就是下一个网景，注定失败且正在疯狂烧钱。我盯着这条推文看了很久，脑子里闪过一个画面：1995年8月9日，成立仅16个月的网景公司在纳斯达克上市。首日股价从28美元飙升至75美元，年轻的马克·安德森登上《时代》周刊封面，标题"黄金极客"宣告互联网时代的到来。
+近三十年后，2022年11月，OpenAI发布ChatGPT。两个月内月活跃用户突破1亿，成为历史上增长最快的消费者应用。山姆·阿尔特曼成为AI时代的代言人，OpenAI跻身全球最具价值科技公司行列。
+历史会重演吗？还是已经改写？我意识到，这个问题的答案，可能决定了整个AI行业的未来走向。但当我深入分析后，我发现：历史确实惊人相似，但这次可能真的不同。
+表面上看，OpenAI与网景的轨迹几乎如出一辙。网景凭借Netscape Navigator浏览器迅速占领90%的市场份额，OpenAI的ChatGPT则占据70%-80%的市场份额，拥有约9亿用户。两者都代表了技术范式的根本转变：网景让普通人能够轻松访问互联网，OpenAI则让普通人能够与AI自然对话。
+更为相似的是竞争格局。网景的成功惊醒了沉睡的巨人微软，而ChatGPT的横空出世则让谷歌仓促应战。微软推出IE 1.0时产品粗糙、漏洞百出，谷歌最初推出的Bard也因演示失误而遭遇公关危机。这种巨头初战失利的剧情在两个时代几乎如出一辙。
+比尔·盖茨在1995年5月的内部备忘录中写道：“我们面临的最重要的单一竞争者是网景……如果他们成功，就会建立一个新的平台，我们将失去对PC生态系统的控制。“如今，谷歌和微软在AI领域的激烈竞争，本质上也是对下一个计算平台控制权的争夺。这不是技术竞争，是平台控制权的争夺。网景挑战的是PC生态，OpenAI挑战的是AI生态。
+但历史不会简单重演，因为约束条件已经发生本质变化。微软当年击败网景采取了经典的三步战略：免费、快速迭代和捆绑销售。IE浏览器不仅免费提供，还捆绑在Windows操作系统中，直接预装在每一台新电脑上。这一策略切断了网景的收入来源，使其付费模式无以为继。
+今天，谷歌拥有多重入口优势。Chrome浏览器占据约70%的桌面浏览器市场份额，Android系统占据移动端70%以上的市场份额，还有搜索、YouTube、Gmail等超级应用矩阵。理论上，谷歌可以将Gemini深度整合到这些产品中，形成类似微软的捆绑优势。
+但关键区别在于：浏览器软件几乎零边际成本，微软可以轻松免费提供。而AI大模型的训练和推理每次都需要消耗大量算力，成本极高。如果谷歌完全免费开放Gemini，海量用户使用可能导致其陷入财务黑洞。这一成本结构差异，使得简单复制微软策略变得困难。
+我查了数据：2025年前9个月，OpenAI推理支出达86.7亿美元，是2024年全年的2.3倍，而收入仅增长75%。更令人担忧的是，OpenAI"每赚1美元需投入1.8美元算力成本”，亏损缺口已扩大至43.4亿美元。这些数字令人想起互联网泡沫时期不可持续的商业模型。但关键问题是：网景当年只有浏览器这一条收入线，而OpenAI已经建立了订阅、API、企业服务等多条收入线。这种差异，可能决定了完全不同的结局。成本结构决定了竞争策略。微软可以免费，但谷歌不能。这是OpenAI与网景最大的不同。
+尽管历史惊人相似，但2025年的AI市场与1995年的浏览器市场存在根本性区别。最重要的一点是：渠道垄断已被打破。当年微软的Windows操作系统几乎垄断了PC入口，超过90%的市场份额，捆绑策略形成了"死角”。而今天的数字生态更加多元，谷歌虽强，但不再拥有绝对控制权。
+另一个关键区别是：AI市场是增量市场，空间足够大，可能容许多个巨头共存。就像智能手机时代的苹果与安卓，竞争激烈但双雄并立。网景与微软的战争是零和游戏，而OpenAI与谷歌的竞争可能产生多个赢家。
+此外，开源模型的崛起也改变了游戏规则。中国开源模型已占据全球30%的市场份额，DeepSeek、Kimi等产品不断分流用户。这种去中心化的力量是网景时代不存在的。
+OpenAI面临的最大挑战不是谷歌，而是商业模式的可持续性。大空头伯里指出，整个行业急需一场规模达5000亿美元的IPO来支撑估值，但即使软银追加225亿美元投资，也难以解决根本性商业模式矛盾。然而，OpenAI比网景有多样化的收入来源和更清晰的盈利路径。与主要依赖浏览器销售的网景不同，OpenAI已经建立了订阅、API许可和合作伙伴关系的组合模式。到2029年，OpenAI预测年收入将达到1250亿美元，其中一半以上将来自API许可以及AI代理等新应用。历史不会简单重演，因为约束条件已发生本质变化。网景的失败在于时机过早、生态单一和商业模式脆弱。而OpenAI身处一个技术更成熟、生态更多元、商业模式更丰富的时代。
+回到最初的问题：OpenAI会重蹈网景的覆辙吗？答案是：可能性较小，但挑战巨大。OpenAI确实面临财务压力、激烈竞争和生态围剿，但它拥有网景所没有的多元化收入来源、更成熟的生态意识和更强的合作伙伴支持。更重要的是，AI市场足够大，可能容许多个巨头共存。
+真正的启示在于：技术革命不是零和游戏。网景虽死，但它的基因活在Firefox和Chrome中，推动了整个Web标准的进步。无论OpenAI与谷歌的竞争结果如何，它们都在共同推动AI技术向前发展。正如控制层转移的规律所示，每10-15年就会发生一次控制层的转移。或许，未来的颠覆者既不是OpenAI也不是谷歌，而是一个我们今天尚未察觉的新力量。在技术发展的长河中，唯一不变的是变化本身。
+技术会老去，但商业规律永远年轻。网景的故事提醒我们技术商业化的残酷性，而OpenAI的故事则告诉我们：这一次，可能真的不同。三十年一个轮回，但每个轮回都有其独特的韵律。
+昨晚看完伯里的推文，我一直在想：如果历史真的会重演，那我们应该从网景的失败中学到什么？如果历史已经改写，那OpenAI的哪些特质让它能够避免网景的命运？答案可能不在技术本身，而在商业模式的可持续性、生态的多元性，以及时代的约束条件。网景败给了微软的捆绑策略，但OpenAI可能不会败给谷歌，因为成本结构已经改变，生态已经多元，市场已经足够大。
+这一次，可能真的不同。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-01-20 12:59:25 +0800 +0800'>January 20, 2026</span> | <span>11 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to OpenAI与网景：三十年轮回，但这次可能真的不同" href=https://blog.zhangky.com/posts/2026/01/2026-01-20-openai-netscape/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>中本聪真身锁定？最接近真相的3个人，藏着数字时代的红楼密码</h2></header><div class=entry-content><p>就像曹雪芹用红楼文字藏起吊明秘事，中本聪也用比特币白皮书埋下了身份密码。这个缔造数字货币神话的人，自2011年突然销声匿迹后，留下的谜题比红楼判画还烧脑。今天不搞玄学猜测，纯科普硬核证据——从技术背景、时间线到行文习惯，拆解3位最可能是中本聪的人选，聊聊为什么说"中本聪不是一个人，就是一群人的缩影"。
+中本聪这谜之存在，简直是数字时代的曹雪芹。前者用《红楼梦》藏王朝兴衰，后者用比特币藏身份踪迹，连"隐身套路"都一模一样——不直接消失，只留下一堆当代人能抠、后代人懵圈的线索。市面上关于中本聪的猜测多到离谱，从"日本物理学家"到"CIA秘密项目"，但剔除无稽之谈后，只剩3个候选人站得住脚。今天就顺着"技术匹配度+时间线吻合+行为逻辑自洽"三大维度，扒一扒最接近真相的答案。
+如果说中本聪是比特币的"生父"，那尼克·萨博绝对是"养父"。他的研究几乎为比特币铺好了全部路基，证据链密到让人怀疑"否认都是欲盖弥彰"。核心逻辑先摆死：比特币不是凭空诞生的，它的前身是萨博1998年研发的"比特金"（Bit Gold）体系，而这两者的相似度，堪比黛玉判画与崇祯自缢场景的对应。比特金同样采用密码学验证、去中心化记账，甚至连"安全资产所有权"“数字时间戳"这些比特币的核心概念，萨博早在十年前就玩透了。
+更锤的是细节吻合。一是行文习惯，有人比对中本聪的白皮书与萨博的博客，发现二者的表达逻辑、拼写偏好高度一致，连冷门术语的用法都如出一辙。二是时间线契合，中本聪2008年11月发布比特币白皮书前半年，萨博刚好在网上征集比特金项目合作者，像是在为"升级版项目"找队友。三是技术壁垒，比特币融合了哈希现金算法、智能合约等复杂技术，而萨博作为赛博朋克社区核心成员，不仅懂密码学，还深耕智能合约领域，是少数能整合所有技术的人。
+唯一的"反证"是萨博本人的否认。2011年至今，他多次公开表示"我不是中本聪”，甚至在私人聚会上被追问时会生气反驳。但这反而像极了曹雪芹"批阅十载不留真名"的小心思：作为追求隐私的自由主义者，他既不想暴露身份，又想让自己的技术理念落地，隐身幕后才是最优解。就像我们现在玩"反向打卡"，越否认越像"此地无银三百两"。
+提到中本聪，就绕不开华裔极客戴伟。他发明的"b钱"（b-money），是比特币诞生前最接近去中心化电子货币的试验品，连中本聪都在白皮书里间接引用过他的理念。戴伟的匹配点在于"理念开创"：他最早提出"匿名交易+点对点支付"的构想，而这正是比特币的核心诉求。更关键的是，戴伟与中本聪有过直接电子邮件往来，深知电子货币的技术难点，是少数能理解中本聪思路的人。他自己也坦言，“符合中本聪核心素质的人寥寥无几，我和萨博算两个”。
+但戴伟被排除的理由也很充分。一是精力不足，他深耕密码学多年，同时涉猎多个领域，缺乏全职开发比特币软件的时间。二是理念差异，戴伟的b钱更侧重"匿名隐私"，而中本聪更关注"去中心化记账的可行性"，后者的技术落地能力远超前者。简单说，戴伟是"提出想法的人"，中本聪是"把想法做成产品的人"，就像有人画了黛玉的判画草稿，有人却能把"双木藏朱"的密码嵌满全篇。
+哈尔·芬尼是比特币历史上第一个接收中本聪转账的人，也是与中本聪通信最频繁的人，堪称"数字时代的脂砚斋"——既能读懂核心密码，又能参与技术落地。他的核心证据是"时间线与互动痕迹"：2009年1月，中本聪挖出第一枚比特币后，第一时间转给了芬尼。两人后续通过电子邮件频繁沟通，芬尼还帮中本聪优化了比特币代码。更巧的是，芬尼是哈希现金算法（比特币核心算法）的开发者之一，技术能力完全匹配中本聪的要求。
+但命运给这个谜题添了遗憾。芬尼2009年被确诊肌萎缩侧索硬化症，2014年去世，而中本聪2011年就停止了所有公开活动。时间线虽吻合，但芬尼患病后行动不便，很难独立完成比特币的后期迭代。更合理的推测是，芬尼是中本聪的"合作者"，而非本人，就像脂砚斋为红楼批语，却不是曹雪芹本人。
+综合所有证据，最靠谱的答案不是"某个人是中本聪"，而是"中本聪是萨博、戴伟、芬尼等人组成的技术团队代号"。这和《红楼梦》“曹雪芹+脂砚斋+汉臣集团合力创作"的推测如出一辙。理由有三：一是比特币技术过于复杂，单一一个人很难在短时间内整合密码学、记账系统、编程开发等多领域能力。二是赛博朋克社区本就有"集体创作、匿名发声"的传统，他们反感政府干预，用统一代号发布作品很常见。三是中本聪的行文风格偶尔会出现差异，像是不同人撰写后整合的结果，就像红楼文字有雅有俗，疑似多人润色。
+就像我们现在说"我命运般的XX”，看似是单人调侃，实则是圈层内的集体共鸣。中本聪这个代号，或许也是赛博朋克们"对抗中心化、追求数字自由"的集体符号——他们不想让个人身份盖过技术理念，于是用隐身制造了永恒的神秘，这和曹雪芹用闺阁叙事藏吊明之痛，本质都是"让理念超越个人"。
+关于中本聪的身份，或许早就没有"绝对真相"可言。就像红楼密码只有清初汉臣集团心照不宣，中本聪的真身，大概率也是核心圈里人尽皆知的秘密——可能是萨博牵头的团队，也可能是某个独行极客，只是他们从不点破，外人也永远无从窥探。如今这早已成了一桩悬案：就算有人拿出铁证，也会被质疑是伪造；就算有人坦白身份，也没人愿意相信。毕竟质疑的声音永远存在，而这恰恰正中中本聪下怀——他从一开始就没想过要"被认清"，隐身幕后、让身份成为永恒谜题，本身就是他计划的一部分。
+他和曹雪芹一样，都把"隐藏"玩到了极致：曹雪芹藏起吊明之心，让红楼成了千古谜案；中本聪藏起真实身份，让比特币超越了创造者本身。比起揪出真身，这份"无解的神秘"才是他最成功的作品——既守住了隐私，又让自己的技术理念永远被讨论、被传承。</p></div><footer class=entry-footer>ZHANG.z" | <span title='2026-01-18 21:35:50 +0800 +0800'>January 18, 2026</span> | <span>11 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 中本聪真身锁定？最接近真相的3个人，藏着数字时代的红楼密码" href=https://blog.zhangky.com/posts/2026/01/2026-01-19-zhongbencong-who-is/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/page/11/>«&nbsp;Prev&nbsp;11/26
+</a><a class=next href=https://blog.zhangky.com/page/13/>Next&nbsp;13/26&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
