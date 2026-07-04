@@ -1,8 +1,17 @@
-<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破 | Zhang's Blog</title><meta name=keywords content="Neural Machine Translation,Attention Mechanism,Seq2Seq,Bahdanau Attention,Alignment"><meta name=description content='
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破 | Zhang&#39;s Blog</title>
+<meta name="keywords" content="Neural Machine Translation, Attention Mechanism, Seq2Seq, Bahdanau Attention, Alignment">
+<meta name="description" content="
 本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。
-&ldquo;注意力是人类智能的核心。"——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。
+&ldquo;注意力是人类智能的核心。&quot;——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。
 论文的核心创新是注意力机制：在解码过程中，模型计算源语言序列中每个位置的注意力权重，根据这些权重对编码器输出进行加权求和，得到上下文向量。这种设计使得模型能够学习源语言和目标语言之间的对齐关系，同时提高翻译质量。
-在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何"关注"和"理解"信息。
+在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何&quot;关注&quot;和&quot;理解&quot;信息。
 本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读神经机器翻译中的注意力机制，包含完整的数学推导、算法流程和复杂度分析，并在文末提供阅读研究论文的时间线计划。
 
 传统Seq2Seq模型的根本局限
@@ -15,22 +24,140 @@ $$
 其中 $f$ 通常是RNN的最后一个隐藏状态：$c = h_n$。
 解码器：根据上下文向量 $c$ 生成目标语言序列 $y_1, y_2, \ldots, y_m$：
 $$
-P(y_1, y_2, \ldots, y_m | x_1, x_2, \ldots, x_n) = \prod_{t=1}^{m} P(y_t | y_{<t}, c)
-$$'><meta name=author content="ZHANG.z"><link rel=canonical href=https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>.post-content p{text-indent:2em}.post-content>p:first-of-type{text-indent:0}.post-content h1,.post-content h2,.post-content h3,.post-content h4{text-indent:0}.post-content blockquote,.post-content blockquote p,.post-content pre,.post-content code,.post-content .highlight,.post-content div.highlight,.post-content figure,.post-content figure p,.post-content img,.post-content table,.post-content ul,.post-content ol,.post-content li,.post-content .footnotes,.post-content .footnotes p,.post-content section.footnotes p{text-indent:0}</style><script async src=https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js crossorigin=anonymous></script><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre"],enableMenu:!1},startup:{typeset:!0}}</script><meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破"><meta property="og:description" content=' 本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。
-“注意力是人类智能的核心。"——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。
+P(y_1, y_2, \ldots, y_m | x_1, x_2, \ldots, x_n) = \prod_{t=1}^{m} P(y_t | y_{&lt;t}, c)
+$$">
+<meta name="author" content="ZHANG.z">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<script async src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      enableMenu: false
+    },
+    startup: {
+      typeset: true
+    }
+  };
+</script>
+
+<meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/">
+  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:title" content="【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破">
+  <meta property="og:description" content=" 本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。
+“注意力是人类智能的核心。&#34;——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。
 论文的核心创新是注意力机制：在解码过程中，模型计算源语言序列中每个位置的注意力权重，根据这些权重对编码器输出进行加权求和，得到上下文向量。这种设计使得模型能够学习源语言和目标语言之间的对齐关系，同时提高翻译质量。
-在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何"关注"和"理解"信息。
+在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何&#34;关注&#34;和&#34;理解&#34;信息。
 本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读神经机器翻译中的注意力机制，包含完整的数学推导、算法流程和复杂度分析，并在文末提供阅读研究论文的时间线计划。
 传统Seq2Seq模型的根本局限 问题一：固定维度上下文向量的信息瓶颈 传统Seq2Seq模型使用编码器-解码器架构：
 编码器：将源语言序列 $x_1, x_2, \ldots, x_n$ 编码为固定维度的上下文向量 $c$：
 $$ c = f(x_1, x_2, \ldots, x_n) $$
 其中 $f$ 通常是RNN的最后一个隐藏状态：$c = h_n$。
 解码器：根据上下文向量 $c$ 生成目标语言序列 $y_1, y_2, \ldots, y_m$：
-$$ P(y_1, y_2, \ldots, y_m | x_1, x_2, \ldots, x_n) = \prod_{t=1}^{m} P(y_t | y_{<t}, c) $$'><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-09-04T21:43:51+08:00"><meta property="article:modified_time" content="2025-09-04T21:43:51+08:00"><meta property="article:tag" content="AI"><meta property="article:tag" content="技术"><meta property="article:tag" content="论文"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-15-chatgpt-09-gpt3/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-11-28-chatgpt-08-scaling-laws/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-11-11-chatgpt-07-gpt2/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-25-chatgpt-06-gpt1/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-21-chatgpt-04-transformer/"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破"><meta name=twitter:description content='
+$$ P(y_1, y_2, \ldots, y_m | x_1, x_2, \ldots, x_n) = \prod_{t=1}^{m} P(y_t | y_{&lt;t}, c) $$">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-04T21:43:51+08:00">
+    <meta property="article:modified_time" content="2025-09-04T21:43:51+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="技术">
+    <meta property="article:tag" content="论文">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-12-15-chatgpt-09-gpt3/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-11-28-chatgpt-08-scaling-laws/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-11-11-chatgpt-07-gpt2/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-25-chatgpt-06-gpt1/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-21-chatgpt-04-transformer/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破">
+<meta name="twitter:description" content="
 本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。
-&ldquo;注意力是人类智能的核心。"——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。
+&ldquo;注意力是人类智能的核心。&quot;——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。
 论文的核心创新是注意力机制：在解码过程中，模型计算源语言序列中每个位置的注意力权重，根据这些权重对编码器输出进行加权求和，得到上下文向量。这种设计使得模型能够学习源语言和目标语言之间的对齐关系，同时提高翻译质量。
-在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何"关注"和"理解"信息。
+在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何&quot;关注&quot;和&quot;理解&quot;信息。
 本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读神经机器翻译中的注意力机制，包含完整的数学推导、算法流程和复杂度分析，并在文末提供阅读研究论文的时间线计划。
 
 传统Seq2Seq模型的根本局限
@@ -43,43 +170,447 @@ $$
 其中 $f$ 通常是RNN的最后一个隐藏状态：$c = h_n$。
 解码器：根据上下文向量 $c$ 生成目标语言序列 $y_1, y_2, \ldots, y_m$：
 $$
-P(y_1, y_2, \ldots, y_m | x_1, x_2, \ldots, x_n) = \prod_{t=1}^{m} P(y_t | y_{<t}, c)
-$$'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.zhangky.com/posts/"},{"@type":"ListItem","position":2,"name":"【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破","item":"https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破","name":"【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破","description":" 本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。\n\u0026ldquo;注意力是人类智能的核心。\u0026quot;——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。\n论文的核心创新是注意力机制：在解码过程中，模型计算源语言序列中每个位置的注意力权重，根据这些权重对编码器输出进行加权求和，得到上下文向量。这种设计使得模型能够学习源语言和目标语言之间的对齐关系，同时提高翻译质量。\n在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何\u0026quot;关注\u0026quot;和\u0026quot;理解\u0026quot;信息。\n本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读神经机器翻译中的注意力机制，包含完整的数学推导、算法流程和复杂度分析，并在文末提供阅读研究论文的时间线计划。\n传统Seq2Seq模型的根本局限 问题一：固定维度上下文向量的信息瓶颈 传统Seq2Seq模型使用编码器-解码器架构：\n编码器：将源语言序列 $x_1, x_2, \\ldots, x_n$ 编码为固定维度的上下文向量 $c$：\n$$ c = f(x_1, x_2, \\ldots, x_n) $$\n其中 $f$ 通常是RNN的最后一个隐藏状态：$c = h_n$。\n解码器：根据上下文向量 $c$ 生成目标语言序列 $y_1, y_2, \\ldots, y_m$：\n$$ P(y_1, y_2, \\ldots, y_m | x_1, x_2, \\ldots, x_n) = \\prod_{t=1}^{m} P(y_t | y_{\u0026lt;t}, c) $$\n","keywords":["Neural Machine Translation","Attention Mechanism","Seq2Seq","Bahdanau Attention","Alignment"],"articleBody":" 本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。\n“注意力是人类智能的核心。\"——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。\n论文的核心创新是注意力机制：在解码过程中，模型计算源语言序列中每个位置的注意力权重，根据这些权重对编码器输出进行加权求和，得到上下文向量。这种设计使得模型能够学习源语言和目标语言之间的对齐关系，同时提高翻译质量。\n在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何\"关注\"和\"理解\"信息。\n本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读神经机器翻译中的注意力机制，包含完整的数学推导、算法流程和复杂度分析，并在文末提供阅读研究论文的时间线计划。\n传统Seq2Seq模型的根本局限 问题一：固定维度上下文向量的信息瓶颈 传统Seq2Seq模型使用编码器-解码器架构：\n编码器：将源语言序列 $x_1, x_2, \\ldots, x_n$ 编码为固定维度的上下文向量 $c$：\n$$ c = f(x_1, x_2, \\ldots, x_n) $$\n其中 $f$ 通常是RNN的最后一个隐藏状态：$c = h_n$。\n解码器：根据上下文向量 $c$ 生成目标语言序列 $y_1, y_2, \\ldots, y_m$：\n$$ P(y_1, y_2, \\ldots, y_m | x_1, x_2, \\ldots, x_n) = \\prod_{t=1}^{m} P(y_t | y_{","wordCount":"507","inLanguage":"en","image":"https://blog.zhangky.com/images/logo.svg","datePublished":"2025-09-04T21:43:51+08:00","dateModified":"2025-09-04T21:43:51+08:00","author":{"@type":"Person","name":"ZHANG.z"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/"},"publisher":{"@type":"Organization","name":"Zhang's Blog","logo":{"@type":"ImageObject","url":"https://blog.zhangky.com/images/logo.svg"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-</button>
-<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/series/ title=Series><span>Series</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://blog.zhangky.com/>Home</a>&nbsp;»&nbsp;<a href=https://blog.zhangky.com/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破</h1><div class=post-meta>ZHANG.z | <span title='2025-09-04 21:43:51 +0800 +0800'>September 4, 2025</span> | <span>18 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
-<a href=https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></span></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e4%bc%a0%e7%bb%9fseq2seq%e6%a8%a1%e5%9e%8b%e7%9a%84%e6%a0%b9%e6%9c%ac%e5%b1%80%e9%99%90 aria-label=传统Seq2Seq模型的根本局限>传统Seq2Seq模型的根本局限</a><ul><li><a href=#%e9%97%ae%e9%a2%98%e4%b8%80%e5%9b%ba%e5%ae%9a%e7%bb%b4%e5%ba%a6%e4%b8%8a%e4%b8%8b%e6%96%87%e5%90%91%e9%87%8f%e7%9a%84%e4%bf%a1%e6%81%af%e7%93%b6%e9%a2%88 aria-label=问题一：固定维度上下文向量的信息瓶颈>问题一：固定维度上下文向量的信息瓶颈</a></li><li><a href=#%e9%97%ae%e9%a2%98%e4%ba%8c%e5%af%b9%e9%bd%90%e5%85%b3%e7%b3%bb%e7%9a%84%e7%bc%ba%e5%a4%b1 aria-label=问题二：对齐关系的缺失>问题二：对齐关系的缺失</a></li><li><a href=#%e9%97%ae%e9%a2%98%e4%b8%89%e9%95%bf%e5%ba%8f%e5%88%97%e7%9a%84%e7%bf%bb%e8%af%91%e8%b4%a8%e9%87%8f%e4%b8%8b%e9%99%8d aria-label=问题三：长序列的翻译质量下降>问题三：长序列的翻译质量下降</a></li></ul></li><li><a href=#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e6%a0%b8%e5%bf%83%e5%8e%9f%e7%90%86 aria-label=注意力机制的核心原理>注意力机制的核心原理</a><ul><li><a href=#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%80%9d%e6%83%b3 aria-label=注意力机制的基本思想>注意力机制的基本思想</a></li><li><a href=#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9d%83%e9%87%8d%e7%9a%84%e8%ae%a1%e7%ae%97 aria-label=注意力权重的计算>注意力权重的计算</a></li><li><a href=#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e5%ae%8c%e6%95%b4%e6%b5%81%e7%a8%8b aria-label=注意力机制的完整流程>注意力机制的完整流程</a></li></ul></li><li><a href=#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e5%ae%9e%e7%8e%b0%e7%bb%86%e8%8a%82 aria-label=注意力机制的实现细节>注意力机制的实现细节</a><ul><li><a href=#%e5%8f%8c%e5%90%91rnn%e7%bc%96%e7%a0%81%e5%99%a8 aria-label=双向RNN编码器>双向RNN编码器</a></li><li><a href=#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e5%8f%98%e4%bd%93 aria-label=注意力机制的变体>注意力机制的变体</a></li><li><a href=#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e5%8f%af%e8%a7%86%e5%8c%96 aria-label=注意力机制的可视化>注意力机制的可视化</a></li></ul></li><li><a href=#%e7%a5%9e%e7%bb%8f%e6%9c%ba%e5%99%a8%e7%bf%bb%e8%af%91%e7%9a%84%e8%af%84%e4%bc%b0%e4%b8%8e%e5%ba%94%e7%94%a8 aria-label=神经机器翻译的评估与应用>神经机器翻译的评估与应用</a><ul><li><a href=#%e8%af%84%e4%bc%b0%e5%9f%ba%e5%87%86wmt%e6%95%b0%e6%8d%ae%e9%9b%86 aria-label=评估基准：WMT数据集>评估基准：WMT数据集</a></li><li><a href=#%e5%ae%9e%e9%aa%8c%e7%bb%93%e6%9e%9c%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e6%9c%89%e6%95%88%e6%80%a7 aria-label=实验结果：注意力机制的有效性>实验结果：注意力机制的有效性</a></li><li><a href=#%e5%ba%94%e7%94%a8%e9%a2%86%e5%9f%9f%e4%b8%80%e5%a4%9a%e8%af%ad%e8%a8%80%e7%bf%bb%e8%af%91 aria-label=应用领域一：多语言翻译>应用领域一：多语言翻译</a></li><li><a href=#%e5%ba%94%e7%94%a8%e9%a2%86%e5%9f%9f%e4%ba%8c%e6%96%87%e6%a1%a3%e7%bf%bb%e8%af%91 aria-label=应用领域二：文档翻译>应用领域二：文档翻译</a></li></ul></li><li><a href=#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e4%b8%8e%e7%8e%b0%e4%bb%a3ai%e7%9a%84%e5%85%b3%e7%b3%bb aria-label=注意力机制与现代AI的关系>注意力机制与现代AI的关系</a><ul><li><a href=#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e6%bc%94%e8%bf%9b aria-label=注意力机制的演进>注意力机制的演进</a></li><li><a href=#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e5%bd%b1%e5%93%8d aria-label=注意力机制的影响>注意力机制的影响</a></li></ul></li><li><a href=#%e9%98%85%e8%af%bb%e7%a0%94%e7%a9%b6%e8%ae%ba%e6%96%87%e7%9a%84%e6%97%b6%e9%97%b4%e7%ba%bf%e8%ae%a1%e5%88%92 aria-label=阅读研究论文的时间线计划>阅读研究论文的时间线计划</a><ul><li><a href=#%e6%9c%ac%e6%96%87%e5%9c%a8%e6%8a%80%e6%9c%af%e6%97%b6%e9%97%b4%e7%ba%bf%e4%b8%ad%e7%9a%84%e4%bd%8d%e7%bd%ae aria-label=本文在技术时间线中的位置>本文在技术时间线中的位置</a></li><li><a href=#%e5%89%8d%e7%bd%ae%e7%9f%a5%e8%af%86 aria-label=前置知识>前置知识</a></li><li><a href=#%e5%90%8e%e7%bb%ad%e8%ae%ba%e6%96%87%e6%8e%a8%e8%8d%90 aria-label=后续论文推荐>后续论文推荐</a></li><li><a href=#%e5%ae%8c%e6%95%b4%e6%8a%80%e6%9c%af%e8%b7%af%e7%ba%bf%e5%9b%be aria-label=完整技术路线图>完整技术路线图</a></li></ul></li><li><a href=#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae aria-label=参考文献>参考文献</a></li></ul></div></details></div><div class=post-content><p>本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。</p><p>&ldquo;注意力是人类智能的核心。"——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。</p><p>论文的核心创新是<strong>注意力机制</strong>：在解码过程中，模型计算源语言序列中每个位置的注意力权重，根据这些权重对编码器输出进行加权求和，得到上下文向量。这种设计使得模型能够学习源语言和目标语言之间的对齐关系，同时提高翻译质量。</p><p>在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何"关注"和"理解"信息。</p><p>本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读神经机器翻译中的注意力机制，包含完整的数学推导、算法流程和复杂度分析，并在文末提供阅读研究论文的时间线计划。</p><hr><h2 id=传统seq2seq模型的根本局限>传统Seq2Seq模型的根本局限<a hidden class=anchor aria-hidden=true href=#传统seq2seq模型的根本局限>#</a></h2><h3 id=问题一固定维度上下文向量的信息瓶颈>问题一：固定维度上下文向量的信息瓶颈<a hidden class=anchor aria-hidden=true href=#问题一固定维度上下文向量的信息瓶颈>#</a></h3><p>传统Seq2Seq模型使用编码器-解码器架构：</p><p><strong>编码器</strong>：将源语言序列 $x_1, x_2, \ldots, x_n$ 编码为固定维度的上下文向量 $c$：</p><p>$$
-c = f(x_1, x_2, \ldots, x_n)
-$$</p><p>其中 $f$ 通常是RNN的最后一个隐藏状态：$c = h_n$。</p><p><strong>解码器</strong>：根据上下文向量 $c$ 生成目标语言序列 $y_1, y_2, \ldots, y_m$：</p><p>$$
 P(y_1, y_2, \ldots, y_m | x_1, x_2, \ldots, x_n) = \prod_{t=1}^{m} P(y_t | y_{&lt;t}, c)
-$$</p><p><strong>信息瓶颈问题</strong>：无论源语言序列有多长，上下文向量 $c$ 的维度都是固定的（通常为几百到几千维）。对于长序列，这种固定维度的表示无法编码所有信息，导致信息丢失。</p><p><strong>数学分析</strong>：假设源语言序列长度为 $n$，每个词需要 $d$ 维表示，则总信息量为 $n \times d$ 位。但上下文向量 $c$ 只有 $d_c$ 维（$d_c \ll n \times d$），信息压缩比为 $\frac{d_c}{n \times d}$。当 $n$ 很大时，这个比值很小，大量信息被丢失。</p><h3 id=问题二对齐关系的缺失>问题二：对齐关系的缺失<a hidden class=anchor aria-hidden=true href=#问题二对齐关系的缺失>#</a></h3><p>机器翻译需要建立源语言和目标语言之间的对齐关系。例如，在英法翻译中，&ldquo;the cat"对应"le chat&rdquo;，&ldquo;ate"对应"a mangé&rdquo;。传统Seq2Seq模型无法显式建模这种对齐关系。</p><p><strong>对齐的重要性</strong>：对齐关系对于翻译质量至关重要。如果模型不知道源语言中的哪个词对应目标语言中的哪个词，翻译质量会显著下降。</p><p><strong>隐式对齐的局限性</strong>：传统Seq2Seq模型通过上下文向量隐式地编码对齐信息，但这种隐式编码不够精确，特别是在处理长序列时。</p><h3 id=问题三长序列的翻译质量下降>问题三：长序列的翻译质量下降<a hidden class=anchor aria-hidden=true href=#问题三长序列的翻译质量下降>#</a></h3><p>实验表明，传统Seq2Seq模型在处理长序列时，翻译质量显著下降。这是因为：</p><ol><li><strong>信息丢失</strong>：长序列的信息无法完全编码到固定维度的上下文向量中</li><li><strong>梯度消失</strong>：在编码长序列时，早期信息在RNN中可能被遗忘</li><li><strong>对齐困难</strong>：长序列的对齐关系更复杂，隐式对齐难以捕捉</li></ol><hr><h2 id=注意力机制的核心原理>注意力机制的核心原理<a hidden class=anchor aria-hidden=true href=#注意力机制的核心原理>#</a></h2><h3 id=注意力机制的基本思想>注意力机制的基本思想<a hidden class=anchor aria-hidden=true href=#注意力机制的基本思想>#</a></h3><p>注意力机制的核心思想是：<strong>在生成每个目标词时，动态地关注源语言序列的不同部分</strong>。</p><p><strong>数学表述</strong>：对于目标位置 $t$，注意力机制计算源语言序列中每个位置 $i$ 的注意力权重 $\alpha_{ti}$，然后对编码器输出进行加权求和：</p><p>$$
+$$">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破",
+      "item": "https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破",
+  "name": "【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破",
+  "description": " 本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。\n\u0026ldquo;注意力是人类智能的核心。\u0026quot;——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。\n论文的核心创新是注意力机制：在解码过程中，模型计算源语言序列中每个位置的注意力权重，根据这些权重对编码器输出进行加权求和，得到上下文向量。这种设计使得模型能够学习源语言和目标语言之间的对齐关系，同时提高翻译质量。\n在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何\u0026quot;关注\u0026quot;和\u0026quot;理解\u0026quot;信息。\n本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读神经机器翻译中的注意力机制，包含完整的数学推导、算法流程和复杂度分析，并在文末提供阅读研究论文的时间线计划。\n传统Seq2Seq模型的根本局限 问题一：固定维度上下文向量的信息瓶颈 传统Seq2Seq模型使用编码器-解码器架构：\n编码器：将源语言序列 $x_1, x_2, \\ldots, x_n$ 编码为固定维度的上下文向量 $c$：\n$$ c = f(x_1, x_2, \\ldots, x_n) $$\n其中 $f$ 通常是RNN的最后一个隐藏状态：$c = h_n$。\n解码器：根据上下文向量 $c$ 生成目标语言序列 $y_1, y_2, \\ldots, y_m$：\n$$ P(y_1, y_2, \\ldots, y_m | x_1, x_2, \\ldots, x_n) = \\prod_{t=1}^{m} P(y_t | y_{\u0026lt;t}, c) $$\n",
+  "keywords": [
+    "Neural Machine Translation", "Attention Mechanism", "Seq2Seq", "Bahdanau Attention", "Alignment"
+  ],
+  "articleBody": " 本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。\n“注意力是人类智能的核心。\"——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。\n论文的核心创新是注意力机制：在解码过程中，模型计算源语言序列中每个位置的注意力权重，根据这些权重对编码器输出进行加权求和，得到上下文向量。这种设计使得模型能够学习源语言和目标语言之间的对齐关系，同时提高翻译质量。\n在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何\"关注\"和\"理解\"信息。\n本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读神经机器翻译中的注意力机制，包含完整的数学推导、算法流程和复杂度分析，并在文末提供阅读研究论文的时间线计划。\n传统Seq2Seq模型的根本局限 问题一：固定维度上下文向量的信息瓶颈 传统Seq2Seq模型使用编码器-解码器架构：\n编码器：将源语言序列 $x_1, x_2, \\ldots, x_n$ 编码为固定维度的上下文向量 $c$：\n$$ c = f(x_1, x_2, \\ldots, x_n) $$\n其中 $f$ 通常是RNN的最后一个隐藏状态：$c = h_n$。\n解码器：根据上下文向量 $c$ 生成目标语言序列 $y_1, y_2, \\ldots, y_m$：\n$$ P(y_1, y_2, \\ldots, y_m | x_1, x_2, \\ldots, x_n) = \\prod_{t=1}^{m} P(y_t | y_{",
+  "wordCount" : "507",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2025-09-04T21:43:51+08:00",
+  "dateModified": "2025-09-04T21:43:51+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "ZHANG.z"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zhang's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Zhang&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破
+    </h1>
+    <div class="post-meta">   ZHANG.z | <span title='2025-09-04 21:43:51 +0800 HKT'>September 4, 2025</span> | <span>18 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%bc%a0%e7%bb%9fseq2seq%e6%a8%a1%e5%9e%8b%e7%9a%84%e6%a0%b9%e6%9c%ac%e5%b1%80%e9%99%90" aria-label="传统Seq2Seq模型的根本局限">传统Seq2Seq模型的根本局限</a><ul>
+                        
+                <li>
+                    <a href="#%e9%97%ae%e9%a2%98%e4%b8%80%e5%9b%ba%e5%ae%9a%e7%bb%b4%e5%ba%a6%e4%b8%8a%e4%b8%8b%e6%96%87%e5%90%91%e9%87%8f%e7%9a%84%e4%bf%a1%e6%81%af%e7%93%b6%e9%a2%88" aria-label="问题一：固定维度上下文向量的信息瓶颈">问题一：固定维度上下文向量的信息瓶颈</a></li>
+                <li>
+                    <a href="#%e9%97%ae%e9%a2%98%e4%ba%8c%e5%af%b9%e9%bd%90%e5%85%b3%e7%b3%bb%e7%9a%84%e7%bc%ba%e5%a4%b1" aria-label="问题二：对齐关系的缺失">问题二：对齐关系的缺失</a></li>
+                <li>
+                    <a href="#%e9%97%ae%e9%a2%98%e4%b8%89%e9%95%bf%e5%ba%8f%e5%88%97%e7%9a%84%e7%bf%bb%e8%af%91%e8%b4%a8%e9%87%8f%e4%b8%8b%e9%99%8d" aria-label="问题三：长序列的翻译质量下降">问题三：长序列的翻译质量下降</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e6%a0%b8%e5%bf%83%e5%8e%9f%e7%90%86" aria-label="注意力机制的核心原理">注意力机制的核心原理</a><ul>
+                        
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%80%9d%e6%83%b3" aria-label="注意力机制的基本思想">注意力机制的基本思想</a></li>
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9d%83%e9%87%8d%e7%9a%84%e8%ae%a1%e7%ae%97" aria-label="注意力权重的计算">注意力权重的计算</a></li>
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e5%ae%8c%e6%95%b4%e6%b5%81%e7%a8%8b" aria-label="注意力机制的完整流程">注意力机制的完整流程</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e5%ae%9e%e7%8e%b0%e7%bb%86%e8%8a%82" aria-label="注意力机制的实现细节">注意力机制的实现细节</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8f%8c%e5%90%91rnn%e7%bc%96%e7%a0%81%e5%99%a8" aria-label="双向RNN编码器">双向RNN编码器</a></li>
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e5%8f%98%e4%bd%93" aria-label="注意力机制的变体">注意力机制的变体</a></li>
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e5%8f%af%e8%a7%86%e5%8c%96" aria-label="注意力机制的可视化">注意力机制的可视化</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%a5%9e%e7%bb%8f%e6%9c%ba%e5%99%a8%e7%bf%bb%e8%af%91%e7%9a%84%e8%af%84%e4%bc%b0%e4%b8%8e%e5%ba%94%e7%94%a8" aria-label="神经机器翻译的评估与应用">神经机器翻译的评估与应用</a><ul>
+                        
+                <li>
+                    <a href="#%e8%af%84%e4%bc%b0%e5%9f%ba%e5%87%86wmt%e6%95%b0%e6%8d%ae%e9%9b%86" aria-label="评估基准：WMT数据集">评估基准：WMT数据集</a></li>
+                <li>
+                    <a href="#%e5%ae%9e%e9%aa%8c%e7%bb%93%e6%9e%9c%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e6%9c%89%e6%95%88%e6%80%a7" aria-label="实验结果：注意力机制的有效性">实验结果：注意力机制的有效性</a></li>
+                <li>
+                    <a href="#%e5%ba%94%e7%94%a8%e9%a2%86%e5%9f%9f%e4%b8%80%e5%a4%9a%e8%af%ad%e8%a8%80%e7%bf%bb%e8%af%91" aria-label="应用领域一：多语言翻译">应用领域一：多语言翻译</a></li>
+                <li>
+                    <a href="#%e5%ba%94%e7%94%a8%e9%a2%86%e5%9f%9f%e4%ba%8c%e6%96%87%e6%a1%a3%e7%bf%bb%e8%af%91" aria-label="应用领域二：文档翻译">应用领域二：文档翻译</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e4%b8%8e%e7%8e%b0%e4%bb%a3ai%e7%9a%84%e5%85%b3%e7%b3%bb" aria-label="注意力机制与现代AI的关系">注意力机制与现代AI的关系</a><ul>
+                        
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e6%bc%94%e8%bf%9b" aria-label="注意力机制的演进">注意力机制的演进</a></li>
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9c%ba%e5%88%b6%e7%9a%84%e5%bd%b1%e5%93%8d" aria-label="注意力机制的影响">注意力机制的影响</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%98%85%e8%af%bb%e7%a0%94%e7%a9%b6%e8%ae%ba%e6%96%87%e7%9a%84%e6%97%b6%e9%97%b4%e7%ba%bf%e8%ae%a1%e5%88%92" aria-label="阅读研究论文的时间线计划">阅读研究论文的时间线计划</a><ul>
+                        
+                <li>
+                    <a href="#%e6%9c%ac%e6%96%87%e5%9c%a8%e6%8a%80%e6%9c%af%e6%97%b6%e9%97%b4%e7%ba%bf%e4%b8%ad%e7%9a%84%e4%bd%8d%e7%bd%ae" aria-label="本文在技术时间线中的位置">本文在技术时间线中的位置</a></li>
+                <li>
+                    <a href="#%e5%89%8d%e7%bd%ae%e7%9f%a5%e8%af%86" aria-label="前置知识">前置知识</a></li>
+                <li>
+                    <a href="#%e5%90%8e%e7%bb%ad%e8%ae%ba%e6%96%87%e6%8e%a8%e8%8d%90" aria-label="后续论文推荐">后续论文推荐</a></li>
+                <li>
+                    <a href="#%e5%ae%8c%e6%95%b4%e6%8a%80%e6%9c%af%e8%b7%af%e7%ba%bf%e5%9b%be" aria-label="完整技术路线图">完整技术路线图</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae" aria-label="参考文献">参考文献</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><!-- ============================================
+     GOLDEN STRUCTURE: Problem → Analysis → Solution → Evaluation
+     ChatGPT时刻系列：按时间线串联ChatGPT背后的核心技术演进
+     ============================================ -->
+<p>本文解读的是Dzmitry Bahdanau、Kyunghyun Cho和Yoshua Bengio于2014年发表的经典论文《Neural Machine Translation by Jointly Learning to Align and Translate》，该论文首次提出了注意力机制（Attention Mechanism）用于神经机器翻译，通过联合学习对齐和翻译，解决了传统Seq2Seq模型的信息瓶颈问题。这一创新不仅彻底改变了机器翻译领域，更为后续Transformer架构的注意力机制奠定了理论基础，成为现代AI中最重要的技术之一。</p>
+<p>&ldquo;注意力是人类智能的核心。&quot;——这是Bahdanau等人在2014年提出的深刻洞察。传统的Seq2Seq模型将整个源语言序列压缩为固定维度的上下文向量，导致信息丢失和翻译质量下降。注意力机制允许模型在生成每个目标词时，动态地关注源语言序列的不同部分，实现了对齐和翻译的联合学习。</p>
+<p>论文的核心创新是<strong>注意力机制</strong>：在解码过程中，模型计算源语言序列中每个位置的注意力权重，根据这些权重对编码器输出进行加权求和，得到上下文向量。这种设计使得模型能够学习源语言和目标语言之间的对齐关系，同时提高翻译质量。</p>
+<p>在当今大语言模型时代，注意力机制已经成为AI的核心技术：Transformer的自注意力机制、GPT的因果注意力、BERT的双向注意力，都源于这一开创性工作。理解注意力机制，就是理解现代AI如何&quot;关注&quot;和&quot;理解&quot;信息。</p>
+<p>本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读神经机器翻译中的注意力机制，包含完整的数学推导、算法流程和复杂度分析，并在文末提供阅读研究论文的时间线计划。</p>
+<hr>
+<h2 id="传统seq2seq模型的根本局限">传统Seq2Seq模型的根本局限<a hidden class="anchor" aria-hidden="true" href="#传统seq2seq模型的根本局限">#</a></h2>
+<h3 id="问题一固定维度上下文向量的信息瓶颈">问题一：固定维度上下文向量的信息瓶颈<a hidden class="anchor" aria-hidden="true" href="#问题一固定维度上下文向量的信息瓶颈">#</a></h3>
+<p>传统Seq2Seq模型使用编码器-解码器架构：</p>
+<p><strong>编码器</strong>：将源语言序列 $x_1, x_2, \ldots, x_n$ 编码为固定维度的上下文向量 $c$：</p>
+<p>$$
+c = f(x_1, x_2, \ldots, x_n)
+$$</p>
+<p>其中 $f$ 通常是RNN的最后一个隐藏状态：$c = h_n$。</p>
+<p><strong>解码器</strong>：根据上下文向量 $c$ 生成目标语言序列 $y_1, y_2, \ldots, y_m$：</p>
+<p>$$
+P(y_1, y_2, \ldots, y_m | x_1, x_2, \ldots, x_n) = \prod_{t=1}^{m} P(y_t | y_{&lt;t}, c)
+$$</p>
+<p><strong>信息瓶颈问题</strong>：无论源语言序列有多长，上下文向量 $c$ 的维度都是固定的（通常为几百到几千维）。对于长序列，这种固定维度的表示无法编码所有信息，导致信息丢失。</p>
+<p><strong>数学分析</strong>：假设源语言序列长度为 $n$，每个词需要 $d$ 维表示，则总信息量为 $n \times d$ 位。但上下文向量 $c$ 只有 $d_c$ 维（$d_c \ll n \times d$），信息压缩比为 $\frac{d_c}{n \times d}$。当 $n$ 很大时，这个比值很小，大量信息被丢失。</p>
+<h3 id="问题二对齐关系的缺失">问题二：对齐关系的缺失<a hidden class="anchor" aria-hidden="true" href="#问题二对齐关系的缺失">#</a></h3>
+<p>机器翻译需要建立源语言和目标语言之间的对齐关系。例如，在英法翻译中，&ldquo;the cat&quot;对应&quot;le chat&rdquo;，&ldquo;ate&quot;对应&quot;a mangé&rdquo;。传统Seq2Seq模型无法显式建模这种对齐关系。</p>
+<p><strong>对齐的重要性</strong>：对齐关系对于翻译质量至关重要。如果模型不知道源语言中的哪个词对应目标语言中的哪个词，翻译质量会显著下降。</p>
+<p><strong>隐式对齐的局限性</strong>：传统Seq2Seq模型通过上下文向量隐式地编码对齐信息，但这种隐式编码不够精确，特别是在处理长序列时。</p>
+<h3 id="问题三长序列的翻译质量下降">问题三：长序列的翻译质量下降<a hidden class="anchor" aria-hidden="true" href="#问题三长序列的翻译质量下降">#</a></h3>
+<p>实验表明，传统Seq2Seq模型在处理长序列时，翻译质量显著下降。这是因为：</p>
+<ol>
+<li><strong>信息丢失</strong>：长序列的信息无法完全编码到固定维度的上下文向量中</li>
+<li><strong>梯度消失</strong>：在编码长序列时，早期信息在RNN中可能被遗忘</li>
+<li><strong>对齐困难</strong>：长序列的对齐关系更复杂，隐式对齐难以捕捉</li>
+</ol>
+<hr>
+<h2 id="注意力机制的核心原理">注意力机制的核心原理<a hidden class="anchor" aria-hidden="true" href="#注意力机制的核心原理">#</a></h2>
+<h3 id="注意力机制的基本思想">注意力机制的基本思想<a hidden class="anchor" aria-hidden="true" href="#注意力机制的基本思想">#</a></h3>
+<p>注意力机制的核心思想是：<strong>在生成每个目标词时，动态地关注源语言序列的不同部分</strong>。</p>
+<p><strong>数学表述</strong>：对于目标位置 $t$，注意力机制计算源语言序列中每个位置 $i$ 的注意力权重 $\alpha_{ti}$，然后对编码器输出进行加权求和：</p>
+<p>$$
 c_t = \sum_{i=1}^{n} \alpha_{ti} h_i
-$$</p><p>其中 $h_i$ 是编码器在第 $i$ 个位置的隐藏状态，$\alpha_{ti}$ 是注意力权重，满足：</p><p>$$
+$$</p>
+<p>其中 $h_i$ 是编码器在第 $i$ 个位置的隐藏状态，$\alpha_{ti}$ 是注意力权重，满足：</p>
+<p>$$
 \sum_{i=1}^{n} \alpha_{ti} = 1, \quad \alpha_{ti} \geq 0
-$$</p><h3 id=注意力权重的计算>注意力权重的计算<a hidden class=anchor aria-hidden=true href=#注意力权重的计算>#</a></h3><p>注意力权重通过以下方式计算：</p><p>$$
+$$</p>
+<h3 id="注意力权重的计算">注意力权重的计算<a hidden class="anchor" aria-hidden="true" href="#注意力权重的计算">#</a></h3>
+<p>注意力权重通过以下方式计算：</p>
+<p>$$
 e_{ti} = a(s_{t-1}, h_i)
-$$</p><p>$$
+$$</p>
+<p>$$
 \alpha_{ti} = \frac{\exp(e_{ti})}{\sum_{j=1}^{n} \exp(e_{tj})}
-$$</p><p>其中 $s_{t-1}$ 是解码器在前一时刻的隐藏状态，$a$ 是对齐模型（alignment model），通常是一个前馈神经网络：</p><p>$$
+$$</p>
+<p>其中 $s_{t-1}$ 是解码器在前一时刻的隐藏状态，$a$ 是对齐模型（alignment model），通常是一个前馈神经网络：</p>
+<p>$$
 a(s_{t-1}, h_i) = v^T \tanh(W_s s_{t-1} + W_h h_i + b)
-$$</p><p>其中 $v$、$W_s$、$W_h$、$b$ 是可学习参数。</p><p><strong>对齐模型的解释</strong>：对齐模型 $a(s_{t-1}, h_i)$ 衡量解码器状态 $s_{t-1}$ 和编码器状态 $h_i$ 的匹配程度。匹配程度越高，注意力权重越大。</p><h3 id=注意力机制的完整流程>注意力机制的完整流程<a hidden class=anchor aria-hidden=true href=#注意力机制的完整流程>#</a></h3><p>注意力机制的完整计算流程为：</p><ol><li><strong>编码阶段</strong>：使用双向RNN编码源语言序列，得到每个位置的隐藏状态 $h_i$</li><li><strong>解码阶段</strong>：对于每个目标位置 $t$：<ul><li>计算注意力权重 $\alpha_{ti}$（对所有源位置 $i$）</li><li>计算上下文向量 $c_t = \sum_{i=1}^{n} \alpha_{ti} h_i$</li><li>将 $c_t$ 与解码器状态 $s_{t-1}$ 拼接，输入解码器</li><li>生成目标词 $y_t$</li></ul></li></ol><p><strong>数学表述</strong>：</p><p>$$
+$$</p>
+<p>其中 $v$、$W_s$、$W_h$、$b$ 是可学习参数。</p>
+<p><strong>对齐模型的解释</strong>：对齐模型 $a(s_{t-1}, h_i)$ 衡量解码器状态 $s_{t-1}$ 和编码器状态 $h_i$ 的匹配程度。匹配程度越高，注意力权重越大。</p>
+<h3 id="注意力机制的完整流程">注意力机制的完整流程<a hidden class="anchor" aria-hidden="true" href="#注意力机制的完整流程">#</a></h3>
+<p>注意力机制的完整计算流程为：</p>
+<ol>
+<li><strong>编码阶段</strong>：使用双向RNN编码源语言序列，得到每个位置的隐藏状态 $h_i$</li>
+<li><strong>解码阶段</strong>：对于每个目标位置 $t$：
+<ul>
+<li>计算注意力权重 $\alpha_{ti}$（对所有源位置 $i$）</li>
+<li>计算上下文向量 $c_t = \sum_{i=1}^{n} \alpha_{ti} h_i$</li>
+<li>将 $c_t$ 与解码器状态 $s_{t-1}$ 拼接，输入解码器</li>
+<li>生成目标词 $y_t$</li>
+</ul>
+</li>
+</ol>
+<p><strong>数学表述</strong>：</p>
+<p>$$
 s_t = f(s_{t-1}, y_{t-1}, c_t)
-$$</p><p>$$
+$$</p>
+<p>$$
 P(y_t | y_{&lt;t}, x) = g(s_t, y_{t-1}, c_t)
-$$</p><p>其中 $f$ 是解码器RNN，$g$ 是输出层。</p><hr><h2 id=注意力机制的实现细节>注意力机制的实现细节<a hidden class=anchor aria-hidden=true href=#注意力机制的实现细节>#</a></h2><h3 id=双向rnn编码器>双向RNN编码器<a hidden class=anchor aria-hidden=true href=#双向rnn编码器>#</a></h3><p>为了捕捉源语言序列的双向信息，论文使用双向RNN作为编码器：</p><p>$$
+$$</p>
+<p>其中 $f$ 是解码器RNN，$g$ 是输出层。</p>
+<hr>
+<h2 id="注意力机制的实现细节">注意力机制的实现细节<a hidden class="anchor" aria-hidden="true" href="#注意力机制的实现细节">#</a></h2>
+<h3 id="双向rnn编码器">双向RNN编码器<a hidden class="anchor" aria-hidden="true" href="#双向rnn编码器">#</a></h3>
+<p>为了捕捉源语言序列的双向信息，论文使用双向RNN作为编码器：</p>
+<p>$$
 \overrightarrow{h}<em>i = \text{RNN}</em>{forward}(x_i, \overrightarrow{h}_{i-1})
-$$</p><p>$$
+$$</p>
+<p>$$
 \overleftarrow{h}<em>i = \text{RNN}</em>{backward}(x_i, \overleftarrow{h}_{i+1})
-$$</p><p>$$
+$$</p>
+<p>$$
 h_i = [\overrightarrow{h}_i; \overleftarrow{h}_i]
-$$</p><p>其中 $[\cdot; \cdot]$ 表示拼接操作。</p><p><strong>优势</strong>：双向RNN能够同时利用前文和后文信息，提供更丰富的表示。</p><h3 id=注意力机制的变体>注意力机制的变体<a hidden class=anchor aria-hidden=true href=#注意力机制的变体>#</a></h3><p>论文提出了几种注意力机制的变体：</p><p><strong>变体一：全局注意力（Global Attention）</strong></p><ul><li>对所有源位置计算注意力权重</li><li>计算复杂度：$O(n \times m)$，其中 $n$ 是源序列长度，$m$ 是目标序列长度</li></ul><p><strong>变体二：局部注意力（Local Attention）</strong></p><ul><li>只对源序列的一个窗口计算注意力权重</li><li>计算复杂度：$O(m \times w)$，其中 $w$ 是窗口大小</li><li>适用于长序列，减少计算量</li></ul><p><strong>变体三：硬注意力（Hard Attention）</strong></p><ul><li>只关注一个源位置（而不是加权求和）</li><li>不可微，需要使用强化学习训练</li></ul><h3 id=注意力机制的可视化>注意力机制的可视化<a hidden class=anchor aria-hidden=true href=#注意力机制的可视化>#</a></h3><p>注意力权重 $\alpha_{ti}$ 可以可视化，展示模型学习到的对齐关系。例如，在英法翻译中，如果 $\alpha_{ti}$ 很大，说明目标位置 $t$ 主要关注源位置 $i$，这通常对应正确的对齐关系。</p><hr><h2 id=神经机器翻译的评估与应用>神经机器翻译的评估与应用<a hidden class=anchor aria-hidden=true href=#神经机器翻译的评估与应用>#</a></h2><h3 id=评估基准wmt数据集>评估基准：WMT数据集<a hidden class=anchor aria-hidden=true href=#评估基准wmt数据集>#</a></h3><p>论文在WMT'14英法翻译任务上评估了模型性能：</p><p><strong>数据集</strong>：</p><ul><li>训练集：36M句对</li><li>验证集：newstest2012, newstest2013</li><li>测试集：newstest2014</li></ul><p><strong>评估指标</strong>：BLEU分数（Bilingual Evaluation Understudy），衡量翻译质量：</p><p>$$
+$$</p>
+<p>其中 $[\cdot; \cdot]$ 表示拼接操作。</p>
+<p><strong>优势</strong>：双向RNN能够同时利用前文和后文信息，提供更丰富的表示。</p>
+<h3 id="注意力机制的变体">注意力机制的变体<a hidden class="anchor" aria-hidden="true" href="#注意力机制的变体">#</a></h3>
+<p>论文提出了几种注意力机制的变体：</p>
+<p><strong>变体一：全局注意力（Global Attention）</strong></p>
+<ul>
+<li>对所有源位置计算注意力权重</li>
+<li>计算复杂度：$O(n \times m)$，其中 $n$ 是源序列长度，$m$ 是目标序列长度</li>
+</ul>
+<p><strong>变体二：局部注意力（Local Attention）</strong></p>
+<ul>
+<li>只对源序列的一个窗口计算注意力权重</li>
+<li>计算复杂度：$O(m \times w)$，其中 $w$ 是窗口大小</li>
+<li>适用于长序列，减少计算量</li>
+</ul>
+<p><strong>变体三：硬注意力（Hard Attention）</strong></p>
+<ul>
+<li>只关注一个源位置（而不是加权求和）</li>
+<li>不可微，需要使用强化学习训练</li>
+</ul>
+<h3 id="注意力机制的可视化">注意力机制的可视化<a hidden class="anchor" aria-hidden="true" href="#注意力机制的可视化">#</a></h3>
+<p>注意力权重 $\alpha_{ti}$ 可以可视化，展示模型学习到的对齐关系。例如，在英法翻译中，如果 $\alpha_{ti}$ 很大，说明目标位置 $t$ 主要关注源位置 $i$，这通常对应正确的对齐关系。</p>
+<hr>
+<h2 id="神经机器翻译的评估与应用">神经机器翻译的评估与应用<a hidden class="anchor" aria-hidden="true" href="#神经机器翻译的评估与应用">#</a></h2>
+<h3 id="评估基准wmt数据集">评估基准：WMT数据集<a hidden class="anchor" aria-hidden="true" href="#评估基准wmt数据集">#</a></h3>
+<p>论文在WMT'14英法翻译任务上评估了模型性能：</p>
+<p><strong>数据集</strong>：</p>
+<ul>
+<li>训练集：36M句对</li>
+<li>验证集：newstest2012, newstest2013</li>
+<li>测试集：newstest2014</li>
+</ul>
+<p><strong>评估指标</strong>：BLEU分数（Bilingual Evaluation Understudy），衡量翻译质量：</p>
+<p>$$
 \text{BLEU} = \text{BP} \cdot \exp\left(\sum_{n=1}^{N} w_n \log p_n\right)
-$$</p><p>其中 $p_n$ 是 $n$-gram精确度，$w_n$ 是权重，$\text{BP}$ 是长度惩罚因子。</p><h3 id=实验结果注意力机制的有效性>实验结果：注意力机制的有效性<a hidden class=anchor aria-hidden=true href=#实验结果注意力机制的有效性>#</a></h3><p>论文的实验结果显示，注意力机制显著提高了翻译质量：</p><p><strong>BLEU分数对比</strong>：</p><ul><li>传统Seq2Seq（无注意力）：26.75</li><li>注意力机制（RNNsearch-50）：<strong>28.45</strong>（相对提升6.4%）</li><li>注意力机制（RNNsearch-30）：<strong>26.90</strong></li></ul><p><strong>关键发现</strong>：</p><ol><li>注意力机制显著提高了长序列的翻译质量</li><li>模型能够学习到合理的对齐关系</li><li>双向RNN编码器比单向RNN编码器效果更好</li></ol><h3 id=应用领域一多语言翻译>应用领域一：多语言翻译<a hidden class=anchor aria-hidden=true href=#应用领域一多语言翻译>#</a></h3><p>注意力机制在多语言翻译中的应用：</p><p><strong>多语言模型</strong>：使用单一模型处理多种语言对，通过注意力机制学习语言间的对齐关系。</p><p><strong>零样本翻译</strong>：在未直接训练的语言对上进行翻译，通过共享的注意力机制实现。</p><h3 id=应用领域二文档翻译>应用领域二：文档翻译<a hidden class=anchor aria-hidden=true href=#应用领域二文档翻译>#</a></h3><p>注意力机制在文档翻译中的应用：</p><p><strong>上下文感知翻译</strong>：利用文档级别的上下文信息，提高翻译的一致性和准确性。</p><p><strong>术语一致性</strong>：通过注意力机制保持术语在整个文档中的一致性。</p><hr><h2 id=注意力机制与现代ai的关系>注意力机制与现代AI的关系<a hidden class=anchor aria-hidden=true href=#注意力机制与现代ai的关系>#</a></h2><h3 id=注意力机制的演进>注意力机制的演进<a hidden class=anchor aria-hidden=true href=#注意力机制的演进>#</a></h3><p>注意力机制从神经机器翻译中的局部注意力，演进到Transformer中的全局自注意力：</p><p><strong>局部注意力（本论文）</strong>：在解码时关注编码器的不同位置
+$$</p>
+<p>其中 $p_n$ 是 $n$-gram精确度，$w_n$ 是权重，$\text{BP}$ 是长度惩罚因子。</p>
+<h3 id="实验结果注意力机制的有效性">实验结果：注意力机制的有效性<a hidden class="anchor" aria-hidden="true" href="#实验结果注意力机制的有效性">#</a></h3>
+<p>论文的实验结果显示，注意力机制显著提高了翻译质量：</p>
+<p><strong>BLEU分数对比</strong>：</p>
+<ul>
+<li>传统Seq2Seq（无注意力）：26.75</li>
+<li>注意力机制（RNNsearch-50）：<strong>28.45</strong>（相对提升6.4%）</li>
+<li>注意力机制（RNNsearch-30）：<strong>26.90</strong></li>
+</ul>
+<p><strong>关键发现</strong>：</p>
+<ol>
+<li>注意力机制显著提高了长序列的翻译质量</li>
+<li>模型能够学习到合理的对齐关系</li>
+<li>双向RNN编码器比单向RNN编码器效果更好</li>
+</ol>
+<h3 id="应用领域一多语言翻译">应用领域一：多语言翻译<a hidden class="anchor" aria-hidden="true" href="#应用领域一多语言翻译">#</a></h3>
+<p>注意力机制在多语言翻译中的应用：</p>
+<p><strong>多语言模型</strong>：使用单一模型处理多种语言对，通过注意力机制学习语言间的对齐关系。</p>
+<p><strong>零样本翻译</strong>：在未直接训练的语言对上进行翻译，通过共享的注意力机制实现。</p>
+<h3 id="应用领域二文档翻译">应用领域二：文档翻译<a hidden class="anchor" aria-hidden="true" href="#应用领域二文档翻译">#</a></h3>
+<p>注意力机制在文档翻译中的应用：</p>
+<p><strong>上下文感知翻译</strong>：利用文档级别的上下文信息，提高翻译的一致性和准确性。</p>
+<p><strong>术语一致性</strong>：通过注意力机制保持术语在整个文档中的一致性。</p>
+<hr>
+<h2 id="注意力机制与现代ai的关系">注意力机制与现代AI的关系<a hidden class="anchor" aria-hidden="true" href="#注意力机制与现代ai的关系">#</a></h2>
+<h3 id="注意力机制的演进">注意力机制的演进<a hidden class="anchor" aria-hidden="true" href="#注意力机制的演进">#</a></h3>
+<p>注意力机制从神经机器翻译中的局部注意力，演进到Transformer中的全局自注意力：</p>
+<p><strong>局部注意力（本论文）</strong>：在解码时关注编码器的不同位置
 <strong>自注意力（Transformer）</strong>：在编码和解码时都使用注意力机制
-<strong>多头注意力（Transformer）</strong>：使用多个注意力头捕捉不同类型的关系</p><h3 id=注意力机制的影响>注意力机制的影响<a hidden class=anchor aria-hidden=true href=#注意力机制的影响>#</a></h3><p>注意力机制对现代AI的影响：</p><p><strong>技术影响</strong>：</p><ul><li>成为Transformer架构的核心</li><li>推动了GPT、BERT等大语言模型的发展</li><li>在计算机视觉、语音识别等领域广泛应用</li></ul><p><strong>理论影响</strong>：</p><ul><li>提供了可解释性的新视角（通过注意力权重）</li><li>连接了序列建模和关系建模</li><li>启发了新的神经网络架构设计</li></ul><hr><h2 id=阅读研究论文的时间线计划>阅读研究论文的时间线计划<a hidden class=anchor aria-hidden=true href=#阅读研究论文的时间线计划>#</a></h2><h3 id=本文在技术时间线中的位置>本文在技术时间线中的位置<a hidden class=anchor aria-hidden=true href=#本文在技术时间线中的位置>#</a></h3><pre tabindex=0><code>Word2Vec(2013) → Seq2Seq(2014) → 【当前位置】Attention(2015) → Transformer(2017) 
+<strong>多头注意力（Transformer）</strong>：使用多个注意力头捕捉不同类型的关系</p>
+<h3 id="注意力机制的影响">注意力机制的影响<a hidden class="anchor" aria-hidden="true" href="#注意力机制的影响">#</a></h3>
+<p>注意力机制对现代AI的影响：</p>
+<p><strong>技术影响</strong>：</p>
+<ul>
+<li>成为Transformer架构的核心</li>
+<li>推动了GPT、BERT等大语言模型的发展</li>
+<li>在计算机视觉、语音识别等领域广泛应用</li>
+</ul>
+<p><strong>理论影响</strong>：</p>
+<ul>
+<li>提供了可解释性的新视角（通过注意力权重）</li>
+<li>连接了序列建模和关系建模</li>
+<li>启发了新的神经网络架构设计</li>
+</ul>
+<hr>
+<h2 id="阅读研究论文的时间线计划">阅读研究论文的时间线计划<a hidden class="anchor" aria-hidden="true" href="#阅读研究论文的时间线计划">#</a></h2>
+<h3 id="本文在技术时间线中的位置">本文在技术时间线中的位置<a hidden class="anchor" aria-hidden="true" href="#本文在技术时间线中的位置">#</a></h3>
+<pre tabindex="0"><code>Word2Vec(2013) → Seq2Seq(2014) → 【当前位置】Attention(2015) → Transformer(2017) 
 → GPT-1(2018) → GPT-2(2019) → Scaling Laws(2020) → GPT-3(2020) → InstructGPT(2022) → ChatGPT
-</code></pre><h3 id=前置知识>前置知识<a hidden class=anchor aria-hidden=true href=#前置知识>#</a></h3><p>在阅读本文之前，建议了解：</p><ul><li><strong>【ChatGPT时刻01】Word2Vec</strong>：词向量表示基础</li><li><strong>【ChatGPT时刻02】Seq2Seq</strong>：编码器-解码器架构，理解信息瓶颈问题</li><li>RNN/LSTM基础：循环神经网络的前向传播和反向传播</li></ul><h3 id=后续论文推荐>后续论文推荐<a hidden class=anchor aria-hidden=true href=#后续论文推荐>#</a></h3><p>完成本文后，建议按顺序阅读：</p><ol><li><strong>【ChatGPT时刻04】Transformer</strong>（下一篇）：完全基于注意力的现代架构</li><li><strong>【ChatGPT时刻05】Transformer代码解析</strong>：逐行理解实现细节</li><li><strong>【ChatGPT时刻06】GPT-1</strong>：生成式预训练的开创之作</li></ol><h3 id=完整技术路线图>完整技术路线图<a hidden class=anchor aria-hidden=true href=#完整技术路线图>#</a></h3><pre tabindex=0><code>注意力机制演进
+</code></pre><h3 id="前置知识">前置知识<a hidden class="anchor" aria-hidden="true" href="#前置知识">#</a></h3>
+<p>在阅读本文之前，建议了解：</p>
+<ul>
+<li><strong>【ChatGPT时刻01】Word2Vec</strong>：词向量表示基础</li>
+<li><strong>【ChatGPT时刻02】Seq2Seq</strong>：编码器-解码器架构，理解信息瓶颈问题</li>
+<li>RNN/LSTM基础：循环神经网络的前向传播和反向传播</li>
+</ul>
+<h3 id="后续论文推荐">后续论文推荐<a hidden class="anchor" aria-hidden="true" href="#后续论文推荐">#</a></h3>
+<p>完成本文后，建议按顺序阅读：</p>
+<ol>
+<li><strong>【ChatGPT时刻04】Transformer</strong>（下一篇）：完全基于注意力的现代架构</li>
+<li><strong>【ChatGPT时刻05】Transformer代码解析</strong>：逐行理解实现细节</li>
+<li><strong>【ChatGPT时刻06】GPT-1</strong>：生成式预训练的开创之作</li>
+</ol>
+<h3 id="完整技术路线图">完整技术路线图<a hidden class="anchor" aria-hidden="true" href="#完整技术路线图">#</a></h3>
+<pre tabindex="0"><code>注意力机制演进
         │
   Bahdanau ──────────► Luong ──────────► Transformer ──────────► GPT系列
   Attention            Attention          Self-Attention           ChatGPT
@@ -87,8 +618,236 @@ $$</p><p>其中 $p_n$ 是 $n$-gram精确度，$w_n$ 是权重，$\text{BP}$ 是�
         │                  │                    │                      │
         └── 软对齐          └── 全局/局部         └── 多头自注意力         └── 因果注意力
             编码器-解码器       注意力变体             并行计算                 对话生成
-</code></pre><hr><h2 id=参考文献>参考文献<a hidden class=anchor aria-hidden=true href=#参考文献>#</a></h2><ul><li>Bahdanau, D., Cho, K., & Bengio, Y. (2014). Neural machine translation by jointly learning to align and translate. <em>arXiv preprint arXiv:1409.0473</em>.</li><li>Sutskever, I., Vinyals, O., & Le, Q. V. (2014). Sequence to sequence learning with neural networks. <em>Advances in neural information processing systems</em>, 27.</li><li>Luong, M. T., Pham, H., & Manning, C. D. (2015). Effective approaches to attention-based neural machine translation. <em>arXiv preprint arXiv:1508.04025</em>.</li><li>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., &mldr; & Polosukhin, I. (2017). Attention is all you need. <em>Advances in neural information processing systems</em>, 30.</li><li><a href=https://arxiv.org/abs/1409.0473>Neural Machine Translation Paper</a></li><li><a href=https://lilianweng.github.io/posts/2018-06-24-attention/>Attention Mechanism Tutorial</a></li></ul><hr></div><footer class=post-footer><ul class=post-tags><li><a href=https://blog.zhangky.com/series/chatgpt-%E6%8A%80%E6%9C%AF%E6%BA%90%E6%B5%81%E5%90%88%E9%9B%86/>合集：ChatGPT 技术源流合集</a></li></ul><ul class=post-tags><li><a href=https://blog.zhangky.com/tags/ai/>AI</a></li><li><a href=https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/>技术</a></li><li><a href=https://blog.zhangky.com/tags/%E8%AE%BA%E6%96%87/>论文</a></li></ul><nav class=paginav><a class=prev href=https://blog.zhangky.com/posts/2025/2025-09-ai-manufacturing/><span class=title>« Prev</span><br><span>AI制造：特斯拉在造未来，比亚迪在改造过去</span>
-</a><a class=next href=https://blog.zhangky.com/posts/2025/2025-08-ai-ethics/><span class=title>Next »</span><br><span>AI伦理：美国在自律，中国在立法</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
+</code></pre><hr>
+<h2 id="参考文献">参考文献<a hidden class="anchor" aria-hidden="true" href="#参考文献">#</a></h2>
+<ul>
+<li>Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014). Neural machine translation by jointly learning to align and translate. <em>arXiv preprint arXiv:1409.0473</em>.</li>
+<li>Sutskever, I., Vinyals, O., &amp; Le, Q. V. (2014). Sequence to sequence learning with neural networks. <em>Advances in neural information processing systems</em>, 27.</li>
+<li>Luong, M. T., Pham, H., &amp; Manning, C. D. (2015). Effective approaches to attention-based neural machine translation. <em>arXiv preprint arXiv:1508.04025</em>.</li>
+<li>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., &hellip; &amp; Polosukhin, I. (2017). Attention is all you need. <em>Advances in neural information processing systems</em>, 30.</li>
+<li><a href="https://arxiv.org/abs/1409.0473">Neural Machine Translation Paper</a></li>
+<li><a href="https://lilianweng.github.io/posts/2018-06-24-attention/">Attention Mechanism Tutorial</a></li>
+</ul>
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/series/chatgpt-%E6%8A%80%E6%9C%AF%E6%BA%90%E6%B5%81%E5%90%88%E9%9B%86/">合集：ChatGPT 技术源流合集</a></li>
+    </ul>
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E6%8A%80%E6%9C%AF/">技术</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E8%AE%BA%E6%96%87/">论文</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.zhangky.com/posts/2025/2025-09-ai-manufacturing/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>AI制造：特斯拉在造未来，比亚迪在改造过去</span>
+  </a>
+  <a class="next" href="https://blog.zhangky.com/posts/2025/2025-08-ai-ethics/">
+    <span class="title">Next »</span>
+    <br>
+    <span>AI伦理：美国在自律，中国在立法</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
