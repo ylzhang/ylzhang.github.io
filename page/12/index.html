@@ -6,10 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Zhang&#39;s Blog</title>
+<title>Z&#39;s Blog</title>
 
 <meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-<meta name="author" content="ZHANG.z&#34;">
+<meta name="author" content="Lonney .Z">
 <link rel="canonical" href="https://blog.zhangky.com/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
@@ -75,27 +75,27 @@
 
 </script>
 <meta property="og:url" content="https://blog.zhangky.com/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
-  <meta property="og:title" content="Zhang&#39;s Blog">
+  <meta property="og:site_name" content="Z&#39;s Blog">
+  <meta property="og:title" content="Z&#39;s Blog">
   <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
   <meta property="og:locale" content="zh-cn">
   <meta property="og:type" content="website">
       <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="Zhang&#39;s Blog">
+<meta name="twitter:title" content="Z&#39;s Blog">
 <meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Zhang's Blog",
+  "name": "Z's Blog",
   "url": "https://blog.zhangky.com/",
   "description": "Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.",
   "logo": "https://blog.zhangky.com/images/logo.svg",
   "sameAs": [
-      "https://github.com/ylzhang/ylzhang.github.io", "https://x.com/ZHANG_on_mars"
+      "https://github.com/ylzhang/ylzhang.github.io"
   ]
 }
 </script>
@@ -104,9 +104,9 @@
     <header class="header">
     <nav class="nav">
         <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
                 <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
+                    height="30">Z&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -220,7 +220,7 @@
 美国那边更夸张。2020 年疫情后，美联储和财政联手：无限 QE、数万亿美元的转移支付和刺激计划，把衰退和资产崩盘在几个月内拉回，美股随后创出新高。2022 年起又暴力加息，两年内把联邦基金利率从近零拉到 5% 以上，全球资产又跌一轮。
 ...</p>
   </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-02-16 10:00:00 +0800 HKT'>February 16, 2026</span> | <span>19 min</span> | <span>shanghai</span></footer>
+  <footer class="entry-footer">   Lonney .Z | <span title='2026-02-16 10:00:00 +0800 HKT'>February 16, 2026</span> | <span>19 min</span> | <span>shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 那些他没说对的事：周期天王的预测盲区" href="https://blog.zhangky.com/posts/2026/read-jintao/2026-02-16-zhou-jintao-blind-spots/"></a>
 </article>
 
@@ -237,7 +237,7 @@
 技术路径已经铺开：代理工作流与神经编译 「跳过编译」要解决的无非一件事：自然语言那么模糊，二进制又那么精确，中间怎么接上。眼下能看到两条路。一条是多步 AI 流水线：意图先被解析成语义图，再有一层做优化（类似传统编译器的多 pass，只是换成 AI 驱动），最后有一层专门产出机器码，针对 ARM 或 x86。Anthropic 的 Claude Code 就是这一挂的——不只生成代码，还自己调试、自己测；他们披露过，从「建一个实时聊天服务器」到可运行二进制，在 LangGraph 的代理链上大概 3～5 轮迭代就够，比手动编译快出一个数量级。另一条更激进，叫神经编译：让模型直接学「自然语言或高层语义 → 机器码」的映射。DeepMind 的 AlphaEvolve、Gemini Deep Think 用进化算法加自然语言验证器迭代候选解，在数学证明上已经做到九成多准确率；这套思路要是搬到代码和二进制优化上，就可以绕过 LLVM 之类传统工具链去做分支预测、缓存亲和性。MIT 的 EnCompass 则用回溯让代理多试几次 LLM 输出、挑出最佳路径，把「生成—验证」回路做实。再加上 OpenAI 和 Cerebras 在芯片上的合作，生成速度提了一截，代理在秒级内吐出「近即时」二进制已经可以想象；LangGraph 从单代理撑到上万并发，也就半年左右。这条代理链要接上真实世界，还得有统一的「工具契约」——协议层也在动：MCP（Model Context Protocol）把模型和工具、数据源对接标准化，Chrome for Developers 则已开放 WebMCP 的 early preview，让网站和前端能以结构化工具的形式暴露给 AI 代理（通过 navigator.modelContext 等），代理不用再靠截图或爬 DOM，而是按约定调用，可审计、可管控。直接二进制生成，已经从论文和原型，摸到了工程验证的门槛。
 ...</p>
   </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-15 19:00:00 +0800 HKT'>February 15, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
+  <footer class="entry-footer">   Lonney .Z | <span title='2026-02-15 19:00:00 +0800 HKT'>February 15, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to AI 编程的终态肯定不是 Tab：直接要二进制" href="https://blog.zhangky.com/posts/2026/02/2026-02-15-ai-coding-skip-compile/"></a>
 </article>
 
@@ -261,7 +261,7 @@
 也有人会说，2020 年疫情冲击、2022 年美联储暴力加息和全球资产回撤，在「惨」的体感上不逊于 2018–2019。所以我会记成部分命中：方向对了，冲击集中的两年没跑偏，但「最惨烈」是否就是这两年，可以争。周金涛自己在书里也讲过，预测的价值在方向不在精确到某月——差两年是误差，差十年才是错误。
 ...</p>
   </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2026-02-15 10:00:00 +0800 HKT'>February 15, 2026</span> | <span>22 min</span> | <span>shanghai</span></footer>
+  <footer class="entry-footer">   Lonney .Z | <span title='2026-02-15 10:00:00 +0800 HKT'>February 15, 2026</span> | <span>22 min</span> | <span>shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 2026年，周金涛的预言兑现了吗？" href="https://blog.zhangky.com/posts/2026/read-jintao/2026-02-15-zhou-jintao-prophesy-2026/"></a>
 </article>
 
@@ -284,7 +284,7 @@ AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清�
 有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。
 ...</p>
   </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-11 10:00:00 +0800 HKT'>February 11, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
+  <footer class="entry-footer">   Lonney .Z | <span title='2026-02-11 10:00:00 +0800 HKT'>February 11, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师" href="https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/"></a>
 </article>
 
@@ -309,7 +309,7 @@ $$ y = \mathcal{F}(x, {W_i}) &#43; x $$
 $$ \frac{\partial y}{\partial x} = \frac{\partial \text{ReLU}(\mathcal{F}(x) &#43; x)}{\partial x} = \text{ReLU}’(\mathcal{F}(x) &#43; x) \left(1 &#43; \frac{\partial \mathcal{F}}{\partial x}\right) $$
 ...</p>
   </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2026-02-10 20:42:22 +0800 HKT'>February 10, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer>
+  <footer class="entry-footer">   Lonney .Z | <span title='2026-02-10 20:42:22 +0800 HKT'>February 10, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 【论文解读11】深度残差网络中的恒等映射：ResNet改进" href="https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/"></a>
 </article>
 <footer class="page-footer">
@@ -324,7 +324,7 @@ $$ \frac{\partial y}{\partial x} = \frac{\partial \text{ReLU}(\mathcal{F}(x) &#4
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
 
     <span>
         Powered by

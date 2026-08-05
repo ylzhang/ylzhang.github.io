@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Series on Zhang&#39;s Blog</title>
+    <title>Series on Z&#39;s Blog</title>
     <link>https://blog.zhangky.com/series/</link>
-    <description>Recent content in Series on Zhang&#39;s Blog</description>
+    <description>Recent content in Series on Z&#39;s Blog</description>
     <image>
-      <title>Zhang&#39;s Blog</title>
+      <title>Z&#39;s Blog</title>
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 25 Jun 2026 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2026 10:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Native 合集</title>
       <link>https://blog.zhangky.com/series/ai-native-%E5%90%88%E9%9B%86/</link>
-      <pubDate>Thu, 25 Jun 2026 10:00:00 +0800</pubDate>
+      <pubDate>Sat, 01 Aug 2026 10:00:00 +0800</pubDate>
       <guid>https://blog.zhangky.com/series/ai-native-%E5%90%88%E9%9B%86/</guid>
       <description></description>
     </item>

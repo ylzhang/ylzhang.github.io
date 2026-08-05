@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>【论文解读11】深度残差网络中的恒等映射：ResNet改进 | Zhang&#39;s Blog</title>
+<title>【论文解读11】深度残差网络中的恒等映射：ResNet改进 | Z&#39;s Blog</title>
 <meta name="keywords" content="ResNet, Identity Mapping, Pre-activation, Gradient Flow, Deep Networks">
 <meta name="description" content="
 本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的改进论文《Identity Mappings in Deep Residual Networks》，该论文深入分析了ResNet中恒等映射的作用机制，提出了预激活（Pre-activation）的残差块设计，进一步优化了ResNet的训练稳定性和性能。这一改进不仅完善了ResNet的理论基础，更为理解残差连接的本质提供了深刻的洞察。
@@ -30,7 +30,7 @@ $$
 $$
 \frac{\partial y}{\partial x} = \frac{\partial \text{ReLU}(\mathcal{F}(x) &#43; x)}{\partial x} = \text{ReLU}&rsquo;(\mathcal{F}(x) &#43; x) \left(1 &#43; \frac{\partial \mathcal{F}}{\partial x}\right)
 $$">
-<meta name="author" content="ZHANG.z">
+<meta name="author" content="Lonney .Z">
 <link rel="canonical" href="https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
@@ -125,7 +125,7 @@ $$">
 </script>
 
 <meta property="og:url" content="https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:site_name" content="Z&#39;s Blog">
   <meta property="og:title" content="【论文解读11】深度残差网络中的恒等映射：ResNet改进">
   <meta property="og:description" content=" 本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的改进论文《Identity Mappings in Deep Residual Networks》，该论文深入分析了ResNet中恒等映射的作用机制，提出了预激活（Pre-activation）的残差块设计，进一步优化了ResNet的训练稳定性和性能。这一改进不仅完善了ResNet的理论基础，更为理解残差连接的本质提供了深刻的洞察。
 “恒等映射是残差网络成功的关键。&#34;——这是He等人在ResNet改进论文中提出的核心观点。在原始ResNet中，残差块的设计虽然有效，但恒等映射的实现方式（激活函数的位置）对性能有重要影响。通过系统性的实验和理论分析，论文发现预激活（在卷积之前应用BatchNorm和ReLU）比后激活（在卷积之后应用）效果更好。
@@ -220,7 +220,7 @@ $$">
   "dateModified": "2026-02-10T20:42:22+08:00",
   "author":{
     "@type": "Person",
-    "name": "ZHANG.z"
+    "name": "Lonney .Z"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -228,7 +228,7 @@ $$">
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Zhang's Blog",
+    "name": "Z's Blog",
     "logo": {
       "@type": "ImageObject",
       "url": "https://blog.zhangky.com/images/logo.svg"
@@ -241,9 +241,9 @@ $$">
     <header class="header">
     <nav class="nav">
         <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
                 <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
+                    height="30">Z&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -342,7 +342,7 @@ $$">
     <h1 class="post-title entry-hint-parent">
       【论文解读11】深度残差网络中的恒等映射：ResNet改进
     </h1>
-    <div class="post-meta">   ZHANG.z | <span title='2026-02-10 20:42:22 +0800 HKT'>February 10, 2026</span> | <span>16 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <div class="post-meta">   Lonney .Z | <span title='2026-02-10 20:42:22 +0800 HKT'>February 10, 2026</span> | <span>16 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
     <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
 </span>
 
@@ -691,7 +691,7 @@ $$</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
 
     <span>
         Powered by

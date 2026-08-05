@@ -5,10 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>AI | Zhang&#39;s Blog</title>
+<title>AI | Z&#39;s Blog</title>
 <meta name="keywords" content="">
 <meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-<meta name="author" content="ZHANG.z&#34;">
+<meta name="author" content="Lonney .Z">
 <link rel="canonical" href="https://blog.zhangky.com/categories/ai/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
@@ -73,7 +73,7 @@
 
 </script>
 <meta property="og:url" content="https://blog.zhangky.com/categories/ai/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:site_name" content="Z&#39;s Blog">
   <meta property="og:title" content="AI">
   <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
   <meta property="og:locale" content="zh-cn">
@@ -89,9 +89,9 @@
     <header class="header">
     <nav class="nav">
         <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
                 <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
+                    height="30">Z&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -213,7 +213,7 @@ AI在气候领域需要兼顾研发和应用，但中美选择了不同的时间
 2025年，我期待看到美国的风电场，也期待看到中国的实验室。
 </p>
   </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-10-25 11:59:11 +0800 HKT'>October 25, 2025</span> | <span>4 min</span> | <span>Shanghai</span></footer>
+  <footer class="entry-footer">   Lonney .Z | <span title='2025-10-25 11:59:11 +0800 HKT'>October 25, 2025</span> | <span>4 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to AI气候：美国在实验室做梦，中国在风电场发电" href="https://blog.zhangky.com/posts/2025/2025-10-ai-climate/"></a>
 </article>
 
@@ -241,7 +241,7 @@ Transformer实现的学习挑战 问题一：理论与实现的差距 Transforme
 class MultiHeadedAttention(nn.Module): def __init__(self, h, d_model, dropout=0.1): super().__init__() assert d_model % h == 0 self.d_k = d_model // h self.h = h self.linears = nn.ModuleList([nn.Linear(d_model, d_model) for _ in range(4)]) self.attn = None self.dropout = nn.Dropout(p=dropout) def forward(self, query, key, value, mask=None): nbatches = query.size(0) # 1) 线性投影并分割为h个头 query, key, value = [ lin(x).view(nbatches, -1, self.h, self.d_k).transpose(1, 2) for lin, x in zip(self.linears, (query, key, value)) ] # 2) 应用注意力 x, self.attn = attention(query, key, value, mask=mask, dropout=self.dropout) # 3) 拼接多头并应用最终线性层 x = x.transpose(1, 2).contiguous().view(nbatches, -1, self.h * self.d_k) return self.linears[-1](x) 关键实现细节：
 ...</p>
   </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-10-08 21:21:38 +0800 HKT'>October 8, 2025</span> | <span>15 min</span> | <span>Shanghai</span></footer>
+  <footer class="entry-footer">   Lonney .Z | <span title='2025-10-08 21:21:38 +0800 HKT'>October 8, 2025</span> | <span>15 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/"></a>
 </article>
 
@@ -264,7 +264,7 @@ Transformer的核心创新是自注意力机制（Self-Attention）：每个位�
 需要多层卷积才能扩大感受野 感受野的增长是线性的，需要 $O(n)$ 层才能覆盖长度为 $n$ 的序列 难以捕捉长距离依赖 数学分析：对于 $k \times k$ 卷积核，经过 $L$ 层后，感受野为 $L(k-1) &#43; 1$。要覆盖长度为 $n$ 的序列，需要 $L \geq \frac{n-1}{k-1}$ 层。
 ...</p>
   </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-09-21 21:40:41 +0800 HKT'>September 21, 2025</span> | <span>14 min</span> | <span>Shanghai</span></footer>
+  <footer class="entry-footer">   Lonney .Z | <span title='2025-09-21 21:40:41 +0800 HKT'>September 21, 2025</span> | <span>14 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 【ChatGPT时刻04】Transformer：Attention Is All You Need" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-21-chatgpt-04-transformer/"></a>
 </article>
 
@@ -297,7 +297,7 @@ AI在制造业的价值，从来不是取代工人，而是让制造更智能、
 2025年，我期待看到特斯拉的改造化，也期待看到比亚迪的原创化。
 </p>
   </div>
-  <footer class="entry-footer">   ZHANG.z&#34; | <span title='2025-09-15 13:46:12 +0800 HKT'>September 15, 2025</span> | <span>6 min</span> | <span>Shanghai</span></footer>
+  <footer class="entry-footer">   Lonney .Z | <span title='2025-09-15 13:46:12 +0800 HKT'>September 15, 2025</span> | <span>6 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to AI制造：特斯拉在造未来，比亚迪在改造过去" href="https://blog.zhangky.com/posts/2025/2025-09-ai-manufacturing/"></a>
 </article>
 
@@ -320,7 +320,7 @@ $$ c = f(x_1, x_2, \ldots, x_n) $$
 $$ P(y_1, y_2, \ldots, y_m | x_1, x_2, \ldots, x_n) = \prod_{t=1}^{m} P(y_t | y_{&lt;t}, c) $$
 ...</p>
   </div>
-  <footer class="entry-footer">   ZHANG.z | <span title='2025-09-04 21:43:51 +0800 HKT'>September 4, 2025</span> | <span>18 min</span> | <span>Shanghai</span></footer>
+  <footer class="entry-footer">   Lonney .Z | <span title='2025-09-04 21:43:51 +0800 HKT'>September 4, 2025</span> | <span>18 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 【ChatGPT时刻03】注意力机制：解决长距离依赖的关键突破" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-04-chatgpt-03-attention/"></a>
 </article>
 <footer class="page-footer">
@@ -335,7 +335,7 @@ $$ P(y_1, y_2, \ldots, y_m | x_1, x_2, \ldots, x_n) = \prod_{t=1}^{m} P(y_t | y_
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
 
     <span>
         Powered by

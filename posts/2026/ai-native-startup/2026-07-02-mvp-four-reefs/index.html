@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>MVP 的四个暗礁：速度与陷阱的博弈 | Zhang&#39;s Blog</title>
+<title>MVP 的四个暗礁：速度与陷阱的博弈 | Z&#39;s Blog</title>
 <meta name="keywords" content="AI, 经管">
 <meta name="description" content="
 希腊神话中，奥德修斯在塞壬女妖的海域航行时，让船员用蜡封住耳朵，把自己绑在桅杆上。他听到了歌声，但无法偏航。MVP 阶段，你需要同样的自律——听到&quot;快&quot;的歌声，但不被它带偏。
@@ -16,7 +16,7 @@
 然后速度来了。
 Agentic coding 工具让&quot;构建&quot;变得前所未有的快。一个功能从想法到上线，过去要一个 sprint，现在要一个下午。这种速度让人上瘾——你开始觉得&quot;再做几个功能&quot;、&ldquo;再处理几个边缘 case&rdquo;、&ldquo;产品再完善一点再发&rdquo;。
 The Founder&rsquo;s Playbook 把 MVP 阶段的核心矛盾归结为一句话：AI 保证了速度，但速度本身成了最大的风险。
-具体来说，有四个暗礁。
+接下来要说的四个暗礁，都和这个矛盾有关。
 
 第一个暗礁：Agentic 技术债
 普通技术债是可以管理的——你欠了，但知道要还，可以在某个 sprint 里集中清理。
@@ -36,8 +36,8 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
 第三个暗礁：零摩擦范围蔓延
 每个功能只要一个下午。每个边缘 case 只要几分钟。每一项单独看都理所当然。
 这就是 AI 时代范围蔓延的新形态。传统的制衡——工程师时间的真实成本——不存在了。加一个功能不再需要一个 sprint 的讨论，只需要你的一句话。">
-<meta name="author" content="ZHANG.z&#34;">
-<link rel="canonical" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-10-mvp-four-reefs/">
+<meta name="author" content="Lonney .Z">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-02-mvp-four-reefs/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
@@ -46,7 +46,7 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
 <link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-10-mvp-four-reefs/">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-02-mvp-four-reefs/">
 <noscript>
     <style>
         #theme-toggle,
@@ -111,15 +111,15 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
   .post-content .footnotes, .post-content .footnotes p,
   .post-content section.footnotes p { text-indent: 0; }
 </style>
-<meta property="og:url" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-10-mvp-four-reefs/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-02-mvp-four-reefs/">
+  <meta property="og:site_name" content="Z&#39;s Blog">
   <meta property="og:title" content="MVP 的四个暗礁：速度与陷阱的博弈">
   <meta property="og:description" content=" 希腊神话中，奥德修斯在塞壬女妖的海域航行时，让船员用蜡封住耳朵，把自己绑在桅杆上。他听到了歌声，但无法偏航。MVP 阶段，你需要同样的自律——听到&#34;快&#34;的歌声，但不被它带偏。
 速度是一把双刃剑 上一篇文章我们讲了如何从 CLAUDE.md 开始构建产品。现在假设你已经有了架构文档、范围文档，代码开始跑起来了。
 然后速度来了。
 Agentic coding 工具让&#34;构建&#34;变得前所未有的快。一个功能从想法到上线，过去要一个 sprint，现在要一个下午。这种速度让人上瘾——你开始觉得&#34;再做几个功能&#34;、“再处理几个边缘 case”、“产品再完善一点再发”。
 The Founder’s Playbook 把 MVP 阶段的核心矛盾归结为一句话：AI 保证了速度，但速度本身成了最大的风险。
-具体来说，有四个暗礁。
+接下来要说的四个暗礁，都和这个矛盾有关。
 第一个暗礁：Agentic 技术债 普通技术债是可以管理的——你欠了，但知道要还，可以在某个 sprint 里集中清理。
 Agentic 技术债不一样。它会累积。
 原因在于：没有写下来的架构约束，每个 AI 会话都从头推导基础决策。这个会话决定用 REST API，那个会话决定用 GraphQL；这个会话把用户认证放在前端，那个会话把它放在后端。每个决策单独看都合理，但它们合在一起——代码能跑，但背后没有一个连贯的心智模型。
@@ -136,17 +136,17 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
   <meta property="og:locale" content="zh-cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-06-10T10:00:00+08:00">
-    <meta property="article:modified_time" content="2026-06-10T10:00:00+08:00">
+    <meta property="article:published_time" content="2026-07-02T10:00:00+08:00">
+    <meta property="article:modified_time" content="2026-07-02T10:00:00+08:00">
     <meta property="article:tag" content="AI">
     <meta property="article:tag" content="经管">
       <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-25-same-job-new-rules/">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-23-build-moat/">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-22-tech-debt-architecture/">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-12-founder-to-system/">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-11-pmf-lies-truth/">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-07-build-first-ai-product/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-08-01-same-job-new-rules/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-26-build-moat/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-21-tech-debt-architecture/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-15-founder-to-system/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-09-pmf-lies-truth/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-26-build-first-ai-product/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
 <meta name="twitter:title" content="MVP 的四个暗礁：速度与陷阱的博弈">
@@ -159,7 +159,7 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
 然后速度来了。
 Agentic coding 工具让&quot;构建&quot;变得前所未有的快。一个功能从想法到上线，过去要一个 sprint，现在要一个下午。这种速度让人上瘾——你开始觉得&quot;再做几个功能&quot;、&ldquo;再处理几个边缘 case&rdquo;、&ldquo;产品再完善一点再发&rdquo;。
 The Founder&rsquo;s Playbook 把 MVP 阶段的核心矛盾归结为一句话：AI 保证了速度，但速度本身成了最大的风险。
-具体来说，有四个暗礁。
+接下来要说的四个暗礁，都和这个矛盾有关。
 
 第一个暗礁：Agentic 技术债
 普通技术债是可以管理的——你欠了，但知道要还，可以在某个 sprint 里集中清理。
@@ -196,7 +196,7 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
       "@type": "ListItem",
       "position":  2 ,
       "name": "MVP 的四个暗礁：速度与陷阱的博弈",
-      "item": "https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-10-mvp-four-reefs/"
+      "item": "https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-02-mvp-four-reefs/"
     }
   ]
 }
@@ -207,26 +207,26 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
   "@type": "BlogPosting",
   "headline": "MVP 的四个暗礁：速度与陷阱的博弈",
   "name": "MVP 的四个暗礁：速度与陷阱的博弈",
-  "description": " 希腊神话中，奥德修斯在塞壬女妖的海域航行时，让船员用蜡封住耳朵，把自己绑在桅杆上。他听到了歌声，但无法偏航。MVP 阶段，你需要同样的自律——听到\u0026quot;快\u0026quot;的歌声，但不被它带偏。\n速度是一把双刃剑 上一篇文章我们讲了如何从 CLAUDE.md 开始构建产品。现在假设你已经有了架构文档、范围文档，代码开始跑起来了。\n然后速度来了。\nAgentic coding 工具让\u0026quot;构建\u0026quot;变得前所未有的快。一个功能从想法到上线，过去要一个 sprint，现在要一个下午。这种速度让人上瘾——你开始觉得\u0026quot;再做几个功能\u0026quot;、\u0026ldquo;再处理几个边缘 case\u0026rdquo;、\u0026ldquo;产品再完善一点再发\u0026rdquo;。\nThe Founder\u0026rsquo;s Playbook 把 MVP 阶段的核心矛盾归结为一句话：AI 保证了速度，但速度本身成了最大的风险。\n具体来说，有四个暗礁。\n第一个暗礁：Agentic 技术债 普通技术债是可以管理的——你欠了，但知道要还，可以在某个 sprint 里集中清理。\nAgentic 技术债不一样。它会累积。\n原因在于：没有写下来的架构约束，每个 AI 会话都从头推导基础决策。这个会话决定用 REST API，那个会话决定用 GraphQL；这个会话把用户认证放在前端，那个会话把它放在后端。每个决策单独看都合理，但它们合在一起——代码能跑，但背后没有一个连贯的心智模型。\n这就像让十个厨师各自做一道菜，但没人告诉他们这是同一桌宴席。每道菜单独吃都没问题，但放在一起，口味冲突、温度不一致、上菜顺序混乱。\nThe Founder\u0026rsquo;s Playbook 的建议是：在 MVP 阶段就保持 CLAUDE.md 的更新。每个会话结束，花五分钟记录这个会话做了什么决策、引入了什么假设。这不是文档洁癖，是防止你的代码库在第六个月变成一团只有 AI 能读懂的意大利面。\n第二个暗礁：假产品市场契合 这是最危险的暗礁，因为它看起来像陆地。\n发布产品的那一刻，是创始人最脆弱的时刻。几周的验证、几个月的构建，终于有了一个能跑的东西。你的朋友来试用，投资人介绍的潜在买家来试用，一条 Hacker News 头条带来一波流量——早期数字看起来不错。\n但早期 traction 不等于产品市场契合。\nLaunch 能量来自短暂的、外部的助推力。真正的产品市场契合是一个模式——它必须在多个迭代周期中持续成立，才能被确认。\n书中提到了 Sean Ellis 测试：问你的活跃用户\u0026quot;如果你不能再用这个产品了，你会感觉怎么样？\u0026ldquo;如果超过 40% 回答\u0026quot;非常失望\u0026rdquo;，这是一个有意义的信号。\n但更根本的检验是从\u0026quot;推\u0026quot;到\u0026quot;拉\u0026quot;的转变。产品市场契合之前，留存需要持续干预——频繁的外联、激励、创始人亲自盯。产品市场契合之后，产品开始自己做这些事。当你发现自己在\u0026quot;推\u0026quot;的力气开始变轻，那才是真正变化的信号。\n第三个暗礁：零摩擦范围蔓延 每个功能只要一个下午。每个边缘 case 只要几分钟。每一项单独看都理所当然。\n这就是 AI 时代范围蔓延的新形态。传统的制衡——工程师时间的真实成本——不存在了。加一个功能不再需要一个 sprint 的讨论，只需要你的一句话。\n",
+  "description": " 希腊神话中，奥德修斯在塞壬女妖的海域航行时，让船员用蜡封住耳朵，把自己绑在桅杆上。他听到了歌声，但无法偏航。MVP 阶段，你需要同样的自律——听到\u0026quot;快\u0026quot;的歌声，但不被它带偏。\n速度是一把双刃剑 上一篇文章我们讲了如何从 CLAUDE.md 开始构建产品。现在假设你已经有了架构文档、范围文档，代码开始跑起来了。\n然后速度来了。\nAgentic coding 工具让\u0026quot;构建\u0026quot;变得前所未有的快。一个功能从想法到上线，过去要一个 sprint，现在要一个下午。这种速度让人上瘾——你开始觉得\u0026quot;再做几个功能\u0026quot;、\u0026ldquo;再处理几个边缘 case\u0026rdquo;、\u0026ldquo;产品再完善一点再发\u0026rdquo;。\nThe Founder\u0026rsquo;s Playbook 把 MVP 阶段的核心矛盾归结为一句话：AI 保证了速度，但速度本身成了最大的风险。\n接下来要说的四个暗礁，都和这个矛盾有关。\n第一个暗礁：Agentic 技术债 普通技术债是可以管理的——你欠了，但知道要还，可以在某个 sprint 里集中清理。\nAgentic 技术债不一样。它会累积。\n原因在于：没有写下来的架构约束，每个 AI 会话都从头推导基础决策。这个会话决定用 REST API，那个会话决定用 GraphQL；这个会话把用户认证放在前端，那个会话把它放在后端。每个决策单独看都合理，但它们合在一起——代码能跑，但背后没有一个连贯的心智模型。\n这就像让十个厨师各自做一道菜，但没人告诉他们这是同一桌宴席。每道菜单独吃都没问题，但放在一起，口味冲突、温度不一致、上菜顺序混乱。\nThe Founder\u0026rsquo;s Playbook 的建议是：在 MVP 阶段就保持 CLAUDE.md 的更新。每个会话结束，花五分钟记录这个会话做了什么决策、引入了什么假设。这不是文档洁癖，是防止你的代码库在第六个月变成一团只有 AI 能读懂的意大利面。\n第二个暗礁：假产品市场契合 这是最危险的暗礁，因为它看起来像陆地。\n发布产品的那一刻，是创始人最脆弱的时刻。几周的验证、几个月的构建，终于有了一个能跑的东西。你的朋友来试用，投资人介绍的潜在买家来试用，一条 Hacker News 头条带来一波流量——早期数字看起来不错。\n但早期 traction 不等于产品市场契合。\nLaunch 能量来自短暂的、外部的助推力。真正的产品市场契合是一个模式——它必须在多个迭代周期中持续成立，才能被确认。\n书中提到了 Sean Ellis 测试：问你的活跃用户\u0026quot;如果你不能再用这个产品了，你会感觉怎么样？\u0026ldquo;如果超过 40% 回答\u0026quot;非常失望\u0026rdquo;，这是一个有意义的信号。\n但更根本的检验是从\u0026quot;推\u0026quot;到\u0026quot;拉\u0026quot;的转变。产品市场契合之前，留存需要持续干预——频繁的外联、激励、创始人亲自盯。产品市场契合之后，产品开始自己做这些事。当你发现自己在\u0026quot;推\u0026quot;的力气开始变轻，那才是真正变化的信号。\n第三个暗礁：零摩擦范围蔓延 每个功能只要一个下午。每个边缘 case 只要几分钟。每一项单独看都理所当然。\n这就是 AI 时代范围蔓延的新形态。传统的制衡——工程师时间的真实成本——不存在了。加一个功能不再需要一个 sprint 的讨论，只需要你的一句话。\n",
   "keywords": [
     "AI", "经管"
   ],
-  "articleBody": " 希腊神话中，奥德修斯在塞壬女妖的海域航行时，让船员用蜡封住耳朵，把自己绑在桅杆上。他听到了歌声，但无法偏航。MVP 阶段，你需要同样的自律——听到\"快\"的歌声，但不被它带偏。\n速度是一把双刃剑 上一篇文章我们讲了如何从 CLAUDE.md 开始构建产品。现在假设你已经有了架构文档、范围文档，代码开始跑起来了。\n然后速度来了。\nAgentic coding 工具让\"构建\"变得前所未有的快。一个功能从想法到上线，过去要一个 sprint，现在要一个下午。这种速度让人上瘾——你开始觉得\"再做几个功能\"、“再处理几个边缘 case”、“产品再完善一点再发”。\nThe Founder’s Playbook 把 MVP 阶段的核心矛盾归结为一句话：AI 保证了速度，但速度本身成了最大的风险。\n具体来说，有四个暗礁。\n第一个暗礁：Agentic 技术债 普通技术债是可以管理的——你欠了，但知道要还，可以在某个 sprint 里集中清理。\nAgentic 技术债不一样。它会累积。\n原因在于：没有写下来的架构约束，每个 AI 会话都从头推导基础决策。这个会话决定用 REST API，那个会话决定用 GraphQL；这个会话把用户认证放在前端，那个会话把它放在后端。每个决策单独看都合理，但它们合在一起——代码能跑，但背后没有一个连贯的心智模型。\n这就像让十个厨师各自做一道菜，但没人告诉他们这是同一桌宴席。每道菜单独吃都没问题，但放在一起，口味冲突、温度不一致、上菜顺序混乱。\nThe Founder’s Playbook 的建议是：在 MVP 阶段就保持 CLAUDE.md 的更新。每个会话结束，花五分钟记录这个会话做了什么决策、引入了什么假设。这不是文档洁癖，是防止你的代码库在第六个月变成一团只有 AI 能读懂的意大利面。\n第二个暗礁：假产品市场契合 这是最危险的暗礁，因为它看起来像陆地。\n发布产品的那一刻，是创始人最脆弱的时刻。几周的验证、几个月的构建，终于有了一个能跑的东西。你的朋友来试用，投资人介绍的潜在买家来试用，一条 Hacker News 头条带来一波流量——早期数字看起来不错。\n但早期 traction 不等于产品市场契合。\nLaunch 能量来自短暂的、外部的助推力。真正的产品市场契合是一个模式——它必须在多个迭代周期中持续成立，才能被确认。\n书中提到了 Sean Ellis 测试：问你的活跃用户\"如果你不能再用这个产品了，你会感觉怎么样？“如果超过 40% 回答\"非常失望”，这是一个有意义的信号。\n但更根本的检验是从\"推\"到\"拉\"的转变。产品市场契合之前，留存需要持续干预——频繁的外联、激励、创始人亲自盯。产品市场契合之后，产品开始自己做这些事。当你发现自己在\"推\"的力气开始变轻，那才是真正变化的信号。\n第三个暗礁：零摩擦范围蔓延 每个功能只要一个下午。每个边缘 case 只要几分钟。每一项单独看都理所当然。\n这就是 AI 时代范围蔓延的新形态。传统的制衡——工程师时间的真实成本——不存在了。加一个功能不再需要一个 sprint 的讨论，只需要你的一句话。\nThe Founder’s Playbook 的解法是：在动手之前写一份范围文档，明确不做什么。然后当新功能想法出现时（它们一定会有），用范围文档来压力测试：这是用户真实的需求信号，还是创始人自己的热情？\n一个判断标准：如果这个功能不在范围文档里，你需要\"足够多的用户告诉他们，没有这个功能他们就拿不到价值\"才能加。一个用户的请求是反馈，十个用户的请求是趋势，一百个用户的请求才是需求。\n第四个暗礁：经验不足导致的安全漏洞 Agentic coding 工具生成的是能跑的代码，不是安全的代码。\n功能代码要么能跑要么不能跑，反馈是即时的。安全漏洞在被利用之前是看不见的——对第一次创业的人来说，没有天然的反馈循环提醒你出了问题。\n但你的用户信任你。在代码部署给任何真实用户之前，让 Claude 做一次安全审查：认证和会话处理、API 响应中的数据暴露、输入验证和注入风险、有已知漏洞的依赖。\n这不是要替代安全工具或人类审查员。但它是最低负责任门槛。就像你不会因为\"只是短途\"就不系安全带。\n衡量框架：在用户来之前建好 一个常见的错误：把早期 traction 当成产品市场契合的创始人，往往也是那些在上线之后才开始追踪数据的人。他们选择指标是为了评估什么在跑，而不是为了暴露什么没跑。\nThe Founder’s Playbook 的建议是：在第一个用户进来之前，就定义好你的衡量框架。 哪些指标对你的产品重要？基准是什么？什么数据模式构成真正的产品市场契合，什么只是好看的噪音？\n还要定义什么是一个\"假阳性\"：注册了但没激活、付费了但没留存、初始热情但没有重复使用。当数据来的时候，让 AI 对你的 traction 做 adversarial 分析——一个怀疑论者会怎么说这些数字？\n当“慢”这个刹车消失 这四个暗礁有一个共同根源：AI 移除了\"慢\"这个天然的制衡。\n在传统创业中，“慢\"是一种保护。做一个原型要几个月——这个时间让你有机会重新思考。加一个功能要一个 sprint——这个成本让你三思而后行。招一个工程师要几周——这个摩擦让你只招真正需要的。\nAI 移除了这些摩擦，但没有移除摩擦背后的判断需求。你仍然需要决定什么值得做、什么不值得做、什么时候该停。只是现在，这些决定完全靠你自己的纪律——没有外部节奏来帮你。\n这让我想到本杰明·富兰克林的忠告：“准备不足的人，就是在准备失败。” AI 让\"准备\"变得更快，但\"准备\"本身不能跳过。\n下一篇，我们来深入一个让创始人夜不能寐的问题：产品市场契合的谎言与真相。\n系列阅读快速跳转 日期 篇目 核心问题 06-03 从福特流水线到 AI 原生：新的造法 什么是 AI Native？为什么是现在？ 06-05 找到你的问题域：从\"能做\"到\"该做” 如何在无限可能中找到值得解决的问题 06-06 用 AI 做压力测试：让魔鬼代言人替你思考 如何用 AI 反驳自己，避免确认偏误 06-07 构建第一个 AI 原生产品：从 CLAUDE.md 开始 写代码之前先写文档的逆向思维 06-10 MVP 的四个暗礁：速度与陷阱的博弈 AI 加速下最容易踩的四个坑 06-11 产品市场契合的谎言与真相 如何识别假信号，找到真契合 06-12 从创始人驱动到系统化运营 建立不依赖创始人的运营机器 06-22 技术债与架构决策：为 Scale 打下地基 如何在快与稳之间找到平衡 06-23 构建护城河：数据、知识与锁定 AI 时代的三种防御体系 06-25 Same Job, New Rules：创始人的不变与变 什么变了，什么没变 引用 ",
-  "wordCount" : "168",
+  "articleBody": " 希腊神话中，奥德修斯在塞壬女妖的海域航行时，让船员用蜡封住耳朵，把自己绑在桅杆上。他听到了歌声，但无法偏航。MVP 阶段，你需要同样的自律——听到\"快\"的歌声，但不被它带偏。\n速度是一把双刃剑 上一篇文章我们讲了如何从 CLAUDE.md 开始构建产品。现在假设你已经有了架构文档、范围文档，代码开始跑起来了。\n然后速度来了。\nAgentic coding 工具让\"构建\"变得前所未有的快。一个功能从想法到上线，过去要一个 sprint，现在要一个下午。这种速度让人上瘾——你开始觉得\"再做几个功能\"、“再处理几个边缘 case”、“产品再完善一点再发”。\nThe Founder’s Playbook 把 MVP 阶段的核心矛盾归结为一句话：AI 保证了速度，但速度本身成了最大的风险。\n接下来要说的四个暗礁，都和这个矛盾有关。\n第一个暗礁：Agentic 技术债 普通技术债是可以管理的——你欠了，但知道要还，可以在某个 sprint 里集中清理。\nAgentic 技术债不一样。它会累积。\n原因在于：没有写下来的架构约束，每个 AI 会话都从头推导基础决策。这个会话决定用 REST API，那个会话决定用 GraphQL；这个会话把用户认证放在前端，那个会话把它放在后端。每个决策单独看都合理，但它们合在一起——代码能跑，但背后没有一个连贯的心智模型。\n这就像让十个厨师各自做一道菜，但没人告诉他们这是同一桌宴席。每道菜单独吃都没问题，但放在一起，口味冲突、温度不一致、上菜顺序混乱。\nThe Founder’s Playbook 的建议是：在 MVP 阶段就保持 CLAUDE.md 的更新。每个会话结束，花五分钟记录这个会话做了什么决策、引入了什么假设。这不是文档洁癖，是防止你的代码库在第六个月变成一团只有 AI 能读懂的意大利面。\n第二个暗礁：假产品市场契合 这是最危险的暗礁，因为它看起来像陆地。\n发布产品的那一刻，是创始人最脆弱的时刻。几周的验证、几个月的构建，终于有了一个能跑的东西。你的朋友来试用，投资人介绍的潜在买家来试用，一条 Hacker News 头条带来一波流量——早期数字看起来不错。\n但早期 traction 不等于产品市场契合。\nLaunch 能量来自短暂的、外部的助推力。真正的产品市场契合是一个模式——它必须在多个迭代周期中持续成立，才能被确认。\n书中提到了 Sean Ellis 测试：问你的活跃用户\"如果你不能再用这个产品了，你会感觉怎么样？“如果超过 40% 回答\"非常失望”，这是一个有意义的信号。\n但更根本的检验是从\"推\"到\"拉\"的转变。产品市场契合之前，留存需要持续干预——频繁的外联、激励、创始人亲自盯。产品市场契合之后，产品开始自己做这些事。当你发现自己在\"推\"的力气开始变轻，那才是真正变化的信号。\n第三个暗礁：零摩擦范围蔓延 每个功能只要一个下午。每个边缘 case 只要几分钟。每一项单独看都理所当然。\n这就是 AI 时代范围蔓延的新形态。传统的制衡——工程师时间的真实成本——不存在了。加一个功能不再需要一个 sprint 的讨论，只需要你的一句话。\nThe Founder’s Playbook 的解法是：在动手之前写一份范围文档，明确不做什么。然后当新功能想法出现时（它们一定会有），用范围文档来压力测试：这是用户真实的需求信号，还是创始人自己的热情？\n一个判断标准：如果这个功能不在范围文档里，你需要\"足够多的用户告诉他们，没有这个功能他们就拿不到价值\"才能加。一个用户的请求是反馈，十个用户的请求是趋势，一百个用户的请求才是需求。\n第四个暗礁：经验不足导致的安全漏洞 Agentic coding 工具生成的是能跑的代码，不是安全的代码。\n功能代码要么能跑要么不能跑，反馈是即时的。安全漏洞在被利用之前是看不见的——对第一次创业的人来说，没有天然的反馈循环提醒你出了问题。\n但你的用户信任你。在代码部署给任何真实用户之前，让 Claude 做一次安全审查：认证和会话处理、API 响应中的数据暴露、输入验证和注入风险、有已知漏洞的依赖。\n这不是要替代安全工具或人类审查员。但它是你的最低责任门槛。就像你不会因为\"只是短途\"就不系安全带。\n衡量框架：在用户来之前建好 一个常见的错误：把早期 traction 当成产品市场契合的创始人，往往也是那些在上线之后才开始追踪数据的人。他们选择指标是为了评估什么在跑，而不是为了暴露什么没跑。\nThe Founder’s Playbook 的建议是：在第一个用户进来之前，就定义好你的衡量框架。哪些指标对你的产品重要？基准是什么？什么数据模式构成真正的产品市场契合，什么只是好看的噪音？\n还要定义什么是一个\"假阳性\"：注册了但没激活、付费了但没留存、初始热情但没有重复使用。当数据来的时候，让 AI 对你的 traction 做 adversarial 分析——一个怀疑论者会怎么说这些数字？\n当“慢”这个刹车消失 写到这里我意识到，这四个暗礁其实有一个共同根源：AI 移除了\"慢\"这个天然的制衡。\n在传统创业中，“慢\"是一种保护。做一个原型要几个月——这个时间让你有机会重新思考。加一个功能要一个 sprint——这个成本让你三思而后行。招一个工程师要几周——这个摩擦让你只招真正需要的。\nAI 移除了这些摩擦，但没有移除摩擦背后的判断需求。你仍然需要决定什么值得做、什么不值得做、什么时候该停。只是现在，这些决定完全靠你自己的纪律——没有外部节奏来帮你。\n这让我想到本杰明·富兰克林的忠告：“准备不足的人，就是在准备失败。” AI 让\"准备\"变得更快，但\"准备\"本身不能跳过。\n下一篇，我们来深入一个让创始人夜不能寐的问题：产品市场契合的谎言与真相。\n系列阅读快速跳转 日期 篇目 核心问题 06-05 从福特流水线到 AI 原生：新的造法 什么是 AI Native？为什么是现在？ 06-13 找到你的问题域：从\"能做\"到\"该做” 如何在无限可能中找到值得解决的问题 06-18 用 AI 做压力测试：让魔鬼代言人替你思考 如何用 AI 反驳自己，避免确认偏误 06-26 构建第一个 AI 原生产品：从 CLAUDE.md 开始 写代码之前先写文档的逆向思维 07-02 MVP 的四个暗礁：速度与陷阱的博弈 AI 加速下最容易踩的四个坑 07-09 产品市场契合的谎言与真相 如何识别假信号，找到真契合 07-15 从创始人驱动到系统化运营 建立不依赖创始人的运营机器 07-21 技术债与架构决策：为 Scale 打下地基 如何在快与稳之间找到平衡 07-26 构建护城河：数据、知识与锁定 AI 时代的三种防御体系 08-01 Same Job, New Rules：创始人的不变与变 什么变了，什么没变 引用 ",
+  "wordCount" : "167",
   "inLanguage": "en",
-  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-06-10T10:00:00+08:00",
-  "dateModified": "2026-06-10T10:00:00+08:00",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-07-02T10:00:00+08:00",
+  "dateModified": "2026-07-02T10:00:00+08:00",
   "author":{
     "@type": "Person",
-    "name": "ZHANG.z\""
+    "name": "Lonney .Z"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-10-mvp-four-reefs/"
+    "@id": "https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-02-mvp-four-reefs/"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Zhang's Blog",
+    "name": "Z's Blog",
     "logo": {
       "@type": "ImageObject",
       "url": "https://blog.zhangky.com/images/logo.svg"
@@ -239,9 +239,9 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
     <header class="header">
     <nav class="nav">
         <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
                 <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
+                    height="30">Z&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -340,8 +340,8 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
     <h1 class="post-title entry-hint-parent">
       MVP 的四个暗礁：速度与陷阱的博弈
     </h1>
-    <div class="post-meta">   ZHANG.z&#34; | <span title='2026-06-10 10:00:00 +0800 HKT'>June 10, 2026</span> | <span>12 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
-    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/ai-native-startup/2026-06-10-mvp-four-reefs.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+    <div class="post-meta">   Lonney .Z | <span title='2026-07-02 10:00:00 +0800 HKT'>July 2, 2026</span> | <span>12 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/ai-native-startup/2026-07-02-mvp-four-reefs.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
 </span>
 
 </div>
@@ -387,12 +387,12 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
 <p>上一篇文章我们讲了如何从 CLAUDE.md 开始构建产品。现在假设你已经有了架构文档、范围文档，代码开始跑起来了。</p>
 <p>然后速度来了。</p>
 <p>Agentic coding 工具让&quot;构建&quot;变得前所未有的快。一个功能从想法到上线，过去要一个 sprint，现在要一个下午。这种速度让人上瘾——你开始觉得&quot;再做几个功能&quot;、&ldquo;再处理几个边缘 case&rdquo;、&ldquo;产品再完善一点再发&rdquo;。</p>
-<p><em>The Founder&rsquo;s Playbook</em> 把 MVP 阶段的核心矛盾归结为一句话：<strong>AI 保证了速度，但速度本身成了最大的风险。</strong></p>
-<p>具体来说，有四个暗礁。</p>
+<p><em>The Founder&rsquo;s Playbook</em> 把 MVP 阶段的核心矛盾归结为一句话：AI 保证了速度，但速度本身成了最大的风险。</p>
+<p>接下来要说的四个暗礁，都和这个矛盾有关。</p>
 <hr>
 <h2 id="第一个暗礁agentic-技术债">第一个暗礁：Agentic 技术债<a hidden class="anchor" aria-hidden="true" href="#第一个暗礁agentic-技术债">#</a></h2>
 <p>普通技术债是可以管理的——你欠了，但知道要还，可以在某个 sprint 里集中清理。</p>
-<p>Agentic 技术债不一样。它会<strong>累积</strong>。</p>
+<p>Agentic 技术债不一样。它会累积。</p>
 <p>原因在于：没有写下来的架构约束，每个 AI 会话都从头推导基础决策。这个会话决定用 REST API，那个会话决定用 GraphQL；这个会话把用户认证放在前端，那个会话把它放在后端。每个决策单独看都合理，但它们合在一起——代码能跑，但背后没有一个连贯的心智模型。</p>
 <p>这就像让十个厨师各自做一道菜，但没人告诉他们这是同一桌宴席。每道菜单独吃都没问题，但放在一起，口味冲突、温度不一致、上菜顺序混乱。</p>
 <p><em>The Founder&rsquo;s Playbook</em> 的建议是：在 MVP 阶段就保持 CLAUDE.md 的更新。每个会话结束，花五分钟记录这个会话做了什么决策、引入了什么假设。这不是文档洁癖，是防止你的代码库在第六个月变成一团只有 AI 能读懂的意大利面。</p>
@@ -401,33 +401,33 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
 <p>这是最危险的暗礁，因为它看起来像陆地。</p>
 <p>发布产品的那一刻，是创始人最脆弱的时刻。几周的验证、几个月的构建，终于有了一个能跑的东西。你的朋友来试用，投资人介绍的潜在买家来试用，一条 Hacker News 头条带来一波流量——早期数字看起来不错。</p>
 <p>但早期 traction 不等于产品市场契合。</p>
-<p>Launch 能量来自短暂的、外部的助推力。真正的产品市场契合是一个<strong>模式</strong>——它必须在多个迭代周期中持续成立，才能被确认。</p>
+<p>Launch 能量来自短暂的、外部的助推力。真正的产品市场契合是一个模式——它必须在多个迭代周期中持续成立，才能被确认。</p>
 <p>书中提到了 Sean Ellis 测试：问你的活跃用户&quot;如果你不能再用这个产品了，你会感觉怎么样？&ldquo;如果超过 40% 回答&quot;非常失望&rdquo;，这是一个有意义的信号。</p>
-<p>但更根本的检验是<strong>从&quot;推&quot;到&quot;拉&quot;的转变</strong>。产品市场契合之前，留存需要持续干预——频繁的外联、激励、创始人亲自盯。产品市场契合之后，产品开始自己做这些事。当你发现自己在&quot;推&quot;的力气开始变轻，那才是真正变化的信号。</p>
+<p>但更根本的检验是从&quot;推&quot;到&quot;拉&quot;的转变。产品市场契合之前，留存需要持续干预——频繁的外联、激励、创始人亲自盯。产品市场契合之后，产品开始自己做这些事。当你发现自己在&quot;推&quot;的力气开始变轻，那才是真正变化的信号。</p>
 <hr>
 <h2 id="第三个暗礁零摩擦范围蔓延">第三个暗礁：零摩擦范围蔓延<a hidden class="anchor" aria-hidden="true" href="#第三个暗礁零摩擦范围蔓延">#</a></h2>
 <p>每个功能只要一个下午。每个边缘 case 只要几分钟。每一项单独看都理所当然。</p>
 <p>这就是 AI 时代范围蔓延的新形态。传统的制衡——工程师时间的真实成本——不存在了。加一个功能不再需要一个 sprint 的讨论，只需要你的一句话。</p>
-<p><em>The Founder&rsquo;s Playbook</em> 的解法是：在动手之前写一份范围文档，明确<strong>不做什么</strong>。然后当新功能想法出现时（它们一定会有），用范围文档来压力测试：这是用户真实的需求信号，还是创始人自己的热情？</p>
+<p><em>The Founder&rsquo;s Playbook</em> 的解法是：在动手之前写一份范围文档，明确不做什么。然后当新功能想法出现时（它们一定会有），用范围文档来压力测试：这是用户真实的需求信号，还是创始人自己的热情？</p>
 <p>一个判断标准：如果这个功能不在范围文档里，你需要&quot;足够多的用户告诉他们，没有这个功能他们就拿不到价值&quot;才能加。一个用户的请求是反馈，十个用户的请求是趋势，一百个用户的请求才是需求。</p>
 <hr>
 <h2 id="第四个暗礁经验不足导致的安全漏洞">第四个暗礁：经验不足导致的安全漏洞<a hidden class="anchor" aria-hidden="true" href="#第四个暗礁经验不足导致的安全漏洞">#</a></h2>
 <p>Agentic coding 工具生成的是能跑的代码，不是安全的代码。</p>
 <p>功能代码要么能跑要么不能跑，反馈是即时的。安全漏洞在被利用之前是看不见的——对第一次创业的人来说，没有天然的反馈循环提醒你出了问题。</p>
 <p>但你的用户信任你。在代码部署给任何真实用户之前，让 Claude 做一次安全审查：认证和会话处理、API 响应中的数据暴露、输入验证和注入风险、有已知漏洞的依赖。</p>
-<p>这不是要替代安全工具或人类审查员。但它是<strong>最低负责任门槛</strong>。就像你不会因为&quot;只是短途&quot;就不系安全带。</p>
+<p>这不是要替代安全工具或人类审查员。但它是你的最低责任门槛。就像你不会因为&quot;只是短途&quot;就不系安全带。</p>
 <hr>
 <h2 id="衡量框架在用户来之前建好">衡量框架：在用户来之前建好<a hidden class="anchor" aria-hidden="true" href="#衡量框架在用户来之前建好">#</a></h2>
 <p>一个常见的错误：把早期 traction 当成产品市场契合的创始人，往往也是那些在上线之后才开始追踪数据的人。他们选择指标是为了评估什么在跑，而不是为了暴露什么没跑。</p>
-<p><em>The Founder&rsquo;s Playbook</em> 的建议是：<strong>在第一个用户进来之前，就定义好你的衡量框架。</strong> 哪些指标对你的产品重要？基准是什么？什么数据模式构成真正的产品市场契合，什么只是好看的噪音？</p>
+<p><em>The Founder&rsquo;s Playbook</em> 的建议是：在第一个用户进来之前，就定义好你的衡量框架。哪些指标对你的产品重要？基准是什么？什么数据模式构成真正的产品市场契合，什么只是好看的噪音？</p>
 <p>还要定义什么是一个&quot;假阳性&quot;：注册了但没激活、付费了但没留存、初始热情但没有重复使用。当数据来的时候，让 AI 对你的 traction 做 adversarial 分析——一个怀疑论者会怎么说这些数字？</p>
 <hr>
 <h2 id="当慢这个刹车消失">当“慢”这个刹车消失<a hidden class="anchor" aria-hidden="true" href="#当慢这个刹车消失">#</a></h2>
-<p>这四个暗礁有一个共同根源：<strong>AI 移除了&quot;慢&quot;这个天然的制衡。</strong></p>
+<p>写到这里我意识到，这四个暗礁其实有一个共同根源：AI 移除了&quot;慢&quot;这个天然的制衡。</p>
 <p>在传统创业中，&ldquo;慢&quot;是一种保护。做一个原型要几个月——这个时间让你有机会重新思考。加一个功能要一个 sprint——这个成本让你三思而后行。招一个工程师要几周——这个摩擦让你只招真正需要的。</p>
-<p>AI 移除了这些摩擦，但没有移除摩擦背后的<strong>判断需求</strong>。你仍然需要决定什么值得做、什么不值得做、什么时候该停。只是现在，这些决定完全靠你自己的纪律——没有外部节奏来帮你。</p>
+<p>AI 移除了这些摩擦，但没有移除摩擦背后的判断需求。你仍然需要决定什么值得做、什么不值得做、什么时候该停。只是现在，这些决定完全靠你自己的纪律——没有外部节奏来帮你。</p>
 <p>这让我想到本杰明·富兰克林的忠告：&ldquo;准备不足的人，就是在准备失败。&rdquo; AI 让&quot;准备&quot;变得更快，但&quot;准备&quot;本身不能跳过。</p>
-<p>下一篇，我们来深入一个让创始人夜不能寐的问题：<strong>产品市场契合的谎言与真相。</strong></p>
+<p>下一篇，我们来深入一个让创始人夜不能寐的问题：产品市场契合的谎言与真相。</p>
 <hr>
 <h2 id="系列阅读快速跳转">系列阅读快速跳转<a hidden class="anchor" aria-hidden="true" href="#系列阅读快速跳转">#</a></h2>
 <table>
@@ -440,53 +440,53 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
   </thead>
   <tbody>
       <tr>
-          <td>06-03</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-03-ai-native-paradigm-shift/">从福特流水线到 AI 原生：新的造法</a></td>
+          <td>06-05</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-05-ai-native-paradigm-shift/">从福特流水线到 AI 原生：新的造法</a></td>
           <td>什么是 AI Native？为什么是现在？</td>
       </tr>
       <tr>
-          <td>06-05</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-05-find-your-problem-space/">找到你的问题域：从&quot;能做&quot;到&quot;该做&rdquo;</a></td>
+          <td>06-13</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-13-find-your-problem-space/">找到你的问题域：从&quot;能做&quot;到&quot;该做&rdquo;</a></td>
           <td>如何在无限可能中找到值得解决的问题</td>
       </tr>
       <tr>
-          <td>06-06</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-06-ai-devil-advocate/">用 AI 做压力测试：让魔鬼代言人替你思考</a></td>
+          <td>06-18</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate/">用 AI 做压力测试：让魔鬼代言人替你思考</a></td>
           <td>如何用 AI 反驳自己，避免确认偏误</td>
       </tr>
       <tr>
-          <td>06-07</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-07-build-first-ai-product/">构建第一个 AI 原生产品：从 CLAUDE.md 开始</a></td>
+          <td>06-26</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-06-26-build-first-ai-product/">构建第一个 AI 原生产品：从 CLAUDE.md 开始</a></td>
           <td>写代码之前先写文档的逆向思维</td>
       </tr>
       <tr>
-          <td>06-10</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-10-mvp-four-reefs/">MVP 的四个暗礁：速度与陷阱的博弈</a></td>
+          <td>07-02</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-07-02-mvp-four-reefs/">MVP 的四个暗礁：速度与陷阱的博弈</a></td>
           <td>AI 加速下最容易踩的四个坑</td>
       </tr>
       <tr>
-          <td>06-11</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-11-pmf-lies-truth/">产品市场契合的谎言与真相</a></td>
+          <td>07-09</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-07-09-pmf-lies-truth/">产品市场契合的谎言与真相</a></td>
           <td>如何识别假信号，找到真契合</td>
       </tr>
       <tr>
-          <td>06-12</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-12-founder-to-system/">从创始人驱动到系统化运营</a></td>
+          <td>07-15</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-07-15-founder-to-system/">从创始人驱动到系统化运营</a></td>
           <td>建立不依赖创始人的运营机器</td>
       </tr>
       <tr>
-          <td>06-22</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-22-tech-debt-architecture/">技术债与架构决策：为 Scale 打下地基</a></td>
+          <td>07-21</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-07-21-tech-debt-architecture/">技术债与架构决策：为 Scale 打下地基</a></td>
           <td>如何在快与稳之间找到平衡</td>
       </tr>
       <tr>
-          <td>06-23</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-23-build-moat/">构建护城河：数据、知识与锁定</a></td>
+          <td>07-26</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-07-26-build-moat/">构建护城河：数据、知识与锁定</a></td>
           <td>AI 时代的三种防御体系</td>
       </tr>
       <tr>
-          <td>06-25</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-25-same-job-new-rules/">Same Job, New Rules：创始人的不变与变</a></td>
+          <td>08-01</td>
+          <td><a href="/posts/2026/ai-native-startup/2026-08-01-same-job-new-rules/">Same Job, New Rules：创始人的不变与变</a></td>
           <td>什么变了，什么没变</td>
       </tr>
   </tbody>
@@ -506,12 +506,12 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
       <li><a href="https://blog.zhangky.com/tags/%E7%BB%8F%E7%AE%A1/">经管</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-11-pmf-lies-truth/">
+  <a class="prev" href="https://blog.zhangky.com/posts/2026/07/2026-07-04-699-tsinghua-excellence-medicine/">
     <span class="title">« Prev</span>
     <br>
-    <span>产品市场契合的谎言与真相：如何识别假信号</span>
+    <span>699分与卓越医学：网友替她可惜，她可能正替网友可惜</span>
   </a>
-  <a class="next" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-07-build-first-ai-product/">
+  <a class="next" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-26-build-first-ai-product/">
     <span class="title">Next »</span>
     <br>
     <span>构建第一个 AI 原生产品：从 CLAUDE.md 开始</span>
@@ -524,7 +524,7 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
 
     <span>
         Powered by

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>【ChatGPT时刻04】Transformer：Attention Is All You Need | Zhang&#39;s Blog</title>
+<title>【ChatGPT时刻04】Transformer：Attention Is All You Need | Z&#39;s Blog</title>
 <meta name="keywords" content="Transformer, Attention, Self-Attention, Vaswani, Sequence Modeling">
 <meta name="description" content="
 本文解读的是Ashish Vaswani、Noam Shazeer、Niki Parmar、Jakob Uszkoreit、Llion Jones、Aidan N. Gomez、Łukasz Kaiser和Illia Polosukhin于2017年发表的里程碑论文《Attention Is All You Need》，该论文提出了Transformer架构，完全基于注意力机制，摒弃了循环和卷积结构，在机器翻译任务上取得了最先进的性能，同时训练速度更快、可并行性更强。这一突破不仅彻底改变了序列建模的范式，更为后续GPT、BERT等大语言模型奠定了架构基础，开启了现代AI的新时代。
@@ -42,7 +42,7 @@ CNN虽然可以并行化，但感受野受限：
 难以捕捉长距离依赖
 
 数学分析：对于 $k \times k$ 卷积核，经过 $L$ 层后，感受野为 $L(k-1) &#43; 1$。要覆盖长度为 $n$ 的序列，需要 $L \geq \frac{n-1}{k-1}$ 层。">
-<meta name="author" content="ZHANG.z">
+<meta name="author" content="Lonney .Z">
 <link rel="canonical" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-21-chatgpt-04-transformer/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
@@ -137,7 +137,7 @@ CNN虽然可以并行化，但感受野受限：
 </script>
 
 <meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-21-chatgpt-04-transformer/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:site_name" content="Z&#39;s Blog">
   <meta property="og:title" content="【ChatGPT时刻04】Transformer：Attention Is All You Need">
   <meta property="og:description" content=" 本文解读的是Ashish Vaswani、Noam Shazeer、Niki Parmar、Jakob Uszkoreit、Llion Jones、Aidan N. Gomez、Łukasz Kaiser和Illia Polosukhin于2017年发表的里程碑论文《Attention Is All You Need》，该论文提出了Transformer架构，完全基于注意力机制，摒弃了循环和卷积结构，在机器翻译任务上取得了最先进的性能，同时训练速度更快、可并行性更强。这一突破不仅彻底改变了序列建模的范式，更为后续GPT、BERT等大语言模型奠定了架构基础，开启了现代AI的新时代。
 “注意力即一切。&#34;——这是Transformer论文的核心宣言。在Transformer之前，序列建模主要依赖RNN和CNN。RNN虽然能够处理序列，但难以并行化；CNN虽然可以并行化，但难以捕捉长距离依赖。Transformer通过完全基于注意力机制的架构，同时解决了这两个问题，实现了并行化和长距离依赖的完美结合。
@@ -242,7 +242,7 @@ CNN虽然可以并行化，但感受野受限：
   "dateModified": "2025-09-21T21:40:41+08:00",
   "author":{
     "@type": "Person",
-    "name": "ZHANG.z"
+    "name": "Lonney .Z"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -250,7 +250,7 @@ CNN虽然可以并行化，但感受野受限：
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Zhang's Blog",
+    "name": "Z's Blog",
     "logo": {
       "@type": "ImageObject",
       "url": "https://blog.zhangky.com/images/logo.svg"
@@ -263,9 +263,9 @@ CNN虽然可以并行化，但感受野受限：
     <header class="header">
     <nav class="nav">
         <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
                 <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
+                    height="30">Z&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -364,7 +364,7 @@ CNN虽然可以并行化，但感受野受限：
     <h1 class="post-title entry-hint-parent">
       【ChatGPT时刻04】Transformer：Attention Is All You Need
     </h1>
-    <div class="post-meta">   ZHANG.z | <span title='2025-09-21 21:40:41 +0800 HKT'>September 21, 2025</span> | <span>14 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <div class="post-meta">   Lonney .Z | <span title='2025-09-21 21:40:41 +0800 HKT'>September 21, 2025</span> | <span>14 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
     <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2025/chatgpt/2025-09-21-chatgpt-04-transformer.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
 </span>
 
@@ -693,7 +693,7 @@ $$</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
 
     <span>
         Powered by

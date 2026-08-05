@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>【论文解读06】理解LSTM网络：解决长期依赖问题 | Zhang&#39;s Blog</title>
+<title>【论文解读06】理解LSTM网络：解决长期依赖问题 | Z&#39;s Blog</title>
 <meta name="keywords" content="LSTM, Long Short-Term Memory, RNN, Gradient Vanishing, Sequence Modeling">
 <meta name="description" content="
 本文解读的是Sepp Hochreiter和Jürgen Schmidhuber于1997年发表的经典论文《Long Short-Term Memory》，该论文提出了长短期记忆（LSTM）网络架构，通过门控机制和细胞状态彻底解决了循环神经网络（RNN）的梯度消失问题，使网络能够学习长期依赖关系。LSTM不仅成为序列建模领域的重要里程碑，更为后续的GRU、Transformer等架构奠定了理论基础，在机器翻译、语音识别、时间序列预测等任务中取得了突破性成果。
@@ -26,7 +26,7 @@ $$
 $$
 \frac{\partial L}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \frac{\partial h_t}{\partial h_k} = \frac{\partial L}{\partial h_t} \cdot \prod_{j=k&#43;1}^{t} \frac{\partial h_j}{\partial h_{j-1}}
 $$">
-<meta name="author" content="ZHANG.z">
+<meta name="author" content="Lonney .Z">
 <link rel="canonical" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
@@ -121,7 +121,7 @@ $$">
 </script>
 
 <meta property="og:url" content="https://blog.zhangky.com/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:site_name" content="Z&#39;s Blog">
   <meta property="og:title" content="【论文解读06】理解LSTM网络：解决长期依赖问题">
   <meta property="og:description" content=" 本文解读的是Sepp Hochreiter和Jürgen Schmidhuber于1997年发表的经典论文《Long Short-Term Memory》，该论文提出了长短期记忆（LSTM）网络架构，通过门控机制和细胞状态彻底解决了循环神经网络（RNN）的梯度消失问题，使网络能够学习长期依赖关系。LSTM不仅成为序列建模领域的重要里程碑，更为后续的GRU、Transformer等架构奠定了理论基础，在机器翻译、语音识别、时间序列预测等任务中取得了突破性成果。
 “记忆是智能的基础。&#34;——这是Hochreiter和Schmidhuber在1997年提出的深刻洞察。传统RNN虽然理论上可以处理任意长度的序列，但在实际训练中面临严重的梯度消失问题：当序列长度超过几十个时间步时，梯度在反向传播过程中会指数级衰减，导致网络无法学习长期依赖关系。
@@ -210,7 +210,7 @@ $$">
   "dateModified": "2026-01-25T10:25:51+08:00",
   "author":{
     "@type": "Person",
-    "name": "ZHANG.z"
+    "name": "Lonney .Z"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -218,7 +218,7 @@ $$">
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Zhang's Blog",
+    "name": "Z's Blog",
     "logo": {
       "@type": "ImageObject",
       "url": "https://blog.zhangky.com/images/logo.svg"
@@ -231,9 +231,9 @@ $$">
     <header class="header">
     <nav class="nav">
         <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
                 <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
+                    height="30">Z&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -332,7 +332,7 @@ $$">
     <h1 class="post-title entry-hint-parent">
       【论文解读06】理解LSTM网络：解决长期依赖问题
     </h1>
-    <div class="post-meta">   ZHANG.z | <span title='2026-01-25 10:25:51 +0800 HKT'>January 25, 2026</span> | <span>27 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <div class="post-meta">   Lonney .Z | <span title='2026-01-25 10:25:51 +0800 HKT'>January 25, 2026</span> | <span>27 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
     <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/paper-read/2026-01-25-paper-06-understanding-lstm.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
 </span>
 
@@ -729,7 +729,7 @@ $$</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
 
     <span>
         Powered by

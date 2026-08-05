@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现 | Zhang&#39;s Blog</title>
+<title>【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现 | Z&#39;s Blog</title>
 <meta name="keywords" content="Transformer, Annotated Transformer, Attention, Code Implementation, Educational">
 <meta name="description" content="
 本文解读的是Alexander Rush等人创建的《The Annotated Transformer》，这是一篇教育性的技术博客文章，通过逐行代码注释的方式，详细解析了Transformer架构的PyTorch实现。虽然这不是一篇传统意义上的研究论文，但它为理解Transformer提供了最直观、最实用的方式，是学习Transformer实现的最佳资源之一。
@@ -82,7 +82,7 @@ class MultiHeadedAttention(nn.Module):
         x = x.transpose(1, 2).contiguous().view(nbatches, -1, self.h * self.d_k)
         return self.linears[-1](x)
 关键实现细节：">
-<meta name="author" content="ZHANG.z">
+<meta name="author" content="Lonney .Z">
 <link rel="canonical" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
@@ -177,7 +177,7 @@ class MultiHeadedAttention(nn.Module):
 </script>
 
 <meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:site_name" content="Z&#39;s Blog">
   <meta property="og:title" content="【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现">
   <meta property="og:description" content=" 本文解读的是Alexander Rush等人创建的《The Annotated Transformer》，这是一篇教育性的技术博客文章，通过逐行代码注释的方式，详细解析了Transformer架构的PyTorch实现。虽然这不是一篇传统意义上的研究论文，但它为理解Transformer提供了最直观、最实用的方式，是学习Transformer实现的最佳资源之一。
 “代码是最好的文档。&#34;——这是带注释Transformer的核心思想。Transformer论文虽然提出了架构，但实现细节往往隐藏在代码中。带注释Transformer通过详细的代码注释和解释，使读者能够深入理解Transformer的每一个组件、每一行代码的作用，是连接理论和实践的重要桥梁。
@@ -327,7 +327,7 @@ class MultiHeadedAttention(nn.Module):
   "dateModified": "2025-10-08T21:21:38+08:00",
   "author":{
     "@type": "Person",
-    "name": "ZHANG.z"
+    "name": "Lonney .Z"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -335,7 +335,7 @@ class MultiHeadedAttention(nn.Module):
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Zhang's Blog",
+    "name": "Z's Blog",
     "logo": {
       "@type": "ImageObject",
       "url": "https://blog.zhangky.com/images/logo.svg"
@@ -348,9 +348,9 @@ class MultiHeadedAttention(nn.Module):
     <header class="header">
     <nav class="nav">
         <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
                 <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
+                    height="30">Z&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -449,7 +449,7 @@ class MultiHeadedAttention(nn.Module):
     <h1 class="post-title entry-hint-parent">
       【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现
     </h1>
-    <div class="post-meta">   ZHANG.z | <span title='2025-10-08 21:21:38 +0800 HKT'>October 8, 2025</span> | <span>15 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <div class="post-meta">   Lonney .Z | <span title='2025-10-08 21:21:38 +0800 HKT'>October 8, 2025</span> | <span>15 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
     <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
 </span>
 
@@ -815,7 +815,7 @@ $$</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
 
     <span>
         Powered by

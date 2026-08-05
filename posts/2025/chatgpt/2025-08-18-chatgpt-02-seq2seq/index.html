@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架 | Zhang&#39;s Blog</title>
+<title>【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架 | Z&#39;s Blog</title>
 <meta name="keywords" content="Seq2Seq, Sequence to Sequence, Encoder-Decoder, Machine Translation, Ilya Sutskever, LSTM">
 <meta name="description" content="
 本文解读的是Ilya Sutskever、Oriol Vinyals和Quoc V. Le于2014年发表的里程碑论文《Sequence to Sequence Learning with Neural Networks》，该论文提出了Seq2Seq框架，首次使用纯端到端的神经网络实现了高质量的机器翻译。作为OpenAI联合创始人的代表作，Seq2Seq不仅确立了编码器-解码器架构的标准范式，更是通向Transformer和GPT系列的关键一步——它证明了神经网络可以直接学习序列到序列的映射，无需手工设计特征或规则。
@@ -29,7 +29,7 @@
 $$
 \frac{\partial \mathcal{L}}{\partial W} = \sum_{t=1}^{T} \frac{\partial \mathcal{L}t}{\partial W} = \sum{t=1}^{T} \frac{\partial \mathcal{L}t}{\partial h_t} \prod{k=1}^{t} \frac{\partial h_k}{\partial h_{k-1}} \frac{\partial h_1}{\partial W}
 $$">
-<meta name="author" content="ZHANG.z">
+<meta name="author" content="Lonney .Z">
 <link rel="canonical" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
@@ -124,7 +124,7 @@ $$">
 </script>
 
 <meta property="og:url" content="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/">
-  <meta property="og:site_name" content="Zhang&#39;s Blog">
+  <meta property="og:site_name" content="Z&#39;s Blog">
   <meta property="og:title" content="【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架">
   <meta property="og:description" content=" 本文解读的是Ilya Sutskever、Oriol Vinyals和Quoc V. Le于2014年发表的里程碑论文《Sequence to Sequence Learning with Neural Networks》，该论文提出了Seq2Seq框架，首次使用纯端到端的神经网络实现了高质量的机器翻译。作为OpenAI联合创始人的代表作，Seq2Seq不仅确立了编码器-解码器架构的标准范式，更是通向Transformer和GPT系列的关键一步——它证明了神经网络可以直接学习序列到序列的映射，无需手工设计特征或规则。
 序列建模的根本挑战 问题一：变长序列的处理难题 传统神经网络（如前馈网络、CNN）要求输入和输出具有固定维度。然而，自然语言中的序列长度是可变的：
@@ -214,7 +214,7 @@ $$">
   "dateModified": "2025-08-18T21:00:20+08:00",
   "author":{
     "@type": "Person",
-    "name": "ZHANG.z"
+    "name": "Lonney .Z"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -222,7 +222,7 @@ $$">
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Zhang's Blog",
+    "name": "Z's Blog",
     "logo": {
       "@type": "ImageObject",
       "url": "https://blog.zhangky.com/images/logo.svg"
@@ -235,9 +235,9 @@ $$">
     <header class="header">
     <nav class="nav">
         <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Zhang&#39;s Blog (Alt + H)">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
                 <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Zhang&#39;s Blog</a>
+                    height="30">Z&#39;s Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -336,7 +336,7 @@ $$">
     <h1 class="post-title entry-hint-parent">
       【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架
     </h1>
-    <div class="post-meta">   ZHANG.z | <span title='2025-08-18 21:00:20 +0800 HKT'>August 18, 2025</span> | <span>16 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <div class="post-meta">   Lonney .Z | <span title='2025-08-18 21:00:20 +0800 HKT'>August 18, 2025</span> | <span>16 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
     <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
 </span>
 
@@ -793,7 +793,7 @@ $$</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Zhang&#39;s Blog</a></span> · 
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
 
     <span>
         Powered by
