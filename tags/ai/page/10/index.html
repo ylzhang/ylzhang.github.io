@@ -191,6 +191,28 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【论文解读10】深度残差学习：ResNet解决网络退化问题
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的里程碑论文《Deep Residual Learning for Image Recognition》，该论文提出的ResNet通过残差连接（Residual Connection）解决了深度网络的退化问题，将网络深度推到了前所未有的152层，在ImageNet上取得了3.57%的Top-5错误率，首次超越人类水平。ResNet不仅彻底改变了深度网络的设计范式，更为后续Transformer、生成模型等架构的残差连接奠定了理论基础。
+“更深的网络应该至少不会比浅层网络更差。&#34;——这是ResNet论文的要害所在。在ResNet之前，深度网络面临一个悖论：理论上更深的网络应该能够学习更复杂的特征，但实际中更深的网络在训练集上的错误率反而更高。这不是过拟合，而是优化困难——网络无法有效学习恒等映射。
+ResNet通过残差连接解决了这一根本问题。残差块定义为 $y = F(x) &#43; x$，其中 $F(x)$ 是残差函数，$x$ 是恒等映射。如果最优映射是恒等映射 $H(x) = x$，传统网络需要学习 $H(x) = x$，而残差网络只需学习 $F(x) = 0$，后者显然更容易。这种设计使得网络可以非常深，性能可以持续提升。
+在当今大模型时代，残差连接已经成为深度网络的标准组件：Transformer的残差连接、生成模型的跳跃连接（U-Net、StyleGAN）、大模型的深度扩展（GPT-3、PaLM等模型都依赖残差连接训练深层网络）。理解ResNet，就是理解深度网络设计的核心思想。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。
+深度网络的退化问题 问题一：网络深度与性能的悖论 理论上，更深的网络应该能够学习更复杂的特征表示，性能应该更好。但实际中，随着网络加深，出现了两个严重问题：
+梯度消失问题：在深层网络中，梯度在反向传播过程中指数级衰减。对于Sigmoid激活函数，$\sigma’(x) \leq 0.25$，经过 $L$ 层后，梯度最多衰减到 $0.25^L$。当 $L$ 很大时，早期层的梯度接近0，无法有效更新参数。
+退化问题（Degradation Problem）：这是ResNet论文发现的新问题。实验显示，56层网络的训练误差比20层网络更高。这不是过拟合（因为训练误差也更高），而是优化困难——网络无法有效学习。
+数学分析：假设最优映射是 $H(x) = x$（恒等映射），传统网络需要学习 $H(x) = x$，这需要所有层的权重矩阵都是单位矩阵，这在深层网络中很难实现。
+问题二：恒等映射的学习困难 恒等映射 $H(x) = x$ 是最简单的映射，但在深层网络中学习恒等映射却非常困难。
+...</p>
+  </div>
+  <footer class="entry-footer">   Lonney .Z | <span title='2026-02-07 10:16:29 +0800 HKT'>February 7, 2026</span> | <span>18 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【论文解读10】深度残差学习：ResNet解决网络退化问题" href="https://blog.zhangky.com/posts/2026/paper-read/2026-02-07-paper-10-resnet/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">AI引起的大规模失业怎么办?
     </h2>
   </header>
@@ -276,31 +298,6 @@ QuestMobile官方数据（2025年12月8-14日周活2084万），新浪财经等�
   </div>
   <footer class="entry-footer">   Lonney .Z | <span title='2026-01-27 23:15:04 +0800 HKT'>January 27, 2026</span> | <span>17 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 物理学的尽头是AGI？" href="https://blog.zhangky.com/posts/2026/01/2026-01-27-physicists-in-ai/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【论文解读07】循环神经网络正则化（Ilya经典论文）
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Wojciech Zaremba、Ilya Sutskever和Oriol Vinyals于2014年发表的经典论文《Recurrent Neural Network Regularization》，该论文首次将Dropout正则化技术系统性地应用于循环神经网络（RNN），通过只在非循环连接上应用Dropout，既保持了RNN的记忆能力，又有效防止了过拟合。这一创新为RNN在序列建模任务中的成功应用奠定了重要基础，特别是在机器翻译、语言模型等需要处理长序列的任务中取得了突破性成果。
-“正则化是深度学习的艺术。&#34;——这是Ilya Sutskever等人在2014年提出的深刻洞察。RNN虽然能够处理变长序列，但在训练过程中极易过拟合，特别是在大规模数据集上训练深层RNN时。传统的Dropout技术直接应用于RNN会导致网络无法保持长期记忆，因为随机失活会破坏RNN的循环结构。
-论文的核心创新是只在非循环连接上应用Dropout：在LSTM的输入-隐藏层连接和隐藏-输出层连接上应用Dropout，但在循环连接（hidden-to-hidden）上不使用Dropout。这种设计既保持了RNN的记忆能力，又有效防止了过拟合，使RNN能够在大型数据集上训练深层网络。
-在当今大语言模型时代，这一思想仍然具有重要意义：虽然Transformer已经取代RNN成为主流架构，但正则化的核心思想（防止过拟合、提高泛化能力）仍然是深度学习的关键。理解RNN正则化，就是理解如何在高容量模型中平衡记忆能力和泛化能力。
-本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读RNN正则化技术，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
-本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
-RNN过拟合问题的根源 问题一：RNN的高容量与过拟合风险 RNN的参数共享机制使其能够处理任意长度的序列，但这也带来了过拟合风险。对于长度为 $T$ 的序列，RNN实际上使用了 $T$ 次相同的权重矩阵 $W_h$（hidden-to-hidden连接），相当于将参数&#34;复用&#34;了 $T$ 次。
-参数有效性的量化：虽然RNN的参数量是固定的（例如，对于隐藏维度 $d_h$，hidden-to-hidden权重矩阵 $W_h$ 的大小为 $d_h \times d_h$），但每个参数在序列的每个时间步都被使用，相当于有 $T$ 个&#34;虚拟参数”。这种参数复用使得RNN具有很高的表达能力，但也增加了过拟合的风险。
-过拟合的数学表现：当训练集规模 $N$ 相对于模型容量较小时，模型可能&#34;记住&#34;训练数据的细节，而不是学习数据的规律。在RNN中，这种过拟合表现为：训练集上的困惑度（perplexity）很低，但验证集上的困惑度很高，模型无法泛化到新序列。
-问题二：传统Dropout在RNN中的失效 传统Dropout在RNN中直接应用会导致严重问题。Dropout的核心思想是在训练时随机将部分神经元输出置0，迫使网络学习更鲁棒的表示。但在RNN中，这种随机失活会破坏循环结构。
-循环连接的脆弱性：RNN的循环连接 $h_t = f(W_h h_{t-1} &#43; W_x x_t &#43; b)$ 依赖于前一时刻的隐藏状态 $h_{t-1}$。如果在 $h_{t-1}$ 上应用Dropout，会导致信息在时间维度上的传播被随机打断，网络无法保持长期记忆。
-数学分析：假设在隐藏状态上应用Dropout，则：
-$$ h_t = f(W_h (\text{Dropout}(h_{t-1})) &#43; W_x x_t &#43; b) $$
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-01-27 10:00:43 +0800 HKT'>January 27, 2026</span> | <span>24 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【论文解读07】循环神经网络正则化（Ilya经典论文）" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-27-paper-07-rnn-regularization/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

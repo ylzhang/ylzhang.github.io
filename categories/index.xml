@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 03 Aug 2026 08:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 22:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>技术深度</title>
+      <link>https://blog.zhangky.com/categories/%E6%8A%80%E6%9C%AF%E6%B7%B1%E5%BA%A6/</link>
+      <pubDate>Wed, 05 Aug 2026 22:00:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/categories/%E6%8A%80%E6%9C%AF%E6%B7%B1%E5%BA%A6/</guid>
+      <description></description>
+    </item>
     <item>
       <title>随笔</title>
       <link>https://blog.zhangky.com/categories/%E9%9A%8F%E7%AC%94/</link>

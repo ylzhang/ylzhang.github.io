@@ -191,6 +191,32 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">递归自我改进：从一杯咖啡到Harness Engineering
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>递归自我改进：从一杯咖啡到Harness Engineering 2025年夏天，我去美国纽约和波士顿做短期访问，回程途经旧金山转机。我决定在旧金山多呆一天——去之前通过邮件约了几位朋友，其中包括素未谋面的Lilian Weng。
+我乘地铁去了OpenAI当时的那栋小白楼。他们楼下有一家星巴克，我在那儿等她。那是下午两点，店里坐满了人，一半以上的屏幕上开着代码编辑器，邻桌在讨论transformer的注意力机制，角落里有人在白板上画架构图。你能清晰地感觉到，这栋楼里正在发生什么。
+后面和Weng之间的AI讨论故事不多说了——言归正传。我当时记住了一句话：“模型本身不是瓶颈，真正的瓶颈是我们怎么让模型更好地使用工具、管理上下文、持续进化。”
+今年7月4日，她在博客上发表了那篇《Harness Engineering for Self-Improvement》，结合随后官宣加盟OPRNAI的消息，我才意识到那天那句话的分量。这篇文章，我想从技术的角度，拆解她到底看到了什么。
+一、RSI：一个60年的概念，为什么现在才可行 Lilian Weng的文章开篇直接切入主题：递归自我改进（Recursive Self-Improvement, RSI）。
+这个概念可以追溯到1965年，英国数学家I. J. Good提出的&#34;超智能机器&#34;——一种能在所有智力活动中超越人类，并设计出比自身更好的机器的系统。2008年，Eliezer Yudkowsky将这个概念精确化为一个反馈循环：AI利用其当前的智能，去改进产生其智能的认知机制。
+听起来很抽象。但Lilian Weng把这个抽象概念落到了实处。她指出，在现代AI语境下，这个反馈循环可以发生在三个层面：
+模型权重层面：模型直接重写自己的参数。这是最理想但最难的路径，目前几乎不可行。 训练管道层面：模型改进生成训练数据、选择训练任务、优化训练策略。这是很多前沿实验室正在探索的方向。 部署系统层面：模型改进自己与外界交互的方式——如何调用工具、如何管理上下文、如何评估自身输出。 她明确选择了第三个切入点。原因很关键：原始模型和真实世界之间的这层，其重要性不亚于模型本身的原始智能。Claude Code和Codex的成功，不是因为它们的基础模型最强，而是因为它们的部署系统设计最成熟。
+她用了一个词来描述这层部署系统：Harness。
+二、Harness：模型与世界之间的操作系统 “Lilian Weng在咖啡馆里用了一个比喻，“我回忆道，“她说Harness就像操作系统。你花在操作系统上的功夫，决定了CPU能发挥多大潜力。”
+在她的定义中，Harness是围绕在基础模型周围的整个系统，它负责：
+编排执行流程（模型如何思考和规划） 定义工具调用（模型如何与外界交互） 管理上下文（模型感知和存储什么信息） 持久化产物（模型如何保存工作成果） 评估结果（如何判断模型表现好坏） 这个定义的精妙之处在于，它将原本分散的概念——Prompt Engineering、Agent Framework、Tool Use、Memory Management、Evaluation——统一到了一个更宏观的架构视角下。
+更重要的是，她指出了Harness工程与传统Agent框架的区别：
+维度 传统Agent框架 Harness工程 核心公式 agent = LLM &#43; memory &#43; tools &#43; planning &#43; action 额外加入workflow design, evaluation, permission control, persistent state 设计理念 Prompt模板 运行时系统设计 类比 IDE 操作系统 这个类比不是随便说的。Lilian Weng明确指出，Harness的设计应该参考操作系统的工程实践：
+...</p>
+  </div>
+  <footer class="entry-footer">   Lonney .Z | <span title='2026-08-05 22:00:00 +0800 HKT'>August 5, 2026</span> | <span>25 min</span> | <span>Shanghai, China</span></footer>
+  <a class="entry-link" aria-label="post link to 递归自我改进：从一杯咖啡到Harness Engineering" href="https://blog.zhangky.com/posts/2026/08/2026-08-05-harness-engineering-for-rsi/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Same Job, New Rules：创始人的不变与变
     </h2>
   </header>
@@ -303,37 +329,6 @@ The Founder’s Playbook 给了三步走的建议。先用 Claude Code 做一次
   </div>
   <footer class="entry-footer">   Lonney .Z | <span title='2026-07-15 10:00:00 +0800 HKT'>July 15, 2026</span> | <span>12 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 从创始人驱动到系统化运营：建立不依赖你的机器" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-15-founder-to-system/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">产品市场契合的谎言与真相：如何识别假信号
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 1947 年，飞行员肯尼斯·阿诺德在雷尼尔山附近目击九个碟状物体，“飞碟&#34;一词从此诞生。但大多数 UFO 报告最终都被证实是气象气球、金星、或光学错觉。数据不会说谎，但对数据的解读会。
-创始人最容易对自己撒的谎 产品市场契合（Product-Market Fit，PMF）大概是创业里最被滥用的词。每个创始人都在找它，但说实话，很多人找到的只是它的影子。
-The Founder’s Playbook 给的定义反而很克制：一个特定、可识别的用户群体，发现你的产品有价值到足以回来用（留存）、付费（收入）、或告诉别人（推荐）。三个条件满足其一就行。
-问题就出在&#34;其一&#34;上——这三个信号，每一个都能被伪造。
-三种假阳性 最常见的假阳性是注册涨、激活没动。用户来了、注册了，但从未真正用过产品的核心功能。你打开后台，注册曲线昂扬向上，活跃曲线却像一条死鱼。这种情况在有强外联驱动的产品里尤其多见——创始人人脉能拉来注册，但拉不来留存。
-收入也是个大坑。用户付了一个月的费，第二个月就走了。这事在解决一次性需求的产品里几乎是标配——报税、年度合规检查、一次性数据迁移。用户掏钱那一刻你以为是 PMF，其实只是一次性需求被满足了。一次性收入和持续收入之间那道缝，就是假 PMF 和真 PMF 之间的距离。
-但最伤人的，是访谈里的热情。用户当面说&#34;这产品太棒了”，第三周就不来了。说出来的喜好和实际行为之间，有一条巨大的鸿沟。斯坦福行为设计实验室反复证实过一件事：自我报告的行为，预测力接近随机。 这句话我每次读到都觉得像被扇了一巴掌。
-从&#34;推&#34;到&#34;拉&#34; The Founder’s Playbook 给了一个更本质的判断标准——你的产品是在被你&#34;推&#34;，还是在被用户&#34;拉&#34;。
-PMF 之前，留存全靠你干预。频繁外联、给激励、创始人亲自盯，所有的留存都是你&#34;推&#34;出来的。就像推一辆没发动的车，你一松手它就停。
-PMF 之后，产品开始自己做这些事。用户自己回来、自己摸索新功能、自己告诉朋友。这时候你松手，车还在走——它有自己的发动机了。
-这个转变很难量化，但你能感觉到。某天你发现自己不再需要每天发邮件求用户使用，用户开始主动给你发功能请求，自然增长（而非付费增长）开始占比上升——这些信号叠在一起，就是 PMF 的证据。
-衡量框架：在用户来之前建好 上一篇文章提过这个原则，但值得展开。
-The Founder’s Playbook 的建议是：在第一个用户进来之前，就定义好你的衡量框架。我倾向于把这件事看得比&#34;写第一行代码&#34;还重要——因为一旦数据开始流，你就来不及冷静定义&#34;什么算好&#34;了，你会被数字推着走。
-具体要做的几件事，先说留存基准。Day 7 留存多少算合格？Day 30 呢？这数字因产品而异——社交工具和 SaaS 的基准天差地别。但你必须给自己一个数字，否则&#34;好不好&#34;永远是一个情绪判断。
-然后是激活标准。注册不算数，完成第一次核心工作流才算。AI 写作工具可能是&#34;生成第一篇文章并导出&#34;，CRM 可能是&#34;导入联系人并创建了第一个 pipeline&#34;。这个标准要硬，不能事后改。
-最后——也是最容易被忽略的——是预设&#34;假阳性&#34;模式。注册了但没激活、付费了但没留存、初始热情但没有重复使用。当这些模式出现时，你的框架应该能自动把它们标红，而不是让你事后拍脑袋回忆。
-用 AI 做对抗性分析 数据进来之后，The Founder’s Playbook 建议让 AI 对你的 traction 做一次 adversarial 分析——让它扮演最严厉的怀疑论者。
-“这些注册数字里有多少是创始人的朋友？” “这个留存率在同行业里算什么水平？” “如果去掉前两周的外联推动，自然留存是多少？”
-这些问题你自己其实也能想到。但问题在于，创始人天生有一种倾向——把好消息当证据，把坏消息当例外。我自己写过几年量化策略，对此深有体会：人一旦对某个结果有情绪偏好，“客观分析&#34;就开始失灵。AI 没这个偏好。它不会因为这是你的创业公司就对你温柔。
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-07-09 10:00:00 +0800 HKT'>July 9, 2026</span> | <span>12 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 产品市场契合的谎言与真相：如何识别假信号" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-09-pmf-lies-truth/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

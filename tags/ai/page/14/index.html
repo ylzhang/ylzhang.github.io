@@ -191,6 +191,29 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【ChatGPT时刻08】Scaling Laws：规模与性能的幂律关系
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Jared Kaplan、Sam McCandlish、Tom Henighan、Tom B. Brown、Benjamin Chess、Rewon Child、Scott Gray、Alec Radford、Jeffrey Wu和Dario Amodei于2020年发表的里程碑论文《Scaling Laws for Neural Language Models》，该论文发现了神经语言模型的缩放定律（Scaling Laws），揭示了模型规模、数据规模、计算量与模型性能之间的幂律关系。这一发现不仅为大模型的发展提供了理论指导，更为理解&#34;规模即智能&#34;提供了科学依据，是当今大模型时代的理论基础。
+“规模是性能的关键。&#34;——这是缩放定律论文的核心发现。通过系统性的实验，论文发现模型性能（损失）与模型规模、数据规模、计算量之间存在清晰的幂律关系。这意味着，只要增加模型规模、数据规模或计算量，模型性能就会可预测地提升。这一发现为大模型的发展指明了方向。
+缩放定律的核心发现是幂律关系：模型损失 $L$ 与模型参数 $N$、数据规模 $D$、计算量 $C$ 之间存在幂律关系：
+$$ L(N, D) = \left(\frac{N_c}{N}\right)^{\alpha_N} &#43; \left(\frac{D_c}{D}\right)^{\alpha_D} &#43; L_\infty $$
+其中 $\alpha_N$、$\alpha_D$ 是幂律指数，$L_\infty$ 是无限规模下的极限损失。
+这一发现的意义深远：它证明了&#34;规模即智能&#34;的科学性，为大模型的发展提供了可预测的路径。理解缩放定律，就是理解大模型时代的底层规律。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读缩放定律，包含完整的数学推导、实验分析和理论探讨，并在文末提供阅读研究论文的时间线计划。
+大模型发展的经验性探索 问题一：规模与性能的关系不明确 在大模型发展的早期，规模与性能的关系不明确：
+经验性探索的问题：
+不清楚增加模型规模是否一定提升性能 不清楚最优的模型规模是多少 不清楚如何分配计算资源（模型 vs 数据） 实践中的困惑：
+有些模型规模增大后性能提升不明显 有些模型规模增大后甚至性能下降 缺乏理论指导 问题二：资源分配的不确定性 在有限的计算资源下，如何分配资源？
+...</p>
+  </div>
+  <footer class="entry-footer">   Lonney .Z | <span title='2025-11-28 21:13:58 +0800 HKT'>November 28, 2025</span> | <span>13 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【ChatGPT时刻08】Scaling Laws：规模与性能的幂律关系" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-11-28-chatgpt-08-scaling-laws/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">AI金融：美国在创新，中国在整合，谁赢了？
     </h2>
   </header>
@@ -293,34 +316,6 @@ AI在气候领域需要兼顾研发和应用，但中美选择了不同的时间
   </div>
   <footer class="entry-footer">   Lonney .Z | <span title='2025-10-25 11:59:11 +0800 HKT'>October 25, 2025</span> | <span>4 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to AI气候：美国在实验室做梦，中国在风电场发电" href="https://blog.zhangky.com/posts/2025/2025-10-ai-climate/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Alexander Rush等人创建的《The Annotated Transformer》，这是一篇教育性的技术博客文章，通过逐行代码注释的方式，详细解析了Transformer架构的PyTorch实现。虽然这不是一篇传统意义上的研究论文，但它为理解Transformer提供了最直观、最实用的方式，是学习Transformer实现的最佳资源之一。
-“代码是最好的文档。&#34;——这是带注释Transformer的核心思想。Transformer论文虽然提出了架构，但实现细节往往隐藏在代码中。带注释Transformer通过详细的代码注释和解释，使读者能够深入理解Transformer的每一个组件、每一行代码的作用，是连接理论和实践的重要桥梁。
-带注释Transformer的核心价值是教育性和实用性：它不仅解释了Transformer的数学原理，还展示了如何用代码实现这些原理。通过逐行注释，读者可以：
-理解实现细节：了解每个组件的具体实现 学习最佳实践：学习PyTorch的实现技巧 快速上手：可以直接使用代码进行实验 在当今大模型时代，理解Transformer的实现细节至关重要：GPT、BERT、T5等模型都基于Transformer架构。理解带注释Transformer，就是理解现代AI模型的实现基础。
-本文将从架构概览、核心组件、实现细节、最佳实践四个维度深度解读带注释Transformer，包含完整的代码分析和实现技巧，并在文末提供阅读研究论文的时间线计划。
-Transformer实现的学习挑战 问题一：理论与实现的差距 Transformer论文提供了架构设计，但实现细节往往不明确：
-理论与实现的差距：
-论文描述的是架构，代码需要处理细节 论文使用数学符号，代码使用具体数据结构 论文关注算法，代码需要处理工程问题 学习挑战：
-如何将数学公式转化为代码？ 如何处理边界情况和数值稳定性？ 如何优化实现效率？ 问题二：代码理解的困难 Transformer的实现代码往往复杂，难以理解：
-代码理解的困难：
-代码量大，难以快速理解 缺少注释，难以理解设计意图 实现技巧不明确，难以学习最佳实践 问题三：教育资源的缺乏 在Transformer刚提出时，详细的教育资源较少：
-教育资源的缺乏：
-缺少详细的实现教程 缺少代码级别的解释 缺少最佳实践的总结 带注释Transformer的核心组件 组件一：多头自注意力 数学定义： $$ \text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O $$
-其中 $\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$。
-代码实现：
-class MultiHeadedAttention(nn.Module): def __init__(self, h, d_model, dropout=0.1): super().__init__() assert d_model % h == 0 self.d_k = d_model // h self.h = h self.linears = nn.ModuleList([nn.Linear(d_model, d_model) for _ in range(4)]) self.attn = None self.dropout = nn.Dropout(p=dropout) def forward(self, query, key, value, mask=None): nbatches = query.size(0) # 1) 线性投影并分割为h个头 query, key, value = [ lin(x).view(nbatches, -1, self.h, self.d_k).transpose(1, 2) for lin, x in zip(self.linears, (query, key, value)) ] # 2) 应用注意力 x, self.attn = attention(query, key, value, mask=mask, dropout=self.dropout) # 3) 拼接多头并应用最终线性层 x = x.transpose(1, 2).contiguous().view(nbatches, -1, self.h * self.d_k) return self.linears[-1](x) 关键实现细节：
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2025-10-08 21:21:38 +0800 HKT'>October 8, 2025</span> | <span>15 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -206,6 +206,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">递归自我改进：从一杯咖啡到Harness Engineering
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>递归自我改进：从一杯咖啡到Harness Engineering 2025年夏天，我去美国纽约和波士顿做短期访问，回程途经旧金山转机。我决定在旧金山多呆一天——去之前通过邮件约了几位朋友，其中包括素未谋面的Lilian Weng。
+我乘地铁去了OpenAI当时的那栋小白楼。他们楼下有一家星巴克，我在那儿等她。那是下午两点，店里坐满了人，一半以上的屏幕上开着代码编辑器，邻桌在讨论transformer的注意力机制，角落里有人在白板上画架构图。你能清晰地感觉到，这栋楼里正在发生什么。
+后面和Weng之间的AI讨论故事不多说了——言归正传。我当时记住了一句话：“模型本身不是瓶颈，真正的瓶颈是我们怎么让模型更好地使用工具、管理上下文、持续进化。”
+今年7月4日，她在博客上发表了那篇《Harness Engineering for Self-Improvement》，结合随后官宣加盟OPRNAI的消息，我才意识到那天那句话的分量。这篇文章，我想从技术的角度，拆解她到底看到了什么。
+一、RSI：一个60年的概念，为什么现在才可行 Lilian Weng的文章开篇直接切入主题：递归自我改进（Recursive Self-Improvement, RSI）。
+这个概念可以追溯到1965年，英国数学家I. J. Good提出的&#34;超智能机器&#34;——一种能在所有智力活动中超越人类，并设计出比自身更好的机器的系统。2008年，Eliezer Yudkowsky将这个概念精确化为一个反馈循环：AI利用其当前的智能，去改进产生其智能的认知机制。
+听起来很抽象。但Lilian Weng把这个抽象概念落到了实处。她指出，在现代AI语境下，这个反馈循环可以发生在三个层面：
+模型权重层面：模型直接重写自己的参数。这是最理想但最难的路径，目前几乎不可行。 训练管道层面：模型改进生成训练数据、选择训练任务、优化训练策略。这是很多前沿实验室正在探索的方向。 部署系统层面：模型改进自己与外界交互的方式——如何调用工具、如何管理上下文、如何评估自身输出。 她明确选择了第三个切入点。原因很关键：原始模型和真实世界之间的这层，其重要性不亚于模型本身的原始智能。Claude Code和Codex的成功，不是因为它们的基础模型最强，而是因为它们的部署系统设计最成熟。
+她用了一个词来描述这层部署系统：Harness。
+二、Harness：模型与世界之间的操作系统 “Lilian Weng在咖啡馆里用了一个比喻，“我回忆道，“她说Harness就像操作系统。你花在操作系统上的功夫，决定了CPU能发挥多大潜力。”
+在她的定义中，Harness是围绕在基础模型周围的整个系统，它负责：
+编排执行流程（模型如何思考和规划） 定义工具调用（模型如何与外界交互） 管理上下文（模型感知和存储什么信息） 持久化产物（模型如何保存工作成果） 评估结果（如何判断模型表现好坏） 这个定义的精妙之处在于，它将原本分散的概念——Prompt Engineering、Agent Framework、Tool Use、Memory Management、Evaluation——统一到了一个更宏观的架构视角下。
+更重要的是，她指出了Harness工程与传统Agent框架的区别：
+维度 传统Agent框架 Harness工程 核心公式 agent = LLM &#43; memory &#43; tools &#43; planning &#43; action 额外加入workflow design, evaluation, permission control, persistent state 设计理念 Prompt模板 运行时系统设计 类比 IDE 操作系统 这个类比不是随便说的。Lilian Weng明确指出，Harness的设计应该参考操作系统的工程实践：
+...</p>
+  </div>
+  <footer class="entry-footer">   Lonney .Z | <span title='2026-08-05 22:00:00 +0800 HKT'>August 5, 2026</span> | <span>25 min</span> | <span>Shanghai, China</span></footer>
+  <a class="entry-link" aria-label="post link to 递归自我改进：从一杯咖啡到Harness Engineering" href="https://blog.zhangky.com/posts/2026/08/2026-08-05-harness-engineering-for-rsi/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">你卖的是时间，还是系统
     </h2>
   </header>
@@ -333,35 +359,6 @@ The Founder’s Playbook 给出了一个三层方案。
   </div>
   <footer class="entry-footer">   Lonney .Z | <span title='2026-07-21 10:00:00 +0800 HKT'>July 21, 2026</span> | <span>11 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 技术债与架构决策：为 Scale 打下地基" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-21-tech-debt-architecture/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">从创始人驱动到系统化运营：建立不依赖你的机器
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 亨利·福特说：“我问人们想要什么，他们说要一匹更快的马。“但福特真正的天才不是发明了汽车——他发明了生产汽车的系统。没有装配线，T 型车只是另一辆昂贵的实验品。Launch 阶段的核心任务，是把创始人从&#34;T 型车&#34;变成&#34;装配线”。
-创始人成为瓶颈的那一刻 The Founder’s Playbook 描述了一个每个创始人都会经历、但很少提前意识到的时刻：你不再是公司的加速器，你成了公司的限速器。
-信号很具体。本该一小时的决策，现在要排一周才能轮到你；支持请求在堆积，因为只有你知道答案；运营任务只在你记得做的时候才发生；产品路线图卡在你这里，因为所有重要决定都要过你的手。
-在 Idea 和 MVP 阶段，创始人在每个循环里是一种资产——你需要全局认知和紧密反馈循环。但到了 Launch，支持量在涨，产品在变复杂，运营在膨胀。那种&#34;我亲自盯着&#34;的习惯，开始反噬。
-这不是一次突然发生的转变，更像温水煮青蛙。某天你突然发现，公司不在&#34;因为你而快”，而在&#34;因为你而慢&#34;。
-全面审计：你在忙什么 The Founder’s Playbook 的解法很直白——把你亲自在处理的每件事，从最小任务到最高风险决策，全部列出来。然后分三类。
-第一类是可以系统化的：CRM 更新、周报生成、用户外联排期、bug 分类。它们有明确触发条件、决策规则和输出格式，是 AI 工作流自动化的理想对象。先动这些。
-第二类是需要人但不一定需要你的：某些支持请求、代码审查、内容审核。这些需要人的判断，但不需要创始人的判断。可以委托给团队成员，或者让 AI 辅助一个初级处理流程。
-第三类才是真的需要创始人的：产品叙事决策、董事会关系、战略合作、创始人对创始人的对话。这些需要你独有的上下文和关系，没人能替。
-分类完之后，用 Claude Cowork 设计自动化工作流的逻辑：什么触发、什么规则、输出是什么、完成后去哪里。这一步看着琐碎，但它是后面一切的基础。
-技术债的系统性清理 Launch 阶段另一个紧迫任务是处理 MVP 阶段攒下的技术债。
-MVP 时期，一些技术债是合理的——你拿代码质量换了速度。但到了 Launch，这些债开始产生利息。生产流量在涨、新功能在叠加、代码库在膨胀，那些&#34;以后再说&#34;的捷径，现在成了结构性负债。
-The Founder’s Playbook 给了三步走的建议。先用 Claude Code 做一次完整的架构审计，找出脆弱处、维护成本高的捷径、测试覆盖不足的区域。然后把审计结果交给 Claude 做优先级排序——什么必须在下次发布前修，什么可以等一轮 sprint，什么是当前阶段能接受的持续债。最后，把 MVP 阶段脑子里的架构决策写进 CLAUDE.md——那些当时没时间写下来的决定，现在该落地了。
-这一步我自己的体会是：写下来这件事，比审计本身还重要。审计是发现问题，写 CLAUDE.md 是把&#34;为什么这么决定&#34;固化下来。下次新人或者 AI 接手时，不用再去猜你的意图。
-安全与合规：不再是可选项 MVP 阶段，安全漏洞是理论风险——你的用户是 beta 测试者，没有敏感数据在生产环境里跑。
-到了 Launch，情况变了。你的产品上有真实用户、真实数据，可能还有企业合同在谈。合规要求也一样——处理客户数据、处理支付、卖到受监管行业，这些都不再是&#34;未来的事&#34;。
-书里的态度很直接：在规模到来之前，而不是之后，做一次系统性的安全和合规审查。 把所有发现当作必须修复的项目，不是建议。
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-07-15 10:00:00 +0800 HKT'>July 15, 2026</span> | <span>12 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 从创始人驱动到系统化运营：建立不依赖你的机器" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-15-founder-to-system/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

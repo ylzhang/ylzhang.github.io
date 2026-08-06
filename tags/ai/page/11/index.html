@@ -191,6 +191,31 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【论文解读07】循环神经网络正则化（Ilya经典论文）
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Wojciech Zaremba、Ilya Sutskever和Oriol Vinyals于2014年发表的经典论文《Recurrent Neural Network Regularization》，该论文首次将Dropout正则化技术系统性地应用于循环神经网络（RNN），通过只在非循环连接上应用Dropout，既保持了RNN的记忆能力，又有效防止了过拟合。这一创新为RNN在序列建模任务中的成功应用奠定了重要基础，特别是在机器翻译、语言模型等需要处理长序列的任务中取得了突破性成果。
+“正则化是深度学习的艺术。&#34;——这是Ilya Sutskever等人在2014年提出的深刻洞察。RNN虽然能够处理变长序列，但在训练过程中极易过拟合，特别是在大规模数据集上训练深层RNN时。传统的Dropout技术直接应用于RNN会导致网络无法保持长期记忆，因为随机失活会破坏RNN的循环结构。
+论文的核心创新是只在非循环连接上应用Dropout：在LSTM的输入-隐藏层连接和隐藏-输出层连接上应用Dropout，但在循环连接（hidden-to-hidden）上不使用Dropout。这种设计既保持了RNN的记忆能力，又有效防止了过拟合，使RNN能够在大型数据集上训练深层网络。
+在当今大语言模型时代，这一思想仍然具有重要意义：虽然Transformer已经取代RNN成为主流架构，但正则化的核心思想（防止过拟合、提高泛化能力）仍然是深度学习的关键。理解RNN正则化，就是理解如何在高容量模型中平衡记忆能力和泛化能力。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读RNN正则化技术，包含完整的数学推导、算法流程和复杂度分析，并在文末提出开放性问题与未来研究方向。
+本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
+RNN过拟合问题的根源 问题一：RNN的高容量与过拟合风险 RNN的参数共享机制使其能够处理任意长度的序列，但这也带来了过拟合风险。对于长度为 $T$ 的序列，RNN实际上使用了 $T$ 次相同的权重矩阵 $W_h$（hidden-to-hidden连接），相当于将参数&#34;复用&#34;了 $T$ 次。
+参数有效性的量化：虽然RNN的参数量是固定的（例如，对于隐藏维度 $d_h$，hidden-to-hidden权重矩阵 $W_h$ 的大小为 $d_h \times d_h$），但每个参数在序列的每个时间步都被使用，相当于有 $T$ 个&#34;虚拟参数”。这种参数复用使得RNN具有很高的表达能力，但也增加了过拟合的风险。
+过拟合的数学表现：当训练集规模 $N$ 相对于模型容量较小时，模型可能&#34;记住&#34;训练数据的细节，而不是学习数据的规律。在RNN中，这种过拟合表现为：训练集上的困惑度（perplexity）很低，但验证集上的困惑度很高，模型无法泛化到新序列。
+问题二：传统Dropout在RNN中的失效 传统Dropout在RNN中直接应用会导致严重问题。Dropout的核心思想是在训练时随机将部分神经元输出置0，迫使网络学习更鲁棒的表示。但在RNN中，这种随机失活会破坏循环结构。
+循环连接的脆弱性：RNN的循环连接 $h_t = f(W_h h_{t-1} &#43; W_x x_t &#43; b)$ 依赖于前一时刻的隐藏状态 $h_{t-1}$。如果在 $h_{t-1}$ 上应用Dropout，会导致信息在时间维度上的传播被随机打断，网络无法保持长期记忆。
+数学分析：假设在隐藏状态上应用Dropout，则：
+$$ h_t = f(W_h (\text{Dropout}(h_{t-1})) &#43; W_x x_t &#43; b) $$
+...</p>
+  </div>
+  <footer class="entry-footer">   Lonney .Z | <span title='2026-01-27 10:00:43 +0800 HKT'>January 27, 2026</span> | <span>24 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【论文解读07】循环神经网络正则化（Ilya经典论文）" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-27-paper-07-rnn-regularization/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">【论文解读06】理解LSTM网络：解决长期依赖问题
     </h2>
   </header>
@@ -290,23 +315,6 @@ $$ h_t = \tanh(W_h h_{t-1} &#43; W_x x_t &#43; b) $$
   </div>
   <footer class="entry-footer">   Lonney .Z | <span title='2026-01-11 10:25:22 +0800 HKT'>January 11, 2026</span> | <span>28 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 【论文解读05】循环神经网络的不可思议的有效性" href="https://blog.zhangky.com/posts/2026/paper-read/2026-01-11-paper-05-rnn-effectiveness/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">A Good Company Everyday - Waymo One
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 真正伟大的产品从不纠结于&#34;它能做什么&#34;，而是追问&#34;它能为生活带来什么改变&#34;。Waymo One在App Store拿下满分，本质上不是因为它是全球首个商用无人驾驶网约车服务，而是它用AI撕开了传统出行的边界，把&#34;必须有人驾驶&#34;的固有认知，变成了&#34;人人可自由支配的出行时间&#34;。它到底是什么？是从谷歌2009年自动驾驶项目孵化而来，用十六年时间打磨出的&#34;移动自由空间&#34;，更是未来智能交通的基础设施雏形。
-这种对出行本质的重构，从来不是突发奇想。Waymo的起点是谷歌内部一个看似不切实际的目标：让出行更安全、更平等。2009年，当大多数公司还在纠结辅助驾驶功能时，他们已经开始搭建完整的自动驾驶系统。2016年从谷歌独立成为Alphabet子公司，Waymo的使命更清晰——做&#34;世界上最值得信任的司机&#34;。2018年Waymo One应用推出，从凤凰城的小规模测试，到如今覆盖旧金山、洛杉矶、凤凰城等多座城市，甚至通过与Uber合作进入奥斯汀、亚特兰大，每一步都不是为了抢占市场，而是用真实场景打磨技术，建立用户信任。这种长期主义的打磨，让它积累了1.55亿英里安全行驶里程，完成超2000万次付费出行，周订单量突破45万单。这些数据不是炫耀的资本，而是支撑&#34;永远不疲劳、永远不分心&#34;承诺的基石。
-真正用过Waymo One，才会明白它的聪明之处从不是&#34;无人&#34;这个标签，而是把技术彻底融入体验的细节里。打开App叫车，你不用像传统网约车那样反复确认位置，系统会自动选择最安全的上下车点。车辆到达前，车顶会亮起你在App里设置的专属字母，再加上可以通过App让车辆鸣笛或播放旋律的设计，在停车场找车变成了一件轻松的事。坐进车内，没有司机的局促感，宽敞的全电动Jaguar I-PACE车厢每天都会细致清洁，你可以通过屏幕连接Spotify播放音乐，调整到自己舒服的温度，甚至随时添加中途停靠点。最关键的是那份安全感。车内屏幕会实时显示Waymo Driver看到的路况，行人和车辆都被清晰标记，你能直观感受到它的决策逻辑，这种&#34;透明化&#34;的设计，比任何宣传都能打消对无人驾驶的顾虑。而技术层面，它没有走纯视觉的捷径，而是用激光雷达&#43;摄像头&#43;雷达的三重感知方案，在旧金山停电导致信号灯失效时，依然能稳定运行，这种冗余设计不是技术堆砌，而是对生命的敬畏。更难得的是它的包容性，为视障用户优化的屏幕阅读器、可预约的无障碍车辆，让出行自由不再是少数人的特权，这才是技术应有的温度。
-至于Waymo One的未来，绝不止于&#34;更大的网约车公司&#34;。它刚刚获得内华达州的全面运营许可，计划2026年引入极氪RT平台把单车成本从12万美元降到8万美元以下，还将与丰田合作进军东京市场，这些动作都是在为规模化铺路。但规模化的终极目标，是让无人驾驶成为像水电一样的基础设施。当单车成本足够低，覆盖范围足够广，改变的就不只是个人出行。更少的交通事故会减轻社会负担，更高效的路线规划能缓解拥堵，全电动车队会推动环保，甚至城市规划都会因为&#34;无需大量停车场&#34;而重新设计。未来的Waymo One，可能不再只是一个叫车App，而是智能出行管家，提前预判拥堵，联动目的地的服务，把&#34;出行&#34;和&#34;生活&#34;无缝衔接。更要紧的是，它积累的每一公里路况数据、每一次AI决策经验，都会成为智能交通的核心资产，推动整个行业从&#34;有人驾驶&#34;向&#34;智能出行&#34;跃迁。
-说到底，Waymo One的5分好评，是用户对&#34;技术向善&#34;的投票。它证明了最先进的AI技术，不该用来制造焦虑，而是要帮人们摆脱负担。最伟大的产品，不是颠覆世界的口号，而是让每个人的生活都变得更自由、更平等。这也是所有伟大产品的共通之处：用技术读懂人性，用体验改变生活。
-</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-01-08 12:40:14 +0800 HKT'>January 8, 2026</span> | <span>7 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to A Good Company Everyday - Waymo One" href="https://blog.zhangky.com/posts/2026/01/2016-01-08-a-good-company-everyday-waymo-one/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
