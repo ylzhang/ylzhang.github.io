@@ -1,277 +1,59 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Technology | Z&#39;s Blog</title>
-<meta name="keywords" content="">
-<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-<meta name="author" content="Lonney .Z">
-<link rel="canonical" href="https://blog.zhangky.com/categories/technology/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/categories/technology/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/categories/technology/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<meta property="og:url" content="https://blog.zhangky.com/categories/technology/">
-  <meta property="og:site_name" content="Z&#39;s Blog">
-  <meta property="og:title" content="Technology">
-  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="website">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="Technology">
-<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-
-</head>
-<body class="list" id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
-                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Z&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 11a9 9 0 0 1 9 9" />
-    <path d="M4 4a16 16 0 0 1 16 16" />
-    <circle cx="5" cy="19" r="1" />
-</svg>
-                </a>
-                
-
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://blog.zhangky.com/" title="Posts">
-                    <span>Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/series/" title="Series">
-                    <span>Series</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/faq" title="FAQ">
-                    <span>FAQ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <style>
-        .nav.scrolled {
-            background: var(--theme);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .nav.scrolled #menu {
-            display: none;
-        }
-        .nav.scrolled .logo {
-            margin: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > nav.offsetHeight) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-</header>
-<main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/categories/">Categories</a></div>
-  <h1>
-    Technology
-  </h1>
-</header>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">什么才算是AI Native：从卖工具到卖结果的新叙事
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>什么才算是AI Native：从卖工具到卖结果的新叙事 AI原生服务公司正在重写创业剧本：不是卖工具，而是直接交付结果。
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Technology | Zhang's Blog</title><meta name=keywords content><meta name=description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/categories/technology/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.zhangky.com/categories/technology/index.xml title=rss><link rel=alternate hreflang=en href=https://blog.zhangky.com/categories/technology/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://blog.zhangky.com/categories/technology/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="Technology"><meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta property="og:locale" content="zh-cn"><meta property="og:type" content="website"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="Technology"><meta name=twitter:description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."></head><body class=list id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/series/ title=Series><span>Series</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://blog.zhangky.com/>Home</a>&nbsp;»&nbsp;<a href=https://blog.zhangky.com/categories/>Categories</a></div><h1>Technology</h1></header><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>什么才算是AI Native：从卖工具到卖结果的新叙事</h2></header><div class=entry-content><p>什么才算是AI Native：从卖工具到卖结果的新叙事 AI原生服务公司正在重写创业剧本：不是卖工具，而是直接交付结果。
 YC Startup School最近一期节目中，主讲人Charlie Warren提出了一个颠覆性的观点：十年内，会出现一部分AI巨头公司，主业并不是做开发，而是被AI重新组织起来的服务公司。A16Z的投资团队也在多个场合强调，AI时代的创业机会不止于产品，更在于服务交付的重构。
 这种转变正在发生。保险、税务、法务、审计、医疗文书、财务外包、合规服务、企业申报——这些传统、笨重、不互联网的行业，正在成为AI创业的新战场。根据麦肯锡研究，到2030年，AI有望自动化全球服务行业约30%的工作任务，市场规模预计超过万亿美元。
-从SaaS到AI Native Service，一场从&#34;卖工具&#34;到&#34;卖结果&#34;的转向正在悄然发生。
+从SaaS到AI Native Service，一场从"卖工具"到"卖结果"的转向正在悄然发生。
 从工具到结果：两种完全不同的商业逻辑 传统软件公司卖的是工具。客户买CRM是为了管理销售线索，买财务软件是为了处理账目，买合同工具是为了起草和审核文档。软件本身并不保证结果，它只是让客户内部的人更高效。
-AI原生服务公司卖的则是结果。客户不再购买&#34;合同审查工具&#34;，而是购买&#34;合同审查完成&#34;；不再购买&#34;报税软件&#34;，而是购买&#34;税务申报完成&#34;；不再购买&#34;合规助手&#34;，而是购买&#34;合规文件交付&#34;。
+AI原生服务公司卖的则是结果。客户不再购买"合同审查工具"，而是购买"合同审查完成"；不再购买"报税软件"，而是购买"税务申报完成"；不再购买"合规助手"，而是购买"合规文件交付"。
 核心区别在于责任边界：卖工具，客户需要学习工具、设计流程、承担执行结果；卖结果，服务公司要把业务的流程、质量控制、异常处理和最终交付都承担下来。这要求AI原生服务公司，既要具备传统服务外包BPO的运营能力，又要构建领先的AI驱动运营系统。
 选市场：找到AI能真正创造价值的领域 不是所有服务行业都适合AI原生服务这条路。YC节目中指出，值得做的市场有几个关键特征。
 第一，客户预算充足且持续。理想的入口是那些客户已经长期付费、但体验很差的服务：贵、慢、不透明、沟通成本高、结果不稳定。税务、保险、法务、审计、医疗、财务外包就特别典型。
 第二，任务可拆解，能量化，有标准。AI擅长处理大量的、可以被验收、相对结构化、流程比较明确的工作，比如读取海量文件、提取关键信息、汇总撰写初稿、核对成百上千条规则。如果一个服务完全依赖专家经验判断，很难在早期直接自动化，但可以拆成一连串小任务，让AI先吃掉大部分工作量。
 第三，客户关心结果，而不关心你的人力成本。客户只在意事情有没有办成、风险有没有降低、要求有没有达到、速度有没有提升。只要结果可信、交付稳定、责任清楚，新的供给方式就有机会替代旧方式。
-Sam Altman测试：你的价值是否依赖模型本身？ 很多AI产品本质只是给大模型包了一层界面。YC节目中提到的&#34;Sam Altman测试&#34;提供了一个判断标准：6-12个月后，GPT模型能力继续大幅提升，你的公司会因此更强，还是会被OpenAI的新功能覆盖掉？
-如果你的服务价值只是&#34;调用模型生成一段内容&#34;，那会很危险，因为客户迟早自己就可以用模型完成同样的事情。但如果你的价值是精通复杂的行业流程、与客户建立深度信任、拥有独特的数据沉淀、质量控制能力出色、责任边界清晰、交付能力有保障，那么模型越强，你反而越有价值。
+Sam Altman测试：你的价值是否依赖模型本身？ 很多AI产品本质只是给大模型包了一层界面。YC节目中提到的"Sam Altman测试"提供了一个判断标准：6-12个月后，GPT模型能力继续大幅提升，你的公司会因此更强，还是会被OpenAI的新功能覆盖掉？
+如果你的服务价值只是"调用模型生成一段内容"，那会很危险，因为客户迟早自己就可以用模型完成同样的事情。但如果你的价值是精通复杂的行业流程、与客户建立深度信任、拥有独特的数据沉淀、质量控制能力出色、责任边界清晰、交付能力有保障，那么模型越强，你反而越有价值。
 更强的模型会降低交付成本、提高处理速度、扩大服务范围、改善毛利结构。因此，顶尖的AI原生服务公司，必须建立在模型进步之上。
 稳定交付是最大的壁垒，也是最大的难点 AI原生服务公司最大的挑战，是能不能稳定交付结果给到客户。服务行业卖的是信任，客户要的是确定性。
 YC节目里有一句话：“variance kills these businesses faster than anything else”——不稳定性会比任何东西更快杀死这类公司。
 想象一下：同样的问题，这次答对下次答错；同样的客户，这次体验好下次体验差；同样的流程，这个案例顺利，另一个案例失控。只要这种波动存在，客户对你的信任就会迅速被消耗掉。
-一个真实案例：美国AI法律服务公司DoNotPay最初以&#34;AI律师&#34;的噱头吸引了大量关注，但因为AI回答的不稳定性，导致客户投诉激增，最终不得不转型为更注重人工复核的混合模式。
-因此，AI原生服务公司的核心能力不是炫耀&#34;全自动&#34;，而是知道哪些环节要自动、哪些环节要人工、什么时候要多重审核、什么时候拒绝回答并升级给专家处理。人与AI协作不是为了让商业故事更好听，而是为了把风险控制在客户可接受的范围内。
+一个真实案例：美国AI法律服务公司DoNotPay最初以"AI律师"的噱头吸引了大量关注，但因为AI回答的不稳定性，导致客户投诉激增，最终不得不转型为更注重人工复核的混合模式。
+因此，AI原生服务公司的核心能力不是炫耀"全自动"，而是知道哪些环节要自动、哪些环节要人工、什么时候要多重审核、什么时候拒绝回答并升级给专家处理。人与AI协作不是为了让商业故事更好听，而是为了把风险控制在客户可接受的范围内。
 不要被早期客户拖成定制外包 AI原生服务公司还有一个常见陷阱：早期客户需求很多，什么都想接，结果变成了定制外包。
 为了获得收入，每个客户都有特殊要求，每个项目都要临时救火，每一单都要重新设计流程。公司收入会增长，团队也会扩张，但底层没有形成可复制的交付系统。
 真正的优势在于：扎根某类服务场景，借助AI把过去没法标准化的环节做到标准化、把过去没法流程化的功能做到流程化、把过去复杂的工序做到简洁化，永远让下一单比上一单更容易交付。
 对AI原生服务公司最重要的营收指标，不是全部收入，而是其中能复用的收入。
 定价：不要让自己陷入低价困境 AI会让交付成本下降，但这并不意味着公司应该靠低价竞争。传统服务里，律师、顾问、会计按小时收费，但AI原生服务公司如果继续按小时收费，就浪费了自己的优势。
-你卖给客户的不是时间，而是结果。如果你能够帮客户节省十万块，收一万块的服务费合情合理。但如果你主打的是&#34;我们比传统顾问便宜50%&#34;，客户反而会继续压价。
-AI降低交付成本，价值定价保留利润空间。两者结合，才可能形成高毛利业务。否则，公司名义上是&#34;AI原生服务&#34;，实际上只是&#34;AI低价外包&#34;。
+你卖给客户的不是时间，而是结果。如果你能够帮客户节省十万块，收一万块的服务费合情合理。但如果你主打的是"我们比传统顾问便宜50%"，客户反而会继续压价。
+AI降低交付成本，价值定价保留利润空间。两者结合，才可能形成高毛利业务。否则，公司名义上是"AI原生服务"，实际上只是"AI低价外包"。
 AI杠杆最终要体现在财务上 AI原生服务公司需要从一开始就把财务账算清楚。收入怎么来？交付成本是什么？毛利有多高？AI Token成本会不会失控？人工审核、异常处理、客户支持、数据处理分别占多少成本？每新增一个客户，需要增加多少人？
 关键财务指标：优秀的AI原生服务公司，应该随着规模扩大，毛利越来越好。早期可以有较多人工参与，但随着流程稳定、数据积累、模型能力提升，人应该逐渐从执行者变成监督者。
 衡量标准：收入增长曲线要比人力增长曲线更陡。如果收入增长100%只需要增加30%的人力，说明AI杠杆在起作用。反之，如果收入和人力同步增长，那只是一家用了AI工具的传统服务公司。
 行业数据：据A16Z报告，成功的AI服务公司毛利率通常在60%以上，而传统BPO公司毛利率普遍在20-30%之间。
-对国内创业者的启发 中国SaaS长期难做，最大的敌人是企业客户都在&#34;自研&#34;软件产品。但是，企业过去就有许多业务是天然在持续付费和外包的：获客、财税、合规、申报等各种&#34;办事&#34;的服务。
+对国内创业者的启发 中国SaaS长期难做，最大的敌人是企业客户都在"自研"软件产品。但是，企业过去就有许多业务是天然在持续付费和外包的：获客、财税、合规、申报等各种"办事"的服务。
 这反而让AI原生服务公司有机会。国内有大量服务行业仍然低效、分散、不透明，但客户需求真实存在，比如财税、法务、外审、知识产权、跨境合规、企业资质申报、保险理赔、医疗文书、留学申请、审计内控、供应链单证等。
 谁能把复杂服务拆成AI可执行的，谁能控制交付质量的方差，谁能建立客户信任，谁能围绕结果定价，谁就可能在传统服务业里做出新一代AI公司。
-说到底，AI的机会不仅是&#34;卖给客户&#34;，也有可能是&#34;交付结果&#34;。过去的软件公司把工具卖给客户，让客户自己完成工作。AI原生服务公司则把客户需要的结果直接交付出来。
+说到底，AI的机会不仅是"卖给客户"，也有可能是"交付结果"。过去的软件公司把工具卖给客户，让客户自己完成工作。AI原生服务公司则把客户需要的结果直接交付出来。
 这要求创业者不只是懂AI，更要懂行业、懂流程、懂运营、懂质量控制、懂客户信任。这里的壁垒不仅在于用好AI，还得把传统服务做成一套稳定、可复制、可规模化的系统。
 只要模型在继续变强，成本就能继续下降；只要通用AI覆盖率继续提高，你就能解决客户更多的新问题。下一代AI大机会，改变也许就在那些最传统、最繁琐、最贵、最慢、最不稳定的服务业深处。
 AI原生服务公司的本质，就是把这些旧服务重新做一遍——不是卖产品，而是卖结果。
-- FIN -
-</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-06-01 08:00:00 +0800 HKT'>June 1, 2026</span> | <span>15 min</span> | <span>zhejiang, China</span></footer>
-  <a class="entry-link" aria-label="post link to 什么才算是AI Native：从卖工具到卖结果的新叙事" href="https://blog.zhangky.com/posts/2026/06/2026-06-01-what-is-ai-native/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">AI-First组织革命：从&#34;信任人&#34;到&#34;信任AI&#34;
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Harness时代：一场从&#34;信任人&#34;到&#34;信任AI&#34;的组织革命 引言：当AI从工具变成主导者 2026年的春天，硅谷传来一个令技术圈震动的数据：一家25人的公司，99%的代码由AI完成，每天平均3到8次生产部署，过去需要六周的产品开发流程，如今一天就能跑完。这不是科幻，而是CreaoAI在《Why Your “AI-First” Strategy Is Probably Wrong》中展示的真实案例。
-这篇博文之所以在X上获得百万级阅读，不是因为它描述了一个美好的愿景，而是因为它撕开了&#34;AI-First&#34;转型中最那道最难跨越的伤疤——信任。不是对AI能力的信任，而是对AI作为生产力主导者的信任，是对整个组织从&#34;人驱动AI&#34;转向&#34;AI驱动人&#34;这一根本性变革的信任。
+- FIN -</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-06-01 08:00:00 +0800 +0800'>June 1, 2026</span> | <span>15 min</span> | <span>zhejiang, China</span></footer><a class=entry-link aria-label="post link to 什么才算是AI Native：从卖工具到卖结果的新叙事" href=https://blog.zhangky.com/posts/2026/06/2026-06-01-what-is-ai-native/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>AI-First组织革命：从"信任人"到"信任AI"</h2></header><div class=entry-content><p>Harness时代：一场从"信任人"到"信任AI"的组织革命 引言：当AI从工具变成主导者 2026年的春天，硅谷传来一个令技术圈震动的数据：一家25人的公司，99%的代码由AI完成，每天平均3到8次生产部署，过去需要六周的产品开发流程，如今一天就能跑完。这不是科幻，而是CreaoAI在《Why Your “AI-First” Strategy Is Probably Wrong》中展示的真实案例。
+这篇博文之所以在X上获得百万级阅读，不是因为它描述了一个美好的愿景，而是因为它撕开了"AI-First"转型中最那道最难跨越的伤疤——信任。不是对AI能力的信任，而是对AI作为生产力主导者的信任，是对整个组织从"人驱动AI"转向"AI驱动人"这一根本性变革的信任。
 CreaoAI成立于2025年11月，25名员工中只有10名工程师。创始人Peter Pang在2026年1月做出了一个大胆的决定：从零开始重构整个产品架构和工程工作流。两周后，新系统上线。如果产品能够自我构建，它就能work。
-一、Harness Engineering：工程团队的首要任务不再是写代码 从概念到实践：OpenAI的定义 2026年2月，OpenAI发表了一篇文章，阐述了&#34;Harness Engineering&#34;的概念：Creao其实早就在践行这一理念，只是没有给它命名。
+一、Harness Engineering：工程团队的首要任务不再是写代码 从概念到实践：OpenAI的定义 2026年2月，OpenAI发表了一篇文章，阐述了"Harness Engineering"的概念：Creao其实早就在践行这一理念，只是没有给它命名。
 Peter Pang对Harness Engineering的核心定义：
 “工程团队的首要任务不再是写代码，而是使Agent能够做有用的工作。当某件事失败时，修复方案永远不是’再努力试试’。修复方案永远是：缺了什么能力？我们如何让这个能力对Agent可见且可执行？”
-这个定义揭示了Harness的本质：从&#34;人修复问题&#34;到&#34;系统获得能力&#34;。传统思维是&#34;人出了错，人来修&#34;；Harness思维是&#34;系统缺能力，系统补能力&#34;。
+这个定义揭示了Harness的本质：从"人修复问题"到"系统获得能力"。传统思维是"人出了错，人来修"；Harness思维是"系统缺能力，系统补能力"。
 从Prompt Engineering到Harness：认知的三次跃迁 回溯大模型应用的历史，我们经历了三个认知阶段：
 第一阶段：Prompt Engineering（提示词工程） 这个阶段人们相信，只要写好提示词，AI就能乖乖听话。但prompt的边界太明显——它太依赖人的表达能力和对AI的理解，同样的需求，换一个表述，结果可能天差地别。
-第二阶段：Context Engineering（上下文工程） RAG（检索增强生成）技术风靡一时，核心逻辑是&#34;喂给AI足够多、足够准确的上下文&#34;。但上下文是静态的，而AI处理的任务是动态的；上下文是过去的经验，而任务总是面向未知的场景。
-第三阶段：Harness Engineering（挽具工程） Harness不是静态的配套系统，而是&#34;驯化&#34;通用智能的动态过程。它解决的是如何让一个AI系统从&#34;能干活&#34;进化到&#34;会自我优化&#34;的问题。
+第二阶段：Context Engineering（上下文工程） RAG（检索增强生成）技术风靡一时，核心逻辑是"喂给AI足够多、足够准确的上下文"。但上下文是静态的，而AI处理的任务是动态的；上下文是过去的经验，而任务总是面向未知的场景。
+第三阶段：Harness Engineering（挽具工程） Harness不是静态的配套系统，而是"驯化"通用智能的动态过程。它解决的是如何让一个AI系统从"能干活"进化到"会自我优化"的问题。
 而Harness要做的是，让整个系统成为一个人机共生的生态系统：AI不仅执行任务，还能根据执行结果调整策略；系统不仅能工作，还能识别自身的缺陷并自我修复。
 “Prompts are disposable”：一个反直觉的真相 Peter在原文中提到了一个反直觉的观点：
 “A production system needs to be stable, reliable, and secure. You need a system that can guarantee those properties when AI writes the code. You build the system. The prompts are disposable.”
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-05-25 08:00:00 +0800 HKT'>May 25, 2026</span> | <span>31 min</span> | <span>zhejiang, China</span></footer>
-  <a class="entry-link" aria-label="post link to AI-First组织革命：从&#34;信任人&#34;到&#34;信任AI&#34;" href="https://blog.zhangky.com/posts/2026/05/2026-05-25-harness-ai-first-organization/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">智能体：AI 时代的操作系统级入口
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 核心观点：李彦宏提出的 DAA（日活智能体数）指标，标志着 AI 时代的入口迁移已经开始。智能体不是独立软件，而是 AI 操作系统——比拼的不是裸模型，而是模型&#43;Harness&#43; 工具链的整套系统。智能体的使命，就是成为这个操作系统的统一调度者，让不同领域的智能体能够互联互通、协同工作，最终成为 AI 时代的中心化入口。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-05-25 08:00:00 +0800 +0800'>May 25, 2026</span> | <span>31 min</span> | <span>zhejiang, China</span></footer><a class=entry-link aria-label='post link to AI-First组织革命：从"信任人"到"信任AI"' href=https://blog.zhangky.com/posts/2026/05/2026-05-25-harness-ai-first-organization/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>智能体：AI 时代的操作系统级入口</h2></header><div class=entry-content><p>核心观点：李彦宏提出的 DAA（日活智能体数）指标，标志着 AI 时代的入口迁移已经开始。智能体不是独立软件，而是 AI 操作系统——比拼的不是裸模型，而是模型+Harness+ 工具链的整套系统。智能体的使命，就是成为这个操作系统的统一调度者，让不同领域的智能体能够互联互通、协同工作，最终成为 AI 时代的中心化入口。
 一、DAA：衡量 AI 时代繁荣度的新指标 李彦宏在 Create AI 大会上提出的 DAA 指标，值得再往深处看：
 “过去互联网时代，大家习惯用 DAU 衡量有多少人在使用产品。但到了 AI 时代，真正重要的事情开始变成，有多少智能体正在替人类干活。”
 DAA 本质上衡量的是：智能体生态到底繁不繁荣，AI 有没有真正开始介入真实世界。
@@ -281,64 +63,40 @@ DAA 本质上衡量的是：智能体生态到底繁不繁荣，AI 有没有真�
 这种体验会深入用户心智。一旦形成习惯，谁拿到这个入口，谁就是王者。
 三、智能体是操作系统，不是独立软件 这是百度最深刻的洞察之一：
 “智能体不只是 AI 模型之上的新产品，它更像是 AI 操作系统。”
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-05-14 07:18:00 +0800 HKT'>May 14, 2026</span> | <span>14 min</span> | <span>zhejiang, China</span></footer>
-  <a class="entry-link" aria-label="post link to 智能体：AI 时代的操作系统级入口" href="https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">模型为王：AI编程的终局判断
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 核心观点：编程十几年，最近几个月我一直在刻意训练自己「不写一行代码完成目标」。实践中遇到的挑战让我更加坚定：当前工具链的爆发不是智能的初衷，模型能力才是真正的护城河。Harness、Agent、Loop这些概念本质上是模型智能化不足的权宜之计。这是黎明前的黑夜，但光明终将到来。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-05-14 07:18:00 +0800 +0800'>May 14, 2026</span> | <span>14 min</span> | <span>zhejiang, China</span></footer><a class=entry-link aria-label="post link to 智能体：AI 时代的操作系统级入口" href=https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>模型为王：AI编程的终局判断</h2></header><div class=entry-content><p>核心观点：编程十几年，最近几个月我一直在刻意训练自己「不写一行代码完成目标」。实践中遇到的挑战让我更加坚定：当前工具链的爆发不是智能的初衷，模型能力才是真正的护城河。Harness、Agent、Loop这些概念本质上是模型智能化不足的权宜之计。这是黎明前的黑夜，但光明终将到来。
 从实践者视角看AI编程的演进 过去几个月，我尝试了各种AI编程工具和工作流。从IDE补全到Agent自动写代码，从手动prompt到Harness框架，我深刻体会到一个事实：工具的复杂度在增加，但真正的突破始终依赖模型能力的提升。
 工具链爆发背后的无奈 今天的AI编程工具链呈现爆炸式增长：各种Harness框架、Agent编排工具、Loop调度系统层出不穷。但仔细想想，这些工具的出现恰恰说明：模型还不够聪明。
 如果模型能自动理解上下文、自我验证代码、自动修复bug，我们还需要这么多外部机制吗？
 Boris的洞见印证了我的判断 Claude Code创建者Boris在Sequoia访谈中的观点，与我几个月的实践感悟不谋而合：
 “模型能做所有这些事，只是还没有产品把它捕捉下来” “随着模型变强，harness的重要性会下降” “一年以后，很多今天围绕安全和权限搭出来的外壳会变得没那么重” 这不是预言，而是正在发生的事实。
 为什么模型才是终极护城河 深入实践后，我对AI编程的本质有了更深的理解。
-Harness是&#34;模型不足补偿器&#34; 当前所有围绕prompt、权限、验证搭建的复杂机制，都是模型不够智能时的过渡方案。
+Harness是"模型不足补偿器" 当前所有围绕prompt、权限、验证搭建的复杂机制，都是模型不够智能时的过渡方案。
 举个例子：
 Prompt injection防护 → 模型理解能力不足 静态验证命令 → 模型自我验证能力不足 权限模式 → 模型对齐能力不足 Human-in-the-loop → 模型决策可靠性不足 当模型真正理解代码的语义、能够自我验证、自动对齐人类意图时，这些外部机制都会变得多余。
 真正的竞争在模型层 Anthropic能做出Claude Code，核心不是Harness设计得有多精巧，而是他们有强大的模型能力。真正决定AI编程未来的，是模型的：
 深度理解能力：理解大型代码库架构、追踪变更影响 自我验证能力：生成代码后自动检查、修复bug 多模态能力：结合文档、测试、上下文做出最优决策 持续学习能力：从错误中学习、快速适应新技术 AI编程的下一步竞争 基于我的实践和判断，未来的竞争会集中在三个维度：
-1. 模型的&#34;代码理解力&#34;跃迁 当前模型能写代码，但还做不到&#34;理解&#34;代码。真正的突破在于：
-理解代码的业务意图和架构设计 在更高抽象层次进行设计决策 自动发现潜在问题和优化空间 2. 从&#34;辅助&#34;到&#34;自主&#34;的跨越 Boris提到的Loop是方向，但真正的自主编程需要：
+1. 模型的"代码理解力"跃迁 当前模型能写代码，但还做不到"理解"代码。真正的突破在于：
+理解代码的业务意图和架构设计 在更高抽象层次进行设计决策 自动发现潜在问题和优化空间 2. 从"辅助"到"自主"的跨越 Boris提到的Loop是方向，但真正的自主编程需要：
 模型能自动拆解任务、规划执行路径 端到端交付无需人类干预 自我发现问题、自我修复、自我优化 3. 组织级AI原生能力 大公司和创业公司的差距将在于：
 谁能把PR、CI、反馈拆成Agent可处理的任务 谁能从第一天就按AI native方式搭建组织 谁能建立有效的验证标准和治理体系 我的实践经验：不写代码完成目标 这几个月的实践让我有了深刻体会：
-从&#34;写代码&#34;到&#34;定义问题&#34; 我不再关注如何写代码，而是关注如何把业务需求转化为模型能理解的指令。这要求：
+从"写代码"到"定义问题" 我不再关注如何写代码，而是关注如何把业务需求转化为模型能理解的指令。这要求：
 清晰定义目标和约束 建立验证标准 设计反馈循环 工具只是手段，模型才是核心 我尝试过各种Harness框架，但最终发现：与其花时间优化工具，不如花时间理解模型能力的边界，找到最适合当前模型的工作方式。
 对AI从业者的建议 不要迷信工具，要理解模型 很多人在研究Harness架构、prompt工程，但真正的护城河是对模型能力的深度理解。要知道模型能做什么、不能做什么、边界在哪里。
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-05-13 08:11:23 +0800 HKT'>May 13, 2026</span> | <span>8 min</span> | <span>zhejiang, China</span></footer>
-  <a class="entry-link" aria-label="post link to 模型为王：AI编程的终局判断" href="https://blog.zhangky.com/posts/2026/05/2026-05-13-ai-programming-future/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Harness：AI编程的中间站还是终点站？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 核心思考：当我们为AI构建Harness时，究竟是在弥补模型能力的不足，还是在定义智能系统的终极架构？2026年4月的技术讨论已经超越了工具层面，指向了更根本的问题：人类与AI的协作边界究竟在哪里？
-从Prompt到Harness：智能的进化路径 2026年4月，AI编程的讨论重心已经从&#34;如何写好提示词&#34;转向了&#34;如何构建智能系统&#34;。这不是简单的术语替换，而是认知范式的跃迁。
-当Garry Tan在Y Combinator的分享中提出&#34;瘦外壳&#43;胖技能&#34;架构时，他触及了一个被忽视的真相：AI的能力边界不是由模型参数决定的，而是由我们如何组织和引导这些能力决定的。
-为什么Harness成为必然？ 这不是因为AI能力不足，恰恰相反，是因为AI能力太强——强到我们无法用简单的指令驾驭。当模型能够处理复杂推理、生成代码、分析数据时，我们需要的不再是更聪明的模型，而是更智能的&#34;操作系统&#34;。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-05-13 08:11:23 +0800 +0800'>May 13, 2026</span> | <span>8 min</span> | <span>zhejiang, China</span></footer><a class=entry-link aria-label="post link to 模型为王：AI编程的终局判断" href=https://blog.zhangky.com/posts/2026/05/2026-05-13-ai-programming-future/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Harness：AI编程的中间站还是终点站？</h2></header><div class=entry-content><p>核心思考：当我们为AI构建Harness时，究竟是在弥补模型能力的不足，还是在定义智能系统的终极架构？2026年4月的技术讨论已经超越了工具层面，指向了更根本的问题：人类与AI的协作边界究竟在哪里？
+从Prompt到Harness：智能的进化路径 2026年4月，AI编程的讨论重心已经从"如何写好提示词"转向了"如何构建智能系统"。这不是简单的术语替换，而是认知范式的跃迁。
+当Garry Tan在Y Combinator的分享中提出"瘦外壳+胖技能"架构时，他触及了一个被忽视的真相：AI的能力边界不是由模型参数决定的，而是由我们如何组织和引导这些能力决定的。
+为什么Harness成为必然？ 这不是因为AI能力不足，恰恰相反，是因为AI能力太强——强到我们无法用简单的指令驾驭。当模型能够处理复杂推理、生成代码、分析数据时，我们需要的不再是更聪明的模型，而是更智能的"操作系统"。
 Harness的出现，本质上是在回答一个核心问题：如何将AI的通用智能转化为领域专精的生产力？
 智能的分层：从能力到架构 2026年的技术实践已经证明，最有效的AI系统不是单一的大模型，而是由三层构成的智能体：
-1. 厚技能层：人类判断的编码 Skill文件不是简单的提示词集合，而是人类领域知识的结构化表达。当我们将&#34;如何分析用户反馈&#34;编码为Markdown文档时，我们实际上是在创建一个可复用的认知框架。
-这种方法的革命性在于：它将人类的隐性知识转化为AI可执行的显性流程。一个好的Skill文件不是告诉AI&#34;做什么&#34;，而是教会它&#34;如何思考&#34;。
+1. 厚技能层：人类判断的编码 Skill文件不是简单的提示词集合，而是人类领域知识的结构化表达。当我们将"如何分析用户反馈"编码为Markdown文档时，我们实际上是在创建一个可复用的认知框架。
+这种方法的革命性在于：它将人类的隐性知识转化为AI可执行的显性流程。一个好的Skill文件不是告诉AI"做什么"，而是教会它"如何思考"。
 2. 薄Harness层：智能的调度中心 理想的Harness应该像一个轻量的操作系统，只负责最核心的功能：上下文管理、工具调用、安全检查。它不是智能的来源，而是智能的组织者。
 2026年4月的实践数据显示，一个精简的Harness（约200行代码）配合厚技能，比复杂的框架（数千行代码）能实现75倍的性能提升。这印证了一个古老的工程原则：简洁是智慧的灵魂。
 3. 确定性工具层：信任的基石 当我们将精确计算、数据查询、代码执行等任务交给确定性工具时，我们不是在限制AI，而是在为它创造发挥优势的空间。
 最成功的AI系统都遵循一个原则：让AI做它擅长的（思考、判断、综合），让工具做它们擅长的（精确、可靠、可重复）。
 这是终点还是中间站？ 2026年4月的技术讨论中，最具争议的问题是：Harness架构是AI编程的最终形态，还是通往更高级智能的过渡阶段？
 进化的可能路径 路径一：Harness作为终极架构
-如果我们将智能定义为&#34;能力的组织方式&#34;，那么Harness可能就是最终答案。因为无论模型如何进化，我们始终需要一个框架来组织和引导智能。
+如果我们将智能定义为"能力的组织方式"，那么Harness可能就是最终答案。因为无论模型如何进化，我们始终需要一个框架来组织和引导智能。
 路径二：Harness的自我进化
 更有可能的是，Harness本身会进化。未来的Harness可能会：
 自动生成和优化Skill文件 动态调整上下文管理策略 从系统交互中学习最佳实践 路径三：超越Harness的智能体
@@ -348,166 +106,12 @@ Harness的出现，本质上是在回答一个核心问题：如何将AI的通�
 2. 实践经验的积累 经过2024-2025年的探索，开发者已经意识到：单纯依赖提示词工程无法构建可靠的AI系统。我们需要更系统的方法。
 3. 行业需求的倒逼 企业级应用对AI系统的可靠性、可扩展性和可维护性提出了更高要求。Harness架构正是回应这种需求的产物。
 未来的创想：智能的新范式 如果我们将Harness视为智能系统的核心架构，那么未来的AI编程将呈现以下特征：
-1. 技能的民主化 Skill文件的Markdown格式使得领域专家可以直接参与AI系统的构建，而不需要深厚的编程背景。这将开启一个&#34;人人都是AI工程师&#34;的时代。
+1. 技能的民主化 Skill文件的Markdown格式使得领域专家可以直接参与AI系统的构建，而不需要深厚的编程背景。这将开启一个"人人都是AI工程师"的时代。
 2. 系统的自进化 当Skill文件能够从系统交互中学习和优化时，AI系统将进入一个持续进化的状态。每一次使用都成为系统改进的机会。
 3. 人类与AI的新协作模式 Harness架构清晰地界定了人类与AI的职责边界：人类负责定义目标和提供领域知识，AI负责执行和优化。这种协作模式将释放出前所未有的生产力。
 架构的革命 2026年4月的技术讨论已经超越了工具层面，指向了智能系统的本质。Harness不是对AI能力的弥补，而是对智能组织方式的重新思考。
 无论它是终点还是中间站，Harness架构已经为我们打开了一扇通往更高效、更可靠、更智能的AI编程未来的大门。真正的革命不是模型参数的增长，而是我们组织和引导智能的方式。
-系统会不断叠加，智能会持续进化。但核心的架构原则将永远存在：让智能归智能，让执行归执行，让框架归框架。
-</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-04-19 22:00:00 +0800 HKT'>April 19, 2026</span> | <span>9 min</span> | <span>Hong Kong, China</span></footer>
-  <a class="entry-link" aria-label="post link to Harness：AI编程的中间站还是终点站？" href="https://blog.zhangky.com/posts/2026/04/2026-04-19-harness-future-ai-agent/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="next" href="https://blog.zhangky.com/categories/technology/page/2/">Next&nbsp;2/6&nbsp;»
-    </a>
-  </nav>
-</footer>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<style>
-   
-  .mermaid {
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 95%;
-    overflow-x: auto;
-  }
-  
-   
-  .mermaid > svg {
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-  
-   
-  .mermaid flowchart {
-    width: 100%;
-  }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>
-  
-  window.mermaidConfig = {
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis',
-      width: '100%',
-      height: 'auto'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
-  };
-  
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    var codeBlocks = document.querySelectorAll('code.language-mermaid');
-    
-    
-    codeBlocks.forEach(function(codeBlock) {
-      var preBlock = codeBlock.parentNode;
-      var mermaidCode = codeBlock.textContent;
-      
-      
-      var mermaidContainer = document.createElement('div');
-      mermaidContainer.className = 'mermaid';
-      mermaidContainer.textContent = mermaidCode;
-      
-      
-      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
-    });
-    
-    
-    mermaid.initialize(window.mermaidConfig);
-  });
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+系统会不断叠加，智能会持续进化。但核心的架构原则将永远存在：让智能归智能，让执行归执行，让框架归框架。</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-04-19 22:00:00 +0800 +0800'>April 19, 2026</span> | <span>9 min</span> | <span>Hong Kong, China</span></footer><a class=entry-link aria-label="post link to Harness：AI编程的中间站还是终点站？" href=https://blog.zhangky.com/posts/2026/04/2026-04-19-harness-future-ai-agent/></a></article><footer class=page-footer><nav class=pagination><a class=next href=https://blog.zhangky.com/categories/technology/page/2/>Next&nbsp;2/6&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>

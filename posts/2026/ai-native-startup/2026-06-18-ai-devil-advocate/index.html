@@ -1,699 +1,78 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>用 AI 做压力测试：让魔鬼代言人替你思考 | Z&#39;s Blog</title>
-<meta name="keywords" content="AI, 经管">
-<meta name="description" content="
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>用 AI 做压力测试：让魔鬼代言人替你思考 | Zhang's Blog</title><meta name=keywords content="AI,经管"><meta name=description content='
 苏格拉底说：&ldquo;未经审视的人生不值得过。&ldquo;在 AI 时代，未经反驳的创业想法不值得做——而 AI 给了你一个永不疲倦的反驳者。
 
 
 确认偏误的新武器
-1960 年，英国心理学家彼得·沃森做了一个著名的&quot;2-4-6 实验&rdquo;。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜&quot;连续偶数&rdquo;，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是&quot;任意三个递增数字&quot;——但很少有人主动去举反例来反驳自己。
+1960 年，英国心理学家彼得·沃森做了一个著名的"2-4-6 实验&rdquo;。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜"连续偶数&rdquo;，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是"任意三个递增数字"——但很少有人主动去举反例来反驳自己。
 这就是确认偏误：我们本能地寻找支持自己信念的证据，而忽略或贬低反面证据。在创业中，这是致命的。
-The Founder&rsquo;s Playbook 指出了一个 AI 时代特有的危险：确认偏误现在有了一个研究引擎。让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的&quot;尽职调查&quot;。
-更危险的是，这个过程会让你感觉自己是在做尽职调查。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个&quot;验证过&quot;的用户痛点——看起来严谨无比，但前提可能是错的。
+The Founder&rsquo;s Playbook 指出了一个 AI 时代特有的危险：确认偏误现在有了一个研究引擎。 让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的"尽职调查"。
+更危险的是，这个过程会让你感觉自己在做尽职调查。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个"验证过"的用户痛点——看起来严谨无比，但前提可能是错的。
 
 结构化魔鬼代言人
 解法是同一个工具，指向相反的方向。
-天主教会在 1587 年设立了一个正式职位叫&quot;魔鬼代言人&quot;（Devil&rsquo;s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。
-The Founder&rsquo;s Playbook 建议你把 AI 当作你的结构化魔鬼代言人。我自己把它拆成三个动作。
-第一个动作是攻击问题陈述。不是让 AI 说&quot;这个问题很好&quot;，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？
-第二个动作是替竞品辩护。让 AI 分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的那么牢固。这一步会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个&quot;竞品&quot;。
-第三个动作是质疑解决方案。你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？
+天主教会在 1587 年设立了一个正式职位叫"魔鬼代言人"（Devil&rsquo;s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。
+The Founder&rsquo;s Playbook 建议你把 AI 当作你的结构化魔鬼代言人。具体操作分三步。
+第一步：让 AI 攻击你的问题陈述。 不是让它说"这个问题很好"，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？
+第二步：让 AI 替竞品辩护。 让它分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的牢固。这一步的价值在于，它会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个"竞品"。
+第三步：让 AI 质疑你的解决方案。 你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？
 
 压力测试之后
 做完这三步，你大概会经历两种反应之一。
 第一种：你的想法经受住了攻击，你知道了它最脆弱的在哪里——这让你在接下来的用户访谈中有了明确的测试方向。
-第二种：你的想法被撕开了，你发现核心假设站不住——说实话，这是好消息。不是&quot;你失败了&quot;，而是&quot;你在动手之前就知道这条路走不通了&quot;。
-这让我想到查理·芒格的一句话：&ldquo;我只想知道我会死在哪里，这样我就永远不去那个地方。&rdquo; AI 让你有能力在创业之前，先快速&quot;死&quot;上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。
+第二种：你的想法被撕开了，你发现核心假设站不住——这是好消息。 不是"你失败了"，而是"你在动手之前就知道这条路走不通了"。
+这让我想到查理·芒格的一句话：&ldquo;我只想知道我会死在哪里，这样我就永远不去那个地方。&rdquo; AI 让你有能力在创业之前，先快速"死"上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。
 
 用户访谈的框架
 压力测试之后，才轮到用户访谈。书中建议用 AI 来设计和优化访谈框架——但有一个关键原则：问题要先自己写，再让 AI 审。
-为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组&quot;正确但平庸&quot;的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。
-一个实用的技巧：在访谈中，永远问过去，不问未来。&ldquo;告诉我你上次遇到这个问题时发生了什么&quot;比&quot;你觉得你会不会用这种产品&quot;有价值得多。人们不擅长预测未来，但很擅长回忆过去。
-每五场访谈之后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。">
-<meta name="author" content="Lonney .Z">
-<link rel="canonical" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<style>
-  .post-content p { text-indent: 2em; }
-  .post-content > p:first-of-type { text-indent: 0; }
-  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
-  .post-content blockquote,
-  .post-content blockquote p,
-  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
-  .post-content figure, .post-content figure p, .post-content img,
-  .post-content table, .post-content ul, .post-content ol, .post-content li,
-  .post-content .footnotes, .post-content .footnotes p,
-  .post-content section.footnotes p { text-indent: 0; }
-</style>
-<meta property="og:url" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate/">
-  <meta property="og:site_name" content="Z&#39;s Blog">
-  <meta property="og:title" content="用 AI 做压力测试：让魔鬼代言人替你思考">
-  <meta property="og:description" content=" 苏格拉底说：“未经审视的人生不值得过。“在 AI 时代，未经反驳的创业想法不值得做——而 AI 给了你一个永不疲倦的反驳者。
-确认偏误的新武器 1960 年，英国心理学家彼得·沃森做了一个著名的&#34;2-4-6 实验”。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜&#34;连续偶数”，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是&#34;任意三个递增数字&#34;——但很少有人主动去举反例来反驳自己。
+为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组"正确但平庸"的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。'><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>.post-content p{text-indent:2em}.post-content>p:first-of-type{text-indent:0}.post-content h1,.post-content h2,.post-content h3,.post-content h4{text-indent:0}.post-content blockquote,.post-content blockquote p,.post-content pre,.post-content code,.post-content .highlight,.post-content div.highlight,.post-content figure,.post-content figure p,.post-content img,.post-content table,.post-content ul,.post-content ol,.post-content li,.post-content .footnotes,.post-content .footnotes p,.post-content section.footnotes p{text-indent:0}</style><meta property="og:url" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="用 AI 做压力测试：让魔鬼代言人替你思考"><meta property="og:description" content=' 苏格拉底说：“未经审视的人生不值得过。“在 AI 时代，未经反驳的创业想法不值得做——而 AI 给了你一个永不疲倦的反驳者。
+确认偏误的新武器 1960 年，英国心理学家彼得·沃森做了一个著名的"2-4-6 实验”。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜"连续偶数”，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是"任意三个递增数字"——但很少有人主动去举反例来反驳自己。
 这就是确认偏误：我们本能地寻找支持自己信念的证据，而忽略或贬低反面证据。在创业中，这是致命的。
-The Founder’s Playbook 指出了一个 AI 时代特有的危险：确认偏误现在有了一个研究引擎。让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的&#34;尽职调查&#34;。
-更危险的是，这个过程会让你感觉自己是在做尽职调查。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个&#34;验证过&#34;的用户痛点——看起来严谨无比，但前提可能是错的。
+The Founder’s Playbook 指出了一个 AI 时代特有的危险：确认偏误现在有了一个研究引擎。 让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的"尽职调查"。
+更危险的是，这个过程会让你感觉自己在做尽职调查。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个"验证过"的用户痛点——看起来严谨无比，但前提可能是错的。
 结构化魔鬼代言人 解法是同一个工具，指向相反的方向。
-天主教会在 1587 年设立了一个正式职位叫&#34;魔鬼代言人&#34;（Devil’s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。
-The Founder’s Playbook 建议你把 AI 当作你的结构化魔鬼代言人。我自己把它拆成三个动作。
-第一个动作是攻击问题陈述。不是让 AI 说&#34;这个问题很好&#34;，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？
-第二个动作是替竞品辩护。让 AI 分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的那么牢固。这一步会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个&#34;竞品&#34;。
-第三个动作是质疑解决方案。你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？
+天主教会在 1587 年设立了一个正式职位叫"魔鬼代言人"（Devil’s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。
+The Founder’s Playbook 建议你把 AI 当作你的结构化魔鬼代言人。具体操作分三步。
+第一步：让 AI 攻击你的问题陈述。 不是让它说"这个问题很好"，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？
+第二步：让 AI 替竞品辩护。 让它分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的牢固。这一步的价值在于，它会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个"竞品"。
+第三步：让 AI 质疑你的解决方案。 你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？
 压力测试之后 做完这三步，你大概会经历两种反应之一。
 第一种：你的想法经受住了攻击，你知道了它最脆弱的在哪里——这让你在接下来的用户访谈中有了明确的测试方向。
-第二种：你的想法被撕开了，你发现核心假设站不住——说实话，这是好消息。不是&#34;你失败了&#34;，而是&#34;你在动手之前就知道这条路走不通了&#34;。
-这让我想到查理·芒格的一句话：“我只想知道我会死在哪里，这样我就永远不去那个地方。” AI 让你有能力在创业之前，先快速&#34;死&#34;上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。
+第二种：你的想法被撕开了，你发现核心假设站不住——这是好消息。 不是"你失败了"，而是"你在动手之前就知道这条路走不通了"。
+这让我想到查理·芒格的一句话：“我只想知道我会死在哪里，这样我就永远不去那个地方。” AI 让你有能力在创业之前，先快速"死"上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。
 用户访谈的框架 压力测试之后，才轮到用户访谈。书中建议用 AI 来设计和优化访谈框架——但有一个关键原则：问题要先自己写，再让 AI 审。
-为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组&#34;正确但平庸&#34;的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。
-一个实用的技巧：在访谈中，永远问过去，不问未来。“告诉我你上次遇到这个问题时发生了什么&#34;比&#34;你觉得你会不会用这种产品&#34;有价值得多。人们不擅长预测未来，但很擅长回忆过去。
-每五场访谈之后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-06-18T10:00:00+08:00">
-    <meta property="article:modified_time" content="2026-06-18T10:00:00+08:00">
-    <meta property="article:tag" content="AI">
-    <meta property="article:tag" content="经管">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-08-01-same-job-new-rules/">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-26-build-moat/">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-21-tech-debt-architecture/">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-15-founder-to-system/">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-09-pmf-lies-truth/">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-02-mvp-four-reefs/">
-      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-26-build-first-ai-product/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="用 AI 做压力测试：让魔鬼代言人替你思考">
-<meta name="twitter:description" content="
+为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组"正确但平庸"的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。'><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-06-06T10:00:00+08:00"><meta property="article:modified_time" content="2026-06-06T10:00:00+08:00"><meta property="article:tag" content="AI"><meta property="article:tag" content="经管"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-08-01-same-job-new-rules/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-26-build-moat/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-21-tech-debt-architecture/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-15-founder-to-system/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-09-pmf-lies-truth/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-02-mvp-four-reefs/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-26-build-first-ai-product/"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="用 AI 做压力测试：让魔鬼代言人替你思考"><meta name=twitter:description content='
 苏格拉底说：&ldquo;未经审视的人生不值得过。&ldquo;在 AI 时代，未经反驳的创业想法不值得做——而 AI 给了你一个永不疲倦的反驳者。
 
 
 确认偏误的新武器
-1960 年，英国心理学家彼得·沃森做了一个著名的&quot;2-4-6 实验&rdquo;。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜&quot;连续偶数&rdquo;，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是&quot;任意三个递增数字&quot;——但很少有人主动去举反例来反驳自己。
+1960 年，英国心理学家彼得·沃森做了一个著名的"2-4-6 实验&rdquo;。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜"连续偶数&rdquo;，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是"任意三个递增数字"——但很少有人主动去举反例来反驳自己。
 这就是确认偏误：我们本能地寻找支持自己信念的证据，而忽略或贬低反面证据。在创业中，这是致命的。
-The Founder&rsquo;s Playbook 指出了一个 AI 时代特有的危险：确认偏误现在有了一个研究引擎。让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的&quot;尽职调查&quot;。
-更危险的是，这个过程会让你感觉自己是在做尽职调查。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个&quot;验证过&quot;的用户痛点——看起来严谨无比，但前提可能是错的。
+The Founder&rsquo;s Playbook 指出了一个 AI 时代特有的危险：确认偏误现在有了一个研究引擎。 让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的"尽职调查"。
+更危险的是，这个过程会让你感觉自己在做尽职调查。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个"验证过"的用户痛点——看起来严谨无比，但前提可能是错的。
 
 结构化魔鬼代言人
 解法是同一个工具，指向相反的方向。
-天主教会在 1587 年设立了一个正式职位叫&quot;魔鬼代言人&quot;（Devil&rsquo;s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。
-The Founder&rsquo;s Playbook 建议你把 AI 当作你的结构化魔鬼代言人。我自己把它拆成三个动作。
-第一个动作是攻击问题陈述。不是让 AI 说&quot;这个问题很好&quot;，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？
-第二个动作是替竞品辩护。让 AI 分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的那么牢固。这一步会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个&quot;竞品&quot;。
-第三个动作是质疑解决方案。你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？
+天主教会在 1587 年设立了一个正式职位叫"魔鬼代言人"（Devil&rsquo;s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。
+The Founder&rsquo;s Playbook 建议你把 AI 当作你的结构化魔鬼代言人。具体操作分三步。
+第一步：让 AI 攻击你的问题陈述。 不是让它说"这个问题很好"，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？
+第二步：让 AI 替竞品辩护。 让它分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的牢固。这一步的价值在于，它会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个"竞品"。
+第三步：让 AI 质疑你的解决方案。 你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？
 
 压力测试之后
 做完这三步，你大概会经历两种反应之一。
 第一种：你的想法经受住了攻击，你知道了它最脆弱的在哪里——这让你在接下来的用户访谈中有了明确的测试方向。
-第二种：你的想法被撕开了，你发现核心假设站不住——说实话，这是好消息。不是&quot;你失败了&quot;，而是&quot;你在动手之前就知道这条路走不通了&quot;。
-这让我想到查理·芒格的一句话：&ldquo;我只想知道我会死在哪里，这样我就永远不去那个地方。&rdquo; AI 让你有能力在创业之前，先快速&quot;死&quot;上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。
+第二种：你的想法被撕开了，你发现核心假设站不住——这是好消息。 不是"你失败了"，而是"你在动手之前就知道这条路走不通了"。
+这让我想到查理·芒格的一句话：&ldquo;我只想知道我会死在哪里，这样我就永远不去那个地方。&rdquo; AI 让你有能力在创业之前，先快速"死"上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。
 
 用户访谈的框架
 压力测试之后，才轮到用户访谈。书中建议用 AI 来设计和优化访谈框架——但有一个关键原则：问题要先自己写，再让 AI 审。
-为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组&quot;正确但平庸&quot;的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。
-一个实用的技巧：在访谈中，永远问过去，不问未来。&ldquo;告诉我你上次遇到这个问题时发生了什么&quot;比&quot;你觉得你会不会用这种产品&quot;有价值得多。人们不擅长预测未来，但很擅长回忆过去。
-每五场访谈之后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://blog.zhangky.com/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "用 AI 做压力测试：让魔鬼代言人替你思考",
-      "item": "https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "用 AI 做压力测试：让魔鬼代言人替你思考",
-  "name": "用 AI 做压力测试：让魔鬼代言人替你思考",
-  "description": " 苏格拉底说：\u0026ldquo;未经审视的人生不值得过。\u0026ldquo;在 AI 时代，未经反驳的创业想法不值得做——而 AI 给了你一个永不疲倦的反驳者。\n确认偏误的新武器 1960 年，英国心理学家彼得·沃森做了一个著名的\u0026quot;2-4-6 实验\u0026rdquo;。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜\u0026quot;连续偶数\u0026rdquo;，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是\u0026quot;任意三个递增数字\u0026quot;——但很少有人主动去举反例来反驳自己。\n这就是确认偏误：我们本能地寻找支持自己信念的证据，而忽略或贬低反面证据。在创业中，这是致命的。\nThe Founder\u0026rsquo;s Playbook 指出了一个 AI 时代特有的危险：确认偏误现在有了一个研究引擎。让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的\u0026quot;尽职调查\u0026quot;。\n更危险的是，这个过程会让你感觉自己是在做尽职调查。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个\u0026quot;验证过\u0026quot;的用户痛点——看起来严谨无比，但前提可能是错的。\n结构化魔鬼代言人 解法是同一个工具，指向相反的方向。\n天主教会在 1587 年设立了一个正式职位叫\u0026quot;魔鬼代言人\u0026quot;（Devil\u0026rsquo;s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。\nThe Founder\u0026rsquo;s Playbook 建议你把 AI 当作你的结构化魔鬼代言人。我自己把它拆成三个动作。\n第一个动作是攻击问题陈述。不是让 AI 说\u0026quot;这个问题很好\u0026quot;，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？\n第二个动作是替竞品辩护。让 AI 分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的那么牢固。这一步会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个\u0026quot;竞品\u0026quot;。\n第三个动作是质疑解决方案。你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？\n压力测试之后 做完这三步，你大概会经历两种反应之一。\n第一种：你的想法经受住了攻击，你知道了它最脆弱的在哪里——这让你在接下来的用户访谈中有了明确的测试方向。\n第二种：你的想法被撕开了，你发现核心假设站不住——说实话，这是好消息。不是\u0026quot;你失败了\u0026quot;，而是\u0026quot;你在动手之前就知道这条路走不通了\u0026quot;。\n这让我想到查理·芒格的一句话：\u0026ldquo;我只想知道我会死在哪里，这样我就永远不去那个地方。\u0026rdquo; AI 让你有能力在创业之前，先快速\u0026quot;死\u0026quot;上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。\n用户访谈的框架 压力测试之后，才轮到用户访谈。书中建议用 AI 来设计和优化访谈框架——但有一个关键原则：问题要先自己写，再让 AI 审。\n为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组\u0026quot;正确但平庸\u0026quot;的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。\n一个实用的技巧：在访谈中，永远问过去，不问未来。\u0026ldquo;告诉我你上次遇到这个问题时发生了什么\u0026quot;比\u0026quot;你觉得你会不会用这种产品\u0026quot;有价值得多。人们不擅长预测未来，但很擅长回忆过去。\n每五场访谈之后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。\n",
-  "keywords": [
-    "AI", "经管"
-  ],
-  "articleBody": " 苏格拉底说：“未经审视的人生不值得过。“在 AI 时代，未经反驳的创业想法不值得做——而 AI 给了你一个永不疲倦的反驳者。\n确认偏误的新武器 1960 年，英国心理学家彼得·沃森做了一个著名的\"2-4-6 实验”。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜\"连续偶数”，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是\"任意三个递增数字\"——但很少有人主动去举反例来反驳自己。\n这就是确认偏误：我们本能地寻找支持自己信念的证据，而忽略或贬低反面证据。在创业中，这是致命的。\nThe Founder’s Playbook 指出了一个 AI 时代特有的危险：确认偏误现在有了一个研究引擎。让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的\"尽职调查\"。\n更危险的是，这个过程会让你感觉自己是在做尽职调查。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个\"验证过\"的用户痛点——看起来严谨无比，但前提可能是错的。\n结构化魔鬼代言人 解法是同一个工具，指向相反的方向。\n天主教会在 1587 年设立了一个正式职位叫\"魔鬼代言人\"（Devil’s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。\nThe Founder’s Playbook 建议你把 AI 当作你的结构化魔鬼代言人。我自己把它拆成三个动作。\n第一个动作是攻击问题陈述。不是让 AI 说\"这个问题很好\"，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？\n第二个动作是替竞品辩护。让 AI 分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的那么牢固。这一步会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个\"竞品\"。\n第三个动作是质疑解决方案。你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？\n压力测试之后 做完这三步，你大概会经历两种反应之一。\n第一种：你的想法经受住了攻击，你知道了它最脆弱的在哪里——这让你在接下来的用户访谈中有了明确的测试方向。\n第二种：你的想法被撕开了，你发现核心假设站不住——说实话，这是好消息。不是\"你失败了\"，而是\"你在动手之前就知道这条路走不通了\"。\n这让我想到查理·芒格的一句话：“我只想知道我会死在哪里，这样我就永远不去那个地方。” AI 让你有能力在创业之前，先快速\"死\"上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。\n用户访谈的框架 压力测试之后，才轮到用户访谈。书中建议用 AI 来设计和优化访谈框架——但有一个关键原则：问题要先自己写，再让 AI 审。\n为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组\"正确但平庸\"的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。\n一个实用的技巧：在访谈中，永远问过去，不问未来。“告诉我你上次遇到这个问题时发生了什么\"比\"你觉得你会不会用这种产品\"有价值得多。人们不擅长预测未来，但很擅长回忆过去。\n每五场访谈之后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。\n让想法先穿过反对 这个\"用 AI 反驳自己\"的理念，其实和东西方哲学都有共鸣。\n中国的道家传统讲\"反者道之动”——事物总是向相反的方向运动。一个想法在被反驳之前，是不完整的。西方的批判性思维传统从苏格拉底的诘问法到波普尔的证伪主义，核心都是：一个理论的价值不在于它被多少次证实，而在于它能否经受住被证伪的尝试。\nAI 让这个过程从\"需要意志力去做的自我批判\"变成了\"一个提示词就能触发的自动化流程\"。这是革命性的——不是因为 AI 比你更聪明，而是因为它比你更无情。你不会因为反驳自己的 idea 而受伤，但你的自我会。AI 没有自我，所以它可以毫无心理负担地撕碎你的假设。\n下一篇，我们进入实操：如何构建你的第一个 AI 原生产品。答案是——先不写代码。\n系列阅读快速跳转 日期 篇目 核心问题 06-05 从福特流水线到 AI 原生：新的造法 什么是 AI Native？为什么是现在？ 06-13 找到你的问题域：从\"能做\"到\"该做\" 如何在无限可能中找到值得解决的问题 06-18 用 AI 做压力测试：让魔鬼代言人替你思考 如何用 AI 反驳自己，避免确认偏误 06-26 构建第一个 AI 原生产品：从 CLAUDE.md 开始 写代码之前先写文档的逆向思维 07-02 MVP 的四个暗礁：速度与陷阱的博弈 AI 加速下最容易踩的四个坑 07-09 产品市场契合的谎言与真相 如何识别假信号，找到真契合 07-15 从创始人驱动到系统化运营 建立不依赖创始人的运营机器 07-21 技术债与架构决策：为 Scale 打下地基 如何在快与稳之间找到平衡 07-26 构建护城河：数据、知识与锁定 AI 时代的三种防御体系 08-01 Same Job, New Rules：创始人的不变与变 什么变了，什么没变 引用 ",
-  "wordCount" : "141",
-  "inLanguage": "en",
-  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-06-18T10:00:00+08:00",
-  "dateModified": "2026-06-18T10:00:00+08:00",
-  "author":{
-    "@type": "Person",
-    "name": "Lonney .Z"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Z's Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://blog.zhangky.com/images/logo.svg"
-    }
-  }
-}
-</script>
-</head>
-<body id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
-                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Z&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 11a9 9 0 0 1 9 9" />
-    <path d="M4 4a16 16 0 0 1 16 16" />
-    <circle cx="5" cy="19" r="1" />
-</svg>
-                </a>
-                
-
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://blog.zhangky.com/" title="Posts">
-                    <span>Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/series/" title="Series">
-                    <span>Series</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/faq" title="FAQ">
-                    <span>FAQ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <style>
-        .nav.scrolled {
-            background: var(--theme);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .nav.scrolled #menu {
-            display: none;
-        }
-        .nav.scrolled .logo {
-            margin: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > nav.offsetHeight) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
-    <h1 class="post-title entry-hint-parent">
-      用 AI 做压力测试：让魔鬼代言人替你思考
-    </h1>
-    <div class="post-meta">   Lonney .Z | <span title='2026-06-18 10:00:00 +0800 HKT'>June 18, 2026</span> | <span>10 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
-    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
-</span>
-
-</div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e7%a1%ae%e8%ae%a4%e5%81%8f%e8%af%af%e7%9a%84%e6%96%b0%e6%ad%a6%e5%99%a8" aria-label="确认偏误的新武器">确认偏误的新武器</a></li>
-                <li>
-                    <a href="#%e7%bb%93%e6%9e%84%e5%8c%96%e9%ad%94%e9%ac%bc%e4%bb%a3%e8%a8%80%e4%ba%ba" aria-label="结构化魔鬼代言人">结构化魔鬼代言人</a></li>
-                <li>
-                    <a href="#%e5%8e%8b%e5%8a%9b%e6%b5%8b%e8%af%95%e4%b9%8b%e5%90%8e" aria-label="压力测试之后">压力测试之后</a></li>
-                <li>
-                    <a href="#%e7%94%a8%e6%88%b7%e8%ae%bf%e8%b0%88%e7%9a%84%e6%a1%86%e6%9e%b6" aria-label="用户访谈的框架">用户访谈的框架</a></li>
-                <li>
-                    <a href="#%e8%ae%a9%e6%83%b3%e6%b3%95%e5%85%88%e7%a9%bf%e8%bf%87%e5%8f%8d%e5%af%b9" aria-label="让想法先穿过反对">让想法先穿过反对</a></li>
-                <li>
-                    <a href="#%e7%b3%bb%e5%88%97%e9%98%85%e8%af%bb%e5%bf%ab%e9%80%9f%e8%b7%b3%e8%bd%ac" aria-label="系列阅读快速跳转">系列阅读快速跳转</a><ul>
-                        
-                <li>
-                    <a href="#%e5%bc%95%e7%94%a8" aria-label="引用">引用</a>
-                </li>
-            </ul>
-            </li>
-            </ul>
-        </div>
-    </details>
-</div>
-
-  <div class="post-content"><blockquote>
-<p>苏格拉底说：&ldquo;未经审视的人生不值得过。&ldquo;在 AI 时代，未经反驳的创业想法不值得做——而 AI 给了你一个永不疲倦的反驳者。</p>
-</blockquote>
-<hr>
-<h2 id="确认偏误的新武器">确认偏误的新武器<a hidden class="anchor" aria-hidden="true" href="#确认偏误的新武器">#</a></h2>
-<p>1960 年，英国心理学家彼得·沃森做了一个著名的&quot;2-4-6 实验&rdquo;。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜&quot;连续偶数&rdquo;，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是&quot;任意三个递增数字&quot;——但很少有人主动去举反例来反驳自己。</p>
-<p>这就是确认偏误：我们本能地寻找支持自己信念的证据，而忽略或贬低反面证据。在创业中，这是致命的。</p>
-<p><em>The Founder&rsquo;s Playbook</em> 指出了一个 AI 时代特有的危险：确认偏误现在有了一个研究引擎。让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的&quot;尽职调查&quot;。</p>
-<p>更危险的是，这个过程会让你感觉自己是在做尽职调查。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个&quot;验证过&quot;的用户痛点——看起来严谨无比，但前提可能是错的。</p>
-<hr>
-<h2 id="结构化魔鬼代言人">结构化魔鬼代言人<a hidden class="anchor" aria-hidden="true" href="#结构化魔鬼代言人">#</a></h2>
-<p>解法是同一个工具，指向相反的方向。</p>
-<p>天主教会在 1587 年设立了一个正式职位叫&quot;魔鬼代言人&quot;（Devil&rsquo;s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。</p>
-<p><em>The Founder&rsquo;s Playbook</em> 建议你把 AI 当作你的结构化魔鬼代言人。我自己把它拆成三个动作。</p>
-<p>第一个动作是攻击问题陈述。不是让 AI 说&quot;这个问题很好&quot;，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？</p>
-<p>第二个动作是替竞品辩护。让 AI 分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的那么牢固。这一步会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个&quot;竞品&quot;。</p>
-<p>第三个动作是质疑解决方案。你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？</p>
-<hr>
-<h2 id="压力测试之后">压力测试之后<a hidden class="anchor" aria-hidden="true" href="#压力测试之后">#</a></h2>
-<p>做完这三步，你大概会经历两种反应之一。</p>
-<p>第一种：你的想法经受住了攻击，你知道了它最脆弱的在哪里——这让你在接下来的用户访谈中有了明确的测试方向。</p>
-<p>第二种：你的想法被撕开了，你发现核心假设站不住——说实话，这是好消息。不是&quot;你失败了&quot;，而是&quot;你在动手之前就知道这条路走不通了&quot;。</p>
-<p>这让我想到查理·芒格的一句话：&ldquo;我只想知道我会死在哪里，这样我就永远不去那个地方。&rdquo; AI 让你有能力在创业之前，先快速&quot;死&quot;上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。</p>
-<hr>
-<h2 id="用户访谈的框架">用户访谈的框架<a hidden class="anchor" aria-hidden="true" href="#用户访谈的框架">#</a></h2>
-<p>压力测试之后，才轮到用户访谈。书中建议用 AI 来设计和优化访谈框架——但有一个关键原则：问题要先自己写，再让 AI 审。</p>
-<p>为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组&quot;正确但平庸&quot;的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。</p>
-<p>一个实用的技巧：在访谈中，永远问过去，不问未来。&ldquo;告诉我你上次遇到这个问题时发生了什么&quot;比&quot;你觉得你会不会用这种产品&quot;有价值得多。人们不擅长预测未来，但很擅长回忆过去。</p>
-<p>每五场访谈之后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。</p>
-<hr>
-<h2 id="让想法先穿过反对">让想法先穿过反对<a hidden class="anchor" aria-hidden="true" href="#让想法先穿过反对">#</a></h2>
-<p>这个&quot;用 AI 反驳自己&quot;的理念，其实和东西方哲学都有共鸣。</p>
-<p>中国的道家传统讲&quot;反者道之动&rdquo;——事物总是向相反的方向运动。一个想法在被反驳之前，是不完整的。西方的批判性思维传统从苏格拉底的诘问法到波普尔的证伪主义，核心都是：一个理论的价值不在于它被多少次证实，而在于它能否经受住被<strong>证伪</strong>的尝试。</p>
-<p>AI 让这个过程从&quot;需要意志力去做的自我批判&quot;变成了&quot;一个提示词就能触发的自动化流程&quot;。这是革命性的——不是因为 AI 比你更聪明，而是因为它比你更<strong>无情</strong>。你不会因为反驳自己的 idea 而受伤，但你的自我会。AI 没有自我，所以它可以毫无心理负担地撕碎你的假设。</p>
-<p>下一篇，我们进入实操：如何构建你的第一个 AI 原生产品。答案是——先不写代码。</p>
-<hr>
-<h2 id="系列阅读快速跳转">系列阅读快速跳转<a hidden class="anchor" aria-hidden="true" href="#系列阅读快速跳转">#</a></h2>
-<table>
-  <thead>
-      <tr>
-          <th>日期</th>
-          <th>篇目</th>
-          <th>核心问题</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>06-05</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-05-ai-native-paradigm-shift/">从福特流水线到 AI 原生：新的造法</a></td>
-          <td>什么是 AI Native？为什么是现在？</td>
-      </tr>
-      <tr>
-          <td>06-13</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-13-find-your-problem-space/">找到你的问题域：从&quot;能做&quot;到&quot;该做&quot;</a></td>
-          <td>如何在无限可能中找到值得解决的问题</td>
-      </tr>
-      <tr>
-          <td>06-18</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate/">用 AI 做压力测试：让魔鬼代言人替你思考</a></td>
-          <td>如何用 AI 反驳自己，避免确认偏误</td>
-      </tr>
-      <tr>
-          <td>06-26</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-06-26-build-first-ai-product/">构建第一个 AI 原生产品：从 CLAUDE.md 开始</a></td>
-          <td>写代码之前先写文档的逆向思维</td>
-      </tr>
-      <tr>
-          <td>07-02</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-07-02-mvp-four-reefs/">MVP 的四个暗礁：速度与陷阱的博弈</a></td>
-          <td>AI 加速下最容易踩的四个坑</td>
-      </tr>
-      <tr>
-          <td>07-09</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-07-09-pmf-lies-truth/">产品市场契合的谎言与真相</a></td>
-          <td>如何识别假信号，找到真契合</td>
-      </tr>
-      <tr>
-          <td>07-15</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-07-15-founder-to-system/">从创始人驱动到系统化运营</a></td>
-          <td>建立不依赖创始人的运营机器</td>
-      </tr>
-      <tr>
-          <td>07-21</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-07-21-tech-debt-architecture/">技术债与架构决策：为 Scale 打下地基</a></td>
-          <td>如何在快与稳之间找到平衡</td>
-      </tr>
-      <tr>
-          <td>07-26</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-07-26-build-moat/">构建护城河：数据、知识与锁定</a></td>
-          <td>AI 时代的三种防御体系</td>
-      </tr>
-      <tr>
-          <td>08-01</td>
-          <td><a href="/posts/2026/ai-native-startup/2026-08-01-same-job-new-rules/">Same Job, New Rules：创始人的不变与变</a></td>
-          <td>什么变了，什么没变</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h3 id="引用">引用<a hidden class="anchor" aria-hidden="true" href="#引用">#</a></h3>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://blog.zhangky.com/series/ai-native-%E5%90%88%E9%9B%86/">合集：AI Native 合集</a></li>
-    </ul>
-    <ul class="post-tags">
-      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
-      <li><a href="https://blog.zhangky.com/tags/%E7%BB%8F%E7%AE%A1/">经管</a></li>
-    </ul>
-<nav class="paginav">
-  <a class="prev" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-26-build-first-ai-product/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>构建第一个 AI 原生产品：从 CLAUDE.md 开始</span>
-  </a>
-  <a class="next" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-13-find-your-problem-space/">
-    <span class="title">Next »</span>
-    <br>
-    <span>找到你的问题域：从&#34;能做&#34;到&#34;该做&#34;的跨越</span>
-  </a>
-</nav>
-
-
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<style>
-   
-  .mermaid {
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 95%;
-    overflow-x: auto;
-  }
-  
-   
-  .mermaid > svg {
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-  
-   
-  .mermaid flowchart {
-    width: 100%;
-  }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>
-  
-  window.mermaidConfig = {
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis',
-      width: '100%',
-      height: 'auto'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
-  };
-  
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    var codeBlocks = document.querySelectorAll('code.language-mermaid');
-    
-    
-    codeBlocks.forEach(function(codeBlock) {
-      var preBlock = codeBlock.parentNode;
-      var mermaidCode = codeBlock.textContent;
-      
-      
-      var mermaidContainer = document.createElement('div');
-      mermaidContainer.className = 'mermaid';
-      mermaidContainer.textContent = mermaidCode;
-      
-      
-      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
-    });
-    
-    
-    mermaid.initialize(window.mermaidConfig);
-  });
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-</body>
-
-</html>
+为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组"正确但平庸"的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.zhangky.com/posts/"},{"@type":"ListItem","position":2,"name":"用 AI 做压力测试：让魔鬼代言人替你思考","item":"https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"用 AI 做压力测试：让魔鬼代言人替你思考","name":"用 AI 做压力测试：让魔鬼代言人替你思考","description":" 苏格拉底说：\u0026ldquo;未经审视的人生不值得过。\u0026ldquo;在 AI 时代，未经反驳的创业想法不值得做——而 AI 给了你一个永不疲倦的反驳者。\n确认偏误的新武器 1960 年，英国心理学家彼得·沃森做了一个著名的\u0026quot;2-4-6 实验\u0026rdquo;。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜\u0026quot;连续偶数\u0026rdquo;，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是\u0026quot;任意三个递增数字\u0026quot;——但很少有人主动去举反例来反驳自己。\n这就是确认偏误：我们本能地寻找支持自己信念的证据，而忽略或贬低反面证据。在创业中，这是致命的。\nThe Founder\u0026rsquo;s Playbook 指出了一个 AI 时代特有的危险：确认偏误现在有了一个研究引擎。 让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的\u0026quot;尽职调查\u0026quot;。\n更危险的是，这个过程会让你感觉自己在做尽职调查。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个\u0026quot;验证过\u0026quot;的用户痛点——看起来严谨无比，但前提可能是错的。\n结构化魔鬼代言人 解法是同一个工具，指向相反的方向。\n天主教会在 1587 年设立了一个正式职位叫\u0026quot;魔鬼代言人\u0026quot;（Devil\u0026rsquo;s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。\nThe Founder\u0026rsquo;s Playbook 建议你把 AI 当作你的结构化魔鬼代言人。具体操作分三步。\n第一步：让 AI 攻击你的问题陈述。 不是让它说\u0026quot;这个问题很好\u0026quot;，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？\n第二步：让 AI 替竞品辩护。 让它分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的牢固。这一步的价值在于，它会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个\u0026quot;竞品\u0026quot;。\n第三步：让 AI 质疑你的解决方案。 你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？\n压力测试之后 做完这三步，你大概会经历两种反应之一。\n第一种：你的想法经受住了攻击，你知道了它最脆弱的在哪里——这让你在接下来的用户访谈中有了明确的测试方向。\n第二种：你的想法被撕开了，你发现核心假设站不住——这是好消息。 不是\u0026quot;你失败了\u0026quot;，而是\u0026quot;你在动手之前就知道这条路走不通了\u0026quot;。\n这让我想到查理·芒格的一句话：\u0026ldquo;我只想知道我会死在哪里，这样我就永远不去那个地方。\u0026rdquo; AI 让你有能力在创业之前，先快速\u0026quot;死\u0026quot;上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。\n用户访谈的框架 压力测试之后，才轮到用户访谈。书中建议用 AI 来设计和优化访谈框架——但有一个关键原则：问题要先自己写，再让 AI 审。\n为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组\u0026quot;正确但平庸\u0026quot;的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。\n","keywords":["AI","经管"],"articleBody":" 苏格拉底说：“未经审视的人生不值得过。“在 AI 时代，未经反驳的创业想法不值得做——而 AI 给了你一个永不疲倦的反驳者。\n确认偏误的新武器 1960 年，英国心理学家彼得·沃森做了一个著名的\"2-4-6 实验”。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜\"连续偶数”，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是\"任意三个递增数字\"——但很少有人主动去举反例来反驳自己。\n这就是确认偏误：我们本能地寻找支持自己信念的证据，而忽略或贬低反面证据。在创业中，这是致命的。\nThe Founder’s Playbook 指出了一个 AI 时代特有的危险：确认偏误现在有了一个研究引擎。 让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的\"尽职调查\"。\n更危险的是，这个过程会让你感觉自己在做尽职调查。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个\"验证过\"的用户痛点——看起来严谨无比，但前提可能是错的。\n结构化魔鬼代言人 解法是同一个工具，指向相反的方向。\n天主教会在 1587 年设立了一个正式职位叫\"魔鬼代言人\"（Devil’s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。\nThe Founder’s Playbook 建议你把 AI 当作你的结构化魔鬼代言人。具体操作分三步。\n第一步：让 AI 攻击你的问题陈述。 不是让它说\"这个问题很好\"，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？\n第二步：让 AI 替竞品辩护。 让它分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的牢固。这一步的价值在于，它会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个\"竞品\"。\n第三步：让 AI 质疑你的解决方案。 你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？\n压力测试之后 做完这三步，你大概会经历两种反应之一。\n第一种：你的想法经受住了攻击，你知道了它最脆弱的在哪里——这让你在接下来的用户访谈中有了明确的测试方向。\n第二种：你的想法被撕开了，你发现核心假设站不住——这是好消息。 不是\"你失败了\"，而是\"你在动手之前就知道这条路走不通了\"。\n这让我想到查理·芒格的一句话：“我只想知道我会死在哪里，这样我就永远不去那个地方。” AI 让你有能力在创业之前，先快速\"死\"上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。\n用户访谈的框架 压力测试之后，才轮到用户访谈。书中建议用 AI 来设计和优化访谈框架——但有一个关键原则：问题要先自己写，再让 AI 审。\n为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组\"正确但平庸\"的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。\n一个实用的技巧：在访谈中，永远问过去，不问未来。“告诉我你上次遇到这个问题时发生了什么\"比\"你觉得你会不会用这种产品\"有价值得多。人们不擅长预测未来，但很擅长回忆过去。\n每五场访谈之后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。\n让想法先穿过反对 这个\"用 AI 反驳自己\"的理念，其实和东西方哲学都有共鸣。\n中国的道家传统讲\"反者道之动”——事物总是向相反的方向运动。一个想法在被反驳之前，是不完整的。西方的批判性思维传统从苏格拉底的诘问法到波普尔的证伪主义，核心都是：一个理论的价值不在于它被多少次证实，而在于它能否经受住被证伪的尝试。\nAI 让这个过程从\"需要意志力去做的自我批判\"变成了\"一个提示词就能触发的自动化流程\"。这是革命性的——不是因为 AI 比你更聪明，而是因为它比你更无情。你不会因为反驳自己的idea而受伤，但你的自我会。AI 没有自我，所以它可以毫无心理负担地撕碎你的假设。\n下一篇，我们进入实操：如何构建你的第一个 AI 原生产品。 答案是——先不写代码。\n系列阅读快速跳转 日期 篇目 核心问题 06-03 从福特流水线到 AI 原生：新的造法 什么是 AI Native？为什么是现在？ 06-05 找到你的问题域：从\"能做\"到\"该做\" 如何在无限可能中找到值得解决的问题 06-06 用 AI 做压力测试：让魔鬼代言人替你思考 如何用 AI 反驳自己，避免确认偏误 06-07 构建第一个 AI 原生产品：从 CLAUDE.md 开始 写代码之前先写文档的逆向思维 06-10 MVP 的四个暗礁：速度与陷阱的博弈 AI 加速下最容易踩的四个坑 06-11 产品市场契合的谎言与真相 如何识别假信号，找到真契合 06-12 从创始人驱动到系统化运营 建立不依赖创始人的运营机器 06-22 技术债与架构决策：为 Scale 打下地基 如何在快与稳之间找到平衡 06-23 构建护城河：数据、知识与锁定 AI 时代的三种防御体系 06-25 Same Job, New Rules：创始人的不变与变 什么变了，什么没变 引用 ","wordCount":"147","inLanguage":"en","image":"https://blog.zhangky.com/images/logo.svg","datePublished":"2026-06-06T10:00:00+08:00","dateModified":"2026-06-06T10:00:00+08:00","author":{"@type":"Person","name":"ZHANG.z\""},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate/"},"publisher":{"@type":"Organization","name":"Zhang's Blog","logo":{"@type":"ImageObject","url":"https://blog.zhangky.com/images/logo.svg"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/series/ title=Series><span>Series</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://blog.zhangky.com/>Home</a>&nbsp;»&nbsp;<a href=https://blog.zhangky.com/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">用 AI 做压力测试：让魔鬼代言人替你思考</h1><div class=post-meta>ZHANG.z" | <span title='2026-06-06 10:00:00 +0800 +0800'>June 6, 2026</span> | <span>10 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+<a href=https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/ai-native-startup/2026-06-18-ai-devil-advocate.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></span></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e7%a1%ae%e8%ae%a4%e5%81%8f%e8%af%af%e7%9a%84%e6%96%b0%e6%ad%a6%e5%99%a8 aria-label=确认偏误的新武器>确认偏误的新武器</a></li><li><a href=#%e7%bb%93%e6%9e%84%e5%8c%96%e9%ad%94%e9%ac%bc%e4%bb%a3%e8%a8%80%e4%ba%ba aria-label=结构化魔鬼代言人>结构化魔鬼代言人</a></li><li><a href=#%e5%8e%8b%e5%8a%9b%e6%b5%8b%e8%af%95%e4%b9%8b%e5%90%8e aria-label=压力测试之后>压力测试之后</a></li><li><a href=#%e7%94%a8%e6%88%b7%e8%ae%bf%e8%b0%88%e7%9a%84%e6%a1%86%e6%9e%b6 aria-label=用户访谈的框架>用户访谈的框架</a></li><li><a href=#%e8%ae%a9%e6%83%b3%e6%b3%95%e5%85%88%e7%a9%bf%e8%bf%87%e5%8f%8d%e5%af%b9 aria-label=让想法先穿过反对>让想法先穿过反对</a></li><li><a href=#%e7%b3%bb%e5%88%97%e9%98%85%e8%af%bb%e5%bf%ab%e9%80%9f%e8%b7%b3%e8%bd%ac aria-label=系列阅读快速跳转>系列阅读快速跳转</a><ul><li><a href=#%e5%bc%95%e7%94%a8 aria-label=引用>引用</a></li></ul></li></ul></div></details></div><div class=post-content><blockquote><p>苏格拉底说：&ldquo;未经审视的人生不值得过。&ldquo;在 AI 时代，未经反驳的创业想法不值得做——而 AI 给了你一个永不疲倦的反驳者。</p></blockquote><hr><h2 id=确认偏误的新武器>确认偏误的新武器<a hidden class=anchor aria-hidden=true href=#确认偏误的新武器>#</a></h2><p>1960 年，英国心理学家彼得·沃森做了一个著名的"2-4-6 实验&rdquo;。他告诉受试者三个数字 2、4、6 遵循某个规则，让他们猜规则是什么。受试者几乎无一例外地先猜"连续偶数&rdquo;，然后只举符合这个猜想的例子来验证。沃森的真正规则其实是"任意三个递增数字"——但很少有人主动去举反例来反驳自己。</p><p>这就是确认偏误：我们本能地寻找支持自己信念的证据，而忽略或贬低反面证据。在创业中，这是致命的。</p><p><em>The Founder&rsquo;s Playbook</em> 指出了一个 AI 时代特有的危险：<strong>确认偏误现在有了一个研究引擎。</strong> 让 AI 验证你的创业想法，它会找到支持证据；让 AI 做市场规模测算，它会找到让 TAM 看起来可融资的数字。如果你不提出尖锐的问题，AI 可以比你更快地为一个坏想法构建出一套看起来像那么回事的"尽职调查"。</p><p>更危险的是，这个过程会让你<strong>感觉自己在做尽职调查</strong>。一份 30 页的市场分析报告、一组漂亮的 TAM/SAM/SOM 拆解、五个"验证过"的用户痛点——看起来严谨无比，但前提可能是错的。</p><hr><h2 id=结构化魔鬼代言人>结构化魔鬼代言人<a hidden class=anchor aria-hidden=true href=#结构化魔鬼代言人>#</a></h2><p>解法是同一个工具，指向相反的方向。</p><p>天主教会在 1587 年设立了一个正式职位叫"魔鬼代言人"（Devil&rsquo;s Advocate）——专门负责在封圣过程中提出反对意见，质疑候选人的圣迹和美德。这个职位的存在不是为了阻挠封圣，而是为了确保封圣决定的严肃性。</p><p><em>The Founder&rsquo;s Playbook</em> 建议你把 AI 当作你的结构化魔鬼代言人。具体操作分三步。</p><p><strong>第一步：让 AI 攻击你的问题陈述。</strong> 不是让它说"这个问题很好"，而是让它构建一个论证：为什么这个问题没有你以为的那么大、不值得解决、或者已经被很好地解决了。让它找反例：哪些市场信号是负面的？哪些竞争对手失败了，为什么？用户行为模式里有哪些和你的假设矛盾的地方？</p><p><strong>第二步：让 AI 替竞品辩护。</strong> 让它分析竞品的方案为什么比你好、用户为什么选他们、你的差异化优势为什么没有你以为的牢固。这一步的价值在于，它会逼着你理解竞品的真实优势——而不是你为了方便而刻意简化的那个"竞品"。</p><p><strong>第三步：让 AI 质疑你的解决方案。</strong> 你的方案依赖哪些假设？每个假设在什么情况下不成立？如果有一个假设被证伪，整个方案会怎样？</p><hr><h2 id=压力测试之后>压力测试之后<a hidden class=anchor aria-hidden=true href=#压力测试之后>#</a></h2><p>做完这三步，你大概会经历两种反应之一。</p><p>第一种：你的想法经受住了攻击，你知道了它最脆弱的在哪里——这让你在接下来的用户访谈中有了明确的测试方向。</p><p>第二种：你的想法被撕开了，你发现核心假设站不住——<strong>这是好消息。</strong> 不是"你失败了"，而是"你在动手之前就知道这条路走不通了"。</p><p>这让我想到查理·芒格的一句话：&ldquo;我只想知道我会死在哪里，这样我就永远不去那个地方。&rdquo; AI 让你有能力在创业之前，先快速"死"上几十次。每一次虚拟的死亡，都避免了一次真实的资源浪费。</p><hr><h2 id=用户访谈的框架>用户访谈的框架<a hidden class=anchor aria-hidden=true href=#用户访谈的框架>#</a></h2><p>压力测试之后，才轮到用户访谈。书中建议用 AI 来设计和优化访谈框架——但有一个关键原则：<strong>问题要先自己写，再让 AI 审。</strong></p><p>为什么？因为如果你直接让 AI 生成访谈问题，你会得到一组"正确但平庸"的问题。它们没有引导性、没有漏洞、也没有灵魂。但如果你先自己写——暴露你的偏见、你的假设、你的盲区——然后让 AI 来审，它会指出哪些问题在引导受访者、哪些太宽泛、哪些会得到社会期望的答案而不是真话。</p><p>一个实用的技巧：在访谈中，永远问过去，不问未来。&ldquo;告诉我你上次遇到这个问题时发生了什么"比"你觉得你会不会用这种产品"有价值得多。人们不擅长预测未来，但很擅长回忆过去。</p><p>每五场访谈之后，让 AI 合成笔记，列出支持假设的证据和挑战假设的证据。如果前者远长于后者，要警惕——可能不是数据在说话，是你在选择性地听。</p><hr><h2 id=让想法先穿过反对>让想法先穿过反对<a hidden class=anchor aria-hidden=true href=#让想法先穿过反对>#</a></h2><p>这个"用 AI 反驳自己"的理念，其实和东西方哲学都有共鸣。</p><p>中国的道家传统讲"反者道之动&rdquo;——事物总是向相反的方向运动。一个想法在被反驳之前，是不完整的。西方的批判性思维传统从苏格拉底的诘问法到波普尔的证伪主义，核心都是：<strong>一个理论的价值不在于它被多少次证实，而在于它能否经受住被证伪的尝试。</strong></p><p>AI 让这个过程从"需要意志力去做的自我批判"变成了"一个提示词就能触发的自动化流程"。这是革命性的——不是因为 AI 比你更聪明，而是因为它比你更<strong>无情</strong>。你不会因为反驳自己的idea而受伤，但你的自我会。AI 没有自我，所以它可以毫无心理负担地撕碎你的假设。</p><p>下一篇，我们进入实操：<strong>如何构建你的第一个 AI 原生产品。</strong> 答案是——先不写代码。</p><hr><h2 id=系列阅读快速跳转>系列阅读快速跳转<a hidden class=anchor aria-hidden=true href=#系列阅读快速跳转>#</a></h2><table><thead><tr><th>日期</th><th>篇目</th><th>核心问题</th></tr></thead><tbody><tr><td>06-03</td><td><a href=/posts/2026/ai-native-startup/2026-06-03-ai-native-paradigm-shift/>从福特流水线到 AI 原生：新的造法</a></td><td>什么是 AI Native？为什么是现在？</td></tr><tr><td>06-05</td><td><a href=/posts/2026/ai-native-startup/2026-06-05-find-your-problem-space/>找到你的问题域：从"能做"到"该做"</a></td><td>如何在无限可能中找到值得解决的问题</td></tr><tr><td>06-06</td><td><a href=/posts/2026/ai-native-startup/2026-06-06-ai-devil-advocate/>用 AI 做压力测试：让魔鬼代言人替你思考</a></td><td>如何用 AI 反驳自己，避免确认偏误</td></tr><tr><td>06-07</td><td><a href=/posts/2026/ai-native-startup/2026-06-07-build-first-ai-product/>构建第一个 AI 原生产品：从 CLAUDE.md 开始</a></td><td>写代码之前先写文档的逆向思维</td></tr><tr><td>06-10</td><td><a href=/posts/2026/ai-native-startup/2026-06-10-mvp-four-reefs/>MVP 的四个暗礁：速度与陷阱的博弈</a></td><td>AI 加速下最容易踩的四个坑</td></tr><tr><td>06-11</td><td><a href=/posts/2026/ai-native-startup/2026-06-11-pmf-lies-truth/>产品市场契合的谎言与真相</a></td><td>如何识别假信号，找到真契合</td></tr><tr><td>06-12</td><td><a href=/posts/2026/ai-native-startup/2026-06-12-founder-to-system/>从创始人驱动到系统化运营</a></td><td>建立不依赖创始人的运营机器</td></tr><tr><td>06-22</td><td><a href=/posts/2026/ai-native-startup/2026-06-22-tech-debt-architecture/>技术债与架构决策：为 Scale 打下地基</a></td><td>如何在快与稳之间找到平衡</td></tr><tr><td>06-23</td><td><a href=/posts/2026/ai-native-startup/2026-06-23-build-moat/>构建护城河：数据、知识与锁定</a></td><td>AI 时代的三种防御体系</td></tr><tr><td>06-25</td><td><a href=/posts/2026/ai-native-startup/2026-06-25-same-job-new-rules/>Same Job, New Rules：创始人的不变与变</a></td><td>什么变了，什么没变</td></tr></tbody></table><hr><h3 id=引用>引用<a hidden class=anchor aria-hidden=true href=#引用>#</a></h3></div><footer class=post-footer><ul class=post-tags><li><a href=https://blog.zhangky.com/series/ai-native-%E5%90%88%E9%9B%86/>合集：AI Native 合集</a></li></ul><ul class=post-tags><li><a href=https://blog.zhangky.com/tags/ai/>AI</a></li><li><a href=https://blog.zhangky.com/tags/%E7%BB%8F%E7%AE%A1/>经管</a></li></ul><nav class=paginav><a class=prev href=https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-26-build-first-ai-product/><span class=title>« Prev</span><br><span>构建第一个 AI 原生产品：从 CLAUDE.md 开始</span>
+</a><a class=next href=https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-13-find-your-problem-space/><span class=title>Next »</span><br><span>找到你的问题域：从"能做"到"该做"的跨越</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

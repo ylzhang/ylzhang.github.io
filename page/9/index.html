@@ -1,284 +1,19 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head>
-	<meta name="generator" content="Hugo 0.160.1"><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Z&#39;s Blog</title>
-
-<meta name="description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-<meta name="author" content="Lonney .Z">
-<link rel="canonical" href="https://blog.zhangky.com/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
-<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://blog.zhangky.com/index.xml" title="rss">
-<link rel="alternate" type="application/json" href="https://blog.zhangky.com/index.json" title="json">
-<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-<meta property="og:url" content="https://blog.zhangky.com/">
-  <meta property="og:site_name" content="Z&#39;s Blog">
-  <meta property="og:title" content="Z&#39;s Blog">
-  <meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="website">
-      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
-<meta name="twitter:title" content="Z&#39;s Blog">
-<meta name="twitter:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Z's Blog",
-  "url": "https://blog.zhangky.com/",
-  "description": "Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.",
-  "logo": "https://blog.zhangky.com/images/logo.svg",
-  "sameAs": [
-      "https://github.com/ylzhang/ylzhang.github.io"
-  ]
-}
-</script>
-</head>
-<body class="list" id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo" id="dynamic-logo">
-            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
-                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
-                    height="30">Z&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 11a9 9 0 0 1 9 9" />
-    <path d="M4 4a16 16 0 0 1 16 16" />
-    <circle cx="5" cy="19" r="1" />
-</svg>
-                </a>
-                
-
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://blog.zhangky.com/" title="Posts">
-                    <span class="active">Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/series/" title="Series">
-                    <span>Series</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://blog.zhangky.com/faq" title="FAQ">
-                    <span>FAQ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <style>
-        .nav.scrolled {
-            background: var(--theme);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .nav.scrolled #menu {
-            display: none;
-        }
-        .nav.scrolled .logo {
-            margin: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > nav.offsetHeight) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-</header>
-<main class="main"> 
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Coding Agents 正在重塑工程、产品与设计的分工逻辑
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 原文：Harrison Chase, How Coding Agents Are Reshaping Engineering, Product and Design, LangChain Blog, 2026 年 3 月。以下为编译，保留原文结构与论点，部分段落做了压缩和意译。
-软件公司里的 EPD——工程（Engineering）、产品（Product）、设计（Design）——存在的目的只有一个：造出能用的软件。角色分得再细，最终交付物也只是代码。
-认清这一点很重要，因为 Coding Agents 突然让写代码变得极其廉价。那么，EPD 的角色会怎么变？
-PRDs 已死 在 Coding Agent 出现之前，PRD（产品需求文档）是软件开发的起点。标准流程是一条清晰的瀑布：
-有人（通常是 PM）冒出一个想法 PM 写 PRD 设计师根据 PRD 画 Mock 工程师把 Mock 变成代码 这不是铁律——创业公司里这些步骤经常混在一起，最好的 Builder 能一个人跨好几个环节。但之所以还有这条「标准流程」，是因为写软件和画 Mock 都需要大量时间。于是产生了专业分工，也产生了跨分工沟通的需求。PRD 就是这个沟通的起点，一切从这里瀑布到设计，再瀑布到工程。
-Coding Agents 改变了这一切。它们可以把一个想法直接变成能跑的软件。所以当我（和其他人）说「PRDs 已死」，真正的意思是：这种以写 PRD 为起点的传统软件开发方式已死。
-瓶颈从实现转向审查 任何人现在都能写代码，也就意味着任何人都能做东西。但这不代表做出来的东西架构良好，不代表解决了正确的问题，也不代表好用。
-工程、产品和设计应该成为这些维度的审查者和仲裁者。生成的代码并不总是「好的」，EPD 的角色变成了审查并确保它是「好的」。「好的」意味着：
-工程视角：架构是否可扩展、高性能、健壮？ 产品视角：是否真正解决了用户痛点？ 设计视角：界面是否易用、直观？ 由于生成初版代码的成本极低，原型数量大幅增加。这些原型成为焦点，EPD 围着它们审查。
-问题在于——生成代码太容易了。以前写代码需要时间，审查者桌上同时摆的项目有限。现在任何人都能写代码，在做的项目数量在膨胀。我们在三个职能中看到的瓶颈都是同一个：审查——拿着原型，确保它们是「好的」。
-PRDs 万岁 以写 PRD 为起点的旧流程死了，但描述产品需求的文档依然必不可少。
-假设有人冒出一个想法，快速生成了一个原型。这个原型怎么进生产？它需要 EPD 其他成员审查。审查时，一份书面文档总是有帮助的，甚至是必需的——别人看代码时，怎么知道某段代码是手误还是有意为之？这取决于意图，而意图需要被传达。
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-03-12 18:30:00 +0800 HKT'>March 12, 2026</span> | <span>17 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to Coding Agents 正在重塑工程、产品与设计的分工逻辑" href="https://blog.zhangky.com/posts/2026/03/2026-03-12-coding-agents-reshaping-epd/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Robin：叫人，开会！
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-声明：本文纯属虚构。数据是真的，人是真的，会议是编的。如有雷同，说明百度确实该开这个会。
-下午三点半，百度大厦 E 座 23 层，Robin 的助理敲了三下门。
-“Robin，港股收盘了。”
-“嗯。”
-“MiniMax 收涨 22%。市值 3826 亿港元。”
-“我们呢？”
-“3322 亿。”
-Robin 放下手里的 iPad。屏幕上是海螺 AI 生成的一段视频——一只金毛犬在沙滩上奔跑，毛发在逆光中一根一根地飘。他刚才用文心一格试了三次，出来的狗像穿了件塑料雨衣。
-“叫人。”
-“叫谁？”
-“所有 VP。”
-助理犹豫了一下：“Robin，现在是 OKR 对齐周，大家都在——”
-“我说叫人。OKR 对齐个屁，先对齐一下市值。”
-会议室的灯亮了。六个人陆续到齐。
-Dou 穿着卫衣，上面印着&#34;AI Native&#34;——百度去年团建发的。Jackson 系着领带，手里端着瑞幸。Haifeng 带了笔记本电脑，屏幕上开着飞桨的 dashboard，仿佛随时准备汇报技术指标。
-Robin 把一张纸推到桌中间。上面手写了两行字：
-MiniMax：4 岁，收入 7900 万美元，73% 海外，市值 3800 亿。
-百度：26 岁，收入千亿，AI 砸了近千亿，市值 3300 亿。
-“谁来给我拉齐一下认知？”
-Dou 条件反射地接话：“Robin，市值不完全反映——”
-“对，市值不反映基本面。但你知道市值反映什么吗？反映 narrative。MiniMax 的 narrative 是什么？一个中国公司，七成收入来自海外，两亿多用户遍布 200 个国家。人家没在国内卷，没烧钱买量，没搞百亿补贴。人家润出去了。”
-他停了一下。
-“我们的 narrative 是什么？”
-没人说话。
-“我来帮你们 align 一下：百度是中国最早布局 AI 的公司，拥有从芯片到框架到模型到应用的全栈能力，文心大模型 5.0 在 LMArena 排名国内第一——”
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-03-11 20:00:00 +0800 HKT'>March 11, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to Robin：叫人，开会！" href="https://blog.zhangky.com/posts/2026/03/2026-03-11-baidu-how-to-lose-everything/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">龙虾大会：一场关于AI编程的集体幻觉
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫OpenClaw的工具，在GitHub上已经收获了超过27万颗星星1，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：云服务厂商摆出一键部署的展台，模型公司推销着按Token计费的服务包，开发者们热切地交流着提示词工程的心得。这场被称为**“龙虾大会”**的运动，正在以一种近乎狂热的姿态席卷整个行业。
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta name=generator content="Hugo 0.164.0"><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Zhang's Blog</title><meta name=description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta name=author content='ZHANG.z"'><link rel=canonical href=https://blog.zhangky.com/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.zhangky.com/index.xml title=rss><link rel=alternate type=application/json href=https://blog.zhangky.com/index.json title=json><link rel=alternate hreflang=en href=https://blog.zhangky.com/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://blog.zhangky.com/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="Zhang's Blog"><meta property="og:description" content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><meta property="og:locale" content="zh-cn"><meta property="og:type" content="website"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="Zhang's Blog"><meta name=twitter:description content="Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions."><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Zhang's Blog","url":"https://blog.zhangky.com/","description":"Open Source enthusiast and full-stack developer dedicated to building secure, scalable solutions.","logo":"https://blog.zhangky.com/images/logo.svg","sameAs":["https://github.com/ylzhang/ylzhang.github.io","https://x.com/ZHANG_on_mars"]}</script></head><body class=list id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span class=active>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/series/ title=Series><span>Series</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>龙虾大会：一场关于AI编程的集体幻觉</h2></header><div class=entry-content><p>三月的第一个周末，上海张江某栋写字楼的会议室里坐满了人。他们不是来参加什么新产品发布会，也不是为了听某个明星创业者的路演，而是为了学习如何使用一个开源工具——一个可以将自然语言转化为代码、让普通人也能指挥AI完成编程任务的框架。这个叫OpenClaw的工具，在GitHub上已经收获了超过27万颗星星1，在过去两个月里从一个技术社区的小众项目，变成了整个中国AI圈最火热的话题。从北京中关村到深圳南山，类似的聚会几乎每周都在上演：云服务厂商摆出一键部署的展台，模型公司推销着按Token计费的服务包，开发者们热切地交流着提示词工程的心得。这场被称为**“龙虾大会”**的运动，正在以一种近乎狂热的姿态席卷整个行业。
 但热闹的背后，一个根本性的问题被有意无意地忽略了：这些大会究竟在解决什么问题？
-参会者带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被&#34;AI替代程序员&#34;的焦虑驱动。然而，当演讲者们反复演示如何用几句自然语言生成一个待办事项应用，或者如何让AI自动修复简单的代码错误时，细心的观察者会发现，**这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。**那些在舞台上被展示的神奇能力，往往建立在精心设计的demo环境之上；一旦进入真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。
+参会者带着各自的期待而来——有人希望找到下一个创业风口，有人想提升自己的编程效率，也有人单纯被"AI替代程序员"的焦虑驱动。然而，当演讲者们反复演示如何用几句自然语言生成一个待办事项应用，或者如何让AI自动修复简单的代码错误时，细心的观察者会发现，**这些场景与真正复杂的软件工程之间，还隔着一条难以逾越的鸿沟。**那些在舞台上被展示的神奇能力，往往建立在精心设计的demo环境之上；一旦进入真实的业务场景，面对遗留系统的技术债务、模糊的产品需求、严格的合规要求，AI的表现就会迅速退化为一个偶尔能提供代码补全建议的辅助工具。
 这种落差并非偶然。
-当前的AI编程工具，本质上仍然是基于概率的模式匹配系统。它们在处理常见编程模式、标准库调用、以及有明确边界的任务时表现出色，因为这些场景在训练数据中有充足的样本。但一旦涉及到需要深度领域知识、复杂架构设计、或者跨系统集成的任务，AI就会暴露出理解力的局限。更要紧的是，编程从来不只是写代码——它还包括理解业务逻辑、权衡技术方案、与团队协作、以及在约束条件下做出工程决策。这些软技能，恰恰是当前的AI最难以替代的部分。那些在龙虾大会上被反复强调的&#34;生产力提升&#34;，很大程度上只是将编码阶段的部分工作自动化，而软件开发的全生命周期中，编码往往只占不到三分之一的工作量。
+当前的AI编程工具，本质上仍然是基于概率的模式匹配系统。它们在处理常见编程模式、标准库调用、以及有明确边界的任务时表现出色，因为这些场景在训练数据中有充足的样本。但一旦涉及到需要深度领域知识、复杂架构设计、或者跨系统集成的任务，AI就会暴露出理解力的局限。更要紧的是，编程从来不只是写代码——它还包括理解业务逻辑、权衡技术方案、与团队协作、以及在约束条件下做出工程决策。这些软技能，恰恰是当前的AI最难以替代的部分。那些在龙虾大会上被反复强调的"生产力提升"，很大程度上只是将编码阶段的部分工作自动化，而软件开发的全生命周期中，编码往往只占不到三分之一的工作量。
 云服务厂商和模型公司的热情参与，让这场运动变得更加复杂。对他们来说，OpenClaw提供了一个绝佳的切入点：通过简化部署流程、提供托管服务，他们可以将开发者锁定在自己的生态系统中。一键部署听起来很美好，但它也意味着用户将基础设施的控制权交给了平台；Token计费模式看似灵活，但当应用规模扩大时，成本可能会变得难以预测。
 这些商业模式的设计，更多地反映了供应商的利益，而非用户的真实需求。
-而在大会的演讲台上，模型厂商们轮番展示自家模型的编程能力，试图证明自己比竞争对手更适合这个场景。但这种比拼往往停留在基准测试的分数上，而非真实项目的交付能力。当所有人都急于在这个新兴市场占据一席之地时，关于&#34;这些工具究竟能创造什么价值&#34;的冷静思考反而被边缘化了。
-这种过热的状态很难持久。历史经验表明，**技术 hype 的周期通常在六到八周达到顶峰，随后进入冷静期。**龙虾大会也不例外。当最初的兴奋消退，当参会者们回到自己的工位尝试将这些工具应用到实际项目中，他们会发现现实的骨感：AI生成的代码可能需要大量的修改才能运行，自动化的工作流可能在边界情况下崩溃，而那些被承诺的&#34;十倍效率提升&#34;在复杂项目中变得难以兑现。这种幻灭感会迅速传播，媒体的报道会从&#34;革命性的突破&#34;转向&#34;被夸大的期望&#34;，投资者的注意力会转向下一个热点。三到八周后，当再有人提起龙虾大会时，语气中可能会带着一丝怀念，更多的是一种&#34;那阵子大家都挺疯狂的&#34;的调侃。
+而在大会的演讲台上，模型厂商们轮番展示自家模型的编程能力，试图证明自己比竞争对手更适合这个场景。但这种比拼往往停留在基准测试的分数上，而非真实项目的交付能力。当所有人都急于在这个新兴市场占据一席之地时，关于"这些工具究竟能创造什么价值"的冷静思考反而被边缘化了。
+这种过热的状态很难持久。历史经验表明，**技术 hype 的周期通常在六到八周达到顶峰，随后进入冷静期。**龙虾大会也不例外。当最初的兴奋消退，当参会者们回到自己的工位尝试将这些工具应用到实际项目中，他们会发现现实的骨感：AI生成的代码可能需要大量的修改才能运行，自动化的工作流可能在边界情况下崩溃，而那些被承诺的"十倍效率提升"在复杂项目中变得难以兑现。这种幻灭感会迅速传播，媒体的报道会从"革命性的突破"转向"被夸大的期望"，投资者的注意力会转向下一个热点。三到八周后，当再有人提起龙虾大会时，语气中可能会带着一丝怀念，更多的是一种"那阵子大家都挺疯狂的"的调侃。
 但这并不意味着AI编程工具没有价值。恰恰相反，它们在某些场景下确实能显著提升效率——尤其是在原型开发、学习编程、以及处理重复性编码任务时。问题在于，当前的市场叙事将这些能力过度放大，试图用**“AI替代程序员”**的惊悚标题来吸引眼球，而忽视了工具能力的边界。这种叙事不仅误导了公众，也给行业带来了不必要的焦虑。真正有价值的讨论应该是：在软件开发的全流程中，哪些环节可以被AI增强，哪些仍然需要人类的专业判断；如何在利用AI提升效率的同时，保持代码质量和系统的可维护性；以及，随着这些工具的普及，软件工程师的角色将如何演化。
 来自大洋彼岸的一些信号值得我们关注。在AI编程工具的赛道上，Cursor作为目前最成功的创业公司之一，近期明显加快了产品迭代的节奏。从2月到3月，Cursor连续发布了自动化工作流、JetBrains IDE支持、自主计算机控制等多项重大功能2，这种密集的产品发布节奏本身就说明了一些问题：即便是市场领导者，也感受到了来自各方的压力——既有来自大型模型公司的降维打击，也有来自开源社区免费替代品的竞争。
-而在模型层面，Anthropic于2026年2月17日发布的Claude Sonnet 4.6展示了更强的代码理解和生成能力3，根据Anthropic的官方数据，该模型在OSWorld计算机使用基准测试中表现优异，在某些场景下甚至超过了此前的Opus 4.5模型。当国外的竞争者在技术和产品层面快速迭代时，国内的大会仍然停留在&#34;如何使用工具&#34;的初级阶段，这种差距本身就值得深思。
+而在模型层面，Anthropic于2026年2月17日发布的Claude Sonnet 4.6展示了更强的代码理解和生成能力3，根据Anthropic的官方数据，该模型在OSWorld计算机使用基准测试中表现优异，在某些场景下甚至超过了此前的Opus 4.5模型。当国外的竞争者在技术和产品层面快速迭代时，国内的大会仍然停留在"如何使用工具"的初级阶段，这种差距本身就值得深思。
 更深层的观察是，工具的迭代与底层模型的升级密切相关。
 OpenClaw、Cursor这类工具本质上是Agent的落地表现形式，而Agent的能力边界直接受制于底层大模型的能力。当Anthropic这样的模型公司推出更强大的编程能力时，中间层工具必须在产品层面做出回应，否则用户就会直接转向模型原生的解决方案。据业内人士透露，Cursor内部已经将这种状态定义为**“战时模式”**——这并非空穴来风，而是对竞争格局剧变的直接回应。
 换言之，工具的演化是模型演化的函数。
@@ -291,20 +26,7 @@ OpenClaw、Cursor这类工具本质上是Agent的落地表现形式，而Agent�
 而在那之前，龙虾大会还会继续，只是参会者脸上的表情可能会从兴奋变成困惑，再从困惑变成一种若有所思的平静。那可能是一个更健康的状态——对于技术，对于行业，对于所有在其中寻找机会的人来说，都是如此。
 参考 OpenClaw GitHub Repository, https://github.com/openclaw/openclaw, 截至2026年3月收获278k stars ↩︎
 Cursor Blog, 2026年2-3月产品更新动态，包括Automations、JetBrains ACP、Agent Computer Use等功能发布 ↩︎
-Anthropic, “Introducing Claude Sonnet 4.6”, February 17, 2026, https://www.anthropic.com/news/claude-sonnet-4-6 ↩︎
-</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-03-08 14:00:00 +0800 HKT'>March 8, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 龙虾大会：一场关于AI编程的集体幻觉" href="https://blog.zhangky.com/posts/2026/03/2026-03-08-openclaw-fever-behind-the-hype/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">千问核心离职风波：林俊旸下一步是创业吗？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>3 月 6 日，林俊旸正式确认离职。距离那条「bye my beloved qwen」的推文过去 48 小时，这场震动中国 AI 圈的人事风波进入下半场——不是八卦内幕的下半场，而是更实质的问题：一个 32 岁、带出了全球顶级开源模型、被 Google DeepMind 公开喊话抢人的技术领袖，下一步该往哪走？
+Anthropic, “Introducing Claude Sonnet 4.6”, February 17, 2026, https://www.anthropic.com/news/claude-sonnet-4-6 ↩︎</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-03-08 14:00:00 +0800 +0800'>March 8, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 龙虾大会：一场关于AI编程的集体幻觉" href=https://blog.zhangky.com/posts/2026/03/2026-03-08-openclaw-fever-behind-the-hype/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>千问核心离职风波：林俊旸下一步是创业吗？</h2></header><div class=entry-content><p>3 月 6 日，林俊旸正式确认离职。距离那条「bye my beloved qwen」的推文过去 48 小时，这场震动中国 AI 圈的人事风波进入下半场——不是八卦内幕的下半场，而是更实质的问题：一个 32 岁、带出了全球顶级开源模型、被 Google DeepMind 公开喊话抢人的技术领袖，下一步该往哪走？
 我的判断很直接：创业是他唯一合理的选择。
 不是情感上的「创业浪漫」，而是结构性推演后的结论。大厂、学术机构、加入其他独角兽——这三条路都有明显的逻辑断裂，只有创业能承接他过去三年积累的所有资产，并给他真正的自由度。
 林俊旸今年 32 岁，阿里最年轻的 P10，Qwen 技术负责人。在他带领下，Qwen 从一个内部项目成长为全球下载量突破 7 亿次、衍生模型超过 18 万个的开源模型家族1。斯坦福《2025 年人工智能指数报告》把 Qwen 排在全球第三2，Google DeepMind executive Omar Sanseviero 在他离职后直接在 X 上向 Qwen 团队喊话：「if any of you want a new home to build great models and contribute to the open models ecosystem, please reach out!」3
@@ -313,191 +35,45 @@ Anthropic, “Introducing Claude Sonnet 4.6”, February 17, 2026, https://www.a
 据说离职消息传出后，投资圈瞬间沸腾。
 不止一家头部机构的合伙人通过各种渠道打探他的联系方式——有人发朋友圈暗示「有预算、等团队」，有人通过千问团队的熟人递话，有人直接私信阿里内部的朋友「能不能帮我引荐林俊旸」。不到 48 小时，他的微信被加爆，未读消息里挤满了红杉、高瓴、五源、启明等一线基金的合伙人。
 开出的条件一个比一个诱人：有人直接开价数千万美元估值，不占大股，「你说了算」；有人承诺「只管做技术，商业化我们来」，配套完整的 GTM 团队。
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-03-07 21:29:02 +0800 HKT'>March 7, 2026</span> | <span>21 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 千问核心离职风波：林俊旸下一步是创业吗？" href="https://blog.zhangky.com/posts/2026/03/2026-03-07-linjunyang-next-move-startup/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">大模型的开源，到底开源了什么
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-大模型时代喊的&#34;开源&#34;，99% 不是你以为的那种开源。
-当我们说 Linux 开源、Redis 开源的时候，意思很明确：把软件的&#34;设计图纸&#34;——源代码——全部公开，任何人都可以照着图纸把软件重新造一遍。这是软件的开源，公开图纸就等于公开一切。
-但大模型的开源是一件根本不同的事。大模型的能力不在图纸里，而在一堆&#34;经验&#34;里——几千亿个数字，是用海量数据和巨额算力&#34;喂&#34;出来的，不是人一行一行写出来的。你可以公开这些数字，但别人拿到了也不知道你是怎么喂出来的。这是AI 的开源，它和软件开源之间的鸿沟，比大多数人意识到的要深得多。
-深到什么程度？全球最权威的开源组织 OSI（开源促进会）在 2024 年 10 月专门发布了《开源 AI 定义 1.0》1，试图从头定义&#34;AI 的开源到底应该是什么&#34;——光是需要改写这件事本身，就说明传统软件开源的框架已经装不下大模型了。2026 年全国两会期间，中科院院士、阿里云创始人王坚更是直接呼吁：别再说&#34;开源大模型&#34;了，应该叫&#34;开放权重模型&#34;——因为你开放出去的不是一段代码，而是背后烧掉的电费和算力2。
-这篇文章想做一件事：把大模型&#34;开源&#34;这个词拆开，一层一层看清楚里面到底装了什么。
-大模型的&#34;源代码&#34;不是代码 软件开源的逻辑很简单：一个程序员写了一段代码，公开了，别人照着代码就能把同样的软件跑起来，还能改。代码就是全部，公开代码就是公开一切。
-大模型完全不是这么回事。它的核心不是人写的代码，而是一种叫权重（weights）的东西——你可以把它理解成模型的&#34;肌肉记忆&#34;。就像一个厨师做了十年菜，他的手感、火候判断、调味直觉，全都长在身体里，不是写在菜谱上的。大模型的权重也一样：几十亿到几千亿个数字，是模型在海量数据上反复训练出来的结果。没有人能看懂这些数字具体是什么意思，但把它们加载到程序里，模型就能回答问题、写代码、做翻译。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-03-07 21:29:02 +0800 +0800'>March 7, 2026</span> | <span>21 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 千问核心离职风波：林俊旸下一步是创业吗？" href=https://blog.zhangky.com/posts/2026/03/2026-03-07-linjunyang-next-move-startup/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>大模型的开源，到底开源了什么</h2></header><div class=entry-content><p>大模型时代喊的"开源"，99% 不是你以为的那种开源。
+当我们说 Linux 开源、Redis 开源的时候，意思很明确：把软件的"设计图纸"——源代码——全部公开，任何人都可以照着图纸把软件重新造一遍。这是软件的开源，公开图纸就等于公开一切。
+但大模型的开源是一件根本不同的事。大模型的能力不在图纸里，而在一堆"经验"里——几千亿个数字，是用海量数据和巨额算力"喂"出来的，不是人一行一行写出来的。你可以公开这些数字，但别人拿到了也不知道你是怎么喂出来的。这是AI 的开源，它和软件开源之间的鸿沟，比大多数人意识到的要深得多。
+深到什么程度？全球最权威的开源组织 OSI（开源促进会）在 2024 年 10 月专门发布了《开源 AI 定义 1.0》1，试图从头定义"AI 的开源到底应该是什么"——光是需要改写这件事本身，就说明传统软件开源的框架已经装不下大模型了。2026 年全国两会期间，中科院院士、阿里云创始人王坚更是直接呼吁：别再说"开源大模型"了，应该叫"开放权重模型"——因为你开放出去的不是一段代码，而是背后烧掉的电费和算力2。
+这篇文章想做一件事：把大模型"开源"这个词拆开，一层一层看清楚里面到底装了什么。
+大模型的"源代码"不是代码 软件开源的逻辑很简单：一个程序员写了一段代码，公开了，别人照着代码就能把同样的软件跑起来，还能改。代码就是全部，公开代码就是公开一切。
+大模型完全不是这么回事。它的核心不是人写的代码，而是一种叫权重（weights）的东西——你可以把它理解成模型的"肌肉记忆"。就像一个厨师做了十年菜，他的手感、火候判断、调味直觉，全都长在身体里，不是写在菜谱上的。大模型的权重也一样：几十亿到几千亿个数字，是模型在海量数据上反复训练出来的结果。没有人能看懂这些数字具体是什么意思，但把它们加载到程序里，模型就能回答问题、写代码、做翻译。
 关键区别在这里：公开厨师做好的菜，不等于公开他十年练出来的手艺。公开权重，不等于公开训练权重的方法。这就是 AI 开源和软件开源的根本区别。
-所以，大模型的世界里，“源代码&#34;这个概念被拆成了至少四层：
-层 是什么 厨师类比 权重 模型训练出来的&#34;肌肉记忆” 厨师十年练出来的手感和味觉直觉 推理代码 让模型跑起来的程序 把菜端上桌的流程 训练代码 从零训练模型的完整方法 厨师十年来的全部训练方法和食谱 训练数据 喂给模型学习的海量文本、图像等 厨师吃过的所有菜、看过的所有菜谱 传统软件开源，相当于把食谱和做法全部公开。大模型&#34;开源&#34;，大多数时候只是把做好的菜端出来，告诉你怎么加热和摆盘。
-三种&#34;开源&#34;，差别巨大 明白了这四层之后，我们就可以看清楚：市面上号称&#34;开源&#34;的大模型，其实分成了截然不同的三种模式。
+所以，大模型的世界里，“源代码"这个概念被拆成了至少四层：
+层 是什么 厨师类比 权重 模型训练出来的"肌肉记忆” 厨师十年练出来的手感和味觉直觉 推理代码 让模型跑起来的程序 把菜端上桌的流程 训练代码 从零训练模型的完整方法 厨师十年来的全部训练方法和食谱 训练数据 喂给模型学习的海量文本、图像等 厨师吃过的所有菜、看过的所有菜谱 传统软件开源，相当于把食谱和做法全部公开。大模型"开源"，大多数时候只是把做好的菜端出来，告诉你怎么加热和摆盘。
+三种"开源"，差别巨大 明白了这四层之后，我们就可以看清楚：市面上号称"开源"的大模型，其实分成了截然不同的三种模式。
 开放权重：给你成品，不给你生产车间 这是目前最主流的模式。Qwen、Llama 3、Gemma、Mistral——全球下载量最大的开源模型，几乎都属于这一类。
-阿里的 Qwen（通义千问）是这个模式的典型代表。 你可以免费下载它全系列的模型——从轻量级的小模型到最新的 Qwen 3.5 旗舰版，附带使用说明和示例代码。你能拿它在自己的电脑或服务器上跑起来，用自己的数据做定制化训练（行话叫&#34;微调&#34;），甚至基于它做出更小的模型拿去商用。Qwen 的下载量已突破 7 亿次，全球开发者基于它做出的衍生模型超过 18 万个3——这个生态的繁荣，完全建立在&#34;开放权重&#34;这个模式之上。
-但你拿不到的东西同样重要：Qwen 是怎么从零开始训练出来的？喂了什么数据？数据怎么筛选和清洗的？训练过程中几百个关键参数是怎么调的？模型怎么学会&#34;像人一样说话&#34;的？这些全都没有公开。你拿到了一个训练好的模型，但完全不知道它是怎么炼成的。
-值得注意的是，即便同属&#34;开放权重&#34;，“使用条款&#34;之间的差异也不小。Qwen 用的是最宽松的 Apache 2.0 协议——随便用、随便改、随便商用，没有附加限制。Meta 的 Llama 3 则有门槛：如果你的产品月活用户超过 7 亿，需要单独找 Meta 谈授权。Google 的 Gemma 更严格：明确禁止你用它的模型去训练竞品。同样叫&#34;开放权重”，你能拿它做什么，差别可以很大。
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-03-06 08:00:00 +0800 HKT'>March 6, 2026</span> | <span>25 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 大模型的开源，到底开源了什么" href="https://blog.zhangky.com/posts/2026/03/2026-03-06-what-does-open-source-mean-for-llm/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="https://blog.zhangky.com/page/8/">
-      «&nbsp;Prev&nbsp;8/29
-    </a>
-    <a class="next" href="https://blog.zhangky.com/page/10/">Next&nbsp;10/29&nbsp;»
-    </a>
-  </nav>
-</footer>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<style>
-   
-  .mermaid {
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 95%;
-    overflow-x: auto;
-  }
-  
-   
-  .mermaid > svg {
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-  
-   
-  .mermaid flowchart {
-    width: 100%;
-  }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>
-  
-  window.mermaidConfig = {
-    startOnLoad: true,
-    theme: 'default',
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis',
-      width: '100%',
-      height: 'auto'
-    },
-    sequence: {
-      useMaxWidth: true
-    },
-    gantt: {
-      useMaxWidth: true
-    }
-  };
-  
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    var codeBlocks = document.querySelectorAll('code.language-mermaid');
-    
-    
-    codeBlocks.forEach(function(codeBlock) {
-      var preBlock = codeBlock.parentNode;
-      var mermaidCode = codeBlock.textContent;
-      
-      
-      var mermaidContainer = document.createElement('div');
-      mermaidContainer.className = 'mermaid';
-      mermaidContainer.textContent = mermaidCode;
-      
-      
-      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
-    });
-    
-    
-    mermaid.initialize(window.mermaidConfig);
-  });
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+阿里的 Qwen（通义千问）是这个模式的典型代表。 你可以免费下载它全系列的模型——从轻量级的小模型到最新的 Qwen 3.5 旗舰版，附带使用说明和示例代码。你能拿它在自己的电脑或服务器上跑起来，用自己的数据做定制化训练（行话叫"微调"），甚至基于它做出更小的模型拿去商用。Qwen 的下载量已突破 7 亿次，全球开发者基于它做出的衍生模型超过 18 万个3——这个生态的繁荣，完全建立在"开放权重"这个模式之上。
+但你拿不到的东西同样重要：Qwen 是怎么从零开始训练出来的？喂了什么数据？数据怎么筛选和清洗的？训练过程中几百个关键参数是怎么调的？模型怎么学会"像人一样说话"的？这些全都没有公开。你拿到了一个训练好的模型，但完全不知道它是怎么炼成的。
+值得注意的是，即便同属"开放权重"，“使用条款"之间的差异也不小。Qwen 用的是最宽松的 Apache 2.0 协议——随便用、随便改、随便商用，没有附加限制。Meta 的 Llama 3 则有门槛：如果你的产品月活用户超过 7 亿，需要单独找 Meta 谈授权。Google 的 Gemma 更严格：明确禁止你用它的模型去训练竞品。同样叫"开放权重”，你能拿它做什么，差别可以很大。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-03-06 08:00:00 +0800 +0800'>March 6, 2026</span> | <span>25 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 大模型的开源，到底开源了什么" href=https://blog.zhangky.com/posts/2026/03/2026-03-06-what-does-open-source-mean-for-llm/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>千问核心离职风波：开源社区需要什么人</h2></header><div class=entry-content><p>Qwen 的技术报告单篇引用超过 6000 次1，Hugging Face 下载量突破 7 亿次2，衍生模型超过 18 万个2。斯坦福《2025 年人工智能指数报告》把它排在全球第三3。然后，带着这一切走到今天的人，在凌晨 0:11 发了一条推文就走了4。
+这两天 AI 圈讨论最多的不是模型，而是人。但我注意到一个有意思的现象：中文互联网上讨论的焦点是"阿里怎么了"“管理出了什么问题"“谁来接班”，而英文社区——从 Hugging Face 到 GitHub 到 X 的评论区——讨论的焦点是一个更本质的问题：开源社区到底需要什么样的人？失去这样的人意味着什么？
+这两种反应之间的落差，可能比林俊旸的离职本身更值得想一想。
+全球顶级机构在用行动投票 艾伦人工智能研究院的研究员 Nathan Lambert 在 X 上写了一句话：“如果 Qwen 倒塌，在开放研究生态中留下的巨大空缺将很难填补。那些小模型是不可替代的。”5
+Hyperbolic Labs 的 CTO Yuchen Jin 说：“一个时代的结束。“MiniMax、Unsloth、Ollama 都在林俊旸的推文下留言感谢。Hugging Face 亚太区负责人 Tiezhen Wang 说这是 Qwen 的"巨大损失”。智谱 AI 创始人唐杰评论说：“酷，开始新的旅程吧。”
+而截至发稿，事情已经从哀悼升级为抢人。Google DeepMind 的 Omar Sanseviero 直接在 X 上向 Qwen 团队公开喊话6：
+Qwen friends: if any of you want a new home to build great models and contribute to the open models ecosystem, please reach out!
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-03-06 01:00:00 +0800 +0800'>March 6, 2026</span> | <span>26 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 千问核心离职风波：开源社区需要什么人" href=https://blog.zhangky.com/posts/2026/03/2026-03-06-qwen-open-source-needs-him/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>千问团队离职风波：一个管理者应该看到什么</h2></header><div class=entry-content><p>3 月 4 日凌晨 0:11，林俊旸在 X 上写下一句话：
+me stepping down. bye my beloved qwen.
+6M 浏览，1.3K 转发，1.3 万点赞。阿里巴巴通义千问技术负责人，今年刚满 32 岁，阿里最年轻的 P10，就这样在深夜告别了自己一手带大的团队。
+前一天晚上，他的团队刚发布了一个让马斯克都点赞的开源模型。紧接着，Qwen 另一位核心负责人 Binyuan Hui（惠彬原）也走了，Qwen3.5、Qwen VL、Qwen Coder 的核心贡献者 Kaixin Li 也发了告别帖。目前确认离开的至少三到四人，全是核心骨干。一天之内，中国最有影响力的开源大模型团队经历了一次集体震荡。
+这件事在 AI 圈刷屏了两天。各种内幕、传闻、阴谋论满天飞——KPI 不达标、转向闭源、被架空、被挖角。3 月 5 日，阿里 CEO 吴泳铭发了一封内部邮件：
+各位通义实验室同学：
+公司已决定批准林俊旸同学的辞职，感谢林俊旸过去在岗位上的付出。靖人会继续带领通义实验室推进后续工作。同时公司将成立基础模型支持小组，由我，靖人，范禹共同协调集团资源支持基础模型建设。
+技术发展不进则退。发展基础大模型是我们面向未来的关键战略，我们将在继续坚持开源模型策略的同时，持续加大对人工智能领域的研发投入，加大吸纳优秀人才的力度，我们一起加油。
+吴泳铭 2026年3月5日
+坦白说，这些八卦和公关回应我都不太关心。我更想从一个很小的窗口来看这件事：管理。具体来说，是三个层层递进的问题——你有没有看到信号？你有没有理解诉求？你的制度能不能接住这些人？
+信号一直在，只是没人听 管理学里有个说法：员工离职的决定，通常在正式提出前三到六个月就已经做出了。在这段时间里，信号其实一直在——工作热情下降、对战略讨论的参与减少、开始频繁和外部接触。问题不是信号不存在，而是有没有人在接收。
+大公司里有一个常见的悖论：越重要的人，CEO 越没时间见。
+吴泳铭在邮件里宣布成立高层直接协调的支持小组——这个动作本身说明了一件事：之前的协调层级太多了。一个负责公司核心 AI 能力的技术负责人，他的诉求、困惑、不满，要穿过几层汇报才能到达 CEO 耳朵里？等信息传到的时候，还剩下多少真实度？
+我一直觉得，CEO 最值钱的时间投入之一是和关键人才的 one-on-one。不是季度汇报，不是 all-hands 上的 Q&amp;A，而是关起门来、没有议程、聊半小时到一小时的那种对话。这种对话的价值不在于解决具体问题，而在于建立一条不经过任何中间层的信息通道。
+Andy Grove 在《高产出管理》里算过一笔账：一个经理人花一小时做 one-on-one，影响的是下属接下来两周的工作质量和方向感。对 CEO 来说，这笔账的杠杆更大——你花一小时和一个关键技术负责人聊，可能避免的是一次价值数十亿的团队震荡。反过来，你省下的这一小时拿去开了一个战略会，讨论的可能恰恰是这个人走了之后怎么办。
+...</p></div><footer class=entry-footer>ZHANG.z | <span title='2026-03-05 12:00:00 +0800 +0800'>March 5, 2026</span> | <span>13 min</span> | <span>Shanghai</span></footer><a class=entry-link aria-label="post link to 千问团队离职风波：一个管理者应该看到什么" href=https://blog.zhangky.com/posts/2026/03/2026-03-05-qwen-departure-leadership-reflection/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.zhangky.com/page/8/>«&nbsp;Prev&nbsp;8/28
+</a><a class=next href=https://blog.zhangky.com/page/10/>Next&nbsp;10/28&nbsp;»</a></nav></footer></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
