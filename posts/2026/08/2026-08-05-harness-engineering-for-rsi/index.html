@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>递归自我改进：从一杯咖啡到Harness Engineering | Z&#39;s Blog</title>
+<meta name="keywords" content="递归自我改进, Harness Engineering, Agent, 自我改进">
+<meta name="description" content="递归自我改进：从一杯咖啡到Harness Engineering
+2025年夏天，我去美国纽约和波士顿做短期访问，回程途经旧金山转机。我决定在旧金山多呆一天——去之前通过邮件约了几位朋友，其中包括素未谋面的Lilian Weng。
+我乘地铁去了OpenAI当时的那栋小白楼。他们楼下有一家星巴克，我在那儿等她。那是下午两点，店里坐满了人，一半以上的屏幕上开着代码编辑器，邻桌在讨论transformer的注意力机制，角落里有人在白板上画架构图。你能清晰地感觉到，这栋楼里正在发生什么。
+后面和Weng之间的AI讨论故事不多说了——言归正传。我当时记住了一句话：&ldquo;模型本身不是瓶颈，真正的瓶颈是我们怎么让模型更好地使用工具、管理上下文、持续进化。&rdquo;
+今年7月4日，她在博客上发表了那篇《Harness Engineering for Self-Improvement》，结合随后官宣加盟OPRNAI的消息，我才意识到那天那句话的分量。这篇文章，我想从技术的角度，拆解她到底看到了什么。
+一、RSI：一个60年的概念，为什么现在才可行
+Lilian Weng的文章开篇直接切入主题：递归自我改进（Recursive Self-Improvement, RSI）。
+这个概念可以追溯到1965年，英国数学家I. J. Good提出的&quot;超智能机器&quot;——一种能在所有智力活动中超越人类，并设计出比自身更好的机器的系统。2008年，Eliezer Yudkowsky将这个概念精确化为一个反馈循环：AI利用其当前的智能，去改进产生其智能的认知机制。
+听起来很抽象。但Lilian Weng把这个抽象概念落到了实处。她指出，在现代AI语境下，这个反馈循环可以发生在三个层面：
+
+模型权重层面：模型直接重写自己的参数。这是最理想但最难的路径，目前几乎不可行。
+训练管道层面：模型改进生成训练数据、选择训练任务、优化训练策略。这是很多前沿实验室正在探索的方向。
+部署系统层面：模型改进自己与外界交互的方式——如何调用工具、如何管理上下文、如何评估自身输出。
+
+她明确选择了第三个切入点。原因很关键：原始模型和真实世界之间的这层，其重要性不亚于模型本身的原始智能。Claude Code和Codex的成功，不是因为它们的基础模型最强，而是因为它们的部署系统设计最成熟。
+她用了一个词来描述这层部署系统：Harness。
+二、Harness：模型与世界之间的操作系统
+&ldquo;Lilian Weng在咖啡馆里用了一个比喻，&ldquo;我回忆道，&ldquo;她说Harness就像操作系统。你花在操作系统上的功夫，决定了CPU能发挥多大潜力。&rdquo;
+在她的定义中，Harness是围绕在基础模型周围的整个系统，它负责：
+
+编排执行流程（模型如何思考和规划）
+定义工具调用（模型如何与外界交互）
+管理上下文（模型感知和存储什么信息）
+持久化产物（模型如何保存工作成果）
+评估结果（如何判断模型表现好坏）
+
+这个定义的精妙之处在于，它将原本分散的概念——Prompt Engineering、Agent Framework、Tool Use、Memory Management、Evaluation——统一到了一个更宏观的架构视角下。
+更重要的是，她指出了Harness工程与传统Agent框架的区别：
+
+  
+      
+          维度
+          传统Agent框架
+          Harness工程
+      
+  
+  
+      
+          核心公式
+          agent = LLM &#43; memory &#43; tools &#43; planning &#43; action
+          额外加入workflow design, evaluation, permission control, persistent state
+      
+      
+          设计理念
+          Prompt模板
+          运行时系统设计
+      
+      
+          类比
+          IDE
+          操作系统
+      
+  
+
+这个类比不是随便说的。Lilian Weng明确指出，Harness的设计应该参考操作系统的工程实践：">
+<meta name="author" content="Lonney .Z">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/08/2026-08-05-harness-engineering-for-rsi/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/08/2026-08-05-harness-engineering-for-rsi/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/08/2026-08-05-harness-engineering-for-rsi/">
+  <meta property="og:site_name" content="Z&#39;s Blog">
+  <meta property="og:title" content="递归自我改进：从一杯咖啡到Harness Engineering">
+  <meta property="og:description" content="递归自我改进：从一杯咖啡到Harness Engineering 2025年夏天，我去美国纽约和波士顿做短期访问，回程途经旧金山转机。我决定在旧金山多呆一天——去之前通过邮件约了几位朋友，其中包括素未谋面的Lilian Weng。
+我乘地铁去了OpenAI当时的那栋小白楼。他们楼下有一家星巴克，我在那儿等她。那是下午两点，店里坐满了人，一半以上的屏幕上开着代码编辑器，邻桌在讨论transformer的注意力机制，角落里有人在白板上画架构图。你能清晰地感觉到，这栋楼里正在发生什么。
+后面和Weng之间的AI讨论故事不多说了——言归正传。我当时记住了一句话：“模型本身不是瓶颈，真正的瓶颈是我们怎么让模型更好地使用工具、管理上下文、持续进化。”
+今年7月4日，她在博客上发表了那篇《Harness Engineering for Self-Improvement》，结合随后官宣加盟OPRNAI的消息，我才意识到那天那句话的分量。这篇文章，我想从技术的角度，拆解她到底看到了什么。
+一、RSI：一个60年的概念，为什么现在才可行 Lilian Weng的文章开篇直接切入主题：递归自我改进（Recursive Self-Improvement, RSI）。
+这个概念可以追溯到1965年，英国数学家I. J. Good提出的&#34;超智能机器&#34;——一种能在所有智力活动中超越人类，并设计出比自身更好的机器的系统。2008年，Eliezer Yudkowsky将这个概念精确化为一个反馈循环：AI利用其当前的智能，去改进产生其智能的认知机制。
+听起来很抽象。但Lilian Weng把这个抽象概念落到了实处。她指出，在现代AI语境下，这个反馈循环可以发生在三个层面：
+模型权重层面：模型直接重写自己的参数。这是最理想但最难的路径，目前几乎不可行。 训练管道层面：模型改进生成训练数据、选择训练任务、优化训练策略。这是很多前沿实验室正在探索的方向。 部署系统层面：模型改进自己与外界交互的方式——如何调用工具、如何管理上下文、如何评估自身输出。 她明确选择了第三个切入点。原因很关键：原始模型和真实世界之间的这层，其重要性不亚于模型本身的原始智能。Claude Code和Codex的成功，不是因为它们的基础模型最强，而是因为它们的部署系统设计最成熟。
+她用了一个词来描述这层部署系统：Harness。
+二、Harness：模型与世界之间的操作系统 “Lilian Weng在咖啡馆里用了一个比喻，“我回忆道，“她说Harness就像操作系统。你花在操作系统上的功夫，决定了CPU能发挥多大潜力。”
+在她的定义中，Harness是围绕在基础模型周围的整个系统，它负责：
+编排执行流程（模型如何思考和规划） 定义工具调用（模型如何与外界交互） 管理上下文（模型感知和存储什么信息） 持久化产物（模型如何保存工作成果） 评估结果（如何判断模型表现好坏） 这个定义的精妙之处在于，它将原本分散的概念——Prompt Engineering、Agent Framework、Tool Use、Memory Management、Evaluation——统一到了一个更宏观的架构视角下。
+更重要的是，她指出了Harness工程与传统Agent框架的区别：
+维度 传统Agent框架 Harness工程 核心公式 agent = LLM &#43; memory &#43; tools &#43; planning &#43; action 额外加入workflow design, evaluation, permission control, persistent state 设计理念 Prompt模板 运行时系统设计 类比 IDE 操作系统 这个类比不是随便说的。Lilian Weng明确指出，Harness的设计应该参考操作系统的工程实践：">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-08-05T22:00:00+08:00">
+    <meta property="article:modified_time" content="2026-08-05T22:00:00+08:00">
+    <meta property="article:tag" content="AI">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="递归自我改进：从一杯咖啡到Harness Engineering">
+<meta name="twitter:description" content="递归自我改进：从一杯咖啡到Harness Engineering
+2025年夏天，我去美国纽约和波士顿做短期访问，回程途经旧金山转机。我决定在旧金山多呆一天——去之前通过邮件约了几位朋友，其中包括素未谋面的Lilian Weng。
+我乘地铁去了OpenAI当时的那栋小白楼。他们楼下有一家星巴克，我在那儿等她。那是下午两点，店里坐满了人，一半以上的屏幕上开着代码编辑器，邻桌在讨论transformer的注意力机制，角落里有人在白板上画架构图。你能清晰地感觉到，这栋楼里正在发生什么。
+后面和Weng之间的AI讨论故事不多说了——言归正传。我当时记住了一句话：&ldquo;模型本身不是瓶颈，真正的瓶颈是我们怎么让模型更好地使用工具、管理上下文、持续进化。&rdquo;
+今年7月4日，她在博客上发表了那篇《Harness Engineering for Self-Improvement》，结合随后官宣加盟OPRNAI的消息，我才意识到那天那句话的分量。这篇文章，我想从技术的角度，拆解她到底看到了什么。
+一、RSI：一个60年的概念，为什么现在才可行
+Lilian Weng的文章开篇直接切入主题：递归自我改进（Recursive Self-Improvement, RSI）。
+这个概念可以追溯到1965年，英国数学家I. J. Good提出的&quot;超智能机器&quot;——一种能在所有智力活动中超越人类，并设计出比自身更好的机器的系统。2008年，Eliezer Yudkowsky将这个概念精确化为一个反馈循环：AI利用其当前的智能，去改进产生其智能的认知机制。
+听起来很抽象。但Lilian Weng把这个抽象概念落到了实处。她指出，在现代AI语境下，这个反馈循环可以发生在三个层面：
+
+模型权重层面：模型直接重写自己的参数。这是最理想但最难的路径，目前几乎不可行。
+训练管道层面：模型改进生成训练数据、选择训练任务、优化训练策略。这是很多前沿实验室正在探索的方向。
+部署系统层面：模型改进自己与外界交互的方式——如何调用工具、如何管理上下文、如何评估自身输出。
+
+她明确选择了第三个切入点。原因很关键：原始模型和真实世界之间的这层，其重要性不亚于模型本身的原始智能。Claude Code和Codex的成功，不是因为它们的基础模型最强，而是因为它们的部署系统设计最成熟。
+她用了一个词来描述这层部署系统：Harness。
+二、Harness：模型与世界之间的操作系统
+&ldquo;Lilian Weng在咖啡馆里用了一个比喻，&ldquo;我回忆道，&ldquo;她说Harness就像操作系统。你花在操作系统上的功夫，决定了CPU能发挥多大潜力。&rdquo;
+在她的定义中，Harness是围绕在基础模型周围的整个系统，它负责：
+
+编排执行流程（模型如何思考和规划）
+定义工具调用（模型如何与外界交互）
+管理上下文（模型感知和存储什么信息）
+持久化产物（模型如何保存工作成果）
+评估结果（如何判断模型表现好坏）
+
+这个定义的精妙之处在于，它将原本分散的概念——Prompt Engineering、Agent Framework、Tool Use、Memory Management、Evaluation——统一到了一个更宏观的架构视角下。
+更重要的是，她指出了Harness工程与传统Agent框架的区别：
+
+  
+      
+          维度
+          传统Agent框架
+          Harness工程
+      
+  
+  
+      
+          核心公式
+          agent = LLM &#43; memory &#43; tools &#43; planning &#43; action
+          额外加入workflow design, evaluation, permission control, persistent state
+      
+      
+          设计理念
+          Prompt模板
+          运行时系统设计
+      
+      
+          类比
+          IDE
+          操作系统
+      
+  
+
+这个类比不是随便说的。Lilian Weng明确指出，Harness的设计应该参考操作系统的工程实践：">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "递归自我改进：从一杯咖啡到Harness Engineering",
+      "item": "https://blog.zhangky.com/posts/2026/08/2026-08-05-harness-engineering-for-rsi/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "递归自我改进：从一杯咖啡到Harness Engineering",
+  "name": "递归自我改进：从一杯咖啡到Harness Engineering",
+  "description": "递归自我改进：从一杯咖啡到Harness Engineering 2025年夏天，我去美国纽约和波士顿做短期访问，回程途经旧金山转机。我决定在旧金山多呆一天——去之前通过邮件约了几位朋友，其中包括素未谋面的Lilian Weng。\n我乘地铁去了OpenAI当时的那栋小白楼。他们楼下有一家星巴克，我在那儿等她。那是下午两点，店里坐满了人，一半以上的屏幕上开着代码编辑器，邻桌在讨论transformer的注意力机制，角落里有人在白板上画架构图。你能清晰地感觉到，这栋楼里正在发生什么。\n后面和Weng之间的AI讨论故事不多说了——言归正传。我当时记住了一句话：\u0026ldquo;模型本身不是瓶颈，真正的瓶颈是我们怎么让模型更好地使用工具、管理上下文、持续进化。\u0026rdquo;\n今年7月4日，她在博客上发表了那篇《Harness Engineering for Self-Improvement》，结合随后官宣加盟OPRNAI的消息，我才意识到那天那句话的分量。这篇文章，我想从技术的角度，拆解她到底看到了什么。\n一、RSI：一个60年的概念，为什么现在才可行 Lilian Weng的文章开篇直接切入主题：递归自我改进（Recursive Self-Improvement, RSI）。\n这个概念可以追溯到1965年，英国数学家I. J. Good提出的\u0026quot;超智能机器\u0026quot;——一种能在所有智力活动中超越人类，并设计出比自身更好的机器的系统。2008年，Eliezer Yudkowsky将这个概念精确化为一个反馈循环：AI利用其当前的智能，去改进产生其智能的认知机制。\n听起来很抽象。但Lilian Weng把这个抽象概念落到了实处。她指出，在现代AI语境下，这个反馈循环可以发生在三个层面：\n模型权重层面：模型直接重写自己的参数。这是最理想但最难的路径，目前几乎不可行。 训练管道层面：模型改进生成训练数据、选择训练任务、优化训练策略。这是很多前沿实验室正在探索的方向。 部署系统层面：模型改进自己与外界交互的方式——如何调用工具、如何管理上下文、如何评估自身输出。 她明确选择了第三个切入点。原因很关键：原始模型和真实世界之间的这层，其重要性不亚于模型本身的原始智能。Claude Code和Codex的成功，不是因为它们的基础模型最强，而是因为它们的部署系统设计最成熟。\n她用了一个词来描述这层部署系统：Harness。\n二、Harness：模型与世界之间的操作系统 \u0026ldquo;Lilian Weng在咖啡馆里用了一个比喻，\u0026ldquo;我回忆道，\u0026ldquo;她说Harness就像操作系统。你花在操作系统上的功夫，决定了CPU能发挥多大潜力。\u0026rdquo;\n在她的定义中，Harness是围绕在基础模型周围的整个系统，它负责：\n编排执行流程（模型如何思考和规划） 定义工具调用（模型如何与外界交互） 管理上下文（模型感知和存储什么信息） 持久化产物（模型如何保存工作成果） 评估结果（如何判断模型表现好坏） 这个定义的精妙之处在于，它将原本分散的概念——Prompt Engineering、Agent Framework、Tool Use、Memory Management、Evaluation——统一到了一个更宏观的架构视角下。\n更重要的是，她指出了Harness工程与传统Agent框架的区别：\n维度 传统Agent框架 Harness工程 核心公式 agent = LLM + memory + tools + planning + action 额外加入workflow design, evaluation, permission control, persistent state 设计理念 Prompt模板 运行时系统设计 类比 IDE 操作系统 这个类比不是随便说的。Lilian Weng明确指出，Harness的设计应该参考操作系统的工程实践：\n",
+  "keywords": [
+    "递归自我改进", "Harness Engineering", "Agent", "自我改进"
+  ],
+  "articleBody": "递归自我改进：从一杯咖啡到Harness Engineering 2025年夏天，我去美国纽约和波士顿做短期访问，回程途经旧金山转机。我决定在旧金山多呆一天——去之前通过邮件约了几位朋友，其中包括素未谋面的Lilian Weng。\n我乘地铁去了OpenAI当时的那栋小白楼。他们楼下有一家星巴克，我在那儿等她。那是下午两点，店里坐满了人，一半以上的屏幕上开着代码编辑器，邻桌在讨论transformer的注意力机制，角落里有人在白板上画架构图。你能清晰地感觉到，这栋楼里正在发生什么。\n后面和Weng之间的AI讨论故事不多说了——言归正传。我当时记住了一句话：“模型本身不是瓶颈，真正的瓶颈是我们怎么让模型更好地使用工具、管理上下文、持续进化。”\n今年7月4日，她在博客上发表了那篇《Harness Engineering for Self-Improvement》，结合随后官宣加盟OPRNAI的消息，我才意识到那天那句话的分量。这篇文章，我想从技术的角度，拆解她到底看到了什么。\n一、RSI：一个60年的概念，为什么现在才可行 Lilian Weng的文章开篇直接切入主题：递归自我改进（Recursive Self-Improvement, RSI）。\n这个概念可以追溯到1965年，英国数学家I. J. Good提出的\"超智能机器\"——一种能在所有智力活动中超越人类，并设计出比自身更好的机器的系统。2008年，Eliezer Yudkowsky将这个概念精确化为一个反馈循环：AI利用其当前的智能，去改进产生其智能的认知机制。\n听起来很抽象。但Lilian Weng把这个抽象概念落到了实处。她指出，在现代AI语境下，这个反馈循环可以发生在三个层面：\n模型权重层面：模型直接重写自己的参数。这是最理想但最难的路径，目前几乎不可行。 训练管道层面：模型改进生成训练数据、选择训练任务、优化训练策略。这是很多前沿实验室正在探索的方向。 部署系统层面：模型改进自己与外界交互的方式——如何调用工具、如何管理上下文、如何评估自身输出。 她明确选择了第三个切入点。原因很关键：原始模型和真实世界之间的这层，其重要性不亚于模型本身的原始智能。Claude Code和Codex的成功，不是因为它们的基础模型最强，而是因为它们的部署系统设计最成熟。\n她用了一个词来描述这层部署系统：Harness。\n二、Harness：模型与世界之间的操作系统 “Lilian Weng在咖啡馆里用了一个比喻，“我回忆道，“她说Harness就像操作系统。你花在操作系统上的功夫，决定了CPU能发挥多大潜力。”\n在她的定义中，Harness是围绕在基础模型周围的整个系统，它负责：\n编排执行流程（模型如何思考和规划） 定义工具调用（模型如何与外界交互） 管理上下文（模型感知和存储什么信息） 持久化产物（模型如何保存工作成果） 评估结果（如何判断模型表现好坏） 这个定义的精妙之处在于，它将原本分散的概念——Prompt Engineering、Agent Framework、Tool Use、Memory Management、Evaluation——统一到了一个更宏观的架构视角下。\n更重要的是，她指出了Harness工程与传统Agent框架的区别：\n维度 传统Agent框架 Harness工程 核心公式 agent = LLM + memory + tools + planning + action 额外加入workflow design, evaluation, permission control, persistent state 设计理念 Prompt模板 运行时系统设计 类比 IDE 操作系统 这个类比不是随便说的。Lilian Weng明确指出，Harness的设计应该参考操作系统的工程实践：\n封装复杂性：将复杂逻辑封装在Harness内部，对外暴露简单接口 标准化协议：配置、工具接口等协议将逐渐成为行业标准 持续进化：Harness可以独立于底层模型迭代优化 这意味着，AI工程的重心正在从\"打造更大的模型\"转向\"设计更好的Harness”。这是一个范式级的转变。\n三、Harness设计模式：从产品中提炼的工程实践 Lilian Weng的文章最有价值的部分之一，是她从Claude Code、Codex、Cursor等成功产品中提炼出的三种核心设计模式。这些不是空洞的理论，而是经过产品验证的工程实践。\n模式一：工作流自动化 定义模型可以在其中运行、测试和迭代的工作流，是自动化的关键设计。Karpathy的autoresearch仓库提供了清晰的示例。通用工作流遵循一个目标导向的循环：\n计划(Plan) → 执行(Execute) → 观察/测试(Observe/Test) → 改进(Improve) → 重新执行 这个循环持续运行，直到目标达成。关键设计点：\n动态性：工作流不是固定脚本，而是根据模型观察结果动态调整 自主性：模型可以主动向用户请求澄清 反思性：模型分析自身的执行轨迹和失败案例，从中学习 这已经不是传统的\"Prompt Engineering\"了，而是运行时系统设计。\n模式二：文件系统作为持久记忆 这是一个极其简洁但深远的设计决策。\n在长时间运行的Agent系统中，模型产生的产物——实验日志、代码差异、论文摘要、错误追踪、历史执行轨迹——会迅速超出上下文窗口的限制。Lilian Weng的解决方案不是扩大上下文窗口，而是将持久化状态存储在文件系统中。\n这个设计的美妙之处在于：\nLLM天生具备文件操作能力：读写文件是基础技能，随着模型能力提升而自然增强 可中断性：系统可以在任何时刻中断并恢复，因为状态存储在外部 可追溯性：完整的执行历史可以被回溯和分析，这是自我改进的基础 她在这里做了一个关键判断：简单的文件管理形式，因为LLM的基础能力提升而自然受益。这意味着，Harness的设计不应该追求花哨的抽象层，而应该利用LLM已经具备的能力。\n模式三：子代理与后台任务 单个Agent的上下文是有限的。当需要同时搜索多个假设、并行运行多个实验、或将隔离的子任务分配出去时，Harness需要具备生成和管理子代理的能力。\n父代理需要一个轻量级的进程管理器：启动任务、检查日志、取消失败的运行、将结果合并回主代理线程。\n核心设计选择是让并行显式化和可检查。如果子代理的输出只存在于短暂的对话上下文中，它们很快就会变得过时且难以追踪。如果存储为文件、日志和状态记录，模型就可以在中断后恢复工作，并基于自身的执行历史进行推理。\n案例研究：编码Agent Harness的稳定接口 Lilian Weng详细列举了当前编码Agent的工具集，这是我见过最完整的Harness接口定义：\n工具组 具体定义 文件系统 文件发现：glob, grep, ls；文件读取：read, read_many；文件修改：write, edit, multi_edit, apply_patch Shell执行 bash, PowerShell IO lsp, git_status, git_diff, git_commit 外部上下文 MCP工具, Skills Web搜索 web_search, web_fetch, browser tools 产物 读取文档/图像；生成HTML/图像 后台进程 CronCreate, CronDelete, CronList 代理委托 spawn_agent, resume_agent, wait_agent, list_agents, close_agent, interrupt_agent 这套工具集不是某个产品的私有接口，而是Claude Code、Codex、OpenCode、Cursor等主流编码Agent的共识。它代表了Harness设计的\"行业标准接口\"正在形成。\n四、Harness优化：从启发式规则到元学习 如果说设计模式回答了\"Harness应该怎么构建”，那么优化路径回答了\"Harness应该怎么改进\"。这是Lilian Weng文章中最具前瞻性的部分。\n她首先指出了优化对象的演进过程：\n指令Prompt → 结构化Context → 工作流 → Harness代码 → 优化器代码 随着模型变得更智能，优化的目标变得更复杂，方法变得更通用。\n第一阶段：Agentic Context Engineering (ACE) ACE将上下文视为一个持续演化的\"剧本\"（Playbook），而不是不断增长的Prompt。它包含三个组件：\n生成器（Generator）：参考剧本条目生成任务轨迹 反思器（Reflector）：从成功和失败的轨迹中提炼洞察 策展器（Curator）：以增量、条目的形式更新结构化上下文 关键设计：为防止上下文在迭代重写过程中崩溃，策展器不重写整个Prompt，而是输出结构化的条目集合（identifier, description），通过确定性逻辑合并到结构化上下文日志中。\n但ACE的更新规则和整体工作流仍是手工设计的。这限制了它的泛化能力。\n第二阶段：Meta Context Engineering (MCE) MCE进一步将机制（如何管理上下文）与产物内容（上下文中有什么）分离，在元优化层面运行技能进化，在基础层面运行上下文优化。这是一个双层优化问题：\nInner: cs* = argmax_cs J_train(cs; s) // 给定技能s，在训练数据上找到最优上下文 Outer: s* = argmax_s∈S J_val(cs*) // 在验证集上找到表现最优的技能 其中：\ns ∈ S 是一个\"技能\"，定义为上下文函数 cs = (ρs, Fs) ρs = {ρ1, ..., ρm} 是静态组件（Prompt、知识库、代码库） Fs = {F1, ..., Fk} 是动态操作符（搜索、选择、过滤、格式化） J_train 和 J_val 分别是训练集和验证集上的性能指标 这个双层优化的精妙之处在于：\n内层优化在固定技能的约束下，找到当前任务的最优上下文 外层优化搜索技能空间，找到跨任务泛化能力最强的技能 技能数据库追踪历史：H_{k-1} = {(s_i, c_i, J^train_i, J^val_i)}_{i=1}^{k-1}。元级Agent对历史技能执行交叉操作生成新技能：s_k = crossover(τ, H_{k-1})。基础级上下文工程师从执行反馈中学习：c_k = engineer(τ, s_k; c^*_{k-1}, R_k)。\nMCE不强制规定上下文结构的启发式规则，而是使用\"自由形式的技能\"存储任务的最重要知识，并迭代地共同进化技能和技能条件化的上下文。\n第三阶段：Meta-Harness Meta-Harness再深入一层：优化的对象是决定和优化什么信息应该被存储、检索和呈现给模型的代码。“Meta\"的含义是：这是一个优化Harness的Harness。\n核心机制：\n创建新Harness的提议者本身就是一个编码Agent 整个执行历史可通过文件系统访问，编码Agent使用grep或cat等命令读取 提议的Harness是文件系统中的字典，包含其自身的源代码、分数、执行轨迹和状态更新 Meta-Harness循环迭代地创建新Harness，仅保留合格的 最终输出是Pareto前沿上的Harness候选集合。\nLilian Weng在这里指出了一个关键转折点：一旦Harness设计成为可执行的搜索空间，强大的编码Agent就能利用人类工程师使用的相同设计空间。\n自我改进Harness与进化搜索 将这些优化推向前沿，就是让Harness本身成为被优化的对象。这涉及一个关键的转变：\n搜索过程由编码Agent执行，能够探索人类工程师难以涉及的设计空间 通过进化算法（交叉、变异）在代码层面生成新的Harness候选 通过评估指标筛选出性能最优的设计 这构成了真正的递归改进循环：\n模型能力提升 → 更好的Harness设计能力 → 更好的Harness → 更好的训练/部署环境 → 更优的下一代模型 与模型权重的联合优化 Harness优化的最终方向是与模型权重的联合优化。完整的RSI需要在两个层面上同时优化：\nHarness层面：优化工作流、上下文管理、工具选择 模型层面：通过合成数据、自我博弈、测试时训练等方式改进模型能力 这两个层面的优化需要协同进行，形成真正的联合优化过程。\n五、Lilian Weng的核心洞察 文章中最值得关注的部分，是Lilian Weng对RSI近期路径的预测。结合我那天在咖啡馆听到的，我认为她的核心洞察可以总结为：\n近期路径：Harness工程的元方法论 改进获取更好答案的机制 ≠ 改进答案本身 Harness工程将向元方法论方向演进——Harness系统本身成为优化目标，减少启发式规则，增加通用机制 成熟的Harness实现自动研究，用于模型自我改进循环；更智能的模型防止Harness过度工程化 中期展望：内化与外部接口的平衡 最终，许多Harness改进可能被内化到核心模型行为中。这在Prompt Engineering的发展历史中已经发生过类似的模式：\n手动的Prompt技巧随着指令调整和模型推理能力的提升变得不那么重要 但指定目标、约束、上下文和评估的需求从未消失 关键洞察：即使Harness的改进内化了，模型与外部上下文和工具的接口应该保留。这是系统开放性的保证。\n核心观点 Lilian Weng的文章核心观点，我认为可以浓缩为一句话：\nHarness是模型与世界之间的操作系统。正如操作系统的改进能释放CPU的潜力，Harness工程的改进能释放模型的潜力。而RSI的关键，在于让这个操作系统本身也能够自我改进。\n六、未来挑战 Lilian Weng没有回避这个方向面临的困难。她指出了四个核心挑战：\n评估与验证 当Harness和模型都在持续进化时，如何确保每一步改进都是真实的？这需要可靠的评估基准，能够区分真正的能力提升和指标操纵；需要跨任务的泛化测试，防止Harness针对特定基准过度拟合；需要人类可解释的评估维度，确保改进方向符合实际需求。\n稳定性与安全性 递归改进循环可能带来不稳定。关键问题包括：改进的收敛性（系统是否会进入无限改进循环）、能力退化的风险（某些能力提升是否会损害其他能力）、对齐的保持（自我改进过程中是否保持与人类价值观对齐）。\n计算成本 Meta-Harness和进化搜索需要大量计算资源。每一代Harness的生成、评估和筛选都需要运行大量Agent轨迹。这带来了一个根本性的权衡：系统改进速度与计算成本之间的平衡。\n人类在循环中的角色 随着Harness变得越来越自我改进，一个核心问题是人类在系统中的角色：人类应该在哪些环节保留决策权？如何确保人类能够理解和干预自我改进过程？如何在自动化效率和人类监督之间找到平衡？\n七、回到那栋小白楼 OpenAI楼下那家星巴克，我待了一个下午。那天聊了很多，但真正让我记住的就是那句话——模型不是瓶颈，怎么让模型持续进化才是。\n当时我以为这只是一句随口的感慨。\n现在回头看，那是她已经在思考Harness Engineering的信号。而今年7月4日那篇博客，把这个信号变成了一份完整的技术路线图。\nLilian Weng的选择很明确：她不关心外界的噪音，只关注技术的本质。她看到的不是一个新的概念或一个炫酷的Demo，而是一个将彻底改变AI研究范式的技术架构。\n从那天楼下的咖啡，到7月4日的博客，到加盟OPRNAI——这条路径清晰且坚定。而我有幸在它萌芽之前，就听到了它的起点。\n- FIN -\n",
+  "wordCount" : "315",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-08-05T22:00:00+08:00",
+  "dateModified": "2026-08-05T22:00:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Lonney .Z"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/08/2026-08-05-harness-engineering-for-rsi/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Z's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Z&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      递归自我改进：从一杯咖啡到Harness Engineering
+    </h1>
+    <div class="post-meta">   Lonney .Z | <span title='2026-08-05 22:00:00 +0800 HKT'>August 5, 2026</span> | <span>25 min</span> | <span>Shanghai, China</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/08/2026-08-05-harness-engineering-for-rsi.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e9%80%92%e5%bd%92%e8%87%aa%e6%88%91%e6%94%b9%e8%bf%9b%e4%bb%8e%e4%b8%80%e6%9d%af%e5%92%96%e5%95%a1%e5%88%b0harness-engineering" aria-label="递归自我改进：从一杯咖啡到Harness Engineering">递归自我改进：从一杯咖啡到Harness Engineering</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%80rsi%e4%b8%80%e4%b8%aa60%e5%b9%b4%e7%9a%84%e6%a6%82%e5%bf%b5%e4%b8%ba%e4%bb%80%e4%b9%88%e7%8e%b0%e5%9c%a8%e6%89%8d%e5%8f%af%e8%a1%8c" aria-label="一、RSI：一个60年的概念，为什么现在才可行">一、RSI：一个60年的概念，为什么现在才可行</a></li>
+                <li>
+                    <a href="#%e4%ba%8charness%e6%a8%a1%e5%9e%8b%e4%b8%8e%e4%b8%96%e7%95%8c%e4%b9%8b%e9%97%b4%e7%9a%84%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f" aria-label="二、Harness：模型与世界之间的操作系统">二、Harness：模型与世界之间的操作系统</a></li>
+                <li>
+                    <a href="#%e4%b8%89harness%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e4%bb%8e%e4%ba%a7%e5%93%81%e4%b8%ad%e6%8f%90%e7%82%bc%e7%9a%84%e5%b7%a5%e7%a8%8b%e5%ae%9e%e8%b7%b5" aria-label="三、Harness设计模式：从产品中提炼的工程实践">三、Harness设计模式：从产品中提炼的工程实践</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a8%a1%e5%bc%8f%e4%b8%80%e5%b7%a5%e4%bd%9c%e6%b5%81%e8%87%aa%e5%8a%a8%e5%8c%96" aria-label="模式一：工作流自动化">模式一：工作流自动化</a></li>
+                <li>
+                    <a href="#%e6%a8%a1%e5%bc%8f%e4%ba%8c%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e4%bd%9c%e4%b8%ba%e6%8c%81%e4%b9%85%e8%ae%b0%e5%bf%86" aria-label="模式二：文件系统作为持久记忆">模式二：文件系统作为持久记忆</a></li>
+                <li>
+                    <a href="#%e6%a8%a1%e5%bc%8f%e4%b8%89%e5%ad%90%e4%bb%a3%e7%90%86%e4%b8%8e%e5%90%8e%e5%8f%b0%e4%bb%bb%e5%8a%a1" aria-label="模式三：子代理与后台任务">模式三：子代理与后台任务</a></li>
+                <li>
+                    <a href="#%e6%a1%88%e4%be%8b%e7%a0%94%e7%a9%b6%e7%bc%96%e7%a0%81agent-harness%e7%9a%84%e7%a8%b3%e5%ae%9a%e6%8e%a5%e5%8f%a3" aria-label="案例研究：编码Agent Harness的稳定接口">案例研究：编码Agent Harness的稳定接口</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%9b%9bharness%e4%bc%98%e5%8c%96%e4%bb%8e%e5%90%af%e5%8f%91%e5%bc%8f%e8%a7%84%e5%88%99%e5%88%b0%e5%85%83%e5%ad%a6%e4%b9%a0" aria-label="四、Harness优化：从启发式规则到元学习">四、Harness优化：从启发式规则到元学习</a><ul>
+                        
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%80%e9%98%b6%e6%ae%b5agentic-context-engineering-ace" aria-label="第一阶段：Agentic Context Engineering (ACE)">第一阶段：Agentic Context Engineering (ACE)</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%ba%8c%e9%98%b6%e6%ae%b5meta-context-engineering-mce" aria-label="第二阶段：Meta Context Engineering (MCE)">第二阶段：Meta Context Engineering (MCE)</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%89%e9%98%b6%e6%ae%b5meta-harness" aria-label="第三阶段：Meta-Harness">第三阶段：Meta-Harness</a></li>
+                <li>
+                    <a href="#%e8%87%aa%e6%88%91%e6%94%b9%e8%bf%9bharness%e4%b8%8e%e8%bf%9b%e5%8c%96%e6%90%9c%e7%b4%a2" aria-label="自我改进Harness与进化搜索">自我改进Harness与进化搜索</a></li>
+                <li>
+                    <a href="#%e4%b8%8e%e6%a8%a1%e5%9e%8b%e6%9d%83%e9%87%8d%e7%9a%84%e8%81%94%e5%90%88%e4%bc%98%e5%8c%96" aria-label="与模型权重的联合优化">与模型权重的联合优化</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%ba%94lilian-weng%e7%9a%84%e6%a0%b8%e5%bf%83%e6%b4%9e%e5%af%9f" aria-label="五、Lilian Weng的核心洞察">五、Lilian Weng的核心洞察</a><ul>
+                        
+                <li>
+                    <a href="#%e8%bf%91%e6%9c%9f%e8%b7%af%e5%be%84harness%e5%b7%a5%e7%a8%8b%e7%9a%84%e5%85%83%e6%96%b9%e6%b3%95%e8%ae%ba" aria-label="近期路径：Harness工程的元方法论">近期路径：Harness工程的元方法论</a></li>
+                <li>
+                    <a href="#%e4%b8%ad%e6%9c%9f%e5%b1%95%e6%9c%9b%e5%86%85%e5%8c%96%e4%b8%8e%e5%a4%96%e9%83%a8%e6%8e%a5%e5%8f%a3%e7%9a%84%e5%b9%b3%e8%a1%a1" aria-label="中期展望：内化与外部接口的平衡">中期展望：内化与外部接口的平衡</a></li>
+                <li>
+                    <a href="#%e6%a0%b8%e5%bf%83%e8%a7%82%e7%82%b9" aria-label="核心观点">核心观点</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%85%ad%e6%9c%aa%e6%9d%a5%e6%8c%91%e6%88%98" aria-label="六、未来挑战">六、未来挑战</a><ul>
+                        
+                <li>
+                    <a href="#%e8%af%84%e4%bc%b0%e4%b8%8e%e9%aa%8c%e8%af%81" aria-label="评估与验证">评估与验证</a></li>
+                <li>
+                    <a href="#%e7%a8%b3%e5%ae%9a%e6%80%a7%e4%b8%8e%e5%ae%89%e5%85%a8%e6%80%a7" aria-label="稳定性与安全性">稳定性与安全性</a></li>
+                <li>
+                    <a href="#%e8%ae%a1%e7%ae%97%e6%88%90%e6%9c%ac" aria-label="计算成本">计算成本</a></li>
+                <li>
+                    <a href="#%e4%ba%ba%e7%b1%bb%e5%9c%a8%e5%be%aa%e7%8e%af%e4%b8%ad%e7%9a%84%e8%a7%92%e8%89%b2" aria-label="人类在循环中的角色">人类在循环中的角色</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%b8%83%e5%9b%9e%e5%88%b0%e9%82%a3%e6%a0%8b%e5%b0%8f%e7%99%bd%e6%a5%bc" aria-label="七、回到那栋小白楼">七、回到那栋小白楼</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="递归自我改进从一杯咖啡到harness-engineering">递归自我改进：从一杯咖啡到Harness Engineering<a hidden class="anchor" aria-hidden="true" href="#递归自我改进从一杯咖啡到harness-engineering">#</a></h1>
+<p>2025年夏天，我去美国纽约和波士顿做短期访问，回程途经旧金山转机。我决定在旧金山多呆一天——去之前通过邮件约了几位朋友，其中包括素未谋面的Lilian Weng。</p>
+<p>我乘地铁去了OpenAI当时的那栋小白楼。他们楼下有一家星巴克，我在那儿等她。那是下午两点，店里坐满了人，一半以上的屏幕上开着代码编辑器，邻桌在讨论transformer的注意力机制，角落里有人在白板上画架构图。你能清晰地感觉到，这栋楼里正在发生什么。</p>
+<p>后面和Weng之间的AI讨论故事不多说了——言归正传。我当时记住了一句话：&ldquo;模型本身不是瓶颈，真正的瓶颈是我们怎么让模型更好地使用工具、管理上下文、持续进化。&rdquo;</p>
+<p>今年7月4日，她在博客上发表了那篇《Harness Engineering for Self-Improvement》，结合随后官宣加盟OPRNAI的消息，我才意识到那天那句话的分量。这篇文章，我想从技术的角度，拆解她到底看到了什么。</p>
+<h2 id="一rsi一个60年的概念为什么现在才可行">一、RSI：一个60年的概念，为什么现在才可行<a hidden class="anchor" aria-hidden="true" href="#一rsi一个60年的概念为什么现在才可行">#</a></h2>
+<p>Lilian Weng的文章开篇直接切入主题：<strong>递归自我改进（Recursive Self-Improvement, RSI）</strong>。</p>
+<p>这个概念可以追溯到1965年，英国数学家I. J. Good提出的&quot;超智能机器&quot;——一种能在所有智力活动中超越人类，并设计出比自身更好的机器的系统。2008年，Eliezer Yudkowsky将这个概念精确化为一个反馈循环：<strong>AI利用其当前的智能，去改进产生其智能的认知机制</strong>。</p>
+<p>听起来很抽象。但Lilian Weng把这个抽象概念落到了实处。她指出，在现代AI语境下，这个反馈循环可以发生在三个层面：</p>
+<ol>
+<li><strong>模型权重层面</strong>：模型直接重写自己的参数。这是最理想但最难的路径，目前几乎不可行。</li>
+<li><strong>训练管道层面</strong>：模型改进生成训练数据、选择训练任务、优化训练策略。这是很多前沿实验室正在探索的方向。</li>
+<li><strong>部署系统层面</strong>：模型改进自己与外界交互的方式——如何调用工具、如何管理上下文、如何评估自身输出。</li>
+</ol>
+<p>她明确选择了第三个切入点。原因很关键：<strong>原始模型和真实世界之间的这层，其重要性不亚于模型本身的原始智能</strong>。Claude Code和Codex的成功，不是因为它们的基础模型最强，而是因为它们的部署系统设计最成熟。</p>
+<p>她用了一个词来描述这层部署系统：<strong>Harness</strong>。</p>
+<h2 id="二harness模型与世界之间的操作系统">二、Harness：模型与世界之间的操作系统<a hidden class="anchor" aria-hidden="true" href="#二harness模型与世界之间的操作系统">#</a></h2>
+<p>&ldquo;Lilian Weng在咖啡馆里用了一个比喻，&ldquo;我回忆道，&ldquo;她说Harness就像操作系统。你花在操作系统上的功夫，决定了CPU能发挥多大潜力。&rdquo;</p>
+<p>在她的定义中，<strong>Harness是围绕在基础模型周围的整个系统</strong>，它负责：</p>
+<ul>
+<li>编排执行流程（模型如何思考和规划）</li>
+<li>定义工具调用（模型如何与外界交互）</li>
+<li>管理上下文（模型感知和存储什么信息）</li>
+<li>持久化产物（模型如何保存工作成果）</li>
+<li>评估结果（如何判断模型表现好坏）</li>
+</ul>
+<p>这个定义的精妙之处在于，它将原本分散的概念——Prompt Engineering、Agent Framework、Tool Use、Memory Management、Evaluation——统一到了一个更宏观的架构视角下。</p>
+<p>更重要的是，她指出了Harness工程与传统Agent框架的区别：</p>
+<table>
+  <thead>
+      <tr>
+          <th>维度</th>
+          <th>传统Agent框架</th>
+          <th>Harness工程</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>核心公式</td>
+          <td>agent = LLM + memory + tools + planning + action</td>
+          <td>额外加入workflow design, evaluation, permission control, persistent state</td>
+      </tr>
+      <tr>
+          <td>设计理念</td>
+          <td>Prompt模板</td>
+          <td>运行时系统设计</td>
+      </tr>
+      <tr>
+          <td>类比</td>
+          <td>IDE</td>
+          <td>操作系统</td>
+      </tr>
+  </tbody>
+</table>
+<p>这个类比不是随便说的。Lilian Weng明确指出，Harness的设计应该参考操作系统的工程实践：</p>
+<ul>
+<li><strong>封装复杂性</strong>：将复杂逻辑封装在Harness内部，对外暴露简单接口</li>
+<li><strong>标准化协议</strong>：配置、工具接口等协议将逐渐成为行业标准</li>
+<li><strong>持续进化</strong>：Harness可以独立于底层模型迭代优化</li>
+</ul>
+<p>这意味着，AI工程的重心正在从&quot;打造更大的模型&quot;转向&quot;设计更好的Harness&rdquo;。这是一个范式级的转变。</p>
+<h2 id="三harness设计模式从产品中提炼的工程实践">三、Harness设计模式：从产品中提炼的工程实践<a hidden class="anchor" aria-hidden="true" href="#三harness设计模式从产品中提炼的工程实践">#</a></h2>
+<p>Lilian Weng的文章最有价值的部分之一，是她从Claude Code、Codex、Cursor等成功产品中提炼出的三种核心设计模式。这些不是空洞的理论，而是经过产品验证的工程实践。</p>
+<h3 id="模式一工作流自动化">模式一：工作流自动化<a hidden class="anchor" aria-hidden="true" href="#模式一工作流自动化">#</a></h3>
+<p>定义模型可以在其中运行、测试和迭代的工作流，是自动化的关键设计。Karpathy的autoresearch仓库提供了清晰的示例。通用工作流遵循一个目标导向的循环：</p>
+<pre tabindex="0"><code>计划(Plan) → 执行(Execute) → 观察/测试(Observe/Test) → 改进(Improve) → 重新执行
+</code></pre><p>这个循环持续运行，直到目标达成。关键设计点：</p>
+<ul>
+<li><strong>动态性</strong>：工作流不是固定脚本，而是根据模型观察结果动态调整</li>
+<li><strong>自主性</strong>：模型可以主动向用户请求澄清</li>
+<li><strong>反思性</strong>：模型分析自身的执行轨迹和失败案例，从中学习</li>
+</ul>
+<p>这已经不是传统的&quot;Prompt Engineering&quot;了，而是运行时系统设计。</p>
+<h3 id="模式二文件系统作为持久记忆">模式二：文件系统作为持久记忆<a hidden class="anchor" aria-hidden="true" href="#模式二文件系统作为持久记忆">#</a></h3>
+<p>这是一个极其简洁但深远的设计决策。</p>
+<p>在长时间运行的Agent系统中，模型产生的产物——实验日志、代码差异、论文摘要、错误追踪、历史执行轨迹——会迅速超出上下文窗口的限制。Lilian Weng的解决方案不是扩大上下文窗口，而是将持久化状态存储在文件系统中。</p>
+<p>这个设计的美妙之处在于：</p>
+<ol>
+<li><strong>LLM天生具备文件操作能力</strong>：读写文件是基础技能，随着模型能力提升而自然增强</li>
+<li><strong>可中断性</strong>：系统可以在任何时刻中断并恢复，因为状态存储在外部</li>
+<li><strong>可追溯性</strong>：完整的执行历史可以被回溯和分析，这是自我改进的基础</li>
+</ol>
+<p>她在这里做了一个关键判断：<strong>简单的文件管理形式，因为LLM的基础能力提升而自然受益</strong>。这意味着，Harness的设计不应该追求花哨的抽象层，而应该利用LLM已经具备的能力。</p>
+<h3 id="模式三子代理与后台任务">模式三：子代理与后台任务<a hidden class="anchor" aria-hidden="true" href="#模式三子代理与后台任务">#</a></h3>
+<p>单个Agent的上下文是有限的。当需要同时搜索多个假设、并行运行多个实验、或将隔离的子任务分配出去时，Harness需要具备生成和管理子代理的能力。</p>
+<p>父代理需要一个轻量级的进程管理器：启动任务、检查日志、取消失败的运行、将结果合并回主代理线程。</p>
+<p>核心设计选择是<strong>让并行显式化和可检查</strong>。如果子代理的输出只存在于短暂的对话上下文中，它们很快就会变得过时且难以追踪。如果存储为文件、日志和状态记录，模型就可以在中断后恢复工作，并基于自身的执行历史进行推理。</p>
+<h3 id="案例研究编码agent-harness的稳定接口">案例研究：编码Agent Harness的稳定接口<a hidden class="anchor" aria-hidden="true" href="#案例研究编码agent-harness的稳定接口">#</a></h3>
+<p>Lilian Weng详细列举了当前编码Agent的工具集，这是我见过最完整的Harness接口定义：</p>
+<table>
+  <thead>
+      <tr>
+          <th>工具组</th>
+          <th>具体定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>文件系统</td>
+          <td>文件发现：<code>glob</code>, <code>grep</code>, <code>ls</code>；文件读取：<code>read</code>, <code>read_many</code>；文件修改：<code>write</code>, <code>edit</code>, <code>multi_edit</code>, <code>apply_patch</code></td>
+      </tr>
+      <tr>
+          <td>Shell执行</td>
+          <td><code>bash</code>, <code>PowerShell</code></td>
+      </tr>
+      <tr>
+          <td>IO</td>
+          <td><code>lsp</code>, <code>git_status</code>, <code>git_diff</code>, <code>git_commit</code></td>
+      </tr>
+      <tr>
+          <td>外部上下文</td>
+          <td>MCP工具, Skills</td>
+      </tr>
+      <tr>
+          <td>Web搜索</td>
+          <td><code>web_search</code>, <code>web_fetch</code>, browser tools</td>
+      </tr>
+      <tr>
+          <td>产物</td>
+          <td>读取文档/图像；生成HTML/图像</td>
+      </tr>
+      <tr>
+          <td>后台进程</td>
+          <td><code>CronCreate</code>, <code>CronDelete</code>, <code>CronList</code></td>
+      </tr>
+      <tr>
+          <td>代理委托</td>
+          <td><code>spawn_agent</code>, <code>resume_agent</code>, <code>wait_agent</code>, <code>list_agents</code>, <code>close_agent</code>, <code>interrupt_agent</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>这套工具集不是某个产品的私有接口，而是Claude Code、Codex、OpenCode、Cursor等主流编码Agent的共识。它代表了Harness设计的&quot;行业标准接口&quot;正在形成。</p>
+<h2 id="四harness优化从启发式规则到元学习">四、Harness优化：从启发式规则到元学习<a hidden class="anchor" aria-hidden="true" href="#四harness优化从启发式规则到元学习">#</a></h2>
+<p>如果说设计模式回答了&quot;Harness应该怎么构建&rdquo;，那么优化路径回答了&quot;Harness应该怎么改进&quot;。这是Lilian Weng文章中最具前瞻性的部分。</p>
+<p>她首先指出了优化对象的演进过程：</p>
+<pre tabindex="0"><code>指令Prompt → 结构化Context → 工作流 → Harness代码 → 优化器代码
+</code></pre><p>随着模型变得更智能，优化的目标变得更复杂，方法变得更通用。</p>
+<h3 id="第一阶段agentic-context-engineering-ace">第一阶段：Agentic Context Engineering (ACE)<a hidden class="anchor" aria-hidden="true" href="#第一阶段agentic-context-engineering-ace">#</a></h3>
+<p>ACE将上下文视为一个持续演化的&quot;剧本&quot;（Playbook），而不是不断增长的Prompt。它包含三个组件：</p>
+<ul>
+<li><strong>生成器（Generator）</strong>：参考剧本条目生成任务轨迹</li>
+<li><strong>反思器（Reflector）</strong>：从成功和失败的轨迹中提炼洞察</li>
+<li><strong>策展器（Curator）</strong>：以增量、条目的形式更新结构化上下文</li>
+</ul>
+<p>关键设计：为防止上下文在迭代重写过程中崩溃，策展器不重写整个Prompt，而是输出结构化的条目集合（identifier, description），通过确定性逻辑合并到结构化上下文日志中。</p>
+<p>但ACE的更新规则和整体工作流仍是手工设计的。这限制了它的泛化能力。</p>
+<h3 id="第二阶段meta-context-engineering-mce">第二阶段：Meta Context Engineering (MCE)<a hidden class="anchor" aria-hidden="true" href="#第二阶段meta-context-engineering-mce">#</a></h3>
+<p>MCE进一步将<strong>机制</strong>（如何管理上下文）与<strong>产物内容</strong>（上下文中有什么）分离，在元优化层面运行技能进化，在基础层面运行上下文优化。这是一个双层优化问题：</p>
+<pre tabindex="0"><code>Inner:  cs* = argmax_cs J_train(cs; s)      // 给定技能s，在训练数据上找到最优上下文
+Outer:  s* = argmax_s∈S J_val(cs*)          // 在验证集上找到表现最优的技能
+</code></pre><p>其中：</p>
+<ul>
+<li><code>s ∈ S</code> 是一个&quot;技能&quot;，定义为上下文函数 <code>cs = (ρs, Fs)</code></li>
+<li><code>ρs = {ρ1, ..., ρm}</code> 是静态组件（Prompt、知识库、代码库）</li>
+<li><code>Fs = {F1, ..., Fk}</code> 是动态操作符（搜索、选择、过滤、格式化）</li>
+<li><code>J_train</code> 和 <code>J_val</code> 分别是训练集和验证集上的性能指标</li>
+</ul>
+<p>这个双层优化的精妙之处在于：</p>
+<ol>
+<li><strong>内层优化</strong>在固定技能的约束下，找到当前任务的最优上下文</li>
+<li><strong>外层优化</strong>搜索技能空间，找到跨任务泛化能力最强的技能</li>
+</ol>
+<p>技能数据库追踪历史：<code>H_{k-1} = {(s_i, c_i, J^train_i, J^val_i)}_{i=1}^{k-1}</code>。元级Agent对历史技能执行交叉操作生成新技能：<code>s_k = crossover(τ, H_{k-1})</code>。基础级上下文工程师从执行反馈中学习：<code>c_k = engineer(τ, s_k; c^*_{k-1}, R_k)</code>。</p>
+<p>MCE不强制规定上下文结构的启发式规则，而是使用&quot;自由形式的技能&quot;存储任务的最重要知识，并迭代地共同进化技能和技能条件化的上下文。</p>
+<h3 id="第三阶段meta-harness">第三阶段：Meta-Harness<a hidden class="anchor" aria-hidden="true" href="#第三阶段meta-harness">#</a></h3>
+<p>Meta-Harness再深入一层：<strong>优化的对象是决定和优化什么信息应该被存储、检索和呈现给模型的代码</strong>。&ldquo;Meta&quot;的含义是：这是一个优化Harness的Harness。</p>
+<p>核心机制：</p>
+<ul>
+<li>创建新Harness的提议者本身就是一个编码Agent</li>
+<li>整个执行历史可通过文件系统访问，编码Agent使用<code>grep</code>或<code>cat</code>等命令读取</li>
+<li>提议的Harness是文件系统中的字典，包含其自身的源代码、分数、执行轨迹和状态更新</li>
+<li>Meta-Harness循环迭代地创建新Harness，仅保留合格的</li>
+</ul>
+<p>最终输出是Pareto前沿上的Harness候选集合。</p>
+<p>Lilian Weng在这里指出了一个关键转折点：<strong>一旦Harness设计成为可执行的搜索空间，强大的编码Agent就能利用人类工程师使用的相同设计空间</strong>。</p>
+<h3 id="自我改进harness与进化搜索">自我改进Harness与进化搜索<a hidden class="anchor" aria-hidden="true" href="#自我改进harness与进化搜索">#</a></h3>
+<p>将这些优化推向前沿，就是让Harness本身成为被优化的对象。这涉及一个关键的转变：</p>
+<ul>
+<li>搜索过程由编码Agent执行，能够探索人类工程师难以涉及的设计空间</li>
+<li>通过进化算法（交叉、变异）在代码层面生成新的Harness候选</li>
+<li>通过评估指标筛选出性能最优的设计</li>
+</ul>
+<p>这构成了真正的递归改进循环：</p>
+<pre tabindex="0"><code>模型能力提升 → 更好的Harness设计能力 → 更好的Harness → 更好的训练/部署环境 → 更优的下一代模型
+</code></pre><h3 id="与模型权重的联合优化">与模型权重的联合优化<a hidden class="anchor" aria-hidden="true" href="#与模型权重的联合优化">#</a></h3>
+<p>Harness优化的最终方向是与模型权重的联合优化。完整的RSI需要在两个层面上同时优化：</p>
+<ol>
+<li><strong>Harness层面</strong>：优化工作流、上下文管理、工具选择</li>
+<li><strong>模型层面</strong>：通过合成数据、自我博弈、测试时训练等方式改进模型能力</li>
+</ol>
+<p>这两个层面的优化需要协同进行，形成真正的联合优化过程。</p>
+<h2 id="五lilian-weng的核心洞察">五、Lilian Weng的核心洞察<a hidden class="anchor" aria-hidden="true" href="#五lilian-weng的核心洞察">#</a></h2>
+<p>文章中最值得关注的部分，是Lilian Weng对RSI近期路径的预测。结合我那天在咖啡馆听到的，我认为她的核心洞察可以总结为：</p>
+<h3 id="近期路径harness工程的元方法论">近期路径：Harness工程的元方法论<a hidden class="anchor" aria-hidden="true" href="#近期路径harness工程的元方法论">#</a></h3>
+<pre tabindex="0"><code>改进获取更好答案的机制 ≠ 改进答案本身
+</code></pre><ol>
+<li>Harness工程将向元方法论方向演进——Harness系统本身成为优化目标，减少启发式规则，增加通用机制</li>
+<li>成熟的Harness实现自动研究，用于模型自我改进循环；更智能的模型防止Harness过度工程化</li>
+</ol>
+<h3 id="中期展望内化与外部接口的平衡">中期展望：内化与外部接口的平衡<a hidden class="anchor" aria-hidden="true" href="#中期展望内化与外部接口的平衡">#</a></h3>
+<p>最终，许多Harness改进可能被内化到核心模型行为中。这在Prompt Engineering的发展历史中已经发生过类似的模式：</p>
+<ul>
+<li>手动的Prompt技巧随着指令调整和模型推理能力的提升变得不那么重要</li>
+<li>但<strong>指定目标、约束、上下文和评估的需求从未消失</strong></li>
+</ul>
+<p>关键洞察：即使Harness的改进内化了，模型与外部上下文和工具的接口应该保留。这是系统开放性的保证。</p>
+<h3 id="核心观点">核心观点<a hidden class="anchor" aria-hidden="true" href="#核心观点">#</a></h3>
+<p>Lilian Weng的文章核心观点，我认为可以浓缩为一句话：</p>
+<blockquote>
+<p><strong>Harness是模型与世界之间的操作系统。正如操作系统的改进能释放CPU的潜力，Harness工程的改进能释放模型的潜力。而RSI的关键，在于让这个操作系统本身也能够自我改进。</strong></p>
+</blockquote>
+<h2 id="六未来挑战">六、未来挑战<a hidden class="anchor" aria-hidden="true" href="#六未来挑战">#</a></h2>
+<p>Lilian Weng没有回避这个方向面临的困难。她指出了四个核心挑战：</p>
+<h3 id="评估与验证">评估与验证<a hidden class="anchor" aria-hidden="true" href="#评估与验证">#</a></h3>
+<p>当Harness和模型都在持续进化时，如何确保每一步改进都是真实的？这需要可靠的评估基准，能够区分真正的能力提升和指标操纵；需要跨任务的泛化测试，防止Harness针对特定基准过度拟合；需要人类可解释的评估维度，确保改进方向符合实际需求。</p>
+<h3 id="稳定性与安全性">稳定性与安全性<a hidden class="anchor" aria-hidden="true" href="#稳定性与安全性">#</a></h3>
+<p>递归改进循环可能带来不稳定。关键问题包括：改进的收敛性（系统是否会进入无限改进循环）、能力退化的风险（某些能力提升是否会损害其他能力）、对齐的保持（自我改进过程中是否保持与人类价值观对齐）。</p>
+<h3 id="计算成本">计算成本<a hidden class="anchor" aria-hidden="true" href="#计算成本">#</a></h3>
+<p>Meta-Harness和进化搜索需要大量计算资源。每一代Harness的生成、评估和筛选都需要运行大量Agent轨迹。这带来了一个根本性的权衡：系统改进速度与计算成本之间的平衡。</p>
+<h3 id="人类在循环中的角色">人类在循环中的角色<a hidden class="anchor" aria-hidden="true" href="#人类在循环中的角色">#</a></h3>
+<p>随着Harness变得越来越自我改进，一个核心问题是人类在系统中的角色：人类应该在哪些环节保留决策权？如何确保人类能够理解和干预自我改进过程？如何在自动化效率和人类监督之间找到平衡？</p>
+<h2 id="七回到那栋小白楼">七、回到那栋小白楼<a hidden class="anchor" aria-hidden="true" href="#七回到那栋小白楼">#</a></h2>
+<p>OpenAI楼下那家星巴克，我待了一个下午。那天聊了很多，但真正让我记住的就是那句话——模型不是瓶颈，怎么让模型持续进化才是。</p>
+<p>当时我以为这只是一句随口的感慨。</p>
+<p>现在回头看，那是她已经在思考Harness Engineering的信号。而今年7月4日那篇博客，把这个信号变成了一份完整的技术路线图。</p>
+<p>Lilian Weng的选择很明确：她不关心外界的噪音，只关注技术的本质。她看到的不是一个新的概念或一个炫酷的Demo，而是一个将彻底改变AI研究范式的技术架构。</p>
+<p>从那天楼下的咖啡，到7月4日的博客，到加盟OPRNAI——这条路径清晰且坚定。而我有幸在它萌芽之前，就听到了它的起点。</p>
+<p><strong>- FIN -</strong></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://blog.zhangky.com/posts/2026/08/2026-08-03-life-main-quest/">
+    <span class="title">Next »</span>
+    <br>
+    <span>你卖的是时间，还是系统</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

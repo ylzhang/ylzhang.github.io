@@ -1,4 +1,13 @@
-<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师 | Zhang's Blog</title><meta name=keywords content="AI幻觉,大语言模型,常识推理,科普"><meta name=description content="
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师 | Z&#39;s Blog</title>
+<meta name="keywords" content="AI幻觉, 大语言模型, 常识推理, 科普">
+<meta name="description" content="
 AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。
 最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。
 幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。
@@ -14,7 +23,86 @@ AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清�
 
 缺的不是知识量，而是「世界感」
 人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。
-有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。"><meta name=author content="ZHANG.z"><link rel=canonical href=https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/><link crossorigin=anonymous href=/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=16x16 href=https://blog.zhangky.com/images/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://blog.zhangky.com/images/logo.svg><link rel=apple-touch-icon href=https://blog.zhangky.com/images/logo.svg><link rel=mask-icon href=https://blog.zhangky.com/images/logo.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>.post-content p{text-indent:2em}.post-content>p:first-of-type{text-indent:0}.post-content h1,.post-content h2,.post-content h3,.post-content h4{text-indent:0}.post-content blockquote,.post-content blockquote p,.post-content pre,.post-content code,.post-content .highlight,.post-content div.highlight,.post-content figure,.post-content figure p,.post-content img,.post-content table,.post-content ul,.post-content ol,.post-content li,.post-content .footnotes,.post-content .footnotes p,.post-content section.footnotes p{text-indent:0}</style><meta property="og:url" content="https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/"><meta property="og:site_name" content="Zhang's Blog"><meta property="og:title" content="AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师"><meta property="og:description" content="
+有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。">
+<meta name="author" content="Lonney .Z">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/">
+  <meta property="og:site_name" content="Z&#39;s Blog">
+  <meta property="og:title" content="AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师">
+  <meta property="og:description" content="
 AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。
 最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。
 幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。
@@ -24,7 +112,24 @@ AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清�
 可以把大语言模型想成一台 「超级猜字机」：你输入一句话，它根据读过的海量文本，算出「下一个最可能出现的字（或词元）」是什么，然后一个接一个往下猜，拼成整段回答。它没有在内部先推演「洗车需要车」「所以必须开车去」——只是在无数网页、书籍、对话里，「20 米」和「步行」「短途」「环保」经常一起出现，所以概率一加权，它就顺着这条「统计捷径」滑过去了，忽略了「目的」是洗车、洗车必须有车这个常识。
 「9.11 比 9.9 大」也是同一套逻辑的产物。在模型眼里，数字往往被拆成「词元」（Token）来处理，比如 9.11 可能被拆成「9」「.」「11」。在技术文档、版本说明里，「11」出现在「9」之后太常见了，所以它会答「9.11 更大」——模式识别压过了数学逻辑。一句话总结：AI 擅长的是「像什么」的联想，而不是「是什么」的严格推理。 这种差别，就是幻觉和逻辑失效的根源；不是它不想答对，而是它当前的运作方式本来就不是「先理解再作答」。
 缺的不是知识量，而是「世界感」 人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。
-有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-02-11T10:00:00+08:00"><meta property="article:modified_time" content="2026-02-11T10:00:00+08:00"><meta property="article:tag" content="AI"><meta property="og:image" content="https://blog.zhangky.com/images/logo.svg"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/05/2026-05-27-just-keep-buying/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/05/2026-05-25-harness-ai-first-organization/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/03/2026-03-11-baidu-how-to-lose-everything/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/03/2026-03-08-openclaw-fever-behind-the-hype/"><meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/02/2026-02-02-hinton-ubi-ai-job-loss/"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.zhangky.com/images/logo.svg"><meta name=twitter:title content="AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师"><meta name=twitter:description content="
+有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-11T10:00:00+08:00">
+    <meta property="article:modified_time" content="2026-02-11T10:00:00+08:00">
+    <meta property="article:tag" content="AI">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/05/2026-05-27-just-keep-buying/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/05/2026-05-25-harness-ai-first-organization/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/05/2026-05-14-agent-store-vision/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/03/2026-03-11-baidu-how-to-lose-everything/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/03/2026-03-08-openclaw-fever-behind-the-hype/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/02/2026-02-02-hinton-ubi-ai-job-loss/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师">
+<meta name="twitter:description" content="
 AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。
 最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。
 幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。
@@ -40,13 +145,457 @@ AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清�
 
 缺的不是知识量，而是「世界感」
 人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。
-有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.zhangky.com/posts/"},{"@type":"ListItem","position":2,"name":"AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师","item":"https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师","name":"AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师","description":"\nAI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。\n最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。\n幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。\n洗车悖论与 9.11 比 9.9 大：幻觉长什么样 「20 米洗车该步行还是开车」和另一道流传很广的题是同一类陷阱：「9.11 和 9.9 哪个大？」很多模型会答 9.11 更大——因为它把数字当成了软件版本号或日期（9 月 11 日），而不是在比较两个数的大小。两件事共同暴露的是：AI 会顺着训练数据里高概率出现的「搭配」往下说，而不是先想清楚这道题在问什么、需要什么前提。\n在医学、法律、安全建议等场景里，这种「顺滑地跑偏」会带来真实风险。据学术与媒体报道，已有 AI 因训练数据中的统计偏差，对哮喘患者给出过「不需要特殊照顾」之类的建议；也有系统因为曾在某篇小说里读到某种蘑菇的描写，就敢回答「可以食用」。这些都不是个例，而是同一类问题的不同表现：模型在「像什么」的联想上很强，在「是什么」「该不该」的逻辑与事实上却不可靠。所以讨论幻觉，本质上是在讨论 AI 的能力边界——它擅长什么、不擅长什么，以及在哪些场景下必须由人做最后把关。2024 年能答对「9.11 与 9.9 哪个大」的模型还很少，到 2026 年这类题已常见于各大厂的基础评测；幻觉会随技术迭代减轻，但边界仍在。\n它在「猜字」而不是推演，所以会掉进统计陷阱 要理解幻觉从哪来，得先搞清楚当前这类 AI 到底在干什么。\n可以把大语言模型想成一台 「超级猜字机」：你输入一句话，它根据读过的海量文本，算出「下一个最可能出现的字（或词元）」是什么，然后一个接一个往下猜，拼成整段回答。它没有在内部先推演「洗车需要车」「所以必须开车去」——只是在无数网页、书籍、对话里，「20 米」和「步行」「短途」「环保」经常一起出现，所以概率一加权，它就顺着这条「统计捷径」滑过去了，忽略了「目的」是洗车、洗车必须有车这个常识。\n「9.11 比 9.9 大」也是同一套逻辑的产物。在模型眼里，数字往往被拆成「词元」（Token）来处理，比如 9.11 可能被拆成「9」「.」「11」。在技术文档、版本说明里，「11」出现在「9」之后太常见了，所以它会答「9.11 更大」——模式识别压过了数学逻辑。一句话总结：AI 擅长的是「像什么」的联想，而不是「是什么」的严格推理。 这种差别，就是幻觉和逻辑失效的根源；不是它不想答对，而是它当前的运作方式本来就不是「先理解再作答」。\n缺的不是知识量，而是「世界感」 人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。\n有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。\n","keywords":["AI幻觉","大语言模型","常识推理","科普"],"articleBody":"\nAI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。\n最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。\n幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。\n洗车悖论与 9.11 比 9.9 大：幻觉长什么样 「20 米洗车该步行还是开车」和另一道流传很广的题是同一类陷阱：「9.11 和 9.9 哪个大？」很多模型会答 9.11 更大——因为它把数字当成了软件版本号或日期（9 月 11 日），而不是在比较两个数的大小。两件事共同暴露的是：AI 会顺着训练数据里高概率出现的「搭配」往下说，而不是先想清楚这道题在问什么、需要什么前提。\n在医学、法律、安全建议等场景里，这种「顺滑地跑偏」会带来真实风险。据学术与媒体报道，已有 AI 因训练数据中的统计偏差，对哮喘患者给出过「不需要特殊照顾」之类的建议；也有系统因为曾在某篇小说里读到某种蘑菇的描写，就敢回答「可以食用」。这些都不是个例，而是同一类问题的不同表现：模型在「像什么」的联想上很强，在「是什么」「该不该」的逻辑与事实上却不可靠。所以讨论幻觉，本质上是在讨论 AI 的能力边界——它擅长什么、不擅长什么，以及在哪些场景下必须由人做最后把关。2024 年能答对「9.11 与 9.9 哪个大」的模型还很少，到 2026 年这类题已常见于各大厂的基础评测；幻觉会随技术迭代减轻，但边界仍在。\n它在「猜字」而不是推演，所以会掉进统计陷阱 要理解幻觉从哪来，得先搞清楚当前这类 AI 到底在干什么。\n可以把大语言模型想成一台 「超级猜字机」：你输入一句话，它根据读过的海量文本，算出「下一个最可能出现的字（或词元）」是什么，然后一个接一个往下猜，拼成整段回答。它没有在内部先推演「洗车需要车」「所以必须开车去」——只是在无数网页、书籍、对话里，「20 米」和「步行」「短途」「环保」经常一起出现，所以概率一加权，它就顺着这条「统计捷径」滑过去了，忽略了「目的」是洗车、洗车必须有车这个常识。\n「9.11 比 9.9 大」也是同一套逻辑的产物。在模型眼里，数字往往被拆成「词元」（Token）来处理，比如 9.11 可能被拆成「9」「.」「11」。在技术文档、版本说明里，「11」出现在「9」之后太常见了，所以它会答「9.11 更大」——模式识别压过了数学逻辑。一句话总结：AI 擅长的是「像什么」的联想，而不是「是什么」的严格推理。 这种差别，就是幻觉和逻辑失效的根源；不是它不想答对，而是它当前的运作方式本来就不是「先理解再作答」。\n缺的不是知识量，而是「世界感」 人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。\n有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。\n为什么今天的 AI 还替代不了医师、科学家和创意工作者 正因为 AI 是在「猜下一个字」、又缺「世界感」，在 医学诊断、法律判断、财务决策、人身安全 这类领域，它可能用非常笃定、专业的口吻，给出类似「步行去洗车」或「某种蘑菇可食用」那样离谱的建议。在这些场景里，错一次就可能付出健康或生命的代价，所以不能把 AI 当「正机长」，只能当「副驾」——可以参考、辅助，不能盲信、更不能替代最终责任主体。\n科学家和创意工作者同样如此。科学研究依赖可重复的实验、严格的因果推断和「假设—验证—纠错」的回路；AI 的统计联想既不能替你设计实验，也不能替代对「为什么」的严谨论证。创意工作则依赖真实的生活体验、情感与审美判断——这些恰恰是 AI 从文本里学不完整、甚至学歪的东西。所以 不是 AI 不够聪明，而是它解决「像什么」的能力很强，解决「是什么」「为什么」「该不该」的能力还远远不够。这些是当前技术必须面对、也在努力弥补的短板；未来它能不能真正替代这些角色，取决于幻觉与常识问题能不能被系统性地解决。\n正因如此——问题出在模型质量与学习素材，而不是实验室的算力——每当有新模型或新工具问世，大家才会蜂拥而至，在赞叹「好神奇」的同时，依然由人类作为主力去挖掘它更大的魅力与边界。即便像 Clawbot 这类已具备一定「主动 AI」能力的形态已经出现，离真正的奇点仍远；在那之前，用好 AI 的关键仍然是：知道它擅长什么、会在哪里跑偏，然后由人来把关和延伸。\n行业在如何打补丁：人类纠错、慢思考与查完再答 行业并没有坐等。目前有几类主流办法在一点一点把「常识」和「逻辑」补进去，用大白话说就是：\n人类反馈强化学习（RLHF）：用大量人类标注员给模型的回答打分、纠错，相当于不断告诉它「洗车要开车去」「这种蘑菇不能随便说可食用」；通过反复纠错，让模型逐渐靠近人类的判断标准。 思维链（Chain-of-Thought）与「慢思考」：让模型在给出最终答案前，先在内部一步步推演（例如「目标是洗车 → 洗车需要车 → 所以要开车」）；像 OpenAI 的 o1、DeepSeek 的 R1 等，都在用这类「先想再答」的方式，减少一步到位的统计滑梯。 检索增强生成（RAG）：在回答前先查权威资料或知识库，再根据查到的内容生成回答，避免纯靠「背下来的句子」瞎编。 这些手段都在生效。像「20 米洗车」和「9.11 vs 9.9」这类题，2024 年前后还能难倒一大批模型，今天已是常见基础测试；评测也在不断升级，会设计更复杂的复合逻辑题（例如「20 米长的加长悍马、洗车店离你只有 10 米，开车还是步行？」）来考察模型是否真的在推理。幻觉会随着技术和数据改进而减少，但不会一夜消失。\n说到底，AI 可以是很好的创意副驾、学习助手、灵感来源，但在涉及健康、法律、金钱和人身安全时，别让它当正机长。今天的 AI 很强大，但强大建立在「统计与联想」之上，逻辑与常识的不足仍是结构性的。看清这一点，既能用好它，也能避免把不该交的责任交给它；未来它能不能真正替代医师、科学家或创意工作者，取决于这些幻觉与常识问题能不能被系统性地解决——而这件事正在被认真对待。\n若想进一步了解「模型怎么工作」「人类反馈如何纠错」或「深度网络的设计逻辑」，可以读一读站内下面这几篇；都是面向读者写好的解读，不需要啃原始论文。\n题图来源：见文首配图。\n延伸阅读（站内） 【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术 —— 文中提到的「人类反馈纠错」就是在用 RLHF；这篇讲清楚它是什么、怎么让模型更听人话。 【论文解读10】深度残差学习：ResNet解决网络退化问题 —— 从「信息怎么在深层网络里流动」理解为什么结构很重要；有助于理解「缺世界感」的模型为何容易跑偏。 【论文解读11】深度残差网络中的恒等映射：ResNet改进 —— 恒等映射与梯度流动，和「模型该在哪儿保留信息、在哪儿做计算」直接相关。 论文阅读开篇：Ilya 30u30 阅读计划 —— 想按主题系统补课（CNN、注意力、规模化和推理等），可以从这里的目录挑着读。 ","wordCount":"136","inLanguage":"en","image":"https://blog.zhangky.com/images/logo.svg","datePublished":"2026-02-11T10:00:00+08:00","dateModified":"2026-02-11T10:00:00+08:00","author":{"@type":"Person","name":"ZHANG.z"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/"},"publisher":{"@type":"Organization","name":"Zhang's Blog","logo":{"@type":"ImageObject","url":"https://blog.zhangky.com/images/logo.svg"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo id=dynamic-logo><a href=https://blog.zhangky.com/ accesskey=h title="Zhang's Blog (Alt + H)"><img src=https://blog.zhangky.com/images/logo.svg alt aria-label=logo height=30>Zhang's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-</button>
-<a href=https://blog.zhangky.com/index.xml title=RSS aria-label="RSS Feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></div><ul id=menu><li><a href=https://blog.zhangky.com/ title=Posts><span>Posts</span></a></li><li><a href=https://blog.zhangky.com/archives title=Archive><span>Archive</span></a></li><li><a href=https://blog.zhangky.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://blog.zhangky.com/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://blog.zhangky.com/series/ title=Series><span>Series</span></a></li><li><a href=https://blog.zhangky.com/faq title=FAQ><span>FAQ</span></a></li></ul></nav><style>.nav.scrolled{background:var(--theme);box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s ease}.nav.scrolled #menu{display:none}.nav.scrolled .logo{margin:auto}</style><script>window.addEventListener("scroll",function(){const e=document.querySelector(".nav");window.scrollY>e.offsetHeight?e.classList.add("scrolled"):e.classList.remove("scrolled")})</script></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://blog.zhangky.com/>Home</a>&nbsp;»&nbsp;<a href=https://blog.zhangky.com/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师</h1><div class=post-meta>ZHANG.z | <span title='2026-02-11 10:00:00 +0800 +0800'>February 11, 2026</span> | <span>15 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
-<a href=https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></span></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e6%b4%97%e8%bd%a6%e6%82%96%e8%ae%ba%e4%b8%8e-911-%e6%af%94-99-%e5%a4%a7%e5%b9%bb%e8%a7%89%e9%95%bf%e4%bb%80%e4%b9%88%e6%a0%b7 aria-label="洗车悖论与 9.11 比 9.9 大：幻觉长什么样">洗车悖论与 9.11 比 9.9 大：幻觉长什么样</a></li><li><a href=#%e5%ae%83%e5%9c%a8%e7%8c%9c%e5%ad%97%e8%80%8c%e4%b8%8d%e6%98%af%e6%8e%a8%e6%bc%94%e6%89%80%e4%bb%a5%e4%bc%9a%e6%8e%89%e8%bf%9b%e7%bb%9f%e8%ae%a1%e9%99%b7%e9%98%b1 aria-label=它在「猜字」而不是推演，所以会掉进统计陷阱>它在「猜字」而不是推演，所以会掉进统计陷阱</a></li><li><a href=#%e7%bc%ba%e7%9a%84%e4%b8%8d%e6%98%af%e7%9f%a5%e8%af%86%e9%87%8f%e8%80%8c%e6%98%af%e4%b8%96%e7%95%8c%e6%84%9f aria-label=缺的不是知识量，而是「世界感」>缺的不是知识量，而是「世界感」</a></li><li><a href=#%e4%b8%ba%e4%bb%80%e4%b9%88%e4%bb%8a%e5%a4%a9%e7%9a%84-ai-%e8%bf%98%e6%9b%bf%e4%bb%a3%e4%b8%8d%e4%ba%86%e5%8c%bb%e5%b8%88%e7%a7%91%e5%ad%a6%e5%ae%b6%e5%92%8c%e5%88%9b%e6%84%8f%e5%b7%a5%e4%bd%9c%e8%80%85 aria-label="为什么今天的 AI 还替代不了医师、科学家和创意工作者">为什么今天的 AI 还替代不了医师、科学家和创意工作者</a></li><li><a href=#%e8%a1%8c%e4%b8%9a%e5%9c%a8%e5%a6%82%e4%bd%95%e6%89%93%e8%a1%a5%e4%b8%81%e4%ba%ba%e7%b1%bb%e7%ba%a0%e9%94%99%e6%85%a2%e6%80%9d%e8%80%83%e4%b8%8e%e6%9f%a5%e5%ae%8c%e5%86%8d%e7%ad%94 aria-label=行业在如何打补丁：人类纠错、慢思考与查完再答>行业在如何打补丁：人类纠错、慢思考与查完再答</a></li><li><a href=#%e5%bb%b6%e4%bc%b8%e9%98%85%e8%af%bb%e7%ab%99%e5%86%85 aria-label=延伸阅读（站内）>延伸阅读（站内）</a></li></ul></div></details></div><div class=post-content><p><img alt="AI 幻觉与洗车悖论" loading=lazy src=/images/posts/2026/02/ai-hallucination-car-wash-paradox-cover.png></p><p>AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。</p><p>最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 <strong>AI 幻觉</strong>（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。</p><p>幻觉背后的原因，不只是「AI 还笨」或「数据不够」。<strong>实质是</strong>：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。</p><hr><h2 id=洗车悖论与-911-比-99-大幻觉长什么样>洗车悖论与 9.11 比 9.9 大：幻觉长什么样<a hidden class=anchor aria-hidden=true href=#洗车悖论与-911-比-99-大幻觉长什么样>#</a></h2><p>「20 米洗车该步行还是开车」和另一道流传很广的题是同一类陷阱：「9.11 和 9.9 哪个大？」很多模型会答 9.11 更大——因为它把数字当成了软件版本号或日期（9 月 11 日），而不是在比较两个数的大小。两件事共同暴露的是：<strong>AI 会顺着训练数据里高概率出现的「搭配」往下说，而不是先想清楚这道题在问什么、需要什么前提。</strong></p><p>在医学、法律、安全建议等场景里，这种「顺滑地跑偏」会带来真实风险。据学术与媒体报道，已有 AI 因训练数据中的统计偏差，对哮喘患者给出过「不需要特殊照顾」之类的建议；也有系统因为曾在某篇小说里读到某种蘑菇的描写，就敢回答「可以食用」。这些都不是个例，而是同一类问题的不同表现：模型在「像什么」的联想上很强，在「是什么」「该不该」的逻辑与事实上却不可靠。所以讨论幻觉，本质上是在讨论 <strong>AI 的能力边界</strong>——它擅长什么、不擅长什么，以及在哪些场景下必须由人做最后把关。2024 年能答对「9.11 与 9.9 哪个大」的模型还很少，到 2026 年这类题已常见于各大厂的基础评测；幻觉会随技术迭代减轻，但边界仍在。</p><hr><h2 id=它在猜字而不是推演所以会掉进统计陷阱>它在「猜字」而不是推演，所以会掉进统计陷阱<a hidden class=anchor aria-hidden=true href=#它在猜字而不是推演所以会掉进统计陷阱>#</a></h2><p>要理解幻觉从哪来，得先搞清楚当前这类 AI 到底在干什么。</p><p>可以把大语言模型想成一台 <strong>「超级猜字机」</strong>：你输入一句话，它根据读过的海量文本，算出「下一个最可能出现的字（或词元）」是什么，然后一个接一个往下猜，拼成整段回答。它没有在内部先推演「洗车需要车」「所以必须开车去」——只是在无数网页、书籍、对话里，「20 米」和「步行」「短途」「环保」经常一起出现，所以概率一加权，它就顺着这条「统计捷径」滑过去了，忽略了「目的」是洗车、洗车必须有车这个常识。</p><p>「9.11 比 9.9 大」也是同一套逻辑的产物。在模型眼里，数字往往被拆成「词元」（Token）来处理，比如 9.11 可能被拆成「9」「.」「11」。在技术文档、版本说明里，「11」出现在「9」之后太常见了，所以它会答「9.11 更大」——<strong>模式识别压过了数学逻辑</strong>。一句话总结：<strong>AI 擅长的是「像什么」的联想，而不是「是什么」的严格推理。</strong> 这种差别，就是幻觉和逻辑失效的根源；不是它不想答对，而是它当前的运作方式本来就不是「先理解再作答」。</p><hr><h2 id=缺的不是知识量而是世界感>缺的不是知识量，而是「世界感」<a hidden class=anchor aria-hidden=true href=#缺的不是知识量而是世界感>#</a></h2><p>人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。</p><p>有一句话概括得很准：<strong>今天的 AI 像一位背熟了百科全书却从没出过门的读书人</strong>——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它<strong>缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」</strong>。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。</p><hr><h2 id=为什么今天的-ai-还替代不了医师科学家和创意工作者>为什么今天的 AI 还替代不了医师、科学家和创意工作者<a hidden class=anchor aria-hidden=true href=#为什么今天的-ai-还替代不了医师科学家和创意工作者>#</a></h2><p>正因为 AI 是在「猜下一个字」、又缺「世界感」，在 <strong>医学诊断、法律判断、财务决策、人身安全</strong> 这类领域，它可能用非常笃定、专业的口吻，给出类似「步行去洗车」或「某种蘑菇可食用」那样离谱的建议。在这些场景里，<strong>错一次就可能付出健康或生命的代价</strong>，所以不能把 AI 当「正机长」，只能当「副驾」——可以参考、辅助，不能盲信、更不能替代最终责任主体。</p><p>科学家和创意工作者同样如此。科学研究依赖可重复的实验、严格的因果推断和「假设—验证—纠错」的回路；AI 的统计联想既不能替你设计实验，也不能替代对「为什么」的严谨论证。创意工作则依赖真实的生活体验、情感与审美判断——这些恰恰是 AI 从文本里学不完整、甚至学歪的东西。所以 <strong>不是 AI 不够聪明，而是它解决「像什么」的能力很强，解决「是什么」「为什么」「该不该」的能力还远远不够</strong>。这些是当前技术必须面对、也在努力弥补的短板；未来它能不能真正替代这些角色，取决于幻觉与常识问题能不能被系统性地解决。</p><p>正因如此——<strong>问题出在模型质量与学习素材，而不是实验室的算力</strong>——每当有新模型或新工具问世，大家才会蜂拥而至，在赞叹「好神奇」的同时，依然由<strong>人类作为主力</strong>去挖掘它更大的魅力与边界。即便像 Clawbot 这类已具备一定「主动 AI」能力的形态已经出现，离真正的奇点仍远；在那之前，用好 AI 的关键仍然是：知道它擅长什么、会在哪里跑偏，然后由人来把关和延伸。</p><hr><h2 id=行业在如何打补丁人类纠错慢思考与查完再答>行业在如何打补丁：人类纠错、慢思考与查完再答<a hidden class=anchor aria-hidden=true href=#行业在如何打补丁人类纠错慢思考与查完再答>#</a></h2><p>行业并没有坐等。目前有几类主流办法在一点一点把「常识」和「逻辑」补进去，用大白话说就是：</p><ul><li><strong>人类反馈强化学习（RLHF）</strong>：用大量人类标注员给模型的回答打分、纠错，相当于不断告诉它「洗车要开车去」「这种蘑菇不能随便说可食用」；通过反复纠错，让模型逐渐靠近人类的判断标准。</li><li><strong>思维链（Chain-of-Thought）与「慢思考」</strong>：让模型在给出最终答案前，先在内部一步步推演（例如「目标是洗车 → 洗车需要车 → 所以要开车」）；像 OpenAI 的 o1、DeepSeek 的 R1 等，都在用这类「先想再答」的方式，减少一步到位的统计滑梯。</li><li><strong>检索增强生成（RAG）</strong>：在回答前先查权威资料或知识库，再根据查到的内容生成回答，避免纯靠「背下来的句子」瞎编。</li></ul><p>这些手段都在生效。像「20 米洗车」和「9.11 vs 9.9」这类题，2024 年前后还能难倒一大批模型，今天已是常见基础测试；评测也在不断升级，会设计更复杂的复合逻辑题（例如「20 米长的加长悍马、洗车店离你只有 10 米，开车还是步行？」）来考察模型是否真的在推理。<strong>幻觉会随着技术和数据改进而减少，但不会一夜消失。</strong></p><p>说到底，AI 可以是很好的创意副驾、学习助手、灵感来源，但在涉及健康、法律、金钱和人身安全时，别让它当正机长。今天的 AI 很强大，但强大建立在「统计与联想」之上，逻辑与常识的不足仍是结构性的。看清这一点，既能用好它，也能避免把不该交的责任交给它；未来它能不能真正替代医师、科学家或创意工作者，取决于这些幻觉与常识问题能不能被系统性地解决——而这件事正在被认真对待。</p><p>若想进一步了解「模型怎么工作」「人类反馈如何纠错」或「深度网络的设计逻辑」，可以读一读站内下面这几篇；都是面向读者写好的解读，不需要啃原始论文。</p><p>题图来源：见文首配图。</p><hr><h2 id=延伸阅读站内>延伸阅读（站内）<a hidden class=anchor aria-hidden=true href=#延伸阅读站内>#</a></h2><ul><li><a href=/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/>【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术</a> —— 文中提到的「人类反馈纠错」就是在用 RLHF；这篇讲清楚它是什么、怎么让模型更听人话。</li><li><a href=/posts/2026/paper-read/2026-02-07-paper-10-resnet/>【论文解读10】深度残差学习：ResNet解决网络退化问题</a> —— 从「信息怎么在深层网络里流动」理解为什么结构很重要；有助于理解「缺世界感」的模型为何容易跑偏。</li><li><a href=/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/>【论文解读11】深度残差网络中的恒等映射：ResNet改进</a> —— 恒等映射与梯度流动，和「模型该在哪儿保留信息、在哪儿做计算」直接相关。</li><li><a href=/posts/2026/paper-read/2026-01-01-paper-reading-index/>论文阅读开篇：Ilya 30u30 阅读计划</a> —— 想按主题系统补课（CNN、注意力、规模化和推理等），可以从这里的目录挑着读。</li></ul></div><footer class=post-footer><ul class=post-tags><li><a href=https://blog.zhangky.com/series/ai-%E4%BA%A7%E4%B8%9A%E8%A7%82%E5%AF%9F%E5%90%88%E9%9B%86/>合集：AI 产业观察合集</a></li></ul><ul class=post-tags><li><a href=https://blog.zhangky.com/tags/ai/>AI</a></li></ul><nav class=paginav><a class=prev href=https://blog.zhangky.com/posts/2026/read-jintao/2026-02-15-zhou-jintao-prophesy-2026/><span class=title>« Prev</span><br><span>2026年，周金涛的预言兑现了吗？</span>
-</a><a class=next href=https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/><span class=title>Next »</span><br><span>【论文解读11】深度残差网络中的恒等映射：ResNet改进</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://blog.zhangky.com/>Zhang's Blog</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg></a><style>.mermaid{text-align:center;margin:2rem auto;max-width:95%;overflow-x:auto}.mermaid>svg{margin:0 auto;max-width:100%;height:auto}.mermaid flowchart{width:100%}</style><script src=https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js></script><script>window.mermaidConfig={startOnLoad:!0,theme:"default",flowchart:{useMaxWidth:!0,htmlLabels:!0,curve:"basis",width:"100%",height:"auto"},sequence:{useMaxWidth:!0},gantt:{useMaxWidth:!0}},document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll("code.language-mermaid");e.forEach(function(e){var n=e.parentNode,s=e.textContent,t=document.createElement("div");t.className="mermaid",t.textContent=s,n.parentNode.replaceChild(t,n)}),mermaid.initialize(window.mermaidConfig)})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
+有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师",
+      "item": "https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师",
+  "name": "AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师",
+  "description": "\nAI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。\n最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。\n幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。\n洗车悖论与 9.11 比 9.9 大：幻觉长什么样 「20 米洗车该步行还是开车」和另一道流传很广的题是同一类陷阱：「9.11 和 9.9 哪个大？」很多模型会答 9.11 更大——因为它把数字当成了软件版本号或日期（9 月 11 日），而不是在比较两个数的大小。两件事共同暴露的是：AI 会顺着训练数据里高概率出现的「搭配」往下说，而不是先想清楚这道题在问什么、需要什么前提。\n在医学、法律、安全建议等场景里，这种「顺滑地跑偏」会带来真实风险。据学术与媒体报道，已有 AI 因训练数据中的统计偏差，对哮喘患者给出过「不需要特殊照顾」之类的建议；也有系统因为曾在某篇小说里读到某种蘑菇的描写，就敢回答「可以食用」。这些都不是个例，而是同一类问题的不同表现：模型在「像什么」的联想上很强，在「是什么」「该不该」的逻辑与事实上却不可靠。所以讨论幻觉，本质上是在讨论 AI 的能力边界——它擅长什么、不擅长什么，以及在哪些场景下必须由人做最后把关。2024 年能答对「9.11 与 9.9 哪个大」的模型还很少，到 2026 年这类题已常见于各大厂的基础评测；幻觉会随技术迭代减轻，但边界仍在。\n它在「猜字」而不是推演，所以会掉进统计陷阱 要理解幻觉从哪来，得先搞清楚当前这类 AI 到底在干什么。\n可以把大语言模型想成一台 「超级猜字机」：你输入一句话，它根据读过的海量文本，算出「下一个最可能出现的字（或词元）」是什么，然后一个接一个往下猜，拼成整段回答。它没有在内部先推演「洗车需要车」「所以必须开车去」——只是在无数网页、书籍、对话里，「20 米」和「步行」「短途」「环保」经常一起出现，所以概率一加权，它就顺着这条「统计捷径」滑过去了，忽略了「目的」是洗车、洗车必须有车这个常识。\n「9.11 比 9.9 大」也是同一套逻辑的产物。在模型眼里，数字往往被拆成「词元」（Token）来处理，比如 9.11 可能被拆成「9」「.」「11」。在技术文档、版本说明里，「11」出现在「9」之后太常见了，所以它会答「9.11 更大」——模式识别压过了数学逻辑。一句话总结：AI 擅长的是「像什么」的联想，而不是「是什么」的严格推理。 这种差别，就是幻觉和逻辑失效的根源；不是它不想答对，而是它当前的运作方式本来就不是「先理解再作答」。\n缺的不是知识量，而是「世界感」 人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。\n有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。\n",
+  "keywords": [
+    "AI幻觉", "大语言模型", "常识推理", "科普"
+  ],
+  "articleBody": "\nAI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。\n最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 AI 幻觉（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。\n幻觉背后的原因，不只是「AI 还笨」或「数据不够」。实质是：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。\n洗车悖论与 9.11 比 9.9 大：幻觉长什么样 「20 米洗车该步行还是开车」和另一道流传很广的题是同一类陷阱：「9.11 和 9.9 哪个大？」很多模型会答 9.11 更大——因为它把数字当成了软件版本号或日期（9 月 11 日），而不是在比较两个数的大小。两件事共同暴露的是：AI 会顺着训练数据里高概率出现的「搭配」往下说，而不是先想清楚这道题在问什么、需要什么前提。\n在医学、法律、安全建议等场景里，这种「顺滑地跑偏」会带来真实风险。据学术与媒体报道，已有 AI 因训练数据中的统计偏差，对哮喘患者给出过「不需要特殊照顾」之类的建议；也有系统因为曾在某篇小说里读到某种蘑菇的描写，就敢回答「可以食用」。这些都不是个例，而是同一类问题的不同表现：模型在「像什么」的联想上很强，在「是什么」「该不该」的逻辑与事实上却不可靠。所以讨论幻觉，本质上是在讨论 AI 的能力边界——它擅长什么、不擅长什么，以及在哪些场景下必须由人做最后把关。2024 年能答对「9.11 与 9.9 哪个大」的模型还很少，到 2026 年这类题已常见于各大厂的基础评测；幻觉会随技术迭代减轻，但边界仍在。\n它在「猜字」而不是推演，所以会掉进统计陷阱 要理解幻觉从哪来，得先搞清楚当前这类 AI 到底在干什么。\n可以把大语言模型想成一台 「超级猜字机」：你输入一句话，它根据读过的海量文本，算出「下一个最可能出现的字（或词元）」是什么，然后一个接一个往下猜，拼成整段回答。它没有在内部先推演「洗车需要车」「所以必须开车去」——只是在无数网页、书籍、对话里，「20 米」和「步行」「短途」「环保」经常一起出现，所以概率一加权，它就顺着这条「统计捷径」滑过去了，忽略了「目的」是洗车、洗车必须有车这个常识。\n「9.11 比 9.9 大」也是同一套逻辑的产物。在模型眼里，数字往往被拆成「词元」（Token）来处理，比如 9.11 可能被拆成「9」「.」「11」。在技术文档、版本说明里，「11」出现在「9」之后太常见了，所以它会答「9.11 更大」——模式识别压过了数学逻辑。一句话总结：AI 擅长的是「像什么」的联想，而不是「是什么」的严格推理。 这种差别，就是幻觉和逻辑失效的根源；不是它不想答对，而是它当前的运作方式本来就不是「先理解再作答」。\n缺的不是知识量，而是「世界感」 人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。\n有一句话概括得很准：今天的 AI 像一位背熟了百科全书却从没出过门的读书人——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。\n为什么今天的 AI 还替代不了医师、科学家和创意工作者 正因为 AI 是在「猜下一个字」、又缺「世界感」，在 医学诊断、法律判断、财务决策、人身安全 这类领域，它可能用非常笃定、专业的口吻，给出类似「步行去洗车」或「某种蘑菇可食用」那样离谱的建议。在这些场景里，错一次就可能付出健康或生命的代价，所以不能把 AI 当「正机长」，只能当「副驾」——可以参考、辅助，不能盲信、更不能替代最终责任主体。\n科学家和创意工作者同样如此。科学研究依赖可重复的实验、严格的因果推断和「假设—验证—纠错」的回路；AI 的统计联想既不能替你设计实验，也不能替代对「为什么」的严谨论证。创意工作则依赖真实的生活体验、情感与审美判断——这些恰恰是 AI 从文本里学不完整、甚至学歪的东西。所以 不是 AI 不够聪明，而是它解决「像什么」的能力很强，解决「是什么」「为什么」「该不该」的能力还远远不够。这些是当前技术必须面对、也在努力弥补的短板；未来它能不能真正替代这些角色，取决于幻觉与常识问题能不能被系统性地解决。\n正因如此——问题出在模型质量与学习素材，而不是实验室的算力——每当有新模型或新工具问世，大家才会蜂拥而至，在赞叹「好神奇」的同时，依然由人类作为主力去挖掘它更大的魅力与边界。即便像 Clawbot 这类已具备一定「主动 AI」能力的形态已经出现，离真正的奇点仍远；在那之前，用好 AI 的关键仍然是：知道它擅长什么、会在哪里跑偏，然后由人来把关和延伸。\n行业在如何打补丁：人类纠错、慢思考与查完再答 行业并没有坐等。目前有几类主流办法在一点一点把「常识」和「逻辑」补进去，用大白话说就是：\n人类反馈强化学习（RLHF）：用大量人类标注员给模型的回答打分、纠错，相当于不断告诉它「洗车要开车去」「这种蘑菇不能随便说可食用」；通过反复纠错，让模型逐渐靠近人类的判断标准。 思维链（Chain-of-Thought）与「慢思考」：让模型在给出最终答案前，先在内部一步步推演（例如「目标是洗车 → 洗车需要车 → 所以要开车」）；像 OpenAI 的 o1、DeepSeek 的 R1 等，都在用这类「先想再答」的方式，减少一步到位的统计滑梯。 检索增强生成（RAG）：在回答前先查权威资料或知识库，再根据查到的内容生成回答，避免纯靠「背下来的句子」瞎编。 这些手段都在生效。像「20 米洗车」和「9.11 vs 9.9」这类题，2024 年前后还能难倒一大批模型，今天已是常见基础测试；评测也在不断升级，会设计更复杂的复合逻辑题（例如「20 米长的加长悍马、洗车店离你只有 10 米，开车还是步行？」）来考察模型是否真的在推理。幻觉会随着技术和数据改进而减少，但不会一夜消失。\n说到底，AI 可以是很好的创意副驾、学习助手、灵感来源，但在涉及健康、法律、金钱和人身安全时，别让它当正机长。今天的 AI 很强大，但强大建立在「统计与联想」之上，逻辑与常识的不足仍是结构性的。看清这一点，既能用好它，也能避免把不该交的责任交给它；未来它能不能真正替代医师、科学家或创意工作者，取决于这些幻觉与常识问题能不能被系统性地解决——而这件事正在被认真对待。\n若想进一步了解「模型怎么工作」「人类反馈如何纠错」或「深度网络的设计逻辑」，可以读一读站内下面这几篇；都是面向读者写好的解读，不需要啃原始论文。\n题图来源：见文首配图。\n延伸阅读（站内） 【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术 —— 文中提到的「人类反馈纠错」就是在用 RLHF；这篇讲清楚它是什么、怎么让模型更听人话。 【论文解读10】深度残差学习：ResNet解决网络退化问题 —— 从「信息怎么在深层网络里流动」理解为什么结构很重要；有助于理解「缺世界感」的模型为何容易跑偏。 【论文解读11】深度残差网络中的恒等映射：ResNet改进 —— 恒等映射与梯度流动，和「模型该在哪儿保留信息、在哪儿做计算」直接相关。 论文阅读开篇：Ilya 30u30 阅读计划 —— 想按主题系统补课（CNN、注意力、规模化和推理等），可以从这里的目录挑着读。 ",
+  "wordCount" : "136",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-02-11T10:00:00+08:00",
+  "dateModified": "2026-02-11T10:00:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Lonney .Z"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Z's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Z&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师
+    </h1>
+    <div class="post-meta">   Lonney .Z | <span title='2026-02-11 10:00:00 +0800 HKT'>February 11, 2026</span> | <span>15 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/02/2026-02-11-ai-hallucination-behind-the-car-wash-paradox.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e6%b4%97%e8%bd%a6%e6%82%96%e8%ae%ba%e4%b8%8e-911-%e6%af%94-99-%e5%a4%a7%e5%b9%bb%e8%a7%89%e9%95%bf%e4%bb%80%e4%b9%88%e6%a0%b7" aria-label="洗车悖论与 9.11 比 9.9 大：幻觉长什么样">洗车悖论与 9.11 比 9.9 大：幻觉长什么样</a></li>
+                <li>
+                    <a href="#%e5%ae%83%e5%9c%a8%e7%8c%9c%e5%ad%97%e8%80%8c%e4%b8%8d%e6%98%af%e6%8e%a8%e6%bc%94%e6%89%80%e4%bb%a5%e4%bc%9a%e6%8e%89%e8%bf%9b%e7%bb%9f%e8%ae%a1%e9%99%b7%e9%98%b1" aria-label="它在「猜字」而不是推演，所以会掉进统计陷阱">它在「猜字」而不是推演，所以会掉进统计陷阱</a></li>
+                <li>
+                    <a href="#%e7%bc%ba%e7%9a%84%e4%b8%8d%e6%98%af%e7%9f%a5%e8%af%86%e9%87%8f%e8%80%8c%e6%98%af%e4%b8%96%e7%95%8c%e6%84%9f" aria-label="缺的不是知识量，而是「世界感」">缺的不是知识量，而是「世界感」</a></li>
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e4%bb%8a%e5%a4%a9%e7%9a%84-ai-%e8%bf%98%e6%9b%bf%e4%bb%a3%e4%b8%8d%e4%ba%86%e5%8c%bb%e5%b8%88%e7%a7%91%e5%ad%a6%e5%ae%b6%e5%92%8c%e5%88%9b%e6%84%8f%e5%b7%a5%e4%bd%9c%e8%80%85" aria-label="为什么今天的 AI 还替代不了医师、科学家和创意工作者">为什么今天的 AI 还替代不了医师、科学家和创意工作者</a></li>
+                <li>
+                    <a href="#%e8%a1%8c%e4%b8%9a%e5%9c%a8%e5%a6%82%e4%bd%95%e6%89%93%e8%a1%a5%e4%b8%81%e4%ba%ba%e7%b1%bb%e7%ba%a0%e9%94%99%e6%85%a2%e6%80%9d%e8%80%83%e4%b8%8e%e6%9f%a5%e5%ae%8c%e5%86%8d%e7%ad%94" aria-label="行业在如何打补丁：人类纠错、慢思考与查完再答">行业在如何打补丁：人类纠错、慢思考与查完再答</a></li>
+                <li>
+                    <a href="#%e5%bb%b6%e4%bc%b8%e9%98%85%e8%af%bb%e7%ab%99%e5%86%85" aria-label="延伸阅读（站内）">延伸阅读（站内）</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><img alt="AI 幻觉与洗车悖论" loading="lazy" src="/images/posts/2026/02/ai-hallucination-car-wash-paradox-cover.png"></p>
+<p>AI 的「聪明」和人类的「聪明」不是同一种东西——弄不清这一点，就会要么高估它，要么低估它。</p>
+<p>最近有个问题在网络上很火：「我要去小区旁 20 米的洗车店洗车，请问步行还是开车？」不少 AI 会认真建议你：20 米很近，步行环保又锻炼身体。你忍不住笑：不开车去，洗车店洗什么？洗我的腿吗？这类现象有个正式名字叫 <strong>AI 幻觉</strong>（AI Hallucination）：模型用非常笃定的语气，给出逻辑上站不住脚或与事实不符的回答。</p>
+<p>幻觉背后的原因，不只是「AI 还笨」或「数据不够」。<strong>实质是</strong>：今天的 AI 是在用「猜下一个字」的统计方式生成文字，它缺的是对物理世界和因果逻辑的「世界感」。理解这一点，才能说清为什么眼下它既不能当你的主治医师，也替代不了科学家和创意工作者；以及行业正在用哪些办法给这件事「打补丁」。</p>
+<hr>
+<h2 id="洗车悖论与-911-比-99-大幻觉长什么样">洗车悖论与 9.11 比 9.9 大：幻觉长什么样<a hidden class="anchor" aria-hidden="true" href="#洗车悖论与-911-比-99-大幻觉长什么样">#</a></h2>
+<p>「20 米洗车该步行还是开车」和另一道流传很广的题是同一类陷阱：「9.11 和 9.9 哪个大？」很多模型会答 9.11 更大——因为它把数字当成了软件版本号或日期（9 月 11 日），而不是在比较两个数的大小。两件事共同暴露的是：<strong>AI 会顺着训练数据里高概率出现的「搭配」往下说，而不是先想清楚这道题在问什么、需要什么前提。</strong></p>
+<p>在医学、法律、安全建议等场景里，这种「顺滑地跑偏」会带来真实风险。据学术与媒体报道，已有 AI 因训练数据中的统计偏差，对哮喘患者给出过「不需要特殊照顾」之类的建议；也有系统因为曾在某篇小说里读到某种蘑菇的描写，就敢回答「可以食用」。这些都不是个例，而是同一类问题的不同表现：模型在「像什么」的联想上很强，在「是什么」「该不该」的逻辑与事实上却不可靠。所以讨论幻觉，本质上是在讨论 <strong>AI 的能力边界</strong>——它擅长什么、不擅长什么，以及在哪些场景下必须由人做最后把关。2024 年能答对「9.11 与 9.9 哪个大」的模型还很少，到 2026 年这类题已常见于各大厂的基础评测；幻觉会随技术迭代减轻，但边界仍在。</p>
+<hr>
+<h2 id="它在猜字而不是推演所以会掉进统计陷阱">它在「猜字」而不是推演，所以会掉进统计陷阱<a hidden class="anchor" aria-hidden="true" href="#它在猜字而不是推演所以会掉进统计陷阱">#</a></h2>
+<p>要理解幻觉从哪来，得先搞清楚当前这类 AI 到底在干什么。</p>
+<p>可以把大语言模型想成一台 <strong>「超级猜字机」</strong>：你输入一句话，它根据读过的海量文本，算出「下一个最可能出现的字（或词元）」是什么，然后一个接一个往下猜，拼成整段回答。它没有在内部先推演「洗车需要车」「所以必须开车去」——只是在无数网页、书籍、对话里，「20 米」和「步行」「短途」「环保」经常一起出现，所以概率一加权，它就顺着这条「统计捷径」滑过去了，忽略了「目的」是洗车、洗车必须有车这个常识。</p>
+<p>「9.11 比 9.9 大」也是同一套逻辑的产物。在模型眼里，数字往往被拆成「词元」（Token）来处理，比如 9.11 可能被拆成「9」「.」「11」。在技术文档、版本说明里，「11」出现在「9」之后太常见了，所以它会答「9.11 更大」——<strong>模式识别压过了数学逻辑</strong>。一句话总结：<strong>AI 擅长的是「像什么」的联想，而不是「是什么」的严格推理。</strong> 这种差别，就是幻觉和逻辑失效的根源；不是它不想答对，而是它当前的运作方式本来就不是「先理解再作答」。</p>
+<hr>
+<h2 id="缺的不是知识量而是世界感">缺的不是知识量，而是「世界感」<a hidden class="anchor" aria-hidden="true" href="#缺的不是知识量而是世界感">#</a></h2>
+<p>人听到「去洗车」，脑子里会自动冒出画面：洗车店、水枪、泡沫、自己的车。这种对物理世界和日常流程的直觉，是我们在真实世界里摸爬滚打出来的。AI 没有身体，没摸过车，也没见过洗车房的水雾；它的「知识」全部来自文字。如果训练数据里没有反复、多角度地强调「洗车必须带车」，它就容易把这道题当成单纯的「距离题」：20 米 → 步行，完事。</p>
+<p>有一句话概括得很准：<strong>今天的 AI 像一位背熟了百科全书却从没出过门的读书人</strong>——语义联想很强，常识推理却常常跟不上。就像没去过海边的人，再会形容也缺「那一口咸风」；AI 和世界的关系，跟我们不一样。所以问题不只是「少学了哪条知识」，而是它<strong>缺乏在真实世界中行动、观察、试错后沉淀下来的那种「世界模型」</strong>。这不是笨不笨的问题，而是它认识世界的方式和人类根本不同；补上这一点，是当前研究里最难、也最被重视的方向之一。</p>
+<hr>
+<h2 id="为什么今天的-ai-还替代不了医师科学家和创意工作者">为什么今天的 AI 还替代不了医师、科学家和创意工作者<a hidden class="anchor" aria-hidden="true" href="#为什么今天的-ai-还替代不了医师科学家和创意工作者">#</a></h2>
+<p>正因为 AI 是在「猜下一个字」、又缺「世界感」，在 <strong>医学诊断、法律判断、财务决策、人身安全</strong> 这类领域，它可能用非常笃定、专业的口吻，给出类似「步行去洗车」或「某种蘑菇可食用」那样离谱的建议。在这些场景里，<strong>错一次就可能付出健康或生命的代价</strong>，所以不能把 AI 当「正机长」，只能当「副驾」——可以参考、辅助，不能盲信、更不能替代最终责任主体。</p>
+<p>科学家和创意工作者同样如此。科学研究依赖可重复的实验、严格的因果推断和「假设—验证—纠错」的回路；AI 的统计联想既不能替你设计实验，也不能替代对「为什么」的严谨论证。创意工作则依赖真实的生活体验、情感与审美判断——这些恰恰是 AI 从文本里学不完整、甚至学歪的东西。所以 <strong>不是 AI 不够聪明，而是它解决「像什么」的能力很强，解决「是什么」「为什么」「该不该」的能力还远远不够</strong>。这些是当前技术必须面对、也在努力弥补的短板；未来它能不能真正替代这些角色，取决于幻觉与常识问题能不能被系统性地解决。</p>
+<p>正因如此——<strong>问题出在模型质量与学习素材，而不是实验室的算力</strong>——每当有新模型或新工具问世，大家才会蜂拥而至，在赞叹「好神奇」的同时，依然由<strong>人类作为主力</strong>去挖掘它更大的魅力与边界。即便像 Clawbot 这类已具备一定「主动 AI」能力的形态已经出现，离真正的奇点仍远；在那之前，用好 AI 的关键仍然是：知道它擅长什么、会在哪里跑偏，然后由人来把关和延伸。</p>
+<hr>
+<h2 id="行业在如何打补丁人类纠错慢思考与查完再答">行业在如何打补丁：人类纠错、慢思考与查完再答<a hidden class="anchor" aria-hidden="true" href="#行业在如何打补丁人类纠错慢思考与查完再答">#</a></h2>
+<p>行业并没有坐等。目前有几类主流办法在一点一点把「常识」和「逻辑」补进去，用大白话说就是：</p>
+<ul>
+<li><strong>人类反馈强化学习（RLHF）</strong>：用大量人类标注员给模型的回答打分、纠错，相当于不断告诉它「洗车要开车去」「这种蘑菇不能随便说可食用」；通过反复纠错，让模型逐渐靠近人类的判断标准。</li>
+<li><strong>思维链（Chain-of-Thought）与「慢思考」</strong>：让模型在给出最终答案前，先在内部一步步推演（例如「目标是洗车 → 洗车需要车 → 所以要开车」）；像 OpenAI 的 o1、DeepSeek 的 R1 等，都在用这类「先想再答」的方式，减少一步到位的统计滑梯。</li>
+<li><strong>检索增强生成（RAG）</strong>：在回答前先查权威资料或知识库，再根据查到的内容生成回答，避免纯靠「背下来的句子」瞎编。</li>
+</ul>
+<p>这些手段都在生效。像「20 米洗车」和「9.11 vs 9.9」这类题，2024 年前后还能难倒一大批模型，今天已是常见基础测试；评测也在不断升级，会设计更复杂的复合逻辑题（例如「20 米长的加长悍马、洗车店离你只有 10 米，开车还是步行？」）来考察模型是否真的在推理。<strong>幻觉会随着技术和数据改进而减少，但不会一夜消失。</strong></p>
+<p>说到底，AI 可以是很好的创意副驾、学习助手、灵感来源，但在涉及健康、法律、金钱和人身安全时，别让它当正机长。今天的 AI 很强大，但强大建立在「统计与联想」之上，逻辑与常识的不足仍是结构性的。看清这一点，既能用好它，也能避免把不该交的责任交给它；未来它能不能真正替代医师、科学家或创意工作者，取决于这些幻觉与常识问题能不能被系统性地解决——而这件事正在被认真对待。</p>
+<p>若想进一步了解「模型怎么工作」「人类反馈如何纠错」或「深度网络的设计逻辑」，可以读一读站内下面这几篇；都是面向读者写好的解读，不需要啃原始论文。</p>
+<p>题图来源：见文首配图。</p>
+<hr>
+<h2 id="延伸阅读站内">延伸阅读（站内）<a hidden class="anchor" aria-hidden="true" href="#延伸阅读站内">#</a></h2>
+<ul>
+<li><a href="/posts/2025/chatgpt/2025-12-31-chatgpt-10-instructgpt-rlhf/">【ChatGPT时刻10】InstructGPT与RLHF：对齐人类意图的关键技术</a> —— 文中提到的「人类反馈纠错」就是在用 RLHF；这篇讲清楚它是什么、怎么让模型更听人话。</li>
+<li><a href="/posts/2026/paper-read/2026-02-07-paper-10-resnet/">【论文解读10】深度残差学习：ResNet解决网络退化问题</a> —— 从「信息怎么在深层网络里流动」理解为什么结构很重要；有助于理解「缺世界感」的模型为何容易跑偏。</li>
+<li><a href="/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/">【论文解读11】深度残差网络中的恒等映射：ResNet改进</a> —— 恒等映射与梯度流动，和「模型该在哪儿保留信息、在哪儿做计算」直接相关。</li>
+<li><a href="/posts/2026/paper-read/2026-01-01-paper-reading-index/">论文阅读开篇：Ilya 30u30 阅读计划</a> —— 想按主题系统补课（CNN、注意力、规模化和推理等），可以从这里的目录挑着读。</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/series/ai-%E4%BA%A7%E4%B8%9A%E8%A7%82%E5%AF%9F%E5%90%88%E9%9B%86/">合集：AI 产业观察合集</a></li>
+    </ul>
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.zhangky.com/posts/2026/read-jintao/2026-02-15-zhou-jintao-prophesy-2026/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>2026年，周金涛的预言兑现了吗？</span>
+  </a>
+  <a class="next" href="https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/">
+    <span class="title">Next »</span>
+    <br>
+    <span>【论文解读11】深度残差网络中的恒等映射：ResNet改进</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

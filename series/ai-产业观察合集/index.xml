@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>AI 产业观察合集 on Zhang&#39;s Blog</title>
+    <title>AI 产业观察合集 on Z&#39;s Blog</title>
     <link>https://blog.zhangky.com/series/ai-%E4%BA%A7%E4%B8%9A%E8%A7%82%E5%AF%9F%E5%90%88%E9%9B%86/</link>
-    <description>Recent content in AI 产业观察合集 on Zhang&#39;s Blog</description>
+    <description>Recent content in AI 产业观察合集 on Z&#39;s Blog</description>
     <image>
-      <title>Zhang&#39;s Blog</title>
+      <title>Z&#39;s Blog</title>
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-    <generator>Hugo -- 0.164.0</generator>
+    <generator>Hugo -- 0.160.1</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 27 May 2026 08:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/series/ai-%E4%BA%A7%E4%B8%9A%E8%A7%82%E5%AF%9F%E5%90%88%E9%9B%86/index.xml" rel="self" type="application/rss+xml" />
@@ -156,30 +156,30 @@ Harness不是静态的配套系统，而是&amp;quot;驯化&amp;quot;通用智�
 &lt;h2 id=&#34;二从-tools-到-teammates范式的本质跃迁&#34;&gt;二、从 Tools 到 Teammates：范式的本质跃迁&lt;/h2&gt;
 &lt;p&gt;整个行业的共识正在形成：&lt;strong&gt;AI 正在从 Tools 走向 Teammates&lt;/strong&gt;。&lt;/p&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;对比维度&lt;/th&gt;
-					&lt;th&gt;ChatBot 时代&lt;/th&gt;
-					&lt;th&gt;智能体时代&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;核心逻辑&lt;/td&gt;
-					&lt;td&gt;工具逻辑&lt;/td&gt;
-					&lt;td&gt;数字劳动力逻辑&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;用户体验&lt;/td&gt;
-					&lt;td&gt;问问题→直接给答案&lt;/td&gt;
-					&lt;td&gt;说需求→端到端完成&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;典型场景&lt;/td&gt;
-					&lt;td&gt;信息查询、知识问答&lt;/td&gt;
-					&lt;td&gt;PDF 转文档、订机票、做 PPT&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;对比维度&lt;/th&gt;
+          &lt;th&gt;ChatBot 时代&lt;/th&gt;
+          &lt;th&gt;智能体时代&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;核心逻辑&lt;/td&gt;
+          &lt;td&gt;工具逻辑&lt;/td&gt;
+          &lt;td&gt;数字劳动力逻辑&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;用户体验&lt;/td&gt;
+          &lt;td&gt;问问题→直接给答案&lt;/td&gt;
+          &lt;td&gt;说需求→端到端完成&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;典型场景&lt;/td&gt;
+          &lt;td&gt;信息查询、知识问答&lt;/td&gt;
+          &lt;td&gt;PDF 转文档、订机票、做 PPT&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;关键差异&lt;/strong&gt;在于：智能体能主动感知环境、规划任务、调用工具、处理异常，最终完成交付。就像百度 DuMate 能自动判断雪球是否需要登录，然后选择合适的 Skill 完成任务。&lt;/p&gt;
 &lt;p&gt;这种体验会深入用户心智。一旦形成习惯，&lt;strong&gt;谁拿到这个入口，谁就是王者&lt;/strong&gt;。&lt;/p&gt;
@@ -441,64 +441,64 @@ Harness不是静态的配套系统，而是&amp;quot;驯化&amp;quot;通用智�
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;&lt;/th&gt;
-					&lt;th&gt;&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;strong&gt;To:&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;Investment Committee (IC)&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;strong&gt;From:&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;Senior Industry Analyst, Pre-Investment Division&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;strong&gt;Date:&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;January 27, 2026&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;strong&gt;Subject:&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;Sector Analysis &amp;amp; Strategic Outlook: Longevity &amp;amp; Geroscience (2026)&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;strong&gt;Classification:&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;Confidential&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;To:&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Investment Committee (IC)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;From:&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Senior Industry Analyst, Pre-Investment Division&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Date:&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;January 27, 2026&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Subject:&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Sector Analysis &amp;amp; Strategic Outlook: Longevity &amp;amp; Geroscience (2026)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Classification:&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Confidential&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;1-executive-summary--investment-thesis&#34;&gt;1. Executive Summary &amp;amp; Investment Thesis&lt;/h2&gt;
 &lt;h3 id=&#34;11-market-overview&#34;&gt;1.1 Market Overview&lt;/h3&gt;
 &lt;p&gt;The longevity sector has matured from speculative biology into a &lt;strong&gt;rigorous clinical engineering discipline&lt;/strong&gt;. As of Q1 2026:&lt;/p&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;Metric&lt;/th&gt;
-					&lt;th&gt;Value&lt;/th&gt;
-					&lt;th&gt;Source&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Longevity Biotech Market Size&lt;/td&gt;
-					&lt;td&gt;&lt;strong&gt;$31.6B&lt;/strong&gt; (2026)&lt;/td&gt;
-					&lt;td&gt;[1]&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Projected Market Size (2031)&lt;/td&gt;
-					&lt;td&gt;&lt;strong&gt;$46.8B&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;[1]&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;Implied CAGR&lt;/td&gt;
-					&lt;td&gt;~8.2%&lt;/td&gt;
-					&lt;td&gt;Calculated&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Metric&lt;/th&gt;
+          &lt;th&gt;Value&lt;/th&gt;
+          &lt;th&gt;Source&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Longevity Biotech Market Size&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;$31.6B&lt;/strong&gt; (2026)&lt;/td&gt;
+          &lt;td&gt;[1]&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Projected Market Size (2031)&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;$46.8B&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;[1]&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Implied CAGR&lt;/td&gt;
+          &lt;td&gt;~8.2%&lt;/td&gt;
+          &lt;td&gt;Calculated&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;12-core-investment-thesis&#34;&gt;1.2 Core Investment Thesis&lt;/h3&gt;
 &lt;blockquote&gt;

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>技术 on Zhang&#39;s Blog</title>
+    <title>技术 on Z&#39;s Blog</title>
     <link>https://blog.zhangky.com/categories/%E6%8A%80%E6%9C%AF/</link>
-    <description>Recent content in 技术 on Zhang&#39;s Blog</description>
+    <description>Recent content in 技术 on Z&#39;s Blog</description>
     <image>
-      <title>Zhang&#39;s Blog</title>
+      <title>Z&#39;s Blog</title>
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-    <generator>Hugo -- 0.164.0</generator>
+    <generator>Hugo -- 0.160.1</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 06 Mar 2026 08:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
@@ -31,35 +31,35 @@
 &lt;p&gt;关键区别在这里：公开厨师做好的菜，不等于公开他十年练出来的手艺。公开权重，不等于公开训练权重的方法。这就是 AI 开源和软件开源的根本区别。&lt;/p&gt;
 &lt;p&gt;所以，大模型的世界里，&amp;ldquo;源代码&amp;quot;这个概念被拆成了至少四层：&lt;/p&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;层&lt;/th&gt;
-					&lt;th&gt;是什么&lt;/th&gt;
-					&lt;th&gt;厨师类比&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;strong&gt;权重&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;模型训练出来的&amp;quot;肌肉记忆&amp;rdquo;&lt;/td&gt;
-					&lt;td&gt;厨师十年练出来的手感和味觉直觉&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;strong&gt;推理代码&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;让模型跑起来的程序&lt;/td&gt;
-					&lt;td&gt;把菜端上桌的流程&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;strong&gt;训练代码&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;从零训练模型的完整方法&lt;/td&gt;
-					&lt;td&gt;厨师十年来的全部训练方法和食谱&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;strong&gt;训练数据&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;喂给模型学习的海量文本、图像等&lt;/td&gt;
-					&lt;td&gt;厨师吃过的所有菜、看过的所有菜谱&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;层&lt;/th&gt;
+          &lt;th&gt;是什么&lt;/th&gt;
+          &lt;th&gt;厨师类比&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;权重&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;模型训练出来的&amp;quot;肌肉记忆&amp;rdquo;&lt;/td&gt;
+          &lt;td&gt;厨师十年练出来的手感和味觉直觉&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;推理代码&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;让模型跑起来的程序&lt;/td&gt;
+          &lt;td&gt;把菜端上桌的流程&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;训练代码&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;从零训练模型的完整方法&lt;/td&gt;
+          &lt;td&gt;厨师十年来的全部训练方法和食谱&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;训练数据&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;喂给模型学习的海量文本、图像等&lt;/td&gt;
+          &lt;td&gt;厨师吃过的所有菜、看过的所有菜谱&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;传统软件开源，相当于把食谱和做法全部公开。大模型&amp;quot;开源&amp;quot;，大多数时候只是把做好的菜端出来，告诉你怎么加热和摆盘。&lt;/p&gt;
 &lt;hr&gt;
