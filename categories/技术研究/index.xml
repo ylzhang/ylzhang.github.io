@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>技术研究 on Zhang&#39;s Blog</title>
+    <title>技术研究 on Z&#39;s Blog</title>
     <link>https://blog.zhangky.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</link>
-    <description>Recent content in 技术研究 on Zhang&#39;s Blog</description>
+    <description>Recent content in 技术研究 on Z&#39;s Blog</description>
     <image>
-      <title>Zhang&#39;s Blog</title>
+      <title>Z&#39;s Blog</title>
       <url>https://blog.zhangky.com/images/logo.svg</url>
       <link>https://blog.zhangky.com/images/logo.svg</link>
     </image>
-    <generator>Hugo -- 0.164.0</generator>
+    <generator>Hugo -- 0.160.1</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 26 May 2026 08:00:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/index.xml" rel="self" type="application/rss+xml" />
@@ -25,81 +25,81 @@
 &lt;p&gt;Token是AI模型的&amp;quot;燃料&amp;quot;，是衡量AI服务价值的基本单位。&lt;strong&gt;Token的本质&lt;/strong&gt;在于它将复杂的计算资源（GPU算力、模型参数、训练数据）转化为可计量、可交易的数字商品。一个GPT-4的Token约对应0.75个英文单词或1.5个中文字符，背后是数千亿参数模型的推理计算。&lt;strong&gt;Token经济的核心逻辑&lt;/strong&gt;是：算力成本 → Token定价 → 服务变现，中转站正是在这个链条中找到了套利空间。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Token与AI模型的逻辑纽带&lt;/strong&gt;：&lt;/p&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th style=&#34;text-align: left&#34;&gt;环节&lt;/th&gt;
-					&lt;th style=&#34;text-align: left&#34;&gt;技术本质&lt;/th&gt;
-					&lt;th style=&#34;text-align: left&#34;&gt;经济意义&lt;/th&gt;
-					&lt;th style=&#34;text-align: left&#34;&gt;中转站角色&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;Token生成&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;模型推理计算&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;价值创造&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;无（厂商完成）&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;Token定价&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;成本+利润&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;价值分配&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;重新定价套利&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;Token流通&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;API调用消费&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;价值交换&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;渠道垄断&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;Token结算&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;按Token计费&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;价值实现&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;截留价差&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;环节&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;技术本质&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;经济意义&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;中转站角色&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Token生成&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;模型推理计算&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;价值创造&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;无（厂商完成）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Token定价&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;成本+利润&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;价值分配&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;重新定价套利&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Token流通&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;API调用消费&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;价值交换&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;渠道垄断&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Token结算&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;按Token计费&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;价值实现&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;截留价差&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;技术实现轻量架构下的接口统一&#34;&gt;技术实现：轻量架构下的接口统一&lt;/h2&gt;
 &lt;p&gt;中转站的技术实现远比想象中简单，核心是一个&lt;strong&gt;API网关层&lt;/strong&gt;的封装。你可以把它想象成一个&amp;quot;翻译官&amp;quot;——接收用户的请求，翻译成目标模型能理解的语言，拿到结果后再翻译回来。&lt;strong&gt;核心技术栈&lt;/strong&gt;包括：反向代理（Nginx/Envoy）、API路由与鉴权（自定义或使用Kong/Gateway）、请求转换层（将非OpenAI格式转换为标准格式）、负载均衡与限流。以new-api为例，其核心代码不超过5000行，主要实现三个功能：格式转换、密钥管理、请求转发。这个轻量架构正是中转站能低成本运作的关键——技术门槛低意味着任何人都能进入，这也为灰色和黑色模式的滋生提供了土壤。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;技术方案对比&lt;/strong&gt;：&lt;/p&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th style=&#34;text-align: left&#34;&gt;技术方案&lt;/th&gt;
-					&lt;th style=&#34;text-align: center&#34;&gt;实现复杂度&lt;/th&gt;
-					&lt;th style=&#34;text-align: center&#34;&gt;性能表现&lt;/th&gt;
-					&lt;th style=&#34;text-align: center&#34;&gt;扩展性&lt;/th&gt;
-					&lt;th style=&#34;text-align: left&#34;&gt;代表项目&lt;/th&gt;
-					&lt;th style=&#34;text-align: left&#34;&gt;成本估算&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;纯反向代理&lt;/td&gt;
-					&lt;td style=&#34;text-align: center&#34;&gt;低&lt;/td&gt;
-					&lt;td style=&#34;text-align: center&#34;&gt;高&lt;/td&gt;
-					&lt;td style=&#34;text-align: center&#34;&gt;低&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;简单中转脚本&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;&amp;lt;1万元&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;API网关封装&lt;/td&gt;
-					&lt;td style=&#34;text-align: center&#34;&gt;中&lt;/td&gt;
-					&lt;td style=&#34;text-align: center&#34;&gt;中高&lt;/td&gt;
-					&lt;td style=&#34;text-align: center&#34;&gt;中&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;new-api&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;5-10万元&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;企业级架构&lt;/td&gt;
-					&lt;td style=&#34;text-align: center&#34;&gt;高&lt;/td&gt;
-					&lt;td style=&#34;text-align: center&#34;&gt;高&lt;/td&gt;
-					&lt;td style=&#34;text-align: center&#34;&gt;高&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;OpenRouter&lt;/td&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;50-100万元&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;技术方案&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;实现复杂度&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;性能表现&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;扩展性&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;代表项目&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;成本估算&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;纯反向代理&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;低&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;高&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;低&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;简单中转脚本&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&amp;lt;1万元&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;API网关封装&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;中&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;中高&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;中&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;new-api&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;5-10万元&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;企业级架构&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;高&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;高&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;高&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;OpenRouter&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;50-100万元&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;关键技术细节&lt;/strong&gt;：&lt;/p&gt;
 &lt;ul&gt;
