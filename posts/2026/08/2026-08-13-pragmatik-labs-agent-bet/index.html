@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>语用科技：林俊旸把20亿估值押给Agent，不再卷基础模型 | Z&#39;s Blog</title>
+<meta name="keywords" content="林俊旸, 语用科技, Pragmatik Labs, Agent, 创业">
+<meta name="description" content="
+五个月前我说他唯一的选择是创业；五个月后，他把赌注押给了 Agent。
+8 月 12 日，林俊旸在 X 上发了一条「life update」：新公司叫 Pragmatik Labs（语用科技），简称 p7k，base 上海，做横跨数字与物理世界的下一代 Agent。距离他凌晨告别 Qwen 那条推文，大约五个月。我当时写过，创业是他唯一合理的选择——不是浪漫，是其他路都有逻辑断裂。现在答案出来了，比我预想的更激进：他没去卷下一代基础模型，也没停在应用层做个助手，而是把第一笔赌注直接押到了 Agent 上，数字和物理两条线一起开。
+这一轮的数字很硬。高榕创投和 HSG（红杉中国）共同领投，腾讯和上海未来产业基金跟投，投后估值 20 亿美元，融资规模数亿美元1。The Information 今年 6 月援引知情人士的说法是，高榕和红杉各出约 1 亿美元，腾讯出约 2000 万美元2。一个产品、收入、甚至公开模型都还没有的公司，起步就站到了 135 亿人民币的估值线上。在国内大厂核心技术负责人离职创业的案例里，这可能是目前最高的起跑线。
+更值得看的不是钱，是他用这笔钱买到的「不做什么」的权利。
+
+五个月前那篇文，验证了一半
+3 月 7 日我写《千问核心离职风波：林俊旸下一步是创业吗》，结论是创业是唯一能承接他全部资产的选择——全球开源社区的声誉、带得走的团队、被 Google DeepMind 公开抢人验证过的技术判断力。当时排除了回大厂、回学界、加入 DeepSeek 三条路，理由是它们都有结构性断裂。
+五个月过去，前半段判断兑现了：他确实创业了，核心团队也确实跟着走了。但有一处我没猜对。我当时猜他的方向大概率落在两个区间里——开源模型基础设施，或者离钱近的 AI 应用层。理由是这两条都能最大化他「Qwen 系列开源」的存量资产，又不必正面硬刚算力这道生死线。
+他选的 Agent 介于两者之间，却又比两者都更野心勃勃。数字 Agent 接近应用层，物理 Agent（具身智能）却是另一回事——它要的不是更多的 GPU 堆出一个更大的模型，而是让智能走进真实环境、完成长周期任务。这是一条我三月没敢给他规划的路线，因为它的工程难度和烧钱速度都远超做一个开发者工具。
+回头看，他其实在离职前就把牌亮了一半。去年 10 月，他在千问内部牵头搭了一支机器人与具身智能团队3。也就是说，具身智能不是他离职后临时起意，而是大厂体制内想做、最终选择带出来独立做的事。这恰恰印证了三月那篇里的另一个判断：他走，是因为看到了技术负责人在体制内能触达的天花板。
+
+不卷基础模型，是因为卷不动了，也是因为没必要卷
+新公司没有公布模型参数，也没发产品。但官网把研究方向切成四块：Digital Agents、Physical Agents、Research to Product、Long Horizons4。前两块是业务主线，后两块是研发哲学——前沿研究要落进真实场景，再用真实反馈倒推下一步研究什么；同时留出资源探索突破现有范式的系统。
+把基础模型放在身后，是一个值得拆解的决定。
+一种读法是「卷不动」。顶级大模型的训练成本已经压垮了除最头部几家之外的所有玩家，Qwen 背后是阿里云的算力池，创业后这个优势瞬间归零——这是三月我就点过的硬约束。租算力贵，买算力要巨额融资，还要扛芯片管制。一个 20 亿美元估值的公司，无论如何也撑不起从零训一个 Qwen 3.5 量级模型的账单。继续做基础模型，等于把自己钉死在算力这根柱子上。">
+<meta name="author" content="Lonney .Z">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/08/2026-08-13-pragmatik-labs-agent-bet/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/08/2026-08-13-pragmatik-labs-agent-bet/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/08/2026-08-13-pragmatik-labs-agent-bet/">
+  <meta property="og:site_name" content="Z&#39;s Blog">
+  <meta property="og:title" content="语用科技：林俊旸把20亿估值押给Agent，不再卷基础模型">
+  <meta property="og:description" content="
+五个月前我说他唯一的选择是创业；五个月后，他把赌注押给了 Agent。
+8 月 12 日，林俊旸在 X 上发了一条「life update」：新公司叫 Pragmatik Labs（语用科技），简称 p7k，base 上海，做横跨数字与物理世界的下一代 Agent。距离他凌晨告别 Qwen 那条推文，大约五个月。我当时写过，创业是他唯一合理的选择——不是浪漫，是其他路都有逻辑断裂。现在答案出来了，比我预想的更激进：他没去卷下一代基础模型，也没停在应用层做个助手，而是把第一笔赌注直接押到了 Agent 上，数字和物理两条线一起开。
+这一轮的数字很硬。高榕创投和 HSG（红杉中国）共同领投，腾讯和上海未来产业基金跟投，投后估值 20 亿美元，融资规模数亿美元1。The Information 今年 6 月援引知情人士的说法是，高榕和红杉各出约 1 亿美元，腾讯出约 2000 万美元2。一个产品、收入、甚至公开模型都还没有的公司，起步就站到了 135 亿人民币的估值线上。在国内大厂核心技术负责人离职创业的案例里，这可能是目前最高的起跑线。
+更值得看的不是钱，是他用这笔钱买到的「不做什么」的权利。
+五个月前那篇文，验证了一半 3 月 7 日我写《千问核心离职风波：林俊旸下一步是创业吗》，结论是创业是唯一能承接他全部资产的选择——全球开源社区的声誉、带得走的团队、被 Google DeepMind 公开抢人验证过的技术判断力。当时排除了回大厂、回学界、加入 DeepSeek 三条路，理由是它们都有结构性断裂。
+五个月过去，前半段判断兑现了：他确实创业了，核心团队也确实跟着走了。但有一处我没猜对。我当时猜他的方向大概率落在两个区间里——开源模型基础设施，或者离钱近的 AI 应用层。理由是这两条都能最大化他「Qwen 系列开源」的存量资产，又不必正面硬刚算力这道生死线。
+他选的 Agent 介于两者之间，却又比两者都更野心勃勃。数字 Agent 接近应用层，物理 Agent（具身智能）却是另一回事——它要的不是更多的 GPU 堆出一个更大的模型，而是让智能走进真实环境、完成长周期任务。这是一条我三月没敢给他规划的路线，因为它的工程难度和烧钱速度都远超做一个开发者工具。
+回头看，他其实在离职前就把牌亮了一半。去年 10 月，他在千问内部牵头搭了一支机器人与具身智能团队3。也就是说，具身智能不是他离职后临时起意，而是大厂体制内想做、最终选择带出来独立做的事。这恰恰印证了三月那篇里的另一个判断：他走，是因为看到了技术负责人在体制内能触达的天花板。
+不卷基础模型，是因为卷不动了，也是因为没必要卷 新公司没有公布模型参数，也没发产品。但官网把研究方向切成四块：Digital Agents、Physical Agents、Research to Product、Long Horizons4。前两块是业务主线，后两块是研发哲学——前沿研究要落进真实场景，再用真实反馈倒推下一步研究什么；同时留出资源探索突破现有范式的系统。
+把基础模型放在身后，是一个值得拆解的决定。
+一种读法是「卷不动」。顶级大模型的训练成本已经压垮了除最头部几家之外的所有玩家，Qwen 背后是阿里云的算力池，创业后这个优势瞬间归零——这是三月我就点过的硬约束。租算力贵，买算力要巨额融资，还要扛芯片管制。一个 20 亿美元估值的公司，无论如何也撑不起从零训一个 Qwen 3.5 量级模型的账单。继续做基础模型，等于把自己钉死在算力这根柱子上。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-08-13T00:30:00+08:00">
+    <meta property="article:modified_time" content="2026-08-13T00:30:00+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="人物">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/03/2026-03-07-linjunyang-next-move-startup/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/03/2026-03-06-what-does-open-source-mean-for-llm/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/03/2026-03-06-qwen-open-source-needs-him/">
+      <meta property="og:see_also" content="https://blog.zhangky.com/posts/2026/03/2026-03-05-qwen-departure-leadership-reflection/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="语用科技：林俊旸把20亿估值押给Agent，不再卷基础模型">
+<meta name="twitter:description" content="
+五个月前我说他唯一的选择是创业；五个月后，他把赌注押给了 Agent。
+8 月 12 日，林俊旸在 X 上发了一条「life update」：新公司叫 Pragmatik Labs（语用科技），简称 p7k，base 上海，做横跨数字与物理世界的下一代 Agent。距离他凌晨告别 Qwen 那条推文，大约五个月。我当时写过，创业是他唯一合理的选择——不是浪漫，是其他路都有逻辑断裂。现在答案出来了，比我预想的更激进：他没去卷下一代基础模型，也没停在应用层做个助手，而是把第一笔赌注直接押到了 Agent 上，数字和物理两条线一起开。
+这一轮的数字很硬。高榕创投和 HSG（红杉中国）共同领投，腾讯和上海未来产业基金跟投，投后估值 20 亿美元，融资规模数亿美元1。The Information 今年 6 月援引知情人士的说法是，高榕和红杉各出约 1 亿美元，腾讯出约 2000 万美元2。一个产品、收入、甚至公开模型都还没有的公司，起步就站到了 135 亿人民币的估值线上。在国内大厂核心技术负责人离职创业的案例里，这可能是目前最高的起跑线。
+更值得看的不是钱，是他用这笔钱买到的「不做什么」的权利。
+
+五个月前那篇文，验证了一半
+3 月 7 日我写《千问核心离职风波：林俊旸下一步是创业吗》，结论是创业是唯一能承接他全部资产的选择——全球开源社区的声誉、带得走的团队、被 Google DeepMind 公开抢人验证过的技术判断力。当时排除了回大厂、回学界、加入 DeepSeek 三条路，理由是它们都有结构性断裂。
+五个月过去，前半段判断兑现了：他确实创业了，核心团队也确实跟着走了。但有一处我没猜对。我当时猜他的方向大概率落在两个区间里——开源模型基础设施，或者离钱近的 AI 应用层。理由是这两条都能最大化他「Qwen 系列开源」的存量资产，又不必正面硬刚算力这道生死线。
+他选的 Agent 介于两者之间，却又比两者都更野心勃勃。数字 Agent 接近应用层，物理 Agent（具身智能）却是另一回事——它要的不是更多的 GPU 堆出一个更大的模型，而是让智能走进真实环境、完成长周期任务。这是一条我三月没敢给他规划的路线，因为它的工程难度和烧钱速度都远超做一个开发者工具。
+回头看，他其实在离职前就把牌亮了一半。去年 10 月，他在千问内部牵头搭了一支机器人与具身智能团队3。也就是说，具身智能不是他离职后临时起意，而是大厂体制内想做、最终选择带出来独立做的事。这恰恰印证了三月那篇里的另一个判断：他走，是因为看到了技术负责人在体制内能触达的天花板。
+
+不卷基础模型，是因为卷不动了，也是因为没必要卷
+新公司没有公布模型参数，也没发产品。但官网把研究方向切成四块：Digital Agents、Physical Agents、Research to Product、Long Horizons4。前两块是业务主线，后两块是研发哲学——前沿研究要落进真实场景，再用真实反馈倒推下一步研究什么；同时留出资源探索突破现有范式的系统。
+把基础模型放在身后，是一个值得拆解的决定。
+一种读法是「卷不动」。顶级大模型的训练成本已经压垮了除最头部几家之外的所有玩家，Qwen 背后是阿里云的算力池，创业后这个优势瞬间归零——这是三月我就点过的硬约束。租算力贵，买算力要巨额融资，还要扛芯片管制。一个 20 亿美元估值的公司，无论如何也撑不起从零训一个 Qwen 3.5 量级模型的账单。继续做基础模型，等于把自己钉死在算力这根柱子上。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "语用科技：林俊旸把20亿估值押给Agent，不再卷基础模型",
+      "item": "https://blog.zhangky.com/posts/2026/08/2026-08-13-pragmatik-labs-agent-bet/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "语用科技：林俊旸把20亿估值押给Agent，不再卷基础模型",
+  "name": "语用科技：林俊旸把20亿估值押给Agent，不再卷基础模型",
+  "description": "\n五个月前我说他唯一的选择是创业；五个月后，他把赌注押给了 Agent。\n8 月 12 日，林俊旸在 X 上发了一条「life update」：新公司叫 Pragmatik Labs（语用科技），简称 p7k，base 上海，做横跨数字与物理世界的下一代 Agent。距离他凌晨告别 Qwen 那条推文，大约五个月。我当时写过，创业是他唯一合理的选择——不是浪漫，是其他路都有逻辑断裂。现在答案出来了，比我预想的更激进：他没去卷下一代基础模型，也没停在应用层做个助手，而是把第一笔赌注直接押到了 Agent 上，数字和物理两条线一起开。\n这一轮的数字很硬。高榕创投和 HSG（红杉中国）共同领投，腾讯和上海未来产业基金跟投，投后估值 20 亿美元，融资规模数亿美元1。The Information 今年 6 月援引知情人士的说法是，高榕和红杉各出约 1 亿美元，腾讯出约 2000 万美元2。一个产品、收入、甚至公开模型都还没有的公司，起步就站到了 135 亿人民币的估值线上。在国内大厂核心技术负责人离职创业的案例里，这可能是目前最高的起跑线。\n更值得看的不是钱，是他用这笔钱买到的「不做什么」的权利。\n五个月前那篇文，验证了一半 3 月 7 日我写《千问核心离职风波：林俊旸下一步是创业吗》，结论是创业是唯一能承接他全部资产的选择——全球开源社区的声誉、带得走的团队、被 Google DeepMind 公开抢人验证过的技术判断力。当时排除了回大厂、回学界、加入 DeepSeek 三条路，理由是它们都有结构性断裂。\n五个月过去，前半段判断兑现了：他确实创业了，核心团队也确实跟着走了。但有一处我没猜对。我当时猜他的方向大概率落在两个区间里——开源模型基础设施，或者离钱近的 AI 应用层。理由是这两条都能最大化他「Qwen 系列开源」的存量资产，又不必正面硬刚算力这道生死线。\n他选的 Agent 介于两者之间，却又比两者都更野心勃勃。数字 Agent 接近应用层，物理 Agent（具身智能）却是另一回事——它要的不是更多的 GPU 堆出一个更大的模型，而是让智能走进真实环境、完成长周期任务。这是一条我三月没敢给他规划的路线，因为它的工程难度和烧钱速度都远超做一个开发者工具。\n回头看，他其实在离职前就把牌亮了一半。去年 10 月，他在千问内部牵头搭了一支机器人与具身智能团队3。也就是说，具身智能不是他离职后临时起意，而是大厂体制内想做、最终选择带出来独立做的事。这恰恰印证了三月那篇里的另一个判断：他走，是因为看到了技术负责人在体制内能触达的天花板。\n不卷基础模型，是因为卷不动了，也是因为没必要卷 新公司没有公布模型参数，也没发产品。但官网把研究方向切成四块：Digital Agents、Physical Agents、Research to Product、Long Horizons4。前两块是业务主线，后两块是研发哲学——前沿研究要落进真实场景，再用真实反馈倒推下一步研究什么；同时留出资源探索突破现有范式的系统。\n把基础模型放在身后，是一个值得拆解的决定。\n一种读法是「卷不动」。顶级大模型的训练成本已经压垮了除最头部几家之外的所有玩家，Qwen 背后是阿里云的算力池，创业后这个优势瞬间归零——这是三月我就点过的硬约束。租算力贵，买算力要巨额融资，还要扛芯片管制。一个 20 亿美元估值的公司，无论如何也撑不起从零训一个 Qwen 3.5 量级模型的账单。继续做基础模型，等于把自己钉死在算力这根柱子上。\n",
+  "keywords": [
+    "林俊旸", "语用科技", "Pragmatik Labs", "Agent", "创业"
+  ],
+  "articleBody": "\n五个月前我说他唯一的选择是创业；五个月后，他把赌注押给了 Agent。\n8 月 12 日，林俊旸在 X 上发了一条「life update」：新公司叫 Pragmatik Labs（语用科技），简称 p7k，base 上海，做横跨数字与物理世界的下一代 Agent。距离他凌晨告别 Qwen 那条推文，大约五个月。我当时写过，创业是他唯一合理的选择——不是浪漫，是其他路都有逻辑断裂。现在答案出来了，比我预想的更激进：他没去卷下一代基础模型，也没停在应用层做个助手，而是把第一笔赌注直接押到了 Agent 上，数字和物理两条线一起开。\n这一轮的数字很硬。高榕创投和 HSG（红杉中国）共同领投，腾讯和上海未来产业基金跟投，投后估值 20 亿美元，融资规模数亿美元1。The Information 今年 6 月援引知情人士的说法是，高榕和红杉各出约 1 亿美元，腾讯出约 2000 万美元2。一个产品、收入、甚至公开模型都还没有的公司，起步就站到了 135 亿人民币的估值线上。在国内大厂核心技术负责人离职创业的案例里，这可能是目前最高的起跑线。\n更值得看的不是钱，是他用这笔钱买到的「不做什么」的权利。\n五个月前那篇文，验证了一半 3 月 7 日我写《千问核心离职风波：林俊旸下一步是创业吗》，结论是创业是唯一能承接他全部资产的选择——全球开源社区的声誉、带得走的团队、被 Google DeepMind 公开抢人验证过的技术判断力。当时排除了回大厂、回学界、加入 DeepSeek 三条路，理由是它们都有结构性断裂。\n五个月过去，前半段判断兑现了：他确实创业了，核心团队也确实跟着走了。但有一处我没猜对。我当时猜他的方向大概率落在两个区间里——开源模型基础设施，或者离钱近的 AI 应用层。理由是这两条都能最大化他「Qwen 系列开源」的存量资产，又不必正面硬刚算力这道生死线。\n他选的 Agent 介于两者之间，却又比两者都更野心勃勃。数字 Agent 接近应用层，物理 Agent（具身智能）却是另一回事——它要的不是更多的 GPU 堆出一个更大的模型，而是让智能走进真实环境、完成长周期任务。这是一条我三月没敢给他规划的路线，因为它的工程难度和烧钱速度都远超做一个开发者工具。\n回头看，他其实在离职前就把牌亮了一半。去年 10 月，他在千问内部牵头搭了一支机器人与具身智能团队3。也就是说，具身智能不是他离职后临时起意，而是大厂体制内想做、最终选择带出来独立做的事。这恰恰印证了三月那篇里的另一个判断：他走，是因为看到了技术负责人在体制内能触达的天花板。\n不卷基础模型，是因为卷不动了，也是因为没必要卷 新公司没有公布模型参数，也没发产品。但官网把研究方向切成四块：Digital Agents、Physical Agents、Research to Product、Long Horizons4。前两块是业务主线，后两块是研发哲学——前沿研究要落进真实场景，再用真实反馈倒推下一步研究什么；同时留出资源探索突破现有范式的系统。\n把基础模型放在身后，是一个值得拆解的决定。\n一种读法是「卷不动」。顶级大模型的训练成本已经压垮了除最头部几家之外的所有玩家，Qwen 背后是阿里云的算力池，创业后这个优势瞬间归零——这是三月我就点过的硬约束。租算力贵，买算力要巨额融资，还要扛芯片管制。一个 20 亿美元估值的公司，无论如何也撑不起从零训一个 Qwen 3.5 量级模型的账单。继续做基础模型，等于把自己钉死在算力这根柱子上。\n但更本质的读法是「没必要卷」。林俊旸自己今年 3 月写过一篇长文，《From “Reasoning” Thinking to “Agentic” Thinking》5。把那篇文章压成一句话：上一阶段的 AI 竞争，是让模型更会思考；下一阶段，是让模型为了行动而思考。他进一步说，Agent 时代真正要训练的不是模型本身，而是「模型 + 环境」组成的完整系统——包括 Harness、训练环境、评估器，甚至多 Agent 之间的协作方式。\n这个判断和当下最热的那条技术线是吻合的。Lilian Weng 7 月那篇讲 Harness Engineering 的博客里也讲过类似的意思：模型和真实世界之间那层部署系统，重要性不亚于模型本身的原始智能；Claude Code、Codex 之所以强，不是因为底模最强，而是 Harness 设计最成熟6。林俊旸的「Agentic Thinking」和 Weng 的「Harness Engineering」，在底层是同一条脉络——把工程重心从「更大的模型」挪到「更好的系统」。\n对一个带过全球顶级开源模型的人来说，这是聪明的退出。基础模型这一层，他证明过自己能做到；继续做，边际收益递减、算力成本递增。而 Agent 这一层，工程门槛低于预训练，恰恰是他工程化和社区运营能力最能兑现的地方。他不和 OpenAI、Anthropic 比谁烧得多，而是比谁把「模型 + 环境」这套系统搭得更顺。\n数字加物理双线，是最激进的那张牌 真正让人意外的是物理 Agent。\n数字 Agent 不难理解：面向知识工作、企业运营、产业级工作流，能推理、用工具、从反馈里学习、协调行动的通用智能体。这一层和当下所有 Agent 创业公司做的事有重叠，差别只在工程深度。\n物理 Agent 是具身智能——让系统适应真实环境、采取动作、完成长周期任务。这一步跨出去，意味着要碰硬件、碰传感器、碰现实世界的不确定性和长尾。它是 AI 里公认的硬骨头：数据稀缺、仿真到现实的鸿沟、安全约束、成本曲线，每一项都能拖垮一个团队。\n林俊旸为什么敢同时押两条线？一个绕不开的起点，是他给「Agent」下的定义本身就跨虚实。在他的框架里，训练对象是「模型 + 环境」的完整系统——数字世界的环境是文件系统、工具调用、上下文，物理世界的环境是传感器、机器人、现实场景。底层是同一套「让智能在环境里行动」的方法论，差别只在环境的边界。分两条线，不是做两件不相干的事，而是同一个研究纲领的两个落地场域。\n底气则来自估值。20 亿美元的起跑线，意味着他不必像普通 Agent 创业公司那样先做一个垂直工具回血，至少在烧完这轮融资之前，他有空间同时养两条线。股权结构也佐证了这点——企查查显示，他通过直接持股加两个持股平台合计持股约 88%，投资人合计约 12%（高榕 4.25%、红杉 5%、上海未来产业基金 1%、腾讯 1%）1。他对公司握着绝对控制权，短期资本诉求很难撼动长期技术路线；而投资人拿的份额不大，说明他们赌的是这个人，不是控股权。\n还有一层信号来自产业资金。上海未来产业基金的出现不是偶然：具身智能、机器人被写进多地未来产业规划，地方政府对「能落地、能带动产业链」的 AI 方向有明确偏好。一个 base 上海、做物理 Agent 的团队，能拿到的除了钱，还有场景、供应链和政策的配套。这笔账，红杉和高榕算得过来。\n但激进不等于稳。物理 Agent 的工程难度，可能比数字 Agent 高一个数量级。一个团队同时开两条线，最大的风险不是钱烧完，是注意力被稀释——数字线能快速出产品回血，物理线可能三年都不出东西。怎么在两条线之间分配有限的顶级人才，是他接下来最难的题。\n20 亿估值，赌的是人，也要经得起没有产品的日子 0 产品、0 收入、0 公开模型，估值 20 亿美元。这个数字放在任何语境下都需要解释。\n资本市场愿意给这个价，给的是林俊旸这个人——更准确说，是他过去三年在 Qwen 上证明的三件事：能把开源模型做到全球第一梯队，能带出一支有战斗力的团队，能在不确定的技术方向上做出对的判断。Qwen 全系列开源、被马斯克公开称赞「惊人的智能密度」7，这些是带不走的品牌，但它们背后的人是能带走的。\n可估值的另一面是预期。20 亿美元的天使轮，意味着下一轮的门槛被自己抬到了 50 亿甚至百亿量级。The Information 6 月就提到，他在这一轮完成之后已经在找下一轮的投资者2。钱要接着烧，但产品不能一直不出来。\n这正是三月那篇文章里我说的「商业化路径」难题的延续。开源模型的商业化路径至今不清晰，Stability AI 估值一度高企、核心团队却反复动荡。Agent 这一层离钱近一些——数字 Agent 直接对接企业工作流，是能收订阅费和调用费的。但物理 Agent 的商业化周期长得多，机器人产品从原型到量产到回本，时间尺度以年计。\n所以这一轮融资结构里，有一个细节值得琢磨：腾讯只占 1%。一家以战略投资见长、通常要在关键 AI 资产里拿更多话语权的公司，这次只拿了很小的份额。这要么是林俊旸刻意保持独立、不让自己过早绑定任何大厂生态；要么是腾讯自己也清楚，具身智能这条路太长，战略投资此刻只是占个位。无论哪种，都说明这轮融资的主旋律是「赌人」而非「布局」——财务投资人占大头，战略投资人靠边站。\n名字里的两个词，其实是一个意思 林俊旸在官宣里专门解释了公司名。Pragmatik 一头连着 pragmatics（语用学），一头连着 pragmaticism（实用主义）。他说自己最早学语言学，就是被朋友推荐了语用学才入的行，后来转向计算语言学和 NLP4。这个名字一头是「回到一切真正发生的地方」，一头是「AGI 应该追求的方向」。\n这两个词看似两个方向，其实是同一件事。语用学研究的不是语言本身，而是语言在真实场景里怎么被使用、产生什么效果——意义不在词里，在使用里。实用主义哲学的核心也类似：观念的意义在于它引起的行动和后果，而不是它听起来多漂亮。把两者拧到一起，林的潜台词很清楚：他不打算做一个会说漂亮话的模型，而要做能在真实世界里办成事的智能。\n这恰好是他选 Agent 而不是基础模型的哲学注脚。基础模型竞赛比的是谁的模型在 benchmark 上更好看，是「词」的层面；Agent 比的是谁能在环境里把事办成，是「使用」的层面。一个从语用学出发的人，把公司命名押在「使用」上，逻辑是自洽的。\n五个月前我写，他用「平台资产」换「自由度和定义权」——Qwen 这个品牌带不走，阿里云的算力带不走，但定义做什么、不做什么的权利，是他创业换回来的核心报酬。现在他第一次动用了这个权利：不做基础模型，做 Agent；不只做数字，连物理一起做；不急着出产品回血，先把研究纲领立起来。\n说到底，20 亿美元估值的不是一家公司，是一个判断：AI 的下一站不在更大的模型，在能让模型办成事的系统。林俊旸用五个月把这个判断兑现成了一家公司。对不对，要等产品和收入来回答——但作为开局，他至少没选那条最容易、也最没想象力的路。\n- FIN -\n系列阅读快速跳转 Qwen 团队风波系列：\n千问团队离职风波：一个管理者应该看到什么 —— 从管理视角分析信号、诉求与制度 从千问核心离职风波看：开源社区需要什么人 —— 开源领袖的四种潜质与土壤 大模型的开源，到底开源了什么 —— 开源的三种模式与分层解析 林俊旸下一步：创业是唯一合理的选择 —— 排除法推演创业是唯一选择 语用科技：林俊旸把20亿估值押给Agent（本文）—— 官宣续篇，押注数字+物理双线 Agent 参考 “林俊旸官宣创业「语用科技」，红杉、高榕、腾讯等投资，估值20亿美元,” 瑞恩资本 RyanbenCapital, 2026 年 8 月 12 日。企查查显示境内运营实体语用（上海）科技 5 月 13 日成立，林俊旸通过直接持股 20% 及两个持股平台（上海卜拉格 48%、上海格物致用 20%）合计持股约 88%；投资人合计约 12%。链接 ↩︎ ↩︎\nLin Junyang’s New AI Startup, “The Information, June 2026 报道,” 2026 年 6 月。援引两位知情人士：高榕创投与红杉中国各投资约 1 亿美元，腾讯投资约 2000 万美元，投后估值约 20 亿美元；并称公司已在筹备下一轮融资。 ↩︎ ↩︎\n“林俊旸Agent创业首次亮相，腾讯已投,” 量子位（新浪财经转载）, 2026 年 8 月 12 日。提及林俊旸去年 10 月曾在千问内部牵头组建机器人与具身智能团队。链接 ↩︎\n“刚刚，林俊旸官宣创业公司 Pragmatik Labs,” 机器之心（36kr）, 2026 年 8 月 12 日。官网将研究方向分为 Digital Agents、Physical Agents、Research to Product、Long Horizons 四块；林俊旸解释公司名源自 pragmatics（语用学）与 pragmaticism（实用主义）。链接 ↩︎ ↩︎\nJunyang Lin, “From ‘Reasoning’ Thinking to ‘Agentic’ Thinking,” 个人博客, 2026 年 3 月。提出 AI 下一阶段重点从「训练模型」转向「训练智能体乃至多智能体系统」，训练对象是「模型+环境」的完整系统。链接 ↩︎\nLilian Weng, “Harness Engineering for Self-Improvement,” 个人博客, 2026 年 7 月 4 日。提出 Harness 是围绕基础模型的部署系统，其重要性不亚于模型本身的原始智能；Claude Code、Codex 的成功源于 Harness 设计成熟。详见本博客 递归自我改进：从一杯咖啡到 Harness Engineering。 ↩︎\n“林俊旸官宣AI创企语用科技！腾讯投了，做Agent,” 智东西, 2026 年 8 月 12 日。3 月 2 日阿里开源 Qwen3.5-0.8B/2B/4B/9B 端侧小模型后，马斯克在相关推文下评论「令人惊叹的智能密度」（amazing intelligence density），林俊旸转发致谢。链接 ↩︎\n",
+  "wordCount" : "342",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-08-13T00:30:00+08:00",
+  "dateModified": "2026-08-13T00:30:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Lonney .Z"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/08/2026-08-13-pragmatik-labs-agent-bet/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Z's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Z&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      语用科技：林俊旸把20亿估值押给Agent，不再卷基础模型
+    </h1>
+    <div class="post-meta">   Lonney .Z | <span title='2026-08-13 00:30:00 +0800 HKT'>August 13, 2026</span> | <span>24 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/08/2026-08-13-pragmatik-labs-agent-bet.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%ba%94%e4%b8%aa%e6%9c%88%e5%89%8d%e9%82%a3%e7%af%87%e6%96%87%e9%aa%8c%e8%af%81%e4%ba%86%e4%b8%80%e5%8d%8a" aria-label="五个月前那篇文，验证了一半">五个月前那篇文，验证了一半</a></li>
+                <li>
+                    <a href="#%e4%b8%8d%e5%8d%b7%e5%9f%ba%e7%a1%80%e6%a8%a1%e5%9e%8b%e6%98%af%e5%9b%a0%e4%b8%ba%e5%8d%b7%e4%b8%8d%e5%8a%a8%e4%ba%86%e4%b9%9f%e6%98%af%e5%9b%a0%e4%b8%ba%e6%b2%a1%e5%bf%85%e8%a6%81%e5%8d%b7" aria-label="不卷基础模型，是因为卷不动了，也是因为没必要卷">不卷基础模型，是因为卷不动了，也是因为没必要卷</a></li>
+                <li>
+                    <a href="#%e6%95%b0%e5%ad%97%e5%8a%a0%e7%89%a9%e7%90%86%e5%8f%8c%e7%ba%bf%e6%98%af%e6%9c%80%e6%bf%80%e8%bf%9b%e7%9a%84%e9%82%a3%e5%bc%a0%e7%89%8c" aria-label="数字加物理双线，是最激进的那张牌">数字加物理双线，是最激进的那张牌</a></li>
+                <li>
+                    <a href="#20-%e4%ba%bf%e4%bc%b0%e5%80%bc%e8%b5%8c%e7%9a%84%e6%98%af%e4%ba%ba%e4%b9%9f%e8%a6%81%e7%bb%8f%e5%be%97%e8%b5%b7%e6%b2%a1%e6%9c%89%e4%ba%a7%e5%93%81%e7%9a%84%e6%97%a5%e5%ad%90" aria-label="20 亿估值，赌的是人，也要经得起没有产品的日子">20 亿估值，赌的是人，也要经得起没有产品的日子</a></li>
+                <li>
+                    <a href="#%e5%90%8d%e5%ad%97%e9%87%8c%e7%9a%84%e4%b8%a4%e4%b8%aa%e8%af%8d%e5%85%b6%e5%ae%9e%e6%98%af%e4%b8%80%e4%b8%aa%e6%84%8f%e6%80%9d" aria-label="名字里的两个词，其实是一个意思">名字里的两个词，其实是一个意思</a></li>
+                <li>
+                    <a href="#%e7%b3%bb%e5%88%97%e9%98%85%e8%af%bb%e5%bf%ab%e9%80%9f%e8%b7%b3%e8%bd%ac" aria-label="系列阅读快速跳转">系列阅读快速跳转</a></li>
+                <li>
+                    <a href="#%e5%8f%82%e8%80%83" aria-label="参考">参考</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><img alt="语用科技：林俊旸把20亿估值押给Agent，不再卷基础模型" loading="lazy" src="/images/posts/2026/08/pragmatik-labs-agent-bet-cover.png"></p>
+<p>五个月前我说他唯一的选择是创业；五个月后，他把赌注押给了 Agent。</p>
+<p>8 月 12 日，林俊旸在 X 上发了一条「life update」：新公司叫 Pragmatik Labs（语用科技），简称 p7k，base 上海，做横跨数字与物理世界的下一代 Agent。距离他凌晨告别 Qwen 那条推文，大约五个月。我当时写过，创业是他唯一合理的选择——不是浪漫，是其他路都有逻辑断裂。现在答案出来了，比我预想的更激进：他没去卷下一代基础模型，也没停在应用层做个助手，而是把第一笔赌注直接押到了 Agent 上，数字和物理两条线一起开。</p>
+<p>这一轮的数字很硬。高榕创投和 HSG（红杉中国）共同领投，腾讯和上海未来产业基金跟投，投后估值 20 亿美元，融资规模数亿美元<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。The Information 今年 6 月援引知情人士的说法是，高榕和红杉各出约 1 亿美元，腾讯出约 2000 万美元<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。一个产品、收入、甚至公开模型都还没有的公司，起步就站到了 135 亿人民币的估值线上。在国内大厂核心技术负责人离职创业的案例里，这可能是目前最高的起跑线。</p>
+<p>更值得看的不是钱，是他用这笔钱买到的「不做什么」的权利。</p>
+<hr>
+<h2 id="五个月前那篇文验证了一半">五个月前那篇文，验证了一半<a hidden class="anchor" aria-hidden="true" href="#五个月前那篇文验证了一半">#</a></h2>
+<p>3 月 7 日我写《千问核心离职风波：林俊旸下一步是创业吗》，结论是创业是唯一能承接他全部资产的选择——全球开源社区的声誉、带得走的团队、被 Google DeepMind 公开抢人验证过的技术判断力。当时排除了回大厂、回学界、加入 DeepSeek 三条路，理由是它们都有结构性断裂。</p>
+<p>五个月过去，前半段判断兑现了：他确实创业了，核心团队也确实跟着走了。但有一处我没猜对。我当时猜他的方向大概率落在两个区间里——开源模型基础设施，或者离钱近的 AI 应用层。理由是这两条都能最大化他「Qwen 系列开源」的存量资产，又不必正面硬刚算力这道生死线。</p>
+<p>他选的 Agent 介于两者之间，却又比两者都更野心勃勃。数字 Agent 接近应用层，物理 Agent（具身智能）却是另一回事——它要的不是更多的 GPU 堆出一个更大的模型，而是让智能走进真实环境、完成长周期任务。这是一条我三月没敢给他规划的路线，因为它的工程难度和烧钱速度都远超做一个开发者工具。</p>
+<p>回头看，他其实在离职前就把牌亮了一半。去年 10 月，他在千问内部牵头搭了一支机器人与具身智能团队<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。也就是说，具身智能不是他离职后临时起意，而是大厂体制内想做、最终选择带出来独立做的事。这恰恰印证了三月那篇里的另一个判断：他走，是因为看到了技术负责人在体制内能触达的天花板。</p>
+<hr>
+<h2 id="不卷基础模型是因为卷不动了也是因为没必要卷">不卷基础模型，是因为卷不动了，也是因为没必要卷<a hidden class="anchor" aria-hidden="true" href="#不卷基础模型是因为卷不动了也是因为没必要卷">#</a></h2>
+<p>新公司没有公布模型参数，也没发产品。但官网把研究方向切成四块：Digital Agents、Physical Agents、Research to Product、Long Horizons<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。前两块是业务主线，后两块是研发哲学——前沿研究要落进真实场景，再用真实反馈倒推下一步研究什么；同时留出资源探索突破现有范式的系统。</p>
+<p>把基础模型放在身后，是一个值得拆解的决定。</p>
+<p>一种读法是「卷不动」。顶级大模型的训练成本已经压垮了除最头部几家之外的所有玩家，Qwen 背后是阿里云的算力池，创业后这个优势瞬间归零——这是三月我就点过的硬约束。租算力贵，买算力要巨额融资，还要扛芯片管制。一个 20 亿美元估值的公司，无论如何也撑不起从零训一个 Qwen 3.5 量级模型的账单。继续做基础模型，等于把自己钉死在算力这根柱子上。</p>
+<p>但更本质的读法是「没必要卷」。林俊旸自己今年 3 月写过一篇长文，《From &ldquo;Reasoning&rdquo; Thinking to &ldquo;Agentic&rdquo; Thinking》<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。把那篇文章压成一句话：上一阶段的 AI 竞争，是让模型更会思考；下一阶段，是让模型为了行动而思考。他进一步说，Agent 时代真正要训练的不是模型本身，而是「模型 + 环境」组成的完整系统——包括 Harness、训练环境、评估器，甚至多 Agent 之间的协作方式。</p>
+<p>这个判断和当下最热的那条技术线是吻合的。Lilian Weng 7 月那篇讲 Harness Engineering 的博客里也讲过类似的意思：模型和真实世界之间那层部署系统，重要性不亚于模型本身的原始智能；Claude Code、Codex 之所以强，不是因为底模最强，而是 Harness 设计最成熟<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>。林俊旸的「Agentic Thinking」和 Weng 的「Harness Engineering」，在底层是同一条脉络——把工程重心从「更大的模型」挪到「更好的系统」。</p>
+<p>对一个带过全球顶级开源模型的人来说，这是聪明的退出。基础模型这一层，他证明过自己能做到；继续做，边际收益递减、算力成本递增。而 Agent 这一层，工程门槛低于预训练，恰恰是他工程化和社区运营能力最能兑现的地方。他不和 OpenAI、Anthropic 比谁烧得多，而是比谁把「模型 + 环境」这套系统搭得更顺。</p>
+<hr>
+<h2 id="数字加物理双线是最激进的那张牌">数字加物理双线，是最激进的那张牌<a hidden class="anchor" aria-hidden="true" href="#数字加物理双线是最激进的那张牌">#</a></h2>
+<p>真正让人意外的是物理 Agent。</p>
+<p>数字 Agent 不难理解：面向知识工作、企业运营、产业级工作流，能推理、用工具、从反馈里学习、协调行动的通用智能体。这一层和当下所有 Agent 创业公司做的事有重叠，差别只在工程深度。</p>
+<p>物理 Agent 是具身智能——让系统适应真实环境、采取动作、完成长周期任务。这一步跨出去，意味着要碰硬件、碰传感器、碰现实世界的不确定性和长尾。它是 AI 里公认的硬骨头：数据稀缺、仿真到现实的鸿沟、安全约束、成本曲线，每一项都能拖垮一个团队。</p>
+<p>林俊旸为什么敢同时押两条线？一个绕不开的起点，是他给「Agent」下的定义本身就跨虚实。在他的框架里，训练对象是「模型 + 环境」的完整系统——数字世界的环境是文件系统、工具调用、上下文，物理世界的环境是传感器、机器人、现实场景。底层是同一套「让智能在环境里行动」的方法论，差别只在环境的边界。分两条线，不是做两件不相干的事，而是同一个研究纲领的两个落地场域。</p>
+<p>底气则来自估值。20 亿美元的起跑线，意味着他不必像普通 Agent 创业公司那样先做一个垂直工具回血，至少在烧完这轮融资之前，他有空间同时养两条线。股权结构也佐证了这点——企查查显示，他通过直接持股加两个持股平台合计持股约 88%，投资人合计约 12%（高榕 4.25%、红杉 5%、上海未来产业基金 1%、腾讯 1%）<sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。他对公司握着绝对控制权，短期资本诉求很难撼动长期技术路线；而投资人拿的份额不大，说明他们赌的是这个人，不是控股权。</p>
+<p>还有一层信号来自产业资金。上海未来产业基金的出现不是偶然：具身智能、机器人被写进多地未来产业规划，地方政府对「能落地、能带动产业链」的 AI 方向有明确偏好。一个 base 上海、做物理 Agent 的团队，能拿到的除了钱，还有场景、供应链和政策的配套。这笔账，红杉和高榕算得过来。</p>
+<p>但激进不等于稳。物理 Agent 的工程难度，可能比数字 Agent 高一个数量级。一个团队同时开两条线，最大的风险不是钱烧完，是注意力被稀释——数字线能快速出产品回血，物理线可能三年都不出东西。怎么在两条线之间分配有限的顶级人才，是他接下来最难的题。</p>
+<hr>
+<h2 id="20-亿估值赌的是人也要经得起没有产品的日子">20 亿估值，赌的是人，也要经得起没有产品的日子<a hidden class="anchor" aria-hidden="true" href="#20-亿估值赌的是人也要经得起没有产品的日子">#</a></h2>
+<p>0 产品、0 收入、0 公开模型，估值 20 亿美元。这个数字放在任何语境下都需要解释。</p>
+<p>资本市场愿意给这个价，给的是林俊旸这个人——更准确说，是他过去三年在 Qwen 上证明的三件事：能把开源模型做到全球第一梯队，能带出一支有战斗力的团队，能在不确定的技术方向上做出对的判断。Qwen 全系列开源、被马斯克公开称赞「惊人的智能密度」<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>，这些是带不走的品牌，但它们背后的人是能带走的。</p>
+<p>可估值的另一面是预期。20 亿美元的天使轮，意味着下一轮的门槛被自己抬到了 50 亿甚至百亿量级。The Information 6 月就提到，他在这一轮完成之后已经在找下一轮的投资者<sup id="fnref1:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。钱要接着烧，但产品不能一直不出来。</p>
+<p>这正是三月那篇文章里我说的「商业化路径」难题的延续。开源模型的商业化路径至今不清晰，Stability AI 估值一度高企、核心团队却反复动荡。Agent 这一层离钱近一些——数字 Agent 直接对接企业工作流，是能收订阅费和调用费的。但物理 Agent 的商业化周期长得多，机器人产品从原型到量产到回本，时间尺度以年计。</p>
+<p>所以这一轮融资结构里，有一个细节值得琢磨：腾讯只占 1%。一家以战略投资见长、通常要在关键 AI 资产里拿更多话语权的公司，这次只拿了很小的份额。这要么是林俊旸刻意保持独立、不让自己过早绑定任何大厂生态；要么是腾讯自己也清楚，具身智能这条路太长，战略投资此刻只是占个位。无论哪种，都说明这轮融资的主旋律是「赌人」而非「布局」——财务投资人占大头，战略投资人靠边站。</p>
+<hr>
+<h2 id="名字里的两个词其实是一个意思">名字里的两个词，其实是一个意思<a hidden class="anchor" aria-hidden="true" href="#名字里的两个词其实是一个意思">#</a></h2>
+<p>林俊旸在官宣里专门解释了公司名。Pragmatik 一头连着 pragmatics（语用学），一头连着 pragmaticism（实用主义）。他说自己最早学语言学，就是被朋友推荐了语用学才入的行，后来转向计算语言学和 NLP<sup id="fnref1:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。这个名字一头是「回到一切真正发生的地方」，一头是「AGI 应该追求的方向」。</p>
+<p>这两个词看似两个方向，其实是同一件事。语用学研究的不是语言本身，而是语言在真实场景里怎么被使用、产生什么效果——意义不在词里，在使用里。实用主义哲学的核心也类似：观念的意义在于它引起的行动和后果，而不是它听起来多漂亮。把两者拧到一起，林的潜台词很清楚：他不打算做一个会说漂亮话的模型，而要做能在真实世界里办成事的智能。</p>
+<p>这恰好是他选 Agent 而不是基础模型的哲学注脚。基础模型竞赛比的是谁的模型在 benchmark 上更好看，是「词」的层面；Agent 比的是谁能在环境里把事办成，是「使用」的层面。一个从语用学出发的人，把公司命名押在「使用」上，逻辑是自洽的。</p>
+<p>五个月前我写，他用「平台资产」换「自由度和定义权」——Qwen 这个品牌带不走，阿里云的算力带不走，但定义做什么、不做什么的权利，是他创业换回来的核心报酬。现在他第一次动用了这个权利：不做基础模型，做 Agent；不只做数字，连物理一起做；不急着出产品回血，先把研究纲领立起来。</p>
+<p>说到底，20 亿美元估值的不是一家公司，是一个判断：AI 的下一站不在更大的模型，在能让模型办成事的系统。林俊旸用五个月把这个判断兑现成了一家公司。对不对，要等产品和收入来回答——但作为开局，他至少没选那条最容易、也最没想象力的路。</p>
+<p><strong>- FIN -</strong></p>
+<hr>
+<h2 id="系列阅读快速跳转">系列阅读快速跳转<a hidden class="anchor" aria-hidden="true" href="#系列阅读快速跳转">#</a></h2>
+<p><strong>Qwen 团队风波系列：</strong></p>
+<ol>
+<li><a href="/posts/2026/2026-03-05-qwen-departure-leadership-reflection/">千问团队离职风波：一个管理者应该看到什么</a> —— 从管理视角分析信号、诉求与制度</li>
+<li><a href="/posts/2026/2026-03-06-qwen-open-source-needs-him/">从千问核心离职风波看：开源社区需要什么人</a> —— 开源领袖的四种潜质与土壤</li>
+<li><a href="/posts/2026/2026-03-06-what-does-open-source-mean-for-llm/">大模型的开源，到底开源了什么</a> —— 开源的三种模式与分层解析</li>
+<li><a href="/posts/2026/2026-03-07-linjunyang-next-move-startup/">林俊旸下一步：创业是唯一合理的选择</a> —— 排除法推演创业是唯一选择</li>
+<li><strong>语用科技：林俊旸把20亿估值押给Agent</strong>（本文）—— 官宣续篇，押注数字+物理双线 Agent</li>
+</ol>
+<hr>
+<h2 id="参考">参考<a hidden class="anchor" aria-hidden="true" href="#参考">#</a></h2>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>&ldquo;林俊旸官宣创业「语用科技」，红杉、高榕、腾讯等投资，估值20亿美元,&rdquo; 瑞恩资本 RyanbenCapital, 2026 年 8 月 12 日。企查查显示境内运营实体语用（上海）科技 5 月 13 日成立，林俊旸通过直接持股 20% 及两个持股平台（上海卜拉格 48%、上海格物致用 20%）合计持股约 88%；投资人合计约 12%。<a href="http://m.toutiao.com/group/7673024578121155112/">链接</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Lin Junyang&rsquo;s New AI Startup, &ldquo;The Information, June 2026 报道,&rdquo; 2026 年 6 月。援引两位知情人士：高榕创投与红杉中国各投资约 1 亿美元，腾讯投资约 2000 万美元，投后估值约 20 亿美元；并称公司已在筹备下一轮融资。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>&ldquo;林俊旸Agent创业首次亮相，腾讯已投,&rdquo; 量子位（新浪财经转载）, 2026 年 8 月 12 日。提及林俊旸去年 10 月曾在千问内部牵头组建机器人与具身智能团队。<a href="https://cj.sina.cn/article/norm_detail?url=https%3A%2F%2Ffinance.sina.com.cn%2Ftech%2Fcsj%2F2026-08-12%2Fdoc-inimzqcp6912459.shtml">链接</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>&ldquo;刚刚，林俊旸官宣创业公司 Pragmatik Labs,&rdquo; 机器之心（36kr）, 2026 年 8 月 12 日。官网将研究方向分为 Digital Agents、Physical Agents、Research to Product、Long Horizons 四块；林俊旸解释公司名源自 pragmatics（语用学）与 pragmaticism（实用主义）。<a href="https://m.36kr.com/p/3935688781855872">链接</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Junyang Lin, &ldquo;From &lsquo;Reasoning&rsquo; Thinking to &lsquo;Agentic&rsquo; Thinking,&rdquo; 个人博客, 2026 年 3 月。提出 AI 下一阶段重点从「训练模型」转向「训练智能体乃至多智能体系统」，训练对象是「模型+环境」的完整系统。<a href="https://justinlin610.github.io/blog/from-reasoning-to-agentic-thinking/">链接</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Lilian Weng, &ldquo;Harness Engineering for Self-Improvement,&rdquo; 个人博客, 2026 年 7 月 4 日。提出 Harness 是围绕基础模型的部署系统，其重要性不亚于模型本身的原始智能；Claude Code、Codex 的成功源于 Harness 设计成熟。详见本博客 <a href="/posts/2026/2026-08-05-harness-engineering-for-rsi/">递归自我改进：从一杯咖啡到 Harness Engineering</a>。&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>&ldquo;林俊旸官宣AI创企语用科技！腾讯投了，做Agent,&rdquo; 智东西, 2026 年 8 月 12 日。3 月 2 日阿里开源 Qwen3.5-0.8B/2B/4B/9B 端侧小模型后，马斯克在相关推文下评论「令人惊叹的智能密度」（amazing intelligence density），林俊旸转发致谢。<a href="http://m.toutiao.com/group/7672963999429444131/">链接</a>&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/series/qwen-%E5%9B%A2%E9%98%9F%E9%A3%8E%E6%B3%A2%E5%90%88%E9%9B%86/">合集：Qwen 团队风波合集</a></li>
+    </ul>
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E4%BA%BA%E7%89%A9/">人物</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://blog.zhangky.com/posts/2026/08/2026-08-05-harness-engineering-for-rsi/">
+    <span class="title">Next »</span>
+    <br>
+    <span>递归自我改进：从一杯咖啡到Harness Engineering</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

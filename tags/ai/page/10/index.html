@@ -191,6 +191,31 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【论文解读11】深度残差网络中的恒等映射：ResNet改进
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Kaiming He、Xiangyu Zhang、Shaoqing Ren和Jian Sun于2016年发表的改进论文《Identity Mappings in Deep Residual Networks》，该论文深入分析了ResNet中恒等映射的作用机制，提出了预激活（Pre-activation）的残差块设计，进一步优化了ResNet的训练稳定性和性能。这一改进不仅完善了ResNet的理论基础，更为理解残差连接的本质提供了深刻的洞察。
+“恒等映射是残差网络成功的关键。&#34;——这是He等人在ResNet改进论文中提出的核心观点。在原始ResNet中，残差块的设计虽然有效，但恒等映射的实现方式（激活函数的位置）对性能有重要影响。通过系统性的实验和理论分析，论文发现预激活（在卷积之前应用BatchNorm和ReLU）比后激活（在卷积之后应用）效果更好。
+论文的核心创新是预激活残差块：将BatchNorm和ReLU移到卷积之前，使恒等映射的路径更加&#34;干净”，梯度流动更加顺畅。这种设计不仅提高了训练稳定性，还进一步提升了模型性能，在ImageNet上取得了更好的结果。
+在当今大模型时代，这一改进的思想仍然重要：理解恒等映射的本质，优化信息流动路径，这些原则仍然是深度网络设计的核心。理解ResNet改进，就是理解如何进一步优化残差连接。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读ResNet改进，包含完整的数学推导、梯度流动分析和实验评估，并在文末提出开放性问题与未来研究方向。
+本文属于 论文阅读开篇：Ilya 30u30 阅读计划 系列，可前往该页查看完整目录、阅读顺序与发布状态。
+原始ResNet的恒等映射问题 问题一：激活函数位置的影响 在原始ResNet中，残差块的设计为：
+$$ y = \mathcal{F}(x, {W_i}) &#43; x $$
+其中 $\mathcal{F}$ 通常包含：Conv → BN → ReLU → Conv → BN，然后输出与 $x$ 相加，最后再应用ReLU。
+后激活设计：激活函数在残差函数之后，恒等映射 $x$ 直接参与加法，然后应用激活函数。
+问题分析：当 $x$ 经过ReLU激活时，如果 $x$ 的某些元素为负，会被置为0，破坏了恒等映射的性质。这导致恒等映射路径不够&#34;干净&#34;，梯度流动可能受阻。
+问题二：梯度流动的阻塞 在原始设计中，梯度需要通过激活函数的导数传播：
+$$ \frac{\partial y}{\partial x} = \frac{\partial \text{ReLU}(\mathcal{F}(x) &#43; x)}{\partial x} = \text{ReLU}’(\mathcal{F}(x) &#43; x) \left(1 &#43; \frac{\partial \mathcal{F}}{\partial x}\right) $$
+...</p>
+  </div>
+  <footer class="entry-footer">   Lonney .Z | <span title='2026-02-10 20:42:22 +0800 HKT'>February 10, 2026</span> | <span>16 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【论文解读11】深度残差网络中的恒等映射：ResNet改进" href="https://blog.zhangky.com/posts/2026/paper-read/2026-02-10-paper-11-identity-mappings-resnet/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">【论文解读10】深度残差学习：ResNet解决网络退化问题
     </h2>
   </header>
@@ -279,25 +304,6 @@ QuestMobile官方数据（2025年12月8-14日周活2084万），新浪财经等�
   </div>
   <footer class="entry-footer">   Lonney .Z | <span title='2026-01-28 23:31:13 +0800 HKT'>January 28, 2026</span> | <span>4 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 元宝派内测：给马老板交的这份作业，及格吗?" href="https://blog.zhangky.com/posts/2026/01/2026-01-28-tencent-yuanbao-pai-review/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">物理学的尽头是AGI？
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>物理学界流传着一个古老的笑话：物理学家无所不能，除了物理。
-虽然是句调侃，但在当今的 AI 浪潮中，这似乎成了某种预言。当你剥开 ChatGPT、Claude 或是 Llama 的外衣，往最核心的算法层和决策层看去，会惊讶地发现：怎么满屋子都是学物理的？
-从 OpenAI 的分裂到 Anthropic 的崛起，从 Scaling Laws 的发现到 Transformer 的优化，这群曾经天天琢磨量子态、黑洞和宇宙学的聪明脑袋，似乎集体决定换个赛道——不再纠结上帝掷不掷骰子，而是教 GPU 怎么掷出下一个 Token。
-今天，我们就按「学术背景 → 核心贡献 → 现状」的结构，盘点一下这几位“稍不留神”就改变了 AI 历史进程的物理学家。看完你或许会明白，为什么说物理学才是 AGI 的“新东方烹饪学校”。
-1. Dario Amodei (Anthropic 联合创始人 &amp; CEO)
-物理背景：普林斯顿大学物理学博士。硬核的理论物理与量子计算方向，还顺手在斯坦福和加州理工做了博士后。典型的“谢尔顿”式学术履历。 核心贡献： Scaling Laws (缩放定律)：在大模型还是玄学的年代，他和团队搞出了 Scaling Laws，告诉世界：别瞎猜了，算力、数据和参数量之间有铁律。这直接给“暴力美学”奠定了理论基石。 Claude 之父：从 OpenAI 出走后创立 Anthropic，死磕“宪法 AI (Constitutional AI)”，试图给 AI 装上安全阀。 当前状态：Anthropic CEO。正忙着让 Claude 更聪明、更安全，同时思考怎么不让强 AI 把人类带沟里去。 2. Jared Kaplan (Anthropic 联合创始人 &amp; 首席科学家)
-物理背景：约翰霍普金斯大学理论物理学教授。研究了 15 年的量子引力、场论和宇宙学。正儿八经的教授下海，降维打击。 核心贡献： Scaling Laws 的奠基人：他和 Dario Amodei 的名字几乎和缩放定律绑定。把研究宇宙膨胀的劲头拿来研究模型膨胀，结果发现规律竟然出奇地一致。 GPT-3 &amp; Codex：在 OpenAI 期间是这两个大杀器的核心参与者。 当前状态：Anthropic 首席科学家。继续在 LLM 的基础理论和安全对齐的无人区里探索。 3. Ilya Sutskever (OpenAI 联合创始人 &amp; 前首席科学家)
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-01-27 23:15:04 +0800 HKT'>January 27, 2026</span> | <span>17 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 物理学的尽头是AGI？" href="https://blog.zhangky.com/posts/2026/01/2026-01-27-physicists-in-ai/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

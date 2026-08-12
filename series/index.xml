@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.160.1</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 01 Aug 2026 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 00:30:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zhangky.com/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Qwen 团队风波合集</title>
+      <link>https://blog.zhangky.com/series/qwen-%E5%9B%A2%E9%98%9F%E9%A3%8E%E6%B3%A2%E5%90%88%E9%9B%86/</link>
+      <pubDate>Thu, 13 Aug 2026 00:30:00 +0800</pubDate>
+      <guid>https://blog.zhangky.com/series/qwen-%E5%9B%A2%E9%98%9F%E9%A3%8E%E6%B3%A2%E5%90%88%E9%9B%86/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AI Native 合集</title>
       <link>https://blog.zhangky.com/series/ai-native-%E5%90%88%E9%9B%86/</link>
@@ -46,13 +53,6 @@
       <link>https://blog.zhangky.com/series/ai-%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0%E5%90%88%E9%9B%86/</link>
       <pubDate>Tue, 07 Apr 2026 20:00:00 +0800</pubDate>
       <guid>https://blog.zhangky.com/series/ai-%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0%E5%90%88%E9%9B%86/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Qwen 团队风波合集</title>
-      <link>https://blog.zhangky.com/series/qwen-%E5%9B%A2%E9%98%9F%E9%A3%8E%E6%B3%A2%E5%90%88%E9%9B%86/</link>
-      <pubDate>Sat, 07 Mar 2026 21:29:02 +0800</pubDate>
-      <guid>https://blog.zhangky.com/series/qwen-%E5%9B%A2%E9%98%9F%E9%A3%8E%E6%B3%A2%E5%90%88%E9%9B%86/</guid>
       <description></description>
     </item>
     <item>

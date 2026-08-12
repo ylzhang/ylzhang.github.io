@@ -201,6 +201,35 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">技术债与架构决策：为 Scale 打下地基
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 古罗马人在建造道路时，会先挖一条深沟，铺上多层砂石和碎石，最后才铺上平整的石板。他们知道：路能走多远，取决于地基有多深。今天，你的代码库就是那条路——而 CLAUDE.md 就是你的地基剖面图。
+两种技术债 不是所有技术债都一样。理解这一点，是 Scale 阶段的第一课。
+第一种是有意技术债——你在充分知情的情况下，选择用代码质量换速度。你知道这笔债的存在、它的规模、什么时候该还。这种债本质上是投资：你借了时间，计划在某个 sprint 里连本带息还清。
+第二种是无意技术债——你不知道它存在，或者知道但不知道它有多大。它来自&#34;先这样吧&#34;的临时方案、来自&#34;以后再重构&#34;的承诺、来自那些&#34;能跑就不要动&#34;的模块。这种债是高利贷，利息在暗处累积，直到某天你发现已经还不起了。
+在 AI 原型的场景里，The Founder’s Playbook 指出了一个特有的风险：agentic 技术债是一种&#34;超级无意债&#34;。
+为什么？因为 agentic coding 工具移除了所有曾经控制什么进入生产的自然瓶颈。过去，代码要经过设计审查、代码审查、测试——每一步都是制衡。现在，一个 prompt 就能让代码进生产。速度是保证了，但质量控制的责任完全落到了创始人身上。这一层责任，是 agentic 工具不会主动告诉你的。
+架构审计：看见你的地基 The Founder’s Playbook 建议在 Scale 阶段做一次完整的架构审计。
+具体操作：让 Claude Code 审计代码库，产出一份结构脆弱性清单——哪里是脆的捷径、哪里测试覆盖不足、哪里模块边界模糊。然后让 Claude 对这份清单做优先级排序：什么会拖累下次发布，什么可以并行处理，什么是当前阶段能接受的。
+这个审计的价值不只是&#34;修 bug&#34;。它强迫你看见自己的代码库——不是作为一个个文件，而是作为一个系统。我自己的经验是，大多数创始人在 Scale 阶段第一次真正&#34;看见&#34;自己的代码库，那种感觉有点像第一次站在高楼上俯瞰自己住了多年的城市：你突然意识到有些路是断头路，有些楼是没有地基的。
+从&#34;能跑&#34;到&#34;能扛&#34; Scale 阶段的技术工作不只是修代码——它是围绕代码构建基础设施。
+企业买家在签多年合同之前，要看的不是你的产品功能，而是你的组织能不能成为一个可靠的基础设施合作伙伴。他们要看产品文档、支持 playbook、SLA 承诺。签了之后，他们会要求你兑现。
+The Founder’s Playbook 给出了一个三层方案。
+第一层是文档：产品文档、支持 playbook、SLA——这些是企业采购团队期望看到的东西。AI 帮你起草和更新，但内容需要你的领域知识来校准。
+第二层是代码：用 Claude Code 加固代码库，针对企业合同要求的特定可靠性和安全标准。构建日志、监控、事件响应工具、可观测性层——让 SLA 真正可执行，而不是一句口号。
+第三层是运营：用 Claude Cowork 跑企业支持运营层。工单路由、升级工作流、文档更新（随产品变化自动触发）、续约追踪、企业客户成功依赖的报告节奏。
+三个工具协同，让一个小团队能展示出比自身规模大得多的组织成熟度。这件事看起来是技术问题，其实是组织伪装问题——你得让外界觉得你&#34;像那么回事&#34;。
+知识编码：把你的脑子变成系统 Scale 阶段最容易被低估的挑战，是创始人的制度知识。
+...</p>
+  </div>
+  <footer class="entry-footer">   Lonney .Z | <span title='2026-07-21 10:00:00 +0800 HKT'>July 21, 2026</span> | <span>11 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 技术债与架构决策：为 Scale 打下地基" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-21-tech-debt-architecture/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">从创始人驱动到系统化运营：建立不依赖你的机器
     </h2>
   </header>
@@ -356,34 +385,6 @@ Launch 能量来自短暂的、外部的助推力。真正的产品市场契合�
   </div>
   <footer class="entry-footer">   Lonney .Z | <span title='2026-07-02 10:00:00 +0800 HKT'>July 2, 2026</span> | <span>12 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to MVP 的四个暗礁：速度与陷阱的博弈" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-02-mvp-four-reefs/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">构建第一个 AI 原生产品：从 CLAUDE.md 开始
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 文艺复兴时期的大师在动笔之前，先画几百张草图。达·芬奇的笔记本里全是未完成的想法——不是因为他不擅长完成，而是因为他深知：思考的结构决定了作品的结构。今天，CLAUDE.md 就是你的草图。
-先写文档，再写代码 这个建议反直觉到几乎冒犯。
-你是创始人，你有一个经过验证的问题，你迫不及待要动手做产品。The Founder’s Playbook 却让你在写任何一行代码之前，先坐下来，和 Claude 一起定义并记录架构决策：遵循什么模式、避免什么依赖、接受什么权衡、为什么。
-听起来像官僚主义，其实是为了防止 AI 把你的代码库变成巴别塔。
-想想巴别塔的隐喻。如果每个 AI 会话都是一个工人，每个工人都说自己的语言、按自己的方式砌砖，最终的结果不是塔，而是废墟。CLAUDE.md 就是你的通用语——它告诉每一个进入这个项目的 AI：这个系统为什么这样设计、哪些边界不能碰、哪些权衡是刻意的。
-为什么这件事在 AI 时代如此关键 传统团队里，架构知识通过代码审查、站会、文档、以及最重要的——人与人之间的隐性传递来维护。一个新工程师加入团队，通过和老工程师配对编程、一起吃午饭、在 Slack 上问&#34;为什么&#34;来学习系统的设计逻辑。
-在 AI 原生团队里，你的&#34;新工程师&#34;是每一个新的 Claude Code 会话。它没有上下文——除非你给它。没有 CLAUDE.md，每次会话都从零开始推断结构假设。它能生成能跑的代码，但生成的代码背后没有连贯的心智模型支撑。
-这就像让十个建筑师各自设计一栋楼的一层，但没人见过总平面图。每一层单独看都没问题，但它们合在一起会怎样？门可能开在承重墙上，水管可能穿过电线管道。
-The Founder’s Playbook 把这种现象叫做&#34;结构性不连贯&#34;（structural incoherence）。代码能跑，能过测试，但背后没有一个统一的设计意图。问题不在任何一段代码，而在于所有代码从未被设计成能协同工作。
-CLAUDE.md 里应该写什么 不是完整的规格书。你不需要在这个阶段写一份 IEEE 830 标准的需求文档。
-你需要写的是决策和理由。为什么选 PostgreSQL 而不是 MongoDB？为什么接受这个技术债？为什么这个模块的边界划在这里而不是那里？
-举个例子，你可能会写：
-“我们选择 Next.js 而不是纯 React，因为我们预计未来三个月需要 SSR 来支持 SEO。这是一个刻意的选择，即使它增加了部署复杂度。如果三个月后 SEO 不再是优先级，可以重新评估。”
-这段话告诉 AI 的不只是&#34;用什么&#34;，还有&#34;为什么用&#34;和&#34;什么情况下可以改&#34;。
-范围文档：AI 时代的疫苗 和架构文档同等重要的是范围文档。
-在 AI 时代，范围蔓延（scope creep）是一种全新的危险。过去，加一个功能需要一个 sprint 的工程师时间——这个成本本身就是一种制衡。现在，加一个功能只要一个下午。每一项单独看都理所当然：当然产品应该处理这个边缘 case，当然用户会想要那个工作流。
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-06-26 10:00:00 +0800 HKT'>June 26, 2026</span> | <span>11 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 构建第一个 AI 原生产品：从 CLAUDE.md 开始" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-06-26-build-first-ai-product/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
