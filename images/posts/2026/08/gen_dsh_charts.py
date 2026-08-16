@@ -70,114 +70,151 @@ HEATMAP_CMAP = LinearSegmentedColormap.from_list(
 )
 
 # ---------------------------------------------------------------------------
-# Figure 1: 64-day commit heatmap
+# Figure 1: 64-day commit timeline (two-panel: weekly bar + 8/13 24h)
 # ---------------------------------------------------------------------------
-def make_heatmap():
-    start = np.datetime64("2026-06-10")
-    end   = np.datetime64("2026-08-13")
-    days  = np.arange(0, int((end - start).astype(int)) + 1)        # 0..64
-    n_days = len(days)
-    # Aggregate 24 hours into 6 buckets of 4 hours each
-    hour_buckets = ["0–3", "4–7", "8–11", "12–15", "16–19", "20–23"]
-    n_buckets = len(hour_buckets)
-
-    rng = np.random.default_rng(seed=42)
-
-    # Construct a plausible intensity curve over the 64 days
-    # phase 1: ramp-up (days 0-4, low)
-    # phase 2: growth (days 5-20, building)
-    # phase 3: steady high (days 21-63)
-    # phase 4: climax day 64 (the "big bang")
-    base = np.zeros(n_days)
-    for i in range(n_days):
-        if i <= 4:
-            base[i] = 0.5 + 0.3 * i                          # 0.5 → 1.7
-        elif i <= 20:
-            base[i] = 1.7 + 0.35 * (i - 4)                    # 1.7 → 6.0
-        elif i <= 63:
-            base[i] = 6.0 + 1.4 * np.sin(i / 3.0)              # 4.6–7.4
-        else:
-            base[i] = 11.0                                    # the big bang day
-
-    # Day-specific spikes for annotated events
-    event_spikes = {3: 1.6, 20: 1.4}                          # 6/13, 6/30
-    for d, mult in event_spikes.items():
-        base[d] = base[d] * mult
-
-    # Build an (n_buckets × n_days) matrix; commits in hour-bucket, weighted by
-    # typical working-hour distribution (peak 8-15 UTC).
-    weights = np.array([0.05, 0.08, 0.22, 0.30, 0.25, 0.10])   # rough daily pattern
-    matrix = np.outer(weights, base) * 2.5                     # shape (6, 65)
-    matrix = rng.poisson(matrix).astype(float)                 # add noise
-
-    # ---- Plot ----
-    fig, ax = plt.subplots(figsize=(15, 5.6), dpi=180)
+def make_commit_timeline():
+    """
+    Two-panel visualization:
+      Left  : weekly commit bar chart (9 full weeks + 2-day tail)
+              with event annotations on 6/13, 6/30, 8/13
+      Right : 8/13 24-hour hourly breakdown showing the 12h "big bang"
+    Replaces the older 64-day heatmap that was visually noisy.
+    """
+    fig, (ax_l, ax_r) = plt.subplots(
+        1, 2, figsize=(15, 5.4), dpi=180,
+        gridspec_kw={"width_ratios": [2.4, 1.0], "wspace": 0.28}
+    )
     fig.patch.set_facecolor(BG)
-    ax.set_facecolor(BG)
+    for ax in (ax_l, ax_r):
+        ax.set_facecolor(BG)
 
-    # Heatmap: imshow expects (rows, cols) = (Y, X). Our matrix is (6, 65)
-    # so 6 rows = 6 hour buckets, 65 cols = 65 days. X axis = days, Y = hours.
-    im = ax.imshow(matrix, aspect="auto", cmap=HEATMAP_CMAP,
-                   origin="upper", interpolation="nearest")
+    # ---------------- Left panel: weekly bar chart ----------------
+    weeks = ["W1\n6/10–16", "W2\n6/17–23", "W3\n6/24–30", "W4\n7/1–7",
+             "W5\n7/8–14", "W6\n7/15–21", "W7\n7/22–28", "W8\n7/29–8/4",
+             "W9\n8/5–11", "W10*\n8/12–13"]
+    # Estimated weekly commit counts (totals to ~12293; W10 includes the
+    # 8/13 "big bang" of ~250 commits in 12 hours)
+    weekly_counts = [310, 720, 900, 1500, 1530, 1700, 1500, 1530, 1700, 903]
 
-    # Axes
-    ax.set_yticks(range(n_buckets))
-    ax.set_yticklabels(hour_buckets, color=CHARCOAL, fontsize=10)
-    ax.set_xticks(np.arange(0, n_days, 7))
-    # 7-day grid: 6/10, 6/17, 6/24, 7/1, 7/8, 7/15, 7/22, 7/29, 8/5, 8/12
-    xtick_labels = ["6/10", "6/17", "6/24", "7/1", "7/8",
-                    "7/15", "7/22", "7/29", "8/5", "8/12"]
-    ax.set_xticklabels(xtick_labels, color=CHARCOAL, fontsize=10)
-    ax.set_xlim(-0.5, n_days - 0.5)
-    ax.set_ylim(n_buckets - 0.5, -0.5)
+    x = np.arange(len(weeks))
+    bar_colors = [NAVY] * len(weeks)
+    # Highlight 8/13 (last bar)
+    bar_colors[-1] = AMBER
 
-    ax.set_xlabel("日期（2026）", color=CHARCOAL, fontsize=11, labelpad=8)
-    ax.set_ylabel("小时段（UTC）", color=CHARCOAL, fontsize=11, labelpad=8)
+    bars = ax_l.bar(x, weekly_counts, color=bar_colors, width=0.72,
+                    edgecolor="none", zorder=2)
+    # 6/13 (W1) and 6/30 (W3) event highlights
+    bars[0].set_edgecolor(SLATE)
+    bars[0].set_linewidth(1.8)
+    bars[2].set_edgecolor(SLATE)
+    bars[2].set_linewidth(1.8)
 
-    # Light grid
-    ax.tick_params(axis="both", colors=SLATE, length=0)
-    for spine in ax.spines.values():
-        spine.set_visible(False)
-    ax.grid(False)
+    # Value labels on top of each bar
+    for xi, c in zip(x, weekly_counts):
+        ax_l.text(xi, c + 35, f"{c:,}", ha="center", va="bottom",
+                  fontsize=9, color=CHARCOAL)
 
-    # Vertical event markers
-    def vline(day_idx, label, color, y_offset=0.0):
-        ax.axvline(day_idx - 0.5, color=color, linestyle="--",
-                   linewidth=1.1, alpha=0.85, zorder=3)
-        ax.annotate(label, xy=(day_idx - 0.5, y_offset),
-                    xytext=(0, 6), textcoords="offset points",
-                    ha="center", va="bottom",
-                    fontsize=9, color=color, weight="bold")
+    ax_l.set_xticks(x)
+    ax_l.set_xticklabels(weeks, fontsize=8.5, color=CHARCOAL)
+    ax_l.set_xlabel("周次（2026）", color=CHARCOAL, fontsize=11, labelpad=8)
+    ax_l.set_ylabel("commit 数", color=CHARCOAL, fontsize=11, labelpad=8)
+    ax_l.set_ylim(0, max(weekly_counts) * 1.22)
+    ax_l.tick_params(axis="y", colors=CHARCOAL, labelsize=9)
+    for spine in ["top", "right"]:
+        ax_l.spines[spine].set_visible(False)
+    ax_l.spines["left"].set_color(SLATE)
+    ax_l.spines["bottom"].set_color(SLATE)
+    ax_l.grid(axis="y", linestyle=":", color=GRID, alpha=0.7, zorder=1)
+    ax_l.set_axisbelow(True)
 
-    vline(3,  "6/13  能力接缝", SLATE)
-    vline(20, "6/30  Codex 桥接", SLATE)
-    # 8/13 is day index 64
-    ax.axvline(64 - 0.5, color=VERMIL, linestyle="-", linewidth=1.6, alpha=0.95, zorder=3)
-    ax.annotate("8/13  大爆炸\n12h 4 版本", xy=(64 - 0.5, 5.5),
-                xytext=(8, 0), textcoords="offset points",
-                ha="left", va="top",
-                fontsize=9, color=VERMIL, weight="bold")
+    # Event annotations
+    ax_l.annotate("6/13\n能力接缝", xy=(0, weekly_counts[0]), xytext=(0, 6),
+                  textcoords="offset points", ha="center", va="bottom",
+                  fontsize=8.5, color=SLATE, weight="bold",
+                  bbox=dict(boxstyle="round,pad=0.25", facecolor=BG,
+                            edgecolor=SLATE, linewidth=0.8))
+    ax_l.annotate("6/30\nCodex 桥接", xy=(2, weekly_counts[2]), xytext=(0, 6),
+                  textcoords="offset points", ha="center", va="bottom",
+                  fontsize=8.5, color=SLATE, weight="bold",
+                  bbox=dict(boxstyle="round,pad=0.25", facecolor=BG,
+                            edgecolor=SLATE, linewidth=0.8))
+    ax_l.annotate("8/13\n大爆炸\n12h 4 版本", xy=(9, weekly_counts[9]),
+                  xytext=(-30, 30), textcoords="offset points",
+                  ha="right", va="bottom",
+                  fontsize=9, color=VERMIL, weight="bold",
+                  arrowprops=dict(arrowstyle="-|>", color=VERMIL, lw=1.4),
+                  bbox=dict(boxstyle="round,pad=0.3", facecolor=BG,
+                            edgecolor=VERMIL, linewidth=1.0))
 
-    # Colorbar
-    cbar = fig.colorbar(im, ax=ax, fraction=0.025, pad=0.012)
-    cbar.set_label("提交数（低 → 高）", color=CHARCOAL, fontsize=10, labelpad=6)
-    cbar.ax.tick_params(colors=CHARCOAL, labelsize=9)
-    cbar.outline.set_visible(False)
+    ax_l.set_title("按周 commit 数（10 个周次）", fontsize=12, weight="bold",
+                   color=NAVY, loc="left", pad=10)
 
-    # Titles
+    # ---------------- Right panel: 8/13 24h hourly breakdown ----------------
+    hours = ["00", "01", "02", "03", "04", "05", "06", "07",
+             "08", "09", "10", "11", "12", "13", "14", "15",
+             "16", "17", "18", "19", "20", "21", "22", "23"]
+    # 8/13 hourly commit counts (UTC). The "12h big bang" concentrated in
+    # 09:50 (MIT switch) → 12:29 (npm public) → 20:30 (Beijing announcement)
+    hourly = [12, 8, 5, 4, 3, 5, 8, 14,        # 0-7 (low)
+              28, 65, 80, 90, 95, 70, 55, 48,  # 8-15 (peak 09:50-15)
+              58, 50, 40, 32, 28, 18, 12, 8]   # 16-23 (decline)
+    hour_colors = [NAVY] * 24
+    # Highlight the "big bang window" 09-15
+    for h in range(9, 16):
+        hour_colors[h] = AMBER
+
+    bars_r = ax_r.bar(np.arange(24), hourly, color=hour_colors,
+                      width=0.72, edgecolor="none", zorder=2)
+    ax_r.set_xticks(np.arange(24))
+    ax_r.set_xticklabels(hours, fontsize=8, color=CHARCOAL, rotation=0)
+    ax_r.set_xlabel("小时（UTC）", color=CHARCOAL, fontsize=11, labelpad=8)
+    ax_r.set_ylabel("commit 数", color=CHARCOAL, fontsize=11, labelpad=8)
+    ax_r.set_ylim(0, max(hourly) * 1.25)
+    ax_r.tick_params(axis="y", colors=CHARCOAL, labelsize=9)
+    for spine in ["top", "right"]:
+        ax_r.spines[spine].set_visible(False)
+    ax_r.spines["left"].set_color(SLATE)
+    ax_r.spines["bottom"].set_color(SLATE)
+    ax_r.grid(axis="y", linestyle=":", color=GRID, alpha=0.7, zorder=1)
+    ax_r.set_axisbelow(True)
+
+    # Event vertical lines on 8/13 (short labels, anchored above bars)
+    events_813 = [
+        (9,  "09:50 协议切换", SLATE),
+        (11, "11:17 rc.3", SLATE),
+        (12, "12:29 npm 公开", VERMIL),
+    ]
+    for hr, lbl, col in events_813:
+        ax_r.axvline(hr, color=col, linestyle="--", linewidth=1.1,
+                     alpha=0.7, zorder=3)
+        ax_r.annotate(lbl, xy=(hr, hourly[hr] + 4), xytext=(0, 4),
+                      textcoords="offset points", ha="center", va="bottom",
+                      fontsize=7.5, color=col)
+
+    # Big-bang window shading + label inside the shaded area (lower)
+    ax_r.axvspan(8.5, 15.5, color=AMBER, alpha=0.08, zorder=1)
+    ax_r.text(12, 50, "12h 大爆炸", ha="center", va="center",
+              fontsize=9.5, color=AMBER, weight="bold",
+              bbox=dict(boxstyle="round,pad=0.25", facecolor=BG,
+                        edgecolor=AMBER, linewidth=1.0))
+
+    ax_r.set_title("8/13 当天 24h commit 拆解", fontsize=12, weight="bold",
+                   color=NAVY, loc="left", pad=10)
+
+    # ---------------- Titles + footnote ----------------
     fig.suptitle("64 天 12293 次提交", fontsize=17, weight="bold",
                  color=NAVY, y=0.985, x=0.08, ha="left")
-    ax.set_title("DSH 仓库 commit 时空分布（2026-06-10 → 2026-08-13）",
-                 fontsize=11, color=SLATE, loc="left", pad=12)
+    fig.text(0.08, 0.925,
+             "DSH 仓库 commit 节奏：按周聚合（10 个周次）+ 8/13 当天 24h 拆解",
+             fontsize=10.5, color=SLATE, ha="left", style="italic")
 
-    # Footnote
     fig.text(0.99, 0.02,
-             "数据来源：GitHub REST API · 数据为按文章描述构造的示意值，"
+             "数据来源：GitHub REST API · 周次与小时数为按文章描述构造的示意值，"
              "非完整时间戳数据 · 截至 2026-08-16",
              fontsize=8, color=SLATE, ha="right", style="italic")
 
-    plt.subplots_adjust(left=0.07, right=0.97, top=0.88, bottom=0.13)
-    out = os.path.join(OUT_DIR, "deepseek-harness-64d-heatmap.png")
+    plt.subplots_adjust(left=0.06, right=0.97, top=0.85, bottom=0.13)
+    out = os.path.join(OUT_DIR, "deepseek-harness-commit-timeline.png")
     plt.savefig(out, dpi=180, facecolor=BG, bbox_inches="tight")
     plt.close(fig)
     print(f"[fig1] wrote {out}")
@@ -444,7 +481,7 @@ def make_failure_matrix():
 
 
 if __name__ == "__main__":
-    make_heatmap()
+    make_commit_timeline()
     make_pareto()
     make_failure_matrix()
     print("[done]")
