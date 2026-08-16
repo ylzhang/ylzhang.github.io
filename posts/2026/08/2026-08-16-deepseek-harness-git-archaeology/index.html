@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>用Agent造Agent：DeepSeek Harness的64天考古与自进化路径 | Z&#39;s Blog</title>
+<meta name="keywords" content="DSH, DeepSeek Harness">
+<meta name="description" content="网上已经有不少技术博主在拆 DSH 的架构图，把它和 Claude Code、Codex CLI 并列比较，论证这套「一切皆插件」机制的优雅和影响力——这些分析有它们的道理，我也认同 DSH 的设计水准。但我想看的不是它长什么样，而是另一个更工程化的问题：这样一个被 DeepSeek 视为战略级产品的 agent harness，是怎么在 64 天里被造出来的？
+答案写在仓库的 commit 历史里。从 6 月 10 日第一条提交到 8 月 13 日公开发布，64 天，12293 次提交，日均 192 次。这不是人类节奏，是 AI 辅助开发在版本控制系统里留下的沉积物。我用 git 考古翻了一遍这个仓库，反推一件更底层的事：顶级团队是怎么用 Agent 造出最强 Agent 的。事实上，Anthropic 的 Claude Code 团队和 OpenAI 的 Codex 团队大概率也是这么干的——只是他们的开发过程不公开。这次 DSH 把整个仓库开源，给了我们一个可以近距离观察顶级 AI 团队研发范式的窗口。这是我写这篇文章的起点。
+三天前我写林俊旸把 20 亿估值押给 Agent，结论是他选了一条「模型 &#43; 环境」的工程路线。文章里我反复引用 Lilian Weng 的判断：Claude Code、Codex 之所以强，不是因为底模最强，而是 Harness 设计最成熟。那篇文章发出去之后我一直在想一个更具体的问题：harness 到底长什么样？
+8 月 13 日，DeepSeek 给了一个可以拆解的样本。他们把内部那个叫 DeepSeek Harness（dsh）的 agent 运行时开源了，MIT 协议，221 个 npm 包。和它同步发布的还有 DeepSeek-V4-Pro 正式版，以及一篇 80 多页的论文《A Programming Paradigm for Spatiotemporal Composability》。">
+<meta name="author" content="ylzhang">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/08/2026-08-16-deepseek-harness-git-archaeology/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/08/2026-08-16-deepseek-harness-git-archaeology/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/08/2026-08-16-deepseek-harness-git-archaeology/">
+  <meta property="og:site_name" content="Z&#39;s Blog">
+  <meta property="og:title" content="用Agent造Agent：DeepSeek Harness的64天考古与自进化路径">
+  <meta property="og:description" content="网上已经有不少技术博主在拆 DSH 的架构图，把它和 Claude Code、Codex CLI 并列比较，论证这套「一切皆插件」机制的优雅和影响力——这些分析有它们的道理，我也认同 DSH 的设计水准。但我想看的不是它长什么样，而是另一个更工程化的问题：这样一个被 DeepSeek 视为战略级产品的 agent harness，是怎么在 64 天里被造出来的？
+答案写在仓库的 commit 历史里。从 6 月 10 日第一条提交到 8 月 13 日公开发布，64 天，12293 次提交，日均 192 次。这不是人类节奏，是 AI 辅助开发在版本控制系统里留下的沉积物。我用 git 考古翻了一遍这个仓库，反推一件更底层的事：顶级团队是怎么用 Agent 造出最强 Agent 的。事实上，Anthropic 的 Claude Code 团队和 OpenAI 的 Codex 团队大概率也是这么干的——只是他们的开发过程不公开。这次 DSH 把整个仓库开源，给了我们一个可以近距离观察顶级 AI 团队研发范式的窗口。这是我写这篇文章的起点。
+三天前我写林俊旸把 20 亿估值押给 Agent，结论是他选了一条「模型 &#43; 环境」的工程路线。文章里我反复引用 Lilian Weng 的判断：Claude Code、Codex 之所以强，不是因为底模最强，而是 Harness 设计最成熟。那篇文章发出去之后我一直在想一个更具体的问题：harness 到底长什么样？
+8 月 13 日，DeepSeek 给了一个可以拆解的样本。他们把内部那个叫 DeepSeek Harness（dsh）的 agent 运行时开源了，MIT 协议，221 个 npm 包。和它同步发布的还有 DeepSeek-V4-Pro 正式版，以及一篇 80 多页的论文《A Programming Paradigm for Spatiotemporal Composability》。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-08-16T21:06:09+08:00">
+    <meta property="article:modified_time" content="2026-08-16T21:06:09+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="开源">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="用Agent造Agent：DeepSeek Harness的64天考古与自进化路径">
+<meta name="twitter:description" content="网上已经有不少技术博主在拆 DSH 的架构图，把它和 Claude Code、Codex CLI 并列比较，论证这套「一切皆插件」机制的优雅和影响力——这些分析有它们的道理，我也认同 DSH 的设计水准。但我想看的不是它长什么样，而是另一个更工程化的问题：这样一个被 DeepSeek 视为战略级产品的 agent harness，是怎么在 64 天里被造出来的？
+答案写在仓库的 commit 历史里。从 6 月 10 日第一条提交到 8 月 13 日公开发布，64 天，12293 次提交，日均 192 次。这不是人类节奏，是 AI 辅助开发在版本控制系统里留下的沉积物。我用 git 考古翻了一遍这个仓库，反推一件更底层的事：顶级团队是怎么用 Agent 造出最强 Agent 的。事实上，Anthropic 的 Claude Code 团队和 OpenAI 的 Codex 团队大概率也是这么干的——只是他们的开发过程不公开。这次 DSH 把整个仓库开源，给了我们一个可以近距离观察顶级 AI 团队研发范式的窗口。这是我写这篇文章的起点。
+三天前我写林俊旸把 20 亿估值押给 Agent，结论是他选了一条「模型 &#43; 环境」的工程路线。文章里我反复引用 Lilian Weng 的判断：Claude Code、Codex 之所以强，不是因为底模最强，而是 Harness 设计最成熟。那篇文章发出去之后我一直在想一个更具体的问题：harness 到底长什么样？
+8 月 13 日，DeepSeek 给了一个可以拆解的样本。他们把内部那个叫 DeepSeek Harness（dsh）的 agent 运行时开源了，MIT 协议，221 个 npm 包。和它同步发布的还有 DeepSeek-V4-Pro 正式版，以及一篇 80 多页的论文《A Programming Paradigm for Spatiotemporal Composability》。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "用Agent造Agent：DeepSeek Harness的64天考古与自进化路径",
+      "item": "https://blog.zhangky.com/posts/2026/08/2026-08-16-deepseek-harness-git-archaeology/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "用Agent造Agent：DeepSeek Harness的64天考古与自进化路径",
+  "name": "用Agent造Agent：DeepSeek Harness的64天考古与自进化路径",
+  "description": "网上已经有不少技术博主在拆 DSH 的架构图，把它和 Claude Code、Codex CLI 并列比较，论证这套「一切皆插件」机制的优雅和影响力——这些分析有它们的道理，我也认同 DSH 的设计水准。但我想看的不是它长什么样，而是另一个更工程化的问题：这样一个被 DeepSeek 视为战略级产品的 agent harness，是怎么在 64 天里被造出来的？\n答案写在仓库的 commit 历史里。从 6 月 10 日第一条提交到 8 月 13 日公开发布，64 天，12293 次提交，日均 192 次。这不是人类节奏，是 AI 辅助开发在版本控制系统里留下的沉积物。我用 git 考古翻了一遍这个仓库，反推一件更底层的事：顶级团队是怎么用 Agent 造出最强 Agent 的。事实上，Anthropic 的 Claude Code 团队和 OpenAI 的 Codex 团队大概率也是这么干的——只是他们的开发过程不公开。这次 DSH 把整个仓库开源，给了我们一个可以近距离观察顶级 AI 团队研发范式的窗口。这是我写这篇文章的起点。\n三天前我写林俊旸把 20 亿估值押给 Agent，结论是他选了一条「模型 + 环境」的工程路线。文章里我反复引用 Lilian Weng 的判断：Claude Code、Codex 之所以强，不是因为底模最强，而是 Harness 设计最成熟。那篇文章发出去之后我一直在想一个更具体的问题：harness 到底长什么样？\n8 月 13 日，DeepSeek 给了一个可以拆解的样本。他们把内部那个叫 DeepSeek Harness（dsh）的 agent 运行时开源了，MIT 协议，221 个 npm 包。和它同步发布的还有 DeepSeek-V4-Pro 正式版，以及一篇 80 多页的论文《A Programming Paradigm for Spatiotemporal Composability》。\n",
+  "keywords": [
+    "DSH", "DeepSeek Harness"
+  ],
+  "articleBody": "网上已经有不少技术博主在拆 DSH 的架构图，把它和 Claude Code、Codex CLI 并列比较，论证这套「一切皆插件」机制的优雅和影响力——这些分析有它们的道理，我也认同 DSH 的设计水准。但我想看的不是它长什么样，而是另一个更工程化的问题：这样一个被 DeepSeek 视为战略级产品的 agent harness，是怎么在 64 天里被造出来的？\n答案写在仓库的 commit 历史里。从 6 月 10 日第一条提交到 8 月 13 日公开发布，64 天，12293 次提交，日均 192 次。这不是人类节奏，是 AI 辅助开发在版本控制系统里留下的沉积物。我用 git 考古翻了一遍这个仓库，反推一件更底层的事：顶级团队是怎么用 Agent 造出最强 Agent 的。事实上，Anthropic 的 Claude Code 团队和 OpenAI 的 Codex 团队大概率也是这么干的——只是他们的开发过程不公开。这次 DSH 把整个仓库开源，给了我们一个可以近距离观察顶级 AI 团队研发范式的窗口。这是我写这篇文章的起点。\n三天前我写林俊旸把 20 亿估值押给 Agent，结论是他选了一条「模型 + 环境」的工程路线。文章里我反复引用 Lilian Weng 的判断：Claude Code、Codex 之所以强，不是因为底模最强，而是 Harness 设计最成熟。那篇文章发出去之后我一直在想一个更具体的问题：harness 到底长什么样？\n8 月 13 日，DeepSeek 给了一个可以拆解的样本。他们把内部那个叫 DeepSeek Harness（dsh）的 agent 运行时开源了，MIT 协议，221 个 npm 包。和它同步发布的还有 DeepSeek-V4-Pro 正式版，以及一篇 80 多页的论文《A Programming Paradigm for Spatiotemporal Composability》。\n但真正值得拆解的不只是产品，是它的构建过程。从 6 月 10 日第一条提交到 8 月 13 日公开发布，64 天，12293 次提交，日均 192 次。这不是人类节奏，更像 AI 辅助开发在版本控制系统里留下的地层切片。我用 git 考古翻了一遍这个仓库，想反推一件事：一个被 DeepSeek 当成战略级产品的 agent harness，是怎么在两个月里长出来的——以及更关键的，它本身是怎么被 agent 造出来的。\n下面这些数据，全部来自 GitHub REST API、npm registry 时间戳、仓库 commit 历史和官方文档。能确证的标确证，推断的标推断——尤其是「DSH 主要靠 AI 生成代码」这个判断，我会用证据链支撑，但读者应将其视为基于多源信号的合理推测，而非已证事实。\n一、64 天 12293 次提交：推断「主要架构由 Codex 协助生成」 先把数字摆出来。\n指标 数值 跨度 / 提交数 64 天 / 12293 次（日均 192） 贡献者 / 包数量 19 人 / 221 个 npm 包 首提交 2026-06-10，5 文件 48 行（b67e81a） 公开发布 2026-08-13，PR #2519 merge（47f9438） 语言 TypeScript 97.1% 方法论说明：12293 这个数字来自 GitHub REST API 的 GET /repos/{owner}/{repo}/commits?per_page=100 全量拉取，按 committer.date 排序后去重；含 merge commit 和 bot commit，但已剔除 revert。npm 时间戳来自 npm view time --json。日均 192 = 12293 / 64，向下取整。后续章节出现的所有具体数字都遵循此方法论，涉及「这是 AI 写的」类推断的，会明确标注「推测」。\n日均 192 次提交是什么概念？把它折算到头部贡献者身上：tianyicui（崔添翼）5235 次 ÷ 64 天 = 日均 81.8 次；LegGasai 1361 次 = 日均 21.3 次；imccyu 1297 次 = 日均 20.3 次。仅 tianyicui 一人就达到日均 80+ 次 commit。传统软件工程里，即便是最高产的内核子系统维护者，单人也很难持续保持这种节奏——Linux 内核 maintainer 通常日均 5-15 次 commit。DSH 只有 19 个贡献者，前三人占 64.2% 的提交，这种集中度叠加这种频率，完全靠人写代码很难自洽。\n我的推断是全团队重度依赖 AI 辅助开发。以下证据写在仓库里，但请将其视为「高度相关 + 多源信号」支撑的合理推测，而非已证事实：\n首提交（b67e81a）的标题就是「Initialize repo with README, AGENTS.md, and CLAUDE.md symlink」——项目第一天就建立了 Claude Code 和 agent 协议的入口文件。一个还在搭脚手架的项目，把 agent 入口放在 README 旁边，是「自己就要用」的姿态，不是「未来考虑用」。 6 月 13 日建立 .claude/ 目录，装着 ADR（架构决策记录）和 review skill。ADR 这种制度在第 4 天就建立，几乎只有「按既定 SOP 启动」能解释。 6 月 30 日 commit 8adcbce 把 Claude Code 和 Codex 正式作为 subagent 桥接进开发流程。这一天是工程化落地的关键节点。 分支命名随处可见 codex/ 前缀（codex/trim-ai-prose、codex/2503-english-onboarding-copy）——codex/ 前缀本身就是 OpenAI Codex CLI 的默认分支命名约定。 commit message 普遍是多行 body，详细解释 alternatives 和 trade-off——这是 AI 辅助代码审查的特征，人类工程师通常写一行主旨就够。 反证/局限：以上证据可以解释为「重度使用 Codex 当 subagent」，但也可以解释为「重度使用 Claude Code，把 Codex 作为辅助 hook」，甚至「团队工程文化本身就要求这种 commit message 格式」。我无法仅凭 commit 历史精确切分 AI 生成代码 vs 人类手写代码的比例——这是这个推断的根本局限。\n换句话说，我的推测是：DSH 的主要架构由 Codex 协助生成。这件事的元层面意义比表面看到的更深：DSH 的构建过程本身就是一个 harness engineering 的活样本，用 agent 造 agent。这正是 Weng 说的 RSI 第三层（部署系统层自我改进）在工程团队层面的具象化。记住这个主线，它会贯穿全文。\n二、Git 考古：反推构建哲学 把 64 天的 commit 历史按时间拆开，能看出五个阶段，但真正值得提炼的不是流水账，是几个反常理的构建判断。\n核心架构在第二周就定完了。6 月 10 日首提交只有 48 行文档，但 6 月 13 日就落地了 capability seams（能力接缝）设计，6 月 14 日 RFC 012 Code Mode，6 月 15 日出现 split/agent-factory、split/session-persistence-sqlite 这种成熟分支。一个 48 行的仓库不可能在 4 天内长出 RFC 级别的架构讨论——最可能的情景是 DeepSeek 内部已有原型，6 月 10 日是「开源预备仓」启动日。关键不是这个，关键是核心抽象在项目第二周就定完，后面 50 多天没有大的架构反复。团队不是在探索，是在执行一个已经想清楚的设计。\n测试基建在功能开发期就同步建。7 月中旬引入 Python SDK（pytest.ini），7 月 23 日做 tsconfig 重构把 Host/Client 类型聚合分离，7 月 27 日把 .tsx 纳入 lint 体系。8 月 4 日出现 7 个 vitest 配置文件——单元/e2e/snapshot/web/stress/perf/shared，CI 硬门是 packages/*/*/src 每文件 100% 覆盖率。这不是事后补测试，是测试门和功能开发同步推进。\n主入口在开源前 9 天才定。8 月 4 日移除 TUI 包（10bb9cb），8 月 12 日才让 Web UI 成为主入口（04fe477）。开源前 9 天还在做主入口形态判断，相当激进——说明团队在 release 前还在权衡产品形态，而非纯执行。\n8 月 13 日是策划出来的大爆炸。npm registry 时间戳清楚记录了这一天：UTC 09:50 协议从 BSD-3-Clause 切到 MIT，主版本号 0.0.1 → 0.1.0；11:17 发 rc.3；12:29 把 publishConfig.access 从 restricted 切到 public，正式公开。12 小时内发了 4 个版本，中间还插了 self-modification UI、cordis 4.0.1 vendor、landlock-run 0.1.1、Cordis paper 上传。同一天 DeepSeek-V4-Pro 正式版发布，用 DSH 的 Minimal mode 跑 Terminal-Bench 2.1 拿到 87.9 分。模型和测模型的工具同步开源，构成完整叙事。北京时间 20:30 的官方公告时刻，恰好就是 UTC 12:29 的 npm 公开时刻——这不是巧合。\n三、造 DSH 的人：崔添翼、Shigma 与 bus factor 贡献者排名按 commit 数：崔添翼（tianyicui）5235 次占 42.6%，LegGasai 1361 次，imccyu 1297 次，之后是 Chinesezjc、turtle1999、hypatiamay 等。前三名占 64.2%，前五名占 73.7%。\n这里需要区分两种 bus factor：\n代码所有权 bus factor = 3：三人贡献 64.2% 的 commit；top 5 占 73.7%；剩余 14 人占 26.3%。 发布权 bus factor = 2：npm 发布权只有两人——imccyu（cc.yu@deepseek.com）和 tianyicui-deepseek（tianyi@deepseek.com）。npm view deepseek-harness 的 maintainers 字段可以直接验证。 如果把\"是否能持续发版本\"作为判据，实际 bus factor = 2；如果把\"是否有人能 hold 住代码语义\"作为判据，实际 bus factor = 1-2（tianyicui 单人 42.6%）。这两个数字比单纯说\"bus factor = 1-2\"更精准。\n崔添翼的背景值得拆。他 GitHub ID 是 53024，2009 年左右注册的老账号。公开资料显示他浙大背景，ACM-ICPC 亚洲区金牌六次（CCPC/ICPC 公开成绩榜可查，2010-2015 区间），《背包问题九讲》作者，在 Jane Street 做了近 9 年量化交易，TSY Capital 联合创始人。他的 GitHub 仓库 tianyicui/pfds-ocaml 是 Okasaki《Purely Functional Data Structures》的 OCaml 实现——函数式数据结构功底扎实。综合 suntzurecruit 报道 与其 LinkedIn 公开档案，他 2026 年 3 月加入 DeepSeek，5 月组建 Harness 团队。单一信源已被 LinkedIn 工作经历交叉验证。\n这个背景是关键。量化交易系统的核心是微秒级并发、两个系统精确协调、任何编排错就是真金白银。harness 工程和这件事高度同构——模型生成、harness 验证/压缩/执行，编排错则 agent 崩溃。崔添翼不是研究员转工程，是系统工程师转 harness，这解释了 DSH 为什么在工程严谨度上异常扎实。\n另一个关键人物是 Shigma（shigma），Cordis 框架的作者，Koishi 的创始人。Koishi 是一个跨平台聊天机器人框架，基于 Cordis 构建，已经运行 4 年，积累了 4000 多个社区插件。DSH 本质上是把一套在聊天机器人场景验证了 4 年的插件框架，迁移到 agent harness 场景。论文第三作者 Wei Zhang 是北大副教授，贡献者里还有 pku-xht，用户名暗示北大背景。这是一次北大 + DeepSeek + 开源社区老兵的协同。\n一个容易被忽视的细节：DSH 仓库是 open source, closed contribution 模式。DeepSeek 目前不接收外部 PR，社区只能通过 Discussions 和 plugin 仓库参与。2521 个 PR、19 个贡献者，PR 几乎全是内部 review 流程产物。这能保证早期质量，但 4000+ 插件规模的 Koishi 生态是开放贡献长出来的，DSH 要达到类似规模必须逐步放开。\n四、一切皆插件：消除特权核心 DSH 的架构文档（docs/architecture.md）开宗明义：\nEvery part of the product is a plugin, including the model adapter, the tool registry, the session log, and the agent loop itself, so every part is replaceable from configuration. There is no privileged core to patch.\n这句话是整个项目的纲领。早期版本的传统 agent 框架（LangChain、AutoGPT、LangGraph 早期）的架构是「不可变内核 + 预留扩展点」——核心循环写死，开发者只能在框架规定的位置插入工具和 prompt。新一代框架（Claude Code 的 skill + subagent 体系、Codex CLI 的 hooks、OpenHands 的 runtime）已经在向「一切皆可替换」演进，但完全做到「agent loop 本身也是插件」的只有 DSH——连 agent loop（主循环）本身都是可替换的 Cordis 插件。\n这是对「框架核心不可变」这一行业惯例的直接否定。Linux 内核的哲学是「机制而非策略」——内核只提供机制，策略由用户态决定。DSH 把这个哲学推到极致：连机制本身都是插件。\n可替换性的根基是 capability seam（能力接缝）。一个 seam 必须有三个角色：Service Definition（声明接口）、Service Provider（实现）、Consumer（使用）。AGENTS.md 里有一条硬规则：one role alone is not a seam。半个能力不算能力。这堵住了「半个能力」导致的 if/else 分支——传统框架里最常见的复杂度来源，就是有接口没实现、有实现没消费者这种半成品状态。DSH 用架构规则强制消除这种特殊情况。\n这个设计的好处是组合的位移能力极强。filesystem 和 subprocess provider 共享一个执行世界，把它们指向远程沙箱，Bash、PTY、LSP 全跟着移动，无需 provider fork。Subagent provider 同理——从一个新建子 agent，到在另一个产品里委派一个 turn，只是换一个 provider。\nDSH 还有一个强不变量：Model-visible ⟺ logged——任何到达模型请求的内容必须能从 session log 重建，运行时有断言强制。Session log 是 append-only 的 SessionEvent 流，deriveMessages() 从日志投影模型历史。新增模型可见输入必须新增一个 session event，否则断言失败。「模型看到了什么」这个问题在 DSH 里只有一个答案：日志里有什么。没有「隐式注入但没记录」这种灰色地带。这是消除边界情况优于增加条件判断的体现。\n五、Cordis 的可逆效应：为什么 self-modification 不会崩 DSH 的「一切皆插件」不是口号，它依赖一个能支撑运行时热插拔的底层框架——Cordis。DSH 没有通过 npm 依赖 Cordis，而是源码内嵌到 vendor/ 目录，全部重命名到 @deepseek-ai scope。vendor/README.md 记录了 17 项本地修改。内嵌是为了完全拥有框架层——可审计、可 patch、可 pin 版本。\nCordis 的设计思想写在《A Programming Paradigm for Spatiotemporal Composability》里，作者是 Shigma（Yifan Shi）、Wei Zhang（北大）、Tianyi Cui（崔添翼）。论文识别了动态组合的两个正交维度：时间可组合性（组件移除时能完全撤销其副作用）和空间可组合性（能声明并响应式管理组件间依赖）。\n论文指出现有插件系统的通病：插件插上去拔不下来。VSCode Marketplace 前 100 扩展中 87 个含可执行代码，激活后无法运行时单独卸载，禁用或删除需要重启整个扩展宿主。这是「时间可组合性」缺失的直接后果——卸载时没有逆函数可执行，残留的 listener、定时器、状态污染会破坏系统。\nCordis 的解法是把可逆性变成运行时强制不变量。每个对 context 的修改都必须配一个显式逆函数。ctx.effect() / ctx.on() 返回 disposer，Fiber 收集所有 disposer，卸载时逆序 unwind。AGENTS.md 里写得明白：every contribution goes through ctx.effect() / ctx.on(); a registry’s register() returns the disposer。这不是约定，是架构规则。\n为什么这重要？因为 self-modification 没有可逆性就是空中楼阁。agent 在运行时挂载一个新工具，如果卸载时不能精确撤销所有副作用——listener 残留、定时器还在跑、状态污染没清——跑几次就崩溃了。Cordis 的可逆效应是使 self-modification 成为可能的前提铁轨。这就是为什么 DeepSeek 要自己做 harness 而不是用别人的——市面上几乎没有一个把可逆性作为运行时不变量。这就是为什么崔添翼要拉 Shigma 入伙，为什么 8 月 13 日要把论文和产品一起发。\n17 项 vendor 修改不是均匀分布，可以按改动归类。完整归类见下表（数据来自 git -C vendor/ log --oneline，按 vendor/README.md 的分类结构梳理）：\n类别 数量 代表改动 改动性质 生命周期 (lifecycle) 5 cordis/src/fiber.ts：关闭 3 个重入 disposal 漏洞 实质性加固（harness 场景需要） 类型系统 (types) 4 cordis/src/context.ts：补全 Disposable/Effect 接口约束 工程化补完 错误处理 (errors) 3 cordis/src/utils/error.ts：async cleanup reject 不再吞错 严谨度提升 性能 (perf) 3 cordis/src/fiber.ts：disposer 链去重 + 短路已 disposed 节点 适配高频 hot-reload 兼容 (compat) 2 cordis/package.json：把 peerDeps 锁到 node ≥ 18.16 与 DSH 部署环境对齐 5 项生命周期改动是关键信号。其中 3 项重入 disposal 漏洞修复（effect owner-list 注册时序、async cleanup 可见性、UNLOADING 态拒绝 effect 创建）实质性地强化了 Cordis 的并发模型。agent harness 对插件热重载的可靠性要求，远高于聊天机器人。Koishi 场景下插件挂载后基本不动，DSH 场景下插件要在 agent 运行时频繁挂载卸载，并发和重入是真实问题。DSH 团队为此在 Cordis 内核做了实质性并发加固，而不是简单复用。这些 patch 能否回流上游、长期分叉风险，值得持续关注。\n六、Self-Modification：用 agent 造 agent 的工程原型 现在到 DSH 最具前瞻性的特性。位置在 packages/extensions/，commit 4064198，设计笔记在 .agents/notes/implemented/feature/2026-07-08-self-referential-cordis-toolset.md。\n本质：让 agent 在运行时检查并修改自己运行的 plugin runtime。这是论文「自进化」目标在产品层的落地。agent 有三个模型可用工具：\ncordis_inspect：只读报告当前进程 live runtime（plugins/services/tools/events/api）。 cordis_mount：在 node:vm 沙箱里立即把 model 写的 async JS 函数体评估为临时 Plugin，挂到 cordis-dynamic 组，分配 dyn-N id。 cordis_unmount：按 id 卸载一个临时 Plugin，等到所有 owned tool/listener/service/timer/effect 都 quiesce 才返回。 cordis_inspect 的输出是结构化 JSON，下面的简化示例展示了一个 bash 工具运行时挂载完毕后的快照（删去了实际 plugin 源码，只保留元数据）：\n{ \"process\": { \"pid\": 42318, \"node\": \"v20.11.0\", \"uptime_s\": 312 }, \"plugins\": [ { \"id\": \"core:agent-loop\", \"name\": \"AgentLoop\", \"state\": \"active\" }, { \"id\": \"tool:bash\", \"name\": \"BashTool\", \"state\": \"active\" }, { \"id\": \"core:session-log\", \"name\": \"SessionLog\",\"state\": \"active\" } ], \"services\": { \"model\": \"deepseek-v4-pro\", \"session\": \"sqlite\" }, \"tools\": [\"bash\", \"read_file\", \"write_file\", \"lsp_query\"], \"events\": [\"tool:call\", \"tool:result\", \"model:request\", \"model:response\"], \"dyn_plugins\": [] } cordis_mount 接受的不是结构化表单，而是一段 async function(ctx) { ... } 字面量：\n// 模型写的代码（伪示例） cordis_mount(` export const name = 'weather' async function apply(ctx) { ctx.provide('tool:weather', { /* schema */ }) ctx.on('tool:call', async (e) =\u003e { /* ... */ }) } `) 设计笔记里有一句话点透了意图：a self-referential agent that inspects and modifies its own runtime。这是「自进化 AI」从论文到工程的关键一步——agent 能按任务自己造工具、装进运行时、发现问题再换掉，不必重启进程、不丢失上下文和缓存。这直接依赖 Cordis 的可逆效应。\n几个工程细节值得点出。这是 opt-in 开发工具，bash 级信任，不是安全边界——临时 Plugin 可以用 ctx.shell 以宿主权限访问真实文件系统和 web。vm 隔离的是意外的全局污染，不是权限隔离。模型写的注册在注册时就验证，malformed schema 注册即失败。临时 Plugin 只在进程内存，不写文件、不改 cordis.yml、重启不恢复。跨 mount 组合：mount A ctx.provide('foo')，mount B inject:['foo'] 自动激活；卸载 A 则 B 回 pending（注册 unwind）。\n为什么不用结构化的 cordis_register_tool 而用单一 cordis_mount？设计笔记的 Alternatives 段说得很直白：结构化工具只覆盖 tools，listeners/services/inject 每个都要再加一个工具——API 无界增长。单一 mount 原语用 cordis plugin 一个词汇覆盖所有 effect，且天然支持跨 mount 组合。这是好品味——用最少的原语覆盖最多的场景。\nself-modification 目前是 opt-in 开发工具，设计笔记已承认「out of scope for v1」。走向生产自进化需要真正的进程隔离和权限提示。但这个原型已经把方向亮出来了：DSH 的长期目标是自进化 agent，Cordis 的可逆效应是使这成为可能的前提铁轨。\n七、技术反思：AI 辅助开发会失败在哪 站在技术的角度，DSH 的真正价值不只是给了一个开源 agent 运行时，是它用 12293 次提交的提交数据，反面教材式地揭示了 AI 辅助开发的失败模式和架构设计的失败模式。这是「用 agent 造 agent」必须面对的两个雷区。\nAI 辅助开发的失败模式 没有不变量强制的 AI 代码会腐烂。192 commits/天的节奏，如果靠人记规则——「注册要返回 disposer」「模型可见的必须记录」「capability seam 要三角色完整」——三天就忘。DSH 把这些都推到运行时：Model-visible ⟺ logged 是 assert 不是注释，注册返回 disposer 是 Fiber 强制收集不是约定，capability seam 三角色完整是架构规则不是建议。靠人记的规则会腐烂，靠工具强制的规则才能扛住 12293 次提交。这是 AI 辅助开发的第一条铁律：让 agent 生成代码可以，但不变量必须机器强制，否则就是技术债雪崩。\ncommit 数量 ≠ 质量。日均 192 次提交如果没有 100% 覆盖率门、7 个 vitest 配置、type-equiv 防漂移、knip 检测 unused code、.jscpd.json 检测克隆，会变成什么？一堆能跑但没人敢动的代码。DSH 的 CI 硬门是 packages/*/*/src 每文件 100% 覆盖——这不是目标，是入场券。Agent 生成的代码如果没有这种门挡着，会以人类无法审查的速度积累边界情况。\nAI 杠杆放大单点风险。代码所有权 bus factor 3（top 3 = 64.2%），发布权 bus factor 2（仅 imccyu + tianyicui），tianyicui 单人 42.6%。AI 杠杆让一个小团队能产出大团队的代码量，但也让单点故障的影响被放大——核心成员离开，AI 生成代码的「为什么这么写」全在 commit message 和 Agent Notes 里，没人接得住。DSH 的解法是 Agent Notes 制度化（每个非平凡变更都有设计决策记录，PR 必须附带，归档冻结），把设计 rationale 沉淀成可追溯的资产。但这是治标，治本需要降低集中度。\n架构设计的失败模式 「不可变内核 + 扩展点」导致 fork 源码。早期 agent 框架的核心循环写死，想改核心只能 fork。早期 LangChain 的「扩展点」是框架规定的位置，超出这个位置就要动源码。DSH 用「一切皆插件」消除特权核心——agent loop 本身是插件，组合即配置，无需 fork。这是对框架设计惯例的直接否定。\n插件拔不下来。VSCode 87/100 扩展无法运行时卸载，是「时间可组合性」缺失的典型。没有可逆性的插件系统，agent 一旦热重载就留下孤儿 listener 和状态污染。Cordis 的可逆效应把卸载变成逆序执行 disposer 链，系统状态精确恢复。这是「可逆性作为不变量」而非「可逆性作为建议」。\n多份状态谁来定。没有单一真相源，就会出现「模型看到的」和「日志记录的」不一致的灰色地带。DSH 的 Model-visible ⟺ logged 用一个强不变量消除这个特殊情况——模型看到了什么，只有一个答案：日志里有什么。\n没有可逆性的 self-modification 是空中楼阁。agent 改一次自己就崩一次，上下文和缓存全丢。这是当前所有想做「自进化 agent」的项目最大的工程门槛。DSH 给出的解法是：先有可逆效应，再做 self-modification。顺序不能反。\n这四条失败模式，DSH 都给出了反面教材式的解法。好的架构不是增加能力，是消除会让人失败的特殊情况。这是 Linus 说的「好品味」——消除边界情况优于增加条件判断。DSH 把这个原则推到极致：没有特权核心、没有半成品状态、没有不可逆操作、没有模型可见但未记录的内容。\n八、借助 Agent 造出最强 Agent（以及 DSH 自身的风险面） 把 DSH 放回我过去半年写的 harness 谱系里。3 月我写过框架与 harness 的区分：framework 是构建块库，harness 是生产运行时。Weng 7 月那篇《Harness Engineering for Self-Improvement》给出了工程化路径——RSI 可以发生在模型权重、训练管道、部署系统三个层面，她选第三层。林俊旸 8 月把公司押给 Agent，走的也是「模型 + 环境」的工程路线。\nDSH 是这条脉络里第一个可以拆解的开源工程样本。Weng 给方向，DSH 给实现。但 DSH 给的额外礼物，是它的构建过程本身——这是我推测它主要靠 Codex 协助生成之后，最值得带走的部分。\n构建过程抽象：harness agent 是怎么长出来的 前文已经用证据链论证了「DSH 主要架构由 Codex 协助生成」这一推测（首提交即建 CLAUDE.md、codex/ 前缀分支、AI 风格的 commit message、tianyicui 单人日均 80+ commit）。把这套构建过程抽象为可复用的工程方法论，可以总结为 5 条harness 团队的工程铁律——它们与第七节「个人开发者的 4 条教训」是上下层关系（第七节回答\"代码为什么会腐烂\"，第八节回答\"团队怎样不腐烂\"）：\n人定架构和数据结构，agent 填实现。6 月 13 日先落地 capability seams（三角色），6 月 14 日才写 Code Mode（算法）。Context 作为服务仓库 + append-only SessionEvent 作为唯一真相源这两个数据结构定完，后面 12000 次提交都是在往这棵树上挂插件。 机器强制的不变量代替人记的规则。前文已展开，此处不重复。 单一原语覆盖最多的场景。self-modification 用单一 cordis_mount 覆盖所有 effect，capability seam 用「one role alone is not a seam」堵住半成品状态。 设计 rationale 沉淀为可追溯资产。Agent Notes 让每个非平凡变更都有决策记录，PR 必须附带，归档冻结。12293 次提交里能追溯到每个决策的 why。 release 是策划出来的事件。8 月 13 日是协议切换、主版本号跳变、公开发布、论文上传、模型发布同步的协同。release 本身是一种工程。 这套构建过程和 Weng 描述的 harness engineering 在底层是同构的——模型生成、harness 验证/压缩/执行，编排错则崩溃。我推测 Claude Code 团队和 Codex 团队大概率也是按这套方法论工作的——只是他们的开发过程不公开，DSH 是目前唯一可以近距离观察的样本。\nDSH 自身的风险面（反方声音） 任何严肃的工程分析都不能只讲长处。DSH 自身至少面临三个尚未被充分讨论的风险：\nVendor 分叉的长期成本。DSH 把 Cordis 整个内嵌并重命名到 @deepseek-ai scope，加了 17 项本地修改（其中 5 项是实质性生命周期加固）。这意味着 Cordis 上游的 bug fix 和 feature，DSH 需要手动 backport。上游版本每跳一次，分叉成本就堆一层。如果 2-3 年后 Cordis 上游做了 50 项重要改动，DSH 这边的 17 项可能变成 80 项——代码债会以\"框架同步债\"的形式积累。这点在第七节没有展开。 「open source, closed contribution」模式的生态天花板。Koishi 能积累 4000+ 插件是因为它接受外部 PR；DSH 当前不接收 PR，社区只能通过 Discussions 和 plugin 仓库参与。这能保证早期质量，但也意味着 DSH 很难复制 Koishi 的生态密度。如果 DSH 想达到 LangChain / LangGraph 的生态规模，contribution 政策迟早要放开——但放开的时机和方式会决定 DSH 的命运。 Self-modification 的安全模型未成熟。vm 沙箱隔离的是\"意外的全局污染\"，不是\"权限\"。临时 Plugin 可以用 ctx.shell 以宿主权限访问真实文件系统——这意味着 self-mod 当前是**「bash 级信任，开发工具」**，不是「生产安全边界」。如果未来 DSH 把 self-mod 开放给远端用户的输入（不只是开发者本地），需要真正的进程隔离（landlock-run 已经做了部分铺垫，但仍不够）+ 权限提示 + 审计日志。当前设计笔记已承认「out of scope for v1」，但长期路径必须解决。 收束 回到开头那个问题：harness 到底长什么样？DSH 给出的答案是——一棵在启动时组合出来的插件树，每个插件都能被替换，每次替换都能被撤销，agent 能在不重启进程的前提下修改自己的运行时。这不是又一个 agent 框架，这是一条通往自进化的工程路径。\n而最值得记住的是它的构建方式：借助 Agent 造出最强 Agent。我推测 DSH 团队用 Codex 当 subagent 协助生成主要架构，把 Claude Code 和 Codex 作为 hooks 桥接进开发流程，自己就在跑一个 harness loop：人定不变量，agent 生成代码，机器强制规则。这件事的意义，可能比 DSH 产品本身更长远——它揭示了 agent 时代的开发范式。12293 次提交不是人类被替代的证据，是人类学会与 agent 协作建造工程级系统的早期样本。\n参考\nDeepSeek Harness 源码仓库（截止 2026-08-16）：https://github.com/deepseek-ai/deepseek-harness ",
+  "wordCount" : "1506",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-08-16T21:06:09+08:00",
+  "dateModified": "2026-08-16T21:06:09+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "ylzhang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/08/2026-08-16-deepseek-harness-git-archaeology/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Z's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Z&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      用Agent造Agent：DeepSeek Harness的64天考古与自进化路径
+    </h1>
+    <div class="post-meta">   ylzhang | <span title='2026-08-16 21:06:09 +0800 HKT'>August 16, 2026</span> | <span>49 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/08/2026-08-16-deepseek-harness-git-archaeology.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%8064-%e5%a4%a9-12293-%e6%ac%a1%e6%8f%90%e4%ba%a4%e6%8e%a8%e6%96%ad%e4%b8%bb%e8%a6%81%e6%9e%b6%e6%9e%84%e7%94%b1-codex-%e5%8d%8f%e5%8a%a9%e7%94%9f%e6%88%90" aria-label="一、64 天 12293 次提交：推断「主要架构由 Codex 协助生成」">一、64 天 12293 次提交：推断「主要架构由 Codex 协助生成」</a></li>
+                <li>
+                    <a href="#%e4%ba%8cgit-%e8%80%83%e5%8f%a4%e5%8f%8d%e6%8e%a8%e6%9e%84%e5%bb%ba%e5%93%b2%e5%ad%a6" aria-label="二、Git 考古：反推构建哲学">二、Git 考古：反推构建哲学</a></li>
+                <li>
+                    <a href="#%e4%b8%89%e9%80%a0-dsh-%e7%9a%84%e4%ba%ba%e5%b4%94%e6%b7%bb%e7%bf%bcshigma-%e4%b8%8e-bus-factor" aria-label="三、造 DSH 的人：崔添翼、Shigma 与 bus factor">三、造 DSH 的人：崔添翼、Shigma 与 bus factor</a></li>
+                <li>
+                    <a href="#%e5%9b%9b%e4%b8%80%e5%88%87%e7%9a%86%e6%8f%92%e4%bb%b6%e6%b6%88%e9%99%a4%e7%89%b9%e6%9d%83%e6%a0%b8%e5%bf%83" aria-label="四、一切皆插件：消除特权核心">四、一切皆插件：消除特权核心</a></li>
+                <li>
+                    <a href="#%e4%ba%94cordis-%e7%9a%84%e5%8f%af%e9%80%86%e6%95%88%e5%ba%94%e4%b8%ba%e4%bb%80%e4%b9%88-self-modification-%e4%b8%8d%e4%bc%9a%e5%b4%a9" aria-label="五、Cordis 的可逆效应：为什么 self-modification 不会崩">五、Cordis 的可逆效应：为什么 self-modification 不会崩</a></li>
+                <li>
+                    <a href="#%e5%85%adself-modification%e7%94%a8-agent-%e9%80%a0-agent-%e7%9a%84%e5%b7%a5%e7%a8%8b%e5%8e%9f%e5%9e%8b" aria-label="六、Self-Modification：用 agent 造 agent 的工程原型">六、Self-Modification：用 agent 造 agent 的工程原型</a></li>
+                <li>
+                    <a href="#%e4%b8%83%e6%8a%80%e6%9c%af%e5%8f%8d%e6%80%9dai-%e8%be%85%e5%8a%a9%e5%bc%80%e5%8f%91%e4%bc%9a%e5%a4%b1%e8%b4%a5%e5%9c%a8%e5%93%aa" aria-label="七、技术反思：AI 辅助开发会失败在哪">七、技术反思：AI 辅助开发会失败在哪</a><ul>
+                        
+                <li>
+                    <a href="#ai-%e8%be%85%e5%8a%a9%e5%bc%80%e5%8f%91%e7%9a%84%e5%a4%b1%e8%b4%a5%e6%a8%a1%e5%bc%8f" aria-label="AI 辅助开发的失败模式">AI 辅助开发的失败模式</a></li>
+                <li>
+                    <a href="#%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e7%9a%84%e5%a4%b1%e8%b4%a5%e6%a8%a1%e5%bc%8f" aria-label="架构设计的失败模式">架构设计的失败模式</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%85%ab%e5%80%9f%e5%8a%a9-agent-%e9%80%a0%e5%87%ba%e6%9c%80%e5%bc%ba-agent%e4%bb%a5%e5%8f%8a-dsh-%e8%87%aa%e8%ba%ab%e7%9a%84%e9%a3%8e%e9%99%a9%e9%9d%a2" aria-label="八、借助 Agent 造出最强 Agent（以及 DSH 自身的风险面）">八、借助 Agent 造出最强 Agent（以及 DSH 自身的风险面）</a><ul>
+                        
+                <li>
+                    <a href="#%e6%9e%84%e5%bb%ba%e8%bf%87%e7%a8%8b%e6%8a%bd%e8%b1%a1harness-agent-%e6%98%af%e6%80%8e%e4%b9%88%e9%95%bf%e5%87%ba%e6%9d%a5%e7%9a%84" aria-label="构建过程抽象：harness agent 是怎么长出来的">构建过程抽象：harness agent 是怎么长出来的</a></li>
+                <li>
+                    <a href="#dsh-%e8%87%aa%e8%ba%ab%e7%9a%84%e9%a3%8e%e9%99%a9%e9%9d%a2%e5%8f%8d%e6%96%b9%e5%a3%b0%e9%9f%b3" aria-label="DSH 自身的风险面（反方声音）">DSH 自身的风险面（反方声音）</a></li>
+                <li>
+                    <a href="#%e6%94%b6%e6%9d%9f" aria-label="收束">收束</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>网上已经有不少技术博主在拆 DSH 的架构图，把它和 Claude Code、Codex CLI 并列比较，论证这套「一切皆插件」机制的优雅和影响力——这些分析有它们的道理，我也认同 DSH 的设计水准。但我想看的不是它<strong>长什么样</strong>，而是另一个更工程化的问题：<strong>这样一个被 DeepSeek 视为战略级产品的 agent harness，是怎么在 64 天里被造出来的？</strong></p>
+<p>答案写在仓库的 commit 历史里。从 6 月 10 日第一条提交到 8 月 13 日公开发布，64 天，12293 次提交，日均 192 次。这不是人类节奏，是 AI 辅助开发在版本控制系统里留下的沉积物。我用 git 考古翻了一遍这个仓库，反推一件更底层的事：<strong>顶级团队是怎么用 Agent 造出最强 Agent 的</strong>。事实上，Anthropic 的 Claude Code 团队和 OpenAI 的 Codex 团队大概率也是这么干的——只是他们的开发过程不公开。这次 DSH 把整个仓库开源，给了我们一个可以近距离观察顶级 AI 团队研发范式的窗口。这是我写这篇文章的起点。</p>
+<p>三天前我写林俊旸把 20 亿估值押给 Agent，结论是他选了一条「模型 + 环境」的工程路线。文章里我反复引用 Lilian Weng 的判断：Claude Code、Codex 之所以强，不是因为底模最强，而是 Harness 设计最成熟。那篇文章发出去之后我一直在想一个更具体的问题：harness 到底长什么样？</p>
+<p>8 月 13 日，DeepSeek 给了一个可以拆解的样本。他们把内部那个叫 DeepSeek Harness（<code>dsh</code>）的 agent 运行时开源了，MIT 协议，221 个 npm 包。和它同步发布的还有 DeepSeek-V4-Pro 正式版，以及一篇 80 多页的论文《A Programming Paradigm for Spatiotemporal Composability》。</p>
+<p>但真正值得拆解的不只是产品，是它的构建过程。从 6 月 10 日第一条提交到 8 月 13 日公开发布，64 天，12293 次提交，日均 192 次。这不是人类节奏，更像 AI 辅助开发在版本控制系统里留下的地层切片。我用 git 考古翻了一遍这个仓库，想反推一件事：一个被 DeepSeek 当成战略级产品的 agent harness，是怎么在两个月里长出来的——以及更关键的，<strong>它本身是怎么被 agent 造出来的</strong>。</p>
+<p>下面这些数据，全部来自 GitHub REST API、npm registry 时间戳、仓库 commit 历史和官方文档。能确证的标确证，推断的标推断——尤其是「DSH 主要靠 AI 生成代码」这个判断，我会用证据链支撑，但读者应将其视为基于多源信号的合理推测，而非已证事实。</p>
+<hr>
+<h2 id="一64-天-12293-次提交推断主要架构由-codex-协助生成">一、64 天 12293 次提交：推断「主要架构由 Codex 协助生成」<a hidden class="anchor" aria-hidden="true" href="#一64-天-12293-次提交推断主要架构由-codex-协助生成">#</a></h2>
+<p>先把数字摆出来。</p>
+<table>
+  <thead>
+      <tr>
+          <th>指标</th>
+          <th>数值</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>跨度 / 提交数</td>
+          <td>64 天 / 12293 次（日均 192）</td>
+      </tr>
+      <tr>
+          <td>贡献者 / 包数量</td>
+          <td>19 人 / 221 个 npm 包</td>
+      </tr>
+      <tr>
+          <td>首提交</td>
+          <td>2026-06-10，5 文件 48 行（<code>b67e81a</code>）</td>
+      </tr>
+      <tr>
+          <td>公开发布</td>
+          <td>2026-08-13，PR #2519 merge（<code>47f9438</code>）</td>
+      </tr>
+      <tr>
+          <td>语言</td>
+          <td>TypeScript 97.1%</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p><strong>方法论说明</strong>：12293 这个数字来自 GitHub REST API 的 <code>GET /repos/{owner}/{repo}/commits?per_page=100</code> 全量拉取，按 <code>committer.date</code> 排序后去重；<strong>含 merge commit 和 bot commit，但已剔除 revert</strong>。npm 时间戳来自 <code>npm view &lt;pkg&gt; time --json</code>。日均 192 = 12293 / 64，向下取整。后续章节出现的所有具体数字都遵循此方法论，<strong>涉及「这是 AI 写的」类推断的，会明确标注「推测」。</strong></p>
+</blockquote>
+<p>日均 192 次提交是什么概念？把它折算到头部贡献者身上：tianyicui（崔添翼）5235 次 ÷ 64 天 = <strong>日均 81.8 次</strong>；LegGasai 1361 次 = 日均 21.3 次；imccyu 1297 次 = 日均 20.3 次。<strong>仅 tianyicui 一人就达到日均 80+ 次 commit</strong>。传统软件工程里，即便是最高产的内核子系统维护者，单人也很难持续保持这种节奏——Linux 内核 maintainer 通常日均 5-15 次 commit。DSH 只有 19 个贡献者，前三人占 64.2% 的提交，这种集中度叠加这种频率，<strong>完全靠人写代码很难自洽</strong>。</p>
+<p>我的推断是<strong>全团队重度依赖 AI 辅助开发</strong>。以下证据写在仓库里，但请将其视为「高度相关 + 多源信号」支撑的合理推测，而非已证事实：</p>
+<ul>
+<li><strong>首提交（<code>b67e81a</code>）的标题就是「Initialize repo with README, AGENTS.md, and CLAUDE.md symlink」</strong>——项目第一天就建立了 Claude Code 和 agent 协议的入口文件。一个还在搭脚手架的项目，把 agent 入口放在 README 旁边，是「自己就要用」的姿态，不是「未来考虑用」。</li>
+<li><strong>6 月 13 日建立 <code>.claude/</code> 目录</strong>，装着 ADR（架构决策记录）和 review skill。ADR 这种制度在第 4 天就建立，几乎只有「按既定 SOP 启动」能解释。</li>
+<li><strong>6 月 30 日 commit <code>8adcbce</code></strong> 把 Claude Code 和 Codex 正式作为 subagent 桥接进开发流程。这一天是工程化落地的关键节点。</li>
+<li><strong>分支命名随处可见 <code>codex/</code> 前缀</strong>（<code>codex/trim-ai-prose</code>、<code>codex/2503-english-onboarding-copy</code>）——<code>codex/</code> 前缀本身就是 OpenAI Codex CLI 的默认分支命名约定。</li>
+<li><strong>commit message 普遍是多行 body，详细解释 alternatives 和 trade-off</strong>——这是 AI 辅助代码审查的特征，人类工程师通常写一行主旨就够。</li>
+</ul>
+<p><strong>反证/局限</strong>：以上证据可以解释为「重度使用 Codex 当 subagent」，但也可以解释为「重度使用 Claude Code，把 Codex 作为辅助 hook」，甚至「团队工程文化本身就要求这种 commit message 格式」。<strong>我无法仅凭 commit 历史精确切分 AI 生成代码 vs 人类手写代码的比例</strong>——这是这个推断的根本局限。</p>
+<p>换句话说，<strong>我的推测是：DSH 的主要架构由 Codex 协助生成</strong>。这件事的元层面意义比表面看到的更深：DSH 的构建过程本身就是一个 harness engineering 的活样本，<strong>用 agent 造 agent</strong>。这正是 Weng 说的 RSI 第三层（部署系统层自我改进）在工程团队层面的具象化。记住这个主线，它会贯穿全文。</p>
+<p><img alt="64 天 12293 次提交 — DSH 仓库 commit 时空分布热力图（2026-06-10 → 2026-08-13）" loading="lazy" src="/images/posts/2026/08/deepseek-harness-64d-heatmap.png"></p>
+<hr>
+<h2 id="二git-考古反推构建哲学">二、Git 考古：反推构建哲学<a hidden class="anchor" aria-hidden="true" href="#二git-考古反推构建哲学">#</a></h2>
+<p>把 64 天的 commit 历史按时间拆开，能看出五个阶段，但真正值得提炼的不是流水账，是几个反常理的构建判断。</p>
+<p><strong>核心架构在第二周就定完了</strong>。6 月 10 日首提交只有 48 行文档，但 6 月 13 日就落地了 capability seams（能力接缝）设计，6 月 14 日 RFC 012 Code Mode，6 月 15 日出现 <code>split/agent-factory</code>、<code>split/session-persistence-sqlite</code> 这种成熟分支。一个 48 行的仓库不可能在 4 天内长出 RFC 级别的架构讨论——最可能的情景是 DeepSeek 内部已有原型，6 月 10 日是「开源预备仓」启动日。关键不是这个，关键是<strong>核心抽象在项目第二周就定完，后面 50 多天没有大的架构反复</strong>。团队不是在探索，是在执行一个已经想清楚的设计。</p>
+<p><strong>测试基建在功能开发期就同步建</strong>。7 月中旬引入 Python SDK（<code>pytest.ini</code>），7 月 23 日做 tsconfig 重构把 Host/Client 类型聚合分离，7 月 27 日把 <code>.tsx</code> 纳入 lint 体系。8 月 4 日出现 7 个 vitest 配置文件——单元/e2e/snapshot/web/stress/perf/shared，CI 硬门是 <code>packages/*/*/src</code> 每文件 100% 覆盖率。这不是事后补测试，是测试门和功能开发同步推进。</p>
+<p><strong>主入口在开源前 9 天才定</strong>。8 月 4 日移除 TUI 包（<code>10bb9cb</code>），8 月 12 日才让 Web UI 成为主入口（<code>04fe477</code>）。开源前 9 天还在做主入口形态判断，相当激进——说明团队在 release 前还在权衡产品形态，而非纯执行。</p>
+<p><strong>8 月 13 日是策划出来的大爆炸</strong>。npm registry 时间戳清楚记录了这一天：UTC 09:50 协议从 BSD-3-Clause 切到 MIT，主版本号 0.0.1 → 0.1.0；11:17 发 rc.3；12:29 把 <code>publishConfig.access</code> 从 restricted 切到 public，正式公开。12 小时内发了 4 个版本，中间还插了 self-modification UI、cordis 4.0.1 vendor、landlock-run 0.1.1、Cordis paper 上传。同一天 DeepSeek-V4-Pro 正式版发布，用 DSH 的 Minimal mode 跑 Terminal-Bench 2.1 拿到 87.9 分。模型和测模型的工具同步开源，构成完整叙事。北京时间 20:30 的官方公告时刻，恰好就是 UTC 12:29 的 npm 公开时刻——这不是巧合。</p>
+<hr>
+<h2 id="三造-dsh-的人崔添翼shigma-与-bus-factor">三、造 DSH 的人：崔添翼、Shigma 与 bus factor<a hidden class="anchor" aria-hidden="true" href="#三造-dsh-的人崔添翼shigma-与-bus-factor">#</a></h2>
+<p>贡献者排名按 commit 数：崔添翼（<code>tianyicui</code>）5235 次占 42.6%，LegGasai 1361 次，imccyu 1297 次，之后是 Chinesezjc、turtle1999、hypatiamay 等。前三名占 64.2%，前五名占 73.7%。</p>
+<p>这里需要区分<strong>两种 bus factor</strong>：</p>
+<ul>
+<li><strong>代码所有权 bus factor = 3</strong>：三人贡献 64.2% 的 commit；top 5 占 73.7%；剩余 14 人占 26.3%。</li>
+<li><strong>发布权 bus factor = 2</strong>：npm 发布权只有两人——<code>imccyu</code>（cc.yu@deepseek.com）和 <code>tianyicui-deepseek</code>（tianyi@deepseek.com）。<code>npm view deepseek-harness</code> 的 maintainers 字段可以直接验证。</li>
+</ul>
+<p>如果把&quot;是否能持续发版本&quot;作为判据，<strong>实际 bus factor = 2</strong>；如果把&quot;是否有人能 hold 住代码语义&quot;作为判据，<strong>实际 bus factor = 1-2</strong>（tianyicui 单人 42.6%）。这两个数字比单纯说&quot;bus factor = 1-2&quot;更精准。</p>
+<p><img alt="19 人贡献 12293 次提交 — DSH 仓库贡献者集中度帕累托图" loading="lazy" src="/images/posts/2026/08/deepseek-harness-contributor-pareto.png"></p>
+<p>崔添翼的背景值得拆。他 GitHub ID 是 53024，2009 年左右注册的老账号。公开资料显示他浙大背景，ACM-ICPC 亚洲区金牌六次（<a href="https://icpc.global/">CCPC/ICPC 公开成绩榜可查</a>，2010-2015 区间），《背包问题九讲》作者，在 Jane Street 做了近 9 年量化交易，TSY Capital 联合创始人。他的 GitHub 仓库 <code>tianyicui/pfds-ocaml</code> 是 Okasaki《Purely Functional Data Structures》的 OCaml 实现——函数式数据结构功底扎实。综合 <a href="https://example.com/suntzurecruit-cui-tianyi">suntzurecruit 报道</a> 与其 LinkedIn 公开档案，他 2026 年 3 月加入 DeepSeek，5 月组建 Harness 团队。<strong>单一信源已被 LinkedIn 工作经历交叉验证。</strong></p>
+<p>这个背景是关键。量化交易系统的核心是<strong>微秒级并发、两个系统精确协调、任何编排错就是真金白银</strong>。harness 工程和这件事高度同构——模型生成、harness 验证/压缩/执行，编排错则 agent 崩溃。崔添翼不是研究员转工程，是系统工程师转 harness，这解释了 DSH 为什么在工程严谨度上异常扎实。</p>
+<p>另一个关键人物是 Shigma（<code>shigma</code>），Cordis 框架的作者，Koishi 的创始人。Koishi 是一个跨平台聊天机器人框架，基于 Cordis 构建，已经运行 4 年，积累了 4000 多个社区插件。<strong>DSH 本质上是把一套在聊天机器人场景验证了 4 年的插件框架，迁移到 agent harness 场景</strong>。论文第三作者 Wei Zhang 是北大副教授，贡献者里还有 <code>pku-xht</code>，用户名暗示北大背景。这是一次北大 + DeepSeek + 开源社区老兵的协同。</p>
+<p>一个容易被忽视的细节：DSH 仓库是 <strong>open source, closed contribution</strong> 模式。DeepSeek 目前不接收外部 PR，社区只能通过 Discussions 和 plugin 仓库参与。2521 个 PR、19 个贡献者，PR 几乎全是内部 review 流程产物。这能保证早期质量，但 4000+ 插件规模的 Koishi 生态是开放贡献长出来的，DSH 要达到类似规模必须逐步放开。</p>
+<p><img alt="19 人贡献 12293 次提交 — DSH 仓库贡献者集中度帕累托图" loading="lazy" src="/images/posts/2026/08/deepseek-harness-contributor-pareto.png"></p>
+<hr>
+<h2 id="四一切皆插件消除特权核心">四、一切皆插件：消除特权核心<a hidden class="anchor" aria-hidden="true" href="#四一切皆插件消除特权核心">#</a></h2>
+<p>DSH 的架构文档（<code>docs/architecture.md</code>）开宗明义：</p>
+<blockquote>
+<p>Every part of the product is a plugin, including the model adapter, the tool registry, the session log, and the agent loop itself, so every part is replaceable from configuration. There is no privileged core to patch.</p>
+</blockquote>
+<p>这句话是整个项目的纲领。<strong>早期版本的传统 agent 框架</strong>（LangChain、AutoGPT、LangGraph 早期）的架构是「<strong>不可变内核 + 预留扩展点</strong>」——核心循环写死，开发者只能在框架规定的位置插入工具和 prompt。<strong>新一代框架</strong>（Claude Code 的 skill + subagent 体系、Codex CLI 的 hooks、OpenHands 的 runtime）已经在向「一切皆可替换」演进，但完全做到「agent loop 本身也是插件」的只有 DSH——连 agent loop（主循环）本身都是可替换的 Cordis 插件。</p>
+<p>这是对「框架核心不可变」这一行业惯例的直接否定。Linux 内核的哲学是「机制而非策略」——内核只提供机制，策略由用户态决定。DSH 把这个哲学推到极致：<strong>连机制本身都是插件</strong>。</p>
+<p>可替换性的根基是 capability seam（能力接缝）。一个 seam 必须有三个角色：Service Definition（声明接口）、Service Provider（实现）、Consumer（使用）。AGENTS.md 里有一条硬规则：<strong>one role alone is not a seam</strong>。半个能力不算能力。这堵住了「半个能力」导致的 if/else 分支——传统框架里最常见的复杂度来源，就是有接口没实现、有实现没消费者这种半成品状态。DSH 用架构规则强制消除这种特殊情况。</p>
+<p>这个设计的好处是组合的位移能力极强。filesystem 和 subprocess provider 共享一个执行世界，把它们指向远程沙箱，Bash、PTY、LSP 全跟着移动，<strong>无需 provider fork</strong>。Subagent provider 同理——从一个新建子 agent，到在另一个产品里委派一个 turn，只是换一个 provider。</p>
+<p>DSH 还有一个强不变量：<strong>Model-visible ⟺ logged</strong>——任何到达模型请求的内容必须能从 session log 重建，运行时有断言强制。Session log 是 append-only 的 <code>SessionEvent</code> 流，<code>deriveMessages()</code> 从日志投影模型历史。新增模型可见输入必须新增一个 session event，否则断言失败。「模型看到了什么」这个问题在 DSH 里只有一个答案：日志里有什么。没有「隐式注入但没记录」这种灰色地带。这是消除边界情况优于增加条件判断的体现。</p>
+<hr>
+<h2 id="五cordis-的可逆效应为什么-self-modification-不会崩">五、Cordis 的可逆效应：为什么 self-modification 不会崩<a hidden class="anchor" aria-hidden="true" href="#五cordis-的可逆效应为什么-self-modification-不会崩">#</a></h2>
+<p>DSH 的「一切皆插件」不是口号，它依赖一个能支撑运行时热插拔的底层框架——Cordis。DSH 没有通过 npm 依赖 Cordis，而是<strong>源码内嵌</strong>到 <code>vendor/</code> 目录，全部重命名到 <code>@deepseek-ai</code> scope。<code>vendor/README.md</code> 记录了 17 项本地修改。内嵌是为了完全拥有框架层——可审计、可 patch、可 pin 版本。</p>
+<p>Cordis 的设计思想写在《A Programming Paradigm for Spatiotemporal Composability》里，作者是 Shigma（Yifan Shi）、Wei Zhang（北大）、Tianyi Cui（崔添翼）。论文识别了动态组合的两个正交维度：<strong>时间可组合性</strong>（组件移除时能完全撤销其副作用）和<strong>空间可组合性</strong>（能声明并响应式管理组件间依赖）。</p>
+<p>论文指出现有插件系统的通病：<strong>插件插上去拔不下来</strong>。VSCode Marketplace 前 100 扩展中 87 个含可执行代码，激活后无法运行时单独卸载，禁用或删除需要重启整个扩展宿主。这是「时间可组合性」缺失的直接后果——卸载时没有逆函数可执行，残留的 listener、定时器、状态污染会破坏系统。</p>
+<p>Cordis 的解法是把可逆性变成运行时强制不变量。每个对 context 的修改都必须配一个显式逆函数。<code>ctx.effect()</code> / <code>ctx.on()</code> 返回 disposer，Fiber 收集所有 disposer，卸载时逆序 unwind。AGENTS.md 里写得明白：every contribution goes through <code>ctx.effect()</code> / <code>ctx.on()</code>; a registry&rsquo;s <code>register()</code> returns the disposer。这不是约定，是架构规则。</p>
+<p>为什么这重要？因为 <strong>self-modification 没有可逆性就是空中楼阁</strong>。agent 在运行时挂载一个新工具，如果卸载时不能精确撤销所有副作用——listener 残留、定时器还在跑、状态污染没清——跑几次就崩溃了。Cordis 的可逆效应是使 self-modification 成为可能的前提铁轨。这就是为什么 DeepSeek 要自己做 harness 而不是用别人的——市面上几乎没有一个把可逆性作为运行时不变量。这就是为什么崔添翼要拉 Shigma 入伙，为什么 8 月 13 日要把论文和产品一起发。</p>
+<p>17 项 vendor 修改不是均匀分布，可以按改动归类。完整归类见下表（数据来自 <code>git -C vendor/ log --oneline</code>，按 <code>vendor/README.md</code> 的分类结构梳理）：</p>
+<table>
+  <thead>
+      <tr>
+          <th>类别</th>
+          <th>数量</th>
+          <th>代表改动</th>
+          <th>改动性质</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>生命周期 (lifecycle)</td>
+          <td>5</td>
+          <td><code>cordis/src/fiber.ts</code>：关闭 3 个重入 disposal 漏洞</td>
+          <td><strong>实质性加固</strong>（harness 场景需要）</td>
+      </tr>
+      <tr>
+          <td>类型系统 (types)</td>
+          <td>4</td>
+          <td><code>cordis/src/context.ts</code>：补全 Disposable/Effect 接口约束</td>
+          <td>工程化补完</td>
+      </tr>
+      <tr>
+          <td>错误处理 (errors)</td>
+          <td>3</td>
+          <td><code>cordis/src/utils/error.ts</code>：async cleanup reject 不再吞错</td>
+          <td>严谨度提升</td>
+      </tr>
+      <tr>
+          <td>性能 (perf)</td>
+          <td>3</td>
+          <td><code>cordis/src/fiber.ts</code>：disposer 链去重 + 短路已 disposed 节点</td>
+          <td>适配高频 hot-reload</td>
+      </tr>
+      <tr>
+          <td>兼容 (compat)</td>
+          <td>2</td>
+          <td><code>cordis/package.json</code>：把 peerDeps 锁到 node ≥ 18.16</td>
+          <td>与 DSH 部署环境对齐</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>5 项生命周期改动是关键信号</strong>。其中 3 项重入 disposal 漏洞修复（effect owner-list 注册时序、async cleanup 可见性、UNLOADING 态拒绝 effect 创建）实质性地强化了 Cordis 的并发模型。<strong>agent harness 对插件热重载的可靠性要求，远高于聊天机器人</strong>。Koishi 场景下插件挂载后基本不动，DSH 场景下插件要在 agent 运行时频繁挂载卸载，并发和重入是真实问题。DSH 团队为此在 Cordis 内核做了实质性并发加固，而不是简单复用。这些 patch 能否回流上游、长期分叉风险，值得持续关注。</p>
+<hr>
+<h2 id="六self-modification用-agent-造-agent-的工程原型">六、Self-Modification：用 agent 造 agent 的工程原型<a hidden class="anchor" aria-hidden="true" href="#六self-modification用-agent-造-agent-的工程原型">#</a></h2>
+<p>现在到 DSH 最具前瞻性的特性。位置在 <code>packages/extensions/</code>，commit <code>4064198</code>，设计笔记在 <code>.agents/notes/implemented/feature/2026-07-08-self-referential-cordis-toolset.md</code>。</p>
+<p><strong>本质</strong>：让 agent 在运行时检查并修改自己运行的 plugin runtime。这是论文「自进化」目标在产品层的落地。agent 有三个模型可用工具：</p>
+<ul>
+<li><code>cordis_inspect</code>：只读报告当前进程 live runtime（plugins/services/tools/events/api）。</li>
+<li><code>cordis_mount</code>：在 <code>node:vm</code> 沙箱里立即把 model 写的 async JS 函数体评估为临时 Plugin，挂到 <code>cordis-dynamic</code> 组，分配 <code>dyn-N</code> id。</li>
+<li><code>cordis_unmount</code>：按 id 卸载一个临时 Plugin，等到所有 owned tool/listener/service/timer/effect 都 quiesce 才返回。</li>
+</ul>
+<p><code>cordis_inspect</code> 的输出是结构化 JSON，下面的简化示例展示了一个 <code>bash</code> 工具运行时挂载完毕后的快照（删去了实际 plugin 源码，只保留元数据）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;process&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;pid&#34;</span><span class="p">:</span> <span class="mi">42318</span><span class="p">,</span> <span class="nt">&#34;node&#34;</span><span class="p">:</span> <span class="s2">&#34;v20.11.0&#34;</span><span class="p">,</span> <span class="nt">&#34;uptime_s&#34;</span><span class="p">:</span> <span class="mi">312</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;plugins&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;core:agent-loop&#34;</span><span class="p">,</span> <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;AgentLoop&#34;</span><span class="p">,</span> <span class="nt">&#34;state&#34;</span><span class="p">:</span> <span class="s2">&#34;active&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;tool:bash&#34;</span><span class="p">,</span>        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;BashTool&#34;</span><span class="p">,</span>  <span class="nt">&#34;state&#34;</span><span class="p">:</span> <span class="s2">&#34;active&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;core:session-log&#34;</span><span class="p">,</span> <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;SessionLog&#34;</span><span class="p">,</span><span class="nt">&#34;state&#34;</span><span class="p">:</span> <span class="s2">&#34;active&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;services&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;model&#34;</span><span class="p">:</span> <span class="s2">&#34;deepseek-v4-pro&#34;</span><span class="p">,</span> <span class="nt">&#34;session&#34;</span><span class="p">:</span> <span class="s2">&#34;sqlite&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tools&#34;</span><span class="p">:</span>     <span class="p">[</span><span class="s2">&#34;bash&#34;</span><span class="p">,</span> <span class="s2">&#34;read_file&#34;</span><span class="p">,</span> <span class="s2">&#34;write_file&#34;</span><span class="p">,</span> <span class="s2">&#34;lsp_query&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;events&#34;</span><span class="p">:</span>    <span class="p">[</span><span class="s2">&#34;tool:call&#34;</span><span class="p">,</span> <span class="s2">&#34;tool:result&#34;</span><span class="p">,</span> <span class="s2">&#34;model:request&#34;</span><span class="p">,</span> <span class="s2">&#34;model:response&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;dyn_plugins&#34;</span><span class="p">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><code>cordis_mount</code> 接受的不是结构化表单，而是一段 <code>async function(ctx) { ... }</code> 字面量：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// 模型写的代码（伪示例）
+</span></span></span><span class="line"><span class="cl"><span class="nx">cordis_mount</span><span class="p">(</span><span class="sb">`
+</span></span></span><span class="line"><span class="cl"><span class="sb">  export const name = &#39;weather&#39;
+</span></span></span><span class="line"><span class="cl"><span class="sb">  async function apply(ctx) {
+</span></span></span><span class="line"><span class="cl"><span class="sb">    ctx.provide(&#39;tool:weather&#39;, { /* schema */ })
+</span></span></span><span class="line"><span class="cl"><span class="sb">    ctx.on(&#39;tool:call&#39;, async (e) =&gt; { /* ... */ })
+</span></span></span><span class="line"><span class="cl"><span class="sb">  }
+</span></span></span><span class="line"><span class="cl"><span class="sb">`</span><span class="p">)</span>
+</span></span></code></pre></div><p>设计笔记里有一句话点透了意图：a self-referential agent that inspects and modifies its own runtime。这是「自进化 AI」从论文到工程的关键一步——agent 能按任务自己造工具、装进运行时、发现问题再换掉，<strong>不必重启进程、不丢失上下文和缓存</strong>。这直接依赖 Cordis 的可逆效应。</p>
+<p>几个工程细节值得点出。这是 <strong>opt-in 开发工具，bash 级信任，不是安全边界</strong>——临时 Plugin 可以用 <code>ctx.shell</code> 以宿主权限访问真实文件系统和 web。<code>vm</code> 隔离的是意外的全局污染，不是权限隔离。模型写的注册在注册时就验证，malformed schema 注册即失败。临时 Plugin 只在进程内存，不写文件、不改 cordis.yml、重启不恢复。<strong>跨 mount 组合</strong>：mount A <code>ctx.provide('foo')</code>，mount B <code>inject:['foo']</code> 自动激活；卸载 A 则 B 回 pending（注册 unwind）。</p>
+<p>为什么不用结构化的 <code>cordis_register_tool</code> 而用单一 <code>cordis_mount</code>？设计笔记的 Alternatives 段说得很直白：结构化工具只覆盖 tools，listeners/services/inject 每个都要再加一个工具——API 无界增长。单一 mount 原语用 cordis plugin 一个词汇覆盖所有 effect，且天然支持跨 mount 组合。<strong>这是好品味</strong>——用最少的原语覆盖最多的场景。</p>
+<p>self-modification 目前是 opt-in 开发工具，设计笔记已承认「out of scope for v1」。走向生产自进化需要真正的进程隔离和权限提示。但这个原型已经把方向亮出来了：DSH 的长期目标是<strong>自进化 agent</strong>，Cordis 的可逆效应是使这成为可能的前提铁轨。</p>
+<hr>
+<h2 id="七技术反思ai-辅助开发会失败在哪">七、技术反思：AI 辅助开发会失败在哪<a hidden class="anchor" aria-hidden="true" href="#七技术反思ai-辅助开发会失败在哪">#</a></h2>
+<p>站在技术的角度，DSH 的真正价值不只是给了一个开源 agent 运行时，是它用 12293 次提交的提交数据，反面教材式地揭示了 AI 辅助开发的失败模式和架构设计的失败模式。这是「用 agent 造 agent」必须面对的两个雷区。</p>
+<h3 id="ai-辅助开发的失败模式">AI 辅助开发的失败模式<a hidden class="anchor" aria-hidden="true" href="#ai-辅助开发的失败模式">#</a></h3>
+<p><strong>没有不变量强制的 AI 代码会腐烂</strong>。192 commits/天的节奏，如果靠人记规则——「注册要返回 disposer」「模型可见的必须记录」「capability seam 要三角色完整」——三天就忘。DSH 把这些都推到运行时：<code>Model-visible ⟺ logged</code> 是 assert 不是注释，注册返回 disposer 是 Fiber 强制收集不是约定，capability seam 三角色完整是架构规则不是建议。<strong>靠人记的规则会腐烂，靠工具强制的规则才能扛住 12293 次提交</strong>。这是 AI 辅助开发的第一条铁律：让 agent 生成代码可以，但不变量必须机器强制，否则就是技术债雪崩。</p>
+<p><strong>commit 数量 ≠ 质量</strong>。日均 192 次提交如果没有 100% 覆盖率门、7 个 vitest 配置、type-equiv 防漂移、knip 检测 unused code、<code>.jscpd.json</code> 检测克隆，会变成什么？一堆能跑但没人敢动的代码。DSH 的 CI 硬门是 <code>packages/*/*/src</code> 每文件 100% 覆盖——这不是目标，是入场券。Agent 生成的代码如果没有这种门挡着，会以人类无法审查的速度积累边界情况。</p>
+<p><strong>AI 杠杆放大单点风险</strong>。代码所有权 bus factor 3（top 3 = 64.2%），发布权 bus factor 2（仅 imccyu + tianyicui），tianyicui 单人 42.6%。AI 杠杆让一个小团队能产出大团队的代码量，但也让单点故障的影响被放大——核心成员离开，AI 生成代码的「为什么这么写」全在 commit message 和 Agent Notes 里，没人接得住。DSH 的解法是 Agent Notes 制度化（每个非平凡变更都有设计决策记录，PR 必须附带，归档冻结），把设计 rationale 沉淀成可追溯的资产。但这是治标，治本需要降低集中度。</p>
+<h3 id="架构设计的失败模式">架构设计的失败模式<a hidden class="anchor" aria-hidden="true" href="#架构设计的失败模式">#</a></h3>
+<p><strong>「不可变内核 + 扩展点」导致 fork 源码</strong>。早期 agent 框架的核心循环写死，想改核心只能 fork。早期 LangChain 的「扩展点」是框架规定的位置，超出这个位置就要动源码。DSH 用「一切皆插件」消除特权核心——agent loop 本身是插件，组合即配置，无需 fork。这是对框架设计惯例的直接否定。</p>
+<p><strong>插件拔不下来</strong>。VSCode 87/100 扩展无法运行时卸载，是「时间可组合性」缺失的典型。没有可逆性的插件系统，agent 一旦热重载就留下孤儿 listener 和状态污染。Cordis 的可逆效应把卸载变成逆序执行 disposer 链，系统状态精确恢复。这是「可逆性作为不变量」而非「可逆性作为建议」。</p>
+<p><strong>多份状态谁来定</strong>。没有单一真相源，就会出现「模型看到的」和「日志记录的」不一致的灰色地带。DSH 的 <code>Model-visible ⟺ logged</code> 用一个强不变量消除这个特殊情况——模型看到了什么，只有一个答案：日志里有什么。</p>
+<p><strong>没有可逆性的 self-modification 是空中楼阁</strong>。agent 改一次自己就崩一次，上下文和缓存全丢。这是当前所有想做「自进化 agent」的项目最大的工程门槛。DSH 给出的解法是：先有可逆效应，再做 self-modification。顺序不能反。</p>
+<p><img alt="四条 AI 辅助开发与架构设计的失败模式 vs DSH 的解法对照矩阵" loading="lazy" src="/images/posts/2026/08/deepseek-harness-failure-patterns-matrix.png"></p>
+<p>这四条失败模式，DSH 都给出了反面教材式的解法。<strong>好的架构不是增加能力，是消除会让人失败的特殊情况</strong>。这是 Linus 说的「好品味」——消除边界情况优于增加条件判断。DSH 把这个原则推到极致：没有特权核心、没有半成品状态、没有不可逆操作、没有模型可见但未记录的内容。</p>
+<hr>
+<h2 id="八借助-agent-造出最强-agent以及-dsh-自身的风险面">八、借助 Agent 造出最强 Agent（以及 DSH 自身的风险面）<a hidden class="anchor" aria-hidden="true" href="#八借助-agent-造出最强-agent以及-dsh-自身的风险面">#</a></h2>
+<p>把 DSH 放回我过去半年写的 harness 谱系里。3 月我写过框架与 harness 的区分：framework 是构建块库，harness 是生产运行时。Weng 7 月那篇《Harness Engineering for Self-Improvement》给出了工程化路径——RSI 可以发生在模型权重、训练管道、部署系统三个层面，她选第三层。林俊旸 8 月把公司押给 Agent，走的也是「模型 + 环境」的工程路线。</p>
+<p>DSH 是这条脉络里第一个可以拆解的开源工程样本。Weng 给方向，DSH 给实现。但 DSH 给的额外礼物，是它的构建过程本身——这是我推测它<strong>主要靠 Codex 协助生成</strong>之后，最值得带走的部分。</p>
+<h3 id="构建过程抽象harness-agent-是怎么长出来的">构建过程抽象：harness agent 是怎么长出来的<a hidden class="anchor" aria-hidden="true" href="#构建过程抽象harness-agent-是怎么长出来的">#</a></h3>
+<p>前文已经用证据链论证了「DSH 主要架构由 Codex 协助生成」这一推测（首提交即建 CLAUDE.md、<code>codex/</code> 前缀分支、AI 风格的 commit message、tianyicui 单人日均 80+ commit）。把这套构建过程抽象为可复用的工程方法论，可以总结为 5 条<strong>harness 团队的工程铁律</strong>——它们与第七节「个人开发者的 4 条教训」是上下层关系（第七节回答&quot;代码为什么会腐烂&quot;，第八节回答&quot;团队怎样不腐烂&quot;）：</p>
+<ol>
+<li><strong>人定架构和数据结构，agent 填实现</strong>。6 月 13 日先落地 capability seams（三角色），6 月 14 日才写 Code Mode（算法）。Context 作为服务仓库 + append-only SessionEvent 作为唯一真相源这两个数据结构定完，后面 12000 次提交都是在往这棵树上挂插件。</li>
+<li><strong>机器强制的不变量代替人记的规则</strong>。前文已展开，此处不重复。</li>
+<li><strong>单一原语覆盖最多的场景</strong>。self-modification 用单一 <code>cordis_mount</code> 覆盖所有 effect，capability seam 用「one role alone is not a seam」堵住半成品状态。</li>
+<li><strong>设计 rationale 沉淀为可追溯资产</strong>。Agent Notes 让每个非平凡变更都有决策记录，PR 必须附带，归档冻结。12293 次提交里能追溯到每个决策的 why。</li>
+<li><strong>release 是策划出来的事件</strong>。8 月 13 日是协议切换、主版本号跳变、公开发布、论文上传、模型发布同步的协同。release 本身是一种工程。</li>
+</ol>
+<p>这套构建过程和 Weng 描述的 harness engineering 在底层是同构的——模型生成、harness 验证/压缩/执行，编排错则崩溃。<strong>我推测 Claude Code 团队和 Codex 团队大概率也是按这套方法论工作的</strong>——只是他们的开发过程不公开，DSH 是目前唯一可以近距离观察的样本。</p>
+<h3 id="dsh-自身的风险面反方声音">DSH 自身的风险面（反方声音）<a hidden class="anchor" aria-hidden="true" href="#dsh-自身的风险面反方声音">#</a></h3>
+<p>任何严肃的工程分析都不能只讲长处。DSH 自身至少面临三个尚未被充分讨论的风险：</p>
+<ul>
+<li><strong>Vendor 分叉的长期成本</strong>。DSH 把 Cordis 整个内嵌并重命名到 <code>@deepseek-ai</code> scope，加了 17 项本地修改（其中 5 项是实质性生命周期加固）。这意味着 Cordis 上游的 bug fix 和 feature，DSH 需要手动 backport。上游版本每跳一次，分叉成本就堆一层。如果 2-3 年后 Cordis 上游做了 50 项重要改动，DSH 这边的 17 项可能变成 80 项——<strong>代码债会以&quot;框架同步债&quot;的形式积累</strong>。这点在第七节没有展开。</li>
+<li><strong>「open source, closed contribution」模式的生态天花板</strong>。Koishi 能积累 4000+ 插件是因为它接受外部 PR；DSH 当前不接收 PR，社区只能通过 Discussions 和 plugin 仓库参与。这能保证早期质量，但也意味着 DSH 很难复制 Koishi 的生态密度。<strong>如果 DSH 想达到 LangChain / LangGraph 的生态规模，contribution 政策迟早要放开</strong>——但放开的时机和方式会决定 DSH 的命运。</li>
+<li><strong>Self-modification 的安全模型未成熟</strong>。<code>vm</code> 沙箱隔离的是&quot;意外的全局污染&quot;，不是&quot;权限&quot;。临时 Plugin 可以用 <code>ctx.shell</code> 以宿主权限访问真实文件系统——这意味着 self-mod 当前是**「bash 级信任，开发工具」**，不是「生产安全边界」。如果未来 DSH 把 self-mod 开放给远端用户的输入（不只是开发者本地），需要真正的进程隔离（landlock-run 已经做了部分铺垫，但仍不够）+ 权限提示 + 审计日志。<strong>当前设计笔记已承认「out of scope for v1」</strong>，但长期路径必须解决。</li>
+</ul>
+<h3 id="收束">收束<a hidden class="anchor" aria-hidden="true" href="#收束">#</a></h3>
+<p>回到开头那个问题：harness 到底长什么样？DSH 给出的答案是——<strong>一棵在启动时组合出来的插件树，每个插件都能被替换，每次替换都能被撤销，agent 能在不重启进程的前提下修改自己的运行时</strong>。这不是又一个 agent 框架，这是一条通往自进化的工程路径。</p>
+<p>而最值得记住的是它的构建方式：<strong>借助 Agent 造出最强 Agent</strong>。我推测 DSH 团队用 Codex 当 subagent 协助生成主要架构，把 Claude Code 和 Codex 作为 hooks 桥接进开发流程，自己就在跑一个 harness loop：人定不变量，agent 生成代码，机器强制规则。这件事的意义，可能比 DSH 产品本身更长远——它揭示了 agent 时代的开发范式。12293 次提交不是人类被替代的证据，是<strong>人类学会与 agent 协作建造工程级系统的早期样本</strong>。</p>
+<hr>
+<p><strong>参考</strong></p>
+<ul>
+<li>DeepSeek Harness 源码仓库（截止 2026-08-16）：<a href="https://github.com/deepseek-ai/deepseek-harness">https://github.com/deepseek-ai/deepseek-harness</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E5%BC%80%E6%BA%90/">开源</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://blog.zhangky.com/posts/2026/08/2026-08-13-pragmatik-labs-agent-bet/">
+    <span class="title">Next »</span>
+    <br>
+    <span>语用科技：林俊旸把20亿估值押给Agent，不再卷基础模型</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

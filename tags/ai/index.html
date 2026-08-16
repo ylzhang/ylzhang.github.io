@@ -191,6 +191,22 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">用Agent造Agent：DeepSeek Harness的64天考古与自进化路径
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>网上已经有不少技术博主在拆 DSH 的架构图，把它和 Claude Code、Codex CLI 并列比较，论证这套「一切皆插件」机制的优雅和影响力——这些分析有它们的道理，我也认同 DSH 的设计水准。但我想看的不是它长什么样，而是另一个更工程化的问题：这样一个被 DeepSeek 视为战略级产品的 agent harness，是怎么在 64 天里被造出来的？
+答案写在仓库的 commit 历史里。从 6 月 10 日第一条提交到 8 月 13 日公开发布，64 天，12293 次提交，日均 192 次。这不是人类节奏，是 AI 辅助开发在版本控制系统里留下的沉积物。我用 git 考古翻了一遍这个仓库，反推一件更底层的事：顶级团队是怎么用 Agent 造出最强 Agent 的。事实上，Anthropic 的 Claude Code 团队和 OpenAI 的 Codex 团队大概率也是这么干的——只是他们的开发过程不公开。这次 DSH 把整个仓库开源，给了我们一个可以近距离观察顶级 AI 团队研发范式的窗口。这是我写这篇文章的起点。
+三天前我写林俊旸把 20 亿估值押给 Agent，结论是他选了一条「模型 &#43; 环境」的工程路线。文章里我反复引用 Lilian Weng 的判断：Claude Code、Codex 之所以强，不是因为底模最强，而是 Harness 设计最成熟。那篇文章发出去之后我一直在想一个更具体的问题：harness 到底长什么样？
+8 月 13 日，DeepSeek 给了一个可以拆解的样本。他们把内部那个叫 DeepSeek Harness（dsh）的 agent 运行时开源了，MIT 协议，221 个 npm 包。和它同步发布的还有 DeepSeek-V4-Pro 正式版，以及一篇 80 多页的论文《A Programming Paradigm for Spatiotemporal Composability》。
+...</p>
+  </div>
+  <footer class="entry-footer">   ylzhang | <span title='2026-08-16 21:06:09 +0800 HKT'>August 16, 2026</span> | <span>49 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 用Agent造Agent：DeepSeek Harness的64天考古与自进化路径" href="https://blog.zhangky.com/posts/2026/08/2026-08-16-deepseek-harness-git-archaeology/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">语用科技：林俊旸把20亿估值押给Agent，不再卷基础模型
     </h2>
   </header>
@@ -294,35 +310,6 @@ The Founder’s Playbook 给出了一个实操方法：让 Claude 按集成深�
   </div>
   <footer class="entry-footer">   Lonney .Z | <span title='2026-07-26 10:00:00 +0800 HKT'>July 26, 2026</span> | <span>11 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 构建护城河：数据、知识与锁定——AI 时代的三种防御体系" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-26-build-moat/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">技术债与架构决策：为 Scale 打下地基
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 古罗马人在建造道路时，会先挖一条深沟，铺上多层砂石和碎石，最后才铺上平整的石板。他们知道：路能走多远，取决于地基有多深。今天，你的代码库就是那条路——而 CLAUDE.md 就是你的地基剖面图。
-两种技术债 不是所有技术债都一样。理解这一点，是 Scale 阶段的第一课。
-第一种是有意技术债——你在充分知情的情况下，选择用代码质量换速度。你知道这笔债的存在、它的规模、什么时候该还。这种债本质上是投资：你借了时间，计划在某个 sprint 里连本带息还清。
-第二种是无意技术债——你不知道它存在，或者知道但不知道它有多大。它来自&#34;先这样吧&#34;的临时方案、来自&#34;以后再重构&#34;的承诺、来自那些&#34;能跑就不要动&#34;的模块。这种债是高利贷，利息在暗处累积，直到某天你发现已经还不起了。
-在 AI 原型的场景里，The Founder’s Playbook 指出了一个特有的风险：agentic 技术债是一种&#34;超级无意债&#34;。
-为什么？因为 agentic coding 工具移除了所有曾经控制什么进入生产的自然瓶颈。过去，代码要经过设计审查、代码审查、测试——每一步都是制衡。现在，一个 prompt 就能让代码进生产。速度是保证了，但质量控制的责任完全落到了创始人身上。这一层责任，是 agentic 工具不会主动告诉你的。
-架构审计：看见你的地基 The Founder’s Playbook 建议在 Scale 阶段做一次完整的架构审计。
-具体操作：让 Claude Code 审计代码库，产出一份结构脆弱性清单——哪里是脆的捷径、哪里测试覆盖不足、哪里模块边界模糊。然后让 Claude 对这份清单做优先级排序：什么会拖累下次发布，什么可以并行处理，什么是当前阶段能接受的。
-这个审计的价值不只是&#34;修 bug&#34;。它强迫你看见自己的代码库——不是作为一个个文件，而是作为一个系统。我自己的经验是，大多数创始人在 Scale 阶段第一次真正&#34;看见&#34;自己的代码库，那种感觉有点像第一次站在高楼上俯瞰自己住了多年的城市：你突然意识到有些路是断头路，有些楼是没有地基的。
-从&#34;能跑&#34;到&#34;能扛&#34; Scale 阶段的技术工作不只是修代码——它是围绕代码构建基础设施。
-企业买家在签多年合同之前，要看的不是你的产品功能，而是你的组织能不能成为一个可靠的基础设施合作伙伴。他们要看产品文档、支持 playbook、SLA 承诺。签了之后，他们会要求你兑现。
-The Founder’s Playbook 给出了一个三层方案。
-第一层是文档：产品文档、支持 playbook、SLA——这些是企业采购团队期望看到的东西。AI 帮你起草和更新，但内容需要你的领域知识来校准。
-第二层是代码：用 Claude Code 加固代码库，针对企业合同要求的特定可靠性和安全标准。构建日志、监控、事件响应工具、可观测性层——让 SLA 真正可执行，而不是一句口号。
-第三层是运营：用 Claude Cowork 跑企业支持运营层。工单路由、升级工作流、文档更新（随产品变化自动触发）、续约追踪、企业客户成功依赖的报告节奏。
-三个工具协同，让一个小团队能展示出比自身规模大得多的组织成熟度。这件事看起来是技术问题，其实是组织伪装问题——你得让外界觉得你&#34;像那么回事&#34;。
-知识编码：把你的脑子变成系统 Scale 阶段最容易被低估的挑战，是创始人的制度知识。
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2026-07-21 10:00:00 +0800 HKT'>July 21, 2026</span> | <span>11 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 技术债与架构决策：为 Scale 打下地基" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-07-21-tech-debt-architecture/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

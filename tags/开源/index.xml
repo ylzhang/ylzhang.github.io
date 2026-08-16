@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>开源 on Z&#39;s Blog</title>
+    <link>https://blog.zhangky.com/tags/%E5%BC%80%E6%BA%90/</link>
+    <description>Recent content in 开源 on Z&#39;s Blog</description>
+    <image>
+      <title>Z&#39;s Blog</title>
+      <url>https://blog.zhangky.com/images/logo.svg</url>
+      <link>https://blog.zhangky.com/images/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.160.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Aug 2026 21:06:09 +0800</lastBuildDate>
+    <atom:link href="https://blog.zhangky.com/tags/%E5%BC%80%E6%BA%90/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用Agent造Agent：DeepSeek Harness的64天考古与自进化路径</title>
+      <link>https://blog.zhangky.com/posts/2026/08/2026-08-16-deepseek-harness-git-archaeology/</link>
+      <pubDate>Sun, 16 Aug 2026 21:06:09 +0800</pubDate>
+      <guid>https://blog.zhangky.com/posts/2026/08/2026-08-16-deepseek-harness-git-archaeology/</guid>
+      <description>&lt;p&gt;网上已经有不少技术博主在拆 DSH 的架构图，把它和 Claude Code、Codex CLI 并列比较，论证这套「一切皆插件」机制的优雅和影响力——这些分析有它们的道理，我也认同 DSH 的设计水准。但我想看的不是它&lt;strong&gt;长什么样&lt;/strong&gt;，而是另一个更工程化的问题：&lt;strong&gt;这样一个被 DeepSeek 视为战略级产品的 agent harness，是怎么在 64 天里被造出来的？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;答案写在仓库的 commit 历史里。从 6 月 10 日第一条提交到 8 月 13 日公开发布，64 天，12293 次提交，日均 192 次。这不是人类节奏，是 AI 辅助开发在版本控制系统里留下的沉积物。我用 git 考古翻了一遍这个仓库，反推一件更底层的事：&lt;strong&gt;顶级团队是怎么用 Agent 造出最强 Agent 的&lt;/strong&gt;。事实上，Anthropic 的 Claude Code 团队和 OpenAI 的 Codex 团队大概率也是这么干的——只是他们的开发过程不公开。这次 DSH 把整个仓库开源，给了我们一个可以近距离观察顶级 AI 团队研发范式的窗口。这是我写这篇文章的起点。&lt;/p&gt;
+&lt;p&gt;三天前我写林俊旸把 20 亿估值押给 Agent，结论是他选了一条「模型 + 环境」的工程路线。文章里我反复引用 Lilian Weng 的判断：Claude Code、Codex 之所以强，不是因为底模最强，而是 Harness 设计最成熟。那篇文章发出去之后我一直在想一个更具体的问题：harness 到底长什么样？&lt;/p&gt;
+&lt;p&gt;8 月 13 日，DeepSeek 给了一个可以拆解的样本。他们把内部那个叫 DeepSeek Harness（&lt;code&gt;dsh&lt;/code&gt;）的 agent 运行时开源了，MIT 协议，221 个 npm 包。和它同步发布的还有 DeepSeek-V4-Pro 正式版，以及一篇 80 多页的论文《A Programming Paradigm for Spatiotemporal Composability》。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

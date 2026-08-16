@@ -191,6 +191,29 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
+前置要求：高中数学水平，会基础Python。
+一、求和与连乘 1.1 求和符号 $\sum$ 读法：Sigma（西格玛），读作&#34;sum&#34;
+含义：把一堆数加起来
+公式示例： $$\sum_{i=1}^{n} x_i = x_1 &#43; x_2 &#43; \cdots &#43; x_n$$
+论文中常见形式：
+损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和） Python实现：
+import numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi &gt; 0) 1.2 连乘符号 $\prod$ 读法：Pi（派），读作&#34;product&#34;
+含义：把一堆数乘起来
+公式示例： $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$
+论文中常见形式：
+...</p>
+  </div>
+  <footer class="entry-footer">   Lonney .Z | <span title='2025-01-15 10:55:01 +0800 HKT'>January 15, 2025</span> | <span>25 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">马斯克的超级计算机：算力军备竞赛的开始？
     </h2>
   </header>

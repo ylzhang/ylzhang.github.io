@@ -201,6 +201,29 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【ChatGPT时刻04】Transformer：Attention Is All You Need
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Ashish Vaswani、Noam Shazeer、Niki Parmar、Jakob Uszkoreit、Llion Jones、Aidan N. Gomez、Łukasz Kaiser和Illia Polosukhin于2017年发表的里程碑论文《Attention Is All You Need》，该论文提出了Transformer架构，完全基于注意力机制，摒弃了循环和卷积结构，在机器翻译任务上取得了最先进的性能，同时训练速度更快、可并行性更强。这一突破不仅彻底改变了序列建模的范式，更为后续GPT、BERT等大语言模型奠定了架构基础，开启了现代AI的新时代。
+“注意力即一切。&#34;——这是Transformer论文的核心宣言。在Transformer之前，序列建模主要依赖RNN和CNN。RNN虽然能够处理序列，但难以并行化；CNN虽然可以并行化，但难以捕捉长距离依赖。Transformer通过完全基于注意力机制的架构，同时解决了这两个问题，实现了并行化和长距离依赖的完美结合。
+Transformer的核心创新是自注意力机制（Self-Attention）：每个位置都可以直接关注序列中的所有位置，无需通过循环或卷积逐步传播信息。这种设计使得Transformer能够：
+并行计算：所有位置可以同时计算，训练速度大幅提升 长距离依赖：直接建模任意距离的依赖关系 可解释性：注意力权重提供了模型决策的可解释性 在当今大语言模型时代，Transformer已经成为AI的基础架构：GPT、BERT、T5、PaLM等所有大模型都基于Transformer。理解Transformer，就是理解现代AI的基石。
+本文将从问题根源、核心机制、解决方案、实践评估四个维度深度解读Transformer，包含完整的数学推导、架构分析和实验评估，并在文末提供阅读研究论文的时间线计划。
+序列建模的传统局限 问题一：RNN的序列化计算瓶颈 传统RNN需要按顺序处理序列，无法并行化：
+序列化计算的局限：
+每个时间步依赖前一时间步的输出 计算必须串行进行，无法并行 训练时间长，难以处理大规模数据 数学表述：对于序列 $x_1, x_2, \ldots, x_n$，RNN的计算为： $$ h_t = f(h_{t-1}, x_t) $$ 其中 $h_t$ 的计算必须等待 $h_{t-1}$ 完成，无法并行。
+问题二：CNN的感受野限制 CNN虽然可以并行化，但感受野受限：
+感受野的局限：
+需要多层卷积才能扩大感受野 感受野的增长是线性的，需要 $O(n)$ 层才能覆盖长度为 $n$ 的序列 难以捕捉长距离依赖 数学分析：对于 $k \times k$ 卷积核，经过 $L$ 层后，感受野为 $L(k-1) &#43; 1$。要覆盖长度为 $n$ 的序列，需要 $L \geq \frac{n-1}{k-1}$ 层。
+...</p>
+  </div>
+  <footer class="entry-footer">   Lonney .Z | <span title='2025-09-21 21:40:41 +0800 HKT'>September 21, 2025</span> | <span>14 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【ChatGPT时刻04】Transformer：Attention Is All You Need" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-09-21-chatgpt-04-transformer/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">AI制造：特斯拉在造未来，比亚迪在改造过去
     </h2>
   </header>
@@ -304,29 +327,6 @@ $$ \frac{\partial \mathcal{L}}{\partial W} = \sum_{t=1}^{T} \frac{\partial \math
   </div>
   <footer class="entry-footer">   Lonney .Z | <span title='2025-08-18 21:00:20 +0800 HKT'>August 18, 2025</span> | <span>16 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 【ChatGPT时刻02】Seq2Seq：Ilya开创的序列到序列学习框架" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-18-chatgpt-02-seq2seq/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Tomas Mikolov等人于2013年发表的开创性论文《Efficient Estimation of Word Representations in Vector Space》，该论文提出了Word2Vec模型，首次实现了高效、大规模的词向量学习，将词语表示从稀疏的one-hot编码转变为稠密的分布式向量表示。Word2Vec不仅是自然语言处理的里程碑，更是从传统NLP到现代大语言模型演进的起点——它证明了语义可以通过向量空间中的几何关系来表达，为后续的Seq2Seq、Transformer乃至GPT系列奠定了基础。
-语言理解的根本挑战 问题一：词语表示的离散性困境 在传统NLP中，词语通常用one-hot编码表示。对于一个包含 $V$ 个词的词表，每个词被表示为一个 $V$ 维向量，只有对应位置为1，其余为0。
-这种表示方法存在三个根本问题：
-维度灾难：词表规模通常在万到百万级别，导致向量维度极高 稀疏性：每个向量只有一个非零元素，绝大多数信息为0 语义缺失：任意两个词的向量正交，无法表达语义相似性 例如，“king&#34;和&#34;queen&#34;虽然语义相近，但在one-hot表示下：
-$$ \text{sim}(\text{king}, \text{queen}) = \text{king}^\top \cdot \text{queen} = 0 $$
-向量的内积为0，完全无法捕捉它们的语义关联。
-问题二：分布式假设与向量空间 语言学中的分布式假设（Distributional Hypothesis）指出：“一个词的含义由其上下文决定”（You shall know a word by the company it keeps）。这一假设为词向量学习提供了理论基础。
-如果我们能够将词映射到一个连续的向量空间，使得语义相似的词在空间中距离相近，那么：
-词之间的语义关系可以通过向量运算表达 模型可以泛化到未见过的词组合 下游任务可以利用预学习的语义知识 问题是：如何高效地学习这样的词向量？
-问题三：计算效率的瓶颈 在Word2Vec之前，已有一些词向量学习方法（如神经网络语言模型NNLM），但它们面临严重的计算瓶颈：
-$$ \text{时间复杂度} = O(V \times H &#43; H \times H) \times E \times T $$
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2025-08-01 21:59:17 +0800 HKT'>August 1, 2025</span> | <span>17 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【ChatGPT时刻01】Word2Vec：让机器理解词语的语义革命" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-08-01-chatgpt-01-word2vec/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

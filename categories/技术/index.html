@@ -191,6 +191,22 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">用Agent造Agent：DeepSeek Harness的64天考古与自进化路径
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>网上已经有不少技术博主在拆 DSH 的架构图，把它和 Claude Code、Codex CLI 并列比较，论证这套「一切皆插件」机制的优雅和影响力——这些分析有它们的道理，我也认同 DSH 的设计水准。但我想看的不是它长什么样，而是另一个更工程化的问题：这样一个被 DeepSeek 视为战略级产品的 agent harness，是怎么在 64 天里被造出来的？
+答案写在仓库的 commit 历史里。从 6 月 10 日第一条提交到 8 月 13 日公开发布，64 天，12293 次提交，日均 192 次。这不是人类节奏，是 AI 辅助开发在版本控制系统里留下的沉积物。我用 git 考古翻了一遍这个仓库，反推一件更底层的事：顶级团队是怎么用 Agent 造出最强 Agent 的。事实上，Anthropic 的 Claude Code 团队和 OpenAI 的 Codex 团队大概率也是这么干的——只是他们的开发过程不公开。这次 DSH 把整个仓库开源，给了我们一个可以近距离观察顶级 AI 团队研发范式的窗口。这是我写这篇文章的起点。
+三天前我写林俊旸把 20 亿估值押给 Agent，结论是他选了一条「模型 &#43; 环境」的工程路线。文章里我反复引用 Lilian Weng 的判断：Claude Code、Codex 之所以强，不是因为底模最强，而是 Harness 设计最成熟。那篇文章发出去之后我一直在想一个更具体的问题：harness 到底长什么样？
+8 月 13 日，DeepSeek 给了一个可以拆解的样本。他们把内部那个叫 DeepSeek Harness（dsh）的 agent 运行时开源了，MIT 协议，221 个 npm 包。和它同步发布的还有 DeepSeek-V4-Pro 正式版，以及一篇 80 多页的论文《A Programming Paradigm for Spatiotemporal Composability》。
+...</p>
+  </div>
+  <footer class="entry-footer">   ylzhang | <span title='2026-08-16 21:06:09 +0800 HKT'>August 16, 2026</span> | <span>49 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 用Agent造Agent：DeepSeek Harness的64天考古与自进化路径" href="https://blog.zhangky.com/posts/2026/08/2026-08-16-deepseek-harness-git-archaeology/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">大模型的开源，到底开源了什么
     </h2>
   </header>
@@ -290,29 +306,6 @@ def cross_entropy_loss(probs, label): &#34;&#34;&#34; probs: softmax输出的概
   </div>
   <footer class="entry-footer">   Lonney .Z | <span title='2025-01-16 10:27:39 +0800 HKT'>January 16, 2025</span> | <span>27 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 【AI数学】30分钟拆解AI核心公式-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-02-core-formulas/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>读AI论文最大的障碍不是英语，是数学符号。看到 $\sum$、$\nabla$、$\mathbb{E}$ 就头大？本文用符号→读法→含义→代码的模式，30分钟帮你扫清障碍。
-前置要求：高中数学水平，会基础Python。
-一、求和与连乘 1.1 求和符号 $\sum$ 读法：Sigma（西格玛），读作&#34;sum&#34;
-含义：把一堆数加起来
-公式示例： $$\sum_{i=1}^{n} x_i = x_1 &#43; x_2 &#43; \cdots &#43; x_n$$
-论文中常见形式：
-损失函数：$L = \sum_{i=1}^{N} \ell(y_i, \hat{y}_i)$（所有样本的损失加起来） 注意力权重：$c = \sum_{i=1}^{T} \alpha_i h_i$（加权求和） Python实现：
-import numpy as np # 方法1：直接求和 x = [1, 2, 3, 4, 5] result = sum(x) # 15 # 方法2：NumPy x = np.array([1, 2, 3, 4, 5]) result = np.sum(x) # 15 # 方法3：带条件的求和（论文常见） # 例如：只对正数求和 result = sum(xi for xi in x if xi &gt; 0) 1.2 连乘符号 $\prod$ 读法：Pi（派），读作&#34;product&#34;
-含义：把一堆数乘起来
-公式示例： $$\prod_{i=1}^{n} x_i = x_1 \times x_2 \times \cdots \times x_n$$
-论文中常见形式：
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2025-01-15 10:55:01 +0800 HKT'>January 15, 2025</span> | <span>25 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【AI数学】30分钟搞懂AI论文里的数学符号-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-01-symbols-cheatsheet/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

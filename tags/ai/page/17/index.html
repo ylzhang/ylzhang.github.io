@@ -191,6 +191,38 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">AI安全：美国在写手册，中国在写代码
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>最近参与了一次AI安全演练，场景是模拟黑客攻击一个AI医疗诊断系统。美国团队花了3小时用NIST框架做风险评估，列出17个潜在漏洞，写了50页的安全报告。中国团队直接调用AI防御系统，15分钟就完成了漏洞修复，系统自动识别并封堵了攻击。
+我坐在会议室里，看着两边的屏幕，脑子里闪过一个画面：美国团队像在写一本安全手册，系统但繁琐；中国团队像在写代码，高效但可能不够系统。
+两种完全不同的安全思路，让我思考：AI安全的本质到底是什么？
+从策略看：框架 vs 系统的策略差异
+表面上看，这是&#34;框架 vs 系统&#34;的技术路线分歧。
+美国的NIST框架注重&#34;风险识别与管理&#34;，通过标准化流程帮助企业识别AI系统漏洞。他们花了3小时列出17个潜在漏洞，写了50页的安全报告。这是典型的&#34;手册式&#34;安全：系统但繁琐。
+中国的策略是&#34;主动防御与数据保护&#34;，从源头防范安全风险。他们直接调用AI防御系统，15分钟就完成了漏洞修复。这是典型的&#34;代码式&#34;安全：高效但可能不够系统。
+上周和安全专家交流，他说：“美国的框架像一本安全手册，系统但繁琐；中国的系统像自动防御机器人，高效但灵活性不足。“两种思路，两种未来。
+要害在这里：这不是技术路线分歧，是安全理念的差异。一个瞄准&#34;系统化”，一个瞄准&#34;自动化”。
+从矛盾看：安全与效率的两难
+NIST框架提供了系统的做法，适合长期安全规划，但在快速变化的AI领域，可能跟不上漏洞出现的速度。演练中，美国团队花了3小时才识别出17个潜在漏洞，而在这3小时里，AI系统可能已经被攻击了。
+中国的主动防御系统能快速响应威胁，但缺乏对复杂风险的系统分析。演练中，中国团队15分钟就完成了漏洞修复，但可能遗漏了一些深层次的安全隐患。
+AI安全需要兼顾预防和应对，平衡标准化与灵活性。但问题是：在时间紧迫的情况下，应该优先哪个？
+要害在这里：安全与效率是两难。过于系统会慢，过于快速会漏。关键是如何在两者之间找到平衡点。
+未来趋势：两种模式的融合
+2025年，我判断会看到两种模式的融合：美国会加强主动防御能力（比如推出AI自动防御系统），中国会完善安全框架体系（比如建立NIST类似的安全标准）。
+毕竟，在AI时代，安全不是阻碍发展的障碍，而是发展的基础。没有安全，就没有信任；没有信任，就没有应用。
+AI安全的本质，从来不是技术的比拼，而是平衡创新与风险的艺术。
+在这个AI飞速发展的时代，没有绝对的安全，只有动态的平衡。美国在写手册，中国在写代码——但最终，我们需要的是既有手册，又有代码的安全体系。
+2025年，我期待看到美国的自动化，也期待看到中国的系统化。
+</p>
+  </div>
+  <footer class="entry-footer">   Lonney .Z | <span title='2025-06-25 16:52:05 +0800 HKT'>June 25, 2025</span> | <span>5 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to AI安全：美国在写手册，中国在写代码" href="https://blog.zhangky.com/posts/2025/2025-06-ai-cybersecurity/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">AI教育：美国在定制课程，中国在复制课堂
     </h2>
   </header>
@@ -312,29 +344,6 @@ NVIDIA赢了性能战，但可能输了未来。因为未来的AI应用，不是
   </div>
   <footer class="entry-footer">   Lonney .Z | <span title='2025-02-20 14:54:08 +0800 HKT'>February 20, 2025</span> | <span>6 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to H200发布：NVIDIA赢了性能战，但可能输了未来" href="https://blog.zhangky.com/posts/2025/2025-02-ai-chip-war/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【AI数学】30分钟拆解AI核心公式-复习笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>上一篇我们搞定了符号，这一篇直接拆解AI论文中出现频率最高的6个公式。每个公式都是：问题→公式→拆解→代码。
-前置要求：读完上一篇符号速查手册。
-一、Softmax与交叉熵损失 问题：如何把模型输出变成概率？ 神经网络输出的是一堆数字（logits），可能是负数、可能很大。我们需要把它们变成概率分布（非负、和为1）。
-公式 $$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_{j=1}^{K} e^{x_j}}$$
-拆解 $e^{x_i}$：指数函数，把任意数变成正数 $\sum_{j=1}^{K} e^{x_j}$：所有指数的和，用于归一化 除法：确保结果和为1 为什么用指数？ 因为指数函数会放大差异——大的更大，小的更小，让模型更&#34;自信&#34;。
-代码实现 import numpy as np def softmax(x): &#34;&#34;&#34; 输入: x, shape (K,) 或 (batch, K) 输出: 概率分布，shape同输入 &#34;&#34;&#34; # 减去最大值防止数值溢出（数学上等价） exp_x = np.exp(x - np.max(x, axis=-1, keepdims=True)) return exp_x / np.sum(exp_x, axis=-1, keepdims=True) # 示例 logits = np.array([2.0, 1.0, 0.1]) probs = softmax(logits) print(probs) # [0.659, 0.242, 0.099] print(probs.sum()) # 1.0 交叉熵损失 有了概率，如何衡量预测和真实标签的差距？
-$$L = -\sum_{i=1}^{K} y_i \log(\hat{y}_i)$$
-其中 $y_i$ 是真实标签（one-hot），$\hat{y}_i$ 是预测概率。
-简化形式（单标签分类）： $$L = -\log(\hat{y}_{correct})$$
-就是正确类别的概率取负对数。概率越高，损失越小。
-def cross_entropy_loss(probs, label): &#34;&#34;&#34; probs: softmax输出的概率, shape (K,) label: 正确类别的索引, int &#34;&#34;&#34; return -np.log(probs[label] &#43; 1e-10) # 加小数防止log(0) # 示例 probs = np.array([0.7, 0.2, 0.1]) loss = cross_entropy_loss(probs, label=0) # 正确类别是0 print(loss) # 0.357（概率0.7对应的损失） 二、注意力机制（Attention） 问题：如何让模型&#34;关注&#34;输入的不同部分？ 翻译&#34;我爱北京&#34;时，生成&#34;Beijing&#34;应该主要关注&#34;北京&#34;这个词，而不是平均关注所有词。
-...</p>
-  </div>
-  <footer class="entry-footer">   Lonney .Z | <span title='2025-01-16 10:27:39 +0800 HKT'>January 16, 2025</span> | <span>27 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【AI数学】30分钟拆解AI核心公式-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-02-core-formulas/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
