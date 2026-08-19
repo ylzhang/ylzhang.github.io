@@ -235,16 +235,15 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>前一篇文章我做了 DeepSeek Harness（DSH）的 git 考古，拆解了它 64 天 12293 次提交背后的构建哲学。那篇是「DSH 是什么、怎么造的」。这篇是「DSH 的经验怎么用」——把那 64 天里被验证过的工程判断，提炼成普通团队可以落地的 AI 辅助开发实践。
+    <p>前一篇文章我做了 DeepSeek Harness（DSH）的 git 考古，拆解了它 64 天 12293 次提交背后的构建哲学——《用Agent造Agent：DeepSeek Harness的64天考古与自进化路径》。那篇是「DSH 是什么、怎么造的」。这篇是「DSH 的经验怎么用」——把那 64 天里被验证过的工程判断，提炼成普通团队可以落地的 AI 辅助开发实践。
 先说清楚为什么值得这么做。DSH 不是又一个「我们用了 AI 写代码所以快」的故事。如果只是这个，Copilot 上市五年了，行业早该被颠覆。DSH 真正反常理的是：一个不到 20 人的团队，用 64 天长出一个 221 包的 agent 运行时，工程严谨度却高得不像 AI 写的——100% 测试覆盖率门、运行时断言强制不变量、设计决策可追溯到每个 commit。这不是「AI 写代码快」，是「harness 思维组织 AI 开发」。
-这件事可以推广。下面是方法论。
-一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」 市场上有四个比较成熟的 AI 辅助开发流派，先把它们摆清楚：
+这件事，恰恰是所有正在探索AI辅助研发（甚至是AI主导研发）的工程团队、乃至技术Leader或负责人们日日琢磨的核心命题——如何让AI提速的同时，守住工程严谨的底线；如何把AI从「脱缰的效率工具」驯化为「可控的研发协作者」。正因如此，这套从DSH 64天实战中淬炼出的方法论，绝非空泛的理论，而是值得每一支团队深思、拆解并落地的可行路径。 一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」 市场上有四个比较成熟的 AI 辅助开发流派，先把它们摆清楚：
 流派一：Copilot/Cursor 模式——AI 当打字员。人主导写代码，AI 补全和局部重构。这是目前最普及的模式，门槛低，但天花板也低——AI 只能在人画的圈子里做事，产出节奏受限于人的审查速度。
 流派二：Claude Code/Codex 单 agent 模式——AI 当执行者。人给一个任务描述，AI 执行多步任务（改多个文件、跑测试、修 bug）。这是 Cursor Composer、Claude Code 的典型用法。天花板比流派一高，但问题是 agent 会自己跑偏，没有不变量挡着，跑几次就积累一堆边界情况。
 流派三：Aider 模式——git commit 驱动。AI pair programmer，每次改动自动 commit，人通过 git history 审查。这个模式把 git 当成 AI 产出的审计层，是个好思路，但它只管「改了什么」，不管「为什么这么改」和「规则有没有被破坏」。
 ...</p>
   </div>
-  <footer class="entry-footer">   Y | <span title='2026-08-17 06:31:20 +0800 HKT'>August 17, 2026</span> | <span>36 min</span> | <span>Shanghai</span></footer>
+  <footer class="entry-footer">   Y | <span title='2026-08-17 06:31:20 +0800 HKT'>August 17, 2026</span> | <span>37 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to Harness的最佳实践：DSH的64天启示录" href="https://blog.zhangky.com/posts/2026/08/2026-08-17-harness-best-practices-dsh-revelations/"></a>
 </article>
 

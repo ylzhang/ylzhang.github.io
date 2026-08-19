@@ -18,10 +18,9 @@
       <link>https://blog.zhangky.com/posts/2026/08/2026-08-17-harness-best-practices-dsh-revelations/</link>
       <pubDate>Mon, 17 Aug 2026 06:31:20 +0800</pubDate>
       <guid>https://blog.zhangky.com/posts/2026/08/2026-08-17-harness-best-practices-dsh-revelations/</guid>
-      <description>&lt;p&gt;前一篇文章我做了 DeepSeek Harness（DSH）的 git 考古，拆解了它 64 天 12293 次提交背后的构建哲学。那篇是「DSH 是什么、怎么造的」。这篇是「DSH 的经验怎么用」——把那 64 天里被验证过的工程判断，提炼成普通团队可以落地的 AI 辅助开发实践。&lt;/p&gt;
+      <description>&lt;p&gt;前一篇文章我做了 DeepSeek Harness（DSH）的 git 考古，拆解了它 64 天 12293 次提交背后的构建哲学——&lt;a href=&#34;https://blog.zhangky.com/posts/deepseek-harness-archaeology/&#34;&gt;《用Agent造Agent：DeepSeek Harness的64天考古与自进化路径》&lt;/a&gt;。那篇是「DSH 是什么、怎么造的」。这篇是「DSH 的经验怎么用」——把那 64 天里被验证过的工程判断，提炼成普通团队可以落地的 AI 辅助开发实践。&lt;/p&gt;
 &lt;p&gt;先说清楚为什么值得这么做。DSH 不是又一个「我们用了 AI 写代码所以快」的故事。如果只是这个，Copilot 上市五年了，行业早该被颠覆。DSH 真正反常理的是：一个不到 20 人的团队，用 64 天长出一个 221 包的 agent 运行时，工程严谨度却高得不像 AI 写的——100% 测试覆盖率门、运行时断言强制不变量、设计决策可追溯到每个 commit。这不是「AI 写代码快」，是「harness 思维组织 AI 开发」。&lt;/p&gt;
-&lt;p&gt;这件事可以推广。下面是方法论。&lt;/p&gt;
-&lt;hr&gt;
+&lt;h2 id=&#34;这件事恰恰是所有正在探索ai辅助研发甚至是ai主导研发的工程团队乃至技术leader或负责人们日日琢磨的核心命题如何让ai提速的同时守住工程严谨的底线如何把ai从脱缰的效率工具驯化为可控的研发协作者正因如此这套从dsh-64天实战中淬炼出的方法论绝非空泛的理论而是值得每一支团队深思拆解并落地的可行路径&#34;&gt;这件事，恰恰是所有正在探索AI辅助研发（甚至是AI主导研发）的工程团队、乃至技术Leader或负责人们日日琢磨的核心命题——如何让AI提速的同时，守住工程严谨的底线；如何把AI从「脱缰的效率工具」驯化为「可控的研发协作者」。正因如此，这套从DSH 64天实战中淬炼出的方法论，绝非空泛的理论，而是值得每一支团队深思、拆解并落地的可行路径。&lt;/h2&gt;
 &lt;h2 id=&#34;一认知转变从用-ai-写代码到用-harness-组织-ai-开发&#34;&gt;一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」&lt;/h2&gt;
 &lt;p&gt;市场上有四个比较成熟的 AI 辅助开发流派，先把它们摆清楚：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;流派一：Copilot/Cursor 模式——AI 当打字员&lt;/strong&gt;。人主导写代码，AI 补全和局部重构。这是目前最普及的模式，门槛低，但天花板也低——AI 只能在人画的圈子里做事，产出节奏受限于人的审查速度。&lt;/p&gt;
