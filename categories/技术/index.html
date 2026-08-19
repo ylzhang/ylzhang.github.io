@@ -191,6 +191,25 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Harness的最佳实践：DSH的64天启示录
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前一篇文章我做了 DeepSeek Harness（DSH）的 git 考古，拆解了它 64 天 12293 次提交背后的构建哲学。那篇是「DSH 是什么、怎么造的」。这篇是「DSH 的经验怎么用」——把那 64 天里被验证过的工程判断，提炼成普通团队可以落地的 AI 辅助开发实践。
+先说清楚为什么值得这么做。DSH 不是又一个「我们用了 AI 写代码所以快」的故事。如果只是这个，Copilot 上市五年了，行业早该被颠覆。DSH 真正反常理的是：一个不到 20 人的团队，用 64 天长出一个 221 包的 agent 运行时，工程严谨度却高得不像 AI 写的——100% 测试覆盖率门、运行时断言强制不变量、设计决策可追溯到每个 commit。这不是「AI 写代码快」，是「harness 思维组织 AI 开发」。
+这件事可以推广。下面是方法论。
+一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」 市场上有四个比较成熟的 AI 辅助开发流派，先把它们摆清楚：
+流派一：Copilot/Cursor 模式——AI 当打字员。人主导写代码，AI 补全和局部重构。这是目前最普及的模式，门槛低，但天花板也低——AI 只能在人画的圈子里做事，产出节奏受限于人的审查速度。
+流派二：Claude Code/Codex 单 agent 模式——AI 当执行者。人给一个任务描述，AI 执行多步任务（改多个文件、跑测试、修 bug）。这是 Cursor Composer、Claude Code 的典型用法。天花板比流派一高，但问题是 agent 会自己跑偏，没有不变量挡着，跑几次就积累一堆边界情况。
+流派三：Aider 模式——git commit 驱动。AI pair programmer，每次改动自动 commit，人通过 git history 审查。这个模式把 git 当成 AI 产出的审计层，是个好思路，但它只管「改了什么」，不管「为什么这么改」和「规则有没有被破坏」。
+...</p>
+  </div>
+  <footer class="entry-footer">   Y | <span title='2026-08-17 06:31:20 +0800 HKT'>August 17, 2026</span> | <span>36 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to Harness的最佳实践：DSH的64天启示录" href="https://blog.zhangky.com/posts/2026/08/2026-08-17-harness-best-practices-dsh-revelations/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">用Agent造Agent：DeepSeek Harness的64天考古与自进化路径
     </h2>
   </header>
@@ -283,29 +302,6 @@ NVIDIA赢了性能战，但可能输了未来。因为未来的AI应用，不是
   </div>
   <footer class="entry-footer">   y9 .Z | <span title='2025-02-20 14:54:08 +0800 HKT'>February 20, 2025</span> | <span>6 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to H200发布：NVIDIA赢了性能战，但可能输了未来" href="https://blog.zhangky.com/posts/2025/2025-02-ai-chip-war/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【AI数学】30分钟拆解AI核心公式-复习笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>上一篇我们搞定了符号，这一篇直接拆解AI论文中出现频率最高的6个公式。每个公式都是：问题→公式→拆解→代码。
-前置要求：读完上一篇符号速查手册。
-一、Softmax与交叉熵损失 问题：如何把模型输出变成概率？ 神经网络输出的是一堆数字（logits），可能是负数、可能很大。我们需要把它们变成概率分布（非负、和为1）。
-公式 $$\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_{j=1}^{K} e^{x_j}}$$
-拆解 $e^{x_i}$：指数函数，把任意数变成正数 $\sum_{j=1}^{K} e^{x_j}$：所有指数的和，用于归一化 除法：确保结果和为1 为什么用指数？ 因为指数函数会放大差异——大的更大，小的更小，让模型更&#34;自信&#34;。
-代码实现 import numpy as np def softmax(x): &#34;&#34;&#34; 输入: x, shape (K,) 或 (batch, K) 输出: 概率分布，shape同输入 &#34;&#34;&#34; # 减去最大值防止数值溢出（数学上等价） exp_x = np.exp(x - np.max(x, axis=-1, keepdims=True)) return exp_x / np.sum(exp_x, axis=-1, keepdims=True) # 示例 logits = np.array([2.0, 1.0, 0.1]) probs = softmax(logits) print(probs) # [0.659, 0.242, 0.099] print(probs.sum()) # 1.0 交叉熵损失 有了概率，如何衡量预测和真实标签的差距？
-$$L = -\sum_{i=1}^{K} y_i \log(\hat{y}_i)$$
-其中 $y_i$ 是真实标签（one-hot），$\hat{y}_i$ 是预测概率。
-简化形式（单标签分类）： $$L = -\log(\hat{y}_{correct})$$
-就是正确类别的概率取负对数。概率越高，损失越小。
-def cross_entropy_loss(probs, label): &#34;&#34;&#34; probs: softmax输出的概率, shape (K,) label: 正确类别的索引, int &#34;&#34;&#34; return -np.log(probs[label] &#43; 1e-10) # 加小数防止log(0) # 示例 probs = np.array([0.7, 0.2, 0.1]) loss = cross_entropy_loss(probs, label=0) # 正确类别是0 print(loss) # 0.357（概率0.7对应的损失） 二、注意力机制（Attention） 问题：如何让模型&#34;关注&#34;输入的不同部分？ 翻译&#34;我爱北京&#34;时，生成&#34;Beijing&#34;应该主要关注&#34;北京&#34;这个词，而不是平均关注所有词。
-...</p>
-  </div>
-  <footer class="entry-footer">   y9 .Z | <span title='2025-01-16 10:27:39 +0800 HKT'>January 16, 2025</span> | <span>27 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【AI数学】30分钟拆解AI核心公式-复习笔记" href="https://blog.zhangky.com/posts/2025/math-learn/2025-math-02-core-formulas/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

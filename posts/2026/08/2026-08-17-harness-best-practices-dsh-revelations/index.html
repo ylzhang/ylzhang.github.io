@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Harness的最佳实践：DSH的64天启示录 | Z&#39;s Blog</title>
+<meta name="keywords" content="AI, 开源">
+<meta name="description" content="前一篇文章我做了 DeepSeek Harness（DSH）的 git 考古，拆解了它 64 天 12293 次提交背后的构建哲学。那篇是「DSH 是什么、怎么造的」。这篇是「DSH 的经验怎么用」——把那 64 天里被验证过的工程判断，提炼成普通团队可以落地的 AI 辅助开发实践。
+先说清楚为什么值得这么做。DSH 不是又一个「我们用了 AI 写代码所以快」的故事。如果只是这个，Copilot 上市五年了，行业早该被颠覆。DSH 真正反常理的是：一个不到 20 人的团队，用 64 天长出一个 221 包的 agent 运行时，工程严谨度却高得不像 AI 写的——100% 测试覆盖率门、运行时断言强制不变量、设计决策可追溯到每个 commit。这不是「AI 写代码快」，是「harness 思维组织 AI 开发」。
+这件事可以推广。下面是方法论。
+
+一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」
+市场上有四个比较成熟的 AI 辅助开发流派，先把它们摆清楚：
+流派一：Copilot/Cursor 模式——AI 当打字员。人主导写代码，AI 补全和局部重构。这是目前最普及的模式，门槛低，但天花板也低——AI 只能在人画的圈子里做事，产出节奏受限于人的审查速度。
+流派二：Claude Code/Codex 单 agent 模式——AI 当执行者。人给一个任务描述，AI 执行多步任务（改多个文件、跑测试、修 bug）。这是 Cursor Composer、Claude Code 的典型用法。天花板比流派一高，但问题是 agent 会自己跑偏，没有不变量挡着，跑几次就积累一堆边界情况。
+流派三：Aider 模式——git commit 驱动。AI pair programmer，每次改动自动 commit，人通过 git history 审查。这个模式把 git 当成 AI 产出的审计层，是个好思路，但它只管「改了什么」，不管「为什么这么改」和「规则有没有被破坏」。">
+<meta name="author" content="Y">
+<link rel="canonical" href="https://blog.zhangky.com/posts/2026/08/2026-08-17-harness-best-practices-dsh-revelations/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0eb99eb1e5a9cfa9723a7e83a983545169130f14902c8cc0c294aadb9e4129ab.css" integrity="sha256-DrmeseWpz6lyOn6DqYNUUWkTDxSQLIzAwpSq255BKas=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="apple-touch-icon" href="https://blog.zhangky.com/images/logo.svg">
+<link rel="mask-icon" href="https://blog.zhangky.com/images/logo.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.zhangky.com/posts/2026/08/2026-08-17-harness-best-practices-dsh-revelations/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<style>
+  .post-content p { text-indent: 2em; }
+  .post-content > p:first-of-type { text-indent: 0; }
+  .post-content h1, .post-content h2, .post-content h3, .post-content h4 { text-indent: 0; }
+  .post-content blockquote,
+  .post-content blockquote p,
+  .post-content pre, .post-content code, .post-content .highlight, .post-content div.highlight,
+  .post-content figure, .post-content figure p, .post-content img,
+  .post-content table, .post-content ul, .post-content ol, .post-content li,
+  .post-content .footnotes, .post-content .footnotes p,
+  .post-content section.footnotes p { text-indent: 0; }
+</style>
+<meta property="og:url" content="https://blog.zhangky.com/posts/2026/08/2026-08-17-harness-best-practices-dsh-revelations/">
+  <meta property="og:site_name" content="Z&#39;s Blog">
+  <meta property="og:title" content="Harness的最佳实践：DSH的64天启示录">
+  <meta property="og:description" content="前一篇文章我做了 DeepSeek Harness（DSH）的 git 考古，拆解了它 64 天 12293 次提交背后的构建哲学。那篇是「DSH 是什么、怎么造的」。这篇是「DSH 的经验怎么用」——把那 64 天里被验证过的工程判断，提炼成普通团队可以落地的 AI 辅助开发实践。
+先说清楚为什么值得这么做。DSH 不是又一个「我们用了 AI 写代码所以快」的故事。如果只是这个，Copilot 上市五年了，行业早该被颠覆。DSH 真正反常理的是：一个不到 20 人的团队，用 64 天长出一个 221 包的 agent 运行时，工程严谨度却高得不像 AI 写的——100% 测试覆盖率门、运行时断言强制不变量、设计决策可追溯到每个 commit。这不是「AI 写代码快」，是「harness 思维组织 AI 开发」。
+这件事可以推广。下面是方法论。
+一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」 市场上有四个比较成熟的 AI 辅助开发流派，先把它们摆清楚：
+流派一：Copilot/Cursor 模式——AI 当打字员。人主导写代码，AI 补全和局部重构。这是目前最普及的模式，门槛低，但天花板也低——AI 只能在人画的圈子里做事，产出节奏受限于人的审查速度。
+流派二：Claude Code/Codex 单 agent 模式——AI 当执行者。人给一个任务描述，AI 执行多步任务（改多个文件、跑测试、修 bug）。这是 Cursor Composer、Claude Code 的典型用法。天花板比流派一高，但问题是 agent 会自己跑偏，没有不变量挡着，跑几次就积累一堆边界情况。
+流派三：Aider 模式——git commit 驱动。AI pair programmer，每次改动自动 commit，人通过 git history 审查。这个模式把 git 当成 AI 产出的审计层，是个好思路，但它只管「改了什么」，不管「为什么这么改」和「规则有没有被破坏」。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-08-17T06:31:20+08:00">
+    <meta property="article:modified_time" content="2026-08-17T06:31:20+08:00">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="开源">
+      <meta property="og:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.zhangky.com/images/logo.svg">
+<meta name="twitter:title" content="Harness的最佳实践：DSH的64天启示录">
+<meta name="twitter:description" content="前一篇文章我做了 DeepSeek Harness（DSH）的 git 考古，拆解了它 64 天 12293 次提交背后的构建哲学。那篇是「DSH 是什么、怎么造的」。这篇是「DSH 的经验怎么用」——把那 64 天里被验证过的工程判断，提炼成普通团队可以落地的 AI 辅助开发实践。
+先说清楚为什么值得这么做。DSH 不是又一个「我们用了 AI 写代码所以快」的故事。如果只是这个，Copilot 上市五年了，行业早该被颠覆。DSH 真正反常理的是：一个不到 20 人的团队，用 64 天长出一个 221 包的 agent 运行时，工程严谨度却高得不像 AI 写的——100% 测试覆盖率门、运行时断言强制不变量、设计决策可追溯到每个 commit。这不是「AI 写代码快」，是「harness 思维组织 AI 开发」。
+这件事可以推广。下面是方法论。
+
+一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」
+市场上有四个比较成熟的 AI 辅助开发流派，先把它们摆清楚：
+流派一：Copilot/Cursor 模式——AI 当打字员。人主导写代码，AI 补全和局部重构。这是目前最普及的模式，门槛低，但天花板也低——AI 只能在人画的圈子里做事，产出节奏受限于人的审查速度。
+流派二：Claude Code/Codex 单 agent 模式——AI 当执行者。人给一个任务描述，AI 执行多步任务（改多个文件、跑测试、修 bug）。这是 Cursor Composer、Claude Code 的典型用法。天花板比流派一高，但问题是 agent 会自己跑偏，没有不变量挡着，跑几次就积累一堆边界情况。
+流派三：Aider 模式——git commit 驱动。AI pair programmer，每次改动自动 commit，人通过 git history 审查。这个模式把 git 当成 AI 产出的审计层，是个好思路，但它只管「改了什么」，不管「为什么这么改」和「规则有没有被破坏」。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.zhangky.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Harness的最佳实践：DSH的64天启示录",
+      "item": "https://blog.zhangky.com/posts/2026/08/2026-08-17-harness-best-practices-dsh-revelations/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Harness的最佳实践：DSH的64天启示录",
+  "name": "Harness的最佳实践：DSH的64天启示录",
+  "description": "前一篇文章我做了 DeepSeek Harness（DSH）的 git 考古，拆解了它 64 天 12293 次提交背后的构建哲学。那篇是「DSH 是什么、怎么造的」。这篇是「DSH 的经验怎么用」——把那 64 天里被验证过的工程判断，提炼成普通团队可以落地的 AI 辅助开发实践。\n先说清楚为什么值得这么做。DSH 不是又一个「我们用了 AI 写代码所以快」的故事。如果只是这个，Copilot 上市五年了，行业早该被颠覆。DSH 真正反常理的是：一个不到 20 人的团队，用 64 天长出一个 221 包的 agent 运行时，工程严谨度却高得不像 AI 写的——100% 测试覆盖率门、运行时断言强制不变量、设计决策可追溯到每个 commit。这不是「AI 写代码快」，是「harness 思维组织 AI 开发」。\n这件事可以推广。下面是方法论。\n一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」 市场上有四个比较成熟的 AI 辅助开发流派，先把它们摆清楚：\n流派一：Copilot/Cursor 模式——AI 当打字员。人主导写代码，AI 补全和局部重构。这是目前最普及的模式，门槛低，但天花板也低——AI 只能在人画的圈子里做事，产出节奏受限于人的审查速度。\n流派二：Claude Code/Codex 单 agent 模式——AI 当执行者。人给一个任务描述，AI 执行多步任务（改多个文件、跑测试、修 bug）。这是 Cursor Composer、Claude Code 的典型用法。天花板比流派一高，但问题是 agent 会自己跑偏，没有不变量挡着，跑几次就积累一堆边界情况。\n流派三：Aider 模式——git commit 驱动。AI pair programmer，每次改动自动 commit，人通过 git history 审查。这个模式把 git 当成 AI 产出的审计层，是个好思路，但它只管「改了什么」，不管「为什么这么改」和「规则有没有被破坏」。\n",
+  "keywords": [
+    "AI", "开源"
+  ],
+  "articleBody": "前一篇文章我做了 DeepSeek Harness（DSH）的 git 考古，拆解了它 64 天 12293 次提交背后的构建哲学。那篇是「DSH 是什么、怎么造的」。这篇是「DSH 的经验怎么用」——把那 64 天里被验证过的工程判断，提炼成普通团队可以落地的 AI 辅助开发实践。\n先说清楚为什么值得这么做。DSH 不是又一个「我们用了 AI 写代码所以快」的故事。如果只是这个，Copilot 上市五年了，行业早该被颠覆。DSH 真正反常理的是：一个不到 20 人的团队，用 64 天长出一个 221 包的 agent 运行时，工程严谨度却高得不像 AI 写的——100% 测试覆盖率门、运行时断言强制不变量、设计决策可追溯到每个 commit。这不是「AI 写代码快」，是「harness 思维组织 AI 开发」。\n这件事可以推广。下面是方法论。\n一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」 市场上有四个比较成熟的 AI 辅助开发流派，先把它们摆清楚：\n流派一：Copilot/Cursor 模式——AI 当打字员。人主导写代码，AI 补全和局部重构。这是目前最普及的模式，门槛低，但天花板也低——AI 只能在人画的圈子里做事，产出节奏受限于人的审查速度。\n流派二：Claude Code/Codex 单 agent 模式——AI 当执行者。人给一个任务描述，AI 执行多步任务（改多个文件、跑测试、修 bug）。这是 Cursor Composer、Claude Code 的典型用法。天花板比流派一高，但问题是 agent 会自己跑偏，没有不变量挡着，跑几次就积累一堆边界情况。\n流派三：Aider 模式——git commit 驱动。AI pair programmer，每次改动自动 commit，人通过 git history 审查。这个模式把 git 当成 AI 产出的审计层，是个好思路，但它只管「改了什么」，不管「为什么这么改」和「规则有没有被破坏」。\n流派四：DSH 模式——AI 当 subagent，人定不变量，机器强制规则。这是 DSH 团队自己用的模式。人定架构和数据结构，Claude Code 和 Codex 作为 subagent 生成代码，人 review，CI 和运行时断言强制不变量。12293 次提交是这个 loop 的化石记录。\nDSH 选流派四不是偶然——他们的产品本身就是 harness，自然会用 harness 思维组织自己的开发。但这个模式对普通团队也有价值，因为它的核心不是「用什么工具」，是「人做什么、机器做什么、规则在哪里强制」的分工。这个分工可以套到任何一个用 AI 写代码的团队上。\n关键认知：流派一二三的问题都不是「AI 不够强」，是「人还在干 AI 该干的事，机器该强制的规则靠人记」。DSH 模式的本质，是把这三件事的分工切干净：\n人定不变量（架构规则、数据结构、约束） agent 生成代码（在不变量约束内自由生成） 机器强制规则（CI、运行时断言、lint） 下面五条原则是这个分工的具体落地。\n二、DSH 给出的五条工程原则 原则一：先定数据结构，再写算法 DSH 的 commit 历史里有个反常理的时间线：6 月 10 日首提交只有 48 行文档，6 月 13 日就落地了 capability seams（能力接缝，三角色：Service Definition/Provider/Consumer），6 月 14 日才写 Code Mode（算法）。数据结构先于算法。Context 作为服务仓库 + append-only SessionEvent 作为唯一真相源这两个数据结构定完，后面 12000 次提交都是在往这棵树上挂插件。\nLinus 说过，好程序员先选数据结构。AI 辅助开发把这个原则放大了——如果数据结构没定清楚就放 AI 去写，AI 会用十种不同的方式表示同一个概念，每种各带一套边界情况。后面想统一，要改的代码量比从头写还大。\n团队落地：开始一个新功能前，先让人定清楚两件事——核心数据结构是什么形状，唯一真相源在哪里。这两件事定完再放 AI 写。数据结构没定就放 AI 写，等于让 AI 替你做架构决策，而 AI 做架构决策的方式是「先写一个能跑的，边界情况以后再说」。\n原则二：把不变量推到运行时 DSH 有几条硬不变量：Model-visible ⟺ logged（任何到达模型的内容必须能从 session log 重建，运行时有 assert 强制）；注册必须返回 disposer（Fiber 强制收集，不是约定）；capability seam 三角色必须完整（架构规则，半个能力不算能力）。\n关键在于这些不是写在文档里的「最佳实践」，是写进运行时的 assert 和 CI 硬门。192 commits/天的节奏，如果靠人记「注册要返回 disposer」「模型可见的必须记录」，三天就忘。靠人记的规则会腐烂，靠工具强制的规则才能扛住 12293 次提交。\n这是 AI 辅助开发最重要的一条铁律。让 agent 生成代码可以，但不变量必须机器强制。否则就是技术债雪崩——AI 以人类无法审查的速度积累边界情况，三个月后代码没人敢动。\n团队落地：把项目里最重要的几条规则找出来，问自己——这条规则是靠人记，还是靠机器强制？如果是前者，想办法推到运行时或 CI。具体做法：\n运行时 assert：对「必须成立」的规则，在代码里加 assert。比如「任何进入模型请求的 content 必须有对应的 session event」这种，写成 assert(logged.has(content.id))，AI 破坏规则时测试直接挂。 CI 硬门：对覆盖率、type check、lint 这种，设成 CI 阻塞门，不是「目标」是「入场券」。DSH 的门是 packages/*/*/src 每文件 100% 覆盖。 type-level 约束：能用类型系统表达的约束，别用注释。TypeScript 的 branded type、exhaustive check 都能把规则推到编译期。 原则三：消除特殊情况优于增加条件判断 DSH 的 self-modification 设计有个好品味的判断：不用结构化的 cordis_register_tool（只覆盖 tools，listeners/services/inject 每个都要再加一个工具，API 无界增长），而用单一 cordis_mount 原语——用 cordis plugin 一个词汇覆盖所有 effect，且天然支持跨 mount 组合。用最少的原语覆盖最多的场景。\n这是 Linus 说的「好品味」——消除边界情况优于增加条件判断。AI 辅助开发里这条尤其重要，因为 AI 特别擅长制造特殊情况。你给它一个 if (isSpecial) 的先例，它会在下一个功能里给你造出五个 if (isSpecialCase2)。每个特殊情况都是一个未来要维护的分支。\n团队落地：review AI 生成的代码时，重点不是「这段能不能跑」，是「这段有没有引入新的特殊情况」。具体看几个信号：\n新增的 if 分支能不能通过改数据结构消除。比如「如果是 admin 就走这条路径」——能不能把 admin 逻辑拆成独立 provider，而不是在主路径里加分支。 新增的工具/函数能不能合并到已有原语。DSH 的 cordis_mount 用一个原语覆盖了 tools/listeners/services/inject 四种 effect，而不是四个工具。 新增的配置项是不是在补一个设计漏洞。配置项越多，组合爆炸越大。好架构是配置项少但组合能力强。 原则四：设计 rationale 制度化 DSH 有一个 .agents/notes/ 目录，每个非平凡变更都有设计决策记录，PR 必须附带，归档后冻结不可改。这不是事后补文档，是开发流程的一部分。12293 次提交里能追溯到每个决策的 why。\n这条在 AI 辅助开发里被严重低估。问题在于：AI 生成的代码，人 review 通过，但「为什么这么写」的 rationale 只存在于当时那个上下文里。三个月后有人问「这里为什么用 disposer 不用 GC」，commit message 里可能有，也可能没有，更可能是「AI 当时这么写的，我看着没问题就 merge 了」。\n团队落地：建立两层 rationale 沉淀：\ncommit message 规范：DSH 严格执行 Conventional Commits，scope 必填且粒度精细。AI 生成的 commit message 普遍是多行 body 详细解释 alternatives——这是 AI 辅助代码审查的特征，要保留。别让 AI 只写「fix bug」，要求它写清楚为什么这么 fix、试过什么别的方案。 ADR/设计笔记：对非平凡变更（新抽象、新约束、新数据结构），要求 PR 附带一个简短的设计笔记——问题是什么、考虑了什么方案、为什么选这个。DSH 的 Agent Notes 就是这个。不需要长，三五句话说清 why 就够。归档后冻结，不可改，保证历史可追溯。 这层的价值在 bus factor 低的时候尤其大。AI 杠杆让小团队能产出大团队的代码量，但也让单点故障的影响被放大——核心成员离开，AI 生成代码的「为什么这么写」全在 commit message 和设计笔记里，没人接得住就真的接不住了。\n原则五：release 是策划出来的事件 DSH 的 8 月 13 日不是「代码写完了发出去」。npm registry 时间戳记录了那 12 小时：UTC 09:50 协议从 BSD-3-Clause 切到 MIT，主版本号 0.0.1 → 0.1.0；12:29 把 publishConfig.access 从 restricted 切到 public，正式公开。中间还插了 self-modification UI、cordis 4.0.1 vendor、landlock-run 0.1.1、论文上传。同一天 DeepSeek-V4-Pro 正式版发布，用 DSH 跑 Terminal-Bench 拿 87.9 分。北京时间 20:30 的官方公告时刻，恰好就是 UTC 12:29 的 npm 公开时刻。\n这是策划出来的事件，不是「代码写完了发出去」。协议切换、主版本号跳变、公开发布、论文上传、模型发布同步，是一个协同。release 本身是一种工程。\n团队落地：即使是内部 release，也要把「发版本」当工程做，而不是「代码合并到 main 就算发布」。具体：\nrelease 前定一个 checklist：协议确认、版本号规则、依赖锁定、文档同步、changelog 审查。 release 和外部事件协同：如果有配套的 demo、博客、公告，确保时间点对齐。DSH 的 npm 公开时刻和官方公告时刻对齐不是巧合。 release 后复盘：哪些决策是 release 前才定的（DSH 的 TUI→Web UI 是开源前 9 天才定），这些「最后时刻判断」是不是应该更早做。 三、落地实践：搭一条 AI 辅助开发流水线 把上面五条原则落成一条可复制的流水线。分五层，从底往上。\n第一层：工具链 DSH 的工具链组合是：Claude Code + Codex 作为 subagent（通过 hooks 桥接进开发流程），Oxlint 做 lint，knip 检测 unused code，.jscpd.json 检测克隆代码，lefthook 管 worktree-local hooks，7 个 vitest 配置（单元/e2e/snapshot/web/stress/perf/shared）。\n普通团队不需要这么重，但组合逻辑是一样的——一个生成层（AI agent）+ 一个强制层（lint/type/test）+ 一个审计层（git history + 设计笔记）。最小组合：\n生成层：Claude Code 或 Codex 或 Cursor，选一个。DSH 用 Codex 当 subagent 的原因是它能多文件改动 + 执行命令，适合做「给人一个大任务」的流派四。如果团队还在流派一，Cursor 足够。 强制层：至少 TypeScript strict + ESLint + 一个测试框架。CI 里设成阻塞门。 审计层：Conventional Commits + ADR。这层最便宜，但最容易被忽略。 第二层：不变量强制 这是 DSH 模式的核心。从便宜到贵，三级强制：\n编译期（最便宜）：TypeScript strict mode，能推到类型系统的约束别用注释。比如「注册必须返回 disposer」可以用类型 Register = (x: T) =\u003e () =\u003e void 表达，没返回值的注册过不了编译。\nCI 门（中等成本）：覆盖率门、lint 门、type check 门、clone 检测门。DSH 的门是 100% 覆盖率，普通团队可以先设 80% 然后逐步提。关键是设成阻塞门，不是「目标」。\n运行时 assert（最贵但最强）：对「必须成立」的规则，在代码里加 assert。DSH 的 Model-visible ⟺ logged 就是运行时 assert——新增模型可见输入必须新增 session event，否则 assert 失败。这层的威力在于它能抓到编译期和 CI 抓不到的运行时违规，代价是会影响性能，要选择性加。\n第三层：决策记录 两层：\ncommit message：要求 Conventional Commits，scope 必填。AI 生成的 commit message 如果只写「fix bug」，打回去重写——要求它写清楚为什么这么 fix、试过什么方案。DSH 的 commit message 普遍是多行 body 解释 alternatives，这是 AI 辅助代码审查的特征，要保留。 ADR/Agent Notes：对非平凡变更（新抽象、新约束、新数据结构），要求 PR 附带简短设计笔记——问题、方案、为什么选这个。归档冻结。不需要长，三五句话说清 why。 这层的成本极低（就是要求人写几句话），但价值在三个月后显现——当有人问「这里为什么这么设计」，答案在 git history 里，不在某个离职的人脑子里。\n第四层：review AI 生成的代码必须人 review，但 review 的重点要变。传统 review 看「这段代码能不能跑」「有没有 bug」。AI 辅助开发里，AI 写的代码普遍能跑（它跑过测试了），bug 也在测试覆盖范围内。review 的重点应该是：\n有没有引入新的特殊情况（原则三） 有没有破坏已有不变量（原则二） commit message 和设计笔记有没有说清 why（原则四） 这是「审计层 review」而非「纠错层 review」。DSH 的 PR 几乎全是内部 review 流程产物——2521 个 PR、19 个贡献者，这个 PR 数量说明 review 是高频活动，但 review 的颗粒度是「设计决策」而非「代码 bug」。\n第五层：release 协同 如原则五所述，把 release 当工程做。最小做法：release 前过 checklist，release 后复盘哪些是最后时刻判断。\n四、反思：AI 辅助开发的三个失败模式 DSH 的 12293 次提交也是反面教材。它揭示的失败模式比成功模式更值得普通团队警惕。\n失败模式一：没有不变量强制的 AI 代码会腐烂 192 commits/天，如果靠人记规则——「注册要返回 disposer」「模型可见的必须记录」「capability seam 要三角色完整」——三天就忘。没有 CI 门、没有运行时 assert、没有 type-level 约束，AI 生成的代码会以人类无法审查的速度积累边界情况。三个月后代码没人敢动，每次改动都引入新 bug。\n解法：原则二——把不变量推到运行时。最便宜的一步是开 TypeScript strict mode 和 ESLint 阻塞门，最贵但最强的是运行时 assert。团队至少要做到编译期 + CI 门这两级。\n失败模式二：commit 数量 ≠ 质量 日均 192 次提交如果没有 100% 覆盖率门、7 个 vitest 配置、type-equiv 防漂移、knip 检测 unused code、.jscpd.json 检测克隆，会变成什么？一堆能跑但没人敢动的代码。AI 特别擅长写「看起来对」的代码——变量名合理、逻辑自洽、测试通过，但引入了新的特殊情况或破坏了已有不变量。\n解法：commit 数量不是 KPI，commit 的可追溯性才是。DSH 的 Agent Notes 制度让每个非平凡变更都有决策记录。普通团队不需要这么重，但至少要求 commit message 说清 why，非平凡变更附带设计笔记。\n失败模式三：AI 杠杆放大单点风险 DSH 的 bus factor 实际值是 1-2——崔添翼单人占 42.6% 的提交，npm 发布权只有两人。AI 杠杆让一个小团队能产出大团队的代码量，但也让单点故障的影响被放大。核心成员离开，AI 生成代码的「为什么这么写」全在 commit message 和 Agent Notes 里，没人接得住就真的接不住了。\n解法：这层没有银弹。DSH 的解法是 Agent Notes 制度化，把设计 rationale 沉淀成可追溯的资产——这是治标。治本需要降低集中度，但 AI 杠杆天然让集中度升高（用得好的人产出更多）。现实的做法是：保证至少两个人能 review 每个核心模块的变更，轮换 review 责任，别让一个人成为单点。\n五、团队推广：从个人到团队的四级阶梯 不是所有团队都能一上来就搞 DSH 模式。下面是一个渐进推广的阶梯，从便宜到贵。\nLevel 0：建立项目规则文件 成本：几小时。效果：立竿见影。\n在仓库根目录建 AGENTS.md 和 CLAUDE.md，写清楚项目的几条硬规则——数据结构约定、不变量、commit 规范、测试要求。这是给 AI agent 看的「项目宪法」。DSH 首提交就建立了这两个文件——项目第一天就建立了 agent 协议的入口。\n没有这一层，AI agent 每次都在猜你的项目规则，猜错了你就得手动纠正。有了这一层，AI agent 至少能在规则内生成代码。\n最小内容：\n项目用什么语言、什么框架 有哪些不变量（比如「所有 async 函数必须显式处理 error」） commit message 规范 测试在哪里、怎么跑 Level 1：建立 CI 不变量门 成本：一两天。效果：阻止 AI 生成的代码破坏规则。\n在 CI 里设阻塞门：TypeScript strict + ESLint + 测试覆盖率门 + type check。DSH 的门是 100% 覆盖率，普通团队可以先设 80% 然后逐步提。关键是设成阻塞门——CI 不过不准 merge。\n没有这一层，AI 生成的代码会慢慢破坏规则——今天漏一个 type error，明天漏一个边界情况，三个月后代码没人敢动。有了这一层，AI 破坏规则时 CI 直接挂，逼着它（和人）修。\nLevel 2：建立决策记录制度 成本：要求每个人每次 PR 多写几句话。效果：三个月后显现。\n要求 Conventional Commits，scope 必填，commit message 说清 why。对非平凡变更（新抽象、新约束、新数据结构），要求 PR 附带简短设计笔记——问题、方案、为什么选这个。归档冻结。\n没有这一层，AI 生成代码的 rationale 只存在于当时那个上下文里。三个月后有人问「这里为什么这么设计」，答案在某个人脑子里，那个人离职就没了。有了这一层，答案在 git history 里。\nLevel 3：建立 release 协同 成本：一次 release 的策划时间。效果：避免「代码写完了但发不出去」或「发出去了但配套没跟上」。\nrelease 前过 checklist（协议、版本号、依赖锁定、文档同步、changelog），release 后复盘哪些是最后时刻判断。如果有配套 demo、博客、公告，确保时间点对齐。\n没有这一层，release 是「代码合并到 main 就算发布」，容易出协议没确认、依赖没锁、文档没同步的问题。有了这一层，release 本身是一种工程。\n四个 Level 可以分阶段推进。Level 0 和 1 是任何用 AI 写代码的团队都应该做的，成本极低。Level 2 和 3 是想认真做 AI 辅助开发的团队应该做的，成本中等但回报长期。\n六、成熟流派对比：选哪个 把四个流派放一起对比，帮团队选。\n维度 Copilot/Cursor Claude Code/Codex 单 agent Aider DSH 模式 人做什么 主导写代码，AI 补全 给任务描述，review 给指令，审 git history 定不变量，review 设计决策 AI 做什么 补全、局部重构 多步执行 改代码+commit 生成代码（subagent） 规则在哪强制 人脑 人脑 + lint git history CI + 运行时 assert 产出节奏 受限于人 中 中 高（192/天） 适用场景 任何项目 中等复杂度 个人项目 复杂系统、长期维护 天花板 低 中 中 高 门槛 极低 低 低 中（需要搭强制层） DSH 模式的门槛比其他三个高——要搭 CI 门、运行时 assert、决策记录制度。但它的天花板也最高，因为人只在最该花时间的地方（定不变量、审设计决策）花时间，其余交给 agent 和机器。\n选型建议：如果项目简单、短期、不需要长期维护，流派一够用。如果项目中等复杂度、有长期维护需求，流派二或三。如果项目是复杂系统、要长期维护、团队对工程严谨度有要求，值得投入搭流派四的强制层——这个投入的前期成本是搭 CI 门和写 AGENTS.md，后续的回报是 AI 产出质量和可维护性。\n七、结论：Harness 不是工具，是组织方式 回到开头。DSH 的 64 天 12293 次提交，真正值得学的不是「他们用了 Codex」或「他们日均 192 commits」。这些是表面。真正值得学的是他们把 AI 辅助开发当作一个 harness engineering 问题来解——人定不变量，agent 生成代码，机器强制规则。\n这个范式的好处是：人只在最该花时间的地方花时间（定架构、审设计决策），其余交给 agent 和机器。AI 生成代码可以，但不变量必须机器强制，否则就是技术债雪崩。commit 数量不是 KPI，commit 的可追溯性才是。AI 杠杆放大单点风险，解法是把设计 rationale 沉淀成可追溯的资产。\nDSH 给的是一个可行性证明：这套范式在 64 天里扛住了 12293 次提交，产出了一个 221 包的 agent 运行时，工程严谨度没有因为 AI 辅助而下降。这不是理论，是被验证过的工程实践。\n普通团队不需要一上来就搞 DSH 全套。从 Level 0（AGENTS.md）和 Level 1（CI 门）开始，成本极低，效果立竿见影。等团队习惯了再上 Level 2（决策记录）和 Level 3（release 协同）。关键不是用什么工具，是分工切干净——人定不变量，agent 生成代码，机器强制规则。这是 harness 思维组织 AI 开发的本质。\n64 天 12293 次提交不是人类被替代的证据，是人类学会用 agent 造 agent 的化石。这件事的意义，可能比任何一个具体产品都更长远。\n参考\nDeepSeek Harness 源码仓库（截止 2026-08-16）：https://github.com/deepseek-ai/deepseek-harness 前篇《用Agent造Agent：DeepSeek Harness的64天考古与自进化路径》：对 DSH 构建过程的完整考古分析 ",
+  "wordCount" : "938",
+  "inLanguage": "en",
+  "image": "https://blog.zhangky.com/images/logo.svg","datePublished": "2026-08-17T06:31:20+08:00",
+  "dateModified": "2026-08-17T06:31:20+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Y"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.zhangky.com/posts/2026/08/2026-08-17-harness-best-practices-dsh-revelations/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Z's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.zhangky.com/images/logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo" id="dynamic-logo">
+            <a href="https://blog.zhangky.com/" accesskey="h" title="Z&#39;s Blog (Alt + H)">
+                <img src="https://blog.zhangky.com/images/logo.svg" alt="" aria-label="logo"
+                    height="30">Z&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <a href="https://blog.zhangky.com/index.xml" title="RSS" aria-label="RSS Feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+                </a>
+                
+
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.zhangky.com/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/series/" title="Series">
+                    <span>Series</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.zhangky.com/faq" title="FAQ">
+                    <span>FAQ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <style>
+        .nav.scrolled {
+            background: var(--theme);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled #menu {
+            display: none;
+        }
+        .nav.scrolled .logo {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > nav.offsetHeight) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.zhangky.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.zhangky.com/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Harness的最佳实践：DSH的64天启示录
+    </h1>
+    <div class="post-meta">   Y | <span title='2026-08-17 06:31:20 +0800 HKT'>August 17, 2026</span> | <span>36 min</span> | <span>Shanghai</span>&nbsp;|&nbsp;<span>
+    <a href="https://github.com/ylzhang/ylzhang.github.io/tree/main/content/posts/2026/08/2026-08-17-harness-best-practices-dsh-revelations.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%80%e8%ae%a4%e7%9f%a5%e8%bd%ac%e5%8f%98%e4%bb%8e%e7%94%a8-ai-%e5%86%99%e4%bb%a3%e7%a0%81%e5%88%b0%e7%94%a8-harness-%e7%bb%84%e7%bb%87-ai-%e5%bc%80%e5%8f%91" aria-label="一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」">一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」</a></li>
+                <li>
+                    <a href="#%e4%ba%8cdsh-%e7%bb%99%e5%87%ba%e7%9a%84%e4%ba%94%e6%9d%a1%e5%b7%a5%e7%a8%8b%e5%8e%9f%e5%88%99" aria-label="二、DSH 给出的五条工程原则">二、DSH 给出的五条工程原则</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8e%9f%e5%88%99%e4%b8%80%e5%85%88%e5%ae%9a%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e5%86%8d%e5%86%99%e7%ae%97%e6%b3%95" aria-label="原则一：先定数据结构，再写算法">原则一：先定数据结构，再写算法</a></li>
+                <li>
+                    <a href="#%e5%8e%9f%e5%88%99%e4%ba%8c%e6%8a%8a%e4%b8%8d%e5%8f%98%e9%87%8f%e6%8e%a8%e5%88%b0%e8%bf%90%e8%a1%8c%e6%97%b6" aria-label="原则二：把不变量推到运行时">原则二：把不变量推到运行时</a></li>
+                <li>
+                    <a href="#%e5%8e%9f%e5%88%99%e4%b8%89%e6%b6%88%e9%99%a4%e7%89%b9%e6%ae%8a%e6%83%85%e5%86%b5%e4%bc%98%e4%ba%8e%e5%a2%9e%e5%8a%a0%e6%9d%a1%e4%bb%b6%e5%88%a4%e6%96%ad" aria-label="原则三：消除特殊情况优于增加条件判断">原则三：消除特殊情况优于增加条件判断</a></li>
+                <li>
+                    <a href="#%e5%8e%9f%e5%88%99%e5%9b%9b%e8%ae%be%e8%ae%a1-rationale-%e5%88%b6%e5%ba%a6%e5%8c%96" aria-label="原则四：设计 rationale 制度化">原则四：设计 rationale 制度化</a></li>
+                <li>
+                    <a href="#%e5%8e%9f%e5%88%99%e4%ba%94release-%e6%98%af%e7%ad%96%e5%88%92%e5%87%ba%e6%9d%a5%e7%9a%84%e4%ba%8b%e4%bb%b6" aria-label="原则五：release 是策划出来的事件">原则五：release 是策划出来的事件</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%b8%89%e8%90%bd%e5%9c%b0%e5%ae%9e%e8%b7%b5%e6%90%ad%e4%b8%80%e6%9d%a1-ai-%e8%be%85%e5%8a%a9%e5%bc%80%e5%8f%91%e6%b5%81%e6%b0%b4%e7%ba%bf" aria-label="三、落地实践：搭一条 AI 辅助开发流水线">三、落地实践：搭一条 AI 辅助开发流水线</a><ul>
+                        
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%80%e5%b1%82%e5%b7%a5%e5%85%b7%e9%93%be" aria-label="第一层：工具链">第一层：工具链</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%ba%8c%e5%b1%82%e4%b8%8d%e5%8f%98%e9%87%8f%e5%bc%ba%e5%88%b6" aria-label="第二层：不变量强制">第二层：不变量强制</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%89%e5%b1%82%e5%86%b3%e7%ad%96%e8%ae%b0%e5%bd%95" aria-label="第三层：决策记录">第三层：决策记录</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e5%9b%9b%e5%b1%82review" aria-label="第四层：review">第四层：review</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%ba%94%e5%b1%82release-%e5%8d%8f%e5%90%8c" aria-label="第五层：release 协同">第五层：release 协同</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%9b%9b%e5%8f%8d%e6%80%9dai-%e8%be%85%e5%8a%a9%e5%bc%80%e5%8f%91%e7%9a%84%e4%b8%89%e4%b8%aa%e5%a4%b1%e8%b4%a5%e6%a8%a1%e5%bc%8f" aria-label="四、反思：AI 辅助开发的三个失败模式">四、反思：AI 辅助开发的三个失败模式</a><ul>
+                        
+                <li>
+                    <a href="#%e5%a4%b1%e8%b4%a5%e6%a8%a1%e5%bc%8f%e4%b8%80%e6%b2%a1%e6%9c%89%e4%b8%8d%e5%8f%98%e9%87%8f%e5%bc%ba%e5%88%b6%e7%9a%84-ai-%e4%bb%a3%e7%a0%81%e4%bc%9a%e8%85%90%e7%83%82" aria-label="失败模式一：没有不变量强制的 AI 代码会腐烂">失败模式一：没有不变量强制的 AI 代码会腐烂</a></li>
+                <li>
+                    <a href="#%e5%a4%b1%e8%b4%a5%e6%a8%a1%e5%bc%8f%e4%ba%8ccommit-%e6%95%b0%e9%87%8f--%e8%b4%a8%e9%87%8f" aria-label="失败模式二：commit 数量 ≠ 质量">失败模式二：commit 数量 ≠ 质量</a></li>
+                <li>
+                    <a href="#%e5%a4%b1%e8%b4%a5%e6%a8%a1%e5%bc%8f%e4%b8%89ai-%e6%9d%a0%e6%9d%86%e6%94%be%e5%a4%a7%e5%8d%95%e7%82%b9%e9%a3%8e%e9%99%a9" aria-label="失败模式三：AI 杠杆放大单点风险">失败模式三：AI 杠杆放大单点风险</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%ba%94%e5%9b%a2%e9%98%9f%e6%8e%a8%e5%b9%bf%e4%bb%8e%e4%b8%aa%e4%ba%ba%e5%88%b0%e5%9b%a2%e9%98%9f%e7%9a%84%e5%9b%9b%e7%ba%a7%e9%98%b6%e6%a2%af" aria-label="五、团队推广：从个人到团队的四级阶梯">五、团队推广：从个人到团队的四级阶梯</a><ul>
+                        
+                <li>
+                    <a href="#level-0%e5%bb%ba%e7%ab%8b%e9%a1%b9%e7%9b%ae%e8%a7%84%e5%88%99%e6%96%87%e4%bb%b6" aria-label="Level 0：建立项目规则文件">Level 0：建立项目规则文件</a></li>
+                <li>
+                    <a href="#level-1%e5%bb%ba%e7%ab%8b-ci-%e4%b8%8d%e5%8f%98%e9%87%8f%e9%97%a8" aria-label="Level 1：建立 CI 不变量门">Level 1：建立 CI 不变量门</a></li>
+                <li>
+                    <a href="#level-2%e5%bb%ba%e7%ab%8b%e5%86%b3%e7%ad%96%e8%ae%b0%e5%bd%95%e5%88%b6%e5%ba%a6" aria-label="Level 2：建立决策记录制度">Level 2：建立决策记录制度</a></li>
+                <li>
+                    <a href="#level-3%e5%bb%ba%e7%ab%8b-release-%e5%8d%8f%e5%90%8c" aria-label="Level 3：建立 release 协同">Level 3：建立 release 协同</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%85%ad%e6%88%90%e7%86%9f%e6%b5%81%e6%b4%be%e5%af%b9%e6%af%94%e9%80%89%e5%93%aa%e4%b8%aa" aria-label="六、成熟流派对比：选哪个">六、成熟流派对比：选哪个</a></li>
+                <li>
+                    <a href="#%e4%b8%83%e7%bb%93%e8%ae%baharness-%e4%b8%8d%e6%98%af%e5%b7%a5%e5%85%b7%e6%98%af%e7%bb%84%e7%bb%87%e6%96%b9%e5%bc%8f" aria-label="七、结论：Harness 不是工具，是组织方式">七、结论：Harness 不是工具，是组织方式</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>前一篇文章我做了 DeepSeek Harness（DSH）的 git 考古，拆解了它 64 天 12293 次提交背后的构建哲学。那篇是「DSH 是什么、怎么造的」。这篇是「DSH 的经验怎么用」——把那 64 天里被验证过的工程判断，提炼成普通团队可以落地的 AI 辅助开发实践。</p>
+<p>先说清楚为什么值得这么做。DSH 不是又一个「我们用了 AI 写代码所以快」的故事。如果只是这个，Copilot 上市五年了，行业早该被颠覆。DSH 真正反常理的是：一个不到 20 人的团队，用 64 天长出一个 221 包的 agent 运行时，工程严谨度却高得不像 AI 写的——100% 测试覆盖率门、运行时断言强制不变量、设计决策可追溯到每个 commit。这不是「AI 写代码快」，是「harness 思维组织 AI 开发」。</p>
+<p>这件事可以推广。下面是方法论。</p>
+<hr>
+<h2 id="一认知转变从用-ai-写代码到用-harness-组织-ai-开发">一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」<a hidden class="anchor" aria-hidden="true" href="#一认知转变从用-ai-写代码到用-harness-组织-ai-开发">#</a></h2>
+<p>市场上有四个比较成熟的 AI 辅助开发流派，先把它们摆清楚：</p>
+<p><strong>流派一：Copilot/Cursor 模式——AI 当打字员</strong>。人主导写代码，AI 补全和局部重构。这是目前最普及的模式，门槛低，但天花板也低——AI 只能在人画的圈子里做事，产出节奏受限于人的审查速度。</p>
+<p><strong>流派二：Claude Code/Codex 单 agent 模式——AI 当执行者</strong>。人给一个任务描述，AI 执行多步任务（改多个文件、跑测试、修 bug）。这是 Cursor Composer、Claude Code 的典型用法。天花板比流派一高，但问题是 agent 会自己跑偏，没有不变量挡着，跑几次就积累一堆边界情况。</p>
+<p><strong>流派三：Aider 模式——git commit 驱动</strong>。AI pair programmer，每次改动自动 commit，人通过 git history 审查。这个模式把 git 当成 AI 产出的审计层，是个好思路，但它只管「改了什么」，不管「为什么这么改」和「规则有没有被破坏」。</p>
+<p><strong>流派四：DSH 模式——AI 当 subagent，人定不变量，机器强制规则</strong>。这是 DSH 团队自己用的模式。人定架构和数据结构，Claude Code 和 Codex 作为 subagent 生成代码，人 review，CI 和运行时断言强制不变量。12293 次提交是这个 loop 的化石记录。</p>
+<p>DSH 选流派四不是偶然——他们的产品本身就是 harness，自然会用 harness 思维组织自己的开发。但<strong>这个模式对普通团队也有价值</strong>，因为它的核心不是「用什么工具」，是「人做什么、机器做什么、规则在哪里强制」的分工。这个分工可以套到任何一个用 AI 写代码的团队上。</p>
+<p>关键认知：<strong>流派一二三的问题都不是「AI 不够强」，是「人还在干 AI 该干的事，机器该强制的规则靠人记」</strong>。DSH 模式的本质，是把这三件事的分工切干净：</p>
+<ul>
+<li>人定不变量（架构规则、数据结构、约束）</li>
+<li>agent 生成代码（在不变量约束内自由生成）</li>
+<li>机器强制规则（CI、运行时断言、lint）</li>
+</ul>
+<p>下面五条原则是这个分工的具体落地。</p>
+<hr>
+<h2 id="二dsh-给出的五条工程原则">二、DSH 给出的五条工程原则<a hidden class="anchor" aria-hidden="true" href="#二dsh-给出的五条工程原则">#</a></h2>
+<h3 id="原则一先定数据结构再写算法">原则一：先定数据结构，再写算法<a hidden class="anchor" aria-hidden="true" href="#原则一先定数据结构再写算法">#</a></h3>
+<p>DSH 的 commit 历史里有个反常理的时间线：6 月 10 日首提交只有 48 行文档，6 月 13 日就落地了 capability seams（能力接缝，三角色：Service Definition/Provider/Consumer），6 月 14 日才写 Code Mode（算法）。<strong>数据结构先于算法</strong>。Context 作为服务仓库 + append-only SessionEvent 作为唯一真相源这两个数据结构定完，后面 12000 次提交都是在往这棵树上挂插件。</p>
+<p>Linus 说过，好程序员先选数据结构。AI 辅助开发把这个原则放大了——如果数据结构没定清楚就放 AI 去写，AI 会用十种不同的方式表示同一个概念，每种各带一套边界情况。后面想统一，要改的代码量比从头写还大。</p>
+<p><strong>团队落地</strong>：开始一个新功能前，先让人定清楚两件事——核心数据结构是什么形状，唯一真相源在哪里。这两件事定完再放 AI 写。数据结构没定就放 AI 写，等于让 AI 替你做架构决策，而 AI 做架构决策的方式是「先写一个能跑的，边界情况以后再说」。</p>
+<h3 id="原则二把不变量推到运行时">原则二：把不变量推到运行时<a hidden class="anchor" aria-hidden="true" href="#原则二把不变量推到运行时">#</a></h3>
+<p>DSH 有几条硬不变量：<code>Model-visible ⟺ logged</code>（任何到达模型的内容必须能从 session log 重建，运行时有 assert 强制）；注册必须返回 disposer（Fiber 强制收集，不是约定）；capability seam 三角色必须完整（架构规则，半个能力不算能力）。</p>
+<p>关键在于这些不是写在文档里的「最佳实践」，是写进运行时的 assert 和 CI 硬门。192 commits/天的节奏，如果靠人记「注册要返回 disposer」「模型可见的必须记录」，三天就忘。<strong>靠人记的规则会腐烂，靠工具强制的规则才能扛住 12293 次提交</strong>。</p>
+<p>这是 AI 辅助开发最重要的一条铁律。让 agent 生成代码可以，但不变量必须机器强制。否则就是技术债雪崩——AI 以人类无法审查的速度积累边界情况，三个月后代码没人敢动。</p>
+<p><strong>团队落地</strong>：把项目里最重要的几条规则找出来，问自己——这条规则是靠人记，还是靠机器强制？如果是前者，想办法推到运行时或 CI。具体做法：</p>
+<ul>
+<li><strong>运行时 assert</strong>：对「必须成立」的规则，在代码里加 assert。比如「任何进入模型请求的 content 必须有对应的 session event」这种，写成 <code>assert(logged.has(content.id))</code>，AI 破坏规则时测试直接挂。</li>
+<li><strong>CI 硬门</strong>：对覆盖率、type check、lint 这种，设成 CI 阻塞门，不是「目标」是「入场券」。DSH 的门是 <code>packages/*/*/src</code> 每文件 100% 覆盖。</li>
+<li><strong>type-level 约束</strong>：能用类型系统表达的约束，别用注释。TypeScript 的 branded type、exhaustive check 都能把规则推到编译期。</li>
+</ul>
+<h3 id="原则三消除特殊情况优于增加条件判断">原则三：消除特殊情况优于增加条件判断<a hidden class="anchor" aria-hidden="true" href="#原则三消除特殊情况优于增加条件判断">#</a></h3>
+<p>DSH 的 self-modification 设计有个好品味的判断：不用结构化的 <code>cordis_register_tool</code>（只覆盖 tools，listeners/services/inject 每个都要再加一个工具，API 无界增长），而用单一 <code>cordis_mount</code> 原语——用 cordis plugin 一个词汇覆盖所有 effect，且天然支持跨 mount 组合。用最少的原语覆盖最多的场景。</p>
+<p>这是 Linus 说的「好品味」——消除边界情况优于增加条件判断。AI 辅助开发里这条尤其重要，因为 AI 特别擅长制造特殊情况。你给它一个 <code>if (isSpecial)</code> 的先例，它会在下一个功能里给你造出五个 <code>if (isSpecialCase2)</code>。每个特殊情况都是一个未来要维护的分支。</p>
+<p><strong>团队落地</strong>：review AI 生成的代码时，重点不是「这段能不能跑」，是「这段有没有引入新的特殊情况」。具体看几个信号：</p>
+<ul>
+<li>新增的 <code>if</code> 分支能不能通过改数据结构消除。比如「如果是 admin 就走这条路径」——能不能把 admin 逻辑拆成独立 provider，而不是在主路径里加分支。</li>
+<li>新增的工具/函数能不能合并到已有原语。DSH 的 <code>cordis_mount</code> 用一个原语覆盖了 tools/listeners/services/inject 四种 effect，而不是四个工具。</li>
+<li>新增的配置项是不是在补一个设计漏洞。配置项越多，组合爆炸越大。好架构是配置项少但组合能力强。</li>
+</ul>
+<h3 id="原则四设计-rationale-制度化">原则四：设计 rationale 制度化<a hidden class="anchor" aria-hidden="true" href="#原则四设计-rationale-制度化">#</a></h3>
+<p>DSH 有一个 <code>.agents/notes/</code> 目录，每个非平凡变更都有设计决策记录，PR 必须附带，归档后冻结不可改。这不是事后补文档，是开发流程的一部分。12293 次提交里能追溯到每个决策的 why。</p>
+<p>这条在 AI 辅助开发里被严重低估。问题在于：AI 生成的代码，人 review 通过，但「为什么这么写」的 rationale 只存在于当时那个上下文里。三个月后有人问「这里为什么用 disposer 不用 GC」，commit message 里可能有，也可能没有，更可能是「AI 当时这么写的，我看着没问题就 merge 了」。</p>
+<p><strong>团队落地</strong>：建立两层 rationale 沉淀：</p>
+<ul>
+<li><strong>commit message 规范</strong>：DSH 严格执行 Conventional Commits，scope 必填且粒度精细。AI 生成的 commit message 普遍是多行 body 详细解释 alternatives——这是 AI 辅助代码审查的特征，要保留。别让 AI 只写「fix bug」，要求它写清楚为什么这么 fix、试过什么别的方案。</li>
+<li><strong>ADR/设计笔记</strong>：对非平凡变更（新抽象、新约束、新数据结构），要求 PR 附带一个简短的设计笔记——问题是什么、考虑了什么方案、为什么选这个。DSH 的 Agent Notes 就是这个。不需要长，三五句话说清 why 就够。归档后冻结，不可改，保证历史可追溯。</li>
+</ul>
+<p>这层的价值在 bus factor 低的时候尤其大。AI 杠杆让小团队能产出大团队的代码量，但也让单点故障的影响被放大——核心成员离开，AI 生成代码的「为什么这么写」全在 commit message 和设计笔记里，没人接得住就真的接不住了。</p>
+<h3 id="原则五release-是策划出来的事件">原则五：release 是策划出来的事件<a hidden class="anchor" aria-hidden="true" href="#原则五release-是策划出来的事件">#</a></h3>
+<p>DSH 的 8 月 13 日不是「代码写完了发出去」。npm registry 时间戳记录了那 12 小时：UTC 09:50 协议从 BSD-3-Clause 切到 MIT，主版本号 0.0.1 → 0.1.0；12:29 把 <code>publishConfig.access</code> 从 restricted 切到 public，正式公开。中间还插了 self-modification UI、cordis 4.0.1 vendor、landlock-run 0.1.1、论文上传。同一天 DeepSeek-V4-Pro 正式版发布，用 DSH 跑 Terminal-Bench 拿 87.9 分。北京时间 20:30 的官方公告时刻，恰好就是 UTC 12:29 的 npm 公开时刻。</p>
+<p>这是策划出来的事件，不是「代码写完了发出去」。协议切换、主版本号跳变、公开发布、论文上传、模型发布同步，是一个协同。release 本身是一种工程。</p>
+<p><strong>团队落地</strong>：即使是内部 release，也要把「发版本」当工程做，而不是「代码合并到 main 就算发布」。具体：</p>
+<ul>
+<li>release 前定一个 checklist：协议确认、版本号规则、依赖锁定、文档同步、changelog 审查。</li>
+<li>release 和外部事件协同：如果有配套的 demo、博客、公告，确保时间点对齐。DSH 的 npm 公开时刻和官方公告时刻对齐不是巧合。</li>
+<li>release 后复盘：哪些决策是 release 前才定的（DSH 的 TUI→Web UI 是开源前 9 天才定），这些「最后时刻判断」是不是应该更早做。</li>
+</ul>
+<hr>
+<h2 id="三落地实践搭一条-ai-辅助开发流水线">三、落地实践：搭一条 AI 辅助开发流水线<a hidden class="anchor" aria-hidden="true" href="#三落地实践搭一条-ai-辅助开发流水线">#</a></h2>
+<p>把上面五条原则落成一条可复制的流水线。分五层，从底往上。</p>
+<h3 id="第一层工具链">第一层：工具链<a hidden class="anchor" aria-hidden="true" href="#第一层工具链">#</a></h3>
+<p>DSH 的工具链组合是：Claude Code + Codex 作为 subagent（通过 hooks 桥接进开发流程），Oxlint 做 lint，knip 检测 unused code，<code>.jscpd.json</code> 检测克隆代码，lefthook 管 worktree-local hooks，7 个 vitest 配置（单元/e2e/snapshot/web/stress/perf/shared）。</p>
+<p>普通团队不需要这么重，但组合逻辑是一样的——<strong>一个生成层（AI agent）+ 一个强制层（lint/type/test）+ 一个审计层（git history + 设计笔记）</strong>。最小组合：</p>
+<ul>
+<li>生成层：Claude Code 或 Codex 或 Cursor，选一个。DSH 用 Codex 当 subagent 的原因是它能多文件改动 + 执行命令，适合做「给人一个大任务」的流派四。如果团队还在流派一，Cursor 足够。</li>
+<li>强制层：至少 TypeScript strict + ESLint + 一个测试框架。CI 里设成阻塞门。</li>
+<li>审计层：Conventional Commits + ADR。这层最便宜，但最容易被忽略。</li>
+</ul>
+<h3 id="第二层不变量强制">第二层：不变量强制<a hidden class="anchor" aria-hidden="true" href="#第二层不变量强制">#</a></h3>
+<p>这是 DSH 模式的核心。从便宜到贵，三级强制：</p>
+<p><strong>编译期（最便宜）</strong>：TypeScript strict mode，能推到类型系统的约束别用注释。比如「注册必须返回 disposer」可以用类型 <code>Register&lt;T&gt; = (x: T) =&gt; () =&gt; void</code> 表达，没返回值的注册过不了编译。</p>
+<p><strong>CI 门（中等成本）</strong>：覆盖率门、lint 门、type check 门、clone 检测门。DSH 的门是 100% 覆盖率，普通团队可以先设 80% 然后逐步提。关键是设成阻塞门，不是「目标」。</p>
+<p><strong>运行时 assert（最贵但最强）</strong>：对「必须成立」的规则，在代码里加 assert。DSH 的 <code>Model-visible ⟺ logged</code> 就是运行时 assert——新增模型可见输入必须新增 session event，否则 assert 失败。这层的威力在于它能抓到编译期和 CI 抓不到的运行时违规，代价是会影响性能，要选择性加。</p>
+<h3 id="第三层决策记录">第三层：决策记录<a hidden class="anchor" aria-hidden="true" href="#第三层决策记录">#</a></h3>
+<p>两层：</p>
+<ul>
+<li><strong>commit message</strong>：要求 Conventional Commits，scope 必填。AI 生成的 commit message 如果只写「fix bug」，打回去重写——要求它写清楚为什么这么 fix、试过什么方案。DSH 的 commit message 普遍是多行 body 解释 alternatives，这是 AI 辅助代码审查的特征，要保留。</li>
+<li><strong>ADR/Agent Notes</strong>：对非平凡变更（新抽象、新约束、新数据结构），要求 PR 附带简短设计笔记——问题、方案、为什么选这个。归档冻结。不需要长，三五句话说清 why。</li>
+</ul>
+<p>这层的成本极低（就是要求人写几句话），但价值在三个月后显现——当有人问「这里为什么这么设计」，答案在 git history 里，不在某个离职的人脑子里。</p>
+<h3 id="第四层review">第四层：review<a hidden class="anchor" aria-hidden="true" href="#第四层review">#</a></h3>
+<p>AI 生成的代码必须人 review，但 review 的重点要变。传统 review 看「这段代码能不能跑」「有没有 bug」。AI 辅助开发里，AI 写的代码普遍能跑（它跑过测试了），bug 也在测试覆盖范围内。review 的重点应该是：</p>
+<ul>
+<li>有没有引入新的特殊情况（原则三）</li>
+<li>有没有破坏已有不变量（原则二）</li>
+<li>commit message 和设计笔记有没有说清 why（原则四）</li>
+</ul>
+<p>这是「审计层 review」而非「纠错层 review」。DSH 的 PR 几乎全是内部 review 流程产物——2521 个 PR、19 个贡献者，这个 PR 数量说明 review 是高频活动，但 review 的颗粒度是「设计决策」而非「代码 bug」。</p>
+<h3 id="第五层release-协同">第五层：release 协同<a hidden class="anchor" aria-hidden="true" href="#第五层release-协同">#</a></h3>
+<p>如原则五所述，把 release 当工程做。最小做法：release 前过 checklist，release 后复盘哪些是最后时刻判断。</p>
+<hr>
+<h2 id="四反思ai-辅助开发的三个失败模式">四、反思：AI 辅助开发的三个失败模式<a hidden class="anchor" aria-hidden="true" href="#四反思ai-辅助开发的三个失败模式">#</a></h2>
+<p>DSH 的 12293 次提交也是反面教材。它揭示的失败模式比成功模式更值得普通团队警惕。</p>
+<h3 id="失败模式一没有不变量强制的-ai-代码会腐烂">失败模式一：没有不变量强制的 AI 代码会腐烂<a hidden class="anchor" aria-hidden="true" href="#失败模式一没有不变量强制的-ai-代码会腐烂">#</a></h3>
+<p>192 commits/天，如果靠人记规则——「注册要返回 disposer」「模型可见的必须记录」「capability seam 要三角色完整」——三天就忘。没有 CI 门、没有运行时 assert、没有 type-level 约束，AI 生成的代码会以人类无法审查的速度积累边界情况。三个月后代码没人敢动，每次改动都引入新 bug。</p>
+<p><strong>解法</strong>：原则二——把不变量推到运行时。最便宜的一步是开 TypeScript strict mode 和 ESLint 阻塞门，最贵但最强的是运行时 assert。团队至少要做到编译期 + CI 门这两级。</p>
+<h3 id="失败模式二commit-数量--质量">失败模式二：commit 数量 ≠ 质量<a hidden class="anchor" aria-hidden="true" href="#失败模式二commit-数量--质量">#</a></h3>
+<p>日均 192 次提交如果没有 100% 覆盖率门、7 个 vitest 配置、type-equiv 防漂移、knip 检测 unused code、<code>.jscpd.json</code> 检测克隆，会变成什么？一堆能跑但没人敢动的代码。AI 特别擅长写「看起来对」的代码——变量名合理、逻辑自洽、测试通过，但引入了新的特殊情况或破坏了已有不变量。</p>
+<p><strong>解法</strong>：commit 数量不是 KPI，commit 的可追溯性才是。DSH 的 Agent Notes 制度让每个非平凡变更都有决策记录。普通团队不需要这么重，但至少要求 commit message 说清 why，非平凡变更附带设计笔记。</p>
+<h3 id="失败模式三ai-杠杆放大单点风险">失败模式三：AI 杠杆放大单点风险<a hidden class="anchor" aria-hidden="true" href="#失败模式三ai-杠杆放大单点风险">#</a></h3>
+<p>DSH 的 bus factor 实际值是 1-2——崔添翼单人占 42.6% 的提交，npm 发布权只有两人。AI 杠杆让一个小团队能产出大团队的代码量，但也让单点故障的影响被放大。核心成员离开，AI 生成代码的「为什么这么写」全在 commit message 和 Agent Notes 里，没人接得住就真的接不住了。</p>
+<p><strong>解法</strong>：这层没有银弹。DSH 的解法是 Agent Notes 制度化，把设计 rationale 沉淀成可追溯的资产——这是治标。治本需要降低集中度，但 AI 杠杆天然让集中度升高（用得好的人产出更多）。现实的做法是：保证至少两个人能 review 每个核心模块的变更，轮换 review 责任，别让一个人成为单点。</p>
+<hr>
+<h2 id="五团队推广从个人到团队的四级阶梯">五、团队推广：从个人到团队的四级阶梯<a hidden class="anchor" aria-hidden="true" href="#五团队推广从个人到团队的四级阶梯">#</a></h2>
+<p>不是所有团队都能一上来就搞 DSH 模式。下面是一个渐进推广的阶梯，从便宜到贵。</p>
+<h3 id="level-0建立项目规则文件">Level 0：建立项目规则文件<a hidden class="anchor" aria-hidden="true" href="#level-0建立项目规则文件">#</a></h3>
+<p>成本：几小时。效果：立竿见影。</p>
+<p>在仓库根目录建 <code>AGENTS.md</code> 和 <code>CLAUDE.md</code>，写清楚项目的几条硬规则——数据结构约定、不变量、commit 规范、测试要求。这是给 AI agent 看的「项目宪法」。DSH 首提交就建立了这两个文件——项目第一天就建立了 agent 协议的入口。</p>
+<p>没有这一层，AI agent 每次都在猜你的项目规则，猜错了你就得手动纠正。有了这一层，AI agent 至少能在规则内生成代码。</p>
+<p>最小内容：</p>
+<ul>
+<li>项目用什么语言、什么框架</li>
+<li>有哪些不变量（比如「所有 async 函数必须显式处理 error」）</li>
+<li>commit message 规范</li>
+<li>测试在哪里、怎么跑</li>
+</ul>
+<h3 id="level-1建立-ci-不变量门">Level 1：建立 CI 不变量门<a hidden class="anchor" aria-hidden="true" href="#level-1建立-ci-不变量门">#</a></h3>
+<p>成本：一两天。效果：阻止 AI 生成的代码破坏规则。</p>
+<p>在 CI 里设阻塞门：TypeScript strict + ESLint + 测试覆盖率门 + type check。DSH 的门是 100% 覆盖率，普通团队可以先设 80% 然后逐步提。关键是设成阻塞门——CI 不过不准 merge。</p>
+<p>没有这一层，AI 生成的代码会慢慢破坏规则——今天漏一个 type error，明天漏一个边界情况，三个月后代码没人敢动。有了这一层，AI 破坏规则时 CI 直接挂，逼着它（和人）修。</p>
+<h3 id="level-2建立决策记录制度">Level 2：建立决策记录制度<a hidden class="anchor" aria-hidden="true" href="#level-2建立决策记录制度">#</a></h3>
+<p>成本：要求每个人每次 PR 多写几句话。效果：三个月后显现。</p>
+<p>要求 Conventional Commits，scope 必填，commit message 说清 why。对非平凡变更（新抽象、新约束、新数据结构），要求 PR 附带简短设计笔记——问题、方案、为什么选这个。归档冻结。</p>
+<p>没有这一层，AI 生成代码的 rationale 只存在于当时那个上下文里。三个月后有人问「这里为什么这么设计」，答案在某个人脑子里，那个人离职就没了。有了这一层，答案在 git history 里。</p>
+<h3 id="level-3建立-release-协同">Level 3：建立 release 协同<a hidden class="anchor" aria-hidden="true" href="#level-3建立-release-协同">#</a></h3>
+<p>成本：一次 release 的策划时间。效果：避免「代码写完了但发不出去」或「发出去了但配套没跟上」。</p>
+<p>release 前过 checklist（协议、版本号、依赖锁定、文档同步、changelog），release 后复盘哪些是最后时刻判断。如果有配套 demo、博客、公告，确保时间点对齐。</p>
+<p>没有这一层，release 是「代码合并到 main 就算发布」，容易出协议没确认、依赖没锁、文档没同步的问题。有了这一层，release 本身是一种工程。</p>
+<p>四个 Level 可以分阶段推进。Level 0 和 1 是任何用 AI 写代码的团队都应该做的，成本极低。Level 2 和 3 是想认真做 AI 辅助开发的团队应该做的，成本中等但回报长期。</p>
+<hr>
+<h2 id="六成熟流派对比选哪个">六、成熟流派对比：选哪个<a hidden class="anchor" aria-hidden="true" href="#六成熟流派对比选哪个">#</a></h2>
+<p>把四个流派放一起对比，帮团队选。</p>
+<table>
+  <thead>
+      <tr>
+          <th>维度</th>
+          <th>Copilot/Cursor</th>
+          <th>Claude Code/Codex 单 agent</th>
+          <th>Aider</th>
+          <th>DSH 模式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>人做什么</td>
+          <td>主导写代码，AI 补全</td>
+          <td>给任务描述，review</td>
+          <td>给指令，审 git history</td>
+          <td>定不变量，review 设计决策</td>
+      </tr>
+      <tr>
+          <td>AI 做什么</td>
+          <td>补全、局部重构</td>
+          <td>多步执行</td>
+          <td>改代码+commit</td>
+          <td>生成代码（subagent）</td>
+      </tr>
+      <tr>
+          <td>规则在哪强制</td>
+          <td>人脑</td>
+          <td>人脑 + lint</td>
+          <td>git history</td>
+          <td>CI + 运行时 assert</td>
+      </tr>
+      <tr>
+          <td>产出节奏</td>
+          <td>受限于人</td>
+          <td>中</td>
+          <td>中</td>
+          <td>高（192/天）</td>
+      </tr>
+      <tr>
+          <td>适用场景</td>
+          <td>任何项目</td>
+          <td>中等复杂度</td>
+          <td>个人项目</td>
+          <td>复杂系统、长期维护</td>
+      </tr>
+      <tr>
+          <td>天花板</td>
+          <td>低</td>
+          <td>中</td>
+          <td>中</td>
+          <td>高</td>
+      </tr>
+      <tr>
+          <td>门槛</td>
+          <td>极低</td>
+          <td>低</td>
+          <td>低</td>
+          <td>中（需要搭强制层）</td>
+      </tr>
+  </tbody>
+</table>
+<p>DSH 模式的门槛比其他三个高——要搭 CI 门、运行时 assert、决策记录制度。但它的天花板也最高，因为人只在最该花时间的地方（定不变量、审设计决策）花时间，其余交给 agent 和机器。</p>
+<p><strong>选型建议</strong>：如果项目简单、短期、不需要长期维护，流派一够用。如果项目中等复杂度、有长期维护需求，流派二或三。如果项目是复杂系统、要长期维护、团队对工程严谨度有要求，值得投入搭流派四的强制层——这个投入的前期成本是搭 CI 门和写 AGENTS.md，后续的回报是 AI 产出质量和可维护性。</p>
+<hr>
+<h2 id="七结论harness-不是工具是组织方式">七、结论：Harness 不是工具，是组织方式<a hidden class="anchor" aria-hidden="true" href="#七结论harness-不是工具是组织方式">#</a></h2>
+<p>回到开头。DSH 的 64 天 12293 次提交，真正值得学的不是「他们用了 Codex」或「他们日均 192 commits」。这些是表面。真正值得学的是他们把 AI 辅助开发当作一个 harness engineering 问题来解——人定不变量，agent 生成代码，机器强制规则。</p>
+<p>这个范式的好处是：人只在最该花时间的地方花时间（定架构、审设计决策），其余交给 agent 和机器。AI 生成代码可以，但不变量必须机器强制，否则就是技术债雪崩。commit 数量不是 KPI，commit 的可追溯性才是。AI 杠杆放大单点风险，解法是把设计 rationale 沉淀成可追溯的资产。</p>
+<p>DSH 给的是一个可行性证明：这套范式在 64 天里扛住了 12293 次提交，产出了一个 221 包的 agent 运行时，工程严谨度没有因为 AI 辅助而下降。这不是理论，是被验证过的工程实践。</p>
+<p>普通团队不需要一上来就搞 DSH 全套。从 Level 0（AGENTS.md）和 Level 1（CI 门）开始，成本极低，效果立竿见影。等团队习惯了再上 Level 2（决策记录）和 Level 3（release 协同）。关键不是用什么工具，是分工切干净——人定不变量，agent 生成代码，机器强制规则。这是 harness 思维组织 AI 开发的本质。</p>
+<p>64 天 12293 次提交不是人类被替代的证据，是人类学会用 agent 造 agent 的化石。这件事的意义，可能比任何一个具体产品都更长远。</p>
+<hr>
+<p><strong>参考</strong></p>
+<ul>
+<li>DeepSeek Harness 源码仓库（截止 2026-08-16）：<a href="https://github.com/deepseek-ai/deepseek-harness">https://github.com/deepseek-ai/deepseek-harness</a></li>
+<li>前篇《用Agent造Agent：DeepSeek Harness的64天考古与自进化路径》：对 DSH 构建过程的完整考古分析</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.zhangky.com/tags/ai/">AI</a></li>
+      <li><a href="https://blog.zhangky.com/tags/%E5%BC%80%E6%BA%90/">开源</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://blog.zhangky.com/posts/2026/08/2026-08-16-deepseek-harness-git-archaeology/">
+    <span class="title">Next »</span>
+    <br>
+    <span>用Agent造Agent：DeepSeek Harness的64天考古与自进化路径</span>
+  </a>
+</nav>
+
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://blog.zhangky.com/">Z&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<style>
+   
+  .mermaid {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  
+   
+  .mermaid > svg {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+   
+  .mermaid flowchart {
+    width: 100%;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  
+  window.mermaidConfig = {
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: 'basis',
+      width: '100%',
+      height: 'auto'
+    },
+    sequence: {
+      useMaxWidth: true
+    },
+    gantt: {
+      useMaxWidth: true
+    }
+  };
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var codeBlocks = document.querySelectorAll('code.language-mermaid');
+    
+    
+    codeBlocks.forEach(function(codeBlock) {
+      var preBlock = codeBlock.parentNode;
+      var mermaidCode = codeBlock.textContent;
+      
+      
+      var mermaidContainer = document.createElement('div');
+      mermaidContainer.className = 'mermaid';
+      mermaidContainer.textContent = mermaidCode;
+      
+      
+      preBlock.parentNode.replaceChild(mermaidContainer, preBlock);
+    });
+    
+    
+    mermaid.initialize(window.mermaidConfig);
+  });
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

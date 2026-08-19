@@ -231,6 +231,25 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Harness的最佳实践：DSH的64天启示录
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前一篇文章我做了 DeepSeek Harness（DSH）的 git 考古，拆解了它 64 天 12293 次提交背后的构建哲学。那篇是「DSH 是什么、怎么造的」。这篇是「DSH 的经验怎么用」——把那 64 天里被验证过的工程判断，提炼成普通团队可以落地的 AI 辅助开发实践。
+先说清楚为什么值得这么做。DSH 不是又一个「我们用了 AI 写代码所以快」的故事。如果只是这个，Copilot 上市五年了，行业早该被颠覆。DSH 真正反常理的是：一个不到 20 人的团队，用 64 天长出一个 221 包的 agent 运行时，工程严谨度却高得不像 AI 写的——100% 测试覆盖率门、运行时断言强制不变量、设计决策可追溯到每个 commit。这不是「AI 写代码快」，是「harness 思维组织 AI 开发」。
+这件事可以推广。下面是方法论。
+一、认知转变：从「用 AI 写代码」到「用 harness 组织 AI 开发」 市场上有四个比较成熟的 AI 辅助开发流派，先把它们摆清楚：
+流派一：Copilot/Cursor 模式——AI 当打字员。人主导写代码，AI 补全和局部重构。这是目前最普及的模式，门槛低，但天花板也低——AI 只能在人画的圈子里做事，产出节奏受限于人的审查速度。
+流派二：Claude Code/Codex 单 agent 模式——AI 当执行者。人给一个任务描述，AI 执行多步任务（改多个文件、跑测试、修 bug）。这是 Cursor Composer、Claude Code 的典型用法。天花板比流派一高，但问题是 agent 会自己跑偏，没有不变量挡着，跑几次就积累一堆边界情况。
+流派三：Aider 模式——git commit 驱动。AI pair programmer，每次改动自动 commit，人通过 git history 审查。这个模式把 git 当成 AI 产出的审计层，是个好思路，但它只管「改了什么」，不管「为什么这么改」和「规则有没有被破坏」。
+...</p>
+  </div>
+  <footer class="entry-footer">   Y | <span title='2026-08-17 06:31:20 +0800 HKT'>August 17, 2026</span> | <span>36 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to Harness的最佳实践：DSH的64天启示录" href="https://blog.zhangky.com/posts/2026/08/2026-08-17-harness-best-practices-dsh-revelations/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">用Agent造Agent：DeepSeek Harness的64天考古与自进化路径
     </h2>
   </header>
@@ -336,34 +355,6 @@
   </div>
   <footer class="entry-footer">   y9 .Z | <span title='2026-08-03 08:00:00 +0800 HKT'>August 3, 2026</span> | <span>11 min</span> | <span>zhejiang, China</span></footer>
   <a class="entry-link" aria-label="post link to 你卖的是时间，还是系统" href="https://blog.zhangky.com/posts/2026/08/2026-08-03-life-main-quest/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Same Job, New Rules：创始人的不变与变
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 赫拉克利特说：“人不能两次踏入同一条河流。“创业这条河也不例外——河水在变，河岸在变，但过河这件事本身，从未改变。
-什么变了 The Founder’s Playbook 最后一章叫&#34;Same Job, New Rules”，开篇第一句话就点题：在 AI 时代，创始人的工作没有变——找到真实的问题，构建解决方案，把它变成一个重要的公司。变的是到达那里的路径。
-过去九篇文章，我们逐层拆解了这条新路径的每个阶段。把&#34;变了&#34;的部分梳理一遍，你会看到一条很清晰的曲线。
-Idea Stage 变了。过去验证一个问题要几个月的调研和几十场访谈。现在 AI 帮你做竞争分析、设计访谈框架、自动化外联，验证周期从几个月压到几周。但&#34;验证&#34;本身的必要性没变，反而因为构建成本降低而变得更重要——做错的代价低了，做错之后浪费的机会反而多了。
-MVP Stage 也变了。过去一个原型需要一个团队几个月的工作。现在 agentic coding 让一个人一个下午就能做出一个看起来像那么回事的产品。但&#34;产品市场契合&#34;的标准没变——用户是否真的在乎，不会因为你的产品做得更快就自动成立。
-Launch Stage 同样变了。过去从产品到公司需要招一个运营团队。现在 AI 工作流自动化让一个小团队能跑出大团队的运营效率。但&#34;系统化运营&#34;的目标没变——你需要不依赖创始人的系统。
-Scale Stage 的变化更微妙。过去构建护城河要几年时间和大量资源。现在 AI 让领域知识的编码和用户数据的复利变得更快。但&#34;护城河&#34;的本质没变——时间积累的东西，仍然需要时间来积累。
-什么没变 这是更重要的问题。
-判断力没变。AI 能帮你做研究、写代码、起草文档、分析数据。但它不能告诉你&#34;这个问题值不值得做”、“这个方向对不对”、“这个时机该不该出手”。这些判断需要你独有的上下文——你的行业经验、你的直觉、你对用户的理解。
-领域知识也没变。AI 是通用智能，它不知道你所在行业的那些&#34;只可意会不可言传&#34;的东西。340B 药品项目的计费逻辑、建筑行业的合规要求、法律行业的风险偏好——这些需要真实经验的东西，AI 只能辅助，不能替代。
-用户信任更没变。用户选择你的产品，不是因为你的 AI 有多强，而是因为他们相信你能解决他们的问题。信任来自真实的对话、可靠的交付、长期的承诺。这些 AI 帮不了你——只能靠你自己。
-把这些串起来看，创业的本质没变：找到真实的问题，构建解决方案，把它变成一个重要的公司。这句话在 2020 年、2026 年、2030 年都成立。工具在变，但创业的核心——为真实的人解决真实的问题——从未改变。
-路径压缩，本质不变 The Founder’s Playbook 用一句话总结了 AI 对创业的影响：AI 把每个阶段的时间轴压缩了——验证从几个月变成几周，原型从团队工作变成个人工作，运营从小团队变成 AI 加一个人。
-但压缩的是时间，不是工作本身。你仍然需要验证、需要构建、需要发布、需要规模化。你仍然需要判断力、领域知识、用户信任。你仍然需要在每个阶段做出正确的选择——只是现在，你有更好的工具来执行这些选择。
-这让我想到一个关于摄影的类比。数码相机和 Photoshop 让&#34;拍一张好照片&#34;变得前所未有的容易——你不再需要暗房、不需要对曝光的精确控制、不需要等胶片冲洗。但&#34;什么值得拍&#34;和&#34;怎么构图&#34;的判断力，仍然是摄影师的核心能力。工具变了，审美没变。
-给 AI 原生创始人的三句话 读完这本书，走完这个系列，我想留三句话给正在或准备打造 AI 原生公司的创始人。
-...</p>
-  </div>
-  <footer class="entry-footer">   y9 .Z | <span title='2026-08-01 10:00:00 +0800 HKT'>August 1, 2026</span> | <span>10 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to Same Job, New Rules：创始人的不变与变" href="https://blog.zhangky.com/posts/2026/ai-native-startup/2026-08-01-same-job-new-rules/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

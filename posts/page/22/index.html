@@ -206,6 +206,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">【ChatGPT时刻06】GPT-1：生成式预训练的开山之作
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 本文解读的是Alec Radford等人于2018年发表的里程碑论文《Improving Language Understanding by Generative Pre-Training》，该论文提出了GPT（Generative Pre-Training）模型，首次将大规模无监督预训练与有监督微调相结合，在多个NLP基准上取得了突破性成绩。GPT-1是ChatGPT的直系祖先——它确立了&#34;预训练&#43;微调&#34;的范式，证明了通用语言表示可以从海量无标注文本中学习，为后续GPT-2、GPT-3乃至ChatGPT奠定了架构和方法基础。
+NLP的迁移学习困境 问题一：标注数据的稀缺性 深度学习在NLP中的应用面临一个根本挑战：高质量标注数据稀缺。
+与计算机视觉不同，NLP任务的标注需要语言专业知识，成本高昂：
+情感分析：需要理解语言的细微差别 问答系统：需要专业领域知识 文本蕴含：需要逻辑推理能力 大多数NLP数据集仅有数千到数万条标注样本，远不足以从头训练大型神经网络。
+问题二：预训练方法的局限 在GPT之前，NLP领域的预训练主要有两种方式：
+词向量预训练（如Word2Vec、GloVe）：
+只提供词级别的表示 无法捕捉上下文信息 无法处理多义词 语言模型预训练（如ELMo）：
+使用双向LSTM 表示能力受限于LSTM架构 预训练和微调架构不一致 这些方法虽然有效，但都存在明显局限：预训练的知识无法充分迁移到下游任务。
+问题三：无监督学习的挑战 无监督学习的核心挑战是找到合适的目标函数。语言建模是一个自然的选择：
+$$ \mathcal{L}{\text{LM}} = \sum{i} \log P(u_i | u_1, \ldots, u_{i-1}; \Theta) $$
+但如何设计一个既能充分利用预训练知识、又能适应多种下游任务的框架？
+GPT的核心设计 Transformer解码器架构 GPT采用Transformer的解码器部分作为基础架构，使用单向自注意力（因果注意力）：
+$$ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}} &#43; M\right)V $$
+其中 $M$ 是掩码矩阵，确保位置 $i$ 只能关注位置 $j \leq i$：
+...</p>
+  </div>
+  <footer class="entry-footer">   y9 .Z | <span title='2025-10-25 21:03:01 +0800 HKT'>October 25, 2025</span> | <span>14 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to 【ChatGPT时刻06】GPT-1：生成式预训练的开山之作" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-25-chatgpt-06-gpt1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">AI气候：美国在实验室做梦，中国在风电场发电
     </h2>
   </header>
@@ -299,34 +325,6 @@ Saylor的贡献哪是让一家公司囤点比特币这么简单？他直接给�
   </div>
   <footer class="entry-footer">   y9 .Z | <span title='2025-10-10 10:21:07 +0800 HKT'>October 10, 2025</span> | <span>5 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to 特朗普：政治权威成为加密价值的新锚点" href="https://blog.zhangky.com/posts/2025/2025-10-10-trump-crypto-politics/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 本文解读的是Alexander Rush等人创建的《The Annotated Transformer》，这是一篇教育性的技术博客文章，通过逐行代码注释的方式，详细解析了Transformer架构的PyTorch实现。虽然这不是一篇传统意义上的研究论文，但它为理解Transformer提供了最直观、最实用的方式，是学习Transformer实现的最佳资源之一。
-“代码是最好的文档。&#34;——这是带注释Transformer的核心思想。Transformer论文虽然提出了架构，但实现细节往往隐藏在代码中。带注释Transformer通过详细的代码注释和解释，使读者能够深入理解Transformer的每一个组件、每一行代码的作用，是连接理论和实践的重要桥梁。
-带注释Transformer的核心价值是教育性和实用性：它不仅解释了Transformer的数学原理，还展示了如何用代码实现这些原理。通过逐行注释，读者可以：
-理解实现细节：了解每个组件的具体实现 学习最佳实践：学习PyTorch的实现技巧 快速上手：可以直接使用代码进行实验 在当今大模型时代，理解Transformer的实现细节至关重要：GPT、BERT、T5等模型都基于Transformer架构。理解带注释Transformer，就是理解现代AI模型的实现基础。
-本文将从架构概览、核心组件、实现细节、最佳实践四个维度深度解读带注释Transformer，包含完整的代码分析和实现技巧，并在文末提供阅读研究论文的时间线计划。
-Transformer实现的学习挑战 问题一：理论与实现的差距 Transformer论文提供了架构设计，但实现细节往往不明确：
-理论与实现的差距：
-论文描述的是架构，代码需要处理细节 论文使用数学符号，代码使用具体数据结构 论文关注算法，代码需要处理工程问题 学习挑战：
-如何将数学公式转化为代码？ 如何处理边界情况和数值稳定性？ 如何优化实现效率？ 问题二：代码理解的困难 Transformer的实现代码往往复杂，难以理解：
-代码理解的困难：
-代码量大，难以快速理解 缺少注释，难以理解设计意图 实现技巧不明确，难以学习最佳实践 问题三：教育资源的缺乏 在Transformer刚提出时，详细的教育资源较少：
-教育资源的缺乏：
-缺少详细的实现教程 缺少代码级别的解释 缺少最佳实践的总结 带注释Transformer的核心组件 组件一：多头自注意力 数学定义： $$ \text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O $$
-其中 $\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$。
-代码实现：
-class MultiHeadedAttention(nn.Module): def __init__(self, h, d_model, dropout=0.1): super().__init__() assert d_model % h == 0 self.d_k = d_model // h self.h = h self.linears = nn.ModuleList([nn.Linear(d_model, d_model) for _ in range(4)]) self.attn = None self.dropout = nn.Dropout(p=dropout) def forward(self, query, key, value, mask=None): nbatches = query.size(0) # 1) 线性投影并分割为h个头 query, key, value = [ lin(x).view(nbatches, -1, self.h, self.d_k).transpose(1, 2) for lin, x in zip(self.linears, (query, key, value)) ] # 2) 应用注意力 x, self.attn = attention(query, key, value, mask=mask, dropout=self.dropout) # 3) 拼接多头并应用最终线性层 x = x.transpose(1, 2).contiguous().view(nbatches, -1, self.h * self.d_k) return self.linears[-1](x) 关键实现细节：
-...</p>
-  </div>
-  <footer class="entry-footer">   y9 .Z | <span title='2025-10-08 21:21:38 +0800 HKT'>October 8, 2025</span> | <span>15 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 【ChatGPT时刻05】Transformer代码解析：逐行理解架构实现" href="https://blog.zhangky.com/posts/2025/chatgpt/2025-10-08-chatgpt-05-annotated-transformer/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

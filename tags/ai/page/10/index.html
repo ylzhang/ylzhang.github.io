@@ -191,6 +191,23 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">AI 编程的终态肯定不是 Tab：直接要二进制
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>
+你大概已经习惯用 Tab 补全下一行代码了——但 AI 编程的终态，多半不是一直这样「补下去」。真正的方向，是有一天你不再写那一行行代码，而是用自然语言直接向 AI 要一个优化好的二进制；而这件事的引爆点，很可能就在 2026 年。
+今年 2 月初，埃隆·马斯克在 xAI 活动上的一段视频被剪成片段，在 X 上疯传。他在台上说：今年年底前，你可能连代码都不用写了，AI 会直接生成二进制，而且比任何编译器都做得更优；Grok 的代码能力，两三个月内就会到业界顶尖。原话不长，四十来秒，底下已经吵成一片：有人喊「编程奇点」来了，也有人反问——AI 直接吐机器码，你怎么调试、怎么审？吵的其实是同一件事：AI 正在从「帮你写源代码」的助手，变成「从意图到可执行文件」的管道。不再是你写、它补全，而是你提需求、它直接给出能跑的二进制。 传统开发里，编译和优化往往吃掉 20%～30% 的周期；一旦这一步被 AI 吞掉，从自然语言到可运行结果，中间那层「人类写码再编译」就会越来越薄。Anthropic 年初那份报告里已经提到，有团队在用 AI 跑通从测试、调试到部署的整条线；OpenAI 也披露过用 GPT-5.3-Codex 搭出零人类代码的完整应用。下面顺着这条线，看看技术已经铺到哪儿了、卡在哪儿，以及 2026 年底前我们大概会看到什么。
+马斯克在说什么：从「写代码」到「要二进制」 马斯克那几句，说白了就是把「编程」从「写高阶语言、再交给编译器」往前推了一步：变成用自然语言描述你要什么，AI 直接给你可执行文件。之所以一石激起千层浪，是因为这不再只是「更好的补全」，而是换了一套玩法。有人在 X 上回了一句：「机器码调试？那才是地狱周。」——可解释性和可控性，正是大家最慌的地方。但大厂已经在往这条路上走了：OpenAI 的 Codex 线已经能端到端生成小型应用，GPT-5.3-Codex 甚至搭出过零人类代码的完整 app；Anthropic 的 Claude Code 据公开信息有约九成自身代码是 Claude 写的；DeepMind 的 Gemini 也在做「自然语言 → 可运行产物」的代理。编译在过去几十年里一直是人和机器之间的那道桥，也吃掉不少开发时间；一旦 AI 把整条编译管道都内化了，写软件就会越来越像「声明意图」，而不是一行行敲代码。
+技术路径已经铺开：代理工作流与神经编译 「跳过编译」要解决的无非一件事：自然语言那么模糊，二进制又那么精确，中间怎么接上。眼下能看到两条路。一条是多步 AI 流水线：意图先被解析成语义图，再有一层做优化（类似传统编译器的多 pass，只是换成 AI 驱动），最后有一层专门产出机器码，针对 ARM 或 x86。Anthropic 的 Claude Code 就是这一挂的——不只生成代码，还自己调试、自己测；他们披露过，从「建一个实时聊天服务器」到可运行二进制，在 LangGraph 的代理链上大概 3～5 轮迭代就够，比手动编译快出一个数量级。另一条更激进，叫神经编译：让模型直接学「自然语言或高层语义 → 机器码」的映射。DeepMind 的 AlphaEvolve、Gemini Deep Think 用进化算法加自然语言验证器迭代候选解，在数学证明上已经做到九成多准确率；这套思路要是搬到代码和二进制优化上，就可以绕过 LLVM 之类传统工具链去做分支预测、缓存亲和性。MIT 的 EnCompass 则用回溯让代理多试几次 LLM 输出、挑出最佳路径，把「生成—验证」回路做实。再加上 OpenAI 和 Cerebras 在芯片上的合作，生成速度提了一截，代理在秒级内吐出「近即时」二进制已经可以想象；LangGraph 从单代理撑到上万并发，也就半年左右。这条代理链要接上真实世界，还得有统一的「工具契约」——协议层也在动：MCP（Model Context Protocol）把模型和工具、数据源对接标准化，Chrome for Developers 则已开放 WebMCP 的 early preview，让网站和前端能以结构化工具的形式暴露给 AI 代理（通过 navigator.modelContext 等），代理不用再靠截图或爬 DOM，而是按约定调用，可审计、可管控。直接二进制生成，已经从论文和原型，摸到了工程验证的门槛。
+...</p>
+  </div>
+  <footer class="entry-footer">   y9 .Z | <span title='2026-02-15 19:00:00 +0800 HKT'>February 15, 2026</span> | <span>15 min</span> | <span>Shanghai</span></footer>
+  <a class="entry-link" aria-label="post link to AI 编程的终态肯定不是 Tab：直接要二进制" href="https://blog.zhangky.com/posts/2026/02/2026-02-15-ai-coding-skip-compile/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">AI 幻觉与「洗车悖论」：今天的 AI 为什么还当不了你的主治医师
     </h2>
   </header>
@@ -278,36 +295,12 @@ ResNet通过残差连接解决了这一根本问题。残差块定义为 $y = F(
   <footer class="entry-footer">   y9 .Z | <span title='2026-02-02 20:24:22 +0800 HKT'>February 2, 2026</span> | <span>13 min</span> | <span>Shanghai</span></footer>
   <a class="entry-link" aria-label="post link to AI引起的大规模失业怎么办?" href="https://blog.zhangky.com/posts/2026/02/2026-02-02-hinton-ubi-ai-job-loss/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">安德森谈AI：没有人口崩塌，我们才该慌
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 网景的发明人、a16z 的 “a”，在播客里说：如果没有 AI，我们此刻该慌的是经济——人口在塌、生产力几十年没真起来；AI 和机器人恰恰在我们最需要的时候来了。
-最近听了 Lenny 对 Marc Andreessen 的那期播客（访谈视频）。安德森是网景联合创始人、a16z 联合创始人，经历过浏览器大战和「软件吞噬世界」的预言成真。这期里他谈 AI 时代、人口、岗位、育儿和媒体，有几句话我记下来了，顺带写点自己的反应。
-一、慌错了对象 很多人慌的是「AI 抢饭碗」。安德森的观点是：慌反了。
-过去五十年，发达经济体的全要素生产率增速一直在放缓，不是加快。美国的生产率增速只有 1940–1970 年的一半、1870–1940 年的约三分之一。也就是说，统计上我们并没有活在一个「技术爆炸」的年代，而是技术对经济的实际拉动在变弱。与此同时，生育率跌破更替水平，多国面临人口收缩。没有新技术补上的话，要面对的是经济收缩、机会变少、没有新岗位——这才是更该慌的剧本。
-AI 和自动化恰恰在这个时点出现：我们需要用机器补人力缺口、拉 productivity 的时候，技术来了。所以他的结论是：剩下的劳动者会更值钱，而不是更不值钱；所谓「大规模失业」的恐慌是「totally off base」，除非你假设生产率每年涨 10%、20%、50%，那种量级人类历史上从未出现过。
-我自己的看法：宏观上可以接受这个逻辑——人口与生产率两条线一起看，AI 的「替代」和「补位」会同时存在。但微观上，具体行业、具体岗位的震荡不会因此消失，所以「不必慌」不等于「不用准备」。
-二、AI 是「哲学家之石」 安德森打了个比方：牛顿那代人搞炼金术，想找能把铅变成金的东西——把最普通的东西变成最稀有的东西，没成。AI 做的是把沙变成思考：沙子（硅）做成芯片，芯片跑出推理和创造。最普遍的资源，变成最稀缺的「思考」。所以他说：AI 就是哲学家之石成真。
-这句话把技术史和当下串在一起了。我们习惯把 AI 当成「又一种工具」；他把它当成一种质变——从「更多算力」变成「可规模化的思考」。是否同意都可，但这个比喻值得记住：它提醒我们，讨论 AI 时在讨论的不仅是效率，而是「思考」这种活动本身如何被量产。
-三、PM、设计、工程师的「三国杀」 播客里有个问题：产品经理、设计师、工程师，谁会被 AI 干掉？
-安德森用了一个词：Mexican standoff（三方对峙）。每个角色都觉得自己能靠 AI 干另外两边的活——码农觉得能兼做产品和设计，PM 觉得能兼做设计和码，设计觉得能兼做产品和码。而且他说：他们某种程度上都对。能跨两三个领域的人，叠加效应会大于「双倍」「三倍」，你会变成「组合型专家」，很难被单一角色替代。
-对应到个人策略：T 型或 E 型——至少一条腿特别深（比如工程），同时用 AI 把另外一两条腿拉到「够用」。不要只当「一个螺丝钉」，要让自己不可替代（他引用 Larry Summers 的「don’t be fungible」）。他还说：AI 最好的用法之一，是让它教你——「train me up」：让 AI 出题、批改、讲解，用空余时间把第二、第三技能拉起来。这和「用 AI 代劳」是同一枚硬币的两面。
-四、还是要学写代码 有人问：AI 都能写代码了，孩子还要学编程吗？
-...</p>
-  </div>
-  <footer class="entry-footer">   y9 .Z | <span title='2026-02-01 10:05:31 +0800 HKT'>February 1, 2026</span> | <span>12 min</span> | <span>Shanghai</span></footer>
-  <a class="entry-link" aria-label="post link to 安德森谈AI：没有人口崩塌，我们才该慌" href="https://blog.zhangky.com/posts/2026/02/2026-02-01-andreessen-ai-era/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://blog.zhangky.com/tags/ai/page/9/">
-      «&nbsp;Prev&nbsp;9/20
+      «&nbsp;Prev&nbsp;9/21
     </a>
-    <a class="next" href="https://blog.zhangky.com/tags/ai/page/11/">Next&nbsp;11/20&nbsp;»
+    <a class="next" href="https://blog.zhangky.com/tags/ai/page/11/">Next&nbsp;11/21&nbsp;»
     </a>
   </nav>
 </footer>
